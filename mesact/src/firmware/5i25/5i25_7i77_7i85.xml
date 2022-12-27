@@ -1,0 +1,240 @@
+<?xml version="1.0"?>
+<hostmot2>
+    <boardname>5i25</boardname>
+    <ioports>2</ioports>
+    <iowidth>34</iowidth>
+    <portwidth>17</portwidth>
+    <clocklow>33333333</clocklow>
+    <clockhigh>200000000</clockhigh>
+    <modules>
+        <module>
+            <tagname>IOPort</tagname>
+            <numinstances> 2</numinstances>
+        </module>
+        <module>
+            <tagname>MuxedQCount</tagname>
+            <numinstances>10</numinstances>
+        </module>
+        <module>
+            <tagname>MuxedQCountSel</tagname>
+            <numinstances> 1</numinstances>
+        </module>
+        <module>
+            <tagname>SSerial</tagname>
+            <numinstances> 1</numinstances>
+        </module>
+        <module>
+            <tagname>LED</tagname>
+            <numinstances> 1</numinstances>
+        </module><module>
+            <tagname>None</tagname>
+            <numinstances> 1</numinstances>
+        </module>
+    </modules>
+    <pins>
+        <pin>
+            <connector>P3</connector>
+            <secondarymodulename>SSerial</secondarymodulename>
+            <secondaryfunctionname>TXEn3 (out)</secondaryfunctionname>
+            <secondaryinstance> 0</secondaryinstance>
+        </pin>
+        <pin>
+            <connector>P3</connector>
+            <secondarymodulename>SSerial</secondarymodulename>
+            <secondaryfunctionname>TXData3 (out)</secondaryfunctionname>
+            <secondaryinstance> 0</secondaryinstance>
+        </pin>
+        <pin>
+            <connector>P3</connector>
+            <secondarymodulename>SSerial</secondarymodulename>
+            <secondaryfunctionname>RXData3 (in)</secondaryfunctionname>
+            <secondaryinstance> 0</secondaryinstance>
+        </pin>
+        <pin>
+            <connector>P3</connector>
+            <secondarymodulename>SSerial</secondarymodulename>
+            <secondaryfunctionname>TXData2 (out)</secondaryfunctionname>
+            <secondaryinstance> 0</secondaryinstance>
+        </pin>
+        <pin>
+            <connector>P3</connector>
+            <secondarymodulename>SSerial</secondarymodulename>
+            <secondaryfunctionname>RXData2 (in)</secondaryfunctionname>
+            <secondaryinstance> 0</secondaryinstance>
+        </pin>
+        <pin>
+            <connector>P3</connector>
+            <secondarymodulename>SSerial</secondarymodulename>
+            <secondaryfunctionname>TXData1 (out)</secondaryfunctionname>
+            <secondaryinstance> 0</secondaryinstance>
+        </pin>
+        <pin>
+            <connector>P3</connector>
+            <secondarymodulename>SSerial</secondarymodulename>
+            <secondaryfunctionname>RXData1 (in)</secondaryfunctionname>
+            <secondaryinstance> 0</secondaryinstance>
+        </pin>
+        <pin>
+            <connector>P3</connector>
+            <secondarymodulename>MuxedQCountSel</secondarymodulename>
+            <secondaryfunctionname>Muxed Encoder Select (out)</secondaryfunctionname>
+            <secondaryinstance> 0</secondaryinstance>
+        </pin>
+        <pin>
+            <connector>P3</connector>
+            <secondarymodulename>MuxedQCount</secondarymodulename>
+            <secondaryfunctionname>Muxed Phase A (in)</secondaryfunctionname>
+            <secondaryinstance> 0</secondaryinstance>
+        </pin>
+        <pin>
+            <connector>P3</connector>
+            <secondarymodulename>MuxedQCount</secondarymodulename>
+            <secondaryfunctionname>Muxed Phase B (in)</secondaryfunctionname>
+            <secondaryinstance> 0</secondaryinstance>
+        </pin>
+        <pin>
+            <connector>P3</connector>
+            <secondarymodulename>MuxedQCount</secondarymodulename>
+            <secondaryfunctionname>Muxed Index (in)</secondaryfunctionname>
+            <secondaryinstance> 0</secondaryinstance>
+        </pin>
+        <pin>
+            <connector>P3</connector>
+            <secondarymodulename>MuxedQCount</secondarymodulename>
+            <secondaryfunctionname>Muxed Phase A (in)</secondaryfunctionname>
+            <secondaryinstance> 1</secondaryinstance>
+        </pin>
+        <pin>
+            <connector>P3</connector>
+            <secondarymodulename>MuxedQCount</secondarymodulename>
+            <secondaryfunctionname>Muxed Phase B (in)</secondaryfunctionname>
+            <secondaryinstance> 1</secondaryinstance>
+        </pin>
+        <pin>
+            <connector>P3</connector>
+            <secondarymodulename>MuxedQCount</secondarymodulename>
+            <secondaryfunctionname>Muxed Index (in)</secondaryfunctionname>
+            <secondaryinstance> 1</secondaryinstance>
+        </pin>
+        <pin>
+            <connector>P3</connector>
+            <secondarymodulename>MuxedQCount</secondarymodulename>
+            <secondaryfunctionname>Muxed Phase A (in)</secondaryfunctionname>
+            <secondaryinstance> 2</secondaryinstance>
+        </pin>
+        <pin>
+            <connector>P3</connector>
+            <secondarymodulename>MuxedQCount</secondarymodulename>
+            <secondaryfunctionname>Muxed Phase B (in)</secondaryfunctionname>
+            <secondaryinstance> 2</secondaryinstance>
+        </pin>
+        <pin>
+            <connector>P3</connector>
+            <secondarymodulename>MuxedQCount</secondarymodulename>
+            <secondaryfunctionname>Muxed Index (in)</secondaryfunctionname>
+            <secondaryinstance> 2</secondaryinstance>
+        </pin>
+        <pin>
+            <connector>P2</connector>
+            <secondarymodulename>SSerial</secondarymodulename>
+            <secondaryfunctionname>RXData8 (in)</secondaryfunctionname>
+            <secondaryinstance> 0</secondaryinstance>
+        </pin>
+        <pin>
+            <connector>P2</connector>
+            <secondarymodulename>SSerial</secondarymodulename>
+            <secondaryfunctionname>TXData8 (out)</secondaryfunctionname>
+            <secondaryinstance> 0</secondaryinstance>
+        </pin>
+        <pin>
+            <connector>P2</connector>
+            <secondarymodulename>SSerial</secondarymodulename>
+            <secondaryfunctionname>RXData7 (in)</secondaryfunctionname>
+            <secondaryinstance> 0</secondaryinstance>
+        </pin>
+        <pin>
+            <connector>P2</connector>
+            <secondarymodulename>SSerial</secondarymodulename>
+            <secondaryfunctionname>TXData7 (out)</secondaryfunctionname>
+            <secondaryinstance> 0</secondaryinstance>
+        </pin>
+        <pin>
+            <connector>P2</connector>
+            <secondarymodulename>SSerial</secondarymodulename>
+            <secondaryfunctionname>RXData6 (in)</secondaryfunctionname>
+            <secondaryinstance> 0</secondaryinstance>
+        </pin>
+        <pin>
+            <connector>P2</connector>
+            <secondarymodulename>SSerial</secondarymodulename>
+            <secondaryfunctionname>TXData6 (out)</secondaryfunctionname>
+            <secondaryinstance> 0</secondaryinstance>
+        </pin>
+        <pin>
+            <connector>P2</connector>
+            <secondarymodulename>SSerial</secondarymodulename>
+            <secondaryfunctionname>RXData5 (in)</secondaryfunctionname>
+            <secondaryinstance> 0</secondaryinstance>
+        </pin>
+        <pin>
+            <connector>P2</connector>
+            <secondarymodulename>SSerial</secondarymodulename>
+            <secondaryfunctionname>TXData5 (out)</secondaryfunctionname>
+            <secondaryinstance> 0</secondaryinstance>
+        </pin>
+        <pin>
+            <connector>P2</connector>
+            <secondarymodulename>SSerial</secondarymodulename>
+            <secondaryfunctionname>RXData4 (in)</secondaryfunctionname>
+            <secondaryinstance> 0</secondaryinstance>
+        </pin>
+        <pin>
+            <connector>P2</connector>
+            <secondarymodulename>SSerial</secondarymodulename>
+            <secondaryfunctionname>TXData4 (out)</secondaryfunctionname>
+            <secondaryinstance> 0</secondaryinstance>
+        </pin>
+        <pin>
+            <connector>P2</connector>
+            <secondarymodulename>MuxedQCountSel</secondarymodulename>
+            <secondaryfunctionname>Muxed Encoder Select (out)</secondaryfunctionname>
+            <secondaryinstance> 6</secondaryinstance>
+        </pin>
+        <pin>
+            <connector>P2</connector>
+            <secondarymodulename>MuxedQCount</secondarymodulename>
+            <secondaryfunctionname>Muxed Phase A (in)</secondaryfunctionname>
+            <secondaryinstance> 3</secondaryinstance>
+        </pin>
+        <pin>
+            <connector>P2</connector>
+            <secondarymodulename>MuxedQCount</secondarymodulename>
+            <secondaryfunctionname>Muxed Phase B (in)</secondaryfunctionname>
+            <secondaryinstance> 3</secondaryinstance>
+        </pin>
+        <pin>
+            <connector>P2</connector>
+            <secondarymodulename>MuxedQCount</secondarymodulename>
+            <secondaryfunctionname>Muxed Index (in)</secondaryfunctionname>
+            <secondaryinstance> 3</secondaryinstance>
+        </pin>
+        <pin>
+            <connector>P2</connector>
+            <secondarymodulename>MuxedQCount</secondarymodulename>
+            <secondaryfunctionname>Muxed Phase A (in)</secondaryfunctionname>
+            <secondaryinstance> 4</secondaryinstance>
+        </pin>
+        <pin>
+            <connector>P2</connector>
+            <secondarymodulename>MuxedQCount</secondarymodulename>
+            <secondaryfunctionname>Muxed Phase B (in)</secondaryfunctionname>
+            <secondaryinstance> 4</secondaryinstance>
+        </pin>
+        <pin>
+            <connector>P2</connector>
+            <secondarymodulename>MuxedQCount</secondarymodulename>
+            <secondaryfunctionname>Muxed Index (in)</secondaryfunctionname>
+            <secondaryinstance> 4</secondaryinstance>
+        </pin>
+    </pins>
+</hostmot2>

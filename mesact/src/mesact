@@ -1,0 +1,90 @@
+#!/usr/bin/env python3
+
+import sys, os, traceback
+
+# disable cache usage must be before any local imports
+sys.dont_write_bytecode = True
+
+VERSION = '0.0.1'
+BUILD_DATE = '12/21/2022'
+
+from traceback import StackSummary
+from functools import partial
+
+from PyQt5.QtWidgets import (QApplication, QMainWindow, QMessageBox,
+	QDialog, qApp, QProgressBar)
+from PyQt5.QtCore import QSettings
+from PyQt5 import uic
+
+from libmesact import startup
+from libmesact import connections
+from libmesact import buildcombos
+from libmesact import dialogs
+from libmesact import shutdown
+
+class MainWindow(QMainWindow):
+	def __init__(self):
+		super().__init__()
+
+		if os.path.split(sys.argv[0])[0] == '/usr/bin':
+			self.lib_path = '/usr/lib/libmesact'
+			self.firmware_path = '/usr/lib/libmesact'
+			#self.image_path = '/usr/lib/libmesact'
+			#self.docs_path = '/usr/lib/libmesact'
+			uic.loadUi(os.path.join(self.lib_path, 'mesact.ui'), self)
+		else:
+			srcPath = os.path.split(os.path.realpath(sys.argv[0]))[0]
+			self.lib_path = os.path.join(srcPath, 'libmesact')
+			self.firmware_path = os.path.join(srcPath, 'firmware')
+			#self.image_path = os.path.join(srcPath, 'images')
+			#self.docs_path = os.path.join(srcPath, 'manuals')
+			uic.loadUi(os.path.join(srcPath, 'mesact.ui'), self)
+		sys.excepthook = self.excepthook
+		self.settings = QSettings('CnC Machines', 'MesaCT')
+		self.version = VERSION
+		self.emcVersion = '1.1'
+		self.setWindowTitle(f'Mesa Configuration Tool - Version {VERSION} - Build Date {BUILD_DATE}')
+		self.progressBar = QProgressBar()
+		self.statusBar().addPermanentWidget(self.progressBar)
+
+		self.setup()
+		self.show()
+
+	def setup(self):
+		startup.restore(self)
+		startup.menus(self)
+		connections.connect(self)
+		buildcombos.build(self)
+
+	def closeEvent(self, event):
+		shutdown.save_settings(self)
+
+	def excepthook(self, exc_type, exc_value, tb):
+		# extract the stack summary
+		summary = traceback.extract_tb(tb)
+		for frame_summary in summary:
+			filename = frame_summary.filename
+			frame_summary.filename = os.path.relpath(filename)
+
+		# rebuild the traceback and build the error message
+		msg = f'Mesact Version: {VERSION} Build Date: {BUILD_DATE}\n'
+		msg += ''.join(traceback.format_list(StackSummary.from_list(summary)))
+		msg += f'{exc_type.__name__}\n'
+		msg += f'{exc_value}\n'
+		msg += 'Please file an issue at\n'
+		msg += 'https://github.com/jethornton/mesact/issues'
+		print(msg)
+		dialogs.errorMsgOk(msg, 'PROGRAM ERROR' )
+
+
+app = QApplication(sys.argv)
+with open('style.qss',"r") as fh:
+	app.setStyleSheet(fh.read())
+major = int(f'{sys.version_info[0]}')
+minor = int(f'{sys.version_info[1]}')
+if major < 3 or major == 3 and minor < 6:
+	ex = VersionError()
+else:
+	ex = MainWindow()
+sys.exit(app.exec_())
+

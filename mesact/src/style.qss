@@ -1,0 +1,34 @@
+QTabBar::tab {
+    border: 1px solid #C4C4C3;
+    border-bottom-color: #C2C7CB; /* same as the pane color */
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-right: 3px;
+    padding-left: 3px;
+}
+
+QTabBar::tab:selected {
+    border-color: #000000;
+    border-bottom-color: #C2C7CB; /* same as pane color */
+}
+
+QTabBar::tab:!selected {
+    margin-top: 2px; /* make non-selected tabs look smaller */
+}
+
+QGroupBox {
+    font: bold;
+    border: 2px solid silver;
+    border-radius: 6px;
+    margin-top: 6px;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    left: 7px;
+    padding: 0px 5px 0px 5px;
+}
+
+QLabel {min-height: 25px }
