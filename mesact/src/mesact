@@ -5,59 +5,236 @@ import sys, os, traceback
 # disable cache usage must be before any local imports
 sys.dont_write_bytecode = True
 
-VERSION = '0.0.1'
-BUILD_DATE = '12/21/2022'
+'''
+Depenencies
+python3-pyqt5
+'''
+
+VERSION = '2.0.0'
+BUILD_DATE = '02/09/2023'
 
 from traceback import StackSummary
 from functools import partial
 
-from PyQt5.QtWidgets import (QApplication, QMainWindow, QMessageBox,
-	QDialog, qApp, QProgressBar)
-from PyQt5.QtCore import QSettings
+from PyQt5.QtWidgets import QApplication, QMainWindow, QProgressBar
+from PyQt5.QtWidgets import QMessageBox
+from PyQt5.QtCore import QTimer, QSettings
 from PyQt5 import uic
 
 from libmesact import startup
-from libmesact import connections
-from libmesact import buildcombos
-from libmesact import dialogs
+from libmesact import boards
+from libmesact import downloads
+from libmesact import firmware
+from libmesact import daughters
+from libmesact import flash
+from libmesact import machine
+from libmesact import axes
+
 from libmesact import shutdown
 
 class MainWindow(QMainWindow):
 	def __init__(self):
 		super().__init__()
-
 		if os.path.split(sys.argv[0])[0] == '/usr/bin':
 			self.lib_path = '/usr/lib/libmesact'
-			self.firmware_path = '/usr/lib/libmesact'
-			#self.image_path = '/usr/lib/libmesact'
-			#self.docs_path = '/usr/lib/libmesact'
+			self.docs_path = '/usr/share/doc/mesact'
+			self.installed = True
 			uic.loadUi(os.path.join(self.lib_path, 'mesact.ui'), self)
 		else:
 			srcPath = os.path.split(os.path.realpath(sys.argv[0]))[0]
 			self.lib_path = os.path.join(srcPath, 'libmesact')
-			self.firmware_path = os.path.join(srcPath, 'firmware')
-			#self.image_path = os.path.join(srcPath, 'images')
-			#self.docs_path = os.path.join(srcPath, 'manuals')
+			self.docs_path = srcPath
+			self.installed = False
 			uic.loadUi(os.path.join(srcPath, 'mesact.ui'), self)
+		with open('style.qss',"r") as fh:
+			self.setStyleSheet(fh.read())
+
+		self.firmware_path = f'{os.path.expanduser("~")}/.local/lib/libmesact'
+		self.image_path = f'{os.path.expanduser("~")}/.local/lib/libmesact/boards'
 		sys.excepthook = self.excepthook
-		self.settings = QSettings('CnC Machines', 'MesaCT')
 		self.version = VERSION
 		self.emcVersion = '1.1'
 		self.setWindowTitle(f'Mesa Configuration Tool - Version {VERSION} - Build Date {BUILD_DATE}')
 		self.progressBar = QProgressBar()
 		self.statusBar().addPermanentWidget(self.progressBar)
-
-		self.setup()
+		self.timer=QTimer()
+		self.settings = QSettings('CnC_Machines', 'MesaCT')
+		startup.setup(self)
 		self.show()
 
-	def setup(self):
-		startup.restore(self)
-		startup.menus(self)
-		connections.connect(self)
-		buildcombos.build(self)
+		# Menu Items
 
-	def closeEvent(self, event):
-		shutdown.save_settings(self)
+
+		#self.actionOpen.triggered.connect(partial(self.loadini.getini, self))
+		#self.actionCheck.triggered.connect(partial(checkconfig.checkit, self))
+		#self.actionBuild.triggered.connect(partial(buildconfig.build, self))
+		#self.actionTabHelp.triggered.connect(partial(self.help, 0))
+		#self.actionCheckUpdates.triggered.connect(partial(updates.checkUpdates, self))
+		self.actionMesaCT_PC_64_bit.triggered.connect(partial(downloads.downloadAmd64Deb, self))
+		self.actionMesaCT_Rpi_32_bit.triggered.connect(partial(downloads.downloadArmhDeb, self))
+		self.actionMesaCT_Rpi_64_bit.triggered.connect(partial(downloads.downloadArm64Deb, self))
+		self.actionFirmware.triggered.connect(partial(downloads.downloadFirmware, self))
+		#self.actionDocuments.triggered.connect(partial(downloads.openDoc, self))
+		#self.actionBoardImages.triggered.connect(partial(updates.boardImages, self))
+		self.timer.timeout.connect(partial(downloads.clearProgressBar, self))
+
+		# Machine Tab
+		self.configNameLE.textChanged[str].connect(partial(machine.configNameChanged, self))
+		self.boardCB.currentIndexChanged.connect(partial(boards.boardChanged, self))
+		for i in range(3):
+			getattr(self, f'daughterCB_{i}').currentIndexChanged.connect(partial(daughters.changed, self))
+		self.checkBoardPB.clicked.connect(partial(flash.checkCard, self))
+
+		'''
+		self.linearUnitsCB.currentIndexChanged.connect(partial(utilities.unitsChanged, self))
+		self.trajMaxLinVelDSB.valueChanged.connect(partial(utilities.maxVelChanged, self))
+		self.loadConfigCB.clicked.connect(partial(settings.update_value, self))
+		for i in range(2):
+			getattr(self, f'daughterCB_{i}').currentIndexChanged.connect(partial(machine.daughterCardChanged, self))
+
+		self.enableMesaflashCB.clicked.connect(partial(utilities.firmwareTools, self))
+		self.enableMesaflashCB.clicked.connect(partial(settings.update_value, self))
+		self.backupCB.clicked.connect(partial(utilities.backup, self))
+
+		# Display Tab
+		self.minLinJogVelDSB.valueChanged.connect(partial(utilities.unitsChanged, self))
+		self.defLinJogVelDSB.valueChanged.connect(partial(utilities.unitsChanged, self))
+		self.maxLinJogVelDSB.valueChanged.connect(partial(utilities.unitsChanged, self))
+		self.minAngJogVelDSB.valueChanged.connect(partial(utilities.unitsChanged, self))
+		self.defAngJogVelDSB.valueChanged.connect(partial(utilities.unitsChanged, self))
+		self.maxAngJogVelDSB.valueChanged.connect(partial(utilities.unitsChanged, self))
+		self.axisButtonGroup.setExclusive(False)  # Radio buttons are not exclusive
+		self.axisButtonGroup.buttonClicked.connect(partial(utilities.axisDisplayChanged, self))
+
+		#self.frontToolLatheRB.buttonClicked.connect(partial(utilities.axisDisplayChanged, self))
+		#self.backToolLatheRB.buttonClicked.connect(partial(utilities.axisDisplayChanged, self))
+		#self.foamRB.buttonClicked.connect(partial(utilities.axisDisplayChanged, self))
+
+		# Info Tab
+		'''
+		# Axes Tab
+		#self.c0_axis_0.currentIndexChanged.connect(partial(axes.axisChanged, self))
+
+		for i in range(6):
+			for j in range(3): # <-- change when more cards are added
+				getattr(self, f'c{j}_axis_{i}').currentIndexChanged.connect(partial(axes.axisChanged, self))
+				getattr(self, f'c{j}_scale_{i}').textChanged.connect(partial(axes.updateAxisInfo, self))
+				getattr(self, f'c{j}_max_vel_{i}').textChanged.connect(partial(axes.updateAxisInfo, self))
+				getattr(self, f'c{j}_max_accel_{i}').textChanged.connect(partial(axes.updateAxisInfo, self))
+				getattr(self, f'c{j}_pidDefault_{i}').clicked.connect(partial(axes.pidSetDefault, self))
+				getattr(self, f'c{j}_ferrorDefault_{i}').clicked.connect(partial(axes.ferrorSetDefault, self))
+				getattr(self, f'c{j}_analogDefault_{i}').clicked.connect(partial(axes.analogSetDefault, self))
+		'''
+				getattr(self, f'c{j}_drive_{i}').currentIndexChanged.connect(partial(axes.driveChanged, self))
+
+		# I/O Tab
+		for i in range(32):
+			getattr(self, f'inputInvertCB_{i}').stateChanged.connect(partial(utilities.inputChanged, self))
+			getattr(self, f'inputDebounceCB_{i}').stateChanged.connect(partial(utilities.inputChanged, self))
+
+		# Spindle Tab
+		self.pidDefault_s.clicked.connect(partial(utilities.pidSetDefault, self))
+		self.spindleTypeCB.currentIndexChanged.connect(partial(utilities.spindleChanged, self))
+		self.spindleFeedbackCB.currentIndexChanged.connect(partial(utilities.spindleFeedbackChanged, self))
+		self.spindleDriveCB.currentIndexChanged.connect(partial(utilities.driveChanged, self))
+		self.spindleMinRpm.valueChanged.connect(partial(utilities.spindleSettingsChanged, self))
+		self.spindleMaxRpm.valueChanged.connect(partial(utilities.spindleSettingsChanged, self))
+		self.spindleMaxAccel.valueChanged.connect(partial(utilities.spindleSettingsChanged, self))
+
+		# Smart Serial Tab
+		self.ssCardCB.currentIndexChanged.connect(partial(utilities.ssCardChanged, self))
+
+		# HAL Tab
+		self.buildHalPB.clicked.connect(partial(hal.buildHal, self))
+		for i in range(6):
+			getattr(self, f'halFunctionCB_{i}').currentIndexChanged.connect(partial(hal.functionChanged, self))
+		for i in range(4):
+			getattr(self, f'functionCountSB_{i}').valueChanged.connect(partial(hal.countChanged, self))
+
+		# Pins Tab
+		self.cardPinsPB.clicked.connect(partial(card.getCardPins, self))
+
+		# PC Tab
+		self.motherboardPB.clicked.connect(partial(pcinfo.mbInfo, self))
+		self.cpuPB.clicked.connect(partial(pcinfo.cpuInfo, self))
+		self.nicPB.clicked.connect(partial(pcinfo.nicInfo, self))
+		self.calcNicPB.clicked.connect(partial(pcinfo.nicCalc, self))
+		self.cpuSpeedPB.clicked.connect(partial(pcinfo.cpuSpeed, self))
+		self.readTmaxPB.clicked.connect(partial(pcinfo.readTmax, self))
+		self.writeTmaxPB.clicked.connect(partial(pcinfo.writeTmax, self))
+		self.servoThreadTmaxPB.clicked.connect(partial(pcinfo.readServoTmax, self))
+		self.calculateServoPB.clicked.connect(partial(pcinfo.calcServoPercent, self))
+		self.latencyTestPB.clicked.connect(partial(tools.runLatencyHisogram, self))
+		self.getipPB.clicked.connect(partial(pcinfo.ipInfo, self))
+
+		# Options Tab
+		#self.checkMesaflashCB.clicked.connect(partial(settings.update_value, self))
+		self.newUserCB.clicked.connect(partial(settings.update_value, self))
+		'''
+
+		# Firmware Tab
+		self.firmwareCB.currentIndexChanged.connect(partial(firmware.firmwareChanged, self))
+		#self.readpdPB.clicked.connect(partial(card.readpd, self))
+		#self.readhmidPB.clicked.connect(partial(card.readhmid, self))
+		#self.flashPB.clicked.connect(partial(card.flashCard, self))
+		#self.reloadPB.clicked.connect(partial(card.reloadCard, self))
+		#self.verifyPB.clicked.connect(partial(card.verifyCard, self))
+		#self.copyPB.clicked.connect(partial(utilities.copyOutput, self))
+
+	def resizeEvent(self, event):
+		width = self.geometry().width()
+		height =  self.geometry().height()
+		self.sizeLB.setText(f'{width}x{height}')
+		#print("Window has been resized")
+		QMainWindow.resizeEvent(self, event)
+
+	def errorMsg(self, text, title=None):
+		msgBox = QMessageBox()
+		msgBox.setIcon(QMessageBox.Warning)
+		msgBox.setWindowTitle(title)
+		msgBox.setText(text)
+		msgBox.setStandardButtons(QMessageBox.Cancel | QMessageBox.Ok)
+		returnValue = msgBox.exec()
+		if returnValue == QMessageBox.Ok:
+			return True
+		else:
+			return False
+
+	def errorMsgOk(self, text, title=None):
+		msgBox = QMessageBox()
+		msgBox.setIcon(QMessageBox.Warning)
+		msgBox.setWindowTitle(title)
+		msgBox.setText(text)
+		msgBox.setStandardButtons(QMessageBox.Ok)
+		returnValue = msgBox.exec()
+		if returnValue == QMessageBox.Ok:
+			return True
+		else:
+			return False
+
+	def questionMsg(self, text, title=None):
+		msgBox = QMessageBox()
+		msgBox.setIcon(QMessageBox.Question)
+		msgBox.setWindowTitle(title)
+		msgBox.setText(text)
+		msgBox.setStandardButtons(QMessageBox.Cancel | QMessageBox.Ok)
+		returnValue = msgBox.exec()
+		if returnValue == QMessageBox.Ok:
+			return True
+		else:
+			return False
+
+	def infoMsgOk(self, text, title=None):
+		msgBox = QMessageBox()
+		msgBox.setIcon(QMessageBox.Information)
+		msgBox.setWindowTitle(title)
+		msgBox.setText(text)
+		msgBox.setStandardButtons(QMessageBox.Ok)
+		returnValue = msgBox.exec()
+		if returnValue == QMessageBox.Ok:
+			return True
+		else:
+			return False
 
 	def excepthook(self, exc_type, exc_value, tb):
 		# extract the stack summary
@@ -74,17 +251,13 @@ class MainWindow(QMainWindow):
 		msg += 'Please file an issue at\n'
 		msg += 'https://github.com/jethornton/mesact/issues'
 		print(msg)
-		dialogs.errorMsgOk(msg, 'PROGRAM ERROR' )
+		self.errorMsgOk(msg, 'PROGRAM ERROR' )
 
+	def closeEvent(self, event):
+		shutdown.save_settings(self)
 
 app = QApplication(sys.argv)
-with open('style.qss',"r") as fh:
-	app.setStyleSheet(fh.read())
-major = int(f'{sys.version_info[0]}')
-minor = int(f'{sys.version_info[1]}')
-if major < 3 or major == 3 and minor < 6:
-	ex = VersionError()
-else:
-	ex = MainWindow()
+ex = MainWindow()
 sys.exit(app.exec_())
+
 
