@@ -29,6 +29,7 @@ from libmesact import daughters
 from libmesact import flash
 from libmesact import machine
 from libmesact import axes
+from libmesact import utilities
 
 from libmesact import shutdown
 
@@ -84,9 +85,9 @@ class MainWindow(QMainWindow):
 		for i in range(3):
 			getattr(self, f'daughterCB_{i}').currentIndexChanged.connect(partial(daughters.changed, self))
 		self.checkBoardPB.clicked.connect(partial(flash.checkCard, self))
+		self.linearUnitsCB.currentIndexChanged.connect(partial(utilities.unitsChanged, self))
 
 		'''
-		self.linearUnitsCB.currentIndexChanged.connect(partial(utilities.unitsChanged, self))
 		self.trajMaxLinVelDSB.valueChanged.connect(partial(utilities.maxVelChanged, self))
 		self.loadConfigCB.clicked.connect(partial(settings.update_value, self))
 		for i in range(2):

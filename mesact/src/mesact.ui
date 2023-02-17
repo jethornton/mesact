@@ -829,6 +829,19 @@ Spaces are replaced with underscore.</string>
            <attribute name="title">
             <string>Board</string>
            </attribute>
+           <widget class="QLabel" name="unitsLB_0">
+            <property name="geometry">
+             <rect>
+              <x>70</x>
+              <y>60</y>
+              <width>101</width>
+              <height>71</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>TextLabel</string>
+            </property>
+           </widget>
           </widget>
           <widget class="QWidget" name="tab_15">
            <attribute name="title">
@@ -8783,6 +8796,19 @@ Leave blank to home the joint manually.</string>
            <attribute name="title">
             <string>Board</string>
            </attribute>
+           <widget class="QLabel" name="unitsLB_1">
+            <property name="geometry">
+             <rect>
+              <x>60</x>
+              <y>60</y>
+              <width>91</width>
+              <height>61</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>TextLabel</string>
+            </property>
+           </widget>
           </widget>
           <widget class="QWidget" name="tab_53">
            <attribute name="title">
@@ -16737,6 +16763,19 @@ Leave blank to home the joint manually.</string>
            <attribute name="title">
             <string>Board</string>
            </attribute>
+           <widget class="QLabel" name="unitsLB_2">
+            <property name="geometry">
+             <rect>
+              <x>90</x>
+              <y>100</y>
+              <width>91</width>
+              <height>61</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>TextLabel</string>
+            </property>
+           </widget>
           </widget>
           <widget class="QWidget" name="tab_87">
            <attribute name="title">
@@ -24691,6 +24730,19 @@ Leave blank to home the joint manually.</string>
            <attribute name="title">
             <string>Board</string>
            </attribute>
+           <widget class="QLabel" name="unitsLB_3">
+            <property name="geometry">
+             <rect>
+              <x>90</x>
+              <y>60</y>
+              <width>91</width>
+              <height>71</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>TextLabel</string>
+            </property>
+           </widget>
           </widget>
           <widget class="QWidget" name="tab_121">
            <attribute name="title">
