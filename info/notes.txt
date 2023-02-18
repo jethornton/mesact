@@ -1,0 +1,21 @@
+create a changelog file
+
+dch --create
+
+Ctrl o to write out then Ctrl x
+
+Append a new entry to the current changelog
+dch --append
+
+To change the version
+dch -v 1.2.1
+
+change to released Note: you must either change something or use Ctrl o to save.
+dch --release
+
+Dependencies to build a deb
+sudo apt install dh-python
+sudo apt install devscripts
+
+to build a deb from the top most directory
+debuild -us -uc
