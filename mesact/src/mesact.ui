@@ -1848,7 +1848,7 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                    <item row="0" column="0" colspan="2">
-                    <widget class="QComboBox" name="c0_driveCB_0">
+                    <widget class="QComboBox" name="c0_drive_0">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                        <horstretch>0</horstretch>
@@ -3168,7 +3168,7 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                    <item row="0" column="0" colspan="2">
-                    <widget class="QComboBox" name="c0_driveCB_1">
+                    <widget class="QComboBox" name="c0_drive_1">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                        <horstretch>0</horstretch>
@@ -4488,7 +4488,7 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                    <item row="0" column="0" colspan="2">
-                    <widget class="QComboBox" name="c0_driveCB_2">
+                    <widget class="QComboBox" name="c0_drive_2">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                        <horstretch>0</horstretch>
@@ -5808,7 +5808,7 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                    <item row="0" column="0" colspan="2">
-                    <widget class="QComboBox" name="c0_driveCB_3">
+                    <widget class="QComboBox" name="c0_drive_3">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                        <horstretch>0</horstretch>
@@ -7128,7 +7128,7 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                    <item row="0" column="0" colspan="2">
-                    <widget class="QComboBox" name="c0_driveCB_4">
+                    <widget class="QComboBox" name="c0_drive_4">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                        <horstretch>0</horstretch>
@@ -8448,7 +8448,7 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                    <item row="0" column="0" colspan="2">
-                    <widget class="QComboBox" name="c0_driveCB_5">
+                    <widget class="QComboBox" name="c0_drive_5">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                        <horstretch>0</horstretch>
@@ -8957,7 +8957,7 @@ Leave blank to home the joint manually.</string>
             <item>
              <widget class="QTabWidget" name="tabWidget_9">
               <property name="currentIndex">
-               <number>2</number>
+               <number>0</number>
               </property>
               <widget class="QWidget" name="tab_54">
                <attribute name="title">
@@ -9815,7 +9815,7 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                    <item row="0" column="0" colspan="2">
-                    <widget class="QComboBox" name="c1_driveCB_0">
+                    <widget class="QComboBox" name="c1_drive_0">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                        <horstretch>0</horstretch>
@@ -11135,7 +11135,7 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                    <item row="0" column="0" colspan="2">
-                    <widget class="QComboBox" name="c1_driveCB_1">
+                    <widget class="QComboBox" name="c1_drive_1">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                        <horstretch>0</horstretch>
@@ -11464,27 +11464,34 @@ Leave blank to home the joint manually.</string>
                <string>Axis</string>
               </property>
               <layout class="QGridLayout" name="gridLayout_83">
-               <item row="0" column="4">
-                <widget class="QLabel" name="label_316">
+               <item row="1" column="4">
+                <widget class="QLineEdit" name="c1_max_limit_2">
+                 <property name="statusTip">
+                  <string>Maximum Travel Limit</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="6">
+                <widget class="QLineEdit" name="c1_max_accel_2">
+                 <property name="statusTip">
+                  <string>Maximum Acceleration in Units per Second per Second</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="5">
+                <widget class="QLabel" name="label_319">
                  <property name="text">
-                  <string>Max Limit</string>
+                  <string>Max Vel</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="3">
-                <widget class="QLineEdit" name="c1_min_limit_2">
+               <item row="1" column="5">
+                <widget class="QLineEdit" name="c1_max_vel_2">
                  <property name="statusTip">
-                  <string>Mininum Travel Limit</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="4">
-                <widget class="QLineEdit" name="c1_max_limit_2">
-                 <property name="statusTip">
-                  <string>Maximum Travel Limit</string>
+                  <string>Maximum Velocity in Units per Second</string>
                  </property>
                 </widget>
                </item>
@@ -11498,20 +11505,23 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="0">
-                <widget class="QLabel" name="label_318">
+               <item row="0" column="1">
+                <widget class="QLabel" name="label_321">
                  <property name="text">
-                  <string>Axis</string>
+                  <string>Type</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="5">
-                <widget class="QLabel" name="label_319">
+               <item row="1" column="2">
+                <widget class="QLineEdit" name="c1_scale_2"/>
+               </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_318">
                  <property name="text">
-                  <string>Max Vel</string>
+                  <string>Axis</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
@@ -11537,37 +11547,23 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="6">
-                <widget class="QLabel" name="label_320">
+               <item row="0" column="2">
+                <widget class="QLabel" name="label_322">
                  <property name="text">
-                  <string>Max Accel</string>
+                  <string>Scale</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="5">
-                <widget class="QLineEdit" name="c1_max_vel_2">
-                 <property name="statusTip">
-                  <string>Maximum Velocity in Units per Second</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="1">
-                <widget class="QLabel" name="label_321">
+               <item row="0" column="4">
+                <widget class="QLabel" name="label_316">
                  <property name="text">
-                  <string>Type</string>
+                  <string>Max Limit</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="6">
-                <widget class="QLineEdit" name="c1_max_accel_2">
-                 <property name="statusTip">
-                  <string>Maximum Acceleration in Units per Second per Second</string>
                  </property>
                 </widget>
                </item>
@@ -11578,13 +11574,17 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="2">
-                <widget class="QLineEdit" name="c1_scale_2"/>
+               <item row="1" column="3">
+                <widget class="QLineEdit" name="c1_min_limit_2">
+                 <property name="statusTip">
+                  <string>Mininum Travel Limit</string>
+                 </property>
+                </widget>
                </item>
-               <item row="0" column="2">
-                <widget class="QLabel" name="label_322">
+               <item row="0" column="6">
+                <widget class="QLabel" name="label_320">
                  <property name="text">
-                  <string>Scale</string>
+                  <string>Max Accel</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
@@ -12455,7 +12455,7 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                    <item row="0" column="0" colspan="2">
-                    <widget class="QComboBox" name="c1_driveCB_2">
+                    <widget class="QComboBox" name="c1_drive_2">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                        <horstretch>0</horstretch>
@@ -13775,7 +13775,7 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                    <item row="0" column="0" colspan="2">
-                    <widget class="QComboBox" name="c1_driveCB_3">
+                    <widget class="QComboBox" name="c1_drive_3">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                        <horstretch>0</horstretch>
@@ -15095,7 +15095,7 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                    <item row="0" column="0" colspan="2">
-                    <widget class="QComboBox" name="c1_driveCB_4">
+                    <widget class="QComboBox" name="c1_drive_4">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                        <horstretch>0</horstretch>
@@ -16415,7 +16415,7 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                    <item row="0" column="0" colspan="2">
-                    <widget class="QComboBox" name="c1_driveCB_5">
+                    <widget class="QComboBox" name="c1_drive_5">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                        <horstretch>0</horstretch>
@@ -17782,7 +17782,7 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                    <item row="0" column="0" colspan="2">
-                    <widget class="QComboBox" name="c2_driveCB_0">
+                    <widget class="QComboBox" name="c2_drive_0">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                        <horstretch>0</horstretch>
@@ -19102,7 +19102,7 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                    <item row="0" column="0" colspan="2">
-                    <widget class="QComboBox" name="c2_driveCB_1">
+                    <widget class="QComboBox" name="c2_drive_1">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                        <horstretch>0</horstretch>
@@ -20422,7 +20422,7 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                    <item row="0" column="0" colspan="2">
-                    <widget class="QComboBox" name="c2_driveCB_2">
+                    <widget class="QComboBox" name="c2_drive_2">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                        <horstretch>0</horstretch>
@@ -21742,7 +21742,7 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                    <item row="0" column="0" colspan="2">
-                    <widget class="QComboBox" name="c2_driveCB_3">
+                    <widget class="QComboBox" name="c2_drive_3">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                        <horstretch>0</horstretch>
@@ -23062,7 +23062,7 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                    <item row="0" column="0" colspan="2">
-                    <widget class="QComboBox" name="c2_driveCB_4">
+                    <widget class="QComboBox" name="c2_drive_4">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                        <horstretch>0</horstretch>
@@ -24382,7 +24382,7 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                    <item row="0" column="0" colspan="2">
-                    <widget class="QComboBox" name="c2_driveCB_5">
+                    <widget class="QComboBox" name="c2_drive_5">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                        <horstretch>0</horstretch>
@@ -25749,7 +25749,7 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                    <item row="0" column="0" colspan="2">
-                    <widget class="QComboBox" name="c3_driveCB_0">
+                    <widget class="QComboBox" name="c3_drive_0">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                        <horstretch>0</horstretch>
@@ -27069,7 +27069,7 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                    <item row="0" column="0" colspan="2">
-                    <widget class="QComboBox" name="c3_driveCB_1">
+                    <widget class="QComboBox" name="c3_drive_1">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                        <horstretch>0</horstretch>
@@ -28389,7 +28389,7 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                    <item row="0" column="0" colspan="2">
-                    <widget class="QComboBox" name="c3_driveCB_2">
+                    <widget class="QComboBox" name="c3_drive_2">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                        <horstretch>0</horstretch>
@@ -29709,7 +29709,7 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                    <item row="0" column="0" colspan="2">
-                    <widget class="QComboBox" name="c3_driveCB_3">
+                    <widget class="QComboBox" name="c3_drive_3">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                        <horstretch>0</horstretch>
@@ -31029,7 +31029,7 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                    <item row="0" column="0" colspan="2">
-                    <widget class="QComboBox" name="c3_driveCB_4">
+                    <widget class="QComboBox" name="c3_drive_4">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                        <horstretch>0</horstretch>
@@ -32349,7 +32349,7 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                    <item row="0" column="0" colspan="2">
-                    <widget class="QComboBox" name="c3_driveCB_5">
+                    <widget class="QComboBox" name="c3_drive_5">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                        <horstretch>0</horstretch>

@@ -125,9 +125,9 @@ class MainWindow(QMainWindow):
 				getattr(self, f'c{j}_pidDefault_{i}').clicked.connect(partial(axes.pidSetDefault, self))
 				getattr(self, f'c{j}_ferrorDefault_{i}').clicked.connect(partial(axes.ferrorSetDefault, self))
 				getattr(self, f'c{j}_analogDefault_{i}').clicked.connect(partial(axes.analogSetDefault, self))
-		'''
 				getattr(self, f'c{j}_drive_{i}').currentIndexChanged.connect(partial(axes.driveChanged, self))
 
+		'''
 		# I/O Tab
 		for i in range(32):
 			getattr(self, f'inputInvertCB_{i}').stateChanged.connect(partial(utilities.inputChanged, self))

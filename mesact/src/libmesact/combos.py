@@ -56,10 +56,36 @@ def build(parent):
 		['W', 'W']
 		]
 
-	for i in range(6):
-		for item in axes:
-			getattr(parent, f'c0_axis_{i}').addItem(item[0], item[1])
-			#getattr(parent, f'c1_axis_{i}').addItem(item[0], item[1])
+	for i in range(4):
+		for j in range(6):
+			for item in axes:
+				getattr(parent, f'c{i}_axis_{j}').addItem(item[0], item[1])
+
+
+	drives = [
+		['Custom', False],
+		['Gecko 201', ['500', '4000', '20000', '1000']],
+		['Gecko 202', ['500', '4500', '20000', '1000']],
+		['Gecko 203v', ['1000', '2000', '200', '200']],
+		['Gecko 210', ['500', '4000', '20000', '1000']],
+		['Gecko 212', ['500', '4000', '20000', '1000']],
+		['Gecko 320', ['3500', '500', '200', '200']],
+		['Gecko 540', ['1000', '2000', '200', '200']],
+		['TB6600', ['5000', '5000', '20000', '20000']],
+		['L297', ['500', '4000', '4000', '1000']],
+		['PMDX 150', ['1000', '2000', '1000', '1000']],
+		['Sherline', ['22000', '22000', '100000', '100000']],
+		['Xylotex BS-3', ['2000', '1000', '200', '200']],
+		['Parker 750', ['1000', '1000', '1000', '200000']],
+		['JVL SMD41/42', ['500', '500', '2500', '2500']],
+		['Hobbycnc', ['2000', '2000', '2000', '2000']],
+		['Keling 4030', ['5000', '5000', '20000', '20000']]
+		]
+
+	for i in range(4):
+		for j in range(6):
+			for item in drives:
+				getattr(parent, f'c{i}_drive_{j}').addItem(item[0], item[1])
 
 
 
