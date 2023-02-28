@@ -17,10 +17,10 @@ def setup(parent):
 	parent.configNameLE.setFocus()
 
 	# set tab visibility
-	parent.mainTW.setTabVisible(2, False)
 	parent.mainTW.setTabVisible(3, False)
 	parent.mainTW.setTabVisible(4, False)
 	parent.mainTW.setTabVisible(5, False)
+	parent.mainTW.setTabVisible(6, False)
 
 	# get emc version if installed
 	parent.emcVersionLB.clear()

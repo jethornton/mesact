@@ -1,4 +1,4 @@
-
+import os
 
 def isNumber(s):
 	try:
@@ -12,8 +12,8 @@ def unitsChanged(parent):
 	if not parent.linearUnitsCB.currentData():
 		unitsSecond = ''
 		unitsMinute = ''
-		for i in range(6):
-			getattr(parent, f'c0_unitsLB_{i}').setText('Select Units\nMachine Tab')
+		for i in range(4):
+			getattr(parent, f'unitsLB_{i}').setText('Select Units\nSettings Tab')
 		return
 	if parent.linearUnitsCB.currentData() == 'mm':
 		unitsSecond = 'mm/sec'
@@ -44,5 +44,22 @@ def maxVelChanged(parent):
 			parent.mlvPerMinLB.setText(F'{val * 60:.1f} in/min')
 	else:
 		parent.mlvPerMinLB.setText('')
+
+def backupFiles(parent, configPath=None):
+	if not configPath:
+		configPath = parent.configPath
+	if not os.path.exists(configPath):
+		parent.machinePTE.setPlainText('Nothing to Back Up')
+		return
+	backupDir = os.path.join(configPath, 'backups')
+	if not os.path.exists(backupDir):
+		os.mkdir(backupDir)
+	p1 = subprocess.Popen(['find',configPath,'-maxdepth','1','-type','f','-print'], stdout=subprocess.PIPE)
+	backupFile = os.path.join(backupDir, f'{datetime.now():%m-%d-%y-%H:%M:%S}')
+	p2 = subprocess.Popen(['zip','-j',backupFile,'-@'], stdin=p1.stdout, stdout=subprocess.PIPE)
+	p1.stdout.close()
+	parent.machinePTE.appendPlainText('Backing up Confguration')
+	output = p2.communicate()[0]
+	parent.machinePTE.appendPlainText(output.decode())
 
 

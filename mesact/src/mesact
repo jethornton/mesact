@@ -30,6 +30,10 @@ from libmesact import flash
 from libmesact import machine
 from libmesact import axes
 from libmesact import utilities
+from libmesact import check
+from libmesact import openini
+from libmesact import updateini
+from libmesact import buildconfig
 
 from libmesact import shutdown
 
@@ -47,7 +51,7 @@ class MainWindow(QMainWindow):
 			self.docs_path = srcPath
 			self.installed = False
 			uic.loadUi(os.path.join(srcPath, 'mesact.ui'), self)
-		with open('style.qss',"r") as fh:
+		with open('style.qss','r') as fh:
 			self.setStyleSheet(fh.read())
 
 		self.firmware_path = f'{os.path.expanduser("~")}/.local/lib/libmesact'
@@ -60,15 +64,18 @@ class MainWindow(QMainWindow):
 		self.statusBar().addPermanentWidget(self.progressBar)
 		self.timer=QTimer()
 		self.settings = QSettings('CnC_Machines', 'MesaCT')
+		self.updateini = updateini.updateini()
+		self.boardType = False # eth or pci
+		self.connections()
 		startup.setup(self)
 		self.show()
 
+	def connections(self):
 		# Menu Items
-
-
-		#self.actionOpen.triggered.connect(partial(self.loadini.getini, self))
-		#self.actionCheck.triggered.connect(partial(checkconfig.checkit, self))
-		#self.actionBuild.triggered.connect(partial(buildconfig.build, self))
+		loadini = openini.loadini()
+		self.actionOpen.triggered.connect(partial(loadini.checkini, self))
+		self.actionCheck.triggered.connect(partial(check.checkit, self))
+		self.actionBuild.triggered.connect(partial(buildconfig.build, self))
 		#self.actionTabHelp.triggered.connect(partial(self.help, 0))
 		#self.actionCheckUpdates.triggered.connect(partial(updates.checkUpdates, self))
 		self.actionMesaCT_PC_64_bit.triggered.connect(partial(downloads.downloadAmd64Deb, self))

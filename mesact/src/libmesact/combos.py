@@ -1,15 +1,7 @@
 
 
 def build(parent):
-	linearUnits = [
-		['Select', False],
-		['Inch', 'inch'],
-		['Millimeter', 'mm']
-		]
-
-	for item in linearUnits:
-		parent.linearUnitsCB.addItem(item[0], item[1])
-
+	# Machine Tab
 	boards = [
 	['Select', False],
 	['5i24/6i24', '5i24'],
@@ -42,6 +34,50 @@ def build(parent):
 	for item in ipAddress:
 		parent.ipAddressCB.addItem(item[0], item[1])
 	parent.ipAddressCB.setEditable(True)
+
+	# Firmware Tab
+
+	# Settings Tab
+	gui = [
+		['Select', False],
+		['Axis', 'axis'],
+		['Gmoccapy', 'gmoccapy'],
+		['Tklinuxcnc', 'tklinuxcnc'],
+		['Touchy', 'touchy']
+		]
+
+	for item in gui:
+		parent.guiCB.addItem(item[0], item[1])
+
+	linearUnits = [
+		['Select', False],
+		['Inch', 'inch'],
+		['Millimeter', 'mm']
+		]
+
+	for item in linearUnits:
+		parent.linearUnitsCB.addItem(item[0], item[1])
+
+	positionOffset = [
+		['Select', False],
+		['Relative', 'RELATIVE'],
+		['Machine', 'MACHINE']
+		]
+
+	for item in positionOffset:
+		parent.positionOffsetCB.addItem(item[0], item[1])
+
+	positionFeedback = [
+		['Select', False],
+		['Commanded', 'COMMANDED'],
+		['Actual', 'ACTUAL']
+		]
+
+	for item in positionFeedback:
+		parent.positionFeedbackCB.addItem(item[0], item[1])
+
+
+	# Joint Tabs
 
 	axes = [
 		['Select', False],
@@ -86,6 +122,25 @@ def build(parent):
 		for j in range(6):
 			for item in drives:
 				getattr(parent, f'c{i}_drive_{j}').addItem(item[0], item[1])
+
+	# Spindle Tab
+
+	# SS Card Tab
+	ssCards = [
+		['Select', False],
+		['7i64', '7i64'],
+		['7i69', '7i69'],
+		['7i70', '7i70'],
+		['7i71', '7i71'],
+		['7i72', '7i72'],
+		['7i73', '7i73'],
+		['7i84', '7i84'],
+		['7i87', '7i87']
+		]
+
+	for item in ssCards:
+		parent.ssCardCB.addItem(item[0], item[1])
+
 
 
 
