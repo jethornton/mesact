@@ -51,7 +51,8 @@ class MainWindow(QMainWindow):
 			self.docs_path = srcPath
 			self.installed = False
 			uic.loadUi(os.path.join(srcPath, 'mesact.ui'), self)
-		with open('style.qss','r') as fh:
+		stylesheet = os.path.join(self.lib_path, 'mesact.qss')
+		with open(stylesheet,'r') as fh:
 			self.setStyleSheet(fh.read())
 
 		self.firmware_path = f'{os.path.expanduser("~")}/.local/lib/libmesact'
