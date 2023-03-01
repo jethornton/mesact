@@ -16,6 +16,20 @@ def setup(parent):
 		pass
 	parent.configNameLE.setFocus()
 
+	# temp show progress
+	msg = ('Item Status\n'
+	'Build deb and install: Complete and tested\n'
+	'Build ini: Partial in progress\n'
+	'Open ini: Partial in progress\n'
+	'Update ini: Broken\n'
+	'Build hal: To Do\n'
+	'Configure ss: To Do\n'
+	'Build ss: To Do\n'
+	'Firmware: Complete but untested\n'
+	)
+	parent.infoPTE.setPlainText(msg)
+	parent.mainTW.setCurrentIndex(11)
+
 	# set tab visibility
 	parent.mainTW.setTabVisible(3, False)
 	parent.mainTW.setTabVisible(4, False)

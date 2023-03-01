@@ -32891,35 +32891,6 @@ Leave blank to home the joint manually.</string>
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="tab_4">
-       <attribute name="title">
-        <string>I/O</string>
-       </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_2">
-        <item>
-         <widget class="QTabWidget" name="tabWidget_2">
-          <property name="currentIndex">
-           <number>0</number>
-          </property>
-          <widget class="QWidget" name="tab_6">
-           <attribute name="title">
-            <string>Inputs</string>
-           </attribute>
-          </widget>
-          <widget class="QWidget" name="tab_7">
-           <attribute name="title">
-            <string>Outputs</string>
-           </attribute>
-          </widget>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="tab_5">
-       <attribute name="title">
-        <string>Spindle</string>
-       </attribute>
-      </widget>
       <widget class="QWidget" name="tab_8">
        <attribute name="title">
         <string>SS Card</string>

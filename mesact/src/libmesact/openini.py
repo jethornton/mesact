@@ -201,6 +201,8 @@ class loadini:
 			if section[0].startswith('[JOINT'):
 				#print(section)
 				joint = section[0][-2]
+				card = 0
+				tab = 0
 				#print(joint)
 				start = section[1][0]
 				end = section[1][1]

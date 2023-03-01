@@ -1,6 +1,6 @@
 
 def checkit(parent):
-	parent.mainTW.setCurrentIndex(13)
+	parent.mainTW.setCurrentIndex(11)
 	configErrors = []
 	tabError = False
 	nextHeader = 0

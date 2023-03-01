@@ -13,7 +13,7 @@ from libmesact import utilities
 def build(parent):
 
 	if not check.checkit(parent):
-		parent.mainTW.setCurrentIndex(13)
+		parent.mainTW.setCurrentIndex(11)
 		parent.infoPTE.appendPlainText('Build Failed')
 		return
 	if parent.backupCB.isChecked():

@@ -4,7 +4,7 @@ from datetime import datetime
 def build(parent):
 	buildErrors = []
 	iniFilePath = os.path.join(parent.configPath, parent.configNameUnderscored + '.ini')
-	parent.mainTW.setCurrentIndex(13)
+	parent.mainTW.setCurrentIndex(11)
 	parent.infoPTE.appendPlainText(f'Building {iniFilePath}')
 
 	if not os.path.exists(parent.configPath):
@@ -182,6 +182,13 @@ def build(parent):
 				iniContents.append(f'MAX_LIMIT = {getattr(parent, f"c{i}_max_limit_{j}").text()}\n')
 				iniContents.append(f'MAX_VELOCITY = {getattr(parent, f"c{i}_max_vel_{j}").text()}\n')
 				iniContents.append(f'MAX_ACCELERATION = {getattr(parent, f"c{i}_max_accel_{j}").text()}\n')
+				iniContents.append(f'TYPE = {getattr(parent, f"c{i}_axisType_{j}").text()}\n')
+				if getattr(parent, f'c{i}_reverse_{j}').isChecked():
+					iniContents.append(f'SCALE = -{getattr(parent, f"c{i}_scale_{j}").text()}\n')
+				else:
+					iniContents.append(f'SCALE = {getattr(parent, f"c{i}_scale_{j}").text()}\n')
+
+
 				joint += 1
 
 
@@ -191,11 +198,6 @@ def build(parent):
 		# build the [JOINT_n] sections
 		if getattr(parent, f'{card}_axisCB_{i}').currentData():
 
-			iniContents.append(f'TYPE = {getattr(parent, f"{card}_axisType_{i}").text()}\n')
-			if getattr(parent, f"{card}_reverse_" + str(i)).isChecked():
-				iniContents.append(f'SCALE = -{getattr(parent, f"{card}_scale_{i}").text()}\n')
-			else:
-				iniContents.append(f'SCALE = {getattr(parent, f"{card}_scale_{i}").text()}\n')
 
 			if parent.cardType_0 == 'step' or parent.cardType_1 == 'step': # add step and dir invert
 				iniContents.append(f'DRIVE = {getattr(parent, f"{card}_driveCB_{i}").currentText()}\n')
