@@ -2163,7 +2163,7 @@ Leave blank to home the joint manually.</string>
                  </widget>
                 </item>
                 <item row="0" column="1">
-                 <widget class="QGroupBox" name="c0_analogGB_1">
+                 <widget class="QGroupBox" name="c0_analogGB_0">
                   <property name="title">
                    <string>Analog Output</string>
                   </property>
@@ -3483,7 +3483,7 @@ Leave blank to home the joint manually.</string>
                  </widget>
                 </item>
                 <item row="0" column="1">
-                 <widget class="QGroupBox" name="c0_analogGB_2">
+                 <widget class="QGroupBox" name="c0_analogGB_1">
                   <property name="title">
                    <string>Analog Output</string>
                   </property>
@@ -4803,7 +4803,7 @@ Leave blank to home the joint manually.</string>
                  </widget>
                 </item>
                 <item row="0" column="1">
-                 <widget class="QGroupBox" name="c0_analogGB_3">
+                 <widget class="QGroupBox" name="c0_analogGB_2">
                   <property name="title">
                    <string>Analog Output</string>
                   </property>
@@ -6123,7 +6123,7 @@ Leave blank to home the joint manually.</string>
                  </widget>
                 </item>
                 <item row="0" column="1">
-                 <widget class="QGroupBox" name="c0_analogGB_4">
+                 <widget class="QGroupBox" name="c0_analogGB_3">
                   <property name="title">
                    <string>Analog Output</string>
                   </property>
@@ -7443,7 +7443,7 @@ Leave blank to home the joint manually.</string>
                  </widget>
                 </item>
                 <item row="0" column="1">
-                 <widget class="QGroupBox" name="c0_analogGB_5">
+                 <widget class="QGroupBox" name="c0_analogGB_4">
                   <property name="title">
                    <string>Analog Output</string>
                   </property>
@@ -8763,7 +8763,7 @@ Leave blank to home the joint manually.</string>
                  </widget>
                 </item>
                 <item row="0" column="1">
-                 <widget class="QGroupBox" name="c0_analogGB_6">
+                 <widget class="QGroupBox" name="c0_analogGB_5">
                   <property name="title">
                    <string>Analog Output</string>
                   </property>
@@ -9820,7 +9820,7 @@ Leave blank to home the joint manually.</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_70">
                 <item row="0" column="0" rowspan="2">
-                 <widget class="QGroupBox" name="c0_stepgenGB_6">
+                 <widget class="QGroupBox" name="c1_stepgenGB_0">
                   <property name="styleSheet">
                    <string notr="true"/>
                   </property>
@@ -10130,7 +10130,7 @@ Leave blank to home the joint manually.</string>
                  </widget>
                 </item>
                 <item row="0" column="1">
-                 <widget class="QGroupBox" name="c0_analogGB_7">
+                 <widget class="QGroupBox" name="c1_analogGB_0">
                   <property name="title">
                    <string>Analog Output</string>
                   </property>
@@ -11140,7 +11140,7 @@ Leave blank to home the joint manually.</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_79">
                 <item row="0" column="0" rowspan="2">
-                 <widget class="QGroupBox" name="c0_stepgenGB_7">
+                 <widget class="QGroupBox" name="c1_stepgenGB_1">
                   <property name="styleSheet">
                    <string notr="true"/>
                   </property>
@@ -11450,7 +11450,7 @@ Leave blank to home the joint manually.</string>
                  </widget>
                 </item>
                 <item row="0" column="1">
-                 <widget class="QGroupBox" name="c0_analogGB_8">
+                 <widget class="QGroupBox" name="c1_analogGB_1">
                   <property name="title">
                    <string>Analog Output</string>
                   </property>
@@ -12460,7 +12460,7 @@ Leave blank to home the joint manually.</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_88">
                 <item row="0" column="0" rowspan="2">
-                 <widget class="QGroupBox" name="c0_stepgenGB_8">
+                 <widget class="QGroupBox" name="c1_stepgenGB_2">
                   <property name="styleSheet">
                    <string notr="true"/>
                   </property>
@@ -12770,7 +12770,7 @@ Leave blank to home the joint manually.</string>
                  </widget>
                 </item>
                 <item row="0" column="1">
-                 <widget class="QGroupBox" name="c0_analogGB_9">
+                 <widget class="QGroupBox" name="c1_analogGB_2">
                   <property name="title">
                    <string>Analog Output</string>
                   </property>
@@ -13780,7 +13780,7 @@ Leave blank to home the joint manually.</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_97">
                 <item row="0" column="0" rowspan="2">
-                 <widget class="QGroupBox" name="c0_stepgenGB_9">
+                 <widget class="QGroupBox" name="c1_stepgenGB_3">
                   <property name="styleSheet">
                    <string notr="true"/>
                   </property>
@@ -14090,7 +14090,7 @@ Leave blank to home the joint manually.</string>
                  </widget>
                 </item>
                 <item row="0" column="1">
-                 <widget class="QGroupBox" name="c0_analogGB_10">
+                 <widget class="QGroupBox" name="c1_analogGB_3">
                   <property name="title">
                    <string>Analog Output</string>
                   </property>
@@ -15100,7 +15100,7 @@ Leave blank to home the joint manually.</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_106">
                 <item row="0" column="0" rowspan="2">
-                 <widget class="QGroupBox" name="c0_stepgenGB_10">
+                 <widget class="QGroupBox" name="c1_stepgenGB_4">
                   <property name="styleSheet">
                    <string notr="true"/>
                   </property>
@@ -15410,7 +15410,7 @@ Leave blank to home the joint manually.</string>
                  </widget>
                 </item>
                 <item row="0" column="1">
-                 <widget class="QGroupBox" name="c0_analogGB_11">
+                 <widget class="QGroupBox" name="c1_analogGB_4">
                   <property name="title">
                    <string>Analog Output</string>
                   </property>
@@ -16420,7 +16420,7 @@ Leave blank to home the joint manually.</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_138">
                 <item row="0" column="0" rowspan="2">
-                 <widget class="QGroupBox" name="c0_stepgenGB_11">
+                 <widget class="QGroupBox" name="c1_stepgenGB_5">
                   <property name="styleSheet">
                    <string notr="true"/>
                   </property>
@@ -16730,7 +16730,7 @@ Leave blank to home the joint manually.</string>
                  </widget>
                 </item>
                 <item row="0" column="1">
-                 <widget class="QGroupBox" name="c0_analogGB_12">
+                 <widget class="QGroupBox" name="c1_analogGB_5">
                   <property name="title">
                    <string>Analog Output</string>
                   </property>
@@ -17787,7 +17787,7 @@ Leave blank to home the joint manually.</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_149">
                 <item row="0" column="0" rowspan="2">
-                 <widget class="QGroupBox" name="c0_stepgenGB_12">
+                 <widget class="QGroupBox" name="c2_stepgenGB_0">
                   <property name="styleSheet">
                    <string notr="true"/>
                   </property>
@@ -18097,7 +18097,7 @@ Leave blank to home the joint manually.</string>
                  </widget>
                 </item>
                 <item row="0" column="1">
-                 <widget class="QGroupBox" name="c0_analogGB_13">
+                 <widget class="QGroupBox" name="c2_analogGB_0">
                   <property name="title">
                    <string>Analog Output</string>
                   </property>
@@ -19107,7 +19107,7 @@ Leave blank to home the joint manually.</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_160">
                 <item row="0" column="0" rowspan="2">
-                 <widget class="QGroupBox" name="c0_stepgenGB_13">
+                 <widget class="QGroupBox" name="c2_stepgenGB_1">
                   <property name="styleSheet">
                    <string notr="true"/>
                   </property>
@@ -19417,7 +19417,7 @@ Leave blank to home the joint manually.</string>
                  </widget>
                 </item>
                 <item row="0" column="1">
-                 <widget class="QGroupBox" name="c0_analogGB_14">
+                 <widget class="QGroupBox" name="c2_analogGB_1">
                   <property name="title">
                    <string>Analog Output</string>
                   </property>
@@ -20427,7 +20427,7 @@ Leave blank to home the joint manually.</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_171">
                 <item row="0" column="0" rowspan="2">
-                 <widget class="QGroupBox" name="c0_stepgenGB_14">
+                 <widget class="QGroupBox" name="c2_stepgenGB_2">
                   <property name="styleSheet">
                    <string notr="true"/>
                   </property>
@@ -20737,7 +20737,7 @@ Leave blank to home the joint manually.</string>
                  </widget>
                 </item>
                 <item row="0" column="1">
-                 <widget class="QGroupBox" name="c0_analogGB_15">
+                 <widget class="QGroupBox" name="c2_analogGB_2">
                   <property name="title">
                    <string>Analog Output</string>
                   </property>
@@ -21747,7 +21747,7 @@ Leave blank to home the joint manually.</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_199">
                 <item row="0" column="0" rowspan="2">
-                 <widget class="QGroupBox" name="c0_stepgenGB_15">
+                 <widget class="QGroupBox" name="c2_stepgenGB_3">
                   <property name="styleSheet">
                    <string notr="true"/>
                   </property>
@@ -22057,7 +22057,7 @@ Leave blank to home the joint manually.</string>
                  </widget>
                 </item>
                 <item row="0" column="1">
-                 <widget class="QGroupBox" name="c0_analogGB_16">
+                 <widget class="QGroupBox" name="c2_analogGB_3">
                   <property name="title">
                    <string>Analog Output</string>
                   </property>
@@ -23067,7 +23067,7 @@ Leave blank to home the joint manually.</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_216">
                 <item row="0" column="0" rowspan="2">
-                 <widget class="QGroupBox" name="c0_stepgenGB_16">
+                 <widget class="QGroupBox" name="c2_stepgenGB_4">
                   <property name="styleSheet">
                    <string notr="true"/>
                   </property>
@@ -23377,7 +23377,7 @@ Leave blank to home the joint manually.</string>
                  </widget>
                 </item>
                 <item row="0" column="1">
-                 <widget class="QGroupBox" name="c0_analogGB_17">
+                 <widget class="QGroupBox" name="c2_analogGB_4">
                   <property name="title">
                    <string>Analog Output</string>
                   </property>
@@ -24387,7 +24387,7 @@ Leave blank to home the joint manually.</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_228">
                 <item row="0" column="0" rowspan="2">
-                 <widget class="QGroupBox" name="c0_stepgenGB_17">
+                 <widget class="QGroupBox" name="c2_stepgenGB_5">
                   <property name="styleSheet">
                    <string notr="true"/>
                   </property>
@@ -24697,7 +24697,7 @@ Leave blank to home the joint manually.</string>
                  </widget>
                 </item>
                 <item row="0" column="1">
-                 <widget class="QGroupBox" name="c0_analogGB_18">
+                 <widget class="QGroupBox" name="c2_analogGB_5">
                   <property name="title">
                    <string>Analog Output</string>
                   </property>
@@ -25754,7 +25754,7 @@ Leave blank to home the joint manually.</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_240">
                 <item row="0" column="0" rowspan="2">
-                 <widget class="QGroupBox" name="c0_stepgenGB_18">
+                 <widget class="QGroupBox" name="c3_stepgenGB_0">
                   <property name="styleSheet">
                    <string notr="true"/>
                   </property>
@@ -26064,7 +26064,7 @@ Leave blank to home the joint manually.</string>
                  </widget>
                 </item>
                 <item row="0" column="1">
-                 <widget class="QGroupBox" name="c0_analogGB_19">
+                 <widget class="QGroupBox" name="c3_analogGB_0">
                   <property name="title">
                    <string>Analog Output</string>
                   </property>
@@ -27074,7 +27074,7 @@ Leave blank to home the joint manually.</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_252">
                 <item row="0" column="0" rowspan="2">
-                 <widget class="QGroupBox" name="c0_stepgenGB_19">
+                 <widget class="QGroupBox" name="c3_stepgenGB_1">
                   <property name="styleSheet">
                    <string notr="true"/>
                   </property>
@@ -27384,7 +27384,7 @@ Leave blank to home the joint manually.</string>
                  </widget>
                 </item>
                 <item row="0" column="1">
-                 <widget class="QGroupBox" name="c0_analogGB_20">
+                 <widget class="QGroupBox" name="c3_analogGB_1">
                   <property name="title">
                    <string>Analog Output</string>
                   </property>
@@ -28394,7 +28394,7 @@ Leave blank to home the joint manually.</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_264">
                 <item row="0" column="0" rowspan="2">
-                 <widget class="QGroupBox" name="c0_stepgenGB_20">
+                 <widget class="QGroupBox" name="c3_stepgenGB_2">
                   <property name="styleSheet">
                    <string notr="true"/>
                   </property>
@@ -28704,7 +28704,7 @@ Leave blank to home the joint manually.</string>
                  </widget>
                 </item>
                 <item row="0" column="1">
-                 <widget class="QGroupBox" name="c0_analogGB_21">
+                 <widget class="QGroupBox" name="c3_analogGB_2">
                   <property name="title">
                    <string>Analog Output</string>
                   </property>
@@ -29714,7 +29714,7 @@ Leave blank to home the joint manually.</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_276">
                 <item row="0" column="0" rowspan="2">
-                 <widget class="QGroupBox" name="c0_stepgenGB_21">
+                 <widget class="QGroupBox" name="c3_stepgenGB_3">
                   <property name="styleSheet">
                    <string notr="true"/>
                   </property>
@@ -30024,7 +30024,7 @@ Leave blank to home the joint manually.</string>
                  </widget>
                 </item>
                 <item row="0" column="1">
-                 <widget class="QGroupBox" name="c0_analogGB_22">
+                 <widget class="QGroupBox" name="c3_analogGB_3">
                   <property name="title">
                    <string>Analog Output</string>
                   </property>
@@ -31034,7 +31034,7 @@ Leave blank to home the joint manually.</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_288">
                 <item row="0" column="0" rowspan="2">
-                 <widget class="QGroupBox" name="c0_stepgenGB_22">
+                 <widget class="QGroupBox" name="c3_stepgenGB_4">
                   <property name="styleSheet">
                    <string notr="true"/>
                   </property>
@@ -31344,7 +31344,7 @@ Leave blank to home the joint manually.</string>
                  </widget>
                 </item>
                 <item row="0" column="1">
-                 <widget class="QGroupBox" name="c0_analogGB_23">
+                 <widget class="QGroupBox" name="c3_analogGB_4">
                   <property name="title">
                    <string>Analog Output</string>
                   </property>
@@ -32354,7 +32354,7 @@ Leave blank to home the joint manually.</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_300">
                 <item row="0" column="0" rowspan="2">
-                 <widget class="QGroupBox" name="c0_stepgenGB_23">
+                 <widget class="QGroupBox" name="c3_stepgenGB_5">
                   <property name="styleSheet">
                    <string notr="true"/>
                   </property>
@@ -32664,7 +32664,7 @@ Leave blank to home the joint manually.</string>
                  </widget>
                 </item>
                 <item row="0" column="1">
-                 <widget class="QGroupBox" name="c0_analogGB_24">
+                 <widget class="QGroupBox" name="c3_analogGB_5">
                   <property name="title">
                    <string>Analog Output</string>
                   </property>
