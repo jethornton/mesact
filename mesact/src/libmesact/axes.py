@@ -24,21 +24,12 @@ def axisChanged(parent):
 		parent.maxAngJogVelDSB.setEnabled(False)
 	coordList = []
 
-	for i in range(6): # Card 0
-		axisLetter = getattr(parent, f'c0_axis_{i}').currentText()
-		if axisLetter != 'Select':
-			coordList.append(axisLetter)
-		parent.coordinatesLB.setText(''.join(coordList))
-		#parent.axes = len(parent.coordinatesLB.text())
-
-	'''
-	for i in range(6): # Card 1
-		axisLetter = getattr(parent, f'c1_axisCB_{i}').currentText()
-		if axisLetter != 'Select':
-			coordList.append(axisLetter)
-		parent.coordinatesLB.setText(''.join(coordList))
-		parent.axes = len(parent.coordinatesLB.text())
-	'''
+	for i in range(4):
+		for j in range(6):
+			axisLetter = getattr(parent, f'c{i}_axis_{j}').currentText()
+			if axisLetter != 'Select':
+				coordList.append(axisLetter)
+			parent.coordinatesLB.setText(''.join(coordList))
 
 def updateAxisInfo(parent):
 	#if parent.sender().objectName() == 'actionOpen':

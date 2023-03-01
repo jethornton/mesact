@@ -68,7 +68,7 @@ class loadini:
 			self.loadini(parent, self.iniFile)
 			self.loadReadMe(parent, configName)
 		else:
-			self.infoPTE.appendPlainText('Open File Cancled')
+			parent.infoPTE.appendPlainText('Open File Cancled')
 			iniFile = ''
 
 	def loadini(self, parent, iniFile):
@@ -112,10 +112,11 @@ class loadini:
 						parent.boardCB.setCurrentIndex(parent.boardCB.findData(data))
 
 		mesa = []
-		mesa.append(['[MESA]', 'BOARD', 'boardCB'])
+		mesa.append(['[MESA]', 'BOARD_NAME', 'boardCB'])
 		mesa.append(['[MESA]', 'FIRMWARE', 'firmwareCB'])
 		mesa.append(['[MESA]', 'CARD_0', 'daughterCB_0'])
 		mesa.append(['[MESA]', 'CARD_1', 'daughterCB_1'])
+		mesa.append(['[MESA]', 'CARD_2', 'daughterCB_2'])
 
 		for item in mesa:
 			self.update(parent, item[0], item[1], item[2])
@@ -190,50 +191,69 @@ class loadini:
 				if i <= 5:
 					getattr(parent, f'mdiCmdLE_{i}').setText(item)
 
-		for i in range(6):
-			joint = [
-			[f'[JOINT_{i}]', 'AXIS', f'c0_axisCB_{i}'],
-			[f'[JOINT_{i}]', 'DRIVE', f'c0_driveCB_{i}'],
-			[f'[JOINT_{i}]', 'STEP_INVERT', f'c0_StepInvert_{i}'],
-			[f'[JOINT_{i}]', 'DIR_INVERT', f'c0_DirInvert_{i}'],
-			[f'[JOINT_{i}]', 'STEPLEN', f'c0_StepTime_{i}'],
-			[f'[JOINT_{i}]', 'STEPSPACE', f'c0_StepSpace_{i}'],
-			[f'[JOINT_{i}]', 'DIRSETUP', f'c0_DirSetup_{i}'],
-			[f'[JOINT_{i}]', 'DIRHOLD',  f'c0_DirHold_{i}'],
-			[f'[JOINT_{i}]', 'MIN_LIMIT', f'c0_minLimit_{i}'],
-			[f'[JOINT_{i}]', 'MAX_LIMIT',  f'c0_maxLimit_{i}'],
-			[f'[JOINT_{i}]', 'MAX_VELOCITY', f'c0_maxVelocity_{i}'],
-			[f'[JOINT_{i}]', 'MAX_ACCELERATION', f'c0_maxAccel_{i}'],
-			[f'[JOINT_{i}]', 'SCALE', f'c0_scale_{i}'],
-			[f'[JOINT_{i}]', 'HOME', f'c0_home_{i}'],
-			[f'[JOINT_{i}]', 'HOME_OFFSET', f'c0_homeOffset_{i}'],
-			[f'[JOINT_{i}]', 'HOME_SEARCH_VEL', f'c0_homeSearchVel_{i}'],
-			[f'[JOINT_{i}]', 'HOME_LATCH_VEL', f'c0_homeLatchVel_{i}'],
-			[f'[JOINT_{i}]', 'HOME_FINAL_VEL', f'c0_homeFinalVelocity_{i}'],
-			[f'[JOINT_{i}]', 'HOME_USE_INDEX', f'c0_homeUseIndex_{i}'],
-			[f'[JOINT_{i}]', 'HOME_IGNORE_LIMITS', f'c0_homeIgnoreLimits_{i}'],
-			[f'[JOINT_{i}]', 'HOME_IS_SHARED', f'c0_homeSwitchShared_{i}'],
-			[f'[JOINT_{i}]', 'HOME_SEQUENCE', f'c0_homeSequence_{i}'],
-			[f'[JOINT_{i}]', 'P', f'c0_p_{i}'],
-			[f'[JOINT_{i}]', 'I', f'c0_i_{i}'],
-			[f'[JOINT_{i}]', 'D', f'c0_d_{i}'],
-			[f'[JOINT_{i}]', 'FF0', f'c0_ff0_{i}'],
-			[f'[JOINT_{i}]', 'FF1', f'c0_ff1_{i}'],
-			[f'[JOINT_{i}]', 'FF2', f'c0_ff2_{i}'],
-			[f'[JOINT_{i}]', 'DEADBAND', f'c0_deadband_{i}'],
-			[f'[JOINT_{i}]', 'BIAS', f'c0_bias_{i}'],
-			[f'[JOINT_{i}]', 'MAX_OUTPUT', f'c0_maxOutput_{i}'],
-			[f'[JOINT_{i}]', 'MAX_ERROR', f'c0_maxError_{i}'],
-			[f'[JOINT_{i}]', 'FERROR', f'c0_ferror_{i}'],
-			[f'[JOINT_{i}]', 'MIN_FERROR', f'c0_min_ferror_{i}'],
-			[f'[JOINT_{i}]', 'ENCODER_SCALE', f'c0_encoderScale_{i}'],
-			[f'[JOINT_{i}]', 'ANALOG_SCALE_MAX', f'c0_analogScaleMax_{i}'],
-			[f'[JOINT_{i}]', 'ANALOG_MIN_LIMIT', f'c0_analogMinLimit_{i}'],
-			[f'[JOINT_{i}]', 'ANALOG_MAX_LIMIT', f'c0_analogMaxLimit_{i}'],
-			]
+				iniContents.append(f'AXIS = {getattr(parent, f"c{i}_axis_{j}").currentData()}\n')
+				iniContents.append(f'MIN_LIMIT = {getattr(parent, f"c{i}_min_limit_{j}").text()}\n')
+				iniContents.append(f'MAX_LIMIT = {getattr(parent, f"c{i}_max_limit_{j}").text()}\n')
+				iniContents.append(f'MAX_VELOCITY = {getattr(parent, f"c{i}_max_vel_{j}").text()}\n')
+				iniContents.append(f'MAX_ACCELERATION = {getattr(parent, f"c{i}_max_accel_{j}").text()}\n')
 
-			for item in joint:
-				self.update(parent, item[0], item[1], item[2])
+		for section in self.sections.items():
+			if section[0].startswith('[JOINT'):
+				#print(section)
+				joint = section[0][-2]
+				#print(joint)
+				start = section[1][0]
+				end = section[1][1]
+				for i in range(start, end):
+					#print(self.content[i])
+					if self.content[i].startswith('CARD'):
+						card = self.content[i].split('=')[1].strip()
+						#print(self.content[i].split('=')[1].strip())
+					elif self.content[i].startswith('TAB'):
+						tab = self.content[i].split('=')[1].strip()
+				joint = [
+				[f'[JOINT_{joint}]', 'AXIS', f'c{card}_axis_{tab}'],
+				[f'[JOINT_{joint}]', 'DRIVE', f'c{card}_driveCB_{tab}'],
+				[f'[JOINT_{joint}]', 'STEP_INVERT', f'c{card}_StepInvert_{tab}'],
+				[f'[JOINT_{joint}]', 'DIR_INVERT', f'c{card}_DirInvert_{tab}'],
+				[f'[JOINT_{joint}]', 'STEPLEN', f'c{card}_StepTime_{tab}'],
+				[f'[JOINT_{joint}]', 'STEPSPACE', f'c{card}_StepSpace_{tab}'],
+				[f'[JOINT_{joint}]', 'DIRSETUP', f'c{card}_DirSetup_{tab}'],
+				[f'[JOINT_{joint}]', 'DIRHOLD',  f'c{card}_DirHold_{tab}'],
+				[f'[JOINT_{joint}]', 'MIN_LIMIT', f'c{card}_min_limit_{tab}'],
+				[f'[JOINT_{joint}]', 'MAX_LIMIT',  f'c{card}_max_limit_{tab}'],
+				[f'[JOINT_{joint}]', 'MAX_VELOCITY', f'c{card}_max_vel_{tab}'],
+				[f'[JOINT_{joint}]', 'MAX_ACCELERATION', f'c{card}_max_accel_{tab}'],
+				[f'[JOINT_{joint}]', 'SCALE', f'c{card}_scale_{tab}'],
+				[f'[JOINT_{joint}]', 'HOME', f'c{card}_home_{tab}'],
+				[f'[JOINT_{joint}]', 'HOME_OFFSET', f'c{card}_homeOffset_{tab}'],
+				[f'[JOINT_{joint}]', 'HOME_SEARCH_VEL', f'c{card}_homeSearchVel_{tab}'],
+				[f'[JOINT_{joint}]', 'HOME_LATCH_VEL', f'c{card}_homeLatchVel_{tab}'],
+				[f'[JOINT_{joint}]', 'HOME_FINAL_VEL', f'c{card}_homeFinalVelocity_{tab}'],
+				[f'[JOINT_{joint}]', 'HOME_USE_INDEX', f'c{card}_homeUseIndex_{tab}'],
+				[f'[JOINT_{joint}]', 'HOME_IGNORE_LIMITS', f'c{card}_homeIgnoreLimits_{tab}'],
+				[f'[JOINT_{joint}]', 'HOME_IS_SHARED', f'c{card}_homeSwitchShared_{tab}'],
+				[f'[JOINT_{joint}]', 'HOME_SEQUENCE', f'c{card}_homeSequence_{tab}'],
+				[f'[JOINT_{joint}]', 'P', f'c{card}_p_{tab}'],
+				[f'[JOINT_{joint}]', 'I', f'c{card}_i_{tab}'],
+				[f'[JOINT_{joint}]', 'D', f'c{card}_d_{tab}'],
+				[f'[JOINT_{joint}]', 'FF0', f'c{card}_ff0_{tab}'],
+				[f'[JOINT_{joint}]', 'FF1', f'c{card}_ff1_{tab}'],
+				[f'[JOINT_{joint}]', 'FF2', f'c{card}_ff2_{tab}'],
+				[f'[JOINT_{joint}]', 'DEADBAND', f'c{card}_deadband_{tab}'],
+				[f'[JOINT_{joint}]', 'BIAS', f'c{card}_bias_{tab}'],
+				[f'[JOINT_{joint}]', 'MAX_OUTPUT', f'c{card}_maxOutput_{tab}'],
+				[f'[JOINT_{joint}]', 'MAX_ERROR', f'c{card}_maxError_{tab}'],
+				[f'[JOINT_{joint}]', 'FERROR', f'c{card}_ferror_{tab}'],
+				[f'[JOINT_{joint}]', 'MIN_FERROR', f'c{card}_min_ferror_{tab}'],
+				[f'[JOINT_{joint}]', 'ENCODER_SCALE', f'c{card}_encoderScale_{tab}'],
+				[f'[JOINT_{joint}]', 'ANALOG_SCALE_MAX', f'c{card}_analogScaleMax_{tab}'],
+				[f'[JOINT_{joint}]', 'ANALOG_MIN_LIMIT', f'c{card}_analogMinLimit_{tab}'],
+				[f'[JOINT_{joint}]', 'ANALOG_MAX_LIMIT', f'c{card}_analogMaxLimit_{tab}'],
+				]
+
+				for item in joint:
+					self.update(parent, item[0], item[1], item[2])
 
 		spindle = [
 		['[SPINDLE_0]', 'SPINDLE_TYPE', 'spindleTypeCB'],

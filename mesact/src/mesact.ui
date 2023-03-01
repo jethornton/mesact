@@ -1053,7 +1053,7 @@ to the clipboard</string>
           </widget>
           <widget class="QWidget" name="tab_15">
            <attribute name="title">
-            <string>Joint 0</string>
+            <string>Axis 0</string>
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout_9">
             <item>
@@ -2373,7 +2373,7 @@ Leave blank to home the joint manually.</string>
           </widget>
           <widget class="QWidget" name="tab_16">
            <attribute name="title">
-            <string>Joint 1</string>
+            <string>Axis 1</string>
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout_13">
             <item>
@@ -3693,7 +3693,7 @@ Leave blank to home the joint manually.</string>
           </widget>
           <widget class="QWidget" name="tab_17">
            <attribute name="title">
-            <string>Joint2</string>
+            <string>Axis 2</string>
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout_12">
             <item>
@@ -5013,7 +5013,7 @@ Leave blank to home the joint manually.</string>
           </widget>
           <widget class="QWidget" name="tab_18">
            <attribute name="title">
-            <string>Joint 3</string>
+            <string>Axis 3</string>
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout_11">
             <item>
@@ -6333,7 +6333,7 @@ Leave blank to home the joint manually.</string>
           </widget>
           <widget class="QWidget" name="tab_19">
            <attribute name="title">
-            <string>Joint 4</string>
+            <string>Axis 4</string>
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout_10">
             <item>
@@ -7653,7 +7653,7 @@ Leave blank to home the joint manually.</string>
           </widget>
           <widget class="QWidget" name="tab_20">
            <attribute name="title">
-            <string>Joint 5</string>
+            <string>Axis 5</string>
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout_8">
             <item>
@@ -8996,7 +8996,7 @@ Leave blank to home the joint manually.</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_7">
         <item>
-         <widget class="QTabWidget" name="c0_JointTW_2">
+         <widget class="QTabWidget" name="c1_JointTW">
           <property name="currentIndex">
            <number>0</number>
           </property>
@@ -9020,7 +9020,7 @@ Leave blank to home the joint manually.</string>
           </widget>
           <widget class="QWidget" name="tab_53">
            <attribute name="title">
-            <string>Joint 0</string>
+            <string>Axis 0</string>
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout_14">
             <item>
@@ -10340,7 +10340,7 @@ Leave blank to home the joint manually.</string>
           </widget>
           <widget class="QWidget" name="tab_58">
            <attribute name="title">
-            <string>Joint 1</string>
+            <string>Axis 1</string>
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout_15">
             <item>
@@ -11660,7 +11660,7 @@ Leave blank to home the joint manually.</string>
           </widget>
           <widget class="QWidget" name="tab_63">
            <attribute name="title">
-            <string>Joint2</string>
+            <string>Axis 2</string>
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout_16">
             <item>
@@ -12980,7 +12980,7 @@ Leave blank to home the joint manually.</string>
           </widget>
           <widget class="QWidget" name="tab_68">
            <attribute name="title">
-            <string>Joint 3</string>
+            <string>Axis 3</string>
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout_17">
             <item>
@@ -14300,7 +14300,7 @@ Leave blank to home the joint manually.</string>
           </widget>
           <widget class="QWidget" name="tab_73">
            <attribute name="title">
-            <string>Joint 4</string>
+            <string>Axis 4</string>
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout_18">
             <item>
@@ -15620,7 +15620,7 @@ Leave blank to home the joint manually.</string>
           </widget>
           <widget class="QWidget" name="tab_78">
            <attribute name="title">
-            <string>Joint 5</string>
+            <string>Axis 5</string>
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout_19">
             <item>
@@ -16963,7 +16963,7 @@ Leave blank to home the joint manually.</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_26">
         <item>
-         <widget class="QTabWidget" name="c0_JointTW_3">
+         <widget class="QTabWidget" name="c2_JointTW">
           <property name="currentIndex">
            <number>0</number>
           </property>
@@ -16987,7 +16987,7 @@ Leave blank to home the joint manually.</string>
           </widget>
           <widget class="QWidget" name="tab_87">
            <attribute name="title">
-            <string>Joint 0</string>
+            <string>Axis 0</string>
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout_20">
             <item>
@@ -18307,7 +18307,7 @@ Leave blank to home the joint manually.</string>
           </widget>
           <widget class="QWidget" name="tab_92">
            <attribute name="title">
-            <string>Joint 1</string>
+            <string>Axis 1</string>
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout_25">
             <item>
@@ -19627,7 +19627,7 @@ Leave blank to home the joint manually.</string>
           </widget>
           <widget class="QWidget" name="tab_97">
            <attribute name="title">
-            <string>Joint2</string>
+            <string>Axis 2</string>
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout_24">
             <item>
@@ -20947,7 +20947,7 @@ Leave blank to home the joint manually.</string>
           </widget>
           <widget class="QWidget" name="tab_102">
            <attribute name="title">
-            <string>Joint 3</string>
+            <string>Axis 3</string>
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout_23">
             <item>
@@ -22267,7 +22267,7 @@ Leave blank to home the joint manually.</string>
           </widget>
           <widget class="QWidget" name="tab_107">
            <attribute name="title">
-            <string>Joint 4</string>
+            <string>Axis 4</string>
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout_22">
             <item>
@@ -23587,7 +23587,7 @@ Leave blank to home the joint manually.</string>
           </widget>
           <widget class="QWidget" name="tab_112">
            <attribute name="title">
-            <string>Joint 5</string>
+            <string>Axis 5</string>
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout_21">
             <item>
@@ -24930,7 +24930,7 @@ Leave blank to home the joint manually.</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_33">
         <item>
-         <widget class="QTabWidget" name="c0_JointTW_4">
+         <widget class="QTabWidget" name="c3_JointTW">
           <property name="currentIndex">
            <number>0</number>
           </property>
@@ -24954,7 +24954,7 @@ Leave blank to home the joint manually.</string>
           </widget>
           <widget class="QWidget" name="tab_121">
            <attribute name="title">
-            <string>Joint 0</string>
+            <string>Axis 0</string>
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout_27">
             <item>
@@ -26274,7 +26274,7 @@ Leave blank to home the joint manually.</string>
           </widget>
           <widget class="QWidget" name="tab_126">
            <attribute name="title">
-            <string>Joint 1</string>
+            <string>Axis 1</string>
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout_32">
             <item>
@@ -27594,7 +27594,7 @@ Leave blank to home the joint manually.</string>
           </widget>
           <widget class="QWidget" name="tab_131">
            <attribute name="title">
-            <string>Joint2</string>
+            <string>Axis 2</string>
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout_31">
             <item>
@@ -28914,7 +28914,7 @@ Leave blank to home the joint manually.</string>
           </widget>
           <widget class="QWidget" name="tab_136">
            <attribute name="title">
-            <string>Joint 3</string>
+            <string>Axis 3</string>
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout_30">
             <item>
@@ -30234,7 +30234,7 @@ Leave blank to home the joint manually.</string>
           </widget>
           <widget class="QWidget" name="tab_141">
            <attribute name="title">
-            <string>Joint 4</string>
+            <string>Axis 4</string>
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout_29">
             <item>
@@ -31554,7 +31554,7 @@ Leave blank to home the joint manually.</string>
           </widget>
           <widget class="QWidget" name="tab_146">
            <attribute name="title">
-            <string>Joint 5</string>
+            <string>Axis 5</string>
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout_28">
             <item>

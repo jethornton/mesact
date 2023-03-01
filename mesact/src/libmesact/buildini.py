@@ -7,9 +7,6 @@ def build(parent):
 	parent.mainTW.setCurrentIndex(13)
 	parent.infoPTE.appendPlainText(f'Building {iniFilePath}')
 
-	if os.path.isfile(iniFilePath):
-		pass
-
 	if not os.path.exists(parent.configPath):
 		try:
 			os.mkdir(parent.configPath)
@@ -29,6 +26,7 @@ def build(parent):
 	else:
 		board = parent.boardCB.currentData()
 	iniContents.append(f'BOARD = {board}\n')
+	iniContents.append(f'BOARD_NAME = {parent.boardCB.currentData()}\n')
 	iniContents.append(f'FIRMWARE = {parent.firmwareCB.currentData()}\n')
 	if parent.daughterCB_0.currentData() != None:
 		iniContents.append(f'CARD_0 = {parent.daughterCB_0.currentData()}\n')
@@ -161,34 +159,37 @@ def build(parent):
 			if getattr(parent, f"mdiCmdLE_{i}").text():
 				iniContents.append(f'MDI_COMMAND = {getattr(parent, f"mdiCmdLE_{i}").text()}\n')
 
+
+	# build the axes and joints
+	axes = [] # use only one axis letter with multiple joint axis
+	joint = 0
+	for i in range(4):
+		for j in range(6):
+			if getattr(parent, f'c{i}_axis_{j}').currentData():
+				axis = getattr(parent, f'c{i}_axis_{j}').currentData()
+				if axis and axis not in axes: # new axis
+					axes.append(axis)
+					iniContents.append(f'\n[AXIS_{axis}]\n')
+					iniContents.append(f'MIN_LIMIT = {getattr(parent, f"c{i}_min_limit_{j}").text()}\n')
+					iniContents.append(f'MAX_LIMIT = {getattr(parent, f"c{i}_max_limit_{j}").text()}\n')
+					iniContents.append(f'MAX_VELOCITY = {getattr(parent, f"c{i}_max_vel_{j}").text()}\n')
+					iniContents.append(f'MAX_ACCELERATION = {getattr(parent, f"c{i}_max_accel_{j}").text()}\n')
+				iniContents.append(f'\n[JOINT_{joint}]\n')
+				iniContents.append(f'CARD = {i}\n')
+				iniContents.append(f'TAB = {j}\n')
+				iniContents.append(f'AXIS = {getattr(parent, f"c{i}_axis_{j}").currentData()}\n')
+				iniContents.append(f'MIN_LIMIT = {getattr(parent, f"c{i}_min_limit_{j}").text()}\n')
+				iniContents.append(f'MAX_LIMIT = {getattr(parent, f"c{i}_max_limit_{j}").text()}\n')
+				iniContents.append(f'MAX_VELOCITY = {getattr(parent, f"c{i}_max_vel_{j}").text()}\n')
+				iniContents.append(f'MAX_ACCELERATION = {getattr(parent, f"c{i}_max_accel_{j}").text()}\n')
+				joint += 1
+
+
+
 	'''
-
-	# build the axes
-	if parent.cardTabs.isTabEnabled(0):
-		card = 'c0'
-	elif parent.cardTabs.isTabEnabled(1):
-		card = 'c1'
-	axes = []
-
-	for i in range(6):
-		axis = getattr(parent, f'{card}_axisCB_{i}').currentData()
-		if axis and axis not in axes:
-			axes.append(axis)
-			# build the [AXIS_ ] sections
-			iniContents.append(f'\n[AXIS_{axis}]\n')
-			iniContents.append(f'MIN_LIMIT = {getattr(parent, f"{card}_minLimit_{i}").text()}\n')
-			iniContents.append(f'MAX_LIMIT = {getattr(parent, f"{card}_maxLimit_{i}").text()}\n')
-			iniContents.append(f'MAX_VELOCITY = {getattr(parent, f"{card}_maxVelocity_{i}").text()}\n')
-			iniContents.append(f'MAX_ACCELERATION = {getattr(parent, f"{card}_maxAccel_{i}").text()}\n')
 
 		# build the [JOINT_n] sections
 		if getattr(parent, f'{card}_axisCB_{i}').currentData():
-			iniContents.append(f'\n[JOINT_{i}]\n')
-			iniContents.append(f'AXIS = {getattr(parent, f"{card}_axisCB_{i}").currentData()}\n')
-			iniContents.append(f'MIN_LIMIT = {getattr(parent, f"{card}_minLimit_{i}").text()}\n')
-			iniContents.append(f'MAX_LIMIT = {getattr(parent, f"{card}_maxLimit_{i}").text()}\n')
-			iniContents.append(f'MAX_VELOCITY = {getattr(parent, f"{card}_maxVelocity_{i}").text()}\n')
-			iniContents.append(f'MAX_ACCELERATION = {getattr(parent, f"{card}_maxAccel_{i}").text()}\n')
 
 			iniContents.append(f'TYPE = {getattr(parent, f"{card}_axisType_{i}").text()}\n')
 			if getattr(parent, f"{card}_reverse_" + str(i)).isChecked():
