@@ -47,7 +47,11 @@ def build(parent):
 
 	iniFile = os.path.join(parent.configPath, parent.configNameUnderscored + '.ini')
 	if os.path.exists(iniFile):
-		parent.updateini.update(parent, iniFile)
+		#parent.updateini.update(parent, iniFile)
+		msg = ('The Update Function is\n'
+		'on my To Do List.\n'
+		'For now just rename the configuration.')
+		parent.infoMsgOk(msg, 'Function N/A')
 	else:
 		buildini.build(parent)
 
