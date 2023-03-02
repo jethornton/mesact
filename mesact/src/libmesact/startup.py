@@ -21,7 +21,7 @@ def setup(parent):
 	'Build deb and install: Complete and tested\n'
 	'Build ini: Partial in progress\n'
 	'Open ini: Partial in progress\n'
-	'Update ini: Broken\n'
+	'Update ini: Partial in progress\n'
 	'Build hal: To Do\n'
 	'Configure ss: To Do\n'
 	'Build ss: To Do\n'
