@@ -49,7 +49,7 @@ def backupFiles(parent, configPath=None):
 	if not configPath:
 		configPath = parent.configPath
 	if not os.path.exists(configPath):
-		parent.machinePTE.setPlainText('Nothing to Back Up')
+		parent.infoPTE.setPlainText('Nothing to Back Up')
 		return
 	backupDir = os.path.join(configPath, 'backups')
 	if not os.path.exists(backupDir):
@@ -58,8 +58,8 @@ def backupFiles(parent, configPath=None):
 	backupFile = os.path.join(backupDir, f'{datetime.now():%m-%d-%y-%H:%M:%S}')
 	p2 = subprocess.Popen(['zip','-j',backupFile,'-@'], stdin=p1.stdout, stdout=subprocess.PIPE)
 	p1.stdout.close()
-	parent.machinePTE.appendPlainText('Backing up Confguration')
+	parent.infoPTE.appendPlainText('Backing up Confguration')
 	output = p2.communicate()[0]
-	parent.machinePTE.appendPlainText(output.decode())
+	parent.infoPTE.appendPlainText(output.decode())
 
 

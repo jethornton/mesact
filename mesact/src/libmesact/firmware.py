@@ -117,8 +117,8 @@ def firmwareChanged(parent):
 						print(e)
 
 		else:
-			parent.machinePTE.clear()
-			parent.machinePTE.setPlainText(f'No pin file found for {parent.firmwareCB.currentText()}')
+			parent.infoPTE.clear()
+			parent.infoPTE.setPlainText(f'No pin file found for {parent.firmwareCB.currentText()}')
 
 		options = getattr(firmware, f'o{board}')(parent)
 		# options stepgens, pwmgens, qcount
@@ -137,7 +137,7 @@ def firmwareChanged(parent):
 					for i in range(options[parent.firmwareCB.currentText()][2], -1, -1):
 						parent.encodersCB.addItem(f'{i}', f'{i}')
 	else:
-		parent.machinePTE.clear()
+		parent.infoPTE.clear()
 		parent.daughterCB_0.clear()
 		parent.daughterCB_1.clear()
 	'''

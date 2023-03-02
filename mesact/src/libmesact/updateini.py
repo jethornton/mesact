@@ -17,9 +17,14 @@ class updateini:
 			self.content[0] = ('# This file was updated with the Mesa Configuration'
 				f' Tool on {datetime.now().strftime("%b %d %Y %H:%M:%S")}\n')
 
+		if parent.boardCB.currentData() == '7i92t':
+			board = '7i92'
+		else:
+			board = parent.boardCB.currentData()
+
 		mesa = [
 		['MESA', 'VERSION', f'{parent.version}'],
-		['MESA', 'BOARD', f'{parent.board}'],
+		['MESA', 'BOARD', f'{board}'],
 		['MESA', 'BOARD_NAME', f'{parent.boardCB.currentData()}'],
 		['MESA', 'FIRMWARE', f'{parent.firmwareCB.currentText()}'],
 		['MESA', 'CARD_0', f'{parent.daughterCB_0.currentData()}'],
@@ -45,9 +50,9 @@ class updateini:
 			self.delete_key('HM2', 'IPADDRESS')
 		if parent.boardType == 'pci':
 			hm2 = [['HM2', 'DRIVER', 'hm2_pci']]
-		hm2.append(['HM2', 'STEPGENS', f'{parent.stepgensCB.currentData()}'])
-		hm2.append(['HM2', 'PWMGENS', f'{parent.pwmgensCB.currentData()}'])
-		hm2.append(['HM2', 'ENCODERS', f'{parent.encodersCB.currentData()}'])
+		#hm2.append(['HM2', 'STEPGENS', f'{parent.stepgensCB.currentData()}'])
+		#hm2.append(['HM2', 'PWMGENS', f'{parent.pwmgensCB.currentData()}'])
+		#hm2.append(['HM2', 'ENCODERS', f'{parent.encodersCB.currentData()}'])
 		for item in hm2:
 			self.update_key(item[0], item[1], item[2])
 
@@ -218,6 +223,8 @@ class updateini:
 							self.content.insert(j, f'MDI_COMMAND = {getattr(parent, f"mdiCmdLE_{i}").text()}\n')
 					self.get_sections() # update section start/end
 
+		############ Massive rework needed here
+		'''
 		# [AXIS_x] section
 		if parent.cardTabs.isTabEnabled(0):
 			card = 'c0'
@@ -515,13 +522,14 @@ class updateini:
 		else: # remove the [SSERIAL] section
 			if '[SSERIAL]' in self.sections:
 				self.delete_section('[SSERIAL]')
+		'''
 
 		self.write_ini(parent)
 
 	def write_ini(self, parent):
 		with open(self.iniFile, 'w') as outfile:
 			outfile.write(''.join(self.content))
-		parent.machinePTE.appendPlainText(f'Updated {self.iniFile}')
+		parent.infoPTE.appendPlainText(f'Updated {self.iniFile}')
 
 	'''
 	def get_sections(self):

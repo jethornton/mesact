@@ -11,7 +11,7 @@ def build(parent):
 		try:
 			os.mkdir(parent.configPath)
 		except OSError:
-			parent.machinePTE.appendPlainText(f'OS error\n {traceback.print_exc()}')
+			parent.infoPTE.appendPlainText(f'OS error\n {traceback.print_exc()}')
 
 	iniContents = ['# This file was created with the Mesa Configuration Tool on ']
 	iniContents.append(datetime.now().strftime('%b %d %Y %H:%M:%S') + '\n')
@@ -394,4 +394,4 @@ def build(parent):
 		with open(iniFilePath, 'w') as iniFile:
 			iniFile.writelines(iniContents)
 	except OSError:
-		parent.machinePTE.appendPlainText(f'OS error\n {traceback.print_exc()}')
+		parent.infoPTE.appendPlainText(f'OS error\n {traceback.print_exc()}')
