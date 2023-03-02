@@ -215,7 +215,7 @@ class loadini:
 						tab = self.content[i].split('=')[1].strip()
 				joint = [
 				[f'[JOINT_{joint}]', 'AXIS', f'c{card}_axis_{tab}'],
-				[f'[JOINT_{joint}]', 'DRIVE', f'c{card}_driveCB_{tab}'],
+				[f'[JOINT_{joint}]', 'DRIVE', f'c{card}_drive_{tab}'],
 				[f'[JOINT_{joint}]', 'STEP_INVERT', f'c{card}_StepInvert_{tab}'],
 				[f'[JOINT_{joint}]', 'DIR_INVERT', f'c{card}_DirInvert_{tab}'],
 				[f'[JOINT_{joint}]', 'STEPLEN', f'c{card}_StepTime_{tab}'],
