@@ -65,6 +65,7 @@ def boardChanged(parent):
 				parent.daughterCB_0.addItem(item[0], item[1])
 				parent.daughterCB_1.addItem(item[0], item[1])
 		elif board == '7i76e':
+			# 5 step/dir 32 inputs 16 outputs 1 spindle 1 encoder
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
 			parent.c0_JointTW.setTabVisible(5, False)
@@ -76,6 +77,15 @@ def boardChanged(parent):
 			for item in db25:
 				parent.daughterCB_0.addItem(item[0], item[1])
 				parent.daughterCB_1.addItem(item[0], item[1])
+			for j in range(32):
+				getattr(parent, f'c0_input_{j}').setEnabled(True)
+				getattr(parent, f'c0_input_invert_{j}').setEnabled(True)
+				getattr(parent, f'c0_input_debounce_{j}').setEnabled(False)
+			'''
+			for j in range(16):
+				getattr(parent, f'outputPB_{i}').setEnabled(True)
+				getattr(parent, f'outputInvertCB_{i}').setEnabled(False)
+			'''
 		elif board == '7i80db16':
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
@@ -213,6 +223,7 @@ def boardChanged(parent):
 			for item in db25:
 				parent.daughterCB_0.addItem(item[0], item[1])
 		elif board == '7i96s':
+			# 5 step/dir 11 inputs 6 outputs 1 spindle 1 encoder
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
 			parent.c0_JointTW.setTabVisible(6, False)
@@ -221,6 +232,24 @@ def boardChanged(parent):
 			parent.mainTW.setTabText(4, 'P1')
 			for item in db25:
 				parent.daughterCB_0.addItem(item[0], item[1])
+			for j in range(11):
+				getattr(parent, f'c0_input_{j}').setEnabled(True)
+				getattr(parent, f'c0_input_invert_{j}').setEnabled(True)
+				getattr(parent, f'c0_input_debounce_{j}').setEnabled(True)
+			'''
+			for j in range(6):
+				getattr(parent, f'outputPB_{j}').setEnabled(True)
+				getattr(parent, f'outputInvertCB_{j}').setEnabled(True)
+			'''
+			for j in range(11,32):
+				getattr(parent, f'c0_input_{j}').setEnabled(False)
+				getattr(parent, f'c0_input_invert_{j}').setEnabled(False)
+				getattr(parent, f'c0_input_debounce_{j}').setEnabled(False)
+			'''
+			for j in range(6,16):
+				getattr(parent, f'outputPB_{j}').setEnabled(False)
+				getattr(parent, f'outputInvertCB_{j}').setEnabled(False)
+			'''
 		elif board == '7i97':
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)

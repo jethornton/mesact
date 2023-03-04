@@ -1,4 +1,7 @@
 import os
+import urllib.request
+
+from PyQt5.QtWidgets import QApplication
 
 def isNumber(s):
 	try:
@@ -7,6 +10,19 @@ def isNumber(s):
 		return True
 	except ValueError:
 		return False
+
+def download(parent, down_url, save_loc):
+	def Handle_Progress(blocknum, blocksize, totalsize):
+		## calculate the progress
+		readed_data = blocknum * blocksize
+		if totalsize > 0:
+			download_percentage = readed_data * 100 / totalsize
+			parent.progressBar.setValue(int(download_percentage))
+			QApplication.processEvents()
+	urllib.request.urlretrieve(down_url, save_loc, Handle_Progress)
+	parent.progressBar.setValue(100)
+	parent.timer.start(1000)
+
 
 def unitsChanged(parent):
 	if not parent.linearUnitsCB.currentData():

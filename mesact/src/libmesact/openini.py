@@ -289,15 +289,25 @@ class loadini:
 		for item in spindle:
 			self.update(parent, item[0], item[1], item[2])
 
-		for i in range(32):
-			inputs = [
-			['[INPUTS]', f'INPUT_{i}', f'inputPB_{i}'],
-			['[INPUTS]', f'INPUT_INVERT_{i}', f'inputInvertCB_{i}'],
-			['[INPUTS]', f'INPUT_SLOW_{i}', f'inputDebounceCB_{i}'],
-			]
+		'''
+		INPUT_1_0 = Joint 0 Home
+		INPUT_INVERT_1_0 = True
+		INPUT_SLOW_1_0 = True
+		c0_input_0
+		c0_input_invert_0
+		c0_input_debounce_0
+		'''
 
-			for item in inputs:
-				self.update(parent, item[0], item[1], item[2])
+		for i in range(4):
+			for j in range(32):
+				inputs = [
+				['[INPUTS]', f'INPUT_{i}_{j}', f'c{i}_input_{j}'],
+				['[INPUTS]', f'INPUT_INVERT_{i}_{j}', f'c{i}_input_invert_{j}'],
+				['[INPUTS]', f'INPUT_SLOW_{i}_{j}', f'c{i}_input_debounce_{j}'],
+				]
+
+				for item in inputs:
+					self.update(parent, item[0], item[1], item[2])
 
 		for i in range(16):
 			outputs = [

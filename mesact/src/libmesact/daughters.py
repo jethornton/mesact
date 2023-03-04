@@ -1,4 +1,9 @@
 
+'''
+7i76 5 step/dir 32 inputs 16 outputs 1 spindle 1 encoder
+7i77 6 analog  32 inputs 16 outputs 1 spindle 1 encoder
+7i78 4 step/dir 1 spindle 1 encoder
+'''
 
 def changed(parent):
 	stepper = ['7i76', '7i78']

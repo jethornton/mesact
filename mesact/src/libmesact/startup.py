@@ -1,7 +1,13 @@
 import os, subprocess
 from functools import partial
 
+from PyQt5.QtGui import  QIcon
+from PyQt5.QtWidgets import QAction
+
+
 from libmesact import combos
+from libmesact import menus
+from libmesact import updates
 
 def setup(parent):
 
@@ -18,17 +24,35 @@ def setup(parent):
 
 	# temp show progress
 	msg = ('Item Status\n'
-	'Build deb and install: Complete and tested\n'
+	'Build deb and install: Complete and Tested\n'
 	'Build ini: Partial in progress\n'
 	'Open ini: Partial in progress\n'
+	'\tLoad Axes: Complete and Tested\n'
+	'\tLoad Inputs: Complete and Tested\n'
+	'\tLoad Outputs: To Do\n'
 	'Update ini: Partial in progress\n'
 	'Build hal: To Do\n'
+	'Boards: Axes and Inputs done Outputs To Do\n'
 	'Configure ss: To Do\n'
 	'Build ss: To Do\n'
 	'Firmware: Complete but untested\n'
+	'Download Manuals and Firmware: Complete and Tested\n'
 	)
 	parent.infoPTE.setPlainText(msg)
 	parent.mainTW.setCurrentIndex(11)
+
+	exitAction = QAction(QIcon.fromTheme('application-exit'), 'Exit', parent)
+	#exitAction.setShortcut('Ctrl+Q')
+	exitAction.setStatusTip('Exit application')
+	exitAction.triggered.connect(parent.close)
+	parent.menuFile.addAction(exitAction)
+
+	docsAction = QAction(QIcon.fromTheme('document-open'), 'Mesa Manuals', parent)
+	docsAction.setStatusTip('Download Mesa Documents')
+	#preferencesAction.triggered.connect(partial(menu.edit_preferences, parent))
+	docsAction.triggered.connect(partial(updates.downloadDocs, parent))
+	parent.menuDownloads.addAction(docsAction)
+
 
 	# set tab visibility
 	parent.mainTW.setTabVisible(3, False)
@@ -65,3 +89,4 @@ def setup(parent):
 		parent.mesaflashVersionLB.setText('Not Installed')
 
 	combos.build(parent)
+	menus.build(parent)
