@@ -312,23 +312,6 @@ def build(parent):
 						iniContents.append(f'OUTPUT_{i}_{j} = {getattr(parent, f"c{i}_output_{j}").text()}\n')
 						iniContents.append(f'OUTPUT_INVERT_{i}_{j} = {getattr(parent, f"c{i}_output_invert_{j}").isChecked()}\n')
 
-
-	'''c0_output_0
-
-	inputs = []
-	for j in range(32):
-		inputs = []
-		for i in range(4):
-			if getattr(parent, f"c{i}_input_{j}").text():
-				
-			inputs.append()
-
-	for i in range(4):
-
-	for i in range(16):
-		iniContents.append(f'OUTPUT_{i} = {getattr(parent, "outputPB_" + str(i)).text()}\n')
-		iniContents.append(f'OUTPUT_INVERT_{i} = {getattr(parent, "outputInvertCB_" + str(i)).isChecked()}\n')
-
 	# build the [OPTIONS] section
 	iniContents.append('\n[OPTIONS]\n')
 	iniContents.append('# DO NOT change the options they are used by the configuration tool\n')
@@ -344,6 +327,10 @@ def build(parent):
 	iniContents.append(f'GLADEVCP = {parent.gladevcpCB.isChecked()}\n')
 	iniContents.append(f'LADDER = {parent.ladderGB.isChecked()}\n')
 	iniContents.append(f'BACKUP = {parent.backupCB.isChecked()}\n')
+
+
+
+	'''
 
 	# build the [PLC] section
 	if parent.ladderGB.isChecked(): # check for any options
