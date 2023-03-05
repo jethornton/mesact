@@ -84,7 +84,16 @@ def build(parent):
 			add_menu(inputs, menu)
 			button.setMenu(menu)
 
-	''' c0_input_0
+	for i in range(4):
+		for j in range(16):
+			button = getattr(parent, f'c{i}_output_{j}')
+			menu = QMenu()
+			menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
+			add_menu(outputs, menu)
+			button.setMenu(menu)
+
+
+	''' c0_input_0 c0_output_0
 	for i in range(16):
 		button = getattr(parent, f'outputPB_{i}')
 		menu = QMenu()

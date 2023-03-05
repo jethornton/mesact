@@ -292,15 +292,28 @@ def build(parent):
 	iniContents.append('\n[INPUTS]\n')
 	iniContents.append('# DO NOT change the inputs they are used by the configuration tool\n')
 	for i in range(4):
-		if parent.mainTW.isTabVisible(i + 3):
-			if getattr(parent, f'c{i}_JointTW').isTabVisible(7):
+		if parent.mainTW.isTabVisible(i + 3): # if the board tab is visible
+			if getattr(parent, f'c{i}_JointTW').isTabVisible(1):
 				for j in range(32):
-					iniContents.append(f'INPUT_{i}_{j} = {getattr(parent, f"c{i}_input_{j}").text()}\n')
-					iniContents.append(f'INPUT_INVERT_{i}_{j} = {getattr(parent, f"c{i}_input_invert_{j}").isChecked()}\n')
-					iniContents.append(f'INPUT_SLOW_{i}_{j} = {getattr(parent, f"c{i}_input_debounce_{j}").isChecked()}\n')
+					if getattr(parent, f"c{i}_input_{j}").text() != 'Select': # only add inputs that are used
+						iniContents.append(f'INPUT_{i}_{j} = {getattr(parent, f"c{i}_input_{j}").text()}\n')
+						iniContents.append(f'INPUT_INVERT_{i}_{j} = {getattr(parent, f"c{i}_input_invert_{j}").isChecked()}\n')
+						iniContents.append(f'INPUT_SLOW_{i}_{j} = {getattr(parent, f"c{i}_input_debounce_{j}").isChecked()}\n')
+
+	# build the [OUTPUTS] section from pushbuttons
+	iniContents.append('\n[OUTPUTS]\n')
+	iniContents.append('# DO NOT change the outputs they are used by the configuration tool\n')
+	for i in range(4):
+		if parent.mainTW.isTabVisible(i + 3): # if the board tab is visible
+			index = getattr(parent, f'c{i}_JointTW').indexOf(getattr(parent, f'c{i}_outputs'))
+			if getattr(parent, f'c{i}_JointTW').isTabVisible(index): # if the outputs tab is visible
+				for j in range(16):
+					if getattr(parent, f"c{i}_output_{j}").text() != 'Select': # only add outputs that are used
+						iniContents.append(f'OUTPUT_{i}_{j} = {getattr(parent, f"c{i}_output_{j}").text()}\n')
+						iniContents.append(f'OUTPUT_INVERT_{i}_{j} = {getattr(parent, f"c{i}_output_invert_{j}").isChecked()}\n')
 
 
-	'''
+	'''c0_output_0
 
 	inputs = []
 	for j in range(32):
@@ -312,9 +325,6 @@ def build(parent):
 
 	for i in range(4):
 
-	# build the [OUTPUTS] section from pushbuttons
-	iniContents.append('\n[OUTPUTS]\n')
-	iniContents.append('# DO NOT change the outputs they are used by the configuration tool\n')
 	for i in range(16):
 		iniContents.append(f'OUTPUT_{i} = {getattr(parent, "outputPB_" + str(i)).text()}\n')
 		iniContents.append(f'OUTPUT_INVERT_{i} = {getattr(parent, "outputInvertCB_" + str(i)).isChecked()}\n')

@@ -309,14 +309,15 @@ class loadini:
 				for item in inputs:
 					self.update(parent, item[0], item[1], item[2])
 
-		for i in range(16):
-			outputs = [
-			['[OUTPUTS]', f'OUTPUT_{i}', f'outputPB_{i}'],
-			['[OUTPUTS]', f'OUTPUT_INVERT_{i}', f'outputInvertCB_{i}'],
-			]
+		for i in range(4):
+			for j in range(16):
+				outputs = [
+				['[OUTPUTS]', f'OUTPUT_{i}_{j}', f'c{i}_output_{j}'],
+				['[OUTPUTS]', f'OUTPUT_INVERT_{i}_{j}', f'c{i}_output_invert_{i}'],
+				]
 
-			for item in outputs:
-				self.update(parent, item[0], item[1], item[2])
+				for item in outputs:
+					self.update(parent, item[0], item[1], item[2])
 
 		options = [
 		['[OPTIONS]', 'LOAD_CONFIG', 'loadConfigCB'],

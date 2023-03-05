@@ -10027,7 +10027,7 @@ Leave blank to home the joint manually.</string>
             </item>
            </layout>
           </widget>
-          <widget class="QWidget" name="tab_22">
+          <widget class="QWidget" name="c0_outputs">
            <attribute name="title">
             <string>Ouputs</string>
            </attribute>
@@ -19463,7 +19463,7 @@ Leave blank to home the joint manually.</string>
             </item>
            </layout>
           </widget>
-          <widget class="QWidget" name="tab_84">
+          <widget class="QWidget" name="c1_outputs">
            <attribute name="title">
             <string>Ouputs</string>
            </attribute>
@@ -28899,7 +28899,7 @@ Leave blank to home the joint manually.</string>
             </item>
            </layout>
           </widget>
-          <widget class="QWidget" name="tab_118">
+          <widget class="QWidget" name="c2_outputs">
            <attribute name="title">
             <string>Ouputs</string>
            </attribute>
@@ -38335,7 +38335,7 @@ Leave blank to home the joint manually.</string>
             </item>
            </layout>
           </widget>
-          <widget class="QWidget" name="tab_152">
+          <widget class="QWidget" name="c3_outputs">
            <attribute name="title">
             <string>Ouputs</string>
            </attribute>

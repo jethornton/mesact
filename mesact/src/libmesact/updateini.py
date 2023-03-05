@@ -436,18 +436,22 @@ class updateini:
 		else: # if SPINDLE_0 is in ini delete it
 			if '[SPINDLE_0]' in self.sections:
 				self.delete_section('[SPINDLE_0]')
-
+		'''
 		# update the [INPUTS] section
-		for i in range(32):
-			self.update_key('INPUTS', f'INPUT_{i}', getattr(parent, "inputPB_" + str(i)).text())
-			self.update_key('INPUTS', f'INPUT_INVERT_{i}', getattr(parent, "inputInvertCB_" + str(i)).isChecked())
-			self.update_key('INPUTS', f'INPUT_SLOW_{i}', getattr(parent, "inputDebounceCB_" + str(i)).isChecked())
+		for i in range(4):
+			for j in range(32):
+				if getattr(parent, f'c{i}_input_{j}').text() != 'Select':
+					self.update_key('INPUTS', f'INPUT_{i}_{j}', getattr(parent, f'c{i}_input_{j}').text())
+					self.update_key('INPUTS', f'INPUT_INVERT_{i}_{j}', getattr(parent, f'c{i}_input_invert_{j}').isChecked())
+					self.update_key('INPUTS', f'INPUT_SLOW_{i}_{j}', getattr(parent, f'c{i}_input_debounce_{j}').isChecked())
 
 		# update the [OUTPUTS] section
-		for i in range(16):
-			self.update_key('OUTPUTS', f'OUTPUT_{i}', getattr(parent, "outputPB_" + str(i)).text())
-			self.update_key('OUTPUTS', f'OUTPUT_INVERT_{i}', getattr(parent, "outputInvertCB_" + str(i)).isChecked())
-
+		for i in range(4):
+			for j in range(16):
+				if getattr(parent, f'c{i}_output_{j}').text() != 'Select':
+					self.update_key('OUTPUTS', f'OUTPUT_{i}_{j}', getattr(parent, f'c{i}_output_{j}').text())
+					self.update_key('OUTPUTS', f'OUTPUT_INVERT_{i}_{j}', getattr(parent, f'c{i}_output_invert_{j}').isChecked())
+		'''
 		# update the [OPTIONS] section
 		options = [
 		['OPTIONS', 'LOAD_CONFIG', f'{parent.loadConfigCB.isChecked()}'],
