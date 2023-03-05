@@ -313,7 +313,7 @@ class loadini:
 			for j in range(16):
 				outputs = [
 				['[OUTPUTS]', f'OUTPUT_{i}_{j}', f'c{i}_output_{j}'],
-				['[OUTPUTS]', f'OUTPUT_INVERT_{i}_{j}', f'c{i}_output_invert_{i}'],
+				['[OUTPUTS]', f'OUTPUT_INVERT_{i}_{j}', f'c{i}_output_invert_{j}'],
 				]
 
 				for item in outputs:
