@@ -34,6 +34,7 @@ from libmesact import check
 from libmesact import openini
 from libmesact import updateini
 from libmesact import buildconfig
+from libmesact import sscards
 
 from libmesact import shutdown
 
@@ -150,8 +151,10 @@ class MainWindow(QMainWindow):
 		self.spindleMaxRpm.valueChanged.connect(partial(utilities.spindleSettingsChanged, self))
 		self.spindleMaxAccel.valueChanged.connect(partial(utilities.spindleSettingsChanged, self))
 
+		'''
 		# Smart Serial Tab
-		self.ssCardCB.currentIndexChanged.connect(partial(utilities.ssCardChanged, self))
+		self.ssCardCB.currentIndexChanged.connect(partial(sscards.ssCardChanged, self))
+		'''
 
 		# HAL Tab
 		self.buildHalPB.clicked.connect(partial(hal.buildHal, self))

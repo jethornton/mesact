@@ -38771,43 +38771,1111 @@ Leave blank to home the joint manually.</string>
        <attribute name="title">
         <string>SS Card</string>
        </attribute>
-       <widget class="QGroupBox" name="groupBox_139">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>0</y>
-          <width>771</width>
-          <height>81</height>
-         </rect>
-        </property>
-        <property name="title">
-         <string>Smart Serial Card</string>
-        </property>
-        <layout class="QGridLayout" name="gridLayout_311">
-         <property name="topMargin">
-          <number>15</number>
-         </property>
-         <item row="0" column="1">
-          <widget class="QLabel" name="smartSerialInfoLbl">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
+       <layout class="QVBoxLayout" name="verticalLayout_44">
+        <item>
+         <widget class="QGroupBox" name="groupBox_139">
+          <property name="title">
+           <string>Smart Serial Card</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_311">
+           <property name="topMargin">
+            <number>15</number>
            </property>
-           <property name="frameShape">
-            <enum>QFrame::Box</enum>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
+           <item row="0" column="1">
+            <widget class="QLabel" name="ss_info">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::Box</enum>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QComboBox" name="ssCardCB"/>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QStackedWidget" name="ss_pages">
+          <property name="frameShape">
+           <enum>QFrame::Box</enum>
+          </property>
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
+          <widget class="QWidget" name="page">
+           <layout class="QGridLayout" name="gridLayout_350">
+            <item row="0" column="0">
+             <widget class="QLabel" name="label_1217">
+              <property name="text">
+               <string>No Smart Serial Card Selected</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QPlainTextEdit" name="plainTextEdit">
+              <property name="maximumSize">
+               <size>
+                <width>300</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="plainText">
+               <string>The Smart Serial Card Configuration is very new.
+
+At this time the Smart Serial Card
+will create a net with a signal name and you will have to add the input or output pin name or create simple I/O connections.
+
+The 7i83 and 7i87 are not currently supported.</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QPlainTextEdit" name="plainTextEdit_2">
+              <property name="plainText">
+               <string>SSERIAL Wiring using a standard CAT5 Cable
+Pin 0 is at the bottom
+TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
+15	GND	4,5	BLUE, BLUE / WHITE
+16	RX+	6	GREEN
+17	RX-	3	GREEN / WHITE
+18	TX+	2	ORANGE
+19	TX-	1	ORANGE / WHITE
+20	+5V	7,8	BROWN / WHITE,BROWN</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </widget>
-         </item>
-         <item row="0" column="0">
-          <widget class="QComboBox" name="ssCardCB"/>
-         </item>
-        </layout>
-       </widget>
+          <widget class="QWidget" name="page_2">
+           <layout class="QVBoxLayout" name="verticalLayout_45">
+            <item>
+             <widget class="QTabWidget" name="tabWidget_35">
+              <property name="currentIndex">
+               <number>0</number>
+              </property>
+              <widget class="QWidget" name="tab_22">
+               <attribute name="title">
+                <string>7i64 Inputs</string>
+               </attribute>
+               <layout class="QGridLayout" name="gridLayout_355">
+                <item row="0" column="0">
+                 <widget class="QGroupBox" name="groupBox_162">
+                  <property name="title">
+                   <string>Inputs 0 - 5 P3</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_351">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_1227">
+                     <property name="text">
+                      <string>0</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QPushButton" name="ss7i64in_0">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="label_1228">
+                     <property name="text">
+                      <string>1</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="1">
+                    <widget class="QPushButton" name="ss7i64in_1">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="0">
+                    <widget class="QLabel" name="label_1218">
+                     <property name="text">
+                      <string>2</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="1">
+                    <widget class="QPushButton" name="ss7i64in_2">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="0">
+                    <widget class="QLabel" name="label_1230">
+                     <property name="text">
+                      <string>3</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="1">
+                    <widget class="QPushButton" name="ss7i64in_3">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="4" column="0">
+                    <widget class="QLabel" name="label_1229">
+                     <property name="text">
+                      <string>4</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="4" column="1">
+                    <widget class="QPushButton" name="ss7i64in_4">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="5" column="0">
+                    <widget class="QLabel" name="label_1226">
+                     <property name="text">
+                      <string>5</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="5" column="1">
+                    <widget class="QPushButton" name="ss7i64in_5">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QGroupBox" name="groupBox_163">
+                  <property name="title">
+                   <string>Inputs 6 - 11 P3</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_352">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_1236">
+                     <property name="text">
+                      <string>6</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QPushButton" name="ss7i64in_6">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="label_1234">
+                     <property name="text">
+                      <string>7</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="1">
+                    <widget class="QPushButton" name="ss7i64in_7">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="0">
+                    <widget class="QLabel" name="label_1232">
+                     <property name="text">
+                      <string>8</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="1">
+                    <widget class="QPushButton" name="ss7i64in_8">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="0">
+                    <widget class="QLabel" name="label_1231">
+                     <property name="text">
+                      <string>9</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="1">
+                    <widget class="QPushButton" name="ss7i64in_9">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="4" column="0">
+                    <widget class="QLabel" name="label_1233">
+                     <property name="text">
+                      <string>10</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="4" column="1">
+                    <widget class="QPushButton" name="ss7i64in_10">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="5" column="0">
+                    <widget class="QLabel" name="label_1235">
+                     <property name="text">
+                      <string>11</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="5" column="1">
+                    <widget class="QPushButton" name="ss7i64in_11">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="0" column="2">
+                 <widget class="QGroupBox" name="groupBox_164">
+                  <property name="title">
+                   <string>Inputs 12 - 17 P4</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_353">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_1238">
+                     <property name="text">
+                      <string>12</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QPushButton" name="ss7i64in_12">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="label_1239">
+                     <property name="text">
+                      <string>13</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="1">
+                    <widget class="QPushButton" name="ss7i64in_13">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="0">
+                    <widget class="QLabel" name="label_1242">
+                     <property name="text">
+                      <string>14</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="1">
+                    <widget class="QPushButton" name="ss7i64in_14">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="0">
+                    <widget class="QLabel" name="label_1237">
+                     <property name="text">
+                      <string>15</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="1">
+                    <widget class="QPushButton" name="ss7i64in_15">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="4" column="0">
+                    <widget class="QLabel" name="label_1240">
+                     <property name="text">
+                      <string>16</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="4" column="1">
+                    <widget class="QPushButton" name="ss7i64in_16">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="5" column="0">
+                    <widget class="QLabel" name="label_1241">
+                     <property name="text">
+                      <string>17</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="5" column="1">
+                    <widget class="QPushButton" name="ss7i64in_17">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="0" column="3">
+                 <widget class="QGroupBox" name="groupBox_165">
+                  <property name="title">
+                   <string>Inputs 18 - 23 P4</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_354">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_1244">
+                     <property name="text">
+                      <string>18</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QPushButton" name="ss7i64in_18">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="label_1246">
+                     <property name="text">
+                      <string>19</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="1">
+                    <widget class="QPushButton" name="ss7i64in_19">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="0">
+                    <widget class="QLabel" name="label_1247">
+                     <property name="text">
+                      <string>20</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="1">
+                    <widget class="QPushButton" name="ss7i64in_20">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="0">
+                    <widget class="QLabel" name="label_1243">
+                     <property name="text">
+                      <string>21</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="1">
+                    <widget class="QPushButton" name="ss7i64in_21">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="4" column="0">
+                    <widget class="QLabel" name="label_1245">
+                     <property name="text">
+                      <string>22</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="4" column="1">
+                    <widget class="QPushButton" name="ss7i64in_22">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="5" column="0">
+                    <widget class="QLabel" name="label_1248">
+                     <property name="text">
+                      <string>23</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="5" column="1">
+                    <widget class="QPushButton" name="ss7i64in_23">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="tab_118">
+               <attribute name="title">
+                <string>7i64 Outputs</string>
+               </attribute>
+               <layout class="QGridLayout" name="gridLayout_356">
+                <item row="0" column="0">
+                 <widget class="QGroupBox" name="groupBox_166">
+                  <property name="title">
+                   <string>Outputs 0 - 5 P2</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_357">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_1253">
+                     <property name="text">
+                      <string>0</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QPushButton" name="ss7i64out_0">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="label_1249">
+                     <property name="text">
+                      <string>1</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="1">
+                    <widget class="QPushButton" name="ss7i64out_1">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="0">
+                    <widget class="QLabel" name="label_1250">
+                     <property name="text">
+                      <string>2</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="1">
+                    <widget class="QPushButton" name="ss7i64out_2">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="0">
+                    <widget class="QLabel" name="label_1254">
+                     <property name="text">
+                      <string>3</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="1">
+                    <widget class="QPushButton" name="ss7i64out_3">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="4" column="0">
+                    <widget class="QLabel" name="label_1251">
+                     <property name="text">
+                      <string>4</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="4" column="1">
+                    <widget class="QPushButton" name="ss7i64out_4">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="5" column="0">
+                    <widget class="QLabel" name="label_1252">
+                     <property name="text">
+                      <string>5</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="5" column="1">
+                    <widget class="QPushButton" name="ss7i64out_5">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QGroupBox" name="groupBox_167">
+                  <property name="title">
+                   <string>Outputs 6 - 11 P2</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_358">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_1259">
+                     <property name="text">
+                      <string>6</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QPushButton" name="ss7i64out_6">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="label_1256">
+                     <property name="text">
+                      <string>7</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="1">
+                    <widget class="QPushButton" name="ss7i64out_7">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="0">
+                    <widget class="QLabel" name="label_1255">
+                     <property name="text">
+                      <string>8</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="1">
+                    <widget class="QPushButton" name="ss7i64out_8">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="0">
+                    <widget class="QLabel" name="label_1260">
+                     <property name="text">
+                      <string>9</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="1">
+                    <widget class="QPushButton" name="ss7i64out_9">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="4" column="0">
+                    <widget class="QLabel" name="label_1257">
+                     <property name="text">
+                      <string>10</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="4" column="1">
+                    <widget class="QPushButton" name="ss7i64out_10">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="5" column="0">
+                    <widget class="QLabel" name="label_1258">
+                     <property name="text">
+                      <string>11</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="5" column="1">
+                    <widget class="QPushButton" name="ss7i64out_11">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="0" column="2">
+                 <widget class="QGroupBox" name="groupBox_168">
+                  <property name="title">
+                   <string>Outputs 12 - 17 P5</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_359">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_1261">
+                     <property name="text">
+                      <string>12</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QPushButton" name="ss7i64out_12">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="label_1262">
+                     <property name="text">
+                      <string>13</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="1">
+                    <widget class="QPushButton" name="ss7i64out_13">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="0">
+                    <widget class="QLabel" name="label_1264">
+                     <property name="text">
+                      <string>14</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="1">
+                    <widget class="QPushButton" name="ss7i64out_14">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="0">
+                    <widget class="QLabel" name="label_1265">
+                     <property name="text">
+                      <string>15</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="1">
+                    <widget class="QPushButton" name="ss7i64out_15">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="4" column="0">
+                    <widget class="QLabel" name="label_1263">
+                     <property name="text">
+                      <string>16</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="4" column="1">
+                    <widget class="QPushButton" name="ss7i64out_16">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="5" column="0">
+                    <widget class="QLabel" name="label_1266">
+                     <property name="text">
+                      <string>17</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="5" column="1">
+                    <widget class="QPushButton" name="ss7i64out_17">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="0" column="3">
+                 <widget class="QGroupBox" name="groupBox_169">
+                  <property name="title">
+                   <string>Outputs 18 - 23 P5</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_360">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_1272">
+                     <property name="text">
+                      <string>18</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QPushButton" name="ss7i64out_18">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="label_1267">
+                     <property name="text">
+                      <string>19</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="1">
+                    <widget class="QPushButton" name="ss7i64out_19">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="0">
+                    <widget class="QLabel" name="label_1270">
+                     <property name="text">
+                      <string>20</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="1">
+                    <widget class="QPushButton" name="ss7i64out_20">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="0">
+                    <widget class="QLabel" name="label_1268">
+                     <property name="text">
+                      <string>21</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="1">
+                    <widget class="QPushButton" name="ss7i64out_21">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="4" column="0">
+                    <widget class="QLabel" name="label_1271">
+                     <property name="text">
+                      <string>22</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="4" column="1">
+                    <widget class="QPushButton" name="ss7i64out_22">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="5" column="0">
+                    <widget class="QLabel" name="label_1269">
+                     <property name="text">
+                      <string>23</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="5" column="1">
+                    <widget class="QPushButton" name="ss7i64out_23">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="page_3">
+           <widget class="QLabel" name="label_1219">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>20</y>
+              <width>66</width>
+              <height>19</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>7i69</string>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QWidget" name="page_4">
+           <widget class="QLabel" name="label_1220">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>30</y>
+              <width>66</width>
+              <height>19</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>7i70</string>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QWidget" name="page_5">
+           <widget class="QLabel" name="label_1221">
+            <property name="geometry">
+             <rect>
+              <x>50</x>
+              <y>50</y>
+              <width>66</width>
+              <height>19</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>7i71</string>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QWidget" name="page_6">
+           <widget class="QLabel" name="label_1222">
+            <property name="geometry">
+             <rect>
+              <x>50</x>
+              <y>70</y>
+              <width>66</width>
+              <height>19</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>7i72</string>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QWidget" name="page_7">
+           <widget class="QLabel" name="label_1223">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>20</y>
+              <width>66</width>
+              <height>19</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>7i73</string>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QWidget" name="page_8">
+           <widget class="QLabel" name="label_1224">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>20</y>
+              <width>66</width>
+              <height>19</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>7i84</string>
+            </property>
+           </widget>
+          </widget>
+          <widget class="QWidget" name="page_9">
+           <widget class="QLabel" name="label_1225">
+            <property name="geometry">
+             <rect>
+              <x>40</x>
+              <y>30</y>
+              <width>66</width>
+              <height>19</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>7i87</string>
+            </property>
+           </widget>
+          </widget>
+         </widget>
+        </item>
+       </layout>
       </widget>
       <widget class="QWidget" name="tab_9">
        <attribute name="title">

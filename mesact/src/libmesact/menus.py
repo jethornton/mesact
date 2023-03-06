@@ -92,21 +92,21 @@ def build(parent):
 			add_menu(outputs, menu)
 			button.setMenu(menu)
 
-
-	''' c0_input_0 c0_output_0
-	for i in range(16):
-		button = getattr(parent, f'outputPB_{i}')
-		menu = QMenu()
-		menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
-		add_menu(outputs, menu)
-		button.setMenu(menu)
-
 	for i in range(24):
 		button = getattr(parent, f'ss7i64in_{i}')
 		menu = QMenu()
 		menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
 		add_menu(inputs, menu)
 		button.setMenu(menu)
+
+	for i in range(24):
+		button = getattr(parent, f'ss7i64out_{i}')
+		menu = QMenu()
+		menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
+		add_menu(outputs, menu)
+		button.setMenu(menu)
+
+	'''
 
 	for i in range(24):
 		button = getattr(parent, f'ss7i69in_{i}')
@@ -127,13 +127,6 @@ def build(parent):
 		menu = QMenu()
 		menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
 		add_menu(inputs, menu)
-		button.setMenu(menu)
-
-	for i in range(24):
-		button = getattr(parent, f'ss7i64out_{i}')
-		menu = QMenu()
-		menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
-		add_menu(outputs, menu)
 		button.setMenu(menu)
 
 	for i in range(24):

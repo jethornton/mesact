@@ -338,11 +338,7 @@ def build(parent):
 		for child in children:
 			iniContents.append(f'{getattr(parent, child.objectName()).property("item")} = {getattr(parent, child.objectName()).value()}\n')
 
-
 	'''
-
-		for option in parent.ladderOptionsList:
-			iniContents.append(f'{getattr(parent, option).property("item")} = {getattr(parent, option).value()}\n')
 
 	# build the [SSERIAL] section
 	if parent.ssCardCB.currentData():
