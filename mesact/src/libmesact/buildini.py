@@ -1,6 +1,8 @@
 import os
 from datetime import datetime
 
+from PyQt5.QtWidgets import QSpinBox
+
 def build(parent):
 	buildErrors = []
 	iniFilePath = os.path.join(parent.configPath, parent.configNameUnderscored + '.ini')
@@ -328,14 +330,17 @@ def build(parent):
 	iniContents.append(f'LADDER = {parent.ladderGB.isChecked()}\n')
 	iniContents.append(f'BACKUP = {parent.backupCB.isChecked()}\n')
 
-
-
-	'''
-
 	# build the [PLC] section
 	if parent.ladderGB.isChecked(): # check for any options
 		iniContents.append('\n[PLC]\n')
 		iniContents.append('# DO NOT change the plc options they are used by the configuration tool\n')
+		children = parent.ladderGB.findChildren(QSpinBox)
+		for child in children:
+			iniContents.append(f'{getattr(parent, child.objectName()).property("item")} = {getattr(parent, child.objectName()).value()}\n')
+
+
+	'''
+
 		for option in parent.ladderOptionsList:
 			iniContents.append(f'{getattr(parent, option).property("item")} = {getattr(parent, option).value()}\n')
 

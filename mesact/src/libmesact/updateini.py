@@ -1,6 +1,8 @@
 import os
 from datetime import datetime
 
+from PyQt5.QtWidgets import QSpinBox
+
 class updateini:
 	def __init__(self):
 		super().__init__()
@@ -451,7 +453,7 @@ class updateini:
 				if getattr(parent, f'c{i}_output_{j}').text() != 'Select':
 					self.update_key('OUTPUTS', f'OUTPUT_{i}_{j}', getattr(parent, f'c{i}_output_{j}').text())
 					self.update_key('OUTPUTS', f'OUTPUT_INVERT_{i}_{j}', getattr(parent, f'c{i}_output_invert_{j}').isChecked())
-		'''
+
 		# update the [OPTIONS] section
 		options = [
 		['OPTIONS', 'LOAD_CONFIG', f'{parent.loadConfigCB.isChecked()}'],
@@ -477,11 +479,14 @@ class updateini:
 				index = self.sections['[OPTIONS]'][1]
 				self.insert_section(index, '[PLC]')
 
-			for option in parent.ladderOptionsList:
-				self.update_key('PLC', f'{getattr(parent, option).property("item")}', f'{getattr(parent, option).value()}')
+			children = parent.ladderGB.findChildren(QSpinBox)
+			for child in children:
+				self.update_key('PLC', f'{getattr(parent, child.objectName()).property("item")}', f'{getattr(parent, child.objectName()).value()}')
 		else: # remove PLC section if it's in the ini file
 			if '[PLC]' in self.sections:
 				self.delete_section('[PLC]')
+
+		''' myGroupBox.findChildren(QtGui.QTextEdit)]
 
 		# update the [SSERIAL] section
 		if parent.ssCardCB.currentData():
