@@ -245,11 +245,22 @@ def boardChanged(parent):
 				getattr(parent, f'c0_input_{j}').setEnabled(False)
 				getattr(parent, f'c0_input_invert_{j}').setEnabled(False)
 				getattr(parent, f'c0_input_debounce_{j}').setEnabled(False)
-			'''
 			for j in range(6,16):
-				getattr(parent, f'outputPB_{j}').setEnabled(False)
-				getattr(parent, f'outputInvertCB_{j}').setEnabled(False)
+				getattr(parent, f'c0_output_{j}').setEnabled(False)
+				getattr(parent, f'c0_output_invert_{j}').setEnabled(False)
 			'''
+			hm2_7i96s.0.pwmgen.00.enable
+			hm2_7i96s.0.pwmgen.00.value
+
+			hm2_7i96s.0.pwmgen.00.offset-mode
+			hm2_7i96s.0.pwmgen.00.output-type
+			hm2_7i96s.0.pwmgen.00.scale
+			hm2_7i96s.0.pwmgen.pdm_frequency
+			hm2_7i96s.0.pwmgen.pwm_frequency
+			'''
+
+
+
 		elif board == '7i97':
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
