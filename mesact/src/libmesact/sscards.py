@@ -1,3 +1,8 @@
+
+from PyQt5.QtWidgets import QMenu, QAction
+
+from libmesact import menus
+
 def ssCardChanged(parent):
 	sscards = {
 	'Select':'No Card Selected',
@@ -27,6 +32,8 @@ def ssCardChanged(parent):
 
 
 def ss7i73Changed(parent):
+	lcd = False
+	keypad = False
 	if parent.ss7i73lcdCB.currentData() == 'w7d': # no LCD
 		parent.ss7i73w7Lbl.setText('W7 Down')
 		lcd = False
@@ -57,7 +64,7 @@ def ss7i73Changed(parent):
 			button = getattr(parent, f'ss7i73key_{i}')
 			menu = QMenu()
 			menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
-			add_menu(outputs, menu)
+			menus.add_menu(menus.outputs, menu)
 			button.setMenu(menu)
 		for i in range(8,16):
 			getattr(parent, 'ss7i73key_' + str(i)).setEnabled(True)
@@ -65,7 +72,7 @@ def ss7i73Changed(parent):
 			button = getattr(parent, f'ss7i73key_{i}')
 			menu = QMenu()
 			menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
-			add_menu(inputs, menu)
+			menus.add_menu(menus.inputs, menu)
 			button.setMenu(menu)
 		for i in range(8):
 			getattr(parent, 'ss7i73lcd_' + str(i)).setEnabled(True)
@@ -73,7 +80,7 @@ def ss7i73Changed(parent):
 			button = getattr(parent, f'ss7i73lcd_{i}')
 			menu = QMenu()
 			menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
-			add_menu(outputs, menu)
+			menus.add_menu(menus.outputs, menu)
 			button.setMenu(menu)
 		for i in range(8,12):
 			getattr(parent, 'ss7i73lcd_' + str(i)).setEnabled(True)
@@ -81,7 +88,7 @@ def ss7i73Changed(parent):
 			button = getattr(parent, f'ss7i73lcd_{i}')
 			menu = QMenu()
 			menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
-			add_menu(outputs, menu)
+			menus.add_menu(menus.outputs, menu)
 			button.setMenu(menu)
 
 	# LCD No Keypad
@@ -92,7 +99,7 @@ def ss7i73Changed(parent):
 			button = getattr(parent, f'ss7i73key_{i}')
 			menu = QMenu()
 			menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
-			add_menu(outputs, menu)
+			menus.add_menu(menus.outputs, menu)
 			button.setMenu(menu)
 		for i in range(8,16):
 			getattr(parent, 'ss7i73key_' + str(i)).setEnabled(True)
@@ -100,14 +107,14 @@ def ss7i73Changed(parent):
 			button = getattr(parent, f'ss7i73key_{i}')
 			menu = QMenu()
 			menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
-			add_menu(inputs, menu)
+			menus.add_menu(menus.inputs, menu)
 			button.setMenu(menu)
 		for i in range(4):
 			getattr(parent, 'ss7i73lcdlbl_' + str(i)).setText(f'Output {i+2}')
 			button = getattr(parent, f'ss7i73lcd_{i}')
 			menu = QMenu()
 			menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
-			add_menu(outputs, menu)
+			menus.add_menu(menus.outputs, menu)
 			button.setMenu(menu)
 		for i in range(4,12):
 			getattr(parent, 'ss7i73lcdlbl_' + str(i)).setText(f'LCD {i}')
@@ -121,7 +128,7 @@ def ss7i73Changed(parent):
 			button = getattr(parent, f'ss7i73key_{i}')
 			menu = QMenu()
 			menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
-			add_menu(outputs, menu)
+			menus.add_menu(menus.outputs, menu)
 			button.setMenu(menu)
 		for i in range(4,16):
 			getattr(parent, 'ss7i73keylbl_' + str(i)).setText(f'Key {i}')
@@ -131,7 +138,7 @@ def ss7i73Changed(parent):
 			button = getattr(parent, f'ss7i73lcd_{i}')
 			menu = QMenu()
 			menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
-			add_menu(outputs, menu)
+			menus.add_menu(menus.outputs, menu)
 			button.setMenu(menu)
 		for i in range(4,12):
 			getattr(parent, 'ss7i73lcdlbl_' + str(i)).setText(f'LCD {i}')
@@ -147,7 +154,7 @@ def ss7i73Changed(parent):
 			button = getattr(parent, f'ss7i73lcd_{i}')
 			menu = QMenu()
 			menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
-			add_menu(outputs, menu)
+			menus.add_menu(menus.outputs, menu)
 			button.setMenu(menu)
 		for i in range(4,12):
 			getattr(parent, 'ss7i73lcdlbl_' + str(i)).setText(f'LCD {i}')
@@ -161,7 +168,7 @@ def ss7i73Changed(parent):
 			button = getattr(parent, f'ss7i73key_{i}')
 			menu = QMenu()
 			menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
-			add_menu(outputs, menu)
+			menus.add_menu(menus.outputs, menu)
 			button.setMenu(menu)
 
 		for i in range(4,16):
@@ -172,14 +179,14 @@ def ss7i73Changed(parent):
 			button = getattr(parent, f'ss7i73lcd_{i}')
 			menu = QMenu()
 			menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
-			add_menu(outputs, menu)
+			menus.add_menu(menus.outputs, menu)
 			button.setMenu(menu)
 		for i in range(8,12):
 			getattr(parent, 'ss7i73lcdlbl_' + str(i)).setText(f'Output {i+6}')
 			button = getattr(parent, f'ss7i73lcd_{i}')
 			menu = QMenu()
 			menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
-			add_menu(outputs, menu)
+			menus.add_menu(menus.outputs, menu)
 			button.setMenu(menu)
 
 	# No LCD 8x8 Keypad
@@ -193,6 +200,6 @@ def ss7i73Changed(parent):
 			button = getattr(parent, f'ss7i73lcd_{i}')
 			menu = QMenu()
 			menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
-			add_menu(outputs, menu)
+			menus.add_menu(menus.outputs, menu)
 			button.setMenu(menu)
 

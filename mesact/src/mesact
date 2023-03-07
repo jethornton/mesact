@@ -154,6 +154,8 @@ class MainWindow(QMainWindow):
 		'''
 		# Smart Serial Tab
 		self.ssCardCB.currentIndexChanged.connect(partial(sscards.ssCardChanged, self))
+		self.ss7i73_keypadCB.currentIndexChanged.connect(partial(sscards.ss7i73Changed, self))
+		self.ss7i73lcdCB.currentIndexChanged.connect(partial(sscards.ss7i73Changed, self))
 		'''
 
 		# HAL Tab

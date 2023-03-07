@@ -141,6 +141,13 @@ def build(parent):
 	for item in ssCards:
 		parent.ssCardCB.addItem(item[0], item[1])
 
+	# 7i73 Combo Boxes
+	parent.ss7i73_keypadCB.addItem('None', ['w5d', 'w6d'])
+	parent.ss7i73_keypadCB.addItem('4x8', ['w5d', 'w6u'])
+	parent.ss7i73_keypadCB.addItem('8x8', ['w5u', 'w6d'])
+
+	parent.ss7i73lcdCB.addItem('None', 'w7d')
+	parent.ss7i73lcdCB.addItem('Enabled', 'w7u')
 
 
 

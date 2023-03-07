@@ -238,15 +238,9 @@ def build(parent):
 					iniContents.append('HOME_USE_INDEX = True\n')
 				if getattr(parent, f"c{i}_homeSwitchShared_{j}").isChecked():
 					iniContents.append('HOME_IS_SHARED = True\n')
-
-
-
 				joint += 1
 
-
-
 	'''
-
 	# build the [SPINDLE] section if enabled
 	if parent.spindleTypeCB.currentData():
 		iniContents.append('\n[SPINDLE_0]\n')
@@ -338,8 +332,6 @@ def build(parent):
 		for child in children:
 			iniContents.append(f'{getattr(parent, child.objectName()).property("item")} = {getattr(parent, child.objectName()).value()}\n')
 
-	'''
-
 	# build the [SSERIAL] section
 	if parent.ssCardCB.currentData():
 		iniContents.append('\n[SSERIAL]\n')
@@ -349,32 +341,39 @@ def build(parent):
 		# 24 ss7i64in_
 		# 24 ss7i64out_
 		for i in range(24):
-			iniContents.append(f'ss7i64in_{i} = {getattr(parent, "ss7i64in_" + str(i)).text()}\n')
+			if getattr(parent, f'ss7i64in_{i}').text() != 'Select':
+				iniContents.append(f'ss7i64in_{i} = {getattr(parent, "ss7i64in_" + str(i)).text()}\n')
 		for i in range(24):
-			iniContents.append(f'ss7i64out_{i} = {getattr(parent, "ss7i64out_" + str(i)).text()}\n')
+			if getattr(parent, f'ss7i64out_{i}').text() != 'Select':
+				iniContents.append(f'ss7i64out_{i} = {getattr(parent, "ss7i64out_" + str(i)).text()}\n')
 
 	elif parent.ssCardCB.currentText() == '7i69':
 		# 24 ss7i69in_
 		# 24 ss7i69out_
 		for i in range(24):
-			iniContents.append(f'ss7i69in_{i} = {getattr(parent, "ss7i69in_" + str(i)).text()}\n')
+			if getattr(parent, f'ss7i69in_{i}').text() != 'Select':
+				iniContents.append(f'ss7i69in_{i} = {getattr(parent, "ss7i69in_" + str(i)).text()}\n')
 		for i in range(24):
-			iniContents.append(f'ss7i69out_{i} = {getattr(parent, "ss7i69out_" + str(i)).text()}\n')
+			if getattr(parent, f'ss7i69out_{i}').text() != 'Select':
+				iniContents.append(f'ss7i69out_{i} = {getattr(parent, "ss7i69out_" + str(i)).text()}\n')
 
 	elif parent.ssCardCB.currentText() == '7i70':
 		# 48 ss7i70in_
 		for i in range(48):
-			iniContents.append(f'ss7i70in_{i} = {getattr(parent, "ss7i70in_" + str(i)).text()}\n')
+			if getattr(parent, f'ss7i70in_{i}').text() != 'Select':
+				iniContents.append(f'ss7i70in_{i} = {getattr(parent, "ss7i70in_" + str(i)).text()}\n')
 
 	elif parent.ssCardCB.currentText() == '7i71':
 		# 48 ss7i71out_
 		for i in range(48):
-			iniContents.append(f'ss7i71out_{i} = {getattr(parent, "ss7i71out_" + str(i)).text()}\n')
+			if getattr(parent, f'ss7i71out_{i}').text() != 'Select':
+				iniContents.append(f'ss7i71out_{i} = {getattr(parent, "ss7i71out_" + str(i)).text()}\n')
 
 	elif parent.ssCardCB.currentText() == '7i72':
 		# 48 ss7i72out_
 		for i in range(48):
-			iniContents.append(f'ss7i72out_{i} = {getattr(parent, "ss7i72out_" + str(i)).text()}\n')
+			if getattr(parent, f'ss7i72out_{i}').text() != 'Select':
+				iniContents.append(f'ss7i72out_{i} = {getattr(parent, "ss7i72out_" + str(i)).text()}\n')
 
 	elif parent.ssCardCB.currentText() == '7i73':
 		# 16 ss7i73key_
@@ -382,28 +381,33 @@ def build(parent):
 		# 16 ss7i73in_
 		# 2 ss7i73out_
 		for i in range(16):
-			iniContents.append(f'ss7i73key_{i} = {getattr(parent, "ss7i73key_" + str(i)).text()}\n')
+			if getattr(parent, f'ss7i73key_{i}').text() != 'Select':
+				iniContents.append(f'ss7i73key_{i} = {getattr(parent, "ss7i73key_" + str(i)).text()}\n')
 		for i in range(12):
-			iniContents.append(f'ss7i73lcd_{i} = {getattr(parent, "ss7i73lcd_" + str(i)).text()}\n')
+			if getattr(parent, f'ss7i73lcd_{i}').text() != 'Select':
+				iniContents.append(f'ss7i73lcd_{i} = {getattr(parent, "ss7i73lcd_" + str(i)).text()}\n')
 		for i in range(16):
-			iniContents.append(f'ss7i73in_{i} = {getattr(parent, "ss7i73in_" + str(i)).text()}\n')
+			if getattr(parent, f'ss7i73in_{i}').text() != 'Select':
+				iniContents.append(f'ss7i73in_{i} = {getattr(parent, "ss7i73in_" + str(i)).text()}\n')
 		for i in range(2):
-			iniContents.append(f'ss7i73out_{i} = {getattr(parent, "ss7i73out_" + str(i)).text()}\n')
+			if getattr(parent, f'ss7i73out_{i}').text() != 'Select':
+				iniContents.append(f'ss7i73out_{i} = {getattr(parent, "ss7i73out_" + str(i)).text()}\n')
 
 	elif parent.ssCardCB.currentText() == '7i84':
 		# 32 ss7i84in_
 		# 16 ss7i84out_
 		for i in range(32):
-			iniContents.append(f'ss7i84in_{i} = {getattr(parent, "ss7i84in_" + str(i)).text()}\n')
+			if getattr(parent, f'ss7i84in_{i}').text() != 'Select':
+				iniContents.append(f'ss7i84in_{i} = {getattr(parent, "ss7i84in_" + str(i)).text()}\n')
 		for i in range(16):
-			iniContents.append(f'ss7i84out_{i} = {getattr(parent, "ss7i84out_" + str(i)).text()}\n')
+			if getattr(parent, f'ss7i84out_{i}').text() != 'Select':
+				iniContents.append(f'ss7i84out_{i} = {getattr(parent, "ss7i84out_" + str(i)).text()}\n')
 
 	elif parent.ssCardCB.currentText() == '7i87':
 		# 8 ss7i87in_
 		for i in range(8):
-			iniContents.append(f'ss7i87in_{i} = {getattr(parent, "ss7i87in_" + str(i)).text()}\n')
-
-	'''
+			if getattr(parent, f'ss7i87in_{i}').text() != 'Select':
+				iniContents.append(f'ss7i87in_{i} = {getattr(parent, "ss7i87in_" + str(i)).text()}\n')
 
 	try:
 		with open(iniFilePath, 'w') as iniFile:

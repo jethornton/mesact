@@ -486,8 +486,6 @@ class updateini:
 			if '[PLC]' in self.sections:
 				self.delete_section('[PLC]')
 
-		''' myGroupBox.findChildren(QtGui.QTextEdit)]
-
 		# update the [SSERIAL] section
 		if parent.ssCardCB.currentData():
 			if '[SSERIAL]' not in self.sections:
@@ -501,43 +499,57 @@ class updateini:
 
 			if parent.ssCardCB.currentText() == '7i64':
 				for i in range(24):
-					self.update_key(f'SSERIAL', f'ss7i64in_{i}', getattr(parent, f'ss7i64in_{i}').text())
-					self.update_key(f'SSERIAL', f'ss7i64out_{i}', getattr(parent, f'ss7i64out_{i}').text())
+					if getattr(parent, f'ss7i64in_{i}').text() != 'Select':
+						self.update_key(f'SSERIAL', f'ss7i64in_{i}', getattr(parent, f'ss7i64in_{i}').text())
+					if getattr(parent, f'ss7i64out_{i}').text() != 'Select':
+						self.update_key(f'SSERIAL', f'ss7i64out_{i}', getattr(parent, f'ss7i64out_{i}').text())
 			elif parent.ssCardCB.currentText() == '7i69':
 				for i in range(24):
-					self.update_key(f'SSERIAL', f'ss7i69in_{i}', getattr(parent, f'ss7i69in_{i}').text())
-					self.update_key(f'SSERIAL', f'ss7i69out_{i}', getattr(parent, f'ss7i69out_{i}').text())
+					if getattr(parent, f'ss7i69in_{i}').text() != 'Select':
+						self.update_key(f'SSERIAL', f'ss7i69in_{i}', getattr(parent, f'ss7i69in_{i}').text())
+					if getattr(parent, f'ss7i69out_{i}').text() != 'Select':
+						self.update_key(f'SSERIAL', f'ss7i69out_{i}', getattr(parent, f'ss7i69out_{i}').text())
 			elif parent.ssCardCB.currentText() == '7i70':
 				for i in range(48):
-					self.update_key(f'SSERIAL', f'ss7i70in_{i}', getattr(parent, f'ss7i70in_{i}').text())
+					if getattr(parent, f'ss7i70in_{i}').text() != 'Select':
+						self.update_key(f'SSERIAL', f'ss7i70in_{i}', getattr(parent, f'ss7i70in_{i}').text())
 			elif parent.ssCardCB.currentText() == '7i71':
 				for i in range(48):
-					self.update_key(f'SSERIAL', f'ss7i71out_{i}', getattr(parent, f'ss7i71out_{i}').text())
+					if getattr(parent, f'ss7i71out_{i}').text() != 'Select':
+						self.update_key(f'SSERIAL', f'ss7i71out_{i}', getattr(parent, f'ss7i71out_{i}').text())
 			elif parent.ssCardCB.currentText() == '7i72':
 				for i in range(48):
-					self.update_key(f'SSERIAL', f'ss7i72out_{i}', getattr(parent, f'ss7i72out_{i}').text())
+					if getattr(parent, f'ss7i72out_{i}').text() != 'Select':
+						self.update_key(f'SSERIAL', f'ss7i72out_{i}', getattr(parent, f'ss7i72out_{i}').text())
 			elif parent.ssCardCB.currentText() == '7i73':
 				for i in range(16):
-					self.update_key(f'SSERIAL', f'ss7i73key_{i}', getattr(parent, f'ss7i73key_{i}').text())
+					if getattr(parent, f'ss7i73key_{i}').text() != 'Select':
+						self.update_key(f'SSERIAL', f'ss7i73key_{i}', getattr(parent, f'ss7i73key_{i}').text())
 				for i in range(12):
-					self.update_key(f'SSERIAL', f'ss7i73lcd_{i}', getattr(parent, f'ss7i73lcd_{i}').text())
+					if getattr(parent, f'ss7i73lcd_{i}').text() != 'Select':
+						self.update_key(f'SSERIAL', f'ss7i73lcd_{i}', getattr(parent, f'ss7i73lcd_{i}').text())
 				for i in range(16):
-					self.update_key(f'SSERIAL', f'ss7i73in_{i}', getattr(parent, f'ss7i73in_{i}').text())
+					if getattr(parent, f'ss7i73in_{i}').text() != 'Select':
+						self.update_key(f'SSERIAL', f'ss7i73in_{i}', getattr(parent, f'ss7i73in_{i}').text())
 				for i in range(2):
-					self.update_key(f'SSERIAL', f'ss7i73out_{i}', getattr(parent, f'ss7i73out_{i}').text())
+					if getattr(parent, f'ss7i64in_{i}').text() != 'Select':
+						self.update_key(f'SSERIAL', f'ss7i73out_{i}', getattr(parent, f'ss7i73out_{i}').text())
 			elif parent.ssCardCB.currentText() == '7i84':
 				for i in range(32):
-					self.update_key(f'SSERIAL', f'ss7i84in_{i}', getattr(parent, f'ss7i84in_{i}').text())
+					if getattr(parent, f'ss7i84in_{i}').text() != 'Select':
+						self.update_key(f'SSERIAL', f'ss7i84in_{i}', getattr(parent, f'ss7i84in_{i}').text())
 				for i in range(16):
-					self.update_key(f'SSERIAL', f'ss7i84out_{i}', getattr(parent, f'ss7i84out_{i}').text())
+					if getattr(parent, f'ss7i84out_{i}').text() != 'Select':
+						self.update_key(f'SSERIAL', f'ss7i84out_{i}', getattr(parent, f'ss7i84out_{i}').text())
 			elif parent.ssCardCB.currentText() == '7i87':
 				for i in range(8):
-					self.update_key(f'SSERIAL', f'ss7i87in_{i}', getattr(parent, f'ss7i87in_{i}').text())
+					if getattr(parent, f'ss7i87in_{i}').text() != 'Select':
+						self.update_key(f'SSERIAL', f'ss7i87in_{i}', getattr(parent, f'ss7i87in_{i}').text())
 
 		else: # remove the [SSERIAL] section
 			if '[SSERIAL]' in self.sections:
 				self.delete_section('[SSERIAL]')
-		'''
+
 		self.write_ini(parent)
 
 	def write_ini(self, parent):
