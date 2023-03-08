@@ -105,8 +105,9 @@ class MainWindow(QMainWindow):
 		self.enableMesaflashCB.clicked.connect(partial(utilities.firmwareTools, self))
 		self.enableMesaflashCB.clicked.connect(partial(settings.update_value, self))
 		self.backupCB.clicked.connect(partial(utilities.backup, self))
+		'''
 
-		# Display Tab
+		# Settings Tab
 		self.minLinJogVelDSB.valueChanged.connect(partial(utilities.unitsChanged, self))
 		self.defLinJogVelDSB.valueChanged.connect(partial(utilities.unitsChanged, self))
 		self.maxLinJogVelDSB.valueChanged.connect(partial(utilities.unitsChanged, self))
@@ -116,6 +117,7 @@ class MainWindow(QMainWindow):
 		self.axisButtonGroup.setExclusive(False)  # Radio buttons are not exclusive
 		self.axisButtonGroup.buttonClicked.connect(partial(utilities.axisDisplayChanged, self))
 
+		'''
 		#self.frontToolLatheRB.buttonClicked.connect(partial(utilities.axisDisplayChanged, self))
 		#self.backToolLatheRB.buttonClicked.connect(partial(utilities.axisDisplayChanged, self))
 		#self.foamRB.buttonClicked.connect(partial(utilities.axisDisplayChanged, self))

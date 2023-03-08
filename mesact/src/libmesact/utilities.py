@@ -44,10 +44,12 @@ def unitsChanged(parent):
 	parent.defLinJogVelDSB.setSuffix(f' {unitsSecond}')
 	parent.maxLinJogVelDSB.setSuffix(f' {unitsSecond}')
 	parent.minLinearVelLB.setText(f'{parent.minLinJogVelDSB.value() * 60:.1f} {unitsMinute}')
-	parent.jogSpeedLB.setText(f'{parent.defLinJogVelDSB.value() * 60:.1f} {unitsMinute}')
+	parent.defLinearVelLB.setText(f'{parent.defLinJogVelDSB.value() * 60:.1f} {unitsMinute}')
 	parent.maxLinearVelLB.setText(f'{parent.maxLinJogVelDSB.value() * 60:.1f} {unitsMinute}')
 	if set('ABC')&set(parent.coordinatesLB.text()): # angular axis
+		parent.minAngularVelLB.setText(f'{parent.minAngJogVelDSB.value() * 60:.1f} deg/min')
 		parent.defAngularVelLB.setText(f'{parent.defAngJogVelDSB.value() * 60:.1f} deg/min')
+		parent.maxAngularVelLB.setText(f'{parent.maxAngJogVelDSB.value() * 60:.1f} deg/min')
 
 	maxVelChanged(parent)
 
@@ -77,5 +79,10 @@ def backupFiles(parent, configPath=None):
 	parent.infoPTE.appendPlainText('Backing up Confguration')
 	output = p2.communicate()[0]
 	parent.infoPTE.appendPlainText(output.decode())
+
+def axisDisplayChanged(parent, radioButton):
+	for button in parent.axisButtonGroup.buttons():
+		if button is not radioButton:
+			button.setChecked(False)
 
 

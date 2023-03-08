@@ -458,8 +458,65 @@ before building configuration files</string>
            <attribute name="title">
             <string>Firmware</string>
            </attribute>
-           <layout class="QVBoxLayout" name="verticalLayout_3">
-            <item>
+           <layout class="QGridLayout" name="gridLayout_400">
+            <item row="2" column="0">
+             <widget class="QGroupBox" name="groupBox_217">
+              <property name="title">
+               <string>Read HMID</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_401">
+               <item row="0" column="0">
+                <widget class="QPushButton" name="readhmidPB">
+                 <property name="toolTip">
+                  <string>Read hostmot2 in
+PIN file format</string>
+                 </property>
+                 <property name="statusTip">
+                  <string/>
+                 </property>
+                 <property name="text">
+                  <string>Read HMID</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="read_hmid_main">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string>Main Board</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QCheckBox" name="read_hmid_dau_0">
+                 <property name="text">
+                  <string>Daughter 0</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QCheckBox" name="read_hmid_dau_1">
+                 <property name="text">
+                  <string>Daughter 1</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="0">
+                <widget class="QCheckBox" name="read_hmid_dau_2">
+                 <property name="text">
+                  <string>Daughter 2</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="0" column="0" colspan="2">
              <widget class="QGroupBox" name="firmwareGB">
               <property name="enabled">
                <bool>false</bool>
@@ -485,47 +542,6 @@ QGroupBox::title {
                <property name="topMargin">
                 <number>15</number>
                </property>
-               <item row="1" column="5">
-                <widget class="QPushButton" name="reloadPB">
-                 <property name="toolTip">
-                  <string>Reload Firmware after Flashing</string>
-                 </property>
-                 <property name="statusTip">
-                  <string/>
-                 </property>
-                 <property name="text">
-                  <string>Reload</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="3">
-                <widget class="QPushButton" name="readhmidPB">
-                 <property name="toolTip">
-                  <string>Read hostmot2 in
-PIN file format</string>
-                 </property>
-                 <property name="statusTip">
-                  <string/>
-                 </property>
-                 <property name="text">
-                  <string>Read HMID</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="4">
-                <widget class="QPushButton" name="flashPB">
-                 <property name="toolTip">
-                  <string>Flash Selected Firmware
-to the Board</string>
-                 </property>
-                 <property name="statusTip">
-                  <string/>
-                 </property>
-                 <property name="text">
-                  <string>Flash</string>
-                 </property>
-                </widget>
-               </item>
                <item row="1" column="0">
                 <widget class="QComboBox" name="firmwareCB">
                  <property name="sizePolicy">
@@ -542,18 +558,21 @@ to the Board</string>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="6">
-                <widget class="QPushButton" name="verifyPB">
+               <item row="1" column="2">
+                <widget class="QPushButton" name="flashPB">
                  <property name="toolTip">
-                  <string>Verify Selected Firmware
-is the same as the board</string>
+                  <string>Flash Selected Firmware
+to the Board</string>
+                 </property>
+                 <property name="statusTip">
+                  <string/>
                  </property>
                  <property name="text">
-                  <string>Verify</string>
+                  <string>Flash</string>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="2">
+               <item row="1" column="1">
                 <widget class="QPushButton" name="readpdPB">
                  <property name="toolTip">
                   <string>Read Pin Descriptions
@@ -567,7 +586,7 @@ from board</string>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="7">
+               <item row="1" column="5">
                 <widget class="QPushButton" name="copyPB">
                  <property name="toolTip">
                   <string>Copy the Output
@@ -581,19 +600,76 @@ to the clipboard</string>
                  </property>
                 </widget>
                </item>
-               <item row="2" column="0" colspan="8">
-                <widget class="QPlainTextEdit" name="firmwarePTE">
-                 <property name="font">
-                  <font>
-                   <family>BPG Courier S GPL&amp;GNU</family>
-                   <pointsize>11</pointsize>
-                   <weight>50</weight>
-                   <bold>false</bold>
-                  </font>
+               <item row="1" column="3">
+                <widget class="QPushButton" name="reloadPB">
+                 <property name="toolTip">
+                  <string>Reload Firmware after Flashing</string>
+                 </property>
+                 <property name="statusTip">
+                  <string/>
+                 </property>
+                 <property name="text">
+                  <string>Reload</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="4">
+                <widget class="QPushButton" name="verifyPB">
+                 <property name="toolTip">
+                  <string>Verify Selected Firmware
+is the same as the board</string>
+                 </property>
+                 <property name="text">
+                  <string>Verify</string>
                  </property>
                 </widget>
                </item>
               </layout>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <spacer name="horizontalSpacer_51">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="1" column="0">
+             <spacer name="verticalSpacer_53">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tab_180">
+           <attribute name="title">
+            <string>Results</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="verticalLayout_53">
+            <item>
+             <widget class="QPlainTextEdit" name="firmwarePTE">
+              <property name="font">
+               <font>
+                <family>BPG Courier S GPL&amp;GNU</family>
+                <pointsize>11</pointsize>
+                <weight>50</weight>
+                <bold>false</bold>
+               </font>
+              </property>
              </widget>
             </item>
            </layout>
@@ -745,6 +821,9 @@ to the clipboard</string>
            <property name="text">
             <string>Back Tool Lathe</string>
            </property>
+           <attribute name="buttonGroup">
+            <string notr="true">axisButtonGroup</string>
+           </attribute>
           </widget>
          </item>
          <item row="0" column="0">
@@ -752,6 +831,9 @@ to the clipboard</string>
            <property name="text">
             <string>Front Tool Lathe</string>
            </property>
+           <attribute name="buttonGroup">
+            <string notr="true">axisButtonGroup</string>
+           </attribute>
           </widget>
          </item>
          <item row="2" column="0">
@@ -759,6 +841,9 @@ to the clipboard</string>
            <property name="text">
             <string>Foam</string>
            </property>
+           <attribute name="buttonGroup">
+            <string notr="true">axisButtonGroup</string>
+           </attribute>
           </widget>
          </item>
         </layout>
@@ -786,7 +871,7 @@ to the clipboard</string>
          <rect>
           <x>10</x>
           <y>220</y>
-          <width>411</width>
+          <width>481</width>
           <height>231</height>
          </rect>
         </property>
@@ -849,7 +934,7 @@ to the clipboard</string>
           </widget>
          </item>
          <item row="1" column="2">
-          <widget class="QLabel" name="jogSpeedLB">
+          <widget class="QLabel" name="defLinearVelLB">
            <property name="frameShape">
             <enum>QFrame::Box</enum>
            </property>
@@ -893,6 +978,9 @@ to the clipboard</string>
          </item>
          <item row="3" column="1">
           <widget class="QDoubleSpinBox" name="minAngJogVelDSB">
+           <property name="suffix">
+            <string> deg/sec</string>
+           </property>
            <property name="decimals">
             <number>1</number>
            </property>
@@ -906,6 +994,9 @@ to the clipboard</string>
          </item>
          <item row="4" column="1">
           <widget class="QDoubleSpinBox" name="defAngJogVelDSB">
+           <property name="suffix">
+            <string> deg/sec</string>
+           </property>
            <property name="decimals">
             <number>1</number>
            </property>
@@ -919,6 +1010,9 @@ to the clipboard</string>
          </item>
          <item row="5" column="1">
           <widget class="QDoubleSpinBox" name="maxAngJogVelDSB">
+           <property name="suffix">
+            <string> deg/sec</string>
+           </property>
            <property name="decimals">
             <number>1</number>
            </property>
@@ -952,6 +1046,26 @@ to the clipboard</string>
          </item>
          <item row="4" column="2">
           <widget class="QLabel" name="defAngularVelLB">
+           <property name="frameShape">
+            <enum>QFrame::Box</enum>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="2">
+          <widget class="QLabel" name="minAngularVelLB">
+           <property name="frameShape">
+            <enum>QFrame::Box</enum>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="2">
+          <widget class="QLabel" name="maxAngularVelLB">
            <property name="frameShape">
             <enum>QFrame::Box</enum>
            </property>
@@ -1195,7 +1309,7 @@ to the clipboard</string>
             <item>
              <widget class="QTabWidget" name="tabWidget">
               <property name="currentIndex">
-               <number>0</number>
+               <number>2</number>
               </property>
               <widget class="QWidget" name="tab_28">
                <attribute name="title">
@@ -10454,6 +10568,428 @@ Leave blank to home the joint manually.</string>
            <attribute name="title">
             <string>Spindle</string>
            </attribute>
+           <layout class="QGridLayout" name="gridLayout_426">
+            <item row="0" column="0">
+             <widget class="QGroupBox" name="c0_spindle_gb">
+              <property name="title">
+               <string>Spindle</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_424">
+               <item row="3" column="0">
+                <widget class="QLabel" name="label_1455">
+                 <property name="text">
+                  <string>Encoder Scale</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QComboBox" name="c0_spindle_encoder"/>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="label_1454">
+                 <property name="text">
+                  <string>Feedback</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QComboBox" name="c0_pwm_type"/>
+               </item>
+               <item row="3" column="1">
+                <widget class="QDoubleSpinBox" name="c0_spindle_scale">
+                 <property name="decimals">
+                  <number>1</number>
+                 </property>
+                 <property name="maximum">
+                  <double>25000.000000000000000</double>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_1456">
+                 <property name="text">
+                  <string>PWM Type</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_1457">
+                 <property name="text">
+                  <string>PWM Frequency</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QSpinBox" name="c0_pwm_freq">
+                 <property name="suffix">
+                  <string> Hz</string>
+                 </property>
+                 <property name="maximum">
+                  <number>193000</number>
+                 </property>
+                 <property name="value">
+                  <number>5000</number>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="0" column="1" rowspan="2">
+             <widget class="QGroupBox" name="spindlepidGB">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="title">
+               <string>PID Settings</string>
+              </property>
+              <property name="checkable">
+               <bool>false</bool>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_402">
+               <property name="leftMargin">
+                <number>10</number>
+               </property>
+               <property name="topMargin">
+                <number>15</number>
+               </property>
+               <property name="rightMargin">
+                <number>10</number>
+               </property>
+               <property name="bottomMargin">
+                <number>10</number>
+               </property>
+               <property name="spacing">
+                <number>5</number>
+               </property>
+               <item row="7" column="0">
+                <widget class="QLabel" name="label_1435">
+                 <property name="text">
+                  <string>FF0</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="0">
+                <widget class="QLabel" name="label_1436">
+                 <property name="text">
+                  <string>D</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="11" column="0">
+                <widget class="QLabel" name="label_1437">
+                 <property name="text">
+                  <string>FF2</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="2">
+                <widget class="QLabel" name="label_1438">
+                 <property name="text">
+                  <string>Max Error</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="9" column="0">
+                <widget class="QLabel" name="label_1439">
+                 <property name="text">
+                  <string>FF1</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="label_1440">
+                 <property name="text">
+                  <string>I</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_1441">
+                 <property name="text">
+                  <string>P</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="2">
+                <widget class="QLabel" name="label_1442">
+                 <property name="text">
+                  <string>Bias</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="11" column="3">
+                <widget class="QPushButton" name="pidDefault_s">
+                 <property name="text">
+                  <string>Default Values</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QLabel" name="label_1443">
+                 <property name="text">
+                  <string>Deadband</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="2">
+                <widget class="QLabel" name="label_1444">
+                 <property name="text">
+                  <string>Max Output</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QDoubleSpinBox" name="p_s">
+                 <property name="decimals">
+                  <number>1</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QDoubleSpinBox" name="i_s">
+                 <property name="decimals">
+                  <number>1</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="1">
+                <widget class="QDoubleSpinBox" name="d_s">
+                 <property name="decimals">
+                  <number>1</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="1">
+                <widget class="QDoubleSpinBox" name="ff0_s">
+                 <property name="decimals">
+                  <number>1</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="9" column="1">
+                <widget class="QDoubleSpinBox" name="ff1_s">
+                 <property name="decimals">
+                  <number>1</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="11" column="1">
+                <widget class="QDoubleSpinBox" name="ff2_s">
+                 <property name="decimals">
+                  <number>1</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="3">
+                <widget class="QDoubleSpinBox" name="deadband_s">
+                 <property name="decimals">
+                  <number>1</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="3">
+                <widget class="QDoubleSpinBox" name="bias_s">
+                 <property name="decimals">
+                  <number>1</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="3">
+                <widget class="QDoubleSpinBox" name="maxError_s">
+                 <property name="decimals">
+                  <number>1</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="3">
+                <widget class="QSpinBox" name="maxOutput_s">
+                 <property name="maximum">
+                  <number>50000</number>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="1" column="0" rowspan="2">
+             <widget class="QGroupBox" name="spindleGB">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="title">
+               <string>Spindle Settings</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_403">
+               <property name="topMargin">
+                <number>15</number>
+               </property>
+               <item row="5" column="0">
+                <widget class="QLabel" name="label_1446">
+                 <property name="text">
+                  <string>Max Acceleration</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="label_1447">
+                 <property name="text">
+                  <string>RPM</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QSpinBox" name="spindleMinRpm">
+                 <property name="maximum">
+                  <number>1000</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QLabel" name="label_1448">
+                 <property name="text">
+                  <string>RPS</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="2">
+                <widget class="QLabel" name="spindleMaxRps">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="label_1449">
+                 <property name="text">
+                  <string>Maximum</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_1450">
+                 <property name="text">
+                  <string>Minimum</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QSpinBox" name="spindleMaxRpm">
+                 <property name="maximum">
+                  <number>25000</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="2">
+                <widget class="QLabel" name="spindleMinRps">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="1">
+                <widget class="QLabel" name="label_1451">
+                 <property name="text">
+                  <string>RPM/S/S</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="2">
+                <widget class="QLabel" name="label_1452">
+                 <property name="text">
+                  <string>RPS/S/S</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="1">
+                <widget class="QSpinBox" name="spindleMaxAccel">
+                 <property name="maximum">
+                  <number>10000</number>
+                 </property>
+                 <property name="singleStep">
+                  <number>100</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="2">
+                <widget class="QLabel" name="spindleMaxRpss">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <spacer name="verticalSpacer_54">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>123</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="label_1445">
+              <property name="text">
+               <string>For Spindle On, Spindle CW/CCW use an output.</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </widget>
          </widget>
         </item>
@@ -19890,6 +20426,78 @@ Leave blank to home the joint manually.</string>
            <attribute name="title">
             <string>Spindle</string>
            </attribute>
+           <widget class="QGroupBox" name="c1_spindle_gb">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>10</y>
+              <width>366</width>
+              <height>174</height>
+             </rect>
+            </property>
+            <property name="title">
+             <string>Spindle</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_425">
+             <item row="3" column="0">
+              <widget class="QLabel" name="label_1458">
+               <property name="text">
+                <string>Encoder Scale</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QComboBox" name="c1_spindle_encoder"/>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="label_1459">
+               <property name="text">
+                <string>Feedback</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QComboBox" name="c1_pwm_type"/>
+             </item>
+             <item row="3" column="1">
+              <widget class="QDoubleSpinBox" name="c1_spindle_scale">
+               <property name="decimals">
+                <number>1</number>
+               </property>
+               <property name="maximum">
+                <double>25000.000000000000000</double>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_1460">
+               <property name="text">
+                <string>PWM Type</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_1461">
+               <property name="text">
+                <string>PWM Frequency</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QSpinBox" name="c1_pwm_freq">
+               <property name="suffix">
+                <string> Hz</string>
+               </property>
+               <property name="maximum">
+                <number>193000</number>
+               </property>
+               <property name="value">
+                <number>5000</number>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
           </widget>
          </widget>
         </item>
@@ -29326,6 +29934,78 @@ Leave blank to home the joint manually.</string>
            <attribute name="title">
             <string>Spindle</string>
            </attribute>
+           <widget class="QGroupBox" name="c2_spindle_gb">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>10</y>
+              <width>366</width>
+              <height>174</height>
+             </rect>
+            </property>
+            <property name="title">
+             <string>Spindle</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_427">
+             <item row="3" column="0">
+              <widget class="QLabel" name="label_1462">
+               <property name="text">
+                <string>Encoder Scale</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QComboBox" name="c2_spindle_encoder"/>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="label_1463">
+               <property name="text">
+                <string>Feedback</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QComboBox" name="c2_pwm_type"/>
+             </item>
+             <item row="3" column="1">
+              <widget class="QDoubleSpinBox" name="c2_spindle_scale">
+               <property name="decimals">
+                <number>1</number>
+               </property>
+               <property name="maximum">
+                <double>25000.000000000000000</double>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_1464">
+               <property name="text">
+                <string>PWM Type</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_1465">
+               <property name="text">
+                <string>PWM Frequency</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QSpinBox" name="c2_pwm_freq">
+               <property name="suffix">
+                <string> Hz</string>
+               </property>
+               <property name="maximum">
+                <number>193000</number>
+               </property>
+               <property name="value">
+                <number>5000</number>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
           </widget>
          </widget>
         </item>
@@ -38762,6 +39442,78 @@ Leave blank to home the joint manually.</string>
            <attribute name="title">
             <string>Spindle</string>
            </attribute>
+           <widget class="QGroupBox" name="c3_spindle_gb">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>10</y>
+              <width>366</width>
+              <height>174</height>
+             </rect>
+            </property>
+            <property name="title">
+             <string>Spindle</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_428">
+             <item row="3" column="0">
+              <widget class="QLabel" name="label_1466">
+               <property name="text">
+                <string>Encoder Scale</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QComboBox" name="c3_spindle_encoder"/>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="label_1467">
+               <property name="text">
+                <string>Feedback</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QComboBox" name="c3_pwm_type"/>
+             </item>
+             <item row="3" column="1">
+              <widget class="QDoubleSpinBox" name="c3_spindle_scale">
+               <property name="decimals">
+                <number>1</number>
+               </property>
+               <property name="maximum">
+                <double>25000.000000000000000</double>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_1468">
+               <property name="text">
+                <string>PWM Type</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_1469">
+               <property name="text">
+                <string>PWM Frequency</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QSpinBox" name="c3_pwm_freq">
+               <property name="suffix">
+                <string> Hz</string>
+               </property>
+               <property name="maximum">
+                <number>193000</number>
+               </property>
+               <property name="value">
+                <number>5000</number>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
           </widget>
          </widget>
         </item>
@@ -48700,4 +49452,7 @@ reload all default PID values</string>
  </widget>
  <resources/>
  <connections/>
+ <buttongroups>
+  <buttongroup name="axisButtonGroup"/>
+ </buttongroups>
 </ui>
