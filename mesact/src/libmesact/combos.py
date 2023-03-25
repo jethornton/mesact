@@ -1,4 +1,4 @@
-
+import shutil
 
 def build(parent):
 	# Machine Tab
@@ -75,6 +75,21 @@ def build(parent):
 
 	for item in positionFeedback:
 		parent.positionFeedbackCB.addItem(item[0], item[1])
+
+	editors = {'Gedit':'gedit', 'Geany':'geany', 'Pyroom':'pyroom',
+		'Pluma':'pluma', 'Scite':'scite', 'Kwrite':'kwrite',
+		'Kate':'kate', 'Mousepad':'mousepad', 'Jedit':'jedit',
+		'XED':'xed'}
+	installed = False
+	for key, value in editors.items():
+		if shutil.which(value) is not None:
+			if not installed:
+				parent.editorCB.addItem('Select', False)
+				installed = True
+			parent.editorCB.addItem(key, value)
+	if not installed:
+		parent.editorCB.addItem('None', False)
+		parent.machinePTE.appendPlainText('No Editors were found!')
 
 
 	# Joint Tabs
