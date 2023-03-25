@@ -23,6 +23,7 @@ def load(parent):
 		noFirmware(parent, board)
 
 def noFirmware(parent, board):
+	parent.firmwareTW.setCurrentIndex(1)
 	msg = (f'No Firmware found for {board}\n'
 	'Downloads > Firmware from the menu if you have an Internet connection\n'
 	'The firmware will be to downloaded and installed\n'

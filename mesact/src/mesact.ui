@@ -450,7 +450,7 @@ before building configuration files</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_4">
         <item>
-         <widget class="QTabWidget" name="tabWidget_3">
+         <widget class="QTabWidget" name="firmwareTW">
           <property name="currentIndex">
            <number>0</number>
           </property>
@@ -1145,7 +1145,7 @@ is the same as the board</string>
         <item>
          <widget class="QTabWidget" name="c0_JointTW">
           <property name="currentIndex">
-           <number>0</number>
+           <number>9</number>
           </property>
           <widget class="QWidget" name="tab_27">
            <attribute name="title">
