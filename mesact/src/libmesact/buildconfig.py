@@ -11,11 +11,24 @@ from libmesact import buildini
 from libmesact import utilities
 
 def build(parent):
-
+	build_all = True
+	build_ini = True
 	if not check.checkit(parent):
 		parent.mainTW.setCurrentIndex(11)
 		parent.infoPTE.appendPlainText('Build Failed')
-		return
+		build_all = False
+		build_ini = False
+		if parent.configNameLE.text() != '':
+			msg = ('There are Errors in the Config\n'
+				'Do you want to save the ini file\n'
+				'and come back later to fix the Errors?')
+			result = parent.errorMsgYesNo(msg, 'Build Errors')
+			if result:
+				build_ini = True
+			else:
+				parent.infoPTE.appendPlainText('Build Aborted')
+				return
+
 	if parent.backupCB.isChecked():
 		utilities.backupFiles(parent)
 
@@ -45,22 +58,19 @@ def build(parent):
 			except OSError:
 				parent.infoPTE.appendPlainText(f'OS error\n {traceback.print_exc()}')
 
-	iniFile = os.path.join(parent.configPath, parent.configNameUnderscored + '.ini')
-	if os.path.exists(iniFile):
-		parent.updateini.update(parent, iniFile)
-		'''
-		msg = ('The Update Function is\n'
-		'on my To Do List.\n'
-		'For now just rename the configuration.')
-		parent.infoMsgOk(msg, 'Function N/A')
-		'''
-	else:
-		buildini.build(parent)
+	if build_ini:
+		iniFile = os.path.join(parent.configPath, parent.configNameUnderscored + '.ini')
+		if os.path.exists(iniFile):
+			parent.updateini.update(parent, iniFile)
+		else:
+			buildini.build(parent)
 
-	#buildhal.build(parent)
-	#buildio.build(parent)
-	#buildmisc.build(parent)
-	#buildss.build(parent)
+	if build_all:
+		pass
+		#buildhal.build(parent)
+		#buildio.build(parent)
+		#buildmisc.build(parent)
+		#buildss.build(parent)
 
 
 
