@@ -91,7 +91,6 @@ def build(parent):
 		parent.editorCB.addItem('None', False)
 		parent.machinePTE.appendPlainText('No Editors were found!')
 
-
 	# Joint Tabs
 
 	axes = [
@@ -111,7 +110,6 @@ def build(parent):
 		for j in range(6):
 			for item in axes:
 				getattr(parent, f'c{i}_axis_{j}').addItem(item[0], item[1])
-
 
 	drives = [
 		['Custom', False],
