@@ -1,7 +1,7 @@
 import os
 import urllib.request
 
-from PyQt5.QtWidgets import QApplication
+from PyQt5.QtWidgets import QApplication, QInputDialog, QLineEdit
 
 def isNumber(s):
 	try:
@@ -23,6 +23,11 @@ def download(parent, down_url, save_loc):
 	parent.progressBar.setValue(100)
 	parent.timer.start(1000)
 
+def getPassword(parent):
+	dialog = 'You need root privileges\nfor this operation.\nEnter your Password:'
+	password, okPressed = QInputDialog.getText(parent, 'Password Required', dialog, QLineEdit.Password, "")
+	if okPressed and password != '':
+		return password
 
 def unitsChanged(parent):
 	if not parent.linearUnitsCB.currentData():

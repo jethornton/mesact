@@ -35,6 +35,7 @@ from libmesact import openini
 from libmesact import updateini
 from libmesact import buildconfig
 from libmesact import sscards
+from libmesact import pcinfo
 
 from libmesact import shutdown
 
@@ -68,6 +69,7 @@ class MainWindow(QMainWindow):
 		self.settings = QSettings('CnC_Machines', 'MesaCT')
 		self.updateini = updateini.updateini()
 		self.boardType = False # eth or pci
+		self.password = None
 		self.connections()
 		startup.setup(self)
 		self.show()
@@ -169,20 +171,23 @@ class MainWindow(QMainWindow):
 
 		# Pins Tab
 		self.cardPinsPB.clicked.connect(partial(card.getCardPins, self))
-
-		# PC Tab
-		self.motherboardPB.clicked.connect(partial(pcinfo.mbInfo, self))
-		self.cpuPB.clicked.connect(partial(pcinfo.cpuInfo, self))
+		'''
+		# PC Tab st_cpu_speed_pb
+		self.mb_info_PB.clicked.connect(partial(pcinfo.mbInfo, self))
+		self.nic_cpu_speed_pb.clicked.connect(partial(pcinfo.cpuSpeed, self))
 		self.nicPB.clicked.connect(partial(pcinfo.nicInfo, self))
-		self.calcNicPB.clicked.connect(partial(pcinfo.nicCalc, self))
-		self.cpuSpeedPB.clicked.connect(partial(pcinfo.cpuSpeed, self))
-		self.readTmaxPB.clicked.connect(partial(pcinfo.readTmax, self))
-		self.writeTmaxPB.clicked.connect(partial(pcinfo.writeTmax, self))
+		self.ip_nic_PB.clicked.connect(partial(pcinfo.ipInfo, self))
 		self.servoThreadTmaxPB.clicked.connect(partial(pcinfo.readServoTmax, self))
-		self.calculateServoPB.clicked.connect(partial(pcinfo.calcServoPercent, self))
-		self.latencyTestPB.clicked.connect(partial(tools.runLatencyHisogram, self))
-		self.getipPB.clicked.connect(partial(pcinfo.ipInfo, self))
+		self.st_cpu_speed_pb.clicked.connect(partial(pcinfo.cpuSpeed, self))
 
+		self.calcServoPB.clicked.connect(partial(pcinfo.calcServoPercent, self))
+		#self.calcNicPB.clicked.connect(partial(pcinfo.nicCalc, self))
+		#self.cpuSpeedPB.clicked.connect(partial(pcinfo.cpuSpeed, self))
+		#self.readTmaxPB.clicked.connect(partial(pcinfo.readTmax, self))
+		#self.writeTmaxPB.clicked.connect(partial(pcinfo.writeTmax, self))
+		#self.latencyTestPB.clicked.connect(partial(tools.runLatencyHisogram, self))
+
+		'''
 		# Options Tab
 		#self.checkMesaflashCB.clicked.connect(partial(settings.update_value, self))
 		self.newUserCB.clicked.connect(partial(settings.update_value, self))

@@ -33,7 +33,7 @@
        <bool>true</bool>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>10</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -49345,6 +49345,489 @@ reload all default PID values</string>
        <attribute name="title">
         <string>PC</string>
        </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QTabWidget" name="tabWidget_3">
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
+          <widget class="QWidget" name="tab_181">
+           <attribute name="title">
+            <string>Servo Thread Test</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_433">
+            <item row="0" column="0">
+             <widget class="QGroupBox" name="gridGroupBox_30">
+              <property name="minimumSize">
+               <size>
+                <width>375</width>
+                <height>250</height>
+               </size>
+              </property>
+              <property name="title">
+               <string>Servo Thread Test</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_429">
+               <item row="1" column="3">
+                <widget class="QLabel" name="servoThreadTmaxLB">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="3">
+                <widget class="QLabel" name="servoResultLB">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="0">
+                <widget class="QLabel" name="label_1453">
+                 <property name="text">
+                  <string>Result</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="label_1472">
+                 <property name="text">
+                  <string>2nd</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_1470">
+                 <property name="text">
+                  <string>Servo Thread tmax</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="3">
+                <widget class="QPushButton" name="calcServoPB">
+                 <property name="text">
+                  <string>Calculate</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_1471">
+                 <property name="text">
+                  <string>1st</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="0" colspan="4">
+                <widget class="QLabel" name="label_1473">
+                 <property name="text">
+                  <string>Under 70% is good, over 70% try
+increasing Thread Period</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="3">
+                <widget class="QPushButton" name="servoThreadTmaxPB">
+                 <property name="text">
+                  <string> Get Servo Thread tmax</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="label_1479">
+                 <property name="text">
+                  <string>2nd</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="3">
+                <widget class="QPushButton" name="st_cpu_speed_pb">
+                 <property name="text">
+                  <string>Get CPU Speed</string>
+                 </property>
+                 <property name="output" stdset="0">
+                  <string>servo_thread_pte</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="label_1474">
+              <property name="frameShape">
+               <enum>QFrame::Box</enum>
+              </property>
+              <property name="text">
+               <string>The Default Packet Time Timeout
+is 80% of the Servo Thread Period</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <spacer name="verticalSpacer_55">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="0" column="1" rowspan="3">
+             <widget class="QPlainTextEdit" name="servo_thread_pte"/>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tab_182">
+           <attribute name="title">
+            <string>NIC Test</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_434">
+            <item row="0" column="0">
+             <widget class="QLabel" name="label_1475">
+              <property name="font">
+               <font>
+                <pointsize>12</pointsize>
+                <weight>75</weight>
+                <italic>true</italic>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::Box</enum>
+              </property>
+              <property name="text">
+               <string>The Ethernet Card must be connected
+and LinuxCNC running this
+configuration before trying to read tMax.</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QGroupBox" name="groupBox_218">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>225</height>
+               </size>
+              </property>
+              <property name="title">
+               <string>NIC Test</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_430">
+               <item row="0" column="1">
+                <widget class="QPushButton" name="nic_cpu_speed_pb">
+                 <property name="text">
+                  <string>Get CPU Speed</string>
+                 </property>
+                 <property name="output" stdset="0">
+                  <string>nic_test_pte</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_1477">
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>CPU Speed</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QLineEdit" name="cpuSpeedLE">
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="2">
+                <widget class="QComboBox" name="cpuSpeedCB">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>75</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QPushButton" name="readTmaxPB">
+                 <property name="toolTip">
+                  <string>LinuxCNC must be running
+the configuration.</string>
+                 </property>
+                 <property name="text">
+                  <string>Get read.tmax</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QLineEdit" name="readtmaxLE">
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QPushButton" name="writeTmaxPB">
+                 <property name="toolTip">
+                  <string>LinuxCNC must be running
+the configuration.</string>
+                 </property>
+                 <property name="text">
+                  <string>Get write.tmax</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QLineEdit" name="writetmaxLE">
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="1">
+                <widget class="QPushButton" name="calcNicPB">
+                 <property name="text">
+                  <string>Calculate</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="0">
+                <widget class="QLabel" name="label_1478">
+                 <property name="text">
+                  <string>Packet Time</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="1">
+                <widget class="QLabel" name="packetTimeLB">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="label_1476">
+              <property name="frameShape">
+               <enum>QFrame::Box</enum>
+              </property>
+              <property name="text">
+               <string>Packet Time is in units of servo thread period.
+If the Packet Time is greater than 50%
+try increasing the thread period.</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1" rowspan="3">
+             <widget class="QPlainTextEdit" name="nic_test_pte"/>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tab_183">
+           <attribute name="title">
+            <string>PC Info</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_431">
+            <item row="0" column="0" colspan="4">
+             <widget class="QPlainTextEdit" name="pc_info_pte">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="font">
+               <font>
+                <family>Courier</family>
+               </font>
+              </property>
+              <property name="textInteractionFlags">
+               <set>Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QPushButton" name="mb_info_PB">
+              <property name="text">
+               <string>Motherboard</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QPushButton" name="cpuPB">
+              <property name="toolTip">
+               <string>Central Processing Unit</string>
+              </property>
+              <property name="text">
+               <string>CPU</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="2">
+             <widget class="QPushButton" name="nicPB">
+              <property name="toolTip">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Network Interface Card&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="text">
+               <string>NIC</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="3">
+             <widget class="QPushButton" name="copyInfoPB">
+              <property name="text">
+               <string>Copy</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tab_184">
+           <attribute name="title">
+            <string>IP and NIC Info</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="verticalLayout_54">
+            <item>
+             <widget class="QTabWidget" name="tabWidget_42">
+              <property name="currentIndex">
+               <number>0</number>
+              </property>
+              <widget class="QWidget" name="tab_185">
+               <attribute name="title">
+                <string>IP and NIC Info</string>
+               </attribute>
+               <layout class="QVBoxLayout" name="verticalLayout_56">
+                <item>
+                 <widget class="QGroupBox" name="groupBox_219">
+                  <property name="title">
+                   <string>IP Information</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_432">
+                   <item row="0" column="0">
+                    <widget class="QPlainTextEdit" name="ipInfoPTE"/>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QPushButton" name="ip_nic_PB">
+                     <property name="text">
+                      <string>IP and NIC Info</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="tab_186">
+               <attribute name="title">
+                <string>Adding Mesa Ethernet Board Instructions</string>
+               </attribute>
+               <layout class="QVBoxLayout" name="verticalLayout_55">
+                <item>
+                 <widget class="QPlainTextEdit" name="ethernetPTE">
+                  <property name="plainText">
+                   <string>1. Remove any PCI or USB NIC's
+2. Click IP and NIC Info to get current settings
+4. In a terminal edit /etc/network/interfaces with sudo nano /etc/network/interfaces
+5. Add the following and replace enp2s0 with your NIC ID
+6. If you have an Intel NIC add hardware-irq-coalesce-rx-usecs 0 to the end
+auto enp2s0
+      iface enp2s0 inet static
+          address 10.10.10.11
+          netmask 255.255.255.0
+         # Intel NIC ONLY
+          hardware-irq-coalesce-rx-usecs 0
+7. Ctrl X, Yes, Enter</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
       </widget>
       <widget class="QWidget" name="tab_154">
        <attribute name="title">
