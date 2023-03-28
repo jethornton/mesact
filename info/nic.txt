@@ -1,0 +1,11 @@
+
+The (X86) tmax values are in CPU clocks so to get the percentage of servo
+thread time these represent you must divide them by CPU clocks per full
+servo period = servo thread period in seconds*CPU clock speed in Hz
+servo period 1000000ns
+0.001 = servo thread period in seconds = 1000000 / 1000000000
+cpu speed 3300 MHz == 3300000000 Hz
+read tmax 1214912
+write tmax 264328
+packet time 44.8%
+
