@@ -33,7 +33,7 @@
        <bool>true</bool>
       </property>
       <property name="currentIndex">
-       <number>10</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -49361,27 +49361,30 @@ reload all default PID values</string>
               <property name="minimumSize">
                <size>
                 <width>375</width>
-                <height>250</height>
+                <height>175</height>
                </size>
               </property>
               <property name="title">
                <string>Servo Thread Test</string>
               </property>
               <layout class="QGridLayout" name="gridLayout_429">
-               <item row="1" column="3">
-                <widget class="QLabel" name="servoThreadTmaxLB">
-                 <property name="frameShape">
-                  <enum>QFrame::Box</enum>
-                 </property>
+               <item row="1" column="0">
+                <widget class="QPushButton" name="st_cpu_speed_pb">
                  <property name="text">
-                  <string/>
+                  <string>Get CPU Speed</string>
                  </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
+                 <property name="output" stdset="0">
+                  <string>servo_thread_pte</string>
+                 </property>
+                 <property name="spinbox" stdset="0">
+                  <string>st_cpu_speed</string>
+                 </property>
+                 <property name="units" stdset="0">
+                  <string>st_cpu_units_cb</string>
                  </property>
                 </widget>
                </item>
-               <item row="4" column="3">
+               <item row="3" column="1" colspan="2">
                 <widget class="QLabel" name="servoResultLB">
                  <property name="frameShape">
                   <enum>QFrame::Box</enum>
@@ -49394,54 +49397,24 @@ reload all default PID values</string>
                  </property>
                 </widget>
                </item>
-               <item row="4" column="0">
-                <widget class="QLabel" name="label_1453">
-                 <property name="text">
-                  <string>Result</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="0">
-                <widget class="QLabel" name="label_1472">
-                 <property name="text">
-                  <string>2nd</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="0">
-                <widget class="QLabel" name="label_1470">
-                 <property name="text">
-                  <string>Servo Thread tmax</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="3">
-                <widget class="QPushButton" name="calcServoPB">
-                 <property name="text">
-                  <string>Calculate</string>
-                 </property>
-                </widget>
-               </item>
                <item row="0" column="0">
-                <widget class="QLabel" name="label_1471">
+                <widget class="QPushButton" name="servoThreadTmaxPB">
                  <property name="text">
-                  <string>1st</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
+                  <string> Get Servo Thread tmax</string>
                  </property>
                 </widget>
                </item>
-               <item row="5" column="0" colspan="4">
+               <item row="1" column="1" colspan="2">
+                <widget class="QSpinBox" name="st_cpu_speed">
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                 <property name="maximum">
+                  <number>9999999</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="0" colspan="3">
                 <widget class="QLabel" name="label_1473">
                  <property name="text">
                   <string>Under 70% is good, over 70% try
@@ -49452,32 +49425,25 @@ increasing Thread Period</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="3">
-                <widget class="QPushButton" name="servoThreadTmaxPB">
+               <item row="3" column="0">
+                <widget class="QPushButton" name="calcServoPB">
                  <property name="text">
-                  <string> Get Servo Thread tmax</string>
+                  <string>Calculate</string>
                  </property>
                 </widget>
                </item>
-               <item row="2" column="0">
-                <widget class="QLabel" name="label_1479">
-                 <property name="text">
-                  <string>2nd</string>
-                 </property>
+               <item row="0" column="1" colspan="2">
+                <widget class="QSpinBox" name="st_thread_tmax_sb">
                  <property name="alignment">
-                  <set>Qt::AlignCenter</set>
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                 <property name="maximum">
+                  <number>99999999</number>
                  </property>
                 </widget>
                </item>
-               <item row="2" column="3">
-                <widget class="QPushButton" name="st_cpu_speed_pb">
-                 <property name="text">
-                  <string>Get CPU Speed</string>
-                 </property>
-                 <property name="output" stdset="0">
-                  <string>servo_thread_pte</string>
-                 </property>
-                </widget>
+               <item row="1" column="3">
+                <widget class="QComboBox" name="st_cpu_units_cb"/>
                </item>
               </layout>
              </widget>
@@ -49554,47 +49520,8 @@ configuration before trying to read tMax.</string>
                <string>NIC Test</string>
               </property>
               <layout class="QGridLayout" name="gridLayout_430">
-               <item row="0" column="1">
-                <widget class="QPushButton" name="nic_cpu_speed_pb">
-                 <property name="text">
-                  <string>Get CPU Speed</string>
-                 </property>
-                 <property name="output" stdset="0">
-                  <string>nic_test_pte</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="0">
-                <widget class="QLabel" name="label_1477">
-                 <property name="maximumSize">
-                  <size>
-                   <width>16777215</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>CPU Speed</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="1">
-                <widget class="QLineEdit" name="cpuSpeedLE">
-                 <property name="maximumSize">
-                  <size>
-                   <width>16777215</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
                <item row="1" column="2">
-                <widget class="QComboBox" name="cpuSpeedCB">
+                <widget class="QComboBox" name="nt_cpu_units_cb">
                  <property name="sizePolicy">
                   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                    <horstretch>0</horstretch>
@@ -49620,19 +49547,6 @@ the configuration.</string>
                  </property>
                 </widget>
                </item>
-               <item row="2" column="1">
-                <widget class="QLineEdit" name="readtmaxLE">
-                 <property name="maximumSize">
-                  <size>
-                   <width>16777215</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
                <item row="3" column="0">
                 <widget class="QPushButton" name="writeTmaxPB">
                  <property name="toolTip">
@@ -49641,13 +49555,6 @@ the configuration.</string>
                  </property>
                  <property name="text">
                   <string>Get write.tmax</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="1">
-                <widget class="QLineEdit" name="writetmaxLE">
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
                  </property>
                 </widget>
                </item>
@@ -49678,6 +49585,52 @@ the configuration.</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QPushButton" name="nic_cpu_speed_pb">
+                 <property name="text">
+                  <string>Get CPU Speed</string>
+                 </property>
+                 <property name="output" stdset="0">
+                  <string>nic_test_pte</string>
+                 </property>
+                 <property name="spinbox" stdset="0">
+                  <string>nt_cpu_speed_sb</string>
+                 </property>
+                 <property name="units" stdset="0">
+                  <string>nt_cpu_units_cb</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QSpinBox" name="nt_cpu_speed_sb">
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                 <property name="maximum">
+                  <number>99999999</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QSpinBox" name="read_tmax_sb">
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                 <property name="maximum">
+                  <number>99999999</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QSpinBox" name="write_tmax_sb">
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                 <property name="maximum">
+                  <number>99999999</number>
                  </property>
                 </widget>
                </item>
@@ -49727,17 +49680,17 @@ try increasing the thread period.</string>
             <item row="1" column="0">
              <widget class="QPushButton" name="mb_info_PB">
               <property name="text">
-               <string>Motherboard</string>
+               <string>Motherboard Info</string>
               </property>
              </widget>
             </item>
             <item row="1" column="1">
-             <widget class="QPushButton" name="cpuPB">
+             <widget class="QPushButton" name="cpu_info_pb">
               <property name="toolTip">
                <string>Central Processing Unit</string>
               </property>
               <property name="text">
-               <string>CPU</string>
+               <string>CPU Info</string>
               </property>
              </widget>
             </item>
@@ -49747,7 +49700,7 @@ try increasing the thread period.</string>
                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Network Interface Card&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
               </property>
               <property name="text">
-               <string>NIC</string>
+               <string>NIC Info</string>
               </property>
              </widget>
             </item>
@@ -49762,7 +49715,7 @@ try increasing the thread period.</string>
           </widget>
           <widget class="QWidget" name="tab_184">
            <attribute name="title">
-            <string>IP and NIC Info</string>
+            <string>IP Info</string>
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout_54">
             <item>
@@ -49772,7 +49725,7 @@ try increasing the thread period.</string>
               </property>
               <widget class="QWidget" name="tab_185">
                <attribute name="title">
-                <string>IP and NIC Info</string>
+                <string>IP Info</string>
                </attribute>
                <layout class="QVBoxLayout" name="verticalLayout_56">
                 <item>

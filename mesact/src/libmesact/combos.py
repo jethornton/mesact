@@ -162,6 +162,15 @@ def build(parent):
 	parent.ss7i73lcdCB.addItem('None', 'w7d')
 	parent.ss7i73lcdCB.addItem('Enabled', 'w7u')
 
+	cpuSpeed = [
+		['MHz', 1000000],
+		['GHz', 1000000000]
+		]
+
+	for item in cpuSpeed:
+		parent.nt_cpu_units_cb.addItem(item[0], item[1])
+	for item in cpuSpeed:
+		parent.st_cpu_units_cb.addItem(item[0], item[1])
 
 
 

@@ -177,14 +177,13 @@ class MainWindow(QMainWindow):
 		self.nic_cpu_speed_pb.clicked.connect(partial(pcinfo.cpuSpeed, self))
 		self.nicPB.clicked.connect(partial(pcinfo.nicInfo, self))
 		self.ip_nic_PB.clicked.connect(partial(pcinfo.ipInfo, self))
-		self.servoThreadTmaxPB.clicked.connect(partial(pcinfo.readServoTmax, self))
+		self.servoThreadTmaxPB.clicked.connect(partial(pcinfo.servoTmax, self))
 		self.st_cpu_speed_pb.clicked.connect(partial(pcinfo.cpuSpeed, self))
-
 		self.calcServoPB.clicked.connect(partial(pcinfo.calcServoPercent, self))
-		#self.calcNicPB.clicked.connect(partial(pcinfo.nicCalc, self))
-		#self.cpuSpeedPB.clicked.connect(partial(pcinfo.cpuSpeed, self))
-		#self.readTmaxPB.clicked.connect(partial(pcinfo.readTmax, self))
-		#self.writeTmaxPB.clicked.connect(partial(pcinfo.writeTmax, self))
+		self.readTmaxPB.clicked.connect(partial(pcinfo.readTmax, self))
+		self.writeTmaxPB.clicked.connect(partial(pcinfo.writeTmax, self))
+		self.calcNicPB.clicked.connect(partial(pcinfo.nicCalc, self))
+		self.cpu_info_pb.clicked.connect(partial(pcinfo.cpuInfo, self))
 		#self.latencyTestPB.clicked.connect(partial(tools.runLatencyHisogram, self))
 
 		'''

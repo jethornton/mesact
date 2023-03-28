@@ -1,4 +1,4 @@
-import os
+import os, subprocess
 import urllib.request
 
 from PyQt5.QtWidgets import QApplication, QInputDialog, QLineEdit
@@ -9,6 +9,12 @@ def isNumber(s):
 		float(s)
 		return True
 	except ValueError:
+		return False
+
+def check_emc():
+	if "0x48414c32" in subprocess.getoutput('ipcs'):
+		return True
+	else:
 		return False
 
 def download(parent, down_url, save_loc):
