@@ -106,7 +106,7 @@ def readpd(parent):
 	if parent.boardType == 'eth':
 		if check_ip(parent):
 			ipAddress = parent.ipAddressCB.currentText()
-			p = Popen(['mesaflash', '--device', parent.board, '--addr', ipAddress, '--print-pd'],
+			p = Popen(['mesaflash', '--device', board, '--addr', ipAddress, '--print-pd'],
 				stdin=PIPE, stderr=PIPE, stdout=PIPE, universal_newlines=True)
 			prompt = p.communicate()
 		else:

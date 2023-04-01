@@ -491,8 +491,8 @@ before building configuration files</string>
                <item row="0" column="0" colspan="2">
                 <widget class="QPushButton" name="readhmidPB">
                  <property name="toolTip">
-                  <string>Read hostmot2 in
-PIN file format</string>
+                  <string>Read hostmot2 ID's
+in PIN file format</string>
                  </property>
                  <property name="statusTip">
                   <string/>
