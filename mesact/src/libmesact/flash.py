@@ -80,13 +80,13 @@ def readhmid(parent):
 		if check_ip(parent):
 			ipAddress = parent.ipAddressCB.currentText()
 			cmd = ['mesaflash', '--device', board, '--addr', ipAddress, '--readhmid']
-			print(f'command: {cmd}')
-			if parent.hmid_terminals_1:
+			if parent.hmid_terminals_1.currentData():
 				cmd.append('--dbname1')
 				cmd.append(parent.hmid_terminals_1.currentData())
-			if parent.hmid_terminals_2:
+			if parent.hmid_terminals_2.currentData():
 				cmd.append('--dbname2')
 				cmd.append(parent.hmid_terminals_2.currentData())
+			print(f'command: {cmd}')
 			p = Popen(cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
 			prompt = p.communicate()
 		else:
