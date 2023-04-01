@@ -128,9 +128,9 @@ class MainWindow(QMainWindow):
 		self.firmwareCB.currentIndexChanged.connect(partial(firmware.firmwareChanged, self))
 		self.readhmidPB.clicked.connect(partial(flash.readhmid, self))
 		self.readpdPB.clicked.connect(partial(flash.readpd, self))
-		#self.flashPB.clicked.connect(partial(flash.flashCard, self))
-		#self.reloadPB.clicked.connect(partial(flash.reloadCard, self))
-		#self.verifyPB.clicked.connect(partial(flash.verifyCard, self))
+		self.flashPB.clicked.connect(partial(flash.flashCard, self))
+		self.reloadPB.clicked.connect(partial(flash.reloadCard, self))
+		self.verifyPB.clicked.connect(partial(flash.verifyFirmware, self))
 		#self.copyPB.clicked.connect(partial(utilities.copyOutput, self))
 
 
