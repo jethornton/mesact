@@ -7,13 +7,13 @@ def build(parent):
 	buildErrors = []
 	iniFilePath = os.path.join(parent.configPath, parent.configNameUnderscored + '.ini')
 	parent.mainTW.setCurrentIndex(11)
-	parent.infoPTE.appendPlainText(f'Building {iniFilePath}')
+	parent.info_pte.appendPlainText(f'Building {iniFilePath}')
 
 	if not os.path.exists(parent.configPath):
 		try:
 			os.mkdir(parent.configPath)
 		except OSError:
-			parent.infoPTE.appendPlainText(f'OS error\n {traceback.print_exc()}')
+			parent.info_pte.appendPlainText(f'OS error\n {traceback.print_exc()}')
 
 	iniContents = ['# This file was created with the Mesa Configuration Tool on ']
 	iniContents.append(datetime.now().strftime('%b %d %Y %H:%M:%S') + '\n')
@@ -49,9 +49,9 @@ def build(parent):
 		iniContents.append(f'IPADDRESS = {parent.ipAddressCB.currentText()}\n')
 	elif parent.boardType == 'pci':
 		iniContents.append('DRIVER = hm2_pci\n')
-	#iniContents.append(f'STEPGENS = {parent.stepgensCB.currentData()}\n')
-	#iniContents.append(f'PWMGENS = {parent.pwmgensCB.currentData()}\n')
-	#iniContents.append(f'ENCODERS = {parent.encodersCB.currentData()}\n')
+	iniContents.append(f'STEPGENS = {parent.stepgensCB.currentData()}\n')
+	iniContents.append(f'PWMGENS = {parent.pwmgensCB.currentData()}\n')
+	iniContents.append(f'ENCODERS = {parent.encodersCB.currentData()}\n')
 
 	# build the [DISPLAY] section maxFeedOverrideLE
 	iniContents.append('\n[DISPLAY]\n')
@@ -413,4 +413,4 @@ def build(parent):
 		with open(iniFilePath, 'w') as iniFile:
 			iniFile.writelines(iniContents)
 	except OSError:
-		parent.infoPTE.appendPlainText(f'OS error\n {traceback.print_exc()}')
+		parent.info_pte.appendPlainText(f'OS error\n {traceback.print_exc()}')

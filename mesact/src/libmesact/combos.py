@@ -37,6 +37,22 @@ def build(parent):
 
 	# Firmware Tab
 
+	db25_daughters = [
+	['Select', False],
+	['7i74', '7i74'],
+	['7i76', '7i76'],
+	['7i77', '7i77'],
+	['7i78', '7i78'],
+	['7i85', '7i85'],
+	['7i85s', '7i85s'],
+	['7i88', '7i88'],
+	['7i89', '7i89']
+	]
+
+	for i in range(1, 3):
+		for item in db25_daughters:
+			getattr(parent, f'hmid_terminals_{i}').addItem(item[0], item[1])
+
 	# Settings Tab
 	gui = [
 		['Select', False],

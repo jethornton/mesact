@@ -38,6 +38,7 @@ def boardChanged(parent):
 		parent.mainTW.setTabText(3, name)
 
 		if board == '5i24':
+			parent.board = '5i24'
 			parent.boardType = 'pci'
 			parent.c0_JointTW.setTabText(0, name)
 			for i in range(1, tabs + 1):
@@ -53,6 +54,7 @@ def boardChanged(parent):
 				parent.daughterCB_1.addItem(item[0], item[1])
 				parent.daughterCB_2.addItem(item[0], item[1])
 		elif board == '5i25':
+			parent.board = '5i25'
 			parent.boardType = 'pci'
 			parent.c0_JointTW.setTabText(0, name)
 			for i in range(1, tabs + 1):
@@ -65,6 +67,7 @@ def boardChanged(parent):
 				parent.daughterCB_0.addItem(item[0], item[1])
 				parent.daughterCB_1.addItem(item[0], item[1])
 		elif board == '7i76e':
+			parent.board = '7i76e'
 			# 5 step/dir 32 inputs 16 outputs 1 spindle 1 encoder
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
@@ -87,6 +90,7 @@ def boardChanged(parent):
 				getattr(parent, f'outputInvertCB_{i}').setEnabled(False)
 			'''
 		elif board == '7i80db16':
+			parent.board = '7i80db16'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
 			for i in range(1, tabs + 1):
@@ -103,6 +107,7 @@ def boardChanged(parent):
 				parent.daughterCB_1.addItem(item[0], item[1])
 				parent.daughterCB_2.addItem(item[0], item[1])
 		elif board == '7i80db25':
+			parent.board = '7i80db25'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
 			for i in range(1, tabs + 1):
@@ -119,6 +124,7 @@ def boardChanged(parent):
 				parent.daughterCB_1.addItem(item[0], item[1])
 				parent.daughterCB_2.addItem(item[0], item[1])
 		elif board == '7i80hd16':
+			parent.board = '7i80hd16'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
 			for i in range(1, tabs + 1):
@@ -135,6 +141,7 @@ def boardChanged(parent):
 				parent.daughterCB_1.addItem(item[0], item[1])
 				parent.daughterCB_2.addItem(item[0], item[1])
 		elif board == '7i80hd25':
+			parent.board = '7i80hd25'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
 			for i in range(1, tabs + 1):
@@ -151,6 +158,7 @@ def boardChanged(parent):
 				parent.daughterCB_1.addItem(item[0], item[1])
 				parent.daughterCB_2.addItem(item[0], item[1])
 		elif board == '7i80hdts':
+			parent.board = '7i80hdts'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
 			for i in range(1, tabs + 1):
@@ -167,6 +175,7 @@ def boardChanged(parent):
 				parent.daughterCB_1.addItem(item[0], item[1])
 				parent.daughterCB_2.addItem(item[0], item[1])
 		elif board == '7i92':
+			parent.board = '7i92'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
 			for i in range(1, tabs + 1):
@@ -180,6 +189,7 @@ def boardChanged(parent):
 				parent.daughterCB_0.addItem(item[0], item[1])
 				parent.daughterCB_1.addItem(item[0], item[1])
 		elif board == '7i92t':
+			parent.board = '7i92'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
 			for i in range(1, tabs + 1):
@@ -193,6 +203,7 @@ def boardChanged(parent):
 				parent.daughterCB_0.addItem(item[0], item[1])
 				parent.daughterCB_1.addItem(item[0], item[1])
 		elif board == '7i93':
+			parent.board = '7i93'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
 			for i in range(1, tabs + 1):
@@ -206,6 +217,7 @@ def boardChanged(parent):
 				parent.daughterCB_0.addItem(item[0], item[1])
 				parent.daughterCB_1.addItem(item[0], item[1])
 		elif board == '7i95':
+			parent.board = '7i95'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
 			parent.ipAddressCB.setEnabled(True)
@@ -214,6 +226,7 @@ def boardChanged(parent):
 			for item in db25:
 				parent.daughterCB_0.addItem(item[0], item[1])
 		elif board == '7i96':
+			parent.board = '7i96'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
 			parent.c0_JointTW.setTabVisible(6, False)
@@ -223,8 +236,13 @@ def boardChanged(parent):
 			for item in db25:
 				parent.daughterCB_0.addItem(item[0], item[1])
 		elif board == '7i96s':
-			# 5 step/dir 11 inputs 6 outputs 1 spindle 1 encoder
+			parent.board = '7i96s'
 			parent.boardType = 'eth'
+			# 5 step/dir 11 inputs 6 outputs 1 spindle 1 encoder
+			stepgens = 5
+			pwmgens = 1
+			encoders = 1
+			options(parent, 'c0', stepgens, pwmgens, encoders)
 			parent.c0_JointTW.setTabText(0, name)
 			parent.c0_JointTW.setTabVisible(6, False)
 			parent.ipAddressCB.setEnabled(True)
@@ -262,6 +280,7 @@ def boardChanged(parent):
 
 
 		elif board == '7i97':
+			parent.board = '7i97'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
 			parent.ipAddressCB.setEnabled(True)
@@ -270,6 +289,7 @@ def boardChanged(parent):
 			for item in db25:
 				parent.daughterCB_0.addItem(item[0], item[1])
 		elif board == '7i98':
+			parent.board = '7i98'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
 			for i in range(1, tabs + 1):
@@ -293,4 +313,18 @@ def boardChanged(parent):
 		parent.daughterCB_0.clear()
 		parent.daughterCB_1.clear()
 		parent.daughterCB_2.clear()
+
+def options(parent, card, stepgens, pwmgens, encoders):
+	getattr(parent, f'{card}_stepgens_cb').clear()
+	getattr(parent, f'{card}_pwmgens_cb').clear()
+	getattr(parent, f'{card}_encoders_cb').clear()
+	if stepgens > 0:
+		for i in reversed(range(stepgens + 1)):
+			parent.c0_stepgens_cb.addItem(str(i), i)
+	if pwmgens > 0:
+		for i in reversed(range(pwmgens + 1)):
+			parent.c0_pwmgens_cb.addItem(str(i), i)
+	if encoders > 0:
+		for i in reversed(range(encoders + 1)):
+			parent.c0_encoders_cb.addItem(str(i), i)
 

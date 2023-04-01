@@ -4,7 +4,7 @@ from libmesact import settings
 
 from libmesact import check
 from libmesact import buildini
-#from libmesact import buildhal
+from libmesact import buildhal
 #from libmesact import buildio
 #from libmesact import buildmisc
 #from libmesact import buildss
@@ -15,7 +15,7 @@ def build(parent):
 	build_ini = True
 	if not check.checkit(parent):
 		parent.mainTW.setCurrentIndex(11)
-		parent.infoPTE.appendPlainText('Build Failed')
+		parent.info_pte.appendPlainText('Build Failed')
 		build_all = False
 		build_ini = False
 		if parent.configNameLE.text() != '':
@@ -26,7 +26,7 @@ def build(parent):
 			if result:
 				build_ini = True
 			else:
-				parent.infoPTE.appendPlainText('Build Aborted')
+				parent.info_pte.appendPlainText('Build Aborted')
 				return
 
 	if parent.backupCB.isChecked():
@@ -37,26 +37,26 @@ def build(parent):
 		try:
 			os.mkdir(os.path.expanduser('~/linuxcnc'))
 		except OSError:
-			parent.infoPTE.appendPlainText(f'OS error\n {traceback.print_exc()}')
+			parent.info_pte.appendPlainText(f'OS error\n {traceback.print_exc()}')
 
 	if not os.path.exists(os.path.expanduser('~/linuxcnc/configs')):
 		try:
 			os.mkdir(os.path.expanduser('~/linuxcnc/configs'))
 		except OSError:
-			parent.infoPTE.appendPlainText(f'OS error\n {traceback.print_exc()}')
+			parent.info_pte.appendPlainText(f'OS error\n {traceback.print_exc()}')
 
 	if not os.path.exists(os.path.expanduser('~/linuxcnc/nc_files')):
 		try:
 			os.mkdir(os.path.expanduser('~/linuxcnc/nc_files'))
 		except OSError:
-			parent.infoPTE.appendPlainText(f'OS error\n {traceback.print_exc()}')
+			parent.info_pte.appendPlainText(f'OS error\n {traceback.print_exc()}')
 
 	if parent.subroutineCB.isChecked():
 		if not os.path.exists(os.path.expanduser('~/linuxcnc/subroutines')):
 			try:
 				os.mkdir(os.path.expanduser('~/linuxcnc/subroutines'))
 			except OSError:
-				parent.infoPTE.appendPlainText(f'OS error\n {traceback.print_exc()}')
+				parent.info_pte.appendPlainText(f'OS error\n {traceback.print_exc()}')
 
 	if build_ini:
 		iniFile = os.path.join(parent.configPath, parent.configNameUnderscored + '.ini')
@@ -66,8 +66,8 @@ def build(parent):
 			buildini.build(parent)
 
 	if build_all:
-		pass
-		#buildhal.build(parent)
+		print('Building All')
+		buildhal.build(parent)
 		#buildio.build(parent)
 		#buildmisc.build(parent)
 		#buildss.build(parent)

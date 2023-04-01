@@ -4,7 +4,6 @@ from functools import partial
 from PyQt5.QtGui import  QIcon
 from PyQt5.QtWidgets import QAction
 
-
 from libmesact import combos
 from libmesact import menus
 from libmesact import updates
@@ -38,8 +37,8 @@ def setup(parent):
 	'Firmware: Complete but untested\n'
 	'Download Manuals and Firmware: Complete and Tested\n'
 	)
-	parent.infoPTE.setPlainText(msg)
-	parent.mainTW.setCurrentIndex(11)
+	parent.info_pte.setPlainText(msg)
+	#parent.mainTW.setCurrentIndex(11)
 
 	exitAction = QAction(QIcon.fromTheme('application-exit'), 'Exit', parent)
 	#exitAction.setShortcut('Ctrl+Q')
@@ -53,12 +52,13 @@ def setup(parent):
 	docsAction.triggered.connect(partial(updates.downloadDocs, parent))
 	parent.menuDownloads.addAction(docsAction)
 
-
 	# set tab visibility
 	parent.mainTW.setTabVisible(3, False)
 	parent.mainTW.setTabVisible(4, False)
 	parent.mainTW.setTabVisible(5, False)
 	parent.mainTW.setTabVisible(6, False)
+
+	# Firmware tab
 
 	# get emc version if installed
 	parent.emcVersionLB.clear()

@@ -52,9 +52,9 @@ class updateini:
 			self.delete_key('HM2', 'IPADDRESS')
 		if parent.boardType == 'pci':
 			hm2 = [['HM2', 'DRIVER', 'hm2_pci']]
-		#hm2.append(['HM2', 'STEPGENS', f'{parent.stepgensCB.currentData()}'])
-		#hm2.append(['HM2', 'PWMGENS', f'{parent.pwmgensCB.currentData()}'])
-		#hm2.append(['HM2', 'ENCODERS', f'{parent.encodersCB.currentData()}'])
+		hm2.append(['HM2', 'STEPGENS', f'{parent.stepgensCB.currentData()}'])
+		hm2.append(['HM2', 'PWMGENS', f'{parent.pwmgensCB.currentData()}'])
+		hm2.append(['HM2', 'ENCODERS', f'{parent.encodersCB.currentData()}'])
 		for item in hm2:
 			self.update_key(item[0], item[1], item[2])
 
@@ -555,7 +555,7 @@ class updateini:
 	def write_ini(self, parent):
 		with open(self.iniFile, 'w') as outfile:
 			outfile.write(''.join(self.content))
-		parent.infoPTE.appendPlainText(f'Updated {self.iniFile}')
+		parent.info_pte.appendPlainText(f'Updated {self.iniFile}')
 
 	def get_sections(self):
 		self.sections = {}

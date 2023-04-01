@@ -80,13 +80,13 @@ def checkit(parent):
 	# end of PC Tab
 
 
-	parent.infoPTE.clear()
+	parent.info_pte.clear()
 	if configErrors:
 		checkit.result = '\n'.join(configErrors)
-		parent.infoPTE.setPlainText(checkit.result)
+		parent.info_pte.setPlainText(checkit.result)
 		return False
 	else:
-		parent.infoPTE.setPlainText('Configuration checked OK')
+		parent.info_pte.setPlainText('Configuration checked OK')
 		return True
 
 

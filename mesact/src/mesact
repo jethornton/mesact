@@ -30,6 +30,7 @@ from libmesact import flash
 from libmesact import machine
 from libmesact import axes
 from libmesact import utilities
+from libmesact import flash
 from libmesact import check
 from libmesact import openini
 from libmesact import updateini
@@ -96,13 +97,9 @@ class MainWindow(QMainWindow):
 		for i in range(3):
 			getattr(self, f'daughterCB_{i}').currentIndexChanged.connect(partial(daughters.changed, self))
 		self.checkBoardPB.clicked.connect(partial(flash.checkCard, self))
-		self.linearUnitsCB.currentIndexChanged.connect(partial(utilities.unitsChanged, self))
-		self.trajMaxLinVelDSB.valueChanged.connect(partial(utilities.maxVelChanged, self))
 
 		'''
 		self.loadConfigCB.clicked.connect(partial(settings.update_value, self))
-		for i in range(2):
-			getattr(self, f'daughterCB_{i}').currentIndexChanged.connect(partial(machine.daughterCardChanged, self))
 
 		self.enableMesaflashCB.clicked.connect(partial(utilities.firmwareTools, self))
 		self.enableMesaflashCB.clicked.connect(partial(settings.update_value, self))
@@ -118,14 +115,26 @@ class MainWindow(QMainWindow):
 		self.maxAngJogVelDSB.valueChanged.connect(partial(utilities.unitsChanged, self))
 		self.axisButtonGroup.setExclusive(False)  # Radio buttons are not exclusive
 		self.axisButtonGroup.buttonClicked.connect(partial(utilities.axisDisplayChanged, self))
+		self.linearUnitsCB.currentIndexChanged.connect(partial(utilities.unitsChanged, self))
+		self.trajMaxLinVelDSB.valueChanged.connect(partial(utilities.maxVelChanged, self))
 
 		'''
 		#self.frontToolLatheRB.buttonClicked.connect(partial(utilities.axisDisplayChanged, self))
 		#self.backToolLatheRB.buttonClicked.connect(partial(utilities.axisDisplayChanged, self))
 		#self.foamRB.buttonClicked.connect(partial(utilities.axisDisplayChanged, self))
+		'''
+
+		# Firmware Tab
+		self.firmwareCB.currentIndexChanged.connect(partial(firmware.firmwareChanged, self))
+		self.readhmidPB.clicked.connect(partial(flash.readhmid, self))
+		self.readpdPB.clicked.connect(partial(flash.readpd, self))
+		#self.flashPB.clicked.connect(partial(flash.flashCard, self))
+		#self.reloadPB.clicked.connect(partial(flash.reloadCard, self))
+		#self.verifyPB.clicked.connect(partial(flash.verifyCard, self))
+		#self.copyPB.clicked.connect(partial(utilities.copyOutput, self))
+
 
 		# Info Tab
-		'''
 		# Axes Tab
 		#self.c0_axis_0.currentIndexChanged.connect(partial(axes.axisChanged, self))
 
@@ -192,14 +201,6 @@ class MainWindow(QMainWindow):
 		self.newUserCB.clicked.connect(partial(settings.update_value, self))
 		'''
 
-		# Firmware Tab
-		self.firmwareCB.currentIndexChanged.connect(partial(firmware.firmwareChanged, self))
-		#self.readpdPB.clicked.connect(partial(card.readpd, self))
-		#self.readhmidPB.clicked.connect(partial(card.readhmid, self))
-		#self.flashPB.clicked.connect(partial(card.flashCard, self))
-		#self.reloadPB.clicked.connect(partial(card.reloadCard, self))
-		#self.verifyPB.clicked.connect(partial(card.verifyCard, self))
-		#self.copyPB.clicked.connect(partial(utilities.copyOutput, self))
 
 	def resizeEvent(self, event):
 		width = self.geometry().width()

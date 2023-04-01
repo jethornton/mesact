@@ -15,7 +15,7 @@ class loadini:
 
 	def checkini(self, parent, configName = ''):
 		parent.mainTW.setCurrentIndex(0)
-		parent.infoPTE.clear()
+		parent.info_pte.clear()
 		if not configName: # open file dialog
 			if os.path.isdir(os.path.expanduser('~/linuxcnc/configs')):
 				configsDir = os.path.expanduser('~/linuxcnc/configs')
@@ -64,11 +64,11 @@ class loadini:
 					else:
 						return
 
-			parent.infoPTE.appendPlainText(f'Loading {self.iniFile}')
+			parent.info_pte.appendPlainText(f'Loading {self.iniFile}')
 			self.loadini(parent, self.iniFile)
 			self.loadReadMe(parent, configName)
 		else:
-			parent.infoPTE.appendPlainText('Open File Cancled')
+			parent.info_pte.appendPlainText('Open File Cancled')
 			iniFile = ''
 
 	def loadini(self, parent, iniFile):

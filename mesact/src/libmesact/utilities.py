@@ -78,7 +78,7 @@ def backupFiles(parent, configPath=None):
 	if not configPath:
 		configPath = parent.configPath
 	if not os.path.exists(configPath):
-		parent.infoPTE.setPlainText('Nothing to Back Up')
+		parent.info_pte.setPlainText('Nothing to Back Up')
 		return
 	backupDir = os.path.join(configPath, 'backups')
 	if not os.path.exists(backupDir):
@@ -87,9 +87,9 @@ def backupFiles(parent, configPath=None):
 	backupFile = os.path.join(backupDir, f'{datetime.now():%m-%d-%y-%H:%M:%S}')
 	p2 = subprocess.Popen(['zip','-j',backupFile,'-@'], stdin=p1.stdout, stdout=subprocess.PIPE)
 	p1.stdout.close()
-	parent.infoPTE.appendPlainText('Backing up Confguration')
+	parent.info_pte.appendPlainText('Backing up Confguration')
 	output = p2.communicate()[0]
-	parent.infoPTE.appendPlainText(output.decode())
+	parent.info_pte.appendPlainText(output.decode())
 
 def axisDisplayChanged(parent, radioButton):
 	for button in parent.axisButtonGroup.buttons():

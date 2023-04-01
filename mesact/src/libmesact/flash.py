@@ -3,10 +3,6 @@ from subprocess import Popen, PIPE
 
 from PyQt5.QtWidgets import QInputDialog, QLineEdit, QDialogButtonBox
 
-ETH = ['7i76e', '7i80db-16', '7i80db-25', '7i80hd-16', '7i80hd-25', '7i92',
-	'7i92t', '7i93', '7i95', '7i96', '7i96s', '7i97', '7i98']
-PCI = ['5i24', '5i25']
-
 def check_emc():
 	if "0x48414c32" in subprocess.getoutput('ipcs'):
 		return True
@@ -35,6 +31,7 @@ def getResults(parent, prompt, result, viewport, task=None):
 	getattr(parent, viewport).clear()
 	getattr(parent, viewport).setPlainText(f'{task} returned: {outcome}\n')
 	getattr(parent, viewport).appendPlainText(f'{output}\n')
+	parent.firmwareTW.setCurrentIndex(1)
 
 def checkCard(parent):
 	board = parent.boardCB.currentData()
@@ -43,29 +40,88 @@ def checkCard(parent):
 		return
 	prompt = None
 	if check_emc():
-		parent.errorMsgOk(f'LinuxCNC must NOT be running\n to read the {parent.board}', 'Error')
+		parent.errorMsgOk(f'LinuxCNC must NOT be running\n to read the {board}', 'Error')
 		return
 
-	if board in ETH:
+	if parent.boardType == 'eth':
 		if check_ip(parent):
 			ipAddress = parent.ipAddressCB.currentText()
 			p = Popen(['mesaflash', '--device', board, '--addr', ipAddress],
-				stdin=PIPE, stderr=PIPE, stdout=PIPE, universal_newlines=True)
+				stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
 			prompt = p.communicate()
 		else:
 			return
 
-	elif board in PCI:
+	elif parent.boardType == 'pci':
 		if not parent.password:
 			password = getPassword(parent)
 			parent.password = password
 		if parent.password != None:
 			p = Popen(['sudo', '-S', 'mesaflash', '--device', board],
-				stdin=PIPE, stderr=PIPE, stdout=PIPE, universal_newlines=True)
+				stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
 			prompt = p.communicate(parent.password + '\n')
 	if prompt:
 		getResults(parent, prompt, p.returncode, 'verifyPTE', 'Check IP')
 
+def readhmid(parent):
+	#  mesaflash --device 7i92t --addr 10.10.10.10 --readhmid --dbname1 7i76 --dbname2 7i85s > 7i92_7i76_7i85sd.txt
+	prompt = None
+	board = parent.boardCB.currentData()
+	if check_emc():
+		parent.errorMsgOk(f'LinuxCNC must NOT be running\n to read the {parent.board}', 'Error')
+		return
+	if parent.boardType == 'eth':
+		if check_ip(parent):
+			ipAddress = parent.ipAddressCB.currentText()
+			cmd = ['mesaflash', '--device', board, '--addr', ipAddress, '--readhmid']
+			if parent.hmid_terminals_1:
+				cmd.append('--dbname1')
+				cmd.append(parent.hmid_terminals_1.currentData())
+			if parent.hmid_terminals_2:
+				cmd.append('--dbname2')
+				cmd.append(parent.hmid_terminals_2.currentData())
+			p = Popen(cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
+			prompt = p.communicate()
+		else:
+			return
+
+	elif parent.boardType == 'pci':
+		if not parent.password:
+			password = getPassword(parent)
+			parent.password = password
+		if parent.password != None:
+			p = Popen(['sudo', '-S', 'mesaflash', '--device', board, '--readhmid'],
+				stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
+			prompt = p.communicate(parent.password + '\n')
+
+	if prompt:
+		getResults(parent, prompt, p.returncode, 'firmwarePTE', 'Read HMID')
+
+def readpd(parent):
+	prompt = None
+	board = parent.boardCB.currentData()
+	if check_emc():
+		parent.errorMsgOk(f'LinuxCNC must NOT be running\n to read the {parent.board}', 'Error')
+		return
+	if parent.boardType == 'eth':
+		if check_ip(parent):
+			ipAddress = parent.ipAddressCB.currentText()
+			p = Popen(['mesaflash', '--device', parent.board, '--addr', ipAddress, '--print-pd'],
+				stdin=PIPE, stderr=PIPE, stdout=PIPE, universal_newlines=True)
+			prompt = p.communicate()
+		else:
+			return
+
+	elif parent.boardType == 'pci':
+		if not parent.password:
+			password = getPassword(parent)
+			parent.password = password
+		if parent.password != None:
+			p = Popen(['sudo', '-S', 'mesaflash', '--device', parent.board, '--print-pd'],
+				stdin=PIPE, stderr=PIPE, stdout=PIPE, universal_newlines=True)
+			prompt = p.communicate(parent.password + '\n')
+	if prompt:
+		getResults(parent, prompt, p.returncode, 'firmwarePTE', 'Read Pin Descriptions')
 
 
 
