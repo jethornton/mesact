@@ -131,7 +131,7 @@ class MainWindow(QMainWindow):
 		self.flashPB.clicked.connect(partial(flash.flashCard, self))
 		self.reloadPB.clicked.connect(partial(flash.reloadCard, self))
 		self.verifyPB.clicked.connect(partial(flash.verifyFirmware, self))
-		#self.copyPB.clicked.connect(partial(utilities.copyOutput, self))
+		self.copyPB.clicked.connect(partial(flash.copyOutput, self))
 
 
 		# Info Tab

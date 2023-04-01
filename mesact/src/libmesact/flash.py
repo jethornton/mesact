@@ -1,7 +1,8 @@
 import os, subprocess
 from subprocess import Popen, PIPE
 
-from PyQt5.QtWidgets import QInputDialog, QLineEdit, QDialogButtonBox, qApp
+from PyQt5.QtWidgets import QApplication, QInputDialog, QLineEdit, qApp
+from PyQt5.QtWidgets import QDialogButtonBox
 
 def check_emc():
 	if "0x48414c32" in subprocess.getoutput('ipcs'):
@@ -220,5 +221,10 @@ def verifyFirmware(parent):
 	else:
 		parent.errorMsgOk('A firmware must be selected', 'Error!')
 		return
+
+def copyOutput(parent):
+	qclip = QApplication.clipboard()
+	qclip.setText(parent.firmwarePTE.toPlainText())
+	parent.statusbar.showMessage('Output copied to clipboard')
 
 
