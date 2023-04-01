@@ -89,8 +89,7 @@ def boardChanged(parent):
 				getattr(parent, f'outputPB_{i}').setEnabled(True)
 				getattr(parent, f'outputInvertCB_{i}').setEnabled(False)
 			'''
-		elif board == '7i80db16':
-			parent.board = '7i80db16'
+		elif board == '7i80db-16':
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
 			for i in range(1, tabs + 1):
@@ -106,7 +105,7 @@ def boardChanged(parent):
 				parent.daughterCB_0.addItem(item[0], item[1])
 				parent.daughterCB_1.addItem(item[0], item[1])
 				parent.daughterCB_2.addItem(item[0], item[1])
-		elif board == '7i80db25':
+		elif board == '7i80db-25':
 			parent.board = '7i80db25'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
@@ -123,7 +122,7 @@ def boardChanged(parent):
 				parent.daughterCB_0.addItem(item[0], item[1])
 				parent.daughterCB_1.addItem(item[0], item[1])
 				parent.daughterCB_2.addItem(item[0], item[1])
-		elif board == '7i80hd16':
+		elif board == '7i80hd-16':
 			parent.board = '7i80hd16'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
@@ -140,7 +139,7 @@ def boardChanged(parent):
 				parent.daughterCB_0.addItem(item[0], item[1])
 				parent.daughterCB_1.addItem(item[0], item[1])
 				parent.daughterCB_2.addItem(item[0], item[1])
-		elif board == '7i80hd25':
+		elif board == '7i80hd-25':
 			parent.board = '7i80hd25'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
@@ -157,7 +156,7 @@ def boardChanged(parent):
 				parent.daughterCB_0.addItem(item[0], item[1])
 				parent.daughterCB_1.addItem(item[0], item[1])
 				parent.daughterCB_2.addItem(item[0], item[1])
-		elif board == '7i80hdts':
+		elif board == '7i80hd-ts':
 			parent.board = '7i80hdts'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
