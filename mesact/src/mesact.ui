@@ -584,35 +584,42 @@ from board</string>
                <string>Options</string>
               </property>
               <layout class="QGridLayout" name="gridLayout_435">
-               <item row="0" column="0">
-                <widget class="QLabel" name="label_1604">
-                 <property name="text">
-                  <string>Step Generators</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="1">
-                <widget class="QComboBox" name="stepgens_cb"/>
-               </item>
-               <item row="1" column="0">
-                <widget class="QLabel" name="label_1603">
-                 <property name="text">
-                  <string>PWM Generators</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="1">
+               <item row="2" column="1">
                 <widget class="QComboBox" name="pwmgens_cb"/>
                </item>
-               <item row="2" column="0">
+               <item row="3" column="0">
                 <widget class="QLabel" name="label_1605">
                  <property name="text">
                   <string>Encoders</string>
                  </property>
                 </widget>
                </item>
-               <item row="2" column="1">
+               <item row="1" column="1">
+                <widget class="QComboBox" name="stepgens_cb"/>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="label_1603">
+                 <property name="text">
+                  <string>PWM Generators</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
                 <widget class="QComboBox" name="encoders_cb"/>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_1604">
+                 <property name="text">
+                  <string>Step Generators</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0" colspan="2">
+                <widget class="QLabel" name="label_1477">
+                 <property name="text">
+                  <string>Total for Firmware Selected</string>
+                 </property>
+                </widget>
                </item>
               </layout>
              </widget>
@@ -711,6 +718,25 @@ is the same as the board</string>
                 </widget>
                </item>
               </layout>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLabel" name="label_1472">
+              <property name="frameShape">
+               <enum>QFrame::Box</enum>
+              </property>
+              <property name="text">
+               <string>After selecting the
+the firmware if
+needed you can
+decrease the number
+of stepgens,
+pwmgens,
+or encoders</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+              </property>
              </widget>
             </item>
            </layout>
