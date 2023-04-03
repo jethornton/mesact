@@ -459,6 +459,19 @@ before building configuration files</string>
             <string>Firmware</string>
            </attribute>
            <layout class="QGridLayout" name="gridLayout_400">
+            <item row="1" column="0">
+             <spacer name="verticalSpacer_53">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
             <item row="2" column="0">
              <widget class="QGroupBox" name="groupBox_217">
               <property name="minimumSize">
@@ -468,7 +481,7 @@ before building configuration files</string>
                </size>
               </property>
               <property name="title">
-               <string>Read HMID</string>
+               <string>Read from Board</string>
               </property>
               <layout class="QGridLayout" name="gridLayout_401">
                <item row="2" column="0">
@@ -480,6 +493,9 @@ before building configuration files</string>
                </item>
                <item row="2" column="1">
                 <widget class="QComboBox" name="hmid_terminals_1"/>
+               </item>
+               <item row="3" column="1">
+                <widget class="QComboBox" name="hmid_terminals_2"/>
                </item>
                <item row="3" column="0">
                 <widget class="QLabel" name="label_1470">
@@ -515,39 +531,24 @@ in PIN file format</string>
                  </property>
                 </widget>
                </item>
-               <item row="3" column="1">
-                <widget class="QComboBox" name="hmid_terminals_2"/>
+               <item row="0" column="2">
+                <widget class="QPushButton" name="readpdPB">
+                 <property name="toolTip">
+                  <string>Read Pin Descriptions
+from board</string>
+                 </property>
+                 <property name="statusTip">
+                  <string/>
+                 </property>
+                 <property name="text">
+                  <string>Read PD</string>
+                 </property>
+                </widget>
                </item>
               </layout>
              </widget>
             </item>
-            <item row="2" column="1">
-             <spacer name="horizontalSpacer_51">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item row="1" column="0">
-             <spacer name="verticalSpacer_53">
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>40</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item row="2" column="2">
+            <item row="2" column="3">
              <widget class="QGroupBox" name="groupBox_220">
               <property name="title">
                <string>Add Firmware</string>
@@ -577,7 +578,59 @@ in PIN file format</string>
               </layout>
              </widget>
             </item>
-            <item row="0" column="0" colspan="3">
+            <item row="2" column="2">
+             <widget class="QGroupBox" name="options_gb_b0">
+              <property name="title">
+               <string>Options</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_435">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_1604">
+                 <property name="text">
+                  <string>Step Generators</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QComboBox" name="stepgens_cb"/>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_1603">
+                 <property name="text">
+                  <string>PWM Generators</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QComboBox" name="pwmgens_cb"/>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="label_1605">
+                 <property name="text">
+                  <string>Encoders</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QComboBox" name="encoders_cb"/>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <spacer name="horizontalSpacer_51">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item row="0" column="0">
              <widget class="QGroupBox" name="firmwareGB">
               <property name="enabled">
                <bool>false</bool>
@@ -603,19 +656,6 @@ QGroupBox::title {
                <property name="topMargin">
                 <number>15</number>
                </property>
-               <item row="1" column="3">
-                <widget class="QPushButton" name="reloadPB">
-                 <property name="toolTip">
-                  <string>Reload Firmware after Flashing</string>
-                 </property>
-                 <property name="statusTip">
-                  <string/>
-                 </property>
-                 <property name="text">
-                  <string>Reload</string>
-                 </property>
-                </widget>
-               </item>
                <item row="1" column="0">
                 <widget class="QComboBox" name="firmwareCB">
                  <property name="sizePolicy">
@@ -632,7 +672,7 @@ QGroupBox::title {
                  </property>
                 </widget>
                </item>
-               <item row="1" column="2">
+               <item row="2" column="0">
                 <widget class="QPushButton" name="flashPB">
                  <property name="toolTip">
                   <string>Flash Selected Firmware
@@ -646,7 +686,20 @@ to the Board</string>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="4">
+               <item row="3" column="0">
+                <widget class="QPushButton" name="reloadPB">
+                 <property name="toolTip">
+                  <string>Reload Firmware after Flashing</string>
+                 </property>
+                 <property name="statusTip">
+                  <string/>
+                 </property>
+                 <property name="text">
+                  <string>Reload</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="0">
                 <widget class="QPushButton" name="verifyPB">
                  <property name="toolTip">
                   <string>Verify Selected Firmware
@@ -654,20 +707,6 @@ is the same as the board</string>
                  </property>
                  <property name="text">
                   <string>Verify</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="1">
-                <widget class="QPushButton" name="readpdPB">
-                 <property name="toolTip">
-                  <string>Read Pin Descriptions
-from board</string>
-                 </property>
-                 <property name="statusTip">
-                  <string/>
-                 </property>
-                 <property name="text">
-                  <string>Read PD</string>
                  </property>
                 </widget>
                </item>
@@ -1211,51 +1250,6 @@ to the clipboard</string>
             <property name="text">
              <string>TextLabel</string>
             </property>
-           </widget>
-           <widget class="QGroupBox" name="options_gb_b0">
-            <property name="geometry">
-             <rect>
-              <x>520</x>
-              <y>10</y>
-              <width>224</width>
-              <height>139</height>
-             </rect>
-            </property>
-            <property name="title">
-             <string>Options</string>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_435">
-             <item row="0" column="0">
-              <widget class="QLabel" name="label_1604">
-               <property name="text">
-                <string>Step Generators</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="1">
-              <widget class="QComboBox" name="c0_stepgens_cb"/>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="label_1603">
-               <property name="text">
-                <string>PWM Generators</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="QComboBox" name="c0_pwmgens_cb"/>
-             </item>
-             <item row="2" column="0">
-              <widget class="QLabel" name="label_1605">
-               <property name="text">
-                <string>Encoders</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="1">
-              <widget class="QComboBox" name="c0_encoders_cb"/>
-             </item>
-            </layout>
            </widget>
           </widget>
           <widget class="QWidget" name="tab_15">
@@ -11115,51 +11109,6 @@ Leave blank to home the joint manually.</string>
              <string>TextLabel</string>
             </property>
            </widget>
-           <widget class="QGroupBox" name="options_gb_b1">
-            <property name="geometry">
-             <rect>
-              <x>520</x>
-              <y>10</y>
-              <width>224</width>
-              <height>139</height>
-             </rect>
-            </property>
-            <property name="title">
-             <string>Options</string>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_436">
-             <item row="0" column="0">
-              <widget class="QLabel" name="label_1606">
-               <property name="text">
-                <string>Step Generators</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="1">
-              <widget class="QComboBox" name="c1_stepgens_cb"/>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="label_1607">
-               <property name="text">
-                <string>PWM Generators</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="QComboBox" name="c1_pwmgens_cb"/>
-             </item>
-             <item row="2" column="0">
-              <widget class="QLabel" name="label_1608">
-               <property name="text">
-                <string>Encoders</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="1">
-              <widget class="QComboBox" name="c1_encoders_cb"/>
-             </item>
-            </layout>
-           </widget>
           </widget>
           <widget class="QWidget" name="tab_53">
            <attribute name="title">
@@ -20668,51 +20617,6 @@ Leave blank to home the joint manually.</string>
              <string>TextLabel</string>
             </property>
            </widget>
-           <widget class="QGroupBox" name="options_gb_b2">
-            <property name="geometry">
-             <rect>
-              <x>520</x>
-              <y>10</y>
-              <width>224</width>
-              <height>139</height>
-             </rect>
-            </property>
-            <property name="title">
-             <string>Options</string>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_437">
-             <item row="0" column="0">
-              <widget class="QLabel" name="label_1609">
-               <property name="text">
-                <string>Step Generators</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="1">
-              <widget class="QComboBox" name="c2_stepgens_cb"/>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="label_1610">
-               <property name="text">
-                <string>PWM Generators</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="QComboBox" name="c2_pwmgens_cb"/>
-             </item>
-             <item row="2" column="0">
-              <widget class="QLabel" name="label_1611">
-               <property name="text">
-                <string>Encoders</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="1">
-              <widget class="QComboBox" name="c2_encoders_cb"/>
-             </item>
-            </layout>
-           </widget>
           </widget>
           <widget class="QWidget" name="tab_87">
            <attribute name="title">
@@ -30220,51 +30124,6 @@ Leave blank to home the joint manually.</string>
             <property name="text">
              <string>TextLabel</string>
             </property>
-           </widget>
-           <widget class="QGroupBox" name="options_gb_b3">
-            <property name="geometry">
-             <rect>
-              <x>530</x>
-              <y>0</y>
-              <width>224</width>
-              <height>139</height>
-             </rect>
-            </property>
-            <property name="title">
-             <string>Options</string>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_438">
-             <item row="0" column="0">
-              <widget class="QLabel" name="label_1612">
-               <property name="text">
-                <string>Step Generators</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="1">
-              <widget class="QComboBox" name="c3_stepgens_cb"/>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="label_1613">
-               <property name="text">
-                <string>PWM Generators</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="QComboBox" name="c3_pwmgens_cb"/>
-             </item>
-             <item row="2" column="0">
-              <widget class="QLabel" name="label_1614">
-               <property name="text">
-                <string>Encoders</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="1">
-              <widget class="QComboBox" name="c3_encoders_cb"/>
-             </item>
-            </layout>
            </widget>
           </widget>
           <widget class="QWidget" name="tab_121">

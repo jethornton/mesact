@@ -52,9 +52,9 @@ class updateini:
 			self.delete_key('HM2', 'IPADDRESS')
 		if parent.boardType == 'pci':
 			hm2 = [['HM2', 'DRIVER', 'hm2_pci']]
-		hm2.append(['HM2', 'STEPGENS', f'{parent.stepgensCB.currentData()}'])
-		hm2.append(['HM2', 'PWMGENS', f'{parent.pwmgensCB.currentData()}'])
-		hm2.append(['HM2', 'ENCODERS', f'{parent.encodersCB.currentData()}'])
+		hm2.append(['HM2', 'STEPGENS', f'{parent.stepgens_cb.currentData()}'])
+		hm2.append(['HM2', 'PWMGENS', f'{parent.pwmgens_cb.currentData()}'])
+		hm2.append(['HM2', 'ENCODERS', f'{parent.encoders_cb.currentData()}'])
 		for item in hm2:
 			self.update_key(item[0], item[1], item[2])
 

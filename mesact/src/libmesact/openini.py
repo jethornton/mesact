@@ -130,9 +130,9 @@ class loadini:
 
 		hm2 = [
 		['[HM2]', 'IPADDRESS', 'ipAddressCB'],
-		['[HM2]', 'STEPGENS', 'stepgensCB'],
-		['[HM2]', 'PWMGENS', 'pwmgensCB'],
-		['[HM2]', 'ENCODERS', 'encodersCB']
+		['[HM2]', 'STEPGENS', 'stepgens_cb'],
+		['[HM2]', 'PWMGENS', 'pwmgens_cb'],
+		['[HM2]', 'ENCODERS', 'encoders_cb']
 		]
 		for item in hm2:
 			self.update(parent, item[0], item[1], item[2])

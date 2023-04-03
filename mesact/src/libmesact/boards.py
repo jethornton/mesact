@@ -238,10 +238,6 @@ def boardChanged(parent):
 			parent.board = '7i96s'
 			parent.boardType = 'eth'
 			# 5 step/dir 11 inputs 6 outputs 1 spindle 1 encoder
-			stepgens = 5
-			pwmgens = 1
-			encoders = 1
-			options(parent, 'c0', stepgens, pwmgens, encoders)
 			parent.c0_JointTW.setTabText(0, name)
 			parent.c0_JointTW.setTabVisible(6, False)
 			parent.ipAddressCB.setEnabled(True)
@@ -313,17 +309,4 @@ def boardChanged(parent):
 		parent.daughterCB_1.clear()
 		parent.daughterCB_2.clear()
 
-def options(parent, card, stepgens, pwmgens, encoders):
-	getattr(parent, f'{card}_stepgens_cb').clear()
-	getattr(parent, f'{card}_pwmgens_cb').clear()
-	getattr(parent, f'{card}_encoders_cb').clear()
-	if stepgens > 0:
-		for i in reversed(range(stepgens + 1)):
-			parent.c0_stepgens_cb.addItem(str(i), i)
-	if pwmgens > 0:
-		for i in reversed(range(pwmgens + 1)):
-			parent.c0_pwmgens_cb.addItem(str(i), i)
-	if encoders > 0:
-		for i in reversed(range(encoders + 1)):
-			parent.c0_encoders_cb.addItem(str(i), i)
 

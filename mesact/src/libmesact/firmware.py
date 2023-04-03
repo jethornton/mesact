@@ -35,6 +35,7 @@ def noFirmware(parent, board):
 
 def firmwareChanged(parent):
 	if parent.firmwareCB.currentData():
+		parent.firmwareTW.setCurrentIndex(1)
 		board = parent.boardCB.currentData()
 		if '-' in board:
 			board = board.replace("-", "_")
@@ -43,6 +44,45 @@ def firmwareChanged(parent):
 
 		pinfile = os.path.join(path + '.pin')
 		if os.path.exists(pinfile):
+			stepgens = 0
+			pwmgens = 0
+			encoders = 0
+
+			'''
+			Module: PWM
+			There are 1 of PWM in configuration
+
+			Module: StepGen
+			There are 5 of StepGen in configuration
+
+			Module: QCount
+			There are 1 of QCount in configuration
+			'''
+
+			with open(pinfile, 'r') as file:
+				for line in file:
+					if 'of PWM in configuration' in line:
+						pwmgens = int(''.join(filter(str.isdigit, line)))
+					if 'of StepGen in configuration' in line:
+						stepgens = int(''.join(filter(str.isdigit, line)))
+					if 'of QCount in configuration' in line:
+						encoders = int(''.join(filter(str.isdigit, line)))
+
+			parent.stepgens_cb.clear()
+			parent.pwmgens_cb.clear()
+			parent.encoders_cb.clear()
+			if stepgens > 0:
+				for i in reversed(range(stepgens + 1)):
+					parent.stepgens_cb.addItem(str(i), i)
+			if pwmgens > 0:
+				for i in reversed(range(pwmgens + 1)):
+					parent.pwmgens_cb.addItem(str(i), i)
+			if encoders > 0:
+				for i in reversed(range(encoders + 1)):
+					parent.encoders_cb.addItem(str(i), i)
+
+
+
 			with open(pinfile, 'r') as file:
 				data = file.read()
 			parent.firmwarePTE.clear()
@@ -142,5 +182,7 @@ def firmwareChanged(parent):
 		parent.daughterCB_0.clear()
 		parent.daughterCB_1.clear()
 	'''
+
+
 
 
