@@ -1,8 +1,10 @@
 halrun
 loadrt hostmot2
 loadrt hm2_eth board_ip=10.10.10.10
+quit
 
 In another terminal
 halcmd show all hm2 > 7i92T-7i76-pins.txt
+halcmd show all hm2 > 7i92T-7i77-pins.txt
 halcmd show all hm2 > 7i96S-pins.txt
 
