@@ -150,8 +150,8 @@ def flashCard(parent):
 		if parent.boardType == 'eth':
 			if check_ip(parent):
 				ipAddress = parent.ipAddressCB.currentText()
-				print(f'command: {cmd}')
 				cmd = ['mesaflash', '--device', board, '--addr', ipAddress, '--write', firmware]
+				print(f'command: {cmd}')
 				p = Popen(cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
 				prompt = p.communicate()
 			else:

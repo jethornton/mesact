@@ -66,7 +66,6 @@ def build(parent):
 			buildini.build(parent)
 
 	if build_all:
-		print('Building All')
 		buildhal.build(parent)
 		#buildio.build(parent)
 		#buildmisc.build(parent)

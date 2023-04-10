@@ -53,6 +53,11 @@ def build(parent):
 		for item in db25_daughters:
 			getattr(parent, f'hmid_terminals_{i}').addItem(item[0], item[1])
 
+	parent.stepgens_cb.addItem('n/a', 0)
+	parent.pwmgens_cb.addItem('n/a', 0)
+	parent.encoders_cb.addItem('n/a', 0)
+
+
 	# Settings Tab
 	gui = [
 		['Select', False],

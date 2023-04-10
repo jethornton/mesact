@@ -2,6 +2,11 @@ import os
 from datetime import datetime
 
 def build(parent):
+	board = parent.boardCB.currentData()
+	aliasdict = {'7i92t': '7i92'}
+	if board in aliasdict:
+		board = aliasdict[board]
+
 	halFilePath = os.path.join(parent.configPath, parent.configNameUnderscored + '.hal')
 	parent.info_pte.appendPlainText(f'Building {halFilePath}')
 
@@ -23,14 +28,29 @@ def build(parent):
 	halContents.append('# hostmot2 driver\n')
 	halContents.append('loadrt hostmot2\n')
 
-	# loadrt hm2_eth board_ip="10.10.10.10" config="num_encoders=1 num_pwmgens=1 num_stepgens=5 sserial_port_0=0xxxxxxx" 
+	halContents.append('loadrt [HM2](DRIVER) ')
+	if parent.boardType == 'eth':
+		halContents.append('board_ip=[HM2](IPADDRESS) ')
+
+	encoders = parent.encoders_cb.currentData()
+	pwmgens = parent.pwmgens_cb.currentData()
+	stepgens = parent.stepgens_cb.currentData()
+	halContents.append('config="')
+	if stepgens > 0:
+		halContents.append(f'num_encoders={encoders} ')
+	if stepgens > 0:
+		halContents.append(f'num_pwmgens={pwmgens} ')
+	if stepgens > 0:
+		halContents.append(f'num_stepgens={stepgens} ')
+	halContents.append('sserial_port_0=0xxxxxxx"\n')
+
+	'''
+	setp    hm2_7i96s.0.pwmgen.pwm_frequency 20000
+	setp    hm2_7i96s.0.pwmgen.pdm_frequency 6000000
+	setp    hm2_7i96s.0.watchdog.timeout_ns 5000000
+	'''
 
 	halContents.append('# standard components\n')
-
-	board = parent.boardCB.currentData()
-	aliasdict = {'7i92t': '7i92'}
-	if board in aliasdict:
-		board = aliasdict[board]
 
 
 	'''
@@ -57,9 +77,6 @@ def build(parent):
 		pids = len(parent.coordinatesLB.text())
 	halContents.append(f'loadrt pid num_chan={pids} \n\n')
 
-	halContents.append('loadrt [HM2](DRIVER) ')
-	if parent.boardType == 'eth':
-		halContents.append('board_ip=[HM2](IPADDRESS) ')
 	config = False
 	if parent.stepgensCB.currentData():
 		config = True
