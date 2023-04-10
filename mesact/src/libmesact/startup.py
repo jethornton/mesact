@@ -1,4 +1,4 @@
-import os, subprocess
+import os, subprocess, sysconfig
 from functools import partial
 
 from PyQt5.QtGui import  QIcon
@@ -87,6 +87,7 @@ def setup(parent):
 		parent.firmwareGB.setEnabled(False)
 		parent.checkBoardPB.setEnabled(False)
 		parent.mesaflashVersionLB.setText('Not Installed')
+	parent.platformLB.setText(sysconfig.get_platform())
 
 	combos.build(parent)
 	menus.build(parent)
