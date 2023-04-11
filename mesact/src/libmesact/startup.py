@@ -87,6 +87,7 @@ def setup(parent):
 		parent.firmwareGB.setEnabled(False)
 		parent.checkBoardPB.setEnabled(False)
 		parent.mesaflashVersionLB.setText('Not Installed')
+
 	parent.platformLB.setText(sysconfig.get_platform())
 
 	combos.build(parent)
