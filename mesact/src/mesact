@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import sys, os, traceback
+from platform import python_version
 
 # disable cache usage must be before any local imports
 sys.dont_write_bytecode = True
@@ -19,7 +20,7 @@ from functools import partial
 
 from PyQt5.QtWidgets import QApplication, QMainWindow, QProgressBar
 from PyQt5.QtWidgets import QMessageBox
-from PyQt5.QtCore import QTimer, QSettings
+from PyQt5.QtCore import QTimer, QSettings, qVersion
 from PyQt5 import uic
 
 from libmesact import startup
@@ -40,6 +41,18 @@ from libmesact import sscards
 from libmesact import pcinfo
 
 from libmesact import shutdown
+
+class VersionError(QMainWindow):
+	def __init__(self, msg):
+		super(VersionError, self).__init__()
+		msgBox = QMessageBox()
+		msgBox.setIcon(QMessageBox.Warning)
+		msgBox.setWindowTitle('Version Error')
+		msgBox.setText(msg)
+		msgBox.setStandardButtons(QMessageBox.Ok)
+		msgBox.exec()
+		sys.exit()
+
 
 class MainWindow(QMainWindow):
 	def __init__(self):
@@ -291,7 +304,17 @@ class MainWindow(QMainWindow):
 		shutdown.save_settings(self)
 
 app = QApplication(sys.argv)
-ex = MainWindow()
+# check python version
+qt_version = qVersion().split('.')
+if (sys.version_info.major, sys.version_info.minor) < (3, 6):
+	msg = (f'Python 3.6 or newer is required.\nYour Python is {python_version()}')
+	ex = VersionError(msg)
+elif (int(qt_version[0]), int(qt_version[1])) < (5, 15):
+	msg = (f'PyQt5 5.15 or newer is required.\nYour PyQt5 is {qVersion()}\n'
+	'Try updating python3-pyqt5')
+	ex = VersionError(msg)
+else:
+	ex = MainWindow()
 sys.exit(app.exec_())
 
 
