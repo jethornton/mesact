@@ -1,6 +1,8 @@
 import os, subprocess, sysconfig
+from platform import python_version
 from functools import partial
 
+from PyQt5.QtCore import qVersion
 from PyQt5.QtGui import  QIcon
 from PyQt5.QtWidgets import QAction
 
@@ -89,6 +91,8 @@ def setup(parent):
 		parent.mesaflashVersionLB.setText('Not Installed')
 
 	parent.platformLB.setText(sysconfig.get_platform())
+	parent.pythonLB.setText(python_version())
+	parent.pyqt5LB.setText(qVersion())
 
 	combos.build(parent)
 	menus.build(parent)

@@ -316,10 +316,10 @@ Spaces are replaced with underscore.</string>
        <widget class="QGroupBox" name="groupBox_2">
         <property name="geometry">
          <rect>
-          <x>20</x>
-          <y>230</y>
+          <x>10</x>
+          <y>130</y>
           <width>241</width>
-          <height>191</height>
+          <height>231</height>
          </rect>
         </property>
         <property name="title">
@@ -333,6 +333,9 @@ Spaces are replaced with underscore.</string>
            </property>
            <property name="text">
             <string/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -356,6 +359,32 @@ Spaces are replaced with underscore.</string>
            </property>
           </widget>
          </item>
+         <item row="5" column="1">
+          <widget class="QLabel" name="platformLB">
+           <property name="frameShape">
+            <enum>QFrame::Box</enum>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="1">
+          <widget class="QLabel" name="pyqt5LB">
+           <property name="frameShape">
+            <enum>QFrame::Box</enum>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
          <item row="0" column="1">
           <widget class="QLabel" name="emcVersionLB">
            <property name="frameShape">
@@ -365,7 +394,17 @@ Spaces are replaced with underscore.</string>
             <string/>
            </property>
            <property name="alignment">
-            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="0">
+          <widget class="QLabel" name="label_1480">
+           <property name="text">
+            <string>PyQt5</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
            </property>
           </widget>
          </item>
@@ -397,6 +436,9 @@ Spaces are replaced with underscore.</string>
            <property name="text">
             <string/>
            </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
           </widget>
          </item>
          <item row="2" column="1">
@@ -408,7 +450,7 @@ Spaces are replaced with underscore.</string>
             <string/>
            </property>
            <property name="alignment">
-            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -422,13 +464,26 @@ Spaces are replaced with underscore.</string>
            </property>
           </widget>
          </item>
-         <item row="5" column="1">
-          <widget class="QLabel" name="platformLB">
+         <item row="6" column="0">
+          <widget class="QLabel" name="label_1481">
+           <property name="text">
+            <string>Python</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="1">
+          <widget class="QLabel" name="pythonLB">
            <property name="frameShape">
             <enum>QFrame::Box</enum>
            </property>
            <property name="text">
             <string/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>
@@ -437,8 +492,8 @@ Spaces are replaced with underscore.</string>
        <widget class="QGroupBox" name="groupBox_135">
         <property name="geometry">
          <rect>
-          <x>10</x>
-          <y>130</y>
+          <x>310</x>
+          <y>150</y>
           <width>111</width>
           <height>61</height>
          </rect>
