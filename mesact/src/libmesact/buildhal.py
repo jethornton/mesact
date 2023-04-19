@@ -30,7 +30,7 @@ def build(parent):
 
 	halContents.append('loadrt [HM2](DRIVER) ')
 	if parent.boardType == 'eth':
-		halContents.append('board_ip=[HM2](IPADDRESS) ')
+		halContents.append('board_ip=[HM2](ADDRESS) ')
 
 	encoders = parent.encoders_cb.currentData()
 	pwmgens = parent.pwmgens_cb.currentData()
@@ -44,13 +44,20 @@ def build(parent):
 		halContents.append(f'num_stepgens={stepgens} ')
 	halContents.append('sserial_port_0=0xxxxxxx"\n')
 
-	'''
-	setp    hm2_7i96s.0.pwmgen.pwm_frequency 20000
-	setp    hm2_7i96s.0.pwmgen.pdm_frequency 6000000
-	setp    hm2_7i96s.0.watchdog.timeout_ns 5000000
-	'''
+	if board == '7i96s':
+		halContents.append('setp hm2_7i96s.0.pwmgen.pwm_frequency 20000\n')
+		halContents.append('setp hm2_7i96s.0.pwmgen.pdm_frequency 6000000\n')
+	halContents.append(f'\nsetp hm2_[MESA](BOARD).0.watchdog.timeout_ns {parent.servoPeriodSB.value() * 5}\n')
 
-	halContents.append('# standard components\n')
+	halContents.append('\n# THREADS\n')
+	halContents.append(f'addf hm2_[MESA](BOARD).0.read servo-thread\n')
+	halContents.append('addf motion-command-handler servo-thread\n')
+	halContents.append('addf motion-controller servo-thread\n')
+	# figure out pids
+	
+
+
+	#halContents.append('# standard components\n')
 
 
 	'''
@@ -104,11 +111,6 @@ def build(parent):
 	#halContents.append('loadrt [HM2](DRIVER) ')
 
 
-	halContents.append(f'\nsetp hm2_[MESA](BOARD).0.watchdog.timeout_ns {parent.servoPeriodSB.value() * 5}\n')
-	halContents.append('\n# THREADS\n')
-	halContents.append(f'addf hm2_[MESA](BOARD).0.read servo-thread\n')
-	halContents.append('addf motion-command-handler servo-thread\n')
-	halContents.append('addf motion-controller servo-thread\n')
 
 	for i in range(pids):
 		halContents.append(f'addf pid.{i}.do-pid-calcs servo-thread\n')
@@ -341,13 +343,15 @@ def build(parent):
 
 			# for encoder feedback spindle at speed should use encoder speed
 			halContents.append('sets spindle-at-speed true\n')
+	'''
 
 
 	externalEstop = False
-	for i in range(6): # test for an external e stop input
-		key = getattr(parent, 'inputPB_' + str(i)).text()
-		if key[0:6] == 'E Stop':
-			externalEstop = True
+	for i in range(4): # test for an external e stop input
+		for j in range(16):
+			key = getattr(parent, f'c{i}_input_{j}').text()
+			if key[0:6] == 'E Stop':
+				externalEstop = True
 	if not externalEstop:
 		halContents.append('\n# Standard I/O Block - EStop, Etc\n')
 		halContents.append('# create a signal for the estop loopback\n')
@@ -378,7 +382,6 @@ def build(parent):
 			halContents.append('loadrt classicladder_rt\n')
 		halContents.append('addf classicladder.0.refresh servo-thread 1\n')
 
-	'''
 
 
 	try:

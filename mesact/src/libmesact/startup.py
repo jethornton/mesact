@@ -25,6 +25,8 @@ def setup(parent):
 
 	# temp show progress
 	msg = ('Item Status\n'
+	'Only currently avaliable boards are supported\n'
+	'at this time, more will be added in the future.\n'
 	'Build deb and install: Complete and Tested\n'
 	'Build, Load & Update ini: Partial in progress\n'
 	'\tAxes: Complete and Tested\n'
@@ -64,7 +66,11 @@ def setup(parent):
 
 	# get emc version if installed
 	parent.emcVersionLB.clear()
-	emc = subprocess.check_output(['apt-cache', 'policy', 'linuxcnc-uspace'], encoding='UTF-8')
+	try: # don't crash if your not running debian
+		emc = subprocess.check_output(['apt-cache', 'policy', 'linuxcnc-uspace'], encoding='UTF-8')
+	except:
+		pass
+
 	if emc:
 		# get second line
 		line = emc.split('\n')[1]

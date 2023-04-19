@@ -32,6 +32,18 @@
       <property name="enabled">
        <bool>true</bool>
       </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>795</width>
+        <height>16777215</height>
+       </size>
+      </property>
       <property name="currentIndex">
        <number>0</number>
       </property>
@@ -517,6 +529,19 @@ before building configuration files</string>
           </widget>
          </item>
         </layout>
+       </widget>
+       <widget class="QPushButton" name="update_test_pb">
+        <property name="geometry">
+         <rect>
+          <x>306</x>
+          <y>260</y>
+          <width>101</width>
+          <height>27</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Update Test</string>
+        </property>
        </widget>
       </widget>
       <widget class="QWidget" name="tab_12">

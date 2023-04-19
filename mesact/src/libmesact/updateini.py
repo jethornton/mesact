@@ -240,6 +240,8 @@ class updateini:
 				if getattr(parent, f'c{i}_axis_{j}').currentData():
 					tool_ja[f'[JOINT_{joint}]'] = f'[AXIS_{getattr(parent, f"c{i}_axis_{j}").currentData()}]'
 					joint += 1
+		#for key, value in tool_ja.items():
+		#	print(f'key: {key} value: {value}')
 
 		ini_ja = {}
 		for key, value in self.sections.items():
@@ -275,8 +277,10 @@ class updateini:
 
 			last_axis = ''
 			last_joint = ''
+			# this fails if more than one joint is added !!!!!!!!!!!
 			for key, value in tool_ja.items(): # add missing axis
 				if tool_ja[key] not in ini_axes:
+					print(f'key: {key}')
 					index = self.sections[last_joint][1]
 					if index:
 						self.insert_section(index, f'{tool_ja[key]}')
@@ -305,8 +309,12 @@ class updateini:
 					self.update_key(f'AXIS_{axis}', 'MAX_LIMIT', getattr(parent, f'c{i}_max_limit_{j}').text())
 					self.update_key(f'AXIS_{axis}', 'MAX_VELOCITY', getattr(parent, f'c{i}_max_vel_{j}').text())
 					self.update_key(f'AXIS_{axis}', 'MAX_ACCELERATION', getattr(parent, f'c{i}_max_accel_{j}').text())
+				#iniContents.append(f'CARD = {i}\n')
+				#iniContents.append(f'TAB = {j}\n')
 
 				if getattr(parent, f'c{i}_axis_{j}').currentData():
+					self.update_key(f'JOINT_{n}', 'CARD', f'{i}')
+					self.update_key(f'JOINT_{n}', 'TAB', f'{j}')
 					self.update_key(f'JOINT_{n}', 'AXIS', getattr(parent, f'c{i}_axis_{j}').currentData())
 					self.update_key(f'JOINT_{n}', 'MIN_LIMIT', getattr(parent, f'c{i}_min_limit_{j}').text())
 					self.update_key(f'JOINT_{n}', 'MAX_LIMIT', getattr(parent, f'c{i}_max_limit_{j}').text())
@@ -596,14 +604,67 @@ class updateini:
 				self.get_sections() # update section start/end
 
 	def insert_section(self, index, section):
+		#print(f'index {index} section {section}')
 		self.content.insert(index, f'{section}\n')
 		self.content.insert(index, '\n')
+		#print(self.content)
 		self.get_sections() # update section start/end
+		#print(self.sections)
 
 	def delete_section(self, section):
 		start = self.sections[section][0]
 		end = self.sections[section][1]
 		del self.content[start:end]
 		self.get_sections() # update section start/end
+
+	def update_test(self, parent):
+		iniFile = os.path.join(parent.configPath, parent.configNameUnderscored + '.ini')
+		self.iniFile = iniFile
+		with open(self.iniFile,'r') as file:
+			self.content = file.readlines() # create a list of the ini file
+		self.get_sections()
+
+
+		# build tool joint dictionary
+		tool_ja = {}
+		joint = 0
+		for i in range(4):
+			for j in range(6):
+				if getattr(parent, f'c{i}_axis_{j}').currentData():
+					tool_ja[f'[JOINT_{joint}]'] = f'[AXIS_{getattr(parent, f"c{i}_axis_{j}").currentData()}]'
+					joint += 1
+		for key, value in tool_ja.items():
+			print(f'tool key: {key} value: {value}')
+
+		# build ini joint dictionary
+		ini_ja = {}
+		for key, value in self.sections.items():
+			if key.startswith('[JOINT'):
+				for i in range(value[0], value[1]):
+					if self.content[i].startswith('AXIS'):
+						axis = self.content[i].strip()
+						axis = axis.split()
+						axis = f'[AXIS_{axis[-1]}]'
+						ini_ja[key] = axis
+		for key, value in ini_ja.items():
+			print(f'ini key: {key} value: {value}')
+
+		ini_axes = []
+		for key, value in ini_ja.items(): # get a list of axes
+			if value not in ini_axes:
+				ini_axes.append(value)
+		print(f'ini_axes {ini_axes}')
+
+			last_axis = ''
+			last_joint = ''
+			# this fails if more than one joint is added !!!!!!!!!!!
+			for key, value in tool_ja.items(): # add missing axis
+				if tool_ja[key] not in ini_axes:
+					print(f'key: {key}')
+					index = self.sections[last_joint][1]
+					if index:
+						self.insert_section(index, f'{tool_ja[key]}')
+				last_joint = key
+
 
 

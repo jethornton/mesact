@@ -261,7 +261,10 @@ def boardChanged(parent):
 			for j in range(6,16):
 				getattr(parent, f'c0_output_{j}').setEnabled(False)
 				getattr(parent, f'c0_output_invert_{j}').setEnabled(False)
+			for i in range(6):
+				getattr(parent, f'c0_analogGB_{i}').setVisible(False)
 			'''
+			c0_analogGB_0
 			hm2_7i96s.0.pwmgen.00.enable
 			hm2_7i96s.0.pwmgen.00.value
 
