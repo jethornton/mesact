@@ -8,16 +8,116 @@ class updateini:
 		super().__init__()
 		self.content = ''
 		self.sections = {}
-		self.iniFile = ''
 
 	def update(self, parent, iniFile):
-		self.iniFile = iniFile
-		with open(self.iniFile,'r') as file:
+		with open(iniFile,'r') as file:
 			self.content = file.readlines() # create a list of the ini file
-		self.get_sections()
+		self.get_sections() # get all ini sections
 		if self.content[0].startswith('# This file'):
 			self.content[0] = ('# This file was updated with the Mesa Configuration'
 				f' Tool on {datetime.now().strftime("%b %d %Y %H:%M:%S")}\n')
+
+		# if the joint is in the ini but the axis is different just change the axis
+		# need a list of axes then joints from tool then check to see if any are missing
+		# and insert them at the correct place
+
+		'''
+		Joint/Axes rules
+		Joints must be used starting at 0 and not skipping a number
+		Joints can be added after the last joint
+		Joints can be deleted starting at the highest number and working backwards
+		Axis letters can be changed without changing number of joints
+		'''
+
+		tool_joints = {}
+		joint = 0
+		for i in range(4):
+			for j in range(6):
+				if getattr(parent, f'c{i}_axis_{j}').currentData():
+					axis = getattr(parent, f'c{i}_axis_{j}').currentData()
+					tool_joints[f'[JOINT_{joint}]'] = f'{axis}'
+					#if f'[JOINT_{joint}]' in self.sections:
+					#	print(f'Joint {joint} exists in the ini')
+					#else:
+					#	print(f'Joint {joint} needs to be added to the ini')
+					#print(f'Joint {joint} Axis {axis}')
+					joint += 1
+
+		for key, value in tool_joints.items():
+			print(f'Tool: {key} {value}')
+
+		ini_joints = {}
+		for key, value in self.sections.items():
+			if key.startswith('[JOINT_'):
+				start = value[0]
+				end = value[1] + 1
+				#print(f'Start: {value[0]} End: {value[1]} Range End: {value[1] + 1}')
+				for item in self.content[start: end]:
+					if item.split(' = ')[0].strip() == 'AXIS':
+						#print(item.split('=')[1].strip())
+						ini_joints[key] = item.split('=')[1].strip()
+
+		for key, value in ini_joints.items():
+			print(f'Ini: {key} {value}')
+
+		return
+
+		# test for axis letter changed
+		if len(tool_joints) == len(ini_joints): # both have the same number of joints
+			for key, value in tool_joints.items():
+				if tool_joints[key] != ini_joints[key]:
+					new_axis = f'[AXIS_{tool_joints[key]}]'
+					old_axis = f'[AXIS_{ini_joints[key]}]'
+					# use the sections to find the axis maybe
+					for line in self.content:
+						if line.strip() == f'[AXIS_{ini_joints[key]}]':
+							for index, line in enumerate(self.content):
+								if line.strip() == old_axis:
+									#print(f'Index: {index} Old: {old} New: {new}')
+									self.content[index] = f'{new_axis}\n'
+
+
+		# test for new joints
+		for key in tool_joints:
+			if key not in ini_joints:
+				print(f'Need to add {key}')
+				joint = int(f'{key.split("_")[1][:-1]}')
+				if joint > 0:
+					last_joint = joint - 1
+				else:
+					print('no last joint rut-ro')
+					return
+				print(last_joint)
+				index = self.sections[f'[JOINT_{last_joint}]'][1]
+				print(index)
+
+				# test for new axis before adding the joint
+				# need a map of axes and joints somehow...
+				for key, value in self.sections.items():
+					if key.startswith('[AXIS_'):
+						print(key)
+
+
+				if index:
+					#print(f'Adding [JOINT_{joint}]')
+					self.insert_section(index, f'[JOINT_{joint}]')
+				#for key, value in self.sections.items():
+				#	print(f'Key: {key} Value: {value}')
+
+
+		# as this gets sorted out move stuff from below
+		self.write_ini(parent, iniFile)
+
+
+		# test for new axes and insert axis after previous joint
+
+
+
+		# test for joints to remove
+		for key in ini_joints:
+			if key not in tool_joints:
+				print(f'Need to remove {key}')
+
 
 		if parent.boardCB.currentData() == '7i92t':
 			board = '7i92'
@@ -558,12 +658,11 @@ class updateini:
 			if '[SSERIAL]' in self.sections:
 				self.delete_section('[SSERIAL]')
 
-		self.write_ini(parent)
 
-	def write_ini(self, parent):
-		with open(self.iniFile, 'w') as outfile:
+	def write_ini(self, parent, iniFile):
+		with open(iniFile, 'w') as outfile:
 			outfile.write(''.join(self.content))
-		parent.info_pte.appendPlainText(f'Updated {self.iniFile}')
+		parent.info_pte.appendPlainText(f'Updated {iniFile}')
 
 	def get_sections(self):
 		self.sections = {}
@@ -616,55 +715,5 @@ class updateini:
 		end = self.sections[section][1]
 		del self.content[start:end]
 		self.get_sections() # update section start/end
-
-	def update_test(self, parent):
-		iniFile = os.path.join(parent.configPath, parent.configNameUnderscored + '.ini')
-		self.iniFile = iniFile
-		with open(self.iniFile,'r') as file:
-			self.content = file.readlines() # create a list of the ini file
-		self.get_sections()
-
-
-		# build tool joint dictionary
-		tool_ja = {}
-		joint = 0
-		for i in range(4):
-			for j in range(6):
-				if getattr(parent, f'c{i}_axis_{j}').currentData():
-					tool_ja[f'[JOINT_{joint}]'] = f'[AXIS_{getattr(parent, f"c{i}_axis_{j}").currentData()}]'
-					joint += 1
-		for key, value in tool_ja.items():
-			print(f'tool key: {key} value: {value}')
-
-		# build ini joint dictionary
-		ini_ja = {}
-		for key, value in self.sections.items():
-			if key.startswith('[JOINT'):
-				for i in range(value[0], value[1]):
-					if self.content[i].startswith('AXIS'):
-						axis = self.content[i].strip()
-						axis = axis.split()
-						axis = f'[AXIS_{axis[-1]}]'
-						ini_ja[key] = axis
-		for key, value in ini_ja.items():
-			print(f'ini key: {key} value: {value}')
-
-		ini_axes = []
-		for key, value in ini_ja.items(): # get a list of axes
-			if value not in ini_axes:
-				ini_axes.append(value)
-		print(f'ini_axes {ini_axes}')
-
-			last_axis = ''
-			last_joint = ''
-			# this fails if more than one joint is added !!!!!!!!!!!
-			for key, value in tool_ja.items(): # add missing axis
-				if tool_ja[key] not in ini_axes:
-					print(f'key: {key}')
-					index = self.sections[last_joint][1]
-					if index:
-						self.insert_section(index, f'{tool_ja[key]}')
-				last_joint = key
-
 
 
