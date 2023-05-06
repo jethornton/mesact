@@ -60,10 +60,8 @@ class updateini:
 		for key, value in ini_joints.items():
 			print(f'Ini: {key} {value}')
 
-		return
-
-		# test for axis letter changed
-		if len(tool_joints) == len(ini_joints): # both have the same number of joints
+		if len(tool_joints) == len(ini_joints):
+			print('Same number of joints, checking Axis Letters')
 			for key, value in tool_joints.items():
 				if tool_joints[key] != ini_joints[key]:
 					new_axis = f'[AXIS_{tool_joints[key]}]'
@@ -73,9 +71,16 @@ class updateini:
 						if line.strip() == f'[AXIS_{ini_joints[key]}]':
 							for index, line in enumerate(self.content):
 								if line.strip() == old_axis:
-									#print(f'Index: {index} Old: {old} New: {new}')
-									self.content[index] = f'{new_axis}\n'
+									print(f'Index: {index} Old: {old_axis} New: {new_axis}')
+									#self.content[index] = f'{new_axis}\n'
 
+
+		elif len(tool_joints) < len(ini_joints):
+			print('Joints removed')
+		elif len(tool_joints) > len(ini_joints):
+			print('Joints added')
+
+		return
 
 		# test for new joints
 		for key in tool_joints:
