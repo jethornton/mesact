@@ -1,0 +1,6 @@
+Note, with "sserial_port_0=0xxxxxxx" you have disabled all but one sserial channel
+(the expansion channel on the 7I96S is the only enabled channel)
+
+For a 7i96s_7i76d configuration you should enable all sserial ports with "sserial_port_0=ABCxxxxx"
+
+Where ABC are the modes of sserial channels 0,1,2 respectively. 
