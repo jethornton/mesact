@@ -82,8 +82,19 @@ class updateini:
 			for key, value in ini_joints.items():
 				if key not in tool_joints:
 					print(f'Removing {key}')
+					print(self.sections[key])
+					start = self.sections[key][0]
+					end = self.sections[key][1] + 1
+					print(f'{start}:{end}')
+					del self.content[start:end]
+					self.get_sections()
 					if value not in tool_joints.values():
-						print(f'Remvoing {value}')
+						print(f'Remvoing [AXIS_{value}]')
+						axis = f'[AXIS_{value}]'
+						print(self.sections[axis])
+						start = self.sections[axis][0]
+						end = self.sections[axis][1] + 1
+						del self.content[start:end]
 
 			for line in self.content:
 				parent.info_pte.appendPlainText(line.strip())
