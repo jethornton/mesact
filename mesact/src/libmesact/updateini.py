@@ -88,9 +88,14 @@ class updateini:
 			for line in self.content:
 				parent.info_pte.appendPlainText(line.strip())
 
-
 		elif len(tool_joints) > len(ini_joints):
 			print('Joints added')
+			for key, value in tool_joints.items():
+				if key not in ini_joints:
+					print(f'Adding {key}')
+					if value not in ini_joints.values():
+						print(f'Adding {value}')
+
 			for line in self.content:
 				parent.info_pte.appendPlainText(line.strip())
 
