@@ -70,6 +70,24 @@ def checkit(parent):
 		tabError = False
 	# end of Settings Tab
 
+	# check the Joint Tabs for errors c0_axis_0 c0_max_vel_0
+	for i in range(4):
+		tab = getattr(parent, 'mainTW').tabText(i + 3)
+		for j in range(6):
+			if getattr(parent, f'c{i}_axis_{j}').currentData():
+				if getattr(parent, f'c{i}_max_vel_{j}').text() == '':
+					tabError = True
+					configErrors.append(f'\tCard {tab} Joint {j} Max Velocity must not be blank')
+				if getattr(parent, f'c{i}_max_accel_{j}').text() == '':
+					tabError = True
+					configErrors.append(f'\tCard {tab} Joint {j} Max Accel must not be blank')
+
+	if tabError:
+		configErrors.insert(nextHeader, 'Settings Tab:')
+		nextHeader = len(configErrors)
+		tabError = False
+	# end of Joints Tab
+
 	# check the SS Cards Tab for errors
 	# end of SS Cards Tab
 	# check the Options Tab for errors
