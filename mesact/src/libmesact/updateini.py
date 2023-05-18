@@ -99,7 +99,7 @@ class updateini:
 			for line in self.content:
 				parent.info_pte.appendPlainText(line.strip())
 
-		elif len(tool_joints) > len(ini_joints): # wow this needs a lot of thought
+		elif len(tool_joints) > len(ini_joints):
 			# determine what needs to be added and where
 			# new joint no new axis
 			# new joint(s) new axis(es)
@@ -121,53 +121,6 @@ class updateini:
 
 				last_key = key
 				last_axis = f'[AXIS_{value}]'
-
-			for line in self.content:
-				parent.info_pte.appendPlainText(line.strip())
-
-		return
-
-		# test for new joints
-		for key in tool_joints:
-			if key not in ini_joints:
-				print(f'Need to add {key}')
-				joint = int(f'{key.split("_")[1][:-1]}')
-				if joint > 0:
-					last_joint = joint - 1
-				else:
-					print('no last joint rut-ro')
-					return
-				print(last_joint)
-				index = self.sections[f'[JOINT_{last_joint}]'][1]
-				print(index)
-
-				# test for new axis before adding the joint
-				# need a map of axes and joints somehow...
-				for key, value in self.sections.items():
-					if key.startswith('[AXIS_'):
-						print(key)
-
-
-				if index:
-					#print(f'Adding [JOINT_{joint}]')
-					self.insert_section(index, f'[JOINT_{joint}]')
-				#for key, value in self.sections.items():
-				#	print(f'Key: {key} Value: {value}')
-
-
-		# as this gets sorted out move stuff from below
-		self.write_ini(parent, iniFile)
-
-
-		# test for new axes and insert axis after previous joint
-
-
-
-		# test for joints to remove
-		for key in ini_joints:
-			if key not in tool_joints:
-				print(f'Need to remove {key}')
-
 
 		if parent.boardCB.currentData() == '7i92t':
 			board = '7i92'
@@ -382,6 +335,7 @@ class updateini:
 		# coordinatesLB contains all the axes XYYZ
 		# [AXIS_x] section
 
+		'''
 		# build axis joint(s) dictionaries
 		tool_ja = {}
 		joint = 0
@@ -446,6 +400,7 @@ class updateini:
 				if joint not in tool_ja:
 					self.delete_section(joint)
 					self.delete_section(axis)
+		'''
 
 		# finally update the [AXIS_n] and [JOINT_n] sections
 		axes = []
@@ -455,6 +410,7 @@ class updateini:
 				axis = getattr(parent, f'c{i}_axis_{j}').currentData()
 				if axis and axis not in axes:
 					axes.append(axis)
+					print(axis)
 					self.update_key(f'AXIS_{axis}', 'MIN_LIMIT', getattr(parent, f'c{i}_min_limit_{j}').text())
 					self.update_key(f'AXIS_{axis}', 'MAX_LIMIT', getattr(parent, f'c{i}_max_limit_{j}').text())
 					self.update_key(f'AXIS_{axis}', 'MAX_VELOCITY', getattr(parent, f'c{i}_max_vel_{j}').text())
@@ -707,6 +663,10 @@ class updateini:
 		else: # remove the [SSERIAL] section
 			if '[SSERIAL]' in self.sections:
 				self.delete_section('[SSERIAL]')
+
+		for line in self.content:
+			parent.info_pte.appendPlainText(line.strip())
+
 
 
 	def write_ini(self, parent, iniFile):
