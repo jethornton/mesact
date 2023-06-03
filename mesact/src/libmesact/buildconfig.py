@@ -5,9 +5,9 @@ from libmesact import settings
 from libmesact import check
 from libmesact import buildini
 from libmesact import buildhal
-#from libmesact import buildio
-#from libmesact import buildmisc
-#from libmesact import buildss
+from libmesact import buildio
+from libmesact import buildmisc
+from libmesact import buildss
 from libmesact import utilities
 
 def build(parent):
@@ -67,8 +67,8 @@ def build(parent):
 
 	if build_all:
 		buildhal.build(parent)
-		#buildio.build(parent)
-		#buildmisc.build(parent)
+		buildio.build(parent)
+		buildmisc.build(parent)
 		#buildss.build(parent)
 
 

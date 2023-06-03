@@ -1377,6 +1377,16 @@ to the clipboard</string>
              <string>TextLabel</string>
             </property>
            </widget>
+           <widget class="QPlainTextEdit" name="board_info_pte">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>90</y>
+              <width>411</width>
+              <height>291</height>
+             </rect>
+            </property>
+           </widget>
           </widget>
           <widget class="QWidget" name="tab_15">
            <attribute name="title">
@@ -11235,6 +11245,16 @@ Leave blank to home the joint manually.</string>
              <string>TextLabel</string>
             </property>
            </widget>
+           <widget class="QPlainTextEdit" name="daughter_info_pte_0">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>80</y>
+              <width>411</width>
+              <height>291</height>
+             </rect>
+            </property>
+           </widget>
           </widget>
           <widget class="QWidget" name="tab_53">
            <attribute name="title">
@@ -20743,6 +20763,16 @@ Leave blank to home the joint manually.</string>
              <string>TextLabel</string>
             </property>
            </widget>
+           <widget class="QPlainTextEdit" name="daughter_info_pte_1">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>80</y>
+              <width>411</width>
+              <height>291</height>
+             </rect>
+            </property>
+           </widget>
           </widget>
           <widget class="QWidget" name="tab_87">
            <attribute name="title">
@@ -30249,6 +30279,16 @@ Leave blank to home the joint manually.</string>
             </property>
             <property name="text">
              <string>TextLabel</string>
+            </property>
+           </widget>
+           <widget class="QPlainTextEdit" name="daughter_info_pte_2">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>90</y>
+              <width>411</width>
+              <height>291</height>
+             </rect>
             </property>
            </widget>
           </widget>
@@ -48906,7 +48946,7 @@ to File Open in Axis</string>
           </widget>
           <widget class="QWidget" name="tab_160">
            <attribute name="title">
-            <string>Page</string>
+            <string>Thread</string>
            </attribute>
            <widget class="QGroupBox" name="groupBox_99">
             <property name="geometry">
@@ -48993,7 +49033,7 @@ reload all default PID values</string>
           </widget>
           <widget class="QWidget" name="tab_161">
            <attribute name="title">
-            <string>Page</string>
+            <string>Startup</string>
            </attribute>
            <widget class="QGroupBox" name="groupBox_87">
             <property name="geometry">
@@ -49055,6 +49095,38 @@ reload all default PID values</string>
              <string>FIRMWARE</string>
             </property>
            </widget>
+          </widget>
+          <widget class="QWidget" name="tab_187">
+           <attribute name="title">
+            <string>Read Me</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="verticalLayout_53">
+            <item>
+             <widget class="QGroupBox" name="groupBox_221">
+              <property name="minimumSize">
+               <size>
+                <width>600</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="title">
+               <string>ReadMe File</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_436">
+               <item row="1" column="0" colspan="2">
+                <widget class="QPlainTextEdit" name="readme_pte"/>
+               </item>
+               <item row="0" column="0" colspan="2">
+                <widget class="QLabel" name="label_1482">
+                 <property name="text">
+                  <string>Text entered here will be put in the ReadMe file, if blank none will be created</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
           </widget>
          </widget>
         </item>

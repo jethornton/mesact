@@ -7,7 +7,7 @@ def build(parent):
 	if board in aliasdict:
 		board = aliasdict[board]
 
-	halFilePath = os.path.join(parent.configPath, parent.configNameUnderscored + '.hal')
+	halFilePath = os.path.join(parent.configPath, 'main' + '.hal')
 	parent.info_pte.appendPlainText(f'Building {halFilePath}')
 
 	halContents = []
@@ -45,8 +45,8 @@ def build(parent):
 	halContents.append('sserial_port_0=0xxxxxxx"\n')
 
 	if board == '7i96s':
-		halContents.append('setp hm2_7i96s.0.pwmgen.pwm_frequency 20000\n')
-		halContents.append('setp hm2_7i96s.0.pwmgen.pdm_frequency 6000000\n')
+		halContents.append('setp hm2_[MESA](BOARD).0.pwmgen.pwm_frequency 20000\n')
+		halContents.append('setp hm2_[MESA](BOARD).0.pwmgen.pdm_frequency 6000000\n')
 	halContents.append(f'\nsetp hm2_[MESA](BOARD).0.watchdog.timeout_ns {parent.servoPeriodSB.value() * 5}\n')
 
 	halContents.append('\n# THREADS\n')

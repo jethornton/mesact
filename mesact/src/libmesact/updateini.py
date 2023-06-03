@@ -43,8 +43,8 @@ class updateini:
 					#print(f'Joint {joint} Axis {axis}')
 					joint += 1
 
-		for key, value in tool_joints.items():
-			print(f'Tool: {key} {value}')
+		#for key, value in tool_joints.items():
+		#	print(f'Tool: {key} {value}')
 
 		ini_joints = {}
 		for key, value in self.sections.items():
@@ -57,8 +57,8 @@ class updateini:
 						#print(item.split('=')[1].strip())
 						ini_joints[key] = item.split('=')[1].strip()
 
-		for key, value in ini_joints.items():
-			print(f'Ini: {key} {value}')
+		#for key, value in ini_joints.items():
+		#	print(f'Ini: {key} {value}')
 
 		if len(tool_joints) == len(ini_joints): # this has problems if many axes are changed
 			print('Same number of joints, checking Axis Letters')
@@ -73,25 +73,26 @@ class updateini:
 								if line.strip() == old_axis:
 									print(f'Index: {index} Old: {old_axis} New: {new_axis}')
 									self.content[index] = f'{new_axis}\n'
+									self.get_sections()
 									for line in self.content:
 										parent.info_pte.appendPlainText(line.strip())
 
 		# test for joints and axes removed
 		elif len(tool_joints) < len(ini_joints):
-			print('Joints removed')
+			#print('Joints removed')
 			for key, value in ini_joints.items():
 				if key not in tool_joints:
-					print(f'Removing {key}')
-					print(self.sections[key])
+					#print(f'Removing {key}')
+					#print(self.sections[key])
 					start = self.sections[key][0]
 					end = self.sections[key][1] + 1
-					print(f'{start}:{end}')
+					#print(f'{start}:{end}')
 					del self.content[start:end]
 					self.get_sections()
 					if value not in tool_joints.values():
-						print(f'Remvoing [AXIS_{value}]')
+						#print(f'Remvoing [AXIS_{value}]')
 						axis = f'[AXIS_{value}]'
-						print(self.sections[axis])
+						#print(self.sections[axis])
 						start = self.sections[axis][0]
 						end = self.sections[axis][1] + 1
 						del self.content[start:end]
@@ -103,17 +104,17 @@ class updateini:
 			# determine what needs to be added and where
 			# new joint no new axis
 			# new joint(s) new axis(es)
-			print('Joints added')
+			#print('Joints added')
 			for key, value in tool_joints.items():
 				if key not in ini_joints:
-					print(f'Adding {key} after {last_key}')
+					#print(f'Adding {key} after {last_key}')
 					last_end = self.sections[last_key][1] + 1
-					print(f'Insert {key} at {last_end}')
+					#print(f'Insert {key} at {last_end}')
 					self.content.insert(last_end, f'{key}')
 					self.content.insert(last_end + 1, '')
 					self.get_sections()
 					if value not in ini_joints.values():
-						print(f'Adding [AXIS_{value}] after {last_axis}')
+					#	print(f'Adding [AXIS_{value}] after {last_axis}')
 						last_end = self.sections[last_key][1] + 1
 						self.content.insert(last_end, f'[AXIS_{value}]')
 						self.content.insert(last_end + 1, '')
@@ -410,7 +411,7 @@ class updateini:
 				axis = getattr(parent, f'c{i}_axis_{j}').currentData()
 				if axis and axis not in axes:
 					axes.append(axis)
-					print(axis)
+					#print(axis)
 					self.update_key(f'AXIS_{axis}', 'MIN_LIMIT', getattr(parent, f'c{i}_min_limit_{j}').text())
 					self.update_key(f'AXIS_{axis}', 'MAX_LIMIT', getattr(parent, f'c{i}_max_limit_{j}').text())
 					self.update_key(f'AXIS_{axis}', 'MAX_VELOCITY', getattr(parent, f'c{i}_max_vel_{j}').text())
@@ -461,7 +462,7 @@ class updateini:
 					self.update_key(f'JOINT_{n}', 'BIAS', getattr(parent, f'c{i}_bias_{j}').text())
 					self.update_key(f'JOINT_{n}', 'MAX_OUTPUT', getattr(parent, f'c{i}_maxOutput_{j}').text())
 					self.update_key(f'JOINT_{n}', 'MAX_ERROR', getattr(parent, f'c{i}_maxError_{j}').text())
-					if getattr(parent, f"c{i}_home_" + str(i)).text():
+					if getattr(parent, f'c{i}_home_{i}').text():
 						self.update_key(f'JOINT_{n}', 'HOME', getattr(parent, f"c{i}_home_{j}").text())
 					if getattr(parent, f"c{i}_homeOffset_{j}").text():
 						self.update_key(f'JOINT_{n}', 'HOME_OFFSET', getattr(parent, f"c{i}_homeOffset_{j}").text())
@@ -667,7 +668,7 @@ class updateini:
 		for line in self.content:
 			parent.info_pte.appendPlainText(line.strip())
 
-
+		#self.write_ini(parent, iniFile)
 
 	def write_ini(self, parent, iniFile):
 		with open(iniFile, 'w') as outfile:

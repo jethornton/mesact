@@ -450,5 +450,5 @@ class loadini:
 		if os.path.isfile(readmeFile):
 			with open(readmeFile) as f:
 				contents = f.read()
-			parent.readmePTE.appendPlainText(contents)
+			parent.readme_pte.appendPlainText(contents)
 
