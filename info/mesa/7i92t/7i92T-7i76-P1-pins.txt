@@ -4,6 +4,90 @@ ID      Type  Name                                            PID   State
 
 Component Pins:
 Owner   Type  Dir         Value  Name
+     7  s32   OUT             0  hm2_7i92.0.0.debug
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-00
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-00-not
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-01
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-01-not
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-02
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-02-not
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-03
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-03-not
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-04
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-04-not
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-05
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-05-not
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-06
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-06-not
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-07
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-07-not
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-08
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-08-not
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-09
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-09-not
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-10
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-10-not
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-11
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-11-not
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-12
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-12-not
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-13
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-13-not
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-14
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-14-not
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-15
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-15-not
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-16
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-16-not
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-17
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-17-not
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-18
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-18-not
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-19
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-19-not
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-20
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-20-not
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-21
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-21-not
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-22
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-22-not
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-23
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-23-not
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-24
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-24-not
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-25
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-25-not
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-26
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-26-not
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-27
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-27-not
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-28
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-28-not
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-29
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-29-not
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-30
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-30-not
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-31
+     7  bit   OUT         FALSE  hm2_7i92.0.7i76.0.2.input-31-not
+     7  bit   IN          FALSE  hm2_7i92.0.7i76.0.2.output-00
+     7  bit   IN          FALSE  hm2_7i92.0.7i76.0.2.output-01
+     7  bit   IN          FALSE  hm2_7i92.0.7i76.0.2.output-02
+     7  bit   IN          FALSE  hm2_7i92.0.7i76.0.2.output-03
+     7  bit   IN          FALSE  hm2_7i92.0.7i76.0.2.output-04
+     7  bit   IN          FALSE  hm2_7i92.0.7i76.0.2.output-05
+     7  bit   IN          FALSE  hm2_7i92.0.7i76.0.2.output-06
+     7  bit   IN          FALSE  hm2_7i92.0.7i76.0.2.output-07
+     7  bit   IN          FALSE  hm2_7i92.0.7i76.0.2.output-08
+     7  bit   IN          FALSE  hm2_7i92.0.7i76.0.2.output-09
+     7  bit   IN          FALSE  hm2_7i92.0.7i76.0.2.output-10
+     7  bit   IN          FALSE  hm2_7i92.0.7i76.0.2.output-11
+     7  bit   IN          FALSE  hm2_7i92.0.7i76.0.2.output-12
+     7  bit   IN          FALSE  hm2_7i92.0.7i76.0.2.output-13
+     7  bit   IN          FALSE  hm2_7i92.0.7i76.0.2.output-14
+     7  bit   IN          FALSE  hm2_7i92.0.7i76.0.2.output-15
+     7  bit   IN          FALSE  hm2_7i92.0.7i76.0.2.spindir
+     7  bit   IN          FALSE  hm2_7i92.0.7i76.0.2.spinena
+     7  float IN              0  hm2_7i92.0.7i76.0.2.spinout
      7  float IN            100  hm2_7i92.0.dpll.01.timer-us
      7  float IN            100  hm2_7i92.0.dpll.02.timer-us
      7  float IN            100  hm2_7i92.0.dpll.03.timer-us
@@ -17,9 +101,9 @@ Owner   Type  Dir         Value  Name
      7  s32   OUT             0  hm2_7i92.0.encoder.00.count
      7  s32   OUT             0  hm2_7i92.0.encoder.00.count-latched
      7  bit   I/O         FALSE  hm2_7i92.0.encoder.00.index-enable
-     7  bit   OUT         FALSE  hm2_7i92.0.encoder.00.input-a
-     7  bit   OUT         FALSE  hm2_7i92.0.encoder.00.input-b
-     7  bit   OUT          TRUE  hm2_7i92.0.encoder.00.input-index
+     7  bit   OUT          TRUE  hm2_7i92.0.encoder.00.input-a
+     7  bit   OUT          TRUE  hm2_7i92.0.encoder.00.input-b
+     7  bit   OUT         FALSE  hm2_7i92.0.encoder.00.input-index
      7  float OUT             0  hm2_7i92.0.encoder.00.position
      7  float OUT             0  hm2_7i92.0.encoder.00.position-latched
      7  bit   OUT         FALSE  hm2_7i92.0.encoder.00.quad-error
@@ -32,9 +116,9 @@ Owner   Type  Dir         Value  Name
      7  s32   OUT             0  hm2_7i92.0.encoder.01.count
      7  s32   OUT             0  hm2_7i92.0.encoder.01.count-latched
      7  bit   I/O         FALSE  hm2_7i92.0.encoder.01.index-enable
-     7  bit   OUT          TRUE  hm2_7i92.0.encoder.01.input-a
-     7  bit   OUT          TRUE  hm2_7i92.0.encoder.01.input-b
-     7  bit   OUT         FALSE  hm2_7i92.0.encoder.01.input-index
+     7  bit   OUT         FALSE  hm2_7i92.0.encoder.01.input-a
+     7  bit   OUT         FALSE  hm2_7i92.0.encoder.01.input-b
+     7  bit   OUT          TRUE  hm2_7i92.0.encoder.01.input-index
      7  float OUT             0  hm2_7i92.0.encoder.01.position
      7  float OUT             0  hm2_7i92.0.encoder.01.position-latched
      7  bit   OUT         FALSE  hm2_7i92.0.encoder.01.quad-error
@@ -70,21 +154,21 @@ Owner   Type  Dir         Value  Name
      7  bit   OUT          TRUE  hm2_7i92.0.gpio.010.in
      7  bit   OUT         FALSE  hm2_7i92.0.gpio.010.in_not
      7  bit   IN          FALSE  hm2_7i92.0.gpio.010.out
-     7  bit   OUT         FALSE  hm2_7i92.0.gpio.011.in
-     7  bit   OUT          TRUE  hm2_7i92.0.gpio.011.in_not
+     7  bit   OUT          TRUE  hm2_7i92.0.gpio.011.in
+     7  bit   OUT         FALSE  hm2_7i92.0.gpio.011.in_not
      7  bit   IN          FALSE  hm2_7i92.0.gpio.011.out
      7  bit   OUT          TRUE  hm2_7i92.0.gpio.012.in
      7  bit   OUT         FALSE  hm2_7i92.0.gpio.012.in_not
      7  bit   IN          FALSE  hm2_7i92.0.gpio.012.out
-     7  bit   OUT         FALSE  hm2_7i92.0.gpio.013.in
-     7  bit   OUT          TRUE  hm2_7i92.0.gpio.013.in_not
+     7  bit   OUT          TRUE  hm2_7i92.0.gpio.013.in
+     7  bit   OUT         FALSE  hm2_7i92.0.gpio.013.in_not
      7  bit   IN          FALSE  hm2_7i92.0.gpio.013.out
-     7  bit   OUT         FALSE  hm2_7i92.0.gpio.014.in
-     7  bit   OUT          TRUE  hm2_7i92.0.gpio.014.in_not
-     7  bit   OUT         FALSE  hm2_7i92.0.gpio.015.in
-     7  bit   OUT          TRUE  hm2_7i92.0.gpio.015.in_not
-     7  bit   OUT         FALSE  hm2_7i92.0.gpio.016.in
-     7  bit   OUT          TRUE  hm2_7i92.0.gpio.016.in_not
+     7  bit   OUT          TRUE  hm2_7i92.0.gpio.014.in
+     7  bit   OUT         FALSE  hm2_7i92.0.gpio.014.in_not
+     7  bit   OUT          TRUE  hm2_7i92.0.gpio.015.in
+     7  bit   OUT         FALSE  hm2_7i92.0.gpio.015.in_not
+     7  bit   OUT          TRUE  hm2_7i92.0.gpio.016.in
+     7  bit   OUT         FALSE  hm2_7i92.0.gpio.016.in_not
      7  bit   OUT          TRUE  hm2_7i92.0.gpio.017.in
      7  bit   OUT         FALSE  hm2_7i92.0.gpio.017.in_not
      7  bit   OUT          TRUE  hm2_7i92.0.gpio.018.in
@@ -107,22 +191,20 @@ Owner   Type  Dir         Value  Name
      7  bit   OUT         FALSE  hm2_7i92.0.gpio.026.in_not
      7  bit   OUT          TRUE  hm2_7i92.0.gpio.027.in
      7  bit   OUT         FALSE  hm2_7i92.0.gpio.027.in_not
-     7  bit   IN          FALSE  hm2_7i92.0.gpio.027.out
      7  bit   OUT          TRUE  hm2_7i92.0.gpio.028.in
      7  bit   OUT         FALSE  hm2_7i92.0.gpio.028.in_not
-     7  bit   IN          FALSE  hm2_7i92.0.gpio.028.out
      7  bit   OUT          TRUE  hm2_7i92.0.gpio.029.in
      7  bit   OUT         FALSE  hm2_7i92.0.gpio.029.in_not
      7  bit   IN          FALSE  hm2_7i92.0.gpio.029.out
-     7  bit   OUT          TRUE  hm2_7i92.0.gpio.030.in
-     7  bit   OUT         FALSE  hm2_7i92.0.gpio.030.in_not
+     7  bit   OUT         FALSE  hm2_7i92.0.gpio.030.in
+     7  bit   OUT          TRUE  hm2_7i92.0.gpio.030.in_not
      7  bit   IN          FALSE  hm2_7i92.0.gpio.030.out
-     7  bit   OUT          TRUE  hm2_7i92.0.gpio.031.in
-     7  bit   OUT         FALSE  hm2_7i92.0.gpio.031.in_not
-     7  bit   OUT          TRUE  hm2_7i92.0.gpio.032.in
-     7  bit   OUT         FALSE  hm2_7i92.0.gpio.032.in_not
-     7  bit   OUT          TRUE  hm2_7i92.0.gpio.033.in
-     7  bit   OUT         FALSE  hm2_7i92.0.gpio.033.in_not
+     7  bit   OUT         FALSE  hm2_7i92.0.gpio.031.in
+     7  bit   OUT          TRUE  hm2_7i92.0.gpio.031.in_not
+     7  bit   OUT         FALSE  hm2_7i92.0.gpio.032.in
+     7  bit   OUT          TRUE  hm2_7i92.0.gpio.032.in_not
+     7  bit   OUT         FALSE  hm2_7i92.0.gpio.033.in
+     7  bit   OUT          TRUE  hm2_7i92.0.gpio.033.in_not
      7  bit   IN          FALSE  hm2_7i92.0.led.CR01
      7  bit   IN          FALSE  hm2_7i92.0.led.CR02
      7  bit   IN          FALSE  hm2_7i92.0.led.CR03
@@ -133,6 +215,11 @@ Owner   Type  Dir         Value  Name
      7  u32   I/O    0x00000000  hm2_7i92.0.packet-error-total
      7  s32   OUT             0  hm2_7i92.0.read-request.time
      7  s32   OUT             0  hm2_7i92.0.read.time
+     7  u32   OUT    0x00000000  hm2_7i92.0.sserial.port-0.fault-count
+     7  u32   OUT    0x00000000  hm2_7i92.0.sserial.port-0.port_state
+     7  u32   OUT    0x00000000  hm2_7i92.0.sserial.port-0.port_state2
+     7  u32   OUT    0x00000000  hm2_7i92.0.sserial.port-0.port_state3
+     7  bit   IN           TRUE  hm2_7i92.0.sserial.port-0.run
      7  bit   IN          FALSE  hm2_7i92.0.stepgen.00.control-type
      7  s32   OUT             0  hm2_7i92.0.stepgen.00.counts
      7  float OUT             0  hm2_7i92.0.stepgen.00.dbg_err_at_match
@@ -285,6 +372,41 @@ Type          Value  Name     (linked to)
 
 Parameters:
 Owner   Type  Dir         Value  Name
+     7  u32   RO     0x00000000  hm2_7i92.0.7i76.0.2.analogin0
+     7  u32   RO     0x00000000  hm2_7i92.0.7i76.0.2.analogin1
+     7  u32   RO     0x00000000  hm2_7i92.0.7i76.0.2.analogin2
+     7  u32   RO     0x00000000  hm2_7i92.0.7i76.0.2.analogin3
+     7  u32   RW     0x00000000  hm2_7i92.0.7i76.0.2.encmode0
+     7  u32   RW     0x00000000  hm2_7i92.0.7i76.0.2.encmode1
+     7  u32   RO     0x0000A440  hm2_7i92.0.7i76.0.2.fieldvoltage
+     7  u32   RW     0x00000001  hm2_7i92.0.7i76.0.2.hwrevision
+     7  u32   RW     0x00000009  hm2_7i92.0.7i76.0.2.nvbaudrate
+     7  u32   RW     0x00000000  hm2_7i92.0.7i76.0.2.nvencmode0
+     7  u32   RW     0x00000000  hm2_7i92.0.7i76.0.2.nvencmode1
+     7  u32   RW     0x10000B6A  hm2_7i92.0.7i76.0.2.nvunitnumber
+     7  u32   RW     0x00000032  hm2_7i92.0.7i76.0.2.nvwatchdogtimeout
+     7  bit   RW          FALSE  hm2_7i92.0.7i76.0.2.output-00-invert
+     7  bit   RW          FALSE  hm2_7i92.0.7i76.0.2.output-01-invert
+     7  bit   RW          FALSE  hm2_7i92.0.7i76.0.2.output-02-invert
+     7  bit   RW          FALSE  hm2_7i92.0.7i76.0.2.output-03-invert
+     7  bit   RW          FALSE  hm2_7i92.0.7i76.0.2.output-04-invert
+     7  bit   RW          FALSE  hm2_7i92.0.7i76.0.2.output-05-invert
+     7  bit   RW          FALSE  hm2_7i92.0.7i76.0.2.output-06-invert
+     7  bit   RW          FALSE  hm2_7i92.0.7i76.0.2.output-07-invert
+     7  bit   RW          FALSE  hm2_7i92.0.7i76.0.2.output-08-invert
+     7  bit   RW          FALSE  hm2_7i92.0.7i76.0.2.output-09-invert
+     7  bit   RW          FALSE  hm2_7i92.0.7i76.0.2.output-10-invert
+     7  bit   RW          FALSE  hm2_7i92.0.7i76.0.2.output-11-invert
+     7  bit   RW          FALSE  hm2_7i92.0.7i76.0.2.output-12-invert
+     7  bit   RW          FALSE  hm2_7i92.0.7i76.0.2.output-13-invert
+     7  bit   RW          FALSE  hm2_7i92.0.7i76.0.2.output-14-invert
+     7  bit   RW          FALSE  hm2_7i92.0.7i76.0.2.output-15-invert
+     7  bit   RW          FALSE  hm2_7i92.0.7i76.0.2.spindir-invert
+     7  bit   RW          FALSE  hm2_7i92.0.7i76.0.2.spinena-invert
+     7  float RW            100  hm2_7i92.0.7i76.0.2.spinout-maxlim
+     7  float RW              0  hm2_7i92.0.7i76.0.2.spinout-minlim
+     7  float RW            100  hm2_7i92.0.7i76.0.2.spinout-scalemax
+     7  u32   RW     0x0000000F  hm2_7i92.0.7i76.0.2.swrevision
      7  bit   RW          FALSE  hm2_7i92.0.encoder.00.counter-mode
      7  bit   RW           TRUE  hm2_7i92.0.encoder.00.filter
      7  bit   RW          FALSE  hm2_7i92.0.encoder.00.index-invert
@@ -311,12 +433,6 @@ Owner   Type  Dir         Value  Name
      7  bit   RW          FALSE  hm2_7i92.0.gpio.013.invert_output
      7  bit   RW          FALSE  hm2_7i92.0.gpio.013.is_opendrain
      7  bit   RW          FALSE  hm2_7i92.0.gpio.013.is_output
-     7  bit   RW          FALSE  hm2_7i92.0.gpio.027.invert_output
-     7  bit   RW          FALSE  hm2_7i92.0.gpio.027.is_opendrain
-     7  bit   RW          FALSE  hm2_7i92.0.gpio.027.is_output
-     7  bit   RW          FALSE  hm2_7i92.0.gpio.028.invert_output
-     7  bit   RW          FALSE  hm2_7i92.0.gpio.028.is_opendrain
-     7  bit   RW          FALSE  hm2_7i92.0.gpio.028.is_output
      7  bit   RW          FALSE  hm2_7i92.0.gpio.029.invert_output
      7  bit   RW          FALSE  hm2_7i92.0.gpio.029.is_opendrain
      7  bit   RW          FALSE  hm2_7i92.0.gpio.029.is_output
@@ -332,6 +448,11 @@ Owner   Type  Dir         Value  Name
      7  bit   RO          FALSE  hm2_7i92.0.read-request.tmax-increased
      7  s32   RW              0  hm2_7i92.0.read.tmax
      7  bit   RO          FALSE  hm2_7i92.0.read.tmax-increased
+     7  bit   RW          FALSE  hm2_7i92.0.sserial.00.tx2.invert_output
+     7  bit   RW          FALSE  hm2_7i92.0.sserial.00.tx2.is_opendrain
+     7  u32   RW     0x00000001  hm2_7i92.0.sserial.port-0.fault-dec
+     7  u32   RW     0x0000000A  hm2_7i92.0.sserial.port-0.fault-inc
+     7  u32   RW     0x000000C8  hm2_7i92.0.sserial.port-0.fault-lim
      7  bit   RW          FALSE  hm2_7i92.0.stepgen.00.direction.invert_output
      7  bit   RW          FALSE  hm2_7i92.0.stepgen.00.direction.is_opendrain
      7  u32   RW     0x00027FF6  hm2_7i92.0.stepgen.00.dirhold
@@ -498,6 +619,8 @@ Owner   Type  Dir         Value  Name
 
 Parameter Aliases:
  Alias                                            Original Name
+ hm2_7i92.0.sserial.00.tx2.invert_output          hm2_7i92.0.gpio.027.invert_output
+ hm2_7i92.0.sserial.00.tx2.is_opendrain           hm2_7i92.0.gpio.027.is_opendrain
  hm2_7i92.0.stepgen.00.direction.invert_output    hm2_7i92.0.gpio.000.invert_output
  hm2_7i92.0.stepgen.00.direction.is_opendrain     hm2_7i92.0.gpio.000.is_opendrain
  hm2_7i92.0.stepgen.00.step.invert_output         hm2_7i92.0.gpio.001.invert_output
@@ -541,9 +664,9 @@ Parameter Aliases:
 
 Exported Functions:
 Owner   CodeAddr  Arg       FP   Users  Name
- 00007  7f8e21754908  5623d5405f80  YES      0   hm2_7i92.0.read
- 00007  7f8e21754891  5623d5405f80  YES      0   hm2_7i92.0.read-request
- 00007  7f8e21754749  5623d5405f80  YES      0   hm2_7i92.0.write
+ 00007  7f0500b18908  55f8f62d5f80  YES      0   hm2_7i92.0.read
+ 00007  7f0500b18891  55f8f62d5f80  YES      0   hm2_7i92.0.read-request
+ 00007  7f0500b18749  55f8f62d5f80  YES      0   hm2_7i92.0.write
 
 Realtime Threads:
      Period  FP     Name               (     Time, Max-Time )
