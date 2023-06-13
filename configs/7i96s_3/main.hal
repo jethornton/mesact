@@ -1,0 +1,26 @@
+# This file was created with the Mesa Configuration Tool on Jun 13 2023 06:45:03
+# If you make changes to this file DO NOT run the configuration tool again!
+# This file will be replaced with a new file if you do!
+
+# kinematics
+loadrt [KINS](KINEMATICS)
+
+# motion controller
+loadrt [EMCMOT](EMCMOT) servo_period_nsec=[EMCMOT](SERVO_PERIOD) num_joints=[KINS](JOINTS)
+
+# hostmot2 driver
+loadrt hostmot2
+loadrt [HM2](DRIVER) board_ip=[HM2](ADDRESS) config="num_encoders=1 num_pwmgens=1 num_stepgens=5 sserial_port_0=0xxxxxxx"
+setp hm2_[MESA](BOARD).0.pwmgen.pwm_frequency 20000
+setp hm2_[MESA](BOARD).0.pwmgen.pdm_frequency 6000000
+
+setp hm2_[MESA](BOARD).0.watchdog.timeout_ns 5000000
+
+# THREADS
+addf hm2_[MESA](BOARD).0.read servo-thread
+addf motion-command-handler servo-thread
+addf motion-controller servo-thread
+
+# Standard I/O Block - EStop, Etc
+# create a signal for the estop loopback
+net estop-loopback iocontrol.0.emc-enable-in <= iocontrol.0.user-enable-out

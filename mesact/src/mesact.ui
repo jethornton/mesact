@@ -50095,6 +50095,10 @@ auto enp2s0
      <string>File</string>
     </property>
     <addaction name="actionOpen"/>
+    <addaction name="actionOpen_1"/>
+    <addaction name="actionOpen_2"/>
+    <addaction name="actionOpen_3"/>
+    <addaction name="actionOpen_3G"/>
    </widget>
    <widget class="QMenu" name="menuDownloads">
     <property name="title">
@@ -50139,6 +50143,10 @@ auto enp2s0
    <addaction name="actionOpen"/>
    <addaction name="actionCheck"/>
    <addaction name="actionBuild"/>
+   <addaction name="actionOpen_1"/>
+   <addaction name="actionOpen_2"/>
+   <addaction name="actionOpen_3"/>
+   <addaction name="actionOpen_3G"/>
   </widget>
   <action name="actionOpen">
    <property name="text">
@@ -50198,6 +50206,26 @@ auto enp2s0
   <action name="actionAbout_MesaCT">
    <property name="text">
     <string>About MesaCT</string>
+   </property>
+  </action>
+  <action name="actionOpen_1">
+   <property name="text">
+    <string>Open 1</string>
+   </property>
+  </action>
+  <action name="actionOpen_2">
+   <property name="text">
+    <string>Open 2</string>
+   </property>
+  </action>
+  <action name="actionOpen_3">
+   <property name="text">
+    <string>Open 3</string>
+   </property>
+  </action>
+  <action name="actionOpen_3G">
+   <property name="text">
+    <string>Open 3G</string>
    </property>
   </action>
  </widget>

@@ -29,6 +29,7 @@ class updateini:
 		Axis letters can be changed without changing number of joints
 		'''
 
+		# build the tool joints dictionary
 		tool_joints = {}
 		joint = 0
 		for i in range(4):
@@ -36,30 +37,19 @@ class updateini:
 				if getattr(parent, f'c{i}_axis_{j}').currentData():
 					axis = getattr(parent, f'c{i}_axis_{j}').currentData()
 					tool_joints[f'[JOINT_{joint}]'] = f'{axis}'
-					#if f'[JOINT_{joint}]' in self.sections:
-					#	print(f'Joint {joint} exists in the ini')
-					#else:
-					#	print(f'Joint {joint} needs to be added to the ini')
-					#print(f'Joint {joint} Axis {axis}')
 					joint += 1
 
-		#for key, value in tool_joints.items():
-		#	print(f'Tool: {key} {value}')
-
+		# build the configuration joints dictionary
 		ini_joints = {}
 		for key, value in self.sections.items():
 			if key.startswith('[JOINT_'):
 				start = value[0]
 				end = value[1] + 1
-				#print(f'Start: {value[0]} End: {value[1]} Range End: {value[1] + 1}')
 				for item in self.content[start: end]:
 					if item.split(' = ')[0].strip() == 'AXIS':
-						#print(item.split('=')[1].strip())
 						ini_joints[key] = item.split('=')[1].strip()
 
-		#for key, value in ini_joints.items():
-		#	print(f'Ini: {key} {value}')
-
+		# test for axis letter(s) changed
 		if len(tool_joints) == len(ini_joints): # this has problems if many axes are changed
 			print('Same number of joints, checking Axis Letters')
 			for key, value in tool_joints.items():
@@ -100,6 +90,7 @@ class updateini:
 			for line in self.content:
 				parent.info_pte.appendPlainText(line.strip())
 
+		# test for joints and axes added
 		elif len(tool_joints) > len(ini_joints):
 			# determine what needs to be added and where
 			# new joint no new axis
@@ -107,14 +98,14 @@ class updateini:
 			#print('Joints added')
 			for key, value in tool_joints.items():
 				if key not in ini_joints:
-					#print(f'Adding {key} after {last_key}')
+					print(f'Adding {key} after {last_key}')
 					last_end = self.sections[last_key][1] + 1
-					#print(f'Insert {key} at {last_end}')
+					print(f'Insert {key} at {last_end}')
 					self.content.insert(last_end, f'{key}')
 					self.content.insert(last_end + 1, '')
 					self.get_sections()
 					if value not in ini_joints.values():
-					#	print(f'Adding [AXIS_{value}] after {last_axis}')
+						print(f'Adding [AXIS_{value}] after {last_axis}')
 						last_end = self.sections[last_key][1] + 1
 						self.content.insert(last_end, f'[AXIS_{value}]')
 						self.content.insert(last_end + 1, '')

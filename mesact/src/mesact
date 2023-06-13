@@ -88,12 +88,15 @@ class MainWindow(QMainWindow):
 		self.password = None
 		self.connections()
 		startup.setup(self)
-		self.loadini.loadini(self, '/home/john/linuxcnc/configs/7i96s_1/7i96s_1.ini')
 		self.show()
 
 	def connections(self):
 		# Menu Items
 		self.actionOpen.triggered.connect(partial(self.loadini.checkini, self))
+		self.actionOpen_1.triggered.connect(partial(self.loadini.loadini, self, '/home/john/linuxcnc/configs/7i96s_1/7i96s_1.ini'))
+		self.actionOpen_2.triggered.connect(partial(self.loadini.loadini, self, '/home/john/linuxcnc/configs/7i96s_2/7i96s_2.ini'))
+		self.actionOpen_3.triggered.connect(partial(self.loadini.loadini, self, '/home/john/linuxcnc/configs/7i96s_3/7i96s_3.ini'))
+		self.actionOpen_3G.triggered.connect(partial(self.loadini.loadini, self, '/home/john/linuxcnc/configs/7i96s_3g/7i96s_3g.ini'))
 		self.actionCheck.triggered.connect(partial(check.checkit, self))
 		self.actionBuild.triggered.connect(partial(buildconfig.build, self))
 		#self.actionTabHelp.triggered.connect(partial(self.help, 0))
