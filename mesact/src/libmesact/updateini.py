@@ -97,7 +97,8 @@ class updateini:
 					self.content.insert(last_end, f'{key}')
 					self.content.insert(last_end + 1, '')
 					self.get_sections()
-					if value not in ini_joints.values():
+					# need to check to see if the axis has been create
+					if f'[AXIS_{value}]' not in self.sections:
 						#print(f'Adding [AXIS_{value}] after {last_axis}')
 						last_end = self.sections[last_key][1] + 1
 						self.content.insert(last_end, f'[AXIS_{value}]')
