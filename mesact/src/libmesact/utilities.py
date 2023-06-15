@@ -98,15 +98,16 @@ def axisDisplayChanged(parent, radioButton):
 			button.setChecked(False)
 
 def copyValues(parent):
+	entries = ['_scale_', 
+	'_min_limit_', 
+	'_max_limit_', 
+	'_max_vel_', 
+	'_max_accel_', ]
 	button = parent.sender().objectName()
 	card = button[:2]
 	joint = button[-1]
-	#print(f'card {card} joint {int(joint) + 1}')
-	getattr(parent, f'{card}_scale_{int(joint) + 1}').setText(getattr(parent, f'{card}_scale_{joint}').text())
-	getattr(parent, f'{card}_min_limit_{int(joint) + 1}').setText(getattr(parent, f'{card}_min_limit_{joint}').text())
-	getattr(parent, f'{card}_max_limit_{int(joint) + 1}').setText(getattr(parent, f'{card}_max_limit_{joint}').text())
-	getattr(parent, f'{card}_max_vel_{int(joint) + 1}').setText(getattr(parent, f'{card}_max_vel_{joint}').text())
-	getattr(parent, f'{card}_max_accel_{int(joint) + 1}').setText(getattr(parent, f'{card}_max_accel_{joint}').text())
+	for item in entries:
+		getattr(parent, f'{card}{item}{int(joint) + 1}').setText(getattr(parent, f'{card}{item}{joint}').text())
 
 
 
