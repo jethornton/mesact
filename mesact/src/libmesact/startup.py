@@ -23,6 +23,29 @@ def setup(parent):
 		pass
 	parent.configNameLE.setFocus()
 
+	# tests
+	msg = ('Current Tests\n'
+	'Copy example configs into ~/linuxcnc/configs\n'
+	'Open 1 = single axis Open 2 = two axes\n'
+	'Open 3 = 3 axes Open 3G = 3 axes 4 joints gantry\n'
+	'\n'
+	'Open a sample config and change the axis letter(s),\n'
+	'and/or add or delete axis or axes then Build Config.\n'
+	'Note: to delete an axis just change the axis to Select\n'
+	'\n'
+	'Check the generated INI in the Info tab for correct\n'
+	'axis and joint entries\n'
+	'\n'
+	'Correct is axis then the joint\n'
+	'for gantry one axis then the two or more joints\n'
+	'for that axis\n'
+	'\n'
+	'Note: the only required entries are Max Vel and Max Accel\n'
+	'use the Copy Values button to copy to the next joint\n'
+	)
+	parent.tests_pte.setPlainText(msg)
+	parent.mainTW.setCurrentIndex(12)
+
 	# temp show progress
 	msg = ('Item Status\n'
 	'Only currently avaliable boards are supported\n'
