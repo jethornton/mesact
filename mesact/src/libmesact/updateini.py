@@ -51,7 +51,7 @@ class updateini:
 
 		# test for axis letter(s) changed
 		if len(tool_joints) == len(ini_joints): # this has problems if many axes are changed
-			print('Same number of joints, checking Axis Letters')
+			#print('Same number of joints, checking Axis Letters')
 			for key, value in tool_joints.items():
 				if tool_joints[key] != ini_joints[key]:
 					new_axis = f'[AXIS_{tool_joints[key]}]'
