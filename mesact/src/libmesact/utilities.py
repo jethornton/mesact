@@ -97,4 +97,17 @@ def axisDisplayChanged(parent, radioButton):
 		if button is not radioButton:
 			button.setChecked(False)
 
+def copyValues(parent):
+	button = parent.sender().objectName()
+	card = button[:2]
+	joint = button[-1]
+	#print(f'card {card} joint {int(joint) + 1}')
+	getattr(parent, f'{card}_scale_{int(joint) + 1}').setText(getattr(parent, f'{card}_scale_{joint}').text())
+	getattr(parent, f'{card}_min_limit_{int(joint) + 1}').setText(getattr(parent, f'{card}_min_limit_{joint}').text())
+	getattr(parent, f'{card}_max_limit_{int(joint) + 1}').setText(getattr(parent, f'{card}_max_limit_{joint}').text())
+	getattr(parent, f'{card}_max_vel_{int(joint) + 1}').setText(getattr(parent, f'{card}_max_vel_{joint}').text())
+	getattr(parent, f'{card}_max_accel_{int(joint) + 1}').setText(getattr(parent, f'{card}_max_accel_{joint}').text())
+
+
+
 

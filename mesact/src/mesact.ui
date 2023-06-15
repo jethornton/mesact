@@ -1539,7 +1539,23 @@ to the clipboard</string>
                 <string>PID</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_9">
-                <item row="0" column="0" rowspan="2">
+                <item row="1" column="1">
+                 <widget class="QGroupBox" name="groupBox_23">
+                  <property name="title">
+                   <string>Options</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_444">
+                   <item row="0" column="0">
+                    <widget class="QCheckBox" name="c0_reverse_0">
+                     <property name="text">
+                      <string>Reverse Direction</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="0" column="0" rowspan="3">
                  <widget class="QGroupBox" name="groupBox_11">
                   <property name="minimumSize">
                    <size>
@@ -1905,7 +1921,27 @@ to the clipboard</string>
                   </layout>
                  </widget>
                 </item>
-                <item row="0" column="1">
+                <item row="1" column="2">
+                 <widget class="QGroupBox" name="groupBox_222">
+                  <property name="title">
+                   <string>Tools</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_446">
+                   <item row="0" column="0">
+                    <widget class="QPushButton" name="c0_copy_values_0">
+                     <property name="toolTip">
+                      <string>Copy all the values from this
+joint to the next joint</string>
+                     </property>
+                     <property name="text">
+                      <string>Copy Values</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="0" column="1" colspan="2">
                  <widget class="QGroupBox" name="groupBox_72">
                   <property name="maximumSize">
                    <size>
@@ -1965,26 +2001,6 @@ to the clipboard</string>
                     </widget>
                    </item>
                   </layout>
-                 </widget>
-                </item>
-                <item row="1" column="1">
-                 <widget class="QGroupBox" name="groupBox_23">
-                  <property name="title">
-                   <string>Options</string>
-                  </property>
-                  <widget class="QCheckBox" name="c0_reverse_0">
-                   <property name="geometry">
-                    <rect>
-                     <x>10</x>
-                     <y>30</y>
-                     <width>171</width>
-                     <height>25</height>
-                    </rect>
-                   </property>
-                   <property name="text">
-                    <string>Reverse Direction</string>
-                   </property>
-                  </widget>
                  </widget>
                 </item>
                </layout>
@@ -2859,7 +2875,7 @@ Leave blank to home the joint manually.</string>
                 <string>PID</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_13">
-                <item row="0" column="0" rowspan="2">
+                <item row="0" column="0" rowspan="3">
                  <widget class="QGroupBox" name="groupBox_12">
                   <property name="minimumSize">
                    <size>
@@ -3225,7 +3241,43 @@ Leave blank to home the joint manually.</string>
                   </layout>
                  </widget>
                 </item>
-                <item row="0" column="1">
+                <item row="1" column="1">
+                 <widget class="QGroupBox" name="groupBox_24">
+                  <property name="title">
+                   <string>Options</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_443">
+                   <item row="0" column="0">
+                    <widget class="QCheckBox" name="c0_reverse_1">
+                     <property name="text">
+                      <string>Reverse Direction</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="1" column="2">
+                 <widget class="QGroupBox" name="groupBox_223">
+                  <property name="title">
+                   <string>Tools</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_447">
+                   <item row="0" column="0">
+                    <widget class="QPushButton" name="c0_copy_values_1">
+                     <property name="toolTip">
+                      <string>Copy all the values from this
+joint to the next joint</string>
+                     </property>
+                     <property name="text">
+                      <string>Copy Values</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="0" column="1" colspan="2">
                  <widget class="QGroupBox" name="groupBox_73">
                   <property name="maximumSize">
                    <size>
@@ -3285,26 +3337,6 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                   </layout>
-                 </widget>
-                </item>
-                <item row="1" column="1">
-                 <widget class="QGroupBox" name="groupBox_24">
-                  <property name="title">
-                   <string>Options</string>
-                  </property>
-                  <widget class="QCheckBox" name="c0_reverse_1">
-                   <property name="geometry">
-                    <rect>
-                     <x>40</x>
-                     <y>50</y>
-                     <width>171</width>
-                     <height>25</height>
-                    </rect>
-                   </property>
-                   <property name="text">
-                    <string>Reverse Direction</string>
-                   </property>
-                  </widget>
                  </widget>
                 </item>
                </layout>
@@ -4179,7 +4211,23 @@ Leave blank to home the joint manually.</string>
                 <string>PID</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_21">
-                <item row="0" column="0" rowspan="2">
+                <item row="1" column="1">
+                 <widget class="QGroupBox" name="groupBox_25">
+                  <property name="title">
+                   <string>Options</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_442">
+                   <item row="0" column="0">
+                    <widget class="QCheckBox" name="c0_reverse_2">
+                     <property name="text">
+                      <string>Reverse Direction</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="0" column="0" rowspan="3">
                  <widget class="QGroupBox" name="groupBox_13">
                   <property name="minimumSize">
                    <size>
@@ -4545,7 +4593,27 @@ Leave blank to home the joint manually.</string>
                   </layout>
                  </widget>
                 </item>
-                <item row="0" column="1">
+                <item row="1" column="2">
+                 <widget class="QGroupBox" name="groupBox_224">
+                  <property name="title">
+                   <string>Tools</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_448">
+                   <item row="0" column="0">
+                    <widget class="QPushButton" name="c0_copy_values_2">
+                     <property name="toolTip">
+                      <string>Copy all the values from this
+joint to the next joint</string>
+                     </property>
+                     <property name="text">
+                      <string>Copy Values</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="0" column="1" colspan="2">
                  <widget class="QGroupBox" name="groupBox_74">
                   <property name="maximumSize">
                    <size>
@@ -4605,26 +4673,6 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                   </layout>
-                 </widget>
-                </item>
-                <item row="1" column="1">
-                 <widget class="QGroupBox" name="groupBox_25">
-                  <property name="title">
-                   <string>Options</string>
-                  </property>
-                  <widget class="QCheckBox" name="c0_reverse_2">
-                   <property name="geometry">
-                    <rect>
-                     <x>30</x>
-                     <y>50</y>
-                     <width>171</width>
-                     <height>25</height>
-                    </rect>
-                   </property>
-                   <property name="text">
-                    <string>Reverse Direction</string>
-                   </property>
-                  </widget>
                  </widget>
                 </item>
                </layout>
@@ -5499,7 +5547,7 @@ Leave blank to home the joint manually.</string>
                 <string>PID</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_34">
-                <item row="0" column="0" rowspan="2">
+                <item row="0" column="0" rowspan="3">
                  <widget class="QGroupBox" name="groupBox_14">
                   <property name="minimumSize">
                    <size>
@@ -5865,7 +5913,43 @@ Leave blank to home the joint manually.</string>
                   </layout>
                  </widget>
                 </item>
-                <item row="0" column="1">
+                <item row="1" column="1">
+                 <widget class="QGroupBox" name="groupBox_26">
+                  <property name="title">
+                   <string>Options</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_441">
+                   <item row="0" column="0">
+                    <widget class="QCheckBox" name="c0_reverse_3">
+                     <property name="text">
+                      <string>Reverse Direction</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="1" column="2">
+                 <widget class="QGroupBox" name="groupBox_225">
+                  <property name="title">
+                   <string>Tools</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_449">
+                   <item row="0" column="0">
+                    <widget class="QPushButton" name="c0_copy_values_3">
+                     <property name="toolTip">
+                      <string>Copy all the values from this
+joint to the next joint</string>
+                     </property>
+                     <property name="text">
+                      <string>Copy Values</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="0" column="1" colspan="2">
                  <widget class="QGroupBox" name="groupBox_75">
                   <property name="maximumSize">
                    <size>
@@ -5925,26 +6009,6 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                   </layout>
-                 </widget>
-                </item>
-                <item row="1" column="1">
-                 <widget class="QGroupBox" name="groupBox_26">
-                  <property name="title">
-                   <string>Options</string>
-                  </property>
-                  <widget class="QCheckBox" name="c0_reverse_3">
-                   <property name="geometry">
-                    <rect>
-                     <x>40</x>
-                     <y>50</y>
-                     <width>171</width>
-                     <height>25</height>
-                    </rect>
-                   </property>
-                   <property name="text">
-                    <string>Reverse Direction</string>
-                   </property>
-                  </widget>
                  </widget>
                 </item>
                </layout>
@@ -6819,7 +6883,23 @@ Leave blank to home the joint manually.</string>
                 <string>PID</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_43">
-                <item row="0" column="0" rowspan="2">
+                <item row="1" column="1">
+                 <widget class="QGroupBox" name="groupBox_27">
+                  <property name="title">
+                   <string>Options</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_438">
+                   <item row="0" column="0">
+                    <widget class="QCheckBox" name="c0_reverse_4">
+                     <property name="text">
+                      <string>Reverse Direction</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="0" column="0" rowspan="3">
                  <widget class="QGroupBox" name="groupBox_17">
                   <property name="minimumSize">
                    <size>
@@ -7185,7 +7265,27 @@ Leave blank to home the joint manually.</string>
                   </layout>
                  </widget>
                 </item>
-                <item row="0" column="1">
+                <item row="1" column="2">
+                 <widget class="QGroupBox" name="groupBox_226">
+                  <property name="title">
+                   <string>Tools</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_450">
+                   <item row="0" column="0">
+                    <widget class="QPushButton" name="c0_copy_values_4">
+                     <property name="toolTip">
+                      <string>Copy all the values from this
+joint to the next joint</string>
+                     </property>
+                     <property name="text">
+                      <string>Copy Values</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="0" column="1" colspan="2">
                  <widget class="QGroupBox" name="groupBox_76">
                   <property name="maximumSize">
                    <size>
@@ -7245,26 +7345,6 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                   </layout>
-                 </widget>
-                </item>
-                <item row="1" column="1">
-                 <widget class="QGroupBox" name="groupBox_27">
-                  <property name="title">
-                   <string>Options</string>
-                  </property>
-                  <widget class="QCheckBox" name="c0_reverse_4">
-                   <property name="geometry">
-                    <rect>
-                     <x>30</x>
-                     <y>40</y>
-                     <width>171</width>
-                     <height>25</height>
-                    </rect>
-                   </property>
-                   <property name="text">
-                    <string>Reverse Direction</string>
-                   </property>
-                  </widget>
                  </widget>
                 </item>
                </layout>
@@ -8139,7 +8219,23 @@ Leave blank to home the joint manually.</string>
                 <string>PID</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_57">
-                <item row="0" column="0" rowspan="2">
+                <item row="1" column="1">
+                 <widget class="QGroupBox" name="groupBox_28">
+                  <property name="title">
+                   <string>Options</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_437">
+                   <item row="0" column="0">
+                    <widget class="QCheckBox" name="c0_reverse_5">
+                     <property name="text">
+                      <string>Reverse Direction</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="0" column="0" rowspan="3">
                  <widget class="QGroupBox" name="groupBox_20">
                   <property name="minimumSize">
                    <size>
@@ -8505,7 +8601,15 @@ Leave blank to home the joint manually.</string>
                   </layout>
                  </widget>
                 </item>
-                <item row="0" column="1">
+                <item row="1" column="2">
+                 <widget class="QGroupBox" name="groupBox_227">
+                  <property name="title">
+                   <string>Tools</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_445"/>
+                 </widget>
+                </item>
+                <item row="0" column="1" colspan="2">
                  <widget class="QGroupBox" name="groupBox_77">
                   <property name="maximumSize">
                    <size>
@@ -8565,26 +8669,6 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                   </layout>
-                 </widget>
-                </item>
-                <item row="1" column="1">
-                 <widget class="QGroupBox" name="groupBox_28">
-                  <property name="title">
-                   <string>Options</string>
-                  </property>
-                  <widget class="QCheckBox" name="c0_reverse_5">
-                   <property name="geometry">
-                    <rect>
-                     <x>30</x>
-                     <y>60</y>
-                     <width>171</width>
-                     <height>25</height>
-                    </rect>
-                   </property>
-                   <property name="text">
-                    <string>Reverse Direction</string>
-                   </property>
-                  </widget>
                  </widget>
                 </item>
                </layout>
@@ -50074,6 +50158,16 @@ auto enp2s0
        <layout class="QVBoxLayout" name="verticalLayout_34">
         <item>
          <widget class="QPlainTextEdit" name="info_pte"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_188">
+       <attribute name="title">
+        <string>Tests</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_57">
+        <item>
+         <widget class="QPlainTextEdit" name="tests_pte"/>
         </item>
        </layout>
       </widget>

@@ -153,9 +153,15 @@ class MainWindow(QMainWindow):
 
 
 		# Info Tab
+
+
 		# Axes Tab
 		#self.c0_axis_0.currentIndexChanged.connect(partial(axes.axisChanged, self))
-
+		# c0_copy_values_0
+		# for now just do one card
+		j = 0
+		for i in range(5):
+			getattr(self, f'c{j}_copy_values_{i}').clicked.connect(partial(utilities.copyValues, self))
 		for i in range(6):
 			for j in range(3): # <-- change when more cards are added
 				getattr(self, f'c{j}_axis_{i}').currentIndexChanged.connect(partial(axes.axisChanged, self))
