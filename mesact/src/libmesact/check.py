@@ -35,6 +35,9 @@ def checkit(parent):
 	if not parent.guiCB.currentData():
 		tabError = True
 		configErrors.append('\tA GUI must be selected')
+	if not parent.linearUnitsCB.currentData():
+		tabError = True
+		configErrors.append('\tLinear Units must be selected')
 	if not parent.positionOffsetCB.currentData():
 		tabError = True
 		configErrors.append('\tA Position Offset must be selected')
