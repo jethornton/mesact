@@ -33,8 +33,7 @@ def setup(parent):
 	'\n'
 	'Note: to delete an axis just change the axis to Select\n'
 	'\n'
-	'Check the generated INI in the Info tab for correct\n'
-	'axis and joint entries\n'
+	'Check the generated INI in the Info tab for correctaxis and joint entries\n'
 	'\n'
 	'Correct is axis then the jointfor gantry one axis then the two or more joints\n'
 	'for that axis\n'
@@ -43,6 +42,10 @@ def setup(parent):
 	'use the Copy Values button to copy to the next joint\n'
 	'\n'
 	'To build the INI file when updating check the Update Build INI in the Settings Tab\n'
+	'\n'
+	'Test Check Config:\n'
+	'Press Check Config and add missing entries one at a time and see if any checks are missing\n'
+	'\n'
 	)
 	parent.tests_pte.setPlainText(msg)
 	parent.mainTW.setCurrentIndex(12)
