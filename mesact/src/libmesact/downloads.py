@@ -47,6 +47,8 @@ def downloadAmd64Deb(parent):
 		parent.statusbar.showMessage('Download Cancled')
 
 def downloadArmhDeb(parent):
+	parent.infoMsgOk('File not avaliable for Pre-Release.\nFile will be avaliable when released.', 'Future Function')
+	return
 	directory = str(QFileDialog.getExistingDirectory(parent, "Select Directory"))
 	if directory != '':
 		parent.statusbar.showMessage('Checking Repo')
@@ -62,6 +64,8 @@ def downloadArmhDeb(parent):
 		parent.statusbar.showMessage('Download Cancled')
 
 def downloadArm64Deb(parent):
+	parent.infoMsgOk('File not avaliable for Pre-Release.\nFile will be avaliable when released.', 'Future Function')
+	return
 	directory = str(QFileDialog.getExistingDirectory(parent, "Select Directory"))
 	if directory != '':
 		parent.statusbar.showMessage('Checking Repo')

@@ -12,8 +12,8 @@ sudo apt install python3-pyqt5
 sudo apt install python3-packaging
 '''
 
-VERSION = '2.0.0'
-BUILD_DATE = '04/14/2023'
+VERSION = 'pre-2.0.0'
+BUILD_DATE = '06/16/2023'
 
 from traceback import StackSummary
 from functools import partial
