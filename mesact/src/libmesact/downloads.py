@@ -30,15 +30,16 @@ def downloadFirmware(parent):
 	else:
 		parent.infoMsgOk('Select a Mesa Board\nto download firmware', 'Board')
 
+# NOTE: change repo back to mesact when merged into mesact
 def downloadAmd64Deb(parent):
 	directory = str(QFileDialog.getExistingDirectory(parent, "Select Directory"))
 	if directory != '':
 		parent.statusbar.showMessage('Checking Repo')
-		response = requests.get("https://api.github.com/repos/jethornton/mesact/releases/latest")
+		response = requests.get("https://api.github.com/repos/jethornton/mesact2/releases/latest")
 		repoVersion = response.json()["name"]
 		parent.statusbar.showMessage(f'Mesa Configuration Tool Version {repoVersion} amd64 Download Starting')
 		destination = os.path.join(directory, 'mesact_' + repoVersion + '_amd64.deb')
-		deburl = f'https://github.com/jethornton/mesact/releases/download/{repoVersion}/mesact_{repoVersion}_amd64.deb'
+		deburl = f'https://github.com/jethornton/mesact2/releases/download/{repoVersion}/mesact_{repoVersion}_amd64.deb'
 		download(parent, deburl, destination)
 		parent.statusbar.showMessage(f'Mesa Configuration Tool Version {repoVersion} Download Complete')
 		parent.infoMsgOk('Close the Configuration tool and reinstall', 'Download Complete')
