@@ -74,10 +74,25 @@ def checkit(parent):
 	# end of Settings Tab
 
 	# check the Joint Tabs for errors c0_axis_0 c0_max_vel_0
+	if parent.boardCB.currentData(): # only check if a board is selected
+		if len(parent.coordinatesLB.text()) == 0:
+			tabError = True
+			configErrors.append('\tAt least one Joint must be configured starting with Joint 0')
+
+
 	for i in range(4):
 		tab = getattr(parent, 'mainTW').tabText(i + 3)
 		for j in range(6):
 			if getattr(parent, f'c{i}_axis_{j}').currentData():
+				if getattr(parent, f'c{i}_scale_{j}').text() == '':
+					tabError = True
+					configErrors.append(f'\tCard {tab} Joint {j} Scale must not be blank')
+				if getattr(parent, f'c{i}_min_limit_{j}').text() == '':
+					tabError = True
+					configErrors.append(f'\tCard {tab} Joint {j} Min Limit must not be blank')
+				if getattr(parent, f'c{i}_max_limit_{j}').text() == '':
+					tabError = True
+					configErrors.append(f'\tCard {tab} Joint {j} Max Limit must not be blank')
 				if getattr(parent, f'c{i}_max_vel_{j}').text() == '':
 					tabError = True
 					configErrors.append(f'\tCard {tab} Joint {j} Max Velocity must not be blank')
@@ -86,7 +101,8 @@ def checkit(parent):
 					configErrors.append(f'\tCard {tab} Joint {j} Max Accel must not be blank')
 
 	if tabError:
-		configErrors.insert(nextHeader, 'Settings Tab:')
+		tab = parent.boardCB.currentText()
+		configErrors.insert(nextHeader, f'{tab} Tab:')
 		nextHeader = len(configErrors)
 		tabError = False
 	# end of Joints Tab
