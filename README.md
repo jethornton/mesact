@@ -7,7 +7,8 @@ Copy sample configs to ~/linuxcnc/configs
 Use the button bar to open the sample configs
 
 Currently testing the ini update function. Build Config for an ini that exists
-does not actually change the ini it only shows the changes in the Info tab
+does not actually change the ini unless you check off Update Build INI in the
+Settings Tab otherwize it only shows the changes to the INI in the Info tab
 for verication.
 
 Current Test(s):
