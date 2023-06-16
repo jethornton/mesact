@@ -913,442 +913,462 @@ to the clipboard</string>
        <attribute name="title">
         <string>Settings</string>
        </attribute>
-       <widget class="QGroupBox" name="gridGroupBox_5">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>10</y>
-          <width>391</width>
-          <height>201</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true"/>
-        </property>
-        <property name="title">
-         <string>Display</string>
-        </property>
-        <layout class="QGridLayout" name="gridLayout_47">
-         <property name="leftMargin">
-          <number>9</number>
-         </property>
-         <property name="topMargin">
-          <number>15</number>
-         </property>
-         <property name="rightMargin">
-          <number>9</number>
-         </property>
-         <property name="bottomMargin">
-          <number>9</number>
-         </property>
-         <item row="2" column="0">
-          <widget class="QLabel" name="label_41">
-           <property name="text">
-            <string>Position Offset</string>
+       <layout class="QGridLayout" name="gridLayout_451">
+        <item row="0" column="0" rowspan="3">
+         <widget class="QGroupBox" name="gridGroupBox_5">
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="title">
+           <string>Display</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_47">
+           <property name="leftMargin">
+            <number>9</number>
            </property>
-          </widget>
-         </item>
-         <item row="3" column="0">
-          <widget class="QLabel" name="label_42">
-           <property name="text">
-            <string>Position Feedback</string>
+           <property name="topMargin">
+            <number>15</number>
            </property>
-          </widget>
-         </item>
-         <item row="4" column="0">
-          <widget class="QLabel" name="label_9">
-           <property name="text">
-            <string>Maximum Feed Override</string>
+           <property name="rightMargin">
+            <number>9</number>
            </property>
-          </widget>
-         </item>
-         <item row="0" column="1">
-          <widget class="QComboBox" name="guiCB"/>
-         </item>
-         <item row="0" column="0">
-          <widget class="QLabel" name="label_40">
-           <property name="text">
-            <string>GUI</string>
+           <property name="bottomMargin">
+            <number>9</number>
            </property>
-          </widget>
-         </item>
-         <item row="2" column="1">
-          <widget class="QComboBox" name="positionOffsetCB"/>
-         </item>
-         <item row="3" column="1">
-          <widget class="QComboBox" name="positionFeedbackCB"/>
-         </item>
-         <item row="4" column="1">
-          <widget class="QDoubleSpinBox" name="maxFeedOverrideSB">
-           <property name="decimals">
-            <number>1</number>
-           </property>
-           <property name="maximum">
-            <double>2.000000000000000</double>
-           </property>
-           <property name="singleStep">
-            <double>0.100000000000000</double>
-           </property>
-           <property name="value">
-            <double>1.200000000000000</double>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="2">
-          <widget class="QLabel" name="label_179">
-           <property name="text">
-            <string>1.0 = 100%</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="0">
-          <widget class="QLabel" name="label_3">
-           <property name="text">
-            <string>Linear Units</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="1">
-          <widget class="QComboBox" name="linearUnitsCB"/>
-         </item>
-        </layout>
-       </widget>
-       <widget class="QGroupBox" name="gridGroupBox_4">
-        <property name="geometry">
-         <rect>
-          <x>420</x>
-          <y>10</y>
-          <width>171</width>
-          <height>111</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true"/>
-        </property>
-        <property name="title">
-         <string>Axis Display Options</string>
-        </property>
-        <layout class="QGridLayout" name="gridLayout_32">
-         <item row="1" column="0">
-          <widget class="QRadioButton" name="backToolLatheRB">
-           <property name="text">
-            <string>Back Tool Lathe</string>
-           </property>
-           <attribute name="buttonGroup">
-            <string notr="true">axisButtonGroup</string>
-           </attribute>
-          </widget>
-         </item>
-         <item row="0" column="0">
-          <widget class="QRadioButton" name="frontToolLatheRB">
-           <property name="text">
-            <string>Front Tool Lathe</string>
-           </property>
-           <attribute name="buttonGroup">
-            <string notr="true">axisButtonGroup</string>
-           </attribute>
-          </widget>
-         </item>
-         <item row="2" column="0">
-          <widget class="QRadioButton" name="foamRB">
-           <property name="text">
-            <string>Foam</string>
-           </property>
-           <attribute name="buttonGroup">
-            <string notr="true">axisButtonGroup</string>
-           </attribute>
-          </widget>
-         </item>
-        </layout>
-       </widget>
-       <widget class="QGroupBox" name="groupBox_60">
-        <property name="geometry">
-         <rect>
-          <x>420</x>
-          <y>130</y>
-          <width>171</width>
-          <height>81</height>
-         </rect>
-        </property>
-        <property name="title">
-         <string>G code Editor</string>
-        </property>
-        <layout class="QGridLayout" name="gridLayout_45">
-         <item row="0" column="0">
-          <widget class="QComboBox" name="editorCB"/>
-         </item>
-        </layout>
-       </widget>
-       <widget class="QGroupBox" name="groupBox_61">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>220</y>
-          <width>481</width>
-          <height>231</height>
-         </rect>
-        </property>
-        <property name="title">
-         <string>Jog Slider Settings</string>
-        </property>
-        <layout class="QGridLayout" name="gridLayout_107">
-         <item row="4" column="0">
-          <widget class="QLabel" name="label_1110">
-           <property name="text">
-            <string>Default Angular Velocity</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="0">
-          <widget class="QLabel" name="label_1107">
-           <property name="text">
-            <string>Minimum Linear Velocity</string>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="0">
-          <widget class="QLabel" name="label_1109">
-           <property name="text">
-            <string>Minimum Angular Velocity</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="0">
-          <widget class="QLabel" name="label_21">
-           <property name="text">
-            <string>Default Linear Velocity</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="0">
-          <widget class="QLabel" name="label_1108">
-           <property name="text">
-            <string>Maximum Linear Velocity</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="1">
-          <widget class="QDoubleSpinBox" name="defLinJogVelDSB">
-           <property name="suffix">
-            <string/>
-           </property>
-           <property name="decimals">
-            <number>1</number>
-           </property>
-           <property name="maximum">
-            <double>500.000000000000000</double>
-           </property>
-           <property name="singleStep">
-            <double>0.100000000000000</double>
-           </property>
-           <property name="value">
-            <double>0.000000000000000</double>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="2">
-          <widget class="QLabel" name="defLinearVelLB">
-           <property name="frameShape">
-            <enum>QFrame::Box</enum>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="0">
-          <widget class="QLabel" name="label_1111">
-           <property name="text">
-            <string>Maximum Angular Velocity</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="1">
-          <widget class="QDoubleSpinBox" name="minLinJogVelDSB">
-           <property name="decimals">
-            <number>1</number>
-           </property>
-           <property name="maximum">
-            <double>500.000000000000000</double>
-           </property>
-           <property name="singleStep">
-            <double>0.100000000000000</double>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="1">
-          <widget class="QDoubleSpinBox" name="maxLinJogVelDSB">
-           <property name="decimals">
-            <number>1</number>
-           </property>
-           <property name="maximum">
-            <double>500.000000000000000</double>
-           </property>
-           <property name="singleStep">
-            <double>0.100000000000000</double>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="1">
-          <widget class="QDoubleSpinBox" name="minAngJogVelDSB">
-           <property name="suffix">
-            <string> deg/sec</string>
-           </property>
-           <property name="decimals">
-            <number>1</number>
-           </property>
-           <property name="maximum">
-            <double>500.000000000000000</double>
-           </property>
-           <property name="singleStep">
-            <double>0.100000000000000</double>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="1">
-          <widget class="QDoubleSpinBox" name="defAngJogVelDSB">
-           <property name="suffix">
-            <string> deg/sec</string>
-           </property>
-           <property name="decimals">
-            <number>1</number>
-           </property>
-           <property name="maximum">
-            <double>500.000000000000000</double>
-           </property>
-           <property name="singleStep">
-            <double>0.100000000000000</double>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="1">
-          <widget class="QDoubleSpinBox" name="maxAngJogVelDSB">
-           <property name="suffix">
-            <string> deg/sec</string>
-           </property>
-           <property name="decimals">
-            <number>1</number>
-           </property>
-           <property name="maximum">
-            <double>500.000000000000000</double>
-           </property>
-           <property name="singleStep">
-            <double>0.100000000000000</double>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="2">
-          <widget class="QLabel" name="maxLinearVelLB">
-           <property name="frameShape">
-            <enum>QFrame::Box</enum>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="2">
-          <widget class="QLabel" name="minLinearVelLB">
-           <property name="frameShape">
-            <enum>QFrame::Box</enum>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="2">
-          <widget class="QLabel" name="defAngularVelLB">
-           <property name="frameShape">
-            <enum>QFrame::Box</enum>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="2">
-          <widget class="QLabel" name="minAngularVelLB">
-           <property name="frameShape">
-            <enum>QFrame::Box</enum>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="2">
-          <widget class="QLabel" name="maxAngularVelLB">
-           <property name="frameShape">
-            <enum>QFrame::Box</enum>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
-       <widget class="QGroupBox" name="groupBox_134">
-        <property name="geometry">
-         <rect>
-          <x>610</x>
-          <y>10</y>
-          <width>154</width>
-          <height>125</height>
-         </rect>
-        </property>
-        <property name="title">
-         <string>Machine Settings</string>
-        </property>
-        <layout class="QGridLayout" name="gridLayout_306">
-         <item row="0" column="0">
-          <widget class="QLabel" name="label_37">
-           <property name="text">
-            <string>Max Linear Velocity</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="0">
-          <widget class="QDoubleSpinBox" name="trajMaxLinVelDSB">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>25</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="decimals">
-            <number>1</number>
-           </property>
-           <property name="singleStep">
-            <double>0.100000000000000</double>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="0">
-          <widget class="QLabel" name="mlvPerMinLB">
-           <property name="minimumSize">
-            <size>
-             <width>100</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="frameShape">
-            <enum>QFrame::Box</enum>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_41">
+             <property name="text">
+              <string>Position Offset</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="label_42">
+             <property name="text">
+              <string>Position Feedback</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="label_9">
+             <property name="text">
+              <string>Maximum Feed Override</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QComboBox" name="guiCB"/>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_40">
+             <property name="text">
+              <string>GUI</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QComboBox" name="positionOffsetCB"/>
+           </item>
+           <item row="3" column="1">
+            <widget class="QComboBox" name="positionFeedbackCB"/>
+           </item>
+           <item row="4" column="1">
+            <widget class="QDoubleSpinBox" name="maxFeedOverrideSB">
+             <property name="decimals">
+              <number>1</number>
+             </property>
+             <property name="maximum">
+              <double>2.000000000000000</double>
+             </property>
+             <property name="singleStep">
+              <double>0.100000000000000</double>
+             </property>
+             <property name="value">
+              <double>1.200000000000000</double>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="2">
+            <widget class="QLabel" name="label_179">
+             <property name="text">
+              <string>1.0 = 100%</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_3">
+             <property name="text">
+              <string>Linear Units</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QComboBox" name="linearUnitsCB"/>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="0" column="1" colspan="2">
+         <widget class="QGroupBox" name="gridGroupBox_4">
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="title">
+           <string>Axis Display Options</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_32">
+           <item row="1" column="0">
+            <widget class="QRadioButton" name="backToolLatheRB">
+             <property name="text">
+              <string>Back Tool Lathe</string>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">axisButtonGroup</string>
+             </attribute>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QRadioButton" name="frontToolLatheRB">
+             <property name="text">
+              <string>Front Tool Lathe</string>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">axisButtonGroup</string>
+             </attribute>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QRadioButton" name="foamRB">
+             <property name="text">
+              <string>Foam</string>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">axisButtonGroup</string>
+             </attribute>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="0" column="3" rowspan="2">
+         <widget class="QGroupBox" name="groupBox_134">
+          <property name="title">
+           <string>Machine Settings</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_306">
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_37">
+             <property name="text">
+              <string>Max Linear Velocity</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QDoubleSpinBox" name="trajMaxLinVelDSB">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>25</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="decimals">
+              <number>1</number>
+             </property>
+             <property name="singleStep">
+              <double>0.100000000000000</double>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="mlvPerMinLB">
+             <property name="minimumSize">
+              <size>
+               <width>100</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::Box</enum>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="1" column="1" rowspan="2" colspan="2">
+         <widget class="QGroupBox" name="groupBox_60">
+          <property name="title">
+           <string>G code Editor</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_45">
+           <item row="0" column="0">
+            <widget class="QComboBox" name="editorCB"/>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="3" column="0" colspan="2">
+         <widget class="QGroupBox" name="groupBox_61">
+          <property name="title">
+           <string>Jog Slider Settings</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_107">
+           <item row="4" column="0">
+            <widget class="QLabel" name="label_1110">
+             <property name="text">
+              <string>Default Angular Velocity</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_1107">
+             <property name="text">
+              <string>Minimum Linear Velocity</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="label_1109">
+             <property name="text">
+              <string>Minimum Angular Velocity</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_21">
+             <property name="text">
+              <string>Default Linear Velocity</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_1108">
+             <property name="text">
+              <string>Maximum Linear Velocity</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QDoubleSpinBox" name="defLinJogVelDSB">
+             <property name="suffix">
+              <string/>
+             </property>
+             <property name="decimals">
+              <number>1</number>
+             </property>
+             <property name="maximum">
+              <double>500.000000000000000</double>
+             </property>
+             <property name="singleStep">
+              <double>0.100000000000000</double>
+             </property>
+             <property name="value">
+              <double>0.000000000000000</double>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QLabel" name="defLinearVelLB">
+             <property name="frameShape">
+              <enum>QFrame::Box</enum>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="0">
+            <widget class="QLabel" name="label_1111">
+             <property name="text">
+              <string>Maximum Angular Velocity</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QDoubleSpinBox" name="minLinJogVelDSB">
+             <property name="decimals">
+              <number>1</number>
+             </property>
+             <property name="maximum">
+              <double>500.000000000000000</double>
+             </property>
+             <property name="singleStep">
+              <double>0.100000000000000</double>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QDoubleSpinBox" name="maxLinJogVelDSB">
+             <property name="decimals">
+              <number>1</number>
+             </property>
+             <property name="maximum">
+              <double>500.000000000000000</double>
+             </property>
+             <property name="singleStep">
+              <double>0.100000000000000</double>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QDoubleSpinBox" name="minAngJogVelDSB">
+             <property name="suffix">
+              <string> deg/sec</string>
+             </property>
+             <property name="decimals">
+              <number>1</number>
+             </property>
+             <property name="maximum">
+              <double>500.000000000000000</double>
+             </property>
+             <property name="singleStep">
+              <double>0.100000000000000</double>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="1">
+            <widget class="QDoubleSpinBox" name="defAngJogVelDSB">
+             <property name="suffix">
+              <string> deg/sec</string>
+             </property>
+             <property name="decimals">
+              <number>1</number>
+             </property>
+             <property name="maximum">
+              <double>500.000000000000000</double>
+             </property>
+             <property name="singleStep">
+              <double>0.100000000000000</double>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1">
+            <widget class="QDoubleSpinBox" name="maxAngJogVelDSB">
+             <property name="suffix">
+              <string> deg/sec</string>
+             </property>
+             <property name="decimals">
+              <number>1</number>
+             </property>
+             <property name="maximum">
+              <double>500.000000000000000</double>
+             </property>
+             <property name="singleStep">
+              <double>0.100000000000000</double>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="2">
+            <widget class="QLabel" name="maxLinearVelLB">
+             <property name="frameShape">
+              <enum>QFrame::Box</enum>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QLabel" name="minLinearVelLB">
+             <property name="frameShape">
+              <enum>QFrame::Box</enum>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="2">
+            <widget class="QLabel" name="defAngularVelLB">
+             <property name="frameShape">
+              <enum>QFrame::Box</enum>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="2">
+            <widget class="QLabel" name="minAngularVelLB">
+             <property name="frameShape">
+              <enum>QFrame::Box</enum>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="2">
+            <widget class="QLabel" name="maxAngularVelLB">
+             <property name="frameShape">
+              <enum>QFrame::Box</enum>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="3" column="2" colspan="2">
+         <widget class="QGroupBox" name="groupBox_228">
+          <property name="title">
+           <string>Test Settings</string>
+          </property>
+          <widget class="QCheckBox" name="update_build_ini_cb">
+           <property name="geometry">
+            <rect>
+             <x>20</x>
+             <y>40</y>
+             <width>201</width>
+             <height>25</height>
+            </rect>
            </property>
            <property name="text">
-            <string/>
+            <string>Update Build INI</string>
            </property>
           </widget>
-         </item>
-        </layout>
-       </widget>
+          <widget class="QLabel" name="label_1606">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>60</y>
+             <width>231</width>
+             <height>81</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>When updating an INI if you
+want to actually build the INI
+file check this box</string>
+           </property>
+          </widget>
+         </widget>
+        </item>
+        <item row="2" column="3">
+         <spacer name="verticalSpacer_56">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
       </widget>
       <widget class="QWidget" name="tab_3">
        <attribute name="title">

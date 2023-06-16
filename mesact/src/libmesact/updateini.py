@@ -653,7 +653,8 @@ class updateini:
 		for line in self.content:
 			parent.info_pte.appendPlainText(line.strip())
 
-		self.write_ini(parent, iniFile)
+		if parent.update_build_ini_cb.isChecked():
+			self.write_ini(parent, iniFile)
 
 	def write_ini(self, parent, iniFile):
 		with open(iniFile, 'w') as outfile:
