@@ -1610,7 +1610,7 @@ file check this box</string>
             <item>
              <widget class="QTabWidget" name="tabWidget">
               <property name="currentIndex">
-               <number>2</number>
+               <number>0</number>
               </property>
               <widget class="QWidget" name="tab_28">
                <attribute name="title">
@@ -2229,6 +2229,9 @@ usually set slower than Search Velocity</string>
                    </item>
                    <item row="0" column="3">
                     <widget class="QLineEdit" name="c0_homeSequence_0">
+                     <property name="enabled">
+                      <bool>true</bool>
+                     </property>
                      <property name="toolTip">
                       <string>Home sequences start at 0 and do not skip a number.
 Multiple joint axis use a negative number.
