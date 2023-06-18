@@ -1,3 +1,5 @@
+from libmesact import utilities
+
 # this file is for testing during initial programming
 
 def set_7i96s(parent):
@@ -6,6 +8,7 @@ def set_7i96s(parent):
 	parent.ipAddressCB.setCurrentIndex(parent.ipAddressCB.findData('10.10.10.10'))
 
 def default_settings(parent):
+	utilities.new_config(parent)
 	parent.guiCB.setCurrentIndex(parent.guiCB.findData('axis'))
 	parent.linearUnitsCB.setCurrentIndex(parent.linearUnitsCB.findData('inch'))
 	parent.positionOffsetCB.setCurrentIndex(parent.positionOffsetCB.findData('RELATIVE'))
