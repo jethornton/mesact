@@ -42,6 +42,8 @@ from libmesact import pcinfo
 
 from libmesact import shutdown
 
+from libmesact import testing
+
 class VersionError(QMainWindow):
 	def __init__(self, msg):
 		super(VersionError, self).__init__()
@@ -120,6 +122,10 @@ class MainWindow(QMainWindow):
 		self.enableMesaflashCB.clicked.connect(partial(settings.update_value, self))
 		self.backupCB.clicked.connect(partial(utilities.backup, self))
 		'''
+		self.set_7i96s_pb.clicked.connect(partial(testing.set_7i96s, self))
+		self.default_settings_pb.clicked.connect(partial(testing.default_settings, self))
+		self.xyz_config_pb.clicked.connect(partial(testing.xyz_config, self))
+		self.xyyz_config_pb.clicked.connect(partial(testing.xyyz_config, self))
 
 		# Settings Tab
 		self.minLinJogVelDSB.valueChanged.connect(partial(utilities.unitsChanged, self))

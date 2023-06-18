@@ -56,7 +56,7 @@ def build(parent):
 	# figure out pids c0_pwm_type c0_axis_0 loadrt pid names=pid.x,pid.y,pid.z,pid.s
 	# coordinatesLB
 	for axis in parent.coordinatesLB.text():
-		print(axis)
+		print(f'{axis} has {parent.coordinatesLB.text().count(axis)}')
 	for i in range(3):
 		for j in range(6):
 			if getattr(parent, f'c{i}_axis_{j}').currentData():

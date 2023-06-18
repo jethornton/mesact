@@ -6,7 +6,7 @@ from PyQt5.QtWidgets import QSpinBox
 def build(parent):
 	buildErrors = []
 	iniFilePath = os.path.join(parent.configPath, parent.configNameUnderscored + '.ini')
-	parent.mainTW.setCurrentIndex(11)
+	parent.mainTW.setCurrentIndex(10)
 	parent.info_pte.appendPlainText(f'Building {iniFilePath}')
 
 	if not os.path.exists(parent.configPath):

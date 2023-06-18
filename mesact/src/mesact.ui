@@ -504,9 +504,9 @@ Spaces are replaced with underscore.</string>
        <widget class="QGroupBox" name="groupBox_135">
         <property name="geometry">
          <rect>
-          <x>310</x>
+          <x>280</x>
           <y>150</y>
-          <width>111</width>
+          <width>141</width>
           <height>61</height>
          </rect>
         </property>
@@ -530,18 +530,70 @@ before building configuration files</string>
          </item>
         </layout>
        </widget>
-       <widget class="QPushButton" name="update_test_pb">
+       <widget class="QGroupBox" name="groupBox_103">
         <property name="geometry">
          <rect>
-          <x>306</x>
-          <y>260</y>
-          <width>101</width>
-          <height>27</height>
+          <x>280</x>
+          <y>220</y>
+          <width>151</width>
+          <height>181</height>
          </rect>
         </property>
-        <property name="text">
-         <string>Update Test</string>
+        <property name="title">
+         <string>Testing</string>
         </property>
+        <widget class="QPushButton" name="default_settings_pb">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>70</y>
+           <width>131</width>
+           <height>27</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Default Settings</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="xyz_config_pb">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>110</y>
+           <width>131</width>
+           <height>27</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>XYZ Config</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="xyyz_config_pb">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>150</y>
+           <width>131</width>
+           <height>27</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>XYYZ Config</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="set_7i96s_pb">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>30</y>
+           <width>131</width>
+           <height>27</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Set 7i96S</string>
+         </property>
+        </widget>
        </widget>
       </widget>
       <widget class="QWidget" name="tab_12">
