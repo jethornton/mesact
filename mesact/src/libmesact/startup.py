@@ -24,52 +24,12 @@ def setup(parent):
 	parent.configNameLE.setFocus()
 
 	# tests
-	msg = ('Current Tests\n'
-	'Copy example configs into ~/linuxcnc/configs\n'
-	'Open 1 = single axis Open 2 = two axes Open 3 = 3 axes Open 3G = 3 axes 4 joints gantry\n'
-	'\n'
-	'Open a sample config and change the axis letter(s),and/or\n'
-	'add or delete axis or axes then Build Config.\n'
-	'\n'
-	'Note: to delete an axis just change the axis to Select\n'
-	'\n'
-	'Check the generated INI in the Info tab for correctaxis and joint entries\n'
-	'\n'
-	'Correct is axis then the jointfor gantry one axis then the two or more joints\n'
-	'for that axis\n'
-	'\n'
-	'Note: the only required entries are Max Vel and Max Accel\n'
-	'use the Copy Values button to copy to the next joint\n'
-	'\n'
-	'To build the INI file when updating check the Update Build INI in the Settings Tab\n'
-	'\n'
-	'Test Check Config:\n'
-	'Press Check Config and add missing entries one at a time and see if any checks are missing\n'
+	msg = ('Current Test(s)\n'
+	'Build and test the main.hal file\n'
 	'\n'
 	)
 	parent.tests_pte.setPlainText(msg)
 	parent.mainTW.setCurrentIndex(12)
-
-	# temp show progress
-	msg = ('Item Status\n'
-	'Only currently avaliable boards are supported\n'
-	'at this time, more will be added in the future.\n'
-	'Build deb and install: Complete and Tested\n'
-	'Build, Load & Update ini: Partial in progress\n'
-	'\tAxes: Complete and Tested\n'
-	'\tInputs: Complete and Tested\n'
-	'\tOutputs: Complete and Tested\n'
-	'\tPLC: Complete and Tested\n'
-	'\tSmart Serial: Complete and Tested\n'
-	'\tSpindle: Partial in progress\n'
-	'Build hal: To Do\n'
-	'Build io: To Do\n'
-	'Build ss: To Do\n'
-	'Firmware: Complete but untested\n'
-	'Download Manuals and Firmware: Complete and Tested\n'
-	)
-	parent.info_pte.setPlainText(msg)
-	#parent.mainTW.setCurrentIndex(11)
 
 	exitAction = QAction(QIcon.fromTheme('application-exit'), 'Exit', parent)
 	#exitAction.setShortcut('Ctrl+Q')

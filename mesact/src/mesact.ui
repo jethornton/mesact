@@ -1378,7 +1378,7 @@ file check this box</string>
         <item>
          <widget class="QTabWidget" name="c0_JointTW">
           <property name="currentIndex">
-           <number>1</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="tab_27">
            <attribute name="title">
@@ -40692,9 +40692,6 @@ auto enp2s0
     </property>
     <addaction name="actionOpen"/>
     <addaction name="actionOpen_1"/>
-    <addaction name="actionOpen_2"/>
-    <addaction name="actionOpen_3"/>
-    <addaction name="actionOpen_3G"/>
    </widget>
    <widget class="QMenu" name="menuDownloads">
     <property name="title">
@@ -40740,9 +40737,6 @@ auto enp2s0
    <addaction name="actionCheck"/>
    <addaction name="actionBuild"/>
    <addaction name="actionOpen_1"/>
-   <addaction name="actionOpen_2"/>
-   <addaction name="actionOpen_3"/>
-   <addaction name="actionOpen_3G"/>
   </widget>
   <action name="actionOpen">
    <property name="text">
@@ -40806,7 +40800,7 @@ auto enp2s0
   </action>
   <action name="actionOpen_1">
    <property name="text">
-    <string>Open 1</string>
+    <string>Open 7i96S</string>
    </property>
   </action>
   <action name="actionOpen_2">
