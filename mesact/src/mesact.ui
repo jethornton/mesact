@@ -546,7 +546,7 @@ before building configuration files</string>
          <property name="geometry">
           <rect>
            <x>10</x>
-           <y>70</y>
+           <y>30</y>
            <width>131</width>
            <height>27</height>
           </rect>
@@ -588,10 +588,13 @@ before building configuration files</string>
          </property>
         </widget>
         <widget class="QPushButton" name="set_7i96s_pb">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
          <property name="geometry">
           <rect>
            <x>10</x>
-           <y>30</y>
+           <y>70</y>
            <width>131</width>
            <height>27</height>
           </rect>
@@ -1610,7 +1613,7 @@ file check this box</string>
             <item>
              <widget class="QTabWidget" name="tabWidget">
               <property name="currentIndex">
-               <number>0</number>
+               <number>1</number>
               </property>
               <widget class="QWidget" name="tab_28">
                <attribute name="title">
@@ -39106,7 +39109,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
               <x>10</x>
               <y>170</y>
               <width>326</width>
-              <height>117</height>
+              <height>141</height>
              </rect>
             </property>
             <property name="title">
