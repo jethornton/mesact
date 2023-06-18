@@ -81,7 +81,7 @@ def pidSetDefault(parent):
 		getattr(parent, 'deadband_s').setValue(0)
 		return
 
-	p = int(1000/(int(parent.servoPeriodSB.cleanText())/1000000))
+	p = int(1000/(parent.servoPeriodSB.value()/1000000))
 	getattr(parent,  f'{connector}_p_{joint}').setText(f'{p}')
 	getattr(parent, f'{connector}_i_{joint}').setText('0')
 	getattr(parent, f'{connector}_d_{joint}').setText('0')
