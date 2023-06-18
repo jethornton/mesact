@@ -2,7 +2,8 @@ import os, subprocess
 import urllib.request
 from datetime import datetime
 
-from PyQt5.QtWidgets import QApplication, QInputDialog, QLineEdit
+from PyQt5.QtWidgets import (QApplication, QInputDialog, QLineEdit, QComboBox,
+	QDoubleSpinBox)
 
 def isNumber(s):
 	try:
@@ -108,6 +109,15 @@ def copyValues(parent):
 	joint = button[-1]
 	for item in entries:
 		getattr(parent, f'{card}{item}{int(joint) + 1}').setText(getattr(parent, f'{card}{item}{joint}').text())
+
+def new_config(parent):
+	for child in parent.findChildren(QLineEdit):
+		child.clear()
+	for child in parent.findChildren(QComboBox):
+		child.setCurrentIndex(0)
+	for child in parent.findChildren(QDoubleSpinBox):
+		child.setValue(0)
+
 
 
 

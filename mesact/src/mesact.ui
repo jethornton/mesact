@@ -40751,6 +40751,7 @@ auto enp2s0
     <property name="title">
      <string>File</string>
     </property>
+    <addaction name="actionNew"/>
     <addaction name="actionOpen"/>
     <addaction name="actionOpen_1"/>
    </widget>
@@ -40877,6 +40878,11 @@ auto enp2s0
   <action name="actionOpen_3G">
    <property name="text">
     <string>Open 3G</string>
+   </property>
+  </action>
+  <action name="actionNew">
+   <property name="text">
+    <string>New</string>
    </property>
   </action>
  </widget>
