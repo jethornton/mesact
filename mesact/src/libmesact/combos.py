@@ -127,7 +127,7 @@ def build(parent):
 		['W', 'W']
 		]
 
-	for i in range(4):
+	for i in range(3):
 		for j in range(6):
 			for item in axes:
 				getattr(parent, f'c{i}_axis_{j}').addItem(item[0], item[1])
@@ -152,7 +152,7 @@ def build(parent):
 		['Keling 4030', ['5000', '5000', '20000', '20000']]
 		]
 
-	for i in range(4):
+	for i in range(3):
 		for j in range(6):
 			for item in drives:
 				getattr(parent, f'c{i}_drive_{j}').addItem(item[0], item[1])

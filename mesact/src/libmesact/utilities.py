@@ -40,7 +40,7 @@ def unitsChanged(parent):
 	if not parent.linearUnitsCB.currentData():
 		unitsSecond = ''
 		unitsMinute = ''
-		for i in range(4):
+		for i in range(3):
 			getattr(parent, f'unitsLB_{i}').setText('Select Units\nSettings Tab')
 		return
 	if parent.linearUnitsCB.currentData() == 'mm':
@@ -49,7 +49,7 @@ def unitsChanged(parent):
 	elif parent.linearUnitsCB.currentData() == 'inch':
 		unitsSecond = 'in/sec'
 		unitsMinute = 'in/min'
-	for i in range(4):
+	for i in range(3):
 		getattr(parent, f'unitsLB_{i}').setText(f'Vel & Acc\n{unitsSecond}')
 	parent.trajMaxLinVelDSB.setSuffix(f' {unitsSecond}')
 	parent.minLinJogVelDSB.setSuffix(f' {unitsSecond}')

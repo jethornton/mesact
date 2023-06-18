@@ -79,8 +79,13 @@ def checkit(parent):
 			tabError = True
 			configErrors.append('\tAt least one Joint must be configured starting with Joint 0')
 
+	'''
+	For the common trivkins kinematics, joint numbers are assigned in sequence according to the trivkins parameter
+	<Tom_L> so it looks like they do need to be consecutive
+	<Tom_L>  It is permitted to write an axis name more than once (e.g., X Y Y Z for a gantry machine).
+	'''
 
-	for i in range(4):
+	for i in range(3):
 		tab = getattr(parent, 'mainTW').tabText(i + 3)
 		for j in range(6):
 			if getattr(parent, f'c{i}_axis_{j}').currentData():

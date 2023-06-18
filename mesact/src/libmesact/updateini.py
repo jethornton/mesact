@@ -32,7 +32,7 @@ class updateini:
 		# build the tool joints dictionary
 		tool_joints = {}
 		joint = 0
-		for i in range(4):
+		for i in range(3):
 			for j in range(6):
 				if getattr(parent, f'c{i}_axis_{j}').currentData():
 					axis = getattr(parent, f'c{i}_axis_{j}').currentData()
@@ -271,7 +271,7 @@ class updateini:
 		for item in traj:
 			self.update_key(item[0], item[1], item[2])
 
-		# [HAL]
+		# [HAL] missing all the hal files
 		if parent.haluiCB.isChecked():
 			self.update_key('HAL', 'HALUI', 'halui')
 
@@ -391,7 +391,7 @@ class updateini:
 		# finally update the [AXIS_n] and [JOINT_n] sections
 		axes = []
 		n = 0 # joint number
-		for i in range(4):
+		for i in range(3):
 			for j in range(6):
 				axis = getattr(parent, f'c{i}_axis_{j}').currentData()
 				if axis and axis not in axes:
@@ -540,7 +540,7 @@ class updateini:
 				self.delete_section('[SPINDLE_0]')
 		'''
 		# update the [INPUTS] section
-		for i in range(4):
+		for i in range(3):
 			for j in range(32):
 				if getattr(parent, f'c{i}_input_{j}').text() != 'Select':
 					self.update_key('INPUTS', f'INPUT_{i}_{j}', getattr(parent, f'c{i}_input_{j}').text())
@@ -548,7 +548,7 @@ class updateini:
 					self.update_key('INPUTS', f'INPUT_SLOW_{i}_{j}', getattr(parent, f'c{i}_input_debounce_{j}').isChecked())
 
 		# update the [OUTPUTS] section
-		for i in range(4):
+		for i in range(3):
 			for j in range(16):
 				if getattr(parent, f'c{i}_output_{j}').text() != 'Select':
 					self.update_key('OUTPUTS', f'OUTPUT_{i}_{j}', getattr(parent, f'c{i}_output_{j}').text())

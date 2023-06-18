@@ -142,7 +142,7 @@ def build(parent):
 
 	# build the [HAL] section
 	iniContents.append('\n[HAL]\n')
-	iniContents.append(f'HALFILE = {parent.configNameUnderscored}.hal\n')
+	iniContents.append(f'HALFILE = main.hal\n')
 	if parent.ssCardCB.currentData():
 		iniContents.append('HALFILE = sserial.hal\n')
 	if parent.customhalCB.isChecked():
@@ -165,7 +165,7 @@ def build(parent):
 	# build the axes and joints
 	axes = [] # use only one axis letter with multiple joint axis
 	joint = 0
-	for i in range(4):
+	for i in range(3):
 		for j in range(6):
 			if getattr(parent, f'c{i}_axis_{j}').currentData():
 				axis = getattr(parent, f'c{i}_axis_{j}').currentData()

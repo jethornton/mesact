@@ -78,7 +78,7 @@ halPins  = [{'Not Used':'Select'},
 def build(parent):
 
 	# board inputs
-	for i in range(4):
+	for i in range(3):
 		for j in range(32):
 			button = getattr(parent, f'c{i}_input_{j}')
 			menu = QMenu()
@@ -87,7 +87,7 @@ def build(parent):
 			button.setMenu(menu)
 
 	# board outputs
-	for i in range(4):
+	for i in range(3):
 		for j in range(16):
 			button = getattr(parent, f'c{i}_output_{j}')
 			menu = QMenu()

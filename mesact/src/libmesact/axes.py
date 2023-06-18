@@ -24,7 +24,7 @@ def axisChanged(parent):
 		parent.maxAngJogVelDSB.setEnabled(False)
 	coordList = []
 
-	for i in range(4):
+	for i in range(3):
 		for j in range(6):
 			axisLetter = getattr(parent, f'c{i}_axis_{j}').currentText()
 			if axisLetter != 'Select':

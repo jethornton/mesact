@@ -53,8 +53,14 @@ def build(parent):
 	halContents.append(f'addf hm2_[MESA](BOARD).0.read servo-thread\n')
 	halContents.append('addf motion-command-handler servo-thread\n')
 	halContents.append('addf motion-controller servo-thread\n')
-	# figure out pids
-	
+	# figure out pids c0_pwm_type c0_axis_0 loadrt pid names=pid.x,pid.y,pid.z,pid.s
+	# coordinatesLB
+	for axis in parent.coordinatesLB.text():
+		print(axis)
+	for i in range(3):
+		for j in range(6):
+			if getattr(parent, f'c{i}_axis_{j}').currentData():
+				pass
 
 
 	#halContents.append('# standard components\n')
@@ -347,7 +353,7 @@ def build(parent):
 
 
 	externalEstop = False
-	for i in range(4): # test for an external e stop input
+	for i in range(3): # test for an external e stop input
 		for j in range(16):
 			key = getattr(parent, f'c{i}_input_{j}').text()
 			if key[0:6] == 'E Stop':
