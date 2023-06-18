@@ -120,7 +120,7 @@ def new_config(parent):
 	for child in parent.findChildren(QCheckBox):
 		child.setChecked(False)
 	parent.servoPeriodSB.setValue(1000000)
-	parent.introGraphicLE.setText'emc2.gif')
+	parent.introGraphicLE.setText('emc2.gif')
 
 
 
