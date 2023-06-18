@@ -556,6 +556,9 @@ before building configuration files</string>
          </property>
         </widget>
         <widget class="QPushButton" name="xyz_config_pb">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
          <property name="geometry">
           <rect>
            <x>10</x>
@@ -569,6 +572,9 @@ before building configuration files</string>
          </property>
         </widget>
         <widget class="QPushButton" name="xyyz_config_pb">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
          <property name="geometry">
           <rect>
            <x>10</x>
@@ -1604,7 +1610,7 @@ file check this box</string>
             <item>
              <widget class="QTabWidget" name="tabWidget">
               <property name="currentIndex">
-               <number>0</number>
+               <number>2</number>
               </property>
               <widget class="QWidget" name="tab_28">
                <attribute name="title">

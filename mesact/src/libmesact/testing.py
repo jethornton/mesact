@@ -13,6 +13,8 @@ def default_settings(parent):
 	#parent..setCurrentIndex(parent..findData(''))
 	parent.defLinJogVelDSB.setValue(0.5)
 	parent.maxLinJogVelDSB.setValue(1.0)
+	parent.xyz_config_pb.setEnabled(True)
+	parent.xyyz_config_pb.setEnabled(True)
 
 def xyz_config(parent):
 	axes = ['X', 'Y', 'Z']
@@ -38,5 +40,10 @@ def set_joints(parent, axes):
 		getattr(parent, f'c0_pidDefault_{joint}').click()
 		getattr(parent, f'c0_ferrorDefault_{joint}').click()
 		getattr(parent, f'c0_drive_{joint}').setCurrentIndex(getattr(parent, f'c0_drive_{joint}').findText('Gecko 203v'))
+	# set home sequence
+	if len(set(axes)) < len(axes):
+		print('Gantry')
+	else:
+		print('Not Gantry')
 
 
