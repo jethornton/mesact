@@ -3,7 +3,7 @@ import urllib.request
 from datetime import datetime
 
 from PyQt5.QtWidgets import (QApplication, QInputDialog, QLineEdit, QComboBox,
-	QDoubleSpinBox)
+	QDoubleSpinBox, QCheckBox)
 
 def isNumber(s):
 	try:
@@ -117,7 +117,10 @@ def new_config(parent):
 		child.setCurrentIndex(0)
 	for child in parent.findChildren(QDoubleSpinBox):
 		child.setValue(0)
-
+	for child in parent.findChildren(QCheckBox):
+		child.setChecked(False)
+	parent.servoPeriodSB.setValue(1000000)
+	parent.introGraphicLE.setText'emc2.gif')
 
 
 
