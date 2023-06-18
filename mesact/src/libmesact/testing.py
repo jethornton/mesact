@@ -42,8 +42,15 @@ def set_joints(parent, axes):
 		getattr(parent, f'c0_drive_{joint}').setCurrentIndex(getattr(parent, f'c0_drive_{joint}').findText('Gecko 203v'))
 	# set home sequence
 	if len(set(axes)) < len(axes):
-		print('Gantry')
+		for i, axis in enumerate(axes):
+			if axis == 'Y':
+				getattr(parent, f'c0_homeSequence_{i}').setText(f'-{i}')
+			else:
+				getattr(parent, f'c0_homeSequence_{i}').setText(f'{i}')
 	else:
-		print('Not Gantry')
+		sequence = len(axes) -1
+		for i, axis in enumerate(axes):
+			getattr(parent, f'c0_homeSequence_{i}').setText(f'{sequence}')
+			sequence -= 1
 
 
