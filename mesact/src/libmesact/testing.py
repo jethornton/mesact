@@ -16,16 +16,25 @@ def default_settings(parent):
 	#parent..setCurrentIndex(parent..findData(''))
 	parent.defLinJogVelDSB.setValue(0.5)
 	parent.maxLinJogVelDSB.setValue(1.0)
+	parent.set_7i96s_pb.setEnabled(True)
 	parent.xyz_config_pb.setEnabled(True)
 	parent.xyyz_config_pb.setEnabled(True)
 
 def xyz_config(parent):
 	axes = ['X', 'Y', 'Z']
 	set_joints(parent, axes)
+	sequence = len(axes) -1
+	parent.c0_homeSequence_0.setText('2')
+	parent.c0_homeSequence_1.setText('1')
+	parent.c0_homeSequence_2.setText('0')
 
 def xyyz_config(parent):
 	axes = ['X', 'Y', 'Y', 'Z']
 	set_joints(parent, axes)
+	parent.c0_homeSequence_0.setText('2')
+	parent.c0_homeSequence_1.setText('-1')
+	parent.c0_homeSequence_2.setText('-1')
+	parent.c0_homeSequence_3.setText('0')
 
 def set_joints(parent, axes):
 	parent.configNameLE.setText(f'{"".join(axes)}')
@@ -43,17 +52,5 @@ def set_joints(parent, axes):
 		getattr(parent, f'c0_pidDefault_{joint}').click()
 		getattr(parent, f'c0_ferrorDefault_{joint}').click()
 		getattr(parent, f'c0_drive_{joint}').setCurrentIndex(getattr(parent, f'c0_drive_{joint}').findText('Gecko 203v'))
-	# set home sequence
-	if len(set(axes)) < len(axes):
-		for i, axis in enumerate(axes):
-			if axis == 'Y':
-				getattr(parent, f'c0_homeSequence_{i}').setText(f'-{i}')
-			else:
-				getattr(parent, f'c0_homeSequence_{i}').setText(f'{i}')
-	else:
-		sequence = len(axes) -1
-		for i, axis in enumerate(axes):
-			getattr(parent, f'c0_homeSequence_{i}').setText(f'{sequence}')
-			sequence -= 1
 
 
