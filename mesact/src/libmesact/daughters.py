@@ -28,6 +28,9 @@ def changed(parent):
 			if board in stepper:
 				getattr(parent, f'c{index + 1}_stepgenGB_{i}').setVisible(True)
 				getattr(parent, f'c{index + 1}_analogGB_{i}').setVisible(False)
+			elif board in analog:
+				getattr(parent, f'c{index + 1}_stepgenGB_{i}').setVisible(False)
+				getattr(parent, f'c{index + 1}_analogGB_{i}').setVisible(True)
 	else:
 		parent.mainTW.setTabVisible(4 + index, False)
 
