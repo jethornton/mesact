@@ -14,7 +14,7 @@ def build(parent):
 	build_all = True
 	build_ini = True
 	if not check.checkit(parent):
-		parent.mainTW.setCurrentIndex(11)
+		parent.mainTW.setCurrentIndex(10)
 		parent.info_pte.appendPlainText('Build Failed')
 		build_all = False
 		build_ini = False
