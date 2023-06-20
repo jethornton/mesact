@@ -29,7 +29,7 @@ def setup(parent):
 	'\n'
 	)
 	parent.tests_pte.setPlainText(msg)
-	parent.mainTW.setCurrentIndex(12)
+	#parent.mainTW.setCurrentIndex(11)
 
 	exitAction = QAction(QIcon.fromTheme('application-exit'), 'Exit', parent)
 	#exitAction.setShortcut('Ctrl+Q')
