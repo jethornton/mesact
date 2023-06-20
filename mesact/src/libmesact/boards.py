@@ -17,7 +17,6 @@ def boardChanged(parent):
 	['7i49', '7i49'],
 	]
 
-
 	if parent.boardCB.currentData():
 		board = parent.boardCB.currentData()
 		name = parent.boardCB.currentText()
