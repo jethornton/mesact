@@ -41,8 +41,9 @@ from libmesact import sscards
 from libmesact import pcinfo
 
 from libmesact import shutdown
-
+# testing imports
 from libmesact import testing
+from libmesact import buildhal
 
 class VersionError(QMainWindow):
 	def __init__(self, msg):
@@ -125,8 +126,10 @@ class MainWindow(QMainWindow):
 		'''
 		self.set_7i96s_pb.clicked.connect(partial(testing.set_7i96s, self))
 		self.default_settings_pb.clicked.connect(partial(testing.default_settings, self))
+		self.x_config_pb.clicked.connect(partial(testing.x_config, self))
 		self.xyz_config_pb.clicked.connect(partial(testing.xyz_config, self))
 		self.xyyz_config_pb.clicked.connect(partial(testing.xyyz_config, self))
+		self.test_build_pb.clicked.connect(partial(buildhal.build, self))
 
 		# Settings Tab
 		self.minLinJogVelDSB.valueChanged.connect(partial(utilities.unitsChanged, self))
