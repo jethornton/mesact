@@ -53,20 +53,97 @@ def build(parent):
 	halContents.append(f'addf hm2_[MESA](BOARD).0.read servo-thread\n')
 	halContents.append('addf motion-command-handler servo-thread\n')
 	halContents.append('addf motion-controller servo-thread\n')
-	# figure out pids c0_pwm_type c0_axis_0 loadrt pid names=pid.x,pid.y,pid.z,pid.s
-	# coordinatesLB
+
+	pid_count = 0
+	pid_string = ''
 	for axis in parent.coordinatesLB.text():
-		print(f'{axis} has {parent.coordinatesLB.text().count(axis)}')
+		if parent.coordinatesLB.text().count(axis) == 1:
+			pid_string += f'pid.{axis.lower()},'
+		elif parent.coordinatesLB.text().count(axis) > 1:
+			pid_string += f'pid.{axis.lower()}{pid_count},'
+			pid_count += 1
+	halContents.append(f'loadrt pid names={pid_string[:-1]}\n')
+	pid_list = pid_string[:-1].split(',')
+	for pid in pid_list:
+		halContents.append(f'addf {pid}.do-pid-calcs servo-thread\n')
+	halContents.append(f'addf hm2_[MESA](BOARD).0.write servo-thread\n')
+
+	dpll = {'7i96':['stepgen', 'encoder'],
+		'7i96s':['stepgen', 'encoder'],}
+
+	if parent.boardType == 'eth':
+		halContents.append('\n# DPLL TIMER\n')
+		halContents.append(f'setp hm2_[MESA](BOARD).0.dpll.01.timer-us -50\n')
+		if board in dpll:
+			if 'stepgen' in dpll[board]:
+				halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.timer-number 1\n')
+			if 'encoder' in dpll[board]:
+				halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.timer-number 1\n')
+
+	# figure out which card each joint is on...
+	joint_list = []
 	for i in range(3):
 		for j in range(6):
 			if getattr(parent, f'c{i}_axis_{j}').currentData():
-				pass
+				joint_list.append(f'c{i}_axis_{j}')
 
+	joints = len(parent.coordinatesLB.text())
+	axes = parent.coordinatesLB.text()
 
-	#halContents.append('# standard components\n')
+	for i in range(joints):
+		halContents.append(f'\n# Joint {i} Axis {axes[i]}\n')
+		halContents.append(f'# PID Setup\n')
+		halContents.append(f'setp {pid_list[i]}.Pgain [JOINT_{i}](P)\n')
+		halContents.append(f'setp {pid_list[i]}.Igain [JOINT_{i}](I)\n')
+		halContents.append(f'setp {pid_list[i]}.Dgain [JOINT_{i}](D)\n')
+		halContents.append(f'setp {pid_list[i]}.bias [JOINT_{i}](BIAS)\n')
+		halContents.append(f'setp {pid_list[i]}.FF0 [JOINT_{i}](FF0)\n')
+		halContents.append(f'setp {pid_list[i]}.FF1 [JOINT_{i}](FF1)\n')
+		halContents.append(f'setp {pid_list[i]}.FF2 [JOINT_{i}](FF2)\n')
+		halContents.append(f'setp {pid_list[i]}.deadband [JOINT_{i}](DEADBAND)\n')
+		halContents.append(f'setp {pid_list[i]}.maxoutput [JOINT_{i}](MAX_OUTPUT)\n')
+		halContents.append(f'setp {pid_list[i]}.maxerror [JOINT_{i}](MAX_ERROR)\n')
+		halContents.append(f'setp {pid_list[i]}.error-previous-target true\n')
 
+		halContents.append(f'\n# joint-{i} enable chain\n')
+		halContents.append(f'net joint-{i}-index-enable <=> {pid_list[i]}.index-enable\n')
+		halContents.append(f'net joint-{i}-enable <= joint.{i}.amp-enable-out\n')
+		halContents.append(f'net joint-{i}-enable => {pid_list[i]}.enable\n')
+
+		if getattr(parent, f'c{joint_list[i][1]}_StepInvert_{i}').isChecked():
+			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.step.invert_output True\n')
+		if getattr(parent, f'c{joint_list[i][1]}_DirInvert_{i}').isChecked():
+			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.direction.invert_output True\n')
+
+		halContents.append(f'\nnet joint-{i}-enable => hm2_[MESA](BOARD).0.stepgen.0{i}.enable\n')
+		print(f'{parent.c0_stepgenGB_0.isHidden()}')
+		print(f'{parent.c0_analogGB_0.isHidden()}')
+		#print(getattr(parent, f'c{joint_list[i][1]}_analogGB_{i}').isVisible())
+		#print(getattr(parent, f'c{joint_list[i][1]}_stepgenGB_{i}').isVisible())
+		halContents.append(f'\nsetp hm2_[MESA](BOARD).0.stepgen.0{i}.dirsetup [JOINT_{i}](DIRSETUP)\n')
+		halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.dirhold [JOINT_{i}](DIRHOLD)\n')
+		halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.steplen [JOINT_{i}](STEPLEN)\n')
+		halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.stepspace [JOINT_{i}](STEPSPACE)\n')
+		halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.position-scale [JOINT_{i}](SCALE)\n')
+		halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.maxvel [JOINT_{i}](STEPGEN_MAX_VEL)\n')
+		halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.maxaccel [JOINT_{i}](STEPGEN_MAX_ACC)\n')
+		halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.step_type 0\n')
+		halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.control-type 1\n\n')
+
+		halContents.append('\n# position command and feedback\n')
+		halContents.append(f'net joint-{i}-pos-cmd <= joint.{i}.motor-pos-cmd\n')
+		halContents.append(f'net joint-{i}-pos-cmd => {pid_list[i]}.command\n')
+
+		halContents.append(f'\nnet joint-{i}-pos-fb <= hm2_[MESA](BOARD).0.stepgen.0{i}.position-fb\n')
+		halContents.append(f'net joint-{i}-pos-fb => joint.{i}.motor-pos-fb\n')
+		halContents.append(f'net joint-{i}-pos-fb => {pid_list[i]}.feedback\n')
+
+		halContents.append(f'\nnet joint.{i}.output <= {pid_list[i]}.output\n')
+		halContents.append(f'net joint.{i}.output => hm2_[MESA](BOARD).0.stepgen.0{i}.velocity-cmd\n')
 
 	'''
+
+
 	#mainboards = ['5i25', '7i80hd', '7i80db', '7i92', '7i93', '7i98']
 	if parent.daughterCB_0.currentData():
 		card = parent.daughterCB_0.currentData()
@@ -120,21 +197,8 @@ def build(parent):
 
 	for i in range(pids):
 		halContents.append(f'addf pid.{i}.do-pid-calcs servo-thread\n')
-	halContents.append(f'addf hm2_[MESA](BOARD).0.write servo-thread\n')
 
 	#print(f'board {parent.board}')
-	dpll = {'7i96':['stepgen', 'encoder'],
-		'7i96s':['stepgen', 'encoder'],}
-
-
-	if parent.boardType == 'eth':
-		halContents.append('\n# DPLL TIMER\n')
-		halContents.append(f'setp hm2_[MESA](BOARD).0.dpll.01.timer-us -50\n')
-		if board in dpll:
-			if 'stepgen' in dpll[board]:
-				halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.timer-number 1\n')
-			if 'encoder' in dpll[board]:
-				halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.timer-number 1\n')
 		if board == '7i92' and card:
 			if card == '7i76':
 				halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.timer-number 1\n')
@@ -148,26 +212,7 @@ def build(parent):
 	elif parent.daughterCB_0.currentData():
 		port = '1'
 
-	joints = len(parent.coordinatesLB.text())
-	for i in range(joints):
-		halContents.append(f'\n# Joint {i}\n')
-		halContents.append(f'# PID Setup\n')
-		halContents.append(f'setp pid.{i}.Pgain [JOINT_{i}](P)\n')
-		halContents.append(f'setp pid.{i}.Igain [JOINT_{i}](I)\n')
-		halContents.append(f'setp pid.{i}.Dgain [JOINT_{i}](D)\n')
-		halContents.append(f'setp pid.{i}.bias [JOINT_{i}](BIAS)\n')
-		halContents.append(f'setp pid.{i}.FF0 [JOINT_{i}](FF0)\n')
-		halContents.append(f'setp pid.{i}.FF1 [JOINT_{i}](FF1)\n')
-		halContents.append(f'setp pid.{i}.FF2 [JOINT_{i}](FF2)\n')
-		halContents.append(f'setp pid.{i}.deadband [JOINT_{i}](DEADBAND)\n')
-		halContents.append(f'setp pid.{i}.maxoutput [JOINT_{i}](MAX_OUTPUT)\n')
-		halContents.append(f'setp pid.{i}.maxerror [JOINT_{i}](MAX_ERROR)\n')
-		halContents.append(f'setp pid.{i}.error-previous-target true\n')
 
-		halContents.append('\n# joint enable chain\n')
-		halContents.append(f'net joint-{i}-index-enable <=> pid.{i}.index-enable\n')
-		halContents.append(f'net joint-{i}-enable <= joint.{i}.amp-enable-out\n')
-		halContents.append(f'net joint-{i}-enable => pid.{i}.enable\n')
 
 		# getattr(parent, f'inputPB_{i}').setEnabled(True)
 		if parent.cardType_0 == 'step' or parent.cardType_1 == 'step':
@@ -178,33 +223,6 @@ def build(parent):
 			else:
 				port = '0'
 
-			if getattr(parent, f'c{port}_StepInvert_{i}').isChecked():
-				halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.step.invert_output True\n')
-			if getattr(parent, f'c{port}_DirInvert_{i}').isChecked():
-				halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.direction.invert_output True\n')
-
-			halContents.append(f'\nnet joint-{i}-enable => hm2_[MESA](BOARD).0.stepgen.0{i}.enable\n')
-
-			halContents.append(f'\nsetp hm2_[MESA](BOARD).0.stepgen.0{i}.dirsetup [JOINT_{i}](DIRSETUP)\n')
-			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.dirhold [JOINT_{i}](DIRHOLD)\n')
-			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.steplen [JOINT_{i}](STEPLEN)\n')
-			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.stepspace [JOINT_{i}](STEPSPACE)\n')
-			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.position-scale [JOINT_{i}](SCALE)\n')
-			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.maxvel [JOINT_{i}](STEPGEN_MAX_VEL)\n')
-			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.maxaccel [JOINT_{i}](STEPGEN_MAX_ACC)\n')
-			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.step_type 0\n')
-			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.control-type 1\n\n')
-
-			halContents.append('\n# position command and feedback\n')
-			halContents.append(f'net joint-{i}-pos-cmd <= joint.{i}.motor-pos-cmd\n')
-			halContents.append(f'net joint-{i}-pos-cmd => pid.{i}.command\n')
-
-			halContents.append(f'\nnet joint-{i}-pos-fb <= hm2_[MESA](BOARD).0.stepgen.0{i}.position-fb\n')
-			halContents.append(f'net joint-{i}-pos-fb => joint.{i}.motor-pos-fb\n')
-			halContents.append(f'net joint-{i}-pos-fb => pid.{i}.feedback\n')
-
-			halContents.append(f'\nnet joint.{i}.output <= pid.{i}.output\n')
-			halContents.append(f'net joint.{i}.output => hm2_[MESA](BOARD).0.stepgen.0{i}.velocity-cmd\n')
 
 
 		#if parent.board in mainboards:
@@ -388,7 +406,11 @@ def build(parent):
 			halContents.append('loadrt classicladder_rt\n')
 		halContents.append('addf classicladder.0.refresh servo-thread 1\n')
 
-
+	# testing
+	parent.mainTW.setCurrentIndex(10)
+	parent.info_pte.appendPlainText('Build HAL Function')
+	for line in halContents:
+		parent.info_pte.appendPlainText(line.strip())
 
 	try:
 		with open(halFilePath, 'w') as halFile:

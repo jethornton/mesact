@@ -504,8 +504,8 @@ Spaces are replaced with underscore.</string>
        <widget class="QGroupBox" name="groupBox_135">
         <property name="geometry">
          <rect>
-          <x>280</x>
-          <y>150</y>
+          <x>10</x>
+          <y>380</y>
           <width>141</width>
           <height>61</height>
          </rect>
@@ -534,9 +534,9 @@ before building configuration files</string>
         <property name="geometry">
          <rect>
           <x>280</x>
-          <y>220</y>
+          <y>130</y>
           <width>151</width>
-          <height>181</height>
+          <height>321</height>
          </rect>
         </property>
         <property name="title">
@@ -562,7 +562,7 @@ before building configuration files</string>
          <property name="geometry">
           <rect>
            <x>10</x>
-           <y>110</y>
+           <y>150</y>
            <width>131</width>
            <height>27</height>
           </rect>
@@ -578,7 +578,7 @@ before building configuration files</string>
          <property name="geometry">
           <rect>
            <x>10</x>
-           <y>150</y>
+           <y>190</y>
            <width>131</width>
            <height>27</height>
           </rect>
@@ -601,6 +601,35 @@ before building configuration files</string>
          </property>
          <property name="text">
           <string>Set 7i96S</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="test_build_pb">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>230</y>
+           <width>131</width>
+           <height>27</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Test Build HAL</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="x_config_pb">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>110</y>
+           <width>131</width>
+           <height>27</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>X Config</string>
          </property>
         </widget>
        </widget>
@@ -1613,7 +1642,7 @@ file check this box</string>
             <item>
              <widget class="QTabWidget" name="tabWidget">
               <property name="currentIndex">
-               <number>1</number>
+               <number>0</number>
               </property>
               <widget class="QWidget" name="tab_28">
                <attribute name="title">
