@@ -650,11 +650,12 @@ class updateini:
 			if '[SSERIAL]' in self.sections:
 				self.delete_section('[SSERIAL]')
 
-		for line in self.content:
-			parent.info_pte.appendPlainText(line.strip())
+		parent.info_pte.appendPlainText('Update INI Function')
+		#for line in self.content:
+		#	parent.info_pte.appendPlainText(line.strip())
 
-		if parent.update_build_ini_cb.isChecked():
-			self.write_ini(parent, iniFile)
+		#if parent.update_build_ini_cb.isChecked():
+		self.write_ini(parent, iniFile)
 
 	def write_ini(self, parent, iniFile):
 		with open(iniFile, 'w') as outfile:
