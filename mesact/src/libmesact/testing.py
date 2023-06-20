@@ -14,11 +14,19 @@ def default_settings(parent):
 	parent.positionOffsetCB.setCurrentIndex(parent.positionOffsetCB.findData('RELATIVE'))
 	parent.positionFeedbackCB.setCurrentIndex(parent.positionFeedbackCB.findData('COMMANDED'))
 	#parent..setCurrentIndex(parent..findData(''))
+	parent.maxFeedOverrideSB.setValue(1.2)
 	parent.defLinJogVelDSB.setValue(0.5)
 	parent.maxLinJogVelDSB.setValue(1.0)
 	parent.set_7i96s_pb.setEnabled(True)
+	parent.x_config_pb.setEnabled(True)
 	parent.xyz_config_pb.setEnabled(True)
 	parent.xyyz_config_pb.setEnabled(True)
+
+def x_config(parent):
+	axes = ['X']
+	set_joints(parent, axes)
+	sequence = len(axes) -1
+	parent.c0_homeSequence_0.setText('0')
 
 def xyz_config(parent):
 	axes = ['X', 'Y', 'Z']
