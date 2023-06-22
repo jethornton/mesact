@@ -19,7 +19,7 @@ def changed(parent):
 		parent.mainTW.setTabVisible(tab, True)
 		connector = getattr(parent, f'daughterLB_{index}').text()
 		#print(connector)
-		parent.mainTW.setTabText(tab, f'{board} {connector}')
+		parent.mainTW.setTabText(tab, f'{board}')
 		# daughter_info_pte_0
 		info = (f'Connector: {connector}'
 		)
