@@ -1,10 +1,26 @@
+for ethernet
+In a terminal
 halrun
 loadrt hostmot2
 loadrt hm2_eth board_ip=10.10.10.10
+after getting pins and parameters
 quit
 
 In another terminal
 halcmd show all hm2 > 7i92T-7i76-pins.txt
 halcmd show all hm2 > 7i92T-7i77-pins.txt
 halcmd show all hm2 > 7i96S-pins.txt
+halcmd show all hm2 > 7i96S-7i77-pins.txt
+
+for pci
+In a terminal
+halrun
+loadrt hostmot2
+loadrt hm2_pci
+after getting pins and parameters
+quit
+
+In another terminal
+halcmd show all hm2 > 5i25-7i76-pins.txt
+halcmd show all hm2 > 5i25-7i77-pins.txt
 
