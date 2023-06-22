@@ -106,11 +106,20 @@ def checkit(parent):
 					configErrors.append(f'\tJoint {j} Max Accel must not be blank')
 
 	# check I/O for errors as well c0_input_0 c0_output_0
+	# get the joints
+	joints = 0
+	for i in range(3):
+		for j in range(6):
+			if getattr(parent, f'c{i}_axis_{j}').currentData():
+				joints += 1
+				print(f'Joint: {joints}')
 	for i in range(3):
 		for j in range(32):
 			selection = getattr(parent, f'c{i}_input_{j}').text()
 			if selection != 'Select':
-				print(selection)
+				if int(selection.split()[1]) > joints:
+					tabError = True
+					configErrors.append(f'\t{selection} is more than the number of joints')
 
 	if tabError:
 		tab = parent.boardCB.currentText()
