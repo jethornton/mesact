@@ -86,6 +86,11 @@ def build(parent):
 		for j in range(6):
 			if getattr(parent, f'c{i}_axis_{j}').currentData():
 				joint_list.append(f'c{i}_axis_{j}')
+				print(parent.mainTW.tabText(i+3))
+
+	for joint in joint_list:
+		print(joint)
+	return
 
 	joints = len(parent.coordinatesLB.text())
 	axes = parent.coordinatesLB.text()
@@ -116,19 +121,18 @@ def build(parent):
 			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.direction.invert_output True\n')
 
 		halContents.append(f'\nnet joint-{i}-enable => hm2_[MESA](BOARD).0.stepgen.0{i}.enable\n')
-		print(f'{parent.c0_stepgenGB_0.isHidden()}')
-		print(f'{parent.c0_analogGB_0.isHidden()}')
-		#print(getattr(parent, f'c{joint_list[i][1]}_analogGB_{i}').isVisible())
-		#print(getattr(parent, f'c{joint_list[i][1]}_stepgenGB_{i}').isVisible())
-		halContents.append(f'\nsetp hm2_[MESA](BOARD).0.stepgen.0{i}.dirsetup [JOINT_{i}](DIRSETUP)\n')
-		halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.dirhold [JOINT_{i}](DIRHOLD)\n')
-		halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.steplen [JOINT_{i}](STEPLEN)\n')
-		halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.stepspace [JOINT_{i}](STEPSPACE)\n')
-		halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.position-scale [JOINT_{i}](SCALE)\n')
-		halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.maxvel [JOINT_{i}](STEPGEN_MAX_VEL)\n')
-		halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.maxaccel [JOINT_{i}](STEPGEN_MAX_ACC)\n')
-		halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.step_type 0\n')
-		halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.control-type 1\n\n')
+
+		#print(f'{parent.c{}_stepgenGB_{}').isHidden()')
+		if getattr(parent, f'c{joint_list[i][1]}_analogGB_{i}').isHidden(): # stepper
+			halContents.append(f'\nsetp hm2_[MESA](BOARD).0.stepgen.0{i}.dirsetup [JOINT_{i}](DIRSETUP)\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.dirhold [JOINT_{i}](DIRHOLD)\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.steplen [JOINT_{i}](STEPLEN)\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.stepspace [JOINT_{i}](STEPSPACE)\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.position-scale [JOINT_{i}](SCALE)\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.maxvel [JOINT_{i}](STEPGEN_MAX_VEL)\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.maxaccel [JOINT_{i}](STEPGEN_MAX_ACC)\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.step_type 0\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.control-type 1\n\n')
 
 		halContents.append('\n# position command and feedback\n')
 		halContents.append(f'net joint-{i}-pos-cmd <= joint.{i}.motor-pos-cmd\n')
@@ -141,7 +145,31 @@ def build(parent):
 		halContents.append(f'\nnet joint.{i}.output <= {pid_list[i]}.output\n')
 		halContents.append(f'net joint.{i}.output => hm2_[MESA](BOARD).0.stepgen.0{i}.velocity-cmd\n')
 
+		if getattr(parent, f'c{joint_list[i][1]}_stepgenGB_{i}').isHidden(): # analog hm2_7i96s.0.7i77.0.1.analogena
+			halContents.append('# amp enable\n')
+			halContents.append(f'net joint-0-enable => hm2_[MESA](BOARD).0.{card}.0.{port}.analogena\n')
+
+
+			halContents.append('\n# PWM setup\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.{card}.0.{port}.analogout{i}-scalemax [JOINT_{i}](ANALOG_SCALE_MAX)\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.{card}.0.{port}.analogout{i}-minlim [JOINT_{i}](ANALOG_MIN_LIMIT)\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.{card}.0.{port}.analogout{i}-maxlim [JOINT_{i}](ANALOG_MAX_LIMIT)\n\n')
 	'''
+
+			halContents.append('\n# Encoder Setup\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.scale  [JOINT_0](ENCODER_SCALE)\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.counter-mode 0\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.filter 1\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.index-invert 0\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.index-mask 0\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.index-mask-invert 0\n')
+
+			halContents.append('\n# Position Command and Feedback\n')
+			halContents.append(f'net joint-{i}-fb <= hm2_[MESA](BOARD).0.encoder.0{i}.position\n')
+			halContents.append(f'net joint-{i}-output => hm2_[MESA](BOARD).0.{card}.0.{port}.analogout{i}\n')
+			halContents.append(f'net joint-{i}-pos-cmd <= joint.{i}.motor-pos-cmd\n')
+
+
 
 
 	#mainboards = ['5i25', '7i80hd', '7i80db', '7i92', '7i93', '7i98']
@@ -257,25 +285,6 @@ def build(parent):
 				halContents.append(f'net joint-{i}-pos-cmd <= joint.{i}.motor-pos-cmd\n')
 
 			else:
-				#halContents.append('# amp enable\n')
-				halContents.append(f'net joint-0-enable => hm2_[MESA](BOARD).0.{card}.0.{port}.analogena\n')
-				halContents.append('\n# PWM setup\n')
-				halContents.append(f'setp hm2_[MESA](BOARD).0.{card}.0.{port}.analogout{i}-scalemax [JOINT_{i}](ANALOG_SCALE_MAX)\n')
-				halContents.append(f'setp hm2_[MESA](BOARD).0.{card}.0.{port}.analogout{i}-minlim [JOINT_{i}](ANALOG_MIN_LIMIT)\n')
-				halContents.append(f'setp hm2_[MESA](BOARD).0.{card}.0.{port}.analogout{i}-maxlim [JOINT_{i}](ANALOG_MAX_LIMIT)\n\n')
-
-				halContents.append('\n# Encoder Setup\n')
-				halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.scale  [JOINT_0](ENCODER_SCALE)\n')
-				halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.counter-mode 0\n')
-				halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.filter 1\n')
-				halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.index-invert 0\n')
-				halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.index-mask 0\n')
-				halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.index-mask-invert 0\n')
-
-				halContents.append('\n# Position Command and Feedback\n')
-				halContents.append(f'net joint-{i}-fb <= hm2_[MESA](BOARD).0.encoder.0{i}.position\n')
-				halContents.append(f'net joint-{i}-output => hm2_[MESA](BOARD).0.{card}.0.{port}.analogout{i}\n')
-				halContents.append(f'net joint-{i}-pos-cmd <= joint.{i}.motor-pos-cmd\n')
 
 				# halContents.append(f'\n')
 
