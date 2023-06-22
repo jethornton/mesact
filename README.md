@@ -3,13 +3,7 @@ Mesa Configuration Tool II
 Under Construction!
 
 Testing:
-Copy sample configs to ~/linuxcnc/configs
-Use the button bar to open the sample configs
-
-Currently testing the ini update function. Build Config for an ini that exists
-does not actually change the ini unless you check off Update Build INI in the
-Settings Tab otherwize it only shows the changes to the INI in the Info tab
-for verication.
+Use the Default Settings button then Set 7i96S button then pick a Config
 
 Current Test(s):
 
@@ -22,3 +16,4 @@ Note: Axis removed must be the last joint(s) and can't skip any joints.
 Open a sample configuration and change axis letters to Select then build
 and check ini output in the tool for correct changes.
 
+Working on the main.hal file now
