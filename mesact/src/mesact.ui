@@ -535,103 +535,89 @@ before building configuration files</string>
          <rect>
           <x>280</x>
           <y>130</y>
-          <width>151</width>
-          <height>321</height>
+          <width>140</width>
+          <height>304</height>
          </rect>
         </property>
         <property name="title">
          <string>Testing</string>
         </property>
-        <widget class="QPushButton" name="default_settings_pb">
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>30</y>
-           <width>131</width>
-           <height>27</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>Default Settings</string>
-         </property>
-        </widget>
-        <widget class="QPushButton" name="xyz_config_pb">
-         <property name="enabled">
-          <bool>false</bool>
-         </property>
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>150</y>
-           <width>131</width>
-           <height>27</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>XYZ Config</string>
-         </property>
-        </widget>
-        <widget class="QPushButton" name="xyyz_config_pb">
-         <property name="enabled">
-          <bool>false</bool>
-         </property>
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>190</y>
-           <width>131</width>
-           <height>27</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>XYYZ Config</string>
-         </property>
-        </widget>
-        <widget class="QPushButton" name="set_7i96s_pb">
-         <property name="enabled">
-          <bool>false</bool>
-         </property>
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>70</y>
-           <width>131</width>
-           <height>27</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>Set 7i96S</string>
-         </property>
-        </widget>
-        <widget class="QPushButton" name="test_build_pb">
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>230</y>
-           <width>131</width>
-           <height>27</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>Test Build HAL</string>
-         </property>
-        </widget>
-        <widget class="QPushButton" name="x_config_pb">
-         <property name="enabled">
-          <bool>false</bool>
-         </property>
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>110</y>
-           <width>131</width>
-           <height>27</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>X Config</string>
-         </property>
-        </widget>
+        <layout class="QGridLayout" name="gridLayout_234">
+         <item row="0" column="0">
+          <widget class="QPushButton" name="default_settings_pb">
+           <property name="text">
+            <string>Default Settings</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QPushButton" name="set_7i96s_pb">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="text">
+            <string>Set 7i96S</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QPushButton" name="set_7i96s_7i76_pb">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="text">
+            <string>Set 7i96S + 7i76</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QPushButton" name="set_7i96s_7i77_pb">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="text">
+            <string>Set 7i96S + 7i77</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="0">
+          <widget class="QPushButton" name="x_config_pb">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="text">
+            <string>X Config</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="0">
+          <widget class="QPushButton" name="xyz_config_pb">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="text">
+            <string>XYZ Config</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="0">
+          <widget class="QPushButton" name="xyyz_config_pb">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="text">
+            <string>XYYZ Config</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="0">
+          <widget class="QPushButton" name="test_build_pb">
+           <property name="text">
+            <string>Test Build HAL</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </widget>
       </widget>
       <widget class="QWidget" name="tab_12">
@@ -1480,7 +1466,7 @@ file check this box</string>
               <x>10</x>
               <y>10</y>
               <width>101</width>
-              <height>71</height>
+              <height>61</height>
              </rect>
             </property>
             <property name="text">
@@ -1642,7 +1628,7 @@ file check this box</string>
             <item>
              <widget class="QTabWidget" name="tabWidget">
               <property name="currentIndex">
-               <number>0</number>
+               <number>2</number>
               </property>
               <widget class="QWidget" name="tab_28">
                <attribute name="title">
