@@ -105,6 +105,13 @@ def checkit(parent):
 					tabError = True
 					configErrors.append(f'\tJoint {j} Max Accel must not be blank')
 
+	# check I/O for errors as well c0_input_0 c0_output_0
+	for i in range(3):
+		for j in range(32):
+			selection = getattr(parent, f'c{i}_input_{j}').text()
+			if selection != 'Select':
+				print(selection)
+
 	if tabError:
 		tab = parent.boardCB.currentText()
 		configErrors.insert(nextHeader, f'{tab} Tab:')
