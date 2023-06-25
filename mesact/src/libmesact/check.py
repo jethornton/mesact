@@ -85,6 +85,7 @@ def checkit(parent):
 	<Tom_L>  It is permitted to write an axis name more than once (e.g., X Y Y Z for a gantry machine).
 	'''
 
+	# check each tab so error message is correct so loose the for i in range
 	for i in range(3):
 		tab = getattr(parent, 'mainTW').tabText(i + 3)
 		for j in range(6):
@@ -105,17 +106,25 @@ def checkit(parent):
 					tabError = True
 					configErrors.append(f'\tJoint {j} Max Accel must not be blank')
 
-	# check I/O for errors as well c0_input_0 c0_output_0
+	# check I/O for errors
 	# get the joints
 	joints = 0
 	for i in range(3):
 		for j in range(6):
 			if getattr(parent, f'c{i}_axis_{j}').currentData():
 				joints += 1
-				print(f'Joint: {joints}')
+				#print(f'Joint: {joints}')
 	for i in range(3):
 		for j in range(32):
 			selection = getattr(parent, f'c{i}_input_{j}').text()
+			if selection != 'Select':
+				if int(selection.split()[1]) > joints:
+					tabError = True
+					configErrors.append(f'\t{selection} is more than the number of joints')
+
+	for i in range(3):
+		for j in range(16):
+			selection = getattr(parent, f'c{i}_output_{j}').text()
 			if selection != 'Select':
 				if int(selection.split()[1]) > joints:
 					tabError = True
