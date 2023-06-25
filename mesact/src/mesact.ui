@@ -57,7 +57,7 @@
           <x>10</x>
           <y>10</y>
           <width>421</width>
-          <height>111</height>
+          <height>101</height>
          </rect>
         </property>
         <property name="sizePolicy">
@@ -534,19 +534,22 @@ before building configuration files</string>
         <property name="geometry">
          <rect>
           <x>280</x>
-          <y>130</y>
+          <y>120</y>
           <width>140</width>
-          <height>304</height>
+          <height>341</height>
          </rect>
         </property>
         <property name="title">
          <string>Testing</string>
         </property>
         <layout class="QGridLayout" name="gridLayout_234">
-         <item row="0" column="0">
-          <widget class="QPushButton" name="default_settings_pb">
+         <item row="4" column="0">
+          <widget class="QPushButton" name="set_7i92t_7i76_pb">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
            <property name="text">
-            <string>Default Settings</string>
+            <string>Set 7i92T + 7i76</string>
            </property>
           </widget>
          </item>
@@ -560,16 +563,6 @@ before building configuration files</string>
            </property>
           </widget>
          </item>
-         <item row="2" column="0">
-          <widget class="QPushButton" name="set_7i96s_7i76_pb">
-           <property name="enabled">
-            <bool>false</bool>
-           </property>
-           <property name="text">
-            <string>Set 7i96S + 7i76</string>
-           </property>
-          </widget>
-         </item>
          <item row="3" column="0">
           <widget class="QPushButton" name="set_7i96s_7i77_pb">
            <property name="enabled">
@@ -580,7 +573,17 @@ before building configuration files</string>
            </property>
           </widget>
          </item>
-         <item row="4" column="0">
+         <item row="2" column="0">
+          <widget class="QPushButton" name="set_7i96s_7i76_pb">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="text">
+            <string>Set 7i96S + 7i76</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="0">
           <widget class="QPushButton" name="x_config_pb">
            <property name="enabled">
             <bool>false</bool>
@@ -590,17 +593,7 @@ before building configuration files</string>
            </property>
           </widget>
          </item>
-         <item row="5" column="0">
-          <widget class="QPushButton" name="xyz_config_pb">
-           <property name="enabled">
-            <bool>false</bool>
-           </property>
-           <property name="text">
-            <string>XYZ Config</string>
-           </property>
-          </widget>
-         </item>
-         <item row="6" column="0">
+         <item row="8" column="0">
           <widget class="QPushButton" name="xyyz_config_pb">
            <property name="enabled">
             <bool>false</bool>
@@ -610,10 +603,37 @@ before building configuration files</string>
            </property>
           </widget>
          </item>
-         <item row="7" column="0">
+         <item row="9" column="0">
           <widget class="QPushButton" name="test_build_pb">
            <property name="text">
             <string>Test Build HAL</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="0">
+          <widget class="QPushButton" name="xyz_config_pb">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="text">
+            <string>XYZ Config</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QPushButton" name="default_settings_pb">
+           <property name="text">
+            <string>Default Settings</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="0">
+          <widget class="QPushButton" name="set_7i92t_7i77_pb">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="text">
+            <string>Set 7i92T + 7i77</string>
            </property>
           </widget>
          </item>
@@ -1454,7 +1474,7 @@ file check this box</string>
         <item>
          <widget class="QTabWidget" name="c0_JointTW">
           <property name="currentIndex">
-           <number>0</number>
+           <number>1</number>
           </property>
           <widget class="QWidget" name="tab_27">
            <attribute name="title">
@@ -1626,9 +1646,9 @@ file check this box</string>
              </widget>
             </item>
             <item>
-             <widget class="QTabWidget" name="tabWidget">
+             <widget class="QTabWidget" name="c0_settings_0">
               <property name="currentIndex">
-               <number>2</number>
+               <number>0</number>
               </property>
               <widget class="QWidget" name="tab_28">
                <attribute name="title">
@@ -2301,9 +2321,22 @@ Leave blank to home the joint manually.</string>
               </widget>
               <widget class="QWidget" name="tab_30">
                <attribute name="title">
-                <string>Output</string>
+                <string>Stepgen</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_8">
+                <item row="0" column="1">
+                 <spacer name="horizontalSpacer_37">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
                 <item row="0" column="0" rowspan="2">
                  <widget class="QGroupBox" name="c0_stepgenGB_0">
                   <property name="styleSheet">
@@ -2323,28 +2356,49 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="2" column="0">
-                    <widget class="QLabel" name="label_44">
+                   <item row="2" column="1">
+                    <widget class="QLineEdit" name="c0_StepTime_0">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>60</width>
+                       <height>16777215</height>
+                      </size>
+                     </property>
+                     <property name="inputMask">
+                      <string/>
+                     </property>
                      <property name="text">
-                      <string>Step Time</string>
+                      <string/>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                      </property>
                     </widget>
                    </item>
-                   <item row="5" column="0">
-                    <widget class="QLabel" name="label_48">
+                   <item row="6" column="0">
+                    <widget class="QLabel" name="label_49">
                      <property name="text">
-                      <string>Direction Setup</string>
+                      <string>Direction Hold</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                      </property>
                     </widget>
                    </item>
-                   <item row="2" column="2">
-                    <widget class="QLabel" name="label_110">
+                   <item row="6" column="2">
+                    <widget class="QLabel" name="label_109">
                      <property name="minimumSize">
                       <size>
                        <width>20</width>
@@ -2365,18 +2419,49 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="6" column="0">
-                    <widget class="QLabel" name="label_49">
+                   <item row="2" column="3">
+                    <widget class="QCheckBox" name="c0_StepInvert_0">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
                      <property name="text">
-                      <string>Direction Hold</string>
+                      <string>Invert Step</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="1">
+                    <widget class="QLineEdit" name="c0_StepSpace_0">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>60</width>
+                       <height>16777215</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string/>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                      </property>
                     </widget>
                    </item>
-                   <item row="6" column="1">
-                    <widget class="QLineEdit" name="c0_DirHold_0">
+                   <item row="5" column="1">
+                    <widget class="QLineEdit" name="c0_DirSetup_0">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                        <horstretch>0</horstretch>
@@ -2438,16 +2523,19 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="2" column="3">
-                    <widget class="QCheckBox" name="c0_StepInvert_0">
+                   <item row="0" column="0" colspan="2">
+                    <widget class="QComboBox" name="c0_drive_0">
                      <property name="sizePolicy">
-                      <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                        <horstretch>0</horstretch>
                        <verstretch>0</verstretch>
                       </sizepolicy>
                      </property>
-                     <property name="text">
-                      <string>Invert Step</string>
+                     <property name="minimumSize">
+                      <size>
+                       <width>150</width>
+                       <height>25</height>
+                      </size>
                      </property>
                     </widget>
                    </item>
@@ -2473,55 +2561,18 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="2" column="1">
-                    <widget class="QLineEdit" name="c0_StepTime_0">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>60</width>
-                       <height>16777215</height>
-                      </size>
-                     </property>
-                     <property name="inputMask">
-                      <string/>
-                     </property>
+                   <item row="2" column="0">
+                    <widget class="QLabel" name="label_44">
                      <property name="text">
-                      <string/>
+                      <string>Step Time</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                      </property>
                     </widget>
                    </item>
-                   <item row="0" column="0" colspan="2">
-                    <widget class="QComboBox" name="c0_drive_0">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="minimumSize">
-                      <size>
-                       <width>150</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="6" column="2">
-                    <widget class="QLabel" name="label_109">
+                   <item row="2" column="2">
+                    <widget class="QLabel" name="label_110">
                      <property name="minimumSize">
                       <size>
                        <width>20</width>
@@ -2542,8 +2593,18 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="3" column="1">
-                    <widget class="QLineEdit" name="c0_StepSpace_0">
+                   <item row="5" column="0">
+                    <widget class="QLabel" name="label_48">
+                     <property name="text">
+                      <string>Direction Setup</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="6" column="1">
+                    <widget class="QLineEdit" name="c0_DirHold_0">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                        <horstretch>0</horstretch>
@@ -2569,52 +2630,31 @@ Leave blank to home the joint manually.</string>
                       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                      </property>
                     </widget>
-                   </item>
-                   <item row="5" column="1">
-                    <widget class="QLineEdit" name="c0_DirSetup_0">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>60</width>
-                       <height>16777215</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string/>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="7" column="0">
-                    <spacer name="verticalSpacer">
-                     <property name="orientation">
-                      <enum>Qt::Vertical</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>20</width>
-                       <height>40</height>
-                      </size>
-                     </property>
-                    </spacer>
                    </item>
                   </layout>
                  </widget>
                 </item>
-                <item row="0" column="1">
+                <item row="2" column="0">
+                 <spacer name="verticalSpacer">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="tab_26">
+               <attribute name="title">
+                <string>Analog</string>
+               </attribute>
+               <layout class="QGridLayout" name="gridLayout_235">
+                <item row="0" column="0">
                  <widget class="QGroupBox" name="c0_analogGB_0">
                   <property name="title">
                    <string>Analog Output</string>
@@ -2687,12 +2727,61 @@ Leave blank to home the joint manually.</string>
                   </layout>
                  </widget>
                 </item>
-                <item row="1" column="1">
+                <item row="0" column="1">
+                 <spacer name="horizontalSpacer_38">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="1" column="0">
+                 <spacer name="verticalSpacer_38">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="tab_125">
+               <attribute name="title">
+                <string>Encoder</string>
+               </attribute>
+               <layout class="QGridLayout" name="gridLayout_241">
+                <item row="0" column="0">
                  <widget class="QGroupBox" name="c0_encoderGB_0">
                   <property name="title">
                    <string>Encoder</string>
                   </property>
                   <layout class="QGridLayout" name="gridLayout_121">
+                   <item row="0" column="2">
+                    <spacer name="horizontalSpacer_53">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QLineEdit" name="c0_encoderScale_0"/>
+                   </item>
                    <item row="0" column="0">
                     <widget class="QLabel" name="label_809">
                      <property name="text">
@@ -2700,8 +2789,18 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="0" column="1">
-                    <widget class="QLineEdit" name="c0_encoderScale_0"/>
+                   <item row="1" column="0">
+                    <spacer name="verticalSpacer_37">
+                     <property name="orientation">
+                      <enum>Qt::Vertical</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>20</width>
+                       <height>40</height>
+                      </size>
+                     </property>
+                    </spacer>
                    </item>
                   </layout>
                  </widget>
@@ -2965,7 +3064,7 @@ Leave blank to home the joint manually.</string>
              </widget>
             </item>
             <item>
-             <widget class="QTabWidget" name="tabWidget_4">
+             <widget class="QTabWidget" name="c0_settings_1">
               <property name="currentIndex">
                <number>0</number>
               </property>
@@ -3637,7 +3736,7 @@ Leave blank to home the joint manually.</string>
               </widget>
               <widget class="QWidget" name="tab_34">
                <attribute name="title">
-                <string>Output</string>
+                <string>Stepgen</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_17">
                 <item row="0" column="0" rowspan="2">
@@ -3649,166 +3748,6 @@ Leave blank to home the joint manually.</string>
                    <string>StepGen Settings</string>
                   </property>
                   <layout class="QGridLayout" name="gridLayout_18">
-                   <item row="3" column="0">
-                    <widget class="QLabel" name="label_50">
-                     <property name="text">
-                      <string>Step Space</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="2" column="0">
-                    <widget class="QLabel" name="label_45">
-                     <property name="text">
-                      <string>Step Time</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="5" column="0">
-                    <widget class="QLabel" name="label_51">
-                     <property name="text">
-                      <string>Direction Setup</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="2" column="2">
-                    <widget class="QLabel" name="label_111">
-                     <property name="minimumSize">
-                      <size>
-                       <width>20</width>
-                       <height>0</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>20</width>
-                       <height>16777215</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>ns</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="6" column="0">
-                    <widget class="QLabel" name="label_52">
-                     <property name="text">
-                      <string>Direction Hold</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="6" column="1">
-                    <widget class="QLineEdit" name="c0_DirHold_1">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>60</width>
-                       <height>16777215</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string/>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="5" column="3">
-                    <widget class="QCheckBox" name="c0_DirInvert_1">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="text">
-                      <string>Invert Direction</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="3" column="2">
-                    <widget class="QLabel" name="label_103">
-                     <property name="minimumSize">
-                      <size>
-                       <width>20</width>
-                       <height>0</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>20</width>
-                       <height>16777215</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>ns</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="2" column="3">
-                    <widget class="QCheckBox" name="c0_StepInvert_1">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="text">
-                      <string>Invert Step</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="5" column="2">
-                    <widget class="QLabel" name="label_112">
-                     <property name="minimumSize">
-                      <size>
-                       <width>20</width>
-                       <height>0</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>20</width>
-                       <height>16777215</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>ns</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
-                     </property>
-                    </widget>
-                   </item>
                    <item row="2" column="1">
                     <widget class="QLineEdit" name="c0_StepTime_1">
                      <property name="sizePolicy">
@@ -3840,24 +3779,8 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="0" column="0" colspan="2">
-                    <widget class="QComboBox" name="c0_drive_1">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="minimumSize">
-                      <size>
-                       <width>150</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="6" column="2">
-                    <widget class="QLabel" name="label_113">
+                   <item row="5" column="2">
+                    <widget class="QLabel" name="label_112">
                      <property name="minimumSize">
                       <size>
                        <width>20</width>
@@ -3878,8 +3801,81 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
+                   <item row="5" column="3">
+                    <widget class="QCheckBox" name="c0_DirInvert_1">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="text">
+                      <string>Invert Direction</string>
+                     </property>
+                    </widget>
+                   </item>
                    <item row="3" column="1">
                     <widget class="QLineEdit" name="c0_StepSpace_1">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>60</width>
+                       <height>16777215</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="0">
+                    <widget class="QLabel" name="label_45">
+                     <property name="text">
+                      <string>Step Time</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="2">
+                    <widget class="QLabel" name="label_111">
+                     <property name="minimumSize">
+                      <size>
+                       <width>20</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>20</width>
+                       <height>16777215</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>ns</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="6" column="1">
+                    <widget class="QLineEdit" name="c0_DirHold_1">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                        <horstretch>0</horstretch>
@@ -3934,6 +3930,109 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
+                   <item row="5" column="0">
+                    <widget class="QLabel" name="label_51">
+                     <property name="text">
+                      <string>Direction Setup</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="6" column="2">
+                    <widget class="QLabel" name="label_113">
+                     <property name="minimumSize">
+                      <size>
+                       <width>20</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>20</width>
+                       <height>16777215</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>ns</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="2">
+                    <widget class="QLabel" name="label_103">
+                     <property name="minimumSize">
+                      <size>
+                       <width>20</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>20</width>
+                       <height>16777215</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>ns</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="0">
+                    <widget class="QLabel" name="label_50">
+                     <property name="text">
+                      <string>Step Space</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="0" colspan="2">
+                    <widget class="QComboBox" name="c0_drive_1">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="minimumSize">
+                      <size>
+                       <width>150</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="3">
+                    <widget class="QCheckBox" name="c0_StepInvert_1">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="text">
+                      <string>Invert Step</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="6" column="0">
+                    <widget class="QLabel" name="label_52">
+                     <property name="text">
+                      <string>Direction Hold</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                     </property>
+                    </widget>
+                   </item>
                    <item row="7" column="0">
                     <spacer name="verticalSpacer_3">
                      <property name="orientation">
@@ -3951,6 +4050,26 @@ Leave blank to home the joint manually.</string>
                  </widget>
                 </item>
                 <item row="0" column="1">
+                 <spacer name="horizontalSpacer_39">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="tab_120">
+               <attribute name="title">
+                <string>Analog</string>
+               </attribute>
+               <layout class="QGridLayout" name="gridLayout_236">
+                <item row="0" column="0">
                  <widget class="QGroupBox" name="c0_analogGB_1">
                   <property name="title">
                    <string>Analog Output</string>
@@ -4023,7 +4142,27 @@ Leave blank to home the joint manually.</string>
                   </layout>
                  </widget>
                 </item>
-                <item row="1" column="1">
+                <item row="0" column="1">
+                 <spacer name="horizontalSpacer_40">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="tab_126">
+               <attribute name="title">
+                <string>Encoder</string>
+               </attribute>
+               <layout class="QGridLayout" name="gridLayout_246">
+                <item row="0" column="0">
                  <widget class="QGroupBox" name="c0_encoderGB_1">
                   <property name="title">
                    <string>Encoder</string>
@@ -4041,6 +4180,32 @@ Leave blank to home the joint manually.</string>
                    </item>
                   </layout>
                  </widget>
+                </item>
+                <item row="0" column="1">
+                 <spacer name="horizontalSpacer_58">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="1" column="0">
+                 <spacer name="verticalSpacer_43">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
                 </item>
                </layout>
               </widget>
@@ -4301,7 +4466,7 @@ Leave blank to home the joint manually.</string>
              </widget>
             </item>
             <item>
-             <widget class="QTabWidget" name="tabWidget_5">
+             <widget class="QTabWidget" name="c0_settings_2">
               <property name="currentIndex">
                <number>0</number>
               </property>
@@ -4973,7 +5138,7 @@ Leave blank to home the joint manually.</string>
               </widget>
               <widget class="QWidget" name="tab_38">
                <attribute name="title">
-                <string>Output</string>
+                <string>Stepgen</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_25">
                 <item row="0" column="0" rowspan="2">
@@ -4985,68 +5150,6 @@ Leave blank to home the joint manually.</string>
                    <string>StepGen Settings</string>
                   </property>
                   <layout class="QGridLayout" name="gridLayout_26">
-                   <item row="3" column="0">
-                    <widget class="QLabel" name="label_53">
-                     <property name="text">
-                      <string>Step Space</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="2" column="0">
-                    <widget class="QLabel" name="label_46">
-                     <property name="text">
-                      <string>Step Time</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="5" column="0">
-                    <widget class="QLabel" name="label_54">
-                     <property name="text">
-                      <string>Direction Setup</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="2" column="2">
-                    <widget class="QLabel" name="label_114">
-                     <property name="minimumSize">
-                      <size>
-                       <width>20</width>
-                       <height>0</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>20</width>
-                       <height>16777215</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>ns</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="6" column="0">
-                    <widget class="QLabel" name="label_55">
-                     <property name="text">
-                      <string>Direction Hold</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                     </property>
-                    </widget>
-                   </item>
                    <item row="6" column="1">
                     <widget class="QLineEdit" name="c0_DirHold_2">
                      <property name="sizePolicy">
@@ -5075,6 +5178,60 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
+                   <item row="6" column="0">
+                    <widget class="QLabel" name="label_55">
+                     <property name="text">
+                      <string>Direction Hold</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="6" column="2">
+                    <widget class="QLabel" name="label_116">
+                     <property name="minimumSize">
+                      <size>
+                       <width>20</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>20</width>
+                       <height>16777215</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>ns</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="5" column="2">
+                    <widget class="QLabel" name="label_115">
+                     <property name="minimumSize">
+                      <size>
+                       <width>20</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>20</width>
+                       <height>16777215</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>ns</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
                    <item row="5" column="3">
                     <widget class="QCheckBox" name="c0_DirInvert_2">
                      <property name="sizePolicy">
@@ -5087,6 +5244,120 @@ Leave blank to home the joint manually.</string>
                       <string>Invert Direction</string>
                      </property>
                     </widget>
+                   </item>
+                   <item row="2" column="3">
+                    <widget class="QCheckBox" name="c0_StepInvert_2">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="text">
+                      <string>Invert Step</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="5" column="1">
+                    <widget class="QLineEdit" name="c0_DirSetup_2">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>60</width>
+                       <height>16777215</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="0">
+                    <widget class="QLabel" name="label_46">
+                     <property name="text">
+                      <string>Step Time</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="1">
+                    <widget class="QLineEdit" name="c0_StepSpace_2">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>60</width>
+                       <height>16777215</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="2">
+                    <widget class="QLabel" name="label_114">
+                     <property name="minimumSize">
+                      <size>
+                       <width>20</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>20</width>
+                       <height>16777215</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>ns</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="7" column="0">
+                    <spacer name="verticalSpacer_5">
+                     <property name="orientation">
+                      <enum>Qt::Vertical</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>20</width>
+                       <height>40</height>
+                      </size>
+                     </property>
+                    </spacer>
                    </item>
                    <item row="3" column="2">
                     <widget class="QLabel" name="label_104">
@@ -5110,38 +5381,13 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="2" column="3">
-                    <widget class="QCheckBox" name="c0_StepInvert_2">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
+                   <item row="3" column="0">
+                    <widget class="QLabel" name="label_53">
                      <property name="text">
-                      <string>Invert Step</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="5" column="2">
-                    <widget class="QLabel" name="label_115">
-                     <property name="minimumSize">
-                      <size>
-                       <width>20</width>
-                       <height>0</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>20</width>
-                       <height>16777215</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>ns</string>
+                      <string>Step Space</string>
                      </property>
                      <property name="alignment">
-                      <set>Qt::AlignCenter</set>
+                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                      </property>
                     </widget>
                    </item>
@@ -5192,101 +5438,53 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="6" column="2">
-                    <widget class="QLabel" name="label_116">
-                     <property name="minimumSize">
-                      <size>
-                       <width>20</width>
-                       <height>0</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>20</width>
-                       <height>16777215</height>
-                      </size>
-                     </property>
+                   <item row="5" column="0">
+                    <widget class="QLabel" name="label_54">
                      <property name="text">
-                      <string>ns</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="3" column="1">
-                    <widget class="QLineEdit" name="c0_StepSpace_2">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>60</width>
-                       <height>16777215</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string/>
+                      <string>Direction Setup</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                      </property>
                     </widget>
-                   </item>
-                   <item row="5" column="1">
-                    <widget class="QLineEdit" name="c0_DirSetup_2">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>60</width>
-                       <height>16777215</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string/>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="7" column="0">
-                    <spacer name="verticalSpacer_5">
-                     <property name="orientation">
-                      <enum>Qt::Vertical</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>20</width>
-                       <height>40</height>
-                      </size>
-                     </property>
-                    </spacer>
                    </item>
                   </layout>
                  </widget>
                 </item>
                 <item row="0" column="1">
+                 <spacer name="horizontalSpacer_41">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="tab_121">
+               <attribute name="title">
+                <string>Analog</string>
+               </attribute>
+               <layout class="QGridLayout" name="gridLayout_237">
+                <item row="0" column="1">
+                 <spacer name="horizontalSpacer_42">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="0" column="0">
                  <widget class="QGroupBox" name="c0_analogGB_2">
                   <property name="title">
                    <string>Analog Output</string>
@@ -5359,12 +5557,22 @@ Leave blank to home the joint manually.</string>
                   </layout>
                  </widget>
                 </item>
-                <item row="1" column="1">
+               </layout>
+              </widget>
+              <widget class="QWidget" name="tab_127">
+               <attribute name="title">
+                <string>Encoder</string>
+               </attribute>
+               <layout class="QGridLayout" name="gridLayout_245">
+                <item row="0" column="0">
                  <widget class="QGroupBox" name="c0_encoderGB_2">
                   <property name="title">
                    <string>Encoder</string>
                   </property>
                   <layout class="QGridLayout" name="gridLayout_123">
+                   <item row="0" column="1">
+                    <widget class="QLineEdit" name="c0_encoderScale_2"/>
+                   </item>
                    <item row="0" column="0">
                     <widget class="QLabel" name="label_811">
                      <property name="text">
@@ -5372,8 +5580,31 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="0" column="1">
-                    <widget class="QLineEdit" name="c0_encoderScale_2"/>
+                   <item row="0" column="2">
+                    <spacer name="horizontalSpacer_57">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item row="1" column="0">
+                    <spacer name="verticalSpacer_42">
+                     <property name="orientation">
+                      <enum>Qt::Vertical</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>20</width>
+                       <height>40</height>
+                      </size>
+                     </property>
+                    </spacer>
                    </item>
                   </layout>
                  </widget>
@@ -5637,7 +5868,7 @@ Leave blank to home the joint manually.</string>
              </widget>
             </item>
             <item>
-             <widget class="QTabWidget" name="tabWidget_6">
+             <widget class="QTabWidget" name="c0_settings_3">
               <property name="currentIndex">
                <number>0</number>
               </property>
@@ -6309,9 +6540,22 @@ Leave blank to home the joint manually.</string>
               </widget>
               <widget class="QWidget" name="tab_42">
                <attribute name="title">
-                <string>Output</string>
+                <string>Stepgen</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_38">
+                <item row="2" column="0">
+                 <spacer name="verticalSpacer_7">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
                 <item row="0" column="0" rowspan="2">
                  <widget class="QGroupBox" name="c0_stepgenGB_3">
                   <property name="styleSheet">
@@ -6606,23 +6850,30 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="7" column="0">
-                    <spacer name="verticalSpacer_7">
-                     <property name="orientation">
-                      <enum>Qt::Vertical</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>20</width>
-                       <height>40</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
                   </layout>
                  </widget>
                 </item>
                 <item row="0" column="1">
+                 <spacer name="horizontalSpacer_44">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="tab_122">
+               <attribute name="title">
+                <string>Analog</string>
+               </attribute>
+               <layout class="QGridLayout" name="gridLayout_238">
+                <item row="0" column="0">
                  <widget class="QGroupBox" name="c0_analogGB_3">
                   <property name="title">
                    <string>Analog Output</string>
@@ -6695,12 +6946,45 @@ Leave blank to home the joint manually.</string>
                   </layout>
                  </widget>
                 </item>
-                <item row="1" column="1">
+                <item row="0" column="1">
+                 <spacer name="horizontalSpacer_43">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="tab_128">
+               <attribute name="title">
+                <string>Encoder</string>
+               </attribute>
+               <layout class="QGridLayout" name="gridLayout_244">
+                <item row="0" column="0">
                  <widget class="QGroupBox" name="c0_encoderGB_3">
                   <property name="title">
                    <string>Encoder</string>
                   </property>
                   <layout class="QGridLayout" name="gridLayout_124">
+                   <item row="0" column="2">
+                    <spacer name="horizontalSpacer_56">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
                    <item row="0" column="0">
                     <widget class="QLabel" name="label_812">
                      <property name="text">
@@ -6710,6 +6994,19 @@ Leave blank to home the joint manually.</string>
                    </item>
                    <item row="0" column="1">
                     <widget class="QLineEdit" name="c0_encoderScale_3"/>
+                   </item>
+                   <item row="1" column="0">
+                    <spacer name="verticalSpacer_41">
+                     <property name="orientation">
+                      <enum>Qt::Vertical</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>20</width>
+                       <height>40</height>
+                      </size>
+                     </property>
+                    </spacer>
                    </item>
                   </layout>
                  </widget>
@@ -6973,7 +7270,7 @@ Leave blank to home the joint manually.</string>
              </widget>
             </item>
             <item>
-             <widget class="QTabWidget" name="tabWidget_7">
+             <widget class="QTabWidget" name="c0_settings_4">
               <property name="currentIndex">
                <number>0</number>
               </property>
@@ -7645,7 +7942,7 @@ Leave blank to home the joint manually.</string>
               </widget>
               <widget class="QWidget" name="tab_46">
                <attribute name="title">
-                <string>Output</string>
+                <string>Stepgen</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_52">
                 <item row="0" column="0" rowspan="2">
@@ -7657,6 +7954,34 @@ Leave blank to home the joint manually.</string>
                    <string>StepGen Settings</string>
                   </property>
                   <layout class="QGridLayout" name="gridLayout_53">
+                   <item row="5" column="1">
+                    <widget class="QLineEdit" name="c0_DirSetup_4">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>60</width>
+                       <height>16777215</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                     </property>
+                    </widget>
+                   </item>
                    <item row="3" column="0">
                     <widget class="QLabel" name="label_79">
                      <property name="text">
@@ -7664,6 +7989,119 @@ Leave blank to home the joint manually.</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="6" column="1">
+                    <widget class="QLineEdit" name="c0_DirHold_4">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>60</width>
+                       <height>16777215</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="1">
+                    <widget class="QLineEdit" name="c0_StepTime_4">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>60</width>
+                       <height>16777215</height>
+                      </size>
+                     </property>
+                     <property name="inputMask">
+                      <string/>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="2">
+                    <widget class="QLabel" name="label_121">
+                     <property name="minimumSize">
+                      <size>
+                       <width>20</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>20</width>
+                       <height>16777215</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>ns</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="6" column="0">
+                    <widget class="QLabel" name="label_106">
+                     <property name="text">
+                      <string>Direction Hold</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="5" column="2">
+                    <widget class="QLabel" name="label_122">
+                     <property name="minimumSize">
+                      <size>
+                       <width>20</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>20</width>
+                       <height>16777215</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>ns</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
                      </property>
                     </widget>
                    </item>
@@ -7709,161 +8147,6 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="6" column="0">
-                    <widget class="QLabel" name="label_106">
-                     <property name="text">
-                      <string>Direction Hold</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="6" column="1">
-                    <widget class="QLineEdit" name="c0_DirHold_4">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>60</width>
-                       <height>16777215</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string/>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="5" column="3">
-                    <widget class="QCheckBox" name="c0_DirInvert_4">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="text">
-                      <string>Invert Direction</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="3" column="2">
-                    <widget class="QLabel" name="label_121">
-                     <property name="minimumSize">
-                      <size>
-                       <width>20</width>
-                       <height>0</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>20</width>
-                       <height>16777215</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>ns</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="2" column="3">
-                    <widget class="QCheckBox" name="c0_StepInvert_4">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="text">
-                      <string>Invert Step</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="5" column="2">
-                    <widget class="QLabel" name="label_122">
-                     <property name="minimumSize">
-                      <size>
-                       <width>20</width>
-                       <height>0</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>20</width>
-                       <height>16777215</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>ns</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="2" column="1">
-                    <widget class="QLineEdit" name="c0_StepTime_4">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>60</width>
-                       <height>16777215</height>
-                      </size>
-                     </property>
-                     <property name="inputMask">
-                      <string/>
-                     </property>
-                     <property name="text">
-                      <string/>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="0" colspan="2">
-                    <widget class="QComboBox" name="c0_drive_4">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="minimumSize">
-                      <size>
-                       <width>150</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                    </widget>
-                   </item>
                    <item row="6" column="2">
                     <widget class="QLabel" name="label_123">
                      <property name="minimumSize">
@@ -7883,6 +8166,48 @@ Leave blank to home the joint manually.</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="0" colspan="2">
+                    <widget class="QComboBox" name="c0_drive_4">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="minimumSize">
+                      <size>
+                       <width>150</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="5" column="3">
+                    <widget class="QCheckBox" name="c0_DirInvert_4">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="text">
+                      <string>Invert Direction</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="3">
+                    <widget class="QCheckBox" name="c0_StepInvert_4">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="text">
+                      <string>Invert Step</string>
                      </property>
                     </widget>
                    </item>
@@ -7914,51 +8239,43 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="5" column="1">
-                    <widget class="QLineEdit" name="c0_DirSetup_4">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                     <property name="maximumSize">
-                      <size>
-                       <width>60</width>
-                       <height>16777215</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string/>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="7" column="0">
-                    <spacer name="verticalSpacer_9">
-                     <property name="orientation">
-                      <enum>Qt::Vertical</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>20</width>
-                       <height>40</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
                   </layout>
                  </widget>
                 </item>
                 <item row="0" column="1">
+                 <spacer name="horizontalSpacer_46">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="2" column="0">
+                 <spacer name="verticalSpacer_9">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="tab_123">
+               <attribute name="title">
+                <string>Analog</string>
+               </attribute>
+               <layout class="QGridLayout" name="gridLayout_239">
+                <item row="0" column="0">
                  <widget class="QGroupBox" name="c0_analogGB_4">
                   <property name="title">
                    <string>Analog Output</string>
@@ -8031,21 +8348,60 @@ Leave blank to home the joint manually.</string>
                   </layout>
                  </widget>
                 </item>
-                <item row="1" column="1">
+                <item row="0" column="1">
+                 <spacer name="horizontalSpacer_45">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="tab_129">
+               <attribute name="title">
+                <string>Encoder</string>
+               </attribute>
+               <layout class="QGridLayout" name="gridLayout_243">
+                <item row="0" column="0">
                  <widget class="QGroupBox" name="c0_encoderGB_4">
                   <property name="title">
                    <string>Encoder</string>
                   </property>
                   <layout class="QGridLayout" name="gridLayout_125">
                    <item row="0" column="0">
-                    <widget class="QLabel" name="label_813">
-                     <property name="text">
-                      <string>Encoder Scale</string>
-                     </property>
-                    </widget>
+                    <widget class="QLineEdit" name="c0_encoderScale_4"/>
                    </item>
                    <item row="0" column="1">
-                    <widget class="QLineEdit" name="c0_encoderScale_4"/>
+                    <spacer name="horizontalSpacer_55">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item row="1" column="0">
+                    <spacer name="verticalSpacer_40">
+                     <property name="orientation">
+                      <enum>Qt::Vertical</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>20</width>
+                       <height>40</height>
+                      </size>
+                     </property>
+                    </spacer>
                    </item>
                   </layout>
                  </widget>
@@ -8309,7 +8665,7 @@ Leave blank to home the joint manually.</string>
              </widget>
             </item>
             <item>
-             <widget class="QTabWidget" name="tabWidget_8">
+             <widget class="QTabWidget" name="c0_settings_5">
               <property name="currentIndex">
                <number>0</number>
               </property>
@@ -8969,7 +9325,7 @@ Leave blank to home the joint manually.</string>
               </widget>
               <widget class="QWidget" name="tab_50">
                <attribute name="title">
-                <string>Output</string>
+                <string>Stepgen</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_61">
                 <item row="0" column="0" rowspan="2">
@@ -9266,23 +9622,56 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="7" column="0">
-                    <spacer name="verticalSpacer_11">
-                     <property name="orientation">
-                      <enum>Qt::Vertical</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>20</width>
-                       <height>40</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
                   </layout>
                  </widget>
                 </item>
+                <item row="2" column="0">
+                 <spacer name="verticalSpacer_11">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
                 <item row="0" column="1">
+                 <spacer name="horizontalSpacer_48">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="tab_124">
+               <attribute name="title">
+                <string>Analog</string>
+               </attribute>
+               <layout class="QGridLayout" name="gridLayout_240">
+                <item row="0" column="1">
+                 <spacer name="horizontalSpacer_47">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="0" column="0">
                  <widget class="QGroupBox" name="c0_analogGB_5">
                   <property name="title">
                    <string>Analog Output</string>
@@ -9355,12 +9744,32 @@ Leave blank to home the joint manually.</string>
                   </layout>
                  </widget>
                 </item>
-                <item row="1" column="1">
+               </layout>
+              </widget>
+              <widget class="QWidget" name="tab_130">
+               <attribute name="title">
+                <string>Encoder</string>
+               </attribute>
+               <layout class="QGridLayout" name="gridLayout_242">
+                <item row="0" column="0">
                  <widget class="QGroupBox" name="c0_encoderGB_5">
                   <property name="title">
                    <string>Encoder</string>
                   </property>
                   <layout class="QGridLayout" name="gridLayout_127">
+                   <item row="0" column="2">
+                    <spacer name="horizontalSpacer_54">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
                    <item row="0" column="0">
                     <widget class="QLabel" name="label_814">
                      <property name="text">
@@ -9370,6 +9779,19 @@ Leave blank to home the joint manually.</string>
                    </item>
                    <item row="0" column="1">
                     <widget class="QLineEdit" name="c0_encoderScale_5"/>
+                   </item>
+                   <item row="1" column="0">
+                    <spacer name="verticalSpacer_39">
+                     <property name="orientation">
+                      <enum>Qt::Vertical</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>20</width>
+                       <height>40</height>
+                      </size>
+                     </property>
+                    </spacer>
                    </item>
                   </layout>
                  </widget>
@@ -11581,7 +12003,7 @@ Leave blank to home the joint manually.</string>
              </widget>
             </item>
             <item>
-             <widget class="QTabWidget" name="tabWidget_9">
+             <widget class="QTabWidget" name="c1_settings_0">
               <property name="currentIndex">
                <number>0</number>
               </property>
@@ -12237,9 +12659,22 @@ Leave blank to home the joint manually.</string>
               </widget>
               <widget class="QWidget" name="tab_56">
                <attribute name="title">
-                <string>Output</string>
+                <string>Stepgen</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_70">
+                <item row="2" column="0">
+                 <spacer name="verticalSpacer_13">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
                 <item row="0" column="0" rowspan="2">
                  <widget class="QGroupBox" name="c1_stepgenGB_0">
                   <property name="styleSheet">
@@ -12534,23 +12969,30 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="7" column="0">
-                    <spacer name="verticalSpacer_13">
-                     <property name="orientation">
-                      <enum>Qt::Vertical</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>20</width>
-                       <height>40</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
                   </layout>
                  </widget>
                 </item>
                 <item row="0" column="1">
+                 <spacer name="horizontalSpacer_76">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="tab_131">
+               <attribute name="title">
+                <string>Analog</string>
+               </attribute>
+               <layout class="QGridLayout" name="gridLayout_258">
+                <item row="0" column="0">
                  <widget class="QGroupBox" name="c1_analogGB_0">
                   <property name="title">
                    <string>Analog Output</string>
@@ -12623,7 +13065,40 @@ Leave blank to home the joint manually.</string>
                   </layout>
                  </widget>
                 </item>
-                <item row="1" column="1">
+                <item row="0" column="1">
+                 <spacer name="horizontalSpacer_75">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="1" column="0">
+                 <spacer name="verticalSpacer_63">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="tab_132">
+               <attribute name="title">
+                <string>Encoder</string>
+               </attribute>
+               <layout class="QGridLayout" name="gridLayout_257">
+                <item row="0" column="0">
                  <widget class="QGroupBox" name="c0_encoderGB_6">
                   <property name="title">
                    <string>Encoder</string>
@@ -12641,6 +13116,32 @@ Leave blank to home the joint manually.</string>
                    </item>
                   </layout>
                  </widget>
+                </item>
+                <item row="0" column="1">
+                 <spacer name="horizontalSpacer_74">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="1" column="0">
+                 <spacer name="verticalSpacer_62">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
                 </item>
                </layout>
               </widget>
@@ -12901,7 +13402,7 @@ Leave blank to home the joint manually.</string>
              </widget>
             </item>
             <item>
-             <widget class="QTabWidget" name="tabWidget_10">
+             <widget class="QTabWidget" name="c1_settings_1">
               <property name="currentIndex">
                <number>0</number>
               </property>
@@ -13557,9 +14058,22 @@ Leave blank to home the joint manually.</string>
               </widget>
               <widget class="QWidget" name="tab_61">
                <attribute name="title">
-                <string>Output</string>
+                <string>Stepgen</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_79">
+                <item row="2" column="0">
+                 <spacer name="verticalSpacer_15">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
                 <item row="0" column="0" rowspan="2">
                  <widget class="QGroupBox" name="c1_stepgenGB_1">
                   <property name="styleSheet">
@@ -13854,23 +14368,43 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="7" column="0">
-                    <spacer name="verticalSpacer_15">
-                     <property name="orientation">
-                      <enum>Qt::Vertical</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>20</width>
-                       <height>40</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
                   </layout>
                  </widget>
                 </item>
                 <item row="0" column="1">
+                 <spacer name="horizontalSpacer_73">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="tab_133">
+               <attribute name="title">
+                <string>Analog</string>
+               </attribute>
+               <layout class="QGridLayout" name="gridLayout_256">
+                <item row="0" column="1">
+                 <spacer name="horizontalSpacer_72">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="0" column="0">
                  <widget class="QGroupBox" name="c1_analogGB_1">
                   <property name="title">
                    <string>Analog Output</string>
@@ -13943,7 +14477,27 @@ Leave blank to home the joint manually.</string>
                   </layout>
                  </widget>
                 </item>
-                <item row="1" column="1">
+                <item row="1" column="0">
+                 <spacer name="verticalSpacer_61">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="tab_134">
+               <attribute name="title">
+                <string>Encoder</string>
+               </attribute>
+               <layout class="QGridLayout" name="gridLayout_255">
+                <item row="0" column="0">
                  <widget class="QGroupBox" name="c0_encoderGB_7">
                   <property name="title">
                    <string>Encoder</string>
@@ -13961,6 +14515,32 @@ Leave blank to home the joint manually.</string>
                    </item>
                   </layout>
                  </widget>
+                </item>
+                <item row="0" column="1">
+                 <spacer name="horizontalSpacer_71">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="1" column="0">
+                 <spacer name="verticalSpacer_60">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
                 </item>
                </layout>
               </widget>
@@ -14221,7 +14801,7 @@ Leave blank to home the joint manually.</string>
              </widget>
             </item>
             <item>
-             <widget class="QTabWidget" name="tabWidget_11">
+             <widget class="QTabWidget" name="c1_settings_2">
               <property name="currentIndex">
                <number>0</number>
               </property>
@@ -14877,9 +15457,22 @@ Leave blank to home the joint manually.</string>
               </widget>
               <widget class="QWidget" name="tab_66">
                <attribute name="title">
-                <string>Output</string>
+                <string>Stepgen</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_88">
+                <item row="2" column="0">
+                 <spacer name="verticalSpacer_17">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
                 <item row="0" column="0" rowspan="2">
                  <widget class="QGroupBox" name="c1_stepgenGB_2">
                   <property name="styleSheet">
@@ -15174,23 +15767,30 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="7" column="0">
-                    <spacer name="verticalSpacer_17">
-                     <property name="orientation">
-                      <enum>Qt::Vertical</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>20</width>
-                       <height>40</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
                   </layout>
                  </widget>
                 </item>
                 <item row="0" column="1">
+                 <spacer name="horizontalSpacer_70">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="tab_135">
+               <attribute name="title">
+                <string>Analog</string>
+               </attribute>
+               <layout class="QGridLayout" name="gridLayout_254">
+                <item row="0" column="0">
                  <widget class="QGroupBox" name="c1_analogGB_2">
                   <property name="title">
                    <string>Analog Output</string>
@@ -15263,7 +15863,53 @@ Leave blank to home the joint manually.</string>
                   </layout>
                  </widget>
                 </item>
-                <item row="1" column="1">
+                <item row="0" column="1">
+                 <spacer name="horizontalSpacer_69">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="1" column="0">
+                 <spacer name="verticalSpacer_59">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="tab_136">
+               <attribute name="title">
+                <string>Encoder</string>
+               </attribute>
+               <layout class="QGridLayout" name="gridLayout_253">
+                <item row="0" column="1">
+                 <spacer name="horizontalSpacer_68">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="0" column="0">
                  <widget class="QGroupBox" name="c0_encoderGB_8">
                   <property name="title">
                    <string>Encoder</string>
@@ -15281,6 +15927,19 @@ Leave blank to home the joint manually.</string>
                    </item>
                   </layout>
                  </widget>
+                </item>
+                <item row="1" column="0">
+                 <spacer name="verticalSpacer_58">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
                 </item>
                </layout>
               </widget>
@@ -15541,7 +16200,7 @@ Leave blank to home the joint manually.</string>
              </widget>
             </item>
             <item>
-             <widget class="QTabWidget" name="tabWidget_12">
+             <widget class="QTabWidget" name="c1_settings_3">
               <property name="currentIndex">
                <number>0</number>
               </property>
@@ -16197,9 +16856,22 @@ Leave blank to home the joint manually.</string>
               </widget>
               <widget class="QWidget" name="tab_71">
                <attribute name="title">
-                <string>Output</string>
+                <string>Stepgen</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_97">
+                <item row="2" column="0">
+                 <spacer name="verticalSpacer_19">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
                 <item row="0" column="0" rowspan="2">
                  <widget class="QGroupBox" name="c1_stepgenGB_3">
                   <property name="styleSheet">
@@ -16494,23 +17166,30 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="7" column="0">
-                    <spacer name="verticalSpacer_19">
-                     <property name="orientation">
-                      <enum>Qt::Vertical</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>20</width>
-                       <height>40</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
                   </layout>
                  </widget>
                 </item>
                 <item row="0" column="1">
+                 <spacer name="horizontalSpacer_67">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="tab_137">
+               <attribute name="title">
+                <string>Analog</string>
+               </attribute>
+               <layout class="QGridLayout" name="gridLayout_252">
+                <item row="0" column="0">
                  <widget class="QGroupBox" name="c1_analogGB_3">
                   <property name="title">
                    <string>Analog Output</string>
@@ -16583,7 +17262,40 @@ Leave blank to home the joint manually.</string>
                   </layout>
                  </widget>
                 </item>
-                <item row="1" column="1">
+                <item row="0" column="1">
+                 <spacer name="horizontalSpacer_66">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="1" column="0">
+                 <spacer name="verticalSpacer_57">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="tab_138">
+               <attribute name="title">
+                <string>Encoder</string>
+               </attribute>
+               <layout class="QGridLayout" name="gridLayout_251">
+                <item row="0" column="0">
                  <widget class="QGroupBox" name="c0_encoderGB_9">
                   <property name="title">
                    <string>Encoder</string>
@@ -16601,6 +17313,32 @@ Leave blank to home the joint manually.</string>
                    </item>
                   </layout>
                  </widget>
+                </item>
+                <item row="0" column="1">
+                 <spacer name="horizontalSpacer_65">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="1" column="0">
+                 <spacer name="verticalSpacer_48">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
                 </item>
                </layout>
               </widget>
@@ -16861,7 +17599,7 @@ Leave blank to home the joint manually.</string>
              </widget>
             </item>
             <item>
-             <widget class="QTabWidget" name="tabWidget_13">
+             <widget class="QTabWidget" name="c1_settings_4">
               <property name="currentIndex">
                <number>0</number>
               </property>
@@ -17517,7 +18255,7 @@ Leave blank to home the joint manually.</string>
               </widget>
               <widget class="QWidget" name="tab_76">
                <attribute name="title">
-                <string>Output</string>
+                <string>Stepgen</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_106">
                 <item row="0" column="0" rowspan="2">
@@ -17814,23 +18552,56 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="7" column="0">
-                    <spacer name="verticalSpacer_21">
-                     <property name="orientation">
-                      <enum>Qt::Vertical</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>20</width>
-                       <height>40</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
                   </layout>
                  </widget>
                 </item>
+                <item row="2" column="0">
+                 <spacer name="verticalSpacer_21">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
                 <item row="0" column="1">
+                 <spacer name="horizontalSpacer_64">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="tab_139">
+               <attribute name="title">
+                <string>Analog</string>
+               </attribute>
+               <layout class="QGridLayout" name="gridLayout_250">
+                <item row="0" column="1">
+                 <spacer name="horizontalSpacer_62">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="0" column="0">
                  <widget class="QGroupBox" name="c1_analogGB_4">
                   <property name="title">
                    <string>Analog Output</string>
@@ -17903,7 +18674,27 @@ Leave blank to home the joint manually.</string>
                   </layout>
                  </widget>
                 </item>
-                <item row="1" column="1">
+                <item row="1" column="0">
+                 <spacer name="verticalSpacer_46">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="tab_140">
+               <attribute name="title">
+                <string>Encoder</string>
+               </attribute>
+               <layout class="QGridLayout" name="gridLayout_249">
+                <item row="0" column="0">
                  <widget class="QGroupBox" name="c0_encoderGB_10">
                   <property name="title">
                    <string>Encoder</string>
@@ -17921,6 +18712,32 @@ Leave blank to home the joint manually.</string>
                    </item>
                   </layout>
                  </widget>
+                </item>
+                <item row="0" column="1">
+                 <spacer name="horizontalSpacer_63">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="1" column="0">
+                 <spacer name="verticalSpacer_47">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
                 </item>
                </layout>
               </widget>
@@ -18050,27 +18867,10 @@ Leave blank to home the joint manually.</string>
                <string>Axis</string>
               </property>
               <layout class="QGridLayout" name="gridLayout_111">
-               <item row="0" column="4">
-                <widget class="QLabel" name="label_428">
-                 <property name="text">
-                  <string>Max Limit</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
                <item row="1" column="3">
                 <widget class="QLineEdit" name="c1_min_limit_5">
                  <property name="statusTip">
                   <string>Mininum Travel Limit</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="4">
-                <widget class="QLineEdit" name="c1_max_limit_5">
-                 <property name="statusTip">
-                  <string>Maximum Travel Limit</string>
                  </property>
                 </widget>
                </item>
@@ -18084,10 +18884,10 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="0">
-                <widget class="QLabel" name="label_430">
+               <item row="0" column="2">
+                <widget class="QLabel" name="label_434">
                  <property name="text">
-                  <string>Axis</string>
+                  <string>Scale</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
@@ -18098,6 +18898,26 @@ Leave blank to home the joint manually.</string>
                 <widget class="QLabel" name="label_431">
                  <property name="text">
                   <string>Max Vel</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="4">
+                <widget class="QLabel" name="label_428">
+                 <property name="text">
+                  <string>Max Limit</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_430">
+                 <property name="text">
+                  <string>Axis</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
@@ -18123,6 +18943,20 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
+               <item row="1" column="6">
+                <widget class="QLineEdit" name="c1_max_accel_5">
+                 <property name="statusTip">
+                  <string>Maximum Acceleration in Units per Second per Second</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="5">
+                <widget class="QLineEdit" name="c1_max_vel_5">
+                 <property name="statusTip">
+                  <string>Maximum Velocity in Units per Second</string>
+                 </property>
+                </widget>
+               </item>
                <item row="0" column="6">
                 <widget class="QLabel" name="label_432">
                  <property name="text">
@@ -18133,10 +18967,10 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="5">
-                <widget class="QLineEdit" name="c1_max_vel_5">
-                 <property name="statusTip">
-                  <string>Maximum Velocity in Units per Second</string>
+               <item row="1" column="0">
+                <widget class="QComboBox" name="c1_axis_5">
+                 <property name="toolTip">
+                  <string>Axis Letter</string>
                  </property>
                 </widget>
                </item>
@@ -18150,30 +18984,13 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="6">
-                <widget class="QLineEdit" name="c1_max_accel_5">
-                 <property name="statusTip">
-                  <string>Maximum Acceleration in Units per Second per Second</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="0">
-                <widget class="QComboBox" name="c1_axis_5">
-                 <property name="toolTip">
-                  <string>Axis Letter</string>
-                 </property>
-                </widget>
-               </item>
                <item row="1" column="2">
                 <widget class="QLineEdit" name="c1_scale_5"/>
                </item>
-               <item row="0" column="2">
-                <widget class="QLabel" name="label_434">
-                 <property name="text">
-                  <string>Scale</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
+               <item row="1" column="4">
+                <widget class="QLineEdit" name="c1_max_limit_5">
+                 <property name="statusTip">
+                  <string>Maximum Travel Limit</string>
                  </property>
                 </widget>
                </item>
@@ -18181,7 +18998,7 @@ Leave blank to home the joint manually.</string>
              </widget>
             </item>
             <item>
-             <widget class="QTabWidget" name="tabWidget_14">
+             <widget class="QTabWidget" name="c1_settings_5">
               <property name="currentIndex">
                <number>0</number>
               </property>
@@ -18837,7 +19654,7 @@ Leave blank to home the joint manually.</string>
               </widget>
               <widget class="QWidget" name="tab_81">
                <attribute name="title">
-                <string>Output</string>
+                <string>Stepgen</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_138">
                 <item row="0" column="0" rowspan="2">
@@ -19134,23 +19951,43 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="7" column="0">
-                    <spacer name="verticalSpacer_23">
-                     <property name="orientation">
-                      <enum>Qt::Vertical</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>20</width>
-                       <height>40</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
                   </layout>
                  </widget>
                 </item>
+                <item row="2" column="0">
+                 <spacer name="verticalSpacer_23">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
                 <item row="0" column="1">
+                 <spacer name="horizontalSpacer_59">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="tab_141">
+               <attribute name="title">
+                <string>Analog</string>
+               </attribute>
+               <layout class="QGridLayout" name="gridLayout_248">
+                <item row="0" column="0">
                  <widget class="QGroupBox" name="c1_analogGB_5">
                   <property name="title">
                    <string>Analog Output</string>
@@ -19223,7 +20060,40 @@ Leave blank to home the joint manually.</string>
                   </layout>
                  </widget>
                 </item>
-                <item row="1" column="1">
+                <item row="0" column="1">
+                 <spacer name="horizontalSpacer_60">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="1" column="0">
+                 <spacer name="verticalSpacer_44">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="tab_142">
+               <attribute name="title">
+                <string>Encoder</string>
+               </attribute>
+               <layout class="QGridLayout" name="gridLayout_247">
+                <item row="0" column="0">
                  <widget class="QGroupBox" name="c0_encoderGB_11">
                   <property name="title">
                    <string>Encoder</string>
@@ -19241,6 +20111,32 @@ Leave blank to home the joint manually.</string>
                    </item>
                   </layout>
                  </widget>
+                </item>
+                <item row="0" column="1">
+                 <spacer name="horizontalSpacer_61">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="1" column="0">
+                 <spacer name="verticalSpacer_45">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
                 </item>
                </layout>
               </widget>
@@ -21099,7 +21995,7 @@ Leave blank to home the joint manually.</string>
              </widget>
             </item>
             <item>
-             <widget class="QTabWidget" name="tabWidget_15">
+             <widget class="QTabWidget" name="c2_settings_0">
               <property name="currentIndex">
                <number>0</number>
               </property>
@@ -21755,7 +22651,7 @@ Leave blank to home the joint manually.</string>
               </widget>
               <widget class="QWidget" name="tab_90">
                <attribute name="title">
-                <string>Output</string>
+                <string>Stepgen</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_149">
                 <item row="0" column="0" rowspan="2">
@@ -22052,23 +22948,43 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="7" column="0">
-                    <spacer name="verticalSpacer_25">
-                     <property name="orientation">
-                      <enum>Qt::Vertical</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>20</width>
-                       <height>40</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
                   </layout>
                  </widget>
                 </item>
+                <item row="2" column="0">
+                 <spacer name="verticalSpacer_25">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
                 <item row="0" column="1">
+                 <spacer name="horizontalSpacer_94">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="tab_143">
+               <attribute name="title">
+                <string>Analog</string>
+               </attribute>
+               <layout class="QGridLayout" name="gridLayout_270">
+                <item row="0" column="0">
                  <widget class="QGroupBox" name="c2_analogGB_0">
                   <property name="title">
                    <string>Analog Output</string>
@@ -22141,7 +23057,53 @@ Leave blank to home the joint manually.</string>
                   </layout>
                  </widget>
                 </item>
-                <item row="1" column="1">
+                <item row="0" column="1">
+                 <spacer name="horizontalSpacer_93">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="1" column="0">
+                 <spacer name="verticalSpacer_75">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="tab_144">
+               <attribute name="title">
+                <string>Encoder</string>
+               </attribute>
+               <layout class="QGridLayout" name="gridLayout_269">
+                <item row="0" column="1">
+                 <spacer name="horizontalSpacer_92">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="0" column="0">
                  <widget class="QGroupBox" name="c0_encoderGB_12">
                   <property name="title">
                    <string>Encoder</string>
@@ -22159,6 +23121,19 @@ Leave blank to home the joint manually.</string>
                    </item>
                   </layout>
                  </widget>
+                </item>
+                <item row="1" column="0">
+                 <spacer name="verticalSpacer_74">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
                 </item>
                </layout>
               </widget>
@@ -22419,7 +23394,7 @@ Leave blank to home the joint manually.</string>
              </widget>
             </item>
             <item>
-             <widget class="QTabWidget" name="tabWidget_16">
+             <widget class="QTabWidget" name="c2_settings_1">
               <property name="currentIndex">
                <number>0</number>
               </property>
@@ -23075,7 +24050,7 @@ Leave blank to home the joint manually.</string>
               </widget>
               <widget class="QWidget" name="tab_95">
                <attribute name="title">
-                <string>Output</string>
+                <string>Stepgen</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_160">
                 <item row="0" column="0" rowspan="2">
@@ -23372,23 +24347,43 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="7" column="0">
-                    <spacer name="verticalSpacer_27">
-                     <property name="orientation">
-                      <enum>Qt::Vertical</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>20</width>
-                       <height>40</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
                   </layout>
                  </widget>
                 </item>
+                <item row="2" column="0">
+                 <spacer name="verticalSpacer_27">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
                 <item row="0" column="1">
+                 <spacer name="horizontalSpacer_91">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="tab_145">
+               <attribute name="title">
+                <string>Analog</string>
+               </attribute>
+               <layout class="QGridLayout" name="gridLayout_268">
+                <item row="0" column="0">
                  <widget class="QGroupBox" name="c2_analogGB_1">
                   <property name="title">
                    <string>Analog Output</string>
@@ -23461,7 +24456,53 @@ Leave blank to home the joint manually.</string>
                   </layout>
                  </widget>
                 </item>
-                <item row="1" column="1">
+                <item row="0" column="1">
+                 <spacer name="horizontalSpacer_90">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="1" column="0">
+                 <spacer name="verticalSpacer_73">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="tab_146">
+               <attribute name="title">
+                <string>Encoder</string>
+               </attribute>
+               <layout class="QGridLayout" name="gridLayout_267">
+                <item row="0" column="1">
+                 <spacer name="horizontalSpacer_89">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="0" column="0">
                  <widget class="QGroupBox" name="c0_encoderGB_13">
                   <property name="title">
                    <string>Encoder</string>
@@ -23479,6 +24520,19 @@ Leave blank to home the joint manually.</string>
                    </item>
                   </layout>
                  </widget>
+                </item>
+                <item row="1" column="0">
+                 <spacer name="verticalSpacer_72">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
                 </item>
                </layout>
               </widget>
@@ -23739,7 +24793,7 @@ Leave blank to home the joint manually.</string>
              </widget>
             </item>
             <item>
-             <widget class="QTabWidget" name="tabWidget_17">
+             <widget class="QTabWidget" name="c2_settings_2">
               <property name="currentIndex">
                <number>0</number>
               </property>
@@ -24395,7 +25449,7 @@ Leave blank to home the joint manually.</string>
               </widget>
               <widget class="QWidget" name="tab_100">
                <attribute name="title">
-                <string>Output</string>
+                <string>Stepgen</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_171">
                 <item row="0" column="0" rowspan="2">
@@ -24692,23 +25746,56 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="7" column="0">
-                    <spacer name="verticalSpacer_29">
-                     <property name="orientation">
-                      <enum>Qt::Vertical</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>20</width>
-                       <height>40</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
                   </layout>
                  </widget>
                 </item>
+                <item row="2" column="0">
+                 <spacer name="verticalSpacer_29">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
                 <item row="0" column="1">
+                 <spacer name="horizontalSpacer_88">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="tab_147">
+               <attribute name="title">
+                <string>Analog</string>
+               </attribute>
+               <layout class="QGridLayout" name="gridLayout_266">
+                <item row="0" column="1">
+                 <spacer name="horizontalSpacer_87">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="0" column="0">
                  <widget class="QGroupBox" name="c2_analogGB_2">
                   <property name="title">
                    <string>Analog Output</string>
@@ -24781,7 +25868,27 @@ Leave blank to home the joint manually.</string>
                   </layout>
                  </widget>
                 </item>
-                <item row="1" column="1">
+                <item row="1" column="0">
+                 <spacer name="verticalSpacer_71">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="tab_148">
+               <attribute name="title">
+                <string>Encoder</string>
+               </attribute>
+               <layout class="QGridLayout" name="gridLayout_265">
+                <item row="0" column="0">
                  <widget class="QGroupBox" name="c0_encoderGB_14">
                   <property name="title">
                    <string>Encoder</string>
@@ -24799,6 +25906,32 @@ Leave blank to home the joint manually.</string>
                    </item>
                   </layout>
                  </widget>
+                </item>
+                <item row="0" column="1">
+                 <spacer name="horizontalSpacer_86">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="1" column="0">
+                 <spacer name="verticalSpacer_70">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
                 </item>
                </layout>
               </widget>
@@ -25059,7 +26192,7 @@ Leave blank to home the joint manually.</string>
              </widget>
             </item>
             <item>
-             <widget class="QTabWidget" name="tabWidget_18">
+             <widget class="QTabWidget" name="c2_settings_3">
               <property name="currentIndex">
                <number>0</number>
               </property>
@@ -25715,9 +26848,22 @@ Leave blank to home the joint manually.</string>
               </widget>
               <widget class="QWidget" name="tab_105">
                <attribute name="title">
-                <string>Output</string>
+                <string>Stepgen</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_199">
+                <item row="2" column="0">
+                 <spacer name="verticalSpacer_31">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
                 <item row="0" column="0" rowspan="2">
                  <widget class="QGroupBox" name="c2_stepgenGB_3">
                   <property name="styleSheet">
@@ -26012,23 +27158,30 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="7" column="0">
-                    <spacer name="verticalSpacer_31">
-                     <property name="orientation">
-                      <enum>Qt::Vertical</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>20</width>
-                       <height>40</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
                   </layout>
                  </widget>
                 </item>
                 <item row="0" column="1">
+                 <spacer name="horizontalSpacer_85">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="tab_149">
+               <attribute name="title">
+                <string>Analog</string>
+               </attribute>
+               <layout class="QGridLayout" name="gridLayout_264">
+                <item row="0" column="0">
                  <widget class="QGroupBox" name="c2_analogGB_3">
                   <property name="title">
                    <string>Analog Output</string>
@@ -26101,7 +27254,53 @@ Leave blank to home the joint manually.</string>
                   </layout>
                  </widget>
                 </item>
-                <item row="1" column="1">
+                <item row="0" column="1">
+                 <spacer name="horizontalSpacer_84">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="1" column="0">
+                 <spacer name="verticalSpacer_69">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="tab_150">
+               <attribute name="title">
+                <string>Encoder</string>
+               </attribute>
+               <layout class="QGridLayout" name="gridLayout_263">
+                <item row="0" column="1">
+                 <spacer name="horizontalSpacer_83">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="0" column="0">
                  <widget class="QGroupBox" name="c0_encoderGB_15">
                   <property name="title">
                    <string>Encoder</string>
@@ -26119,6 +27318,19 @@ Leave blank to home the joint manually.</string>
                    </item>
                   </layout>
                  </widget>
+                </item>
+                <item row="1" column="0">
+                 <spacer name="verticalSpacer_68">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
                 </item>
                </layout>
               </widget>
@@ -26379,7 +27591,7 @@ Leave blank to home the joint manually.</string>
              </widget>
             </item>
             <item>
-             <widget class="QTabWidget" name="tabWidget_19">
+             <widget class="QTabWidget" name="c2_settings_4">
               <property name="currentIndex">
                <number>0</number>
               </property>
@@ -27035,7 +28247,7 @@ Leave blank to home the joint manually.</string>
               </widget>
               <widget class="QWidget" name="tab_110">
                <attribute name="title">
-                <string>Output</string>
+                <string>Stepgen</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_216">
                 <item row="0" column="0" rowspan="2">
@@ -27332,23 +28544,56 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="7" column="0">
-                    <spacer name="verticalSpacer_33">
-                     <property name="orientation">
-                      <enum>Qt::Vertical</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>20</width>
-                       <height>40</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
                   </layout>
                  </widget>
                 </item>
+                <item row="2" column="0">
+                 <spacer name="verticalSpacer_33">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
                 <item row="0" column="1">
+                 <spacer name="horizontalSpacer_82">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="tab_151">
+               <attribute name="title">
+                <string>Analog</string>
+               </attribute>
+               <layout class="QGridLayout" name="gridLayout_262">
+                <item row="0" column="1">
+                 <spacer name="horizontalSpacer_81">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="0" column="0">
                  <widget class="QGroupBox" name="c2_analogGB_4">
                   <property name="title">
                    <string>Analog Output</string>
@@ -27421,7 +28666,27 @@ Leave blank to home the joint manually.</string>
                   </layout>
                  </widget>
                 </item>
-                <item row="1" column="1">
+                <item row="1" column="0">
+                 <spacer name="verticalSpacer_67">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="tab_153">
+               <attribute name="title">
+                <string>Encoder</string>
+               </attribute>
+               <layout class="QGridLayout" name="gridLayout_261">
+                <item row="0" column="0">
                  <widget class="QGroupBox" name="c0_encoderGB_16">
                   <property name="title">
                    <string>Encoder</string>
@@ -27439,6 +28704,32 @@ Leave blank to home the joint manually.</string>
                    </item>
                   </layout>
                  </widget>
+                </item>
+                <item row="0" column="1">
+                 <spacer name="horizontalSpacer_80">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="1" column="0">
+                 <spacer name="verticalSpacer_66">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
                 </item>
                </layout>
               </widget>
@@ -27699,7 +28990,7 @@ Leave blank to home the joint manually.</string>
              </widget>
             </item>
             <item>
-             <widget class="QTabWidget" name="tabWidget_20">
+             <widget class="QTabWidget" name="c2_settings_5">
               <property name="currentIndex">
                <number>0</number>
               </property>
@@ -28355,7 +29646,7 @@ Leave blank to home the joint manually.</string>
               </widget>
               <widget class="QWidget" name="tab_115">
                <attribute name="title">
-                <string>Output</string>
+                <string>Stepgen</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_228">
                 <item row="0" column="0" rowspan="2">
@@ -28652,23 +29943,43 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="7" column="0">
-                    <spacer name="verticalSpacer_35">
-                     <property name="orientation">
-                      <enum>Qt::Vertical</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>20</width>
-                       <height>40</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
                   </layout>
                  </widget>
                 </item>
+                <item row="2" column="0">
+                 <spacer name="verticalSpacer_35">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
                 <item row="0" column="1">
+                 <spacer name="horizontalSpacer_79">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="tab_164">
+               <attribute name="title">
+                <string>Analog</string>
+               </attribute>
+               <layout class="QGridLayout" name="gridLayout_260">
+                <item row="0" column="0">
                  <widget class="QGroupBox" name="c2_analogGB_5">
                   <property name="title">
                    <string>Analog Output</string>
@@ -28741,7 +30052,40 @@ Leave blank to home the joint manually.</string>
                   </layout>
                  </widget>
                 </item>
-                <item row="1" column="1">
+                <item row="0" column="1">
+                 <spacer name="horizontalSpacer_78">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="1" column="0">
+                 <spacer name="verticalSpacer_65">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="tab_165">
+               <attribute name="title">
+                <string>Encoder</string>
+               </attribute>
+               <layout class="QGridLayout" name="gridLayout_259">
+                <item row="0" column="0">
                  <widget class="QGroupBox" name="c0_encoderGB_17">
                   <property name="title">
                    <string>Encoder</string>
@@ -28759,6 +30103,32 @@ Leave blank to home the joint manually.</string>
                    </item>
                   </layout>
                  </widget>
+                </item>
+                <item row="0" column="1">
+                 <spacer name="horizontalSpacer_77">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="1" column="0">
+                 <spacer name="verticalSpacer_64">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
                 </item>
                </layout>
               </widget>
