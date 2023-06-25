@@ -128,6 +128,8 @@ class MainWindow(QMainWindow):
 		self.set_7i96s_pb.clicked.connect(partial(testing.set_7i96s, self))
 		self.set_7i96s_7i76_pb.clicked.connect(partial(testing.set_7i96s_7i76, self))
 		self.set_7i96s_7i77_pb.clicked.connect(partial(testing.set_7i96s_7i77, self))
+		self.set_7i92t_7i76_pb.clicked.connect(partial(testing.set_7i92t_7i76, self))
+		self.set_7i92t_7i77_pb.clicked.connect(partial(testing.set_7i92t_7i77, self))
 		self.x_config_pb.clicked.connect(partial(testing.x_config, self))
 		self.xyz_config_pb.clicked.connect(partial(testing.xyz_config, self))
 		self.xyyz_config_pb.clicked.connect(partial(testing.xyyz_config, self))
