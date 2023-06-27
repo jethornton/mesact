@@ -35,8 +35,9 @@ def boardChanged(parent):
 		parent.ipAddressCB.setEnabled(False)
 		parent.mainTW.setTabVisible(3, True)
 		parent.mainTW.setTabText(3, name)
-		for i in range(3): # show analog and encoder tabs
+		for i in range(3): # show output tabs
 			for j in range(6):
+				getattr(parent, f'c{i}_settings_{j}').setTabVisible(2, True)
 				getattr(parent, f'c{i}_settings_{j}').setTabVisible(3, True)
 				getattr(parent, f'c{i}_settings_{j}').setTabVisible(4, True)
 
