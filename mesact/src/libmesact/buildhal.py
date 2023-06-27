@@ -86,11 +86,10 @@ def build(parent):
 		for j in range(6):
 			if getattr(parent, f'c{i}_axis_{j}').currentData():
 				joint_list.append(f'c{i}_axis_{j}')
-				print(parent.mainTW.tabText(i+3))
+				#print(parent.mainTW.tabText(i+3))
 
 	for joint in joint_list:
-		print(joint)
-	return
+		print(f'joint: {joint}')
 
 	joints = len(parent.coordinatesLB.text())
 	axes = parent.coordinatesLB.text()
@@ -122,7 +121,6 @@ def build(parent):
 
 		halContents.append(f'\nnet joint-{i}-enable => hm2_[MESA](BOARD).0.stepgen.0{i}.enable\n')
 
-		#print(f'{parent.c{}_stepgenGB_{}').isHidden()')
 		if getattr(parent, f'c{joint_list[i][1]}_analogGB_{i}').isHidden(): # stepper
 			halContents.append(f'\nsetp hm2_[MESA](BOARD).0.stepgen.0{i}.dirsetup [JOINT_{i}](DIRSETUP)\n')
 			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.dirhold [JOINT_{i}](DIRHOLD)\n')
