@@ -42141,7 +42141,6 @@ auto enp2s0
     </property>
     <addaction name="actionNew"/>
     <addaction name="actionOpen"/>
-    <addaction name="actionOpen_1"/>
    </widget>
    <widget class="QMenu" name="menuDownloads">
     <property name="title">
@@ -42186,7 +42185,6 @@ auto enp2s0
    <addaction name="actionOpen"/>
    <addaction name="actionCheck"/>
    <addaction name="actionBuild"/>
-   <addaction name="actionOpen_1"/>
   </widget>
   <action name="actionOpen">
    <property name="text">
