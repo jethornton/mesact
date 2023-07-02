@@ -117,7 +117,7 @@ def checkit(parent):
 	for i in range(3):
 		for j in range(32):
 			selection = getattr(parent, f'c{i}_input_{j}').text()
-			if selection != 'Select':
+			if selection.startswith('Joint'):
 				if int(selection.split()[1]) > joints:
 					tabError = True
 					configErrors.append(f'\t{selection} is more than the number of joints')
@@ -125,7 +125,7 @@ def checkit(parent):
 	for i in range(3):
 		for j in range(16):
 			selection = getattr(parent, f'c{i}_output_{j}').text()
-			if selection != 'Select':
+			if selection.startswith('Joint'):
 				if int(selection.split()[1]) > joints:
 					tabError = True
 					configErrors.append(f'\t{selection} is more than the number of joints')
