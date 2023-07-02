@@ -141,6 +141,14 @@ def build(parent):
 
 
 	'''
+	
+	<pcw-home> I think  may help
+	mesaflash --device 7i92t --addr 10.10.10.10 --readhmid --dbname1 7i77
+	<pcw-home> The sserial channels are typically just in sequence:
+	<pcw-home> 7I76+7I76 0,1 on first 7I76, 2,3 on second
+	<pcw-home> 7I77+7I77 0,1,2 on first 7I77 3,4,5 on second
+	<pcw-home> 7I76+7I77, 0,1 on 7I76, 2,3,4 on 7I77
+
 	hm2_7i76e.0.7i76.0.0.input-00
 	hm2_7i76e.0.7i76.0.0.input-00-not
 	hm2_7i76e.0.7i76.0.0.output-00
@@ -163,6 +171,7 @@ def build(parent):
 	hm2_7i92.0.7i76.0.2.spindir
 	hm2_7i92.0.7i76.0.2.spinena
 	hm2_7i92.0.7i76.0.2.spinout
+	hm2_7i92.0.7i77.0.3.input-00
 
 	7i92t P2
 	hm2_7i92.0.7i76.0.0.input-00
@@ -171,6 +180,7 @@ def build(parent):
 	hm2_7i92.0.7i76.0.0.spindir
 	hm2_7i92.0.7i76.0.0.spinena
 	hm2_7i92.0.7i76.0.0.spinout
+	hm2_7i92.0.7i77.0.0.input-00
 
 	hm2_7i95.0.inmux.00.input-00
 	hm2_7i95.0.inmux.00.input-00-not
@@ -183,14 +193,20 @@ def build(parent):
 	hm2_7i96s.0.inm.00.input-01
 	hm2_7i96s.0.inm.00.input-01-not
 	hm2_7i96s.0.inm.00.input-00-slow
+	hm2_7i96s.0.ssr.00.out-00 - 03
+	hm2_7i96s.0.outm.00.out-04 - 05
 
+	hm2_7i96s.0.7i76.0.1.input-00
+	hm2_7i96s.0.7i76.0.1.input-00-not
+	hm2_7i96s.0.7i76.0.1.output-00
 
 	hm2_7i97.0.inmux.00.input-00
 	hm2_7i97.0.inmux.00.input-00-not
 	hm2_7i97.0.inmux.00.input-00-slow
 	'''
 	motherBoards = ['5i25', '7i80db', '7i80hd', '7i92', '7i93', '7i98']
-	daughterBoards =['7i76', '7i77', '7i78']
+	daughterBoards = ['7i76', '7i77', '7i78']
+	comboBoards = ['7i76e', '7i95', '7i96', '7i96s', '7i97']
 
 	# build inputs from qpushbutton menus, check for debounce c0_input_0
 	hm2 = ''
@@ -200,28 +216,50 @@ def build(parent):
 
 
 	#hm2 = f'hm2_{parent.board}.0.'
-	
+	# Inputs tab 3 main boards and all in one boards
+	# tab 4 P1 & 5 P2 daughter boards
+	'''
+	if tab 4 is used we need to know what firmware is loaded to determine the 
+	smart serial ports
+	'''
 
-	for i in range(4):
+	tabs = [3,4,5]
+	for i in range(3):
+		#print(f'Tab: {tabs[i]} Card: {i}')
+		if getattr(parent, 'mainTW').isTabVisible(tabs[i]):
+			print(getattr(parent, 'mainTW').tabText(tabs[i]).lower())
+			if getattr(parent, f'c{i}_JointTW').isTabVisible(7): # input tab
+				print(f'Input {i}')
+				for j in range(32):
+					key = getattr(parent, f'c{i}_input_{j}').text()
+					invert = '-not' if getattr(parent, f'c{i}_input_invert_{j}').isChecked() else ''
+					slow = '-slow' if getattr(parent, f'c{i}_input_debounce_{j}').isChecked() else ''
+					if key != 'Select':
+						#print(f'Key: {key}')
+						#print(f'HM2: {hm2input}{j:02d}{invert}{slow}')
+						print(f'Input Dictionary: {input_dict[key]}')
+
+	''' 
+		if getattr(parent, "mainTW").isTabVisible(i):
+
+	c0_JointTW.isTabVisible(7):
+
+	for i in range(3):
 		if getattr(parent, "mainTW").isTabVisible(i+3):
-			#print(getattr(parent, "mainTW").tabText(i+3).lower())
+			print(getattr(parent, "mainTW").tabText(i+3).lower())
 			if i > 0:
 				daughter = getattr(parent, "mainTW").tabText(i+3).lower().split()[0]
 				connector = getattr(parent, "mainTW").tabText(i+3).lower().split()[1]
-				hm2input = f'hm2_{parent.board}.0.{daughter}.input-'
+			else:
+				daughter = '0'
+			hm2input = f'hm2_{parent.board}.0.{daughter}.input-'
+		
+
 			for j in range(32):
-				key = getattr(parent, f'c{i}_input_{j}').text()
-				invert = '-not' if getattr(parent, f'c{i}_input_invert_{j}').isChecked() else ''
-				slow = '-slow' if getattr(parent, f'c{i}_input_debounce_{j}').isChecked() else ''
-				if key != 'Select':
-					#print(f'Key: {key}')
-					print(f'HM2: {hm2input}{j:02d}{invert}{slow}')
-					#print(f'Input Dictionary: {input_dict[key]}')
 
 	#print(f'Board: {parent.boardCB.currentData()}')
 	#print(f'Parent Board: {parent.board}')
 
-	'''
 			if parent.board in motherBoards:
 				if parent.daughterCB_0.currentData():
 					card = parent.daughterCB_0.currentText()
@@ -318,8 +356,17 @@ def build(parent):
 			if parent.board == '7i97':
 				contents.append(output_dict[key] + f'hm2_7i97.0.ssr.00.out-{i:02}\n')
 	'''
+
+	# testing
+	parent.mainTW.setCurrentIndex(10)
+	parent.info_pte.appendPlainText('Build I/O Function')
+	for line in contents:
+		parent.info_pte.appendPlainText(line.strip())
+
+	'''
 	try:
 		with open(filePath, 'w') as f:
 			f.writelines(contents)
 	except OSError:
 		parent.info_pte.appendPlainText(f'OS error\n {traceback.print_exc()}')
+	'''
