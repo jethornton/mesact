@@ -88,8 +88,8 @@ def build(parent):
 				joint_list.append(f'c{i}_axis_{j}')
 				#print(parent.mainTW.tabText(i+3))
 
-	for joint in joint_list:
-		print(f'joint: {joint}')
+	#for joint in joint_list:
+	#	print(f'joint: {joint}')
 
 	joints = len(parent.coordinatesLB.text())
 	axes = parent.coordinatesLB.text()
@@ -414,10 +414,10 @@ def build(parent):
 		halContents.append('addf classicladder.0.refresh servo-thread 1\n')
 
 	# testing
-	parent.mainTW.setCurrentIndex(10)
-	parent.info_pte.appendPlainText('Build HAL Function')
-	for line in halContents:
-		parent.info_pte.appendPlainText(line.strip())
+	#parent.mainTW.setCurrentIndex(10)
+	#parent.info_pte.appendPlainText('Build HAL Function')
+	#for line in halContents:
+	#	parent.info_pte.appendPlainText(line.strip())
 
 	try:
 		with open(halFilePath, 'w') as halFile:
