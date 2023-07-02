@@ -7,6 +7,8 @@ def boardChanged(parent):
 	['7i76', '7i76'],
 	['7i77', '7i77'],
 	['7i78', '7i78'],
+	['7i85', '7i85'],
+	['7i85S', '7i85s'],
 	]
 	idc50 = [
 	['Select', None],
@@ -28,10 +30,8 @@ def boardChanged(parent):
 		tabs = parent.c0_JointTW.count()
 		parent.daughterCB_0.clear()
 		parent.daughterCB_1.clear()
-		parent.daughterCB_2.clear()
 		parent.daughterLB_0.clear()
 		parent.daughterLB_1.clear()
-		parent.daughterLB_2.clear()
 		parent.ipAddressCB.setEnabled(False)
 		parent.mainTW.setTabVisible(3, True)
 		parent.mainTW.setTabText(3, name)
@@ -83,6 +83,14 @@ def boardChanged(parent):
 			parent.daughterLB_1.setText('P2')
 			parent.mainTW.setTabText(4, 'P1')
 			parent.mainTW.setTabText(5, 'P2')
+			info = ('Connector 5v Power\n'
+			'W7 Up for P1\n'
+			'W12 Up for P2\n'
+			'\nIP Address\nW2 Down W3 Up for 10.10.10.10\n'
+			'\nDefault Firmware 7i76e_7i76x1D.bit\n'
+			)
+			parent.board_info_pte.setPlainText(info)
+
 			for item in db25:
 				parent.daughterCB_0.addItem(item[0], item[1])
 				parent.daughterCB_1.addItem(item[0], item[1])
@@ -337,6 +345,5 @@ def boardChanged(parent):
 		parent.mainTW.setTabVisible(3, False)
 		parent.daughterCB_0.clear()
 		parent.daughterCB_1.clear()
-		parent.daughterCB_2.clear()
 
 
