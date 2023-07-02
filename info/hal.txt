@@ -7,13 +7,22 @@ after getting pins and parameters
 quit
 
 In another terminal
+halcmd show all hm2 > 7i76E-pins.txt
+halcmd show all hm2 > 7i76E-7i76-P1-pins.txt
+halcmd show all hm2 > 7i76E-7i76-P2-pins.txt
+halcmd show all hm2 > 7i76E-7i77-P1-pins.txt
+halcmd show all hm2 > 7i76E-7i77-P2-pins.txt
+
 halcmd show all hm2 > 7i92T-7i76-P1-pins.txt
 halcmd show all hm2 > 7i92T-7i76-P2-pins.txt
 halcmd show all hm2 > 7i92T-7i77-P1-pins.txt
 halcmd show all hm2 > 7i92T-7i77-P2-pins.txt
+
 halcmd show all hm2 > 7i96S-pins.txt
 halcmd show all hm2 > 7i96S-7i76-pins.txt
 halcmd show all hm2 > 7i96S-7i77-pins.txt
+halcmd show all hm2 > 7i96S-7i85-pins.txt
+halcmd show all hm2 > 7i96S-7i85S-pins.txt
 
 for pci
 In a terminal
