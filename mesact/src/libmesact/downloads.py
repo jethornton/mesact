@@ -1,4 +1,4 @@
-import os, tarfile, shutil, requests
+import os, tarfile, shutil, requests, subprocess
 import urllib.request
 from functools import partial
 
@@ -9,26 +9,25 @@ from libmesact import firmware
 def downloadFirmware(parent):
 	board = parent.boardCB.currentData()
 	if board:
-		libpath = os.path.join(os.path.expanduser('~'), '.local/lib/libmesact')
-		if not os.path.exists(libpath):
-			os.makedirs(libpath)
+		libpath = os.path.join(os.path.expanduser('~'), f'.local/lib/libmesact/{board}')
 		firmware_url = f'https://github.com/jethornton/mesact_firmware/releases/download/1.0.0/{board}.tar.xz'
-		filename = os.path.join(os.path.expanduser('~'), f'.local/lib/libmesact/{board}.tar.xz')
-		directory = os.path.join(os.path.expanduser('~'), f'.local/lib/libmesact/{board}')
-		if os.path.isdir(directory):
-			msg = (f'{board} firmware directory exists\n'
-				'Delete it and download fresh?')
-			if parent.questionMsg(msg, 'Firmware'):
-				shutil.rmtree(directory)
-			else:
-				return
-		download(parent, firmware_url, filename)
-		with tarfile.open(filename) as f:
+		destination = os.path.join(os.path.expanduser('~'), f'.local/lib/libmesact/{board}.tar.xz')
+		if os.path.isdir(libpath):
+			#print(f'removed {destination}')
+			subprocess.run(["rm", "-rf", libpath])
+		#print(f'libpath {libpath}')
+		#print(f'firmware_url {firmware_url}')
+		#print(f'destination {destination}')
+
+		download(parent, firmware_url, destination)
+		with tarfile.open(destination) as f:
 			f.extractall(libpath)
+		if os.path.isfile(destination):
+			os.remove(destination)
 		# update firmware tab
 		firmware.load(parent)
 	else:
-		parent.infoMsgOk('Select a Mesa Board\nto download firmware', 'Board')
+		parent.infoMsgOk('Select a Board', 'Board')
 
 # NOTE: change repo back to mesact when merged into mesact
 def downloadAmd64Deb(parent):
