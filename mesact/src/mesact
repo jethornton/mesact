@@ -113,7 +113,7 @@ class MainWindow(QMainWindow):
 		# Machine Tab
 		self.configNameLE.textChanged[str].connect(partial(machine.configNameChanged, self))
 		self.boardCB.currentIndexChanged.connect(partial(boards.boardChanged, self))
-		for i in range(3):
+		for i in range(2):
 			getattr(self, f'daughterCB_{i}').currentIndexChanged.connect(partial(daughters.changed, self))
 		self.checkBoardPB.clicked.connect(partial(flash.checkCard, self))
 
