@@ -378,7 +378,7 @@ Owner   Type  Dir         Value  Name
      7  u32   RO     0x00000000  hm2_7i92.0.7i76.0.2.analogin3
      7  u32   RW     0x00000000  hm2_7i92.0.7i76.0.2.encmode0
      7  u32   RW     0x00000000  hm2_7i92.0.7i76.0.2.encmode1
-     7  u32   RO     0x0000A440  hm2_7i92.0.7i76.0.2.fieldvoltage
+     7  u32   RO     0x0000A400  hm2_7i92.0.7i76.0.2.fieldvoltage
      7  u32   RW     0x00000001  hm2_7i92.0.7i76.0.2.hwrevision
      7  u32   RW     0x00000009  hm2_7i92.0.7i76.0.2.nvbaudrate
      7  u32   RW     0x00000000  hm2_7i92.0.7i76.0.2.nvencmode0
@@ -664,9 +664,9 @@ Parameter Aliases:
 
 Exported Functions:
 Owner   CodeAddr  Arg       FP   Users  Name
- 00007  7f0500b18908  55f8f62d5f80  YES      0   hm2_7i92.0.read
- 00007  7f0500b18891  55f8f62d5f80  YES      0   hm2_7i92.0.read-request
- 00007  7f0500b18749  55f8f62d5f80  YES      0   hm2_7i92.0.write
+ 00007  7f129250b908  55d5c680df80  YES      0   hm2_7i92.0.read
+ 00007  7f129250b891  55d5c680df80  YES      0   hm2_7i92.0.read-request
+ 00007  7f129250b749  55d5c680df80  YES      0   hm2_7i92.0.write
 
 Realtime Threads:
      Period  FP     Name               (     Time, Max-Time )
