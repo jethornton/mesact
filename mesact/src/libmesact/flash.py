@@ -66,7 +66,7 @@ def checkCard(parent):
 			p = Popen(cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
 			prompt = p.communicate(parent.password + '\n')
 	if prompt:
-		getResults(parent, prompt, p.returncode, 'verifyPTE', 'Check IP')
+		getResults(parent, prompt, p.returncode, 'verifyPTE', 'Check for Board\n')
 
 def readhmid(parent):
 	#  mesaflash --device 7i92t --addr 10.10.10.10 --readhmid --dbname1 7i76 --dbname2 7i85s > 7i92_7i76_7i85sd.txt
