@@ -261,6 +261,12 @@ def boardChanged(parent):
 			parent.ipAddressCB.setEnabled(True)
 			parent.daughterLB_0.setText('P1')
 			parent.mainTW.setTabText(4, 'P1')
+			info = ('Connector 5v Power\n'
+			'W8 Up for P1\n'
+			'\nIP Address\nW5 Down W6 Up for 10.10.10.10\n'
+			'\nDefault Firmware 7i96d.bit\n'
+			)
+			parent.board_info_pte.setPlainText(info)
 			for item in db25:
 				parent.daughterCB_0.addItem(item[0], item[1])
 			for i in range(6): # hide analog and encoder tabs

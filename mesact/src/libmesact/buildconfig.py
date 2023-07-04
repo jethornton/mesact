@@ -11,24 +11,6 @@ from libmesact import buildss
 from libmesact import utilities
 
 def build(parent):
-	build_all = True
-	build_ini = True
-	if not check.checkit(parent):
-		parent.mainTW.setCurrentIndex(10)
-		parent.info_pte.appendPlainText('Build Failed')
-		build_all = False
-		build_ini = False
-		if parent.configNameLE.text() != '':
-			msg = ('There are Errors in the Config\n'
-				'Do you want to save the ini file\n'
-				'and come back later to fix the Errors?')
-			result = parent.errorMsgYesNo(msg, 'Build Errors')
-			if result:
-				build_ini = True
-			else:
-				parent.info_pte.appendPlainText('Build Aborted')
-				return
-
 	if parent.backupCB.isChecked():
 		utilities.backupFiles(parent)
 
@@ -58,18 +40,21 @@ def build(parent):
 			except OSError:
 				parent.info_pte.appendPlainText(f'OS error\n {traceback.print_exc()}')
 
-	if build_ini:
-		iniFile = os.path.join(parent.configPath, parent.configNameUnderscored + '.ini')
-		if os.path.exists(iniFile):
-			parent.updateini.update(parent, iniFile)
-		else:
-			buildini.build(parent)
+	# set boards
+	parent.main_board = parent.boardCB.currentData()
+	parent.p1_board = parent.daughterCB_0.currentData()
+	parent.p2_board = parent.daughterCB_1.currentData()
 
-	if build_all:
-		buildhal.build(parent)
-		buildio.build(parent)
-		buildmisc.build(parent)
-		#buildss.build(parent)
+	iniFile = os.path.join(parent.configPath, parent.configNameUnderscored + '.ini')
+	if os.path.exists(iniFile):
+		parent.updateini.update(parent, iniFile)
+	else:
+		buildini.build(parent)
+
+	buildhal.build(parent)
+	buildio.build(parent)
+	buildmisc.build(parent)
+	#buildss.build(parent)
 
 
 

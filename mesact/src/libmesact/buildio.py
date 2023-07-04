@@ -204,9 +204,9 @@ def build(parent):
 	hm2_7i97.0.inmux.00.input-00-not
 	hm2_7i97.0.inmux.00.input-00-slow
 	'''
-	motherBoards = ['5i25', '7i80db', '7i80hd', '7i92', '7i93', '7i98']
-	daughterBoards = ['7i76', '7i77', '7i78']
-	comboBoards = ['7i76e', '7i95', '7i96', '7i96s', '7i97']
+	mother_boards = ['5i25', '7i80db', '7i80hd', '7i92', '7i93', '7i98']
+	daughter_boards = ['7i76', '7i77', '7i78']
+	combo_boards = ['7i76e', '7i95', '7i96', '7i96s', '7i97']
 
 	# build inputs from qpushbutton menus, check for debounce c0_input_0
 	hm2 = ''
@@ -221,19 +221,79 @@ def build(parent):
 	'''
 	if tab 4 is used we need to know what firmware is loaded to determine the 
 	smart serial ports
+	
+	need to figure out what board the inputs are for
+	parent.main_board
+	parent.p1_board
+	parent.p2_board
+
 	'''
+	mb = parent.main_board
+	p1b = parent.p1_board
+	p2b = parent.p2_board
+
+	print(f'main_board {mb}')
+	print(f'p1_board {p1b}')
+	print(f'p2_board {p2b}')
+
+	# build main board inputs if a combo card
+	if mb in combo_boards:
+		for i in range(32):
+			key = getattr(parent, f'c0_input_{i}').text()
+			if parent.board == '7i96':
+				invert = '_not' if getattr(parent, f'c0_input_invert_{i}').isChecked() else ''
+			else:
+				invert = '-not' if getattr(parent, f'c0_input_invert_{i}').isChecked() else ''
+			slow = '-slow' if getattr(parent, f'c0_input_debounce_{i}').isChecked() else ''
+			#hm2input = f'hm2_{parent.board}.0.{daughter}.input-'
+			#if key != 'Select':
+				#print(f'Key: {key}')
+				#print(f'HM2: {hm2input}{j:02d}{invert}{slow}')
+			#	print(f'Input Dictionary: {input_dict[key]}')
+
+			if input_dict.get(key, False): # return False if key is not in dictionary
+				if parent.board == '7i76e':
+					hm2 =  f'hm2_7i76e.0.7i76.0.0.input-{i:02}{invert}\n'
+				if parent.board == '7i95':
+					hm2 =  f'hm2_7i95.0.inmux.00.input-{i:02}{invert}\n'
+				if parent.board == '7i96':
+					hm2 =  f'hm2_7i96.0.gpio.{i:03}.in{invert}\n'
+				if parent.board == '7i96s':
+					hm2 = f'hm2_7i96s.0.inm.00.input-{i:02}{invert}\n'
+				if parent.board == '7i97':
+					hm2 =  f'hm2_7i97.0.inmux.00.input-{i:02}{invert}\n'
+
+				print(f'{input_dict[key]} {hm2}')
+				#contents.append(f'{input_dict[key]} {hm2}{i:02}{invert}\n')
+
+	return
+
+
+	boards = []
+	for i in range(3,6):
+		if getattr(parent, 'mainTW').isTabVisible(i):
+			boards.append(getattr(parent, 'mainTW').tabText(i).lower())
+		else:
+			boards.append(None)
+	#print(f'boards {boards}')
 
 	tabs = [3,4,5]
 	for i in range(3):
-		#print(f'Tab: {tabs[i]} Card: {i}')
 		if getattr(parent, 'mainTW').isTabVisible(tabs[i]):
-			print(getattr(parent, 'mainTW').tabText(tabs[i]).lower())
+			if tabs[i] == 3: # it's either a combo or a main board
+				print('')
+				if parent.boardCB.currentData() in comboBoards:
+					print('')
+			#print(f'i {i}')
+			#print(f'Board: {boards[i]}')
+			#print(getattr(parent, 'mainTW').tabText(tabs[i]).lower())
 			if getattr(parent, f'c{i}_JointTW').isTabVisible(7): # input tab
-				print(f'Input {i}')
+				#print(f'Input {i}')
 				for j in range(32):
 					key = getattr(parent, f'c{i}_input_{j}').text()
 					invert = '-not' if getattr(parent, f'c{i}_input_invert_{j}').isChecked() else ''
 					slow = '-slow' if getattr(parent, f'c{i}_input_debounce_{j}').isChecked() else ''
+					#hm2input = f'hm2_{parent.board}.0.{daughter}.input-'
 					if key != 'Select':
 						#print(f'Key: {key}')
 						#print(f'HM2: {hm2input}{j:02d}{invert}{slow}')
@@ -252,7 +312,6 @@ def build(parent):
 				connector = getattr(parent, "mainTW").tabText(i+3).lower().split()[1]
 			else:
 				daughter = '0'
-			hm2input = f'hm2_{parent.board}.0.{daughter}.input-'
 		
 
 			for j in range(32):
@@ -267,20 +326,6 @@ def build(parent):
 					card = parent.daughterCB_1.currentText()
 					if card in daughterBoards: # use input-00-not and output-00
 						hm2 =  f'hm2_{parent.board}.0.{card}.0.0.input-{i:02}{invert}\n'
-			if parent.board == '7i76e':
-				hm2 =  f'hm2_7i76e.0.7i76.0.0.input-{i:02}{invert}\n'
-			if parent.board == '7i95':
-				hm2 =  f'hm2_7i95.0.inmux.00.input-{i:02}{invert}\n'
-			if parent.board == '7i96':
-				invert = '_not' if getattr(parent, 'inputInvertCB_' + str(i)).isChecked() else ''
-				hm2 =  f'hm2_7i96.0.gpio.{i:03}.in{invert}\n'
-			if parent.board == '7i96s':
-				hm2 =  f'hm2_7i96s.0.inm.00.input-{i:02}{invert}{slow}\n'
-			if parent.board == '7i97':
-				hm2 =  f'hm2_7i97.0.inmux.00.input-{i:02}{invert}{slow}\n'
-
-			if input_dict.get(key, False): # return False if key is not in dictionary
-				contents.append(f'{input_dict[key]} {hm2}\n')
 
 			else: # handle special cases
 				if key == 'Home All':
