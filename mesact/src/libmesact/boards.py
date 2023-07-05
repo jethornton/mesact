@@ -336,14 +336,11 @@ def boardChanged(parent):
 			parent.ipAddressCB.setEnabled(True)
 			parent.daughterLB_0.setText('P1')
 			parent.daughterLB_1.setText('P2')
-			parent.daughterLB_2.setText('P3')
 			parent.mainTW.setTabText(4, 'P1')
 			parent.mainTW.setTabText(5, 'P2')
-			parent.mainTW.setTabText(6, 'P3')
 			for item in db25:
 				parent.daughterCB_0.addItem(item[0], item[1])
 				parent.daughterCB_1.addItem(item[0], item[1])
-				parent.daughterCB_2.addItem(item[0], item[1])
 
 	else:
 		parent.boardType = False
