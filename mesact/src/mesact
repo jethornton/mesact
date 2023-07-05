@@ -164,7 +164,6 @@ class MainWindow(QMainWindow):
 
 		# Info Tab
 
-
 		# Axes Tab
 		#self.c0_axis_0.currentIndexChanged.connect(partial(axes.axisChanged, self))
 		# c0_copy_values_0
@@ -183,11 +182,13 @@ class MainWindow(QMainWindow):
 				getattr(self, f'c{j}_analogDefault_{i}').clicked.connect(partial(axes.analogSetDefault, self))
 				getattr(self, f'c{j}_drive_{i}').currentIndexChanged.connect(partial(axes.driveChanged, self))
 
-		'''
 		# I/O Tab
-		for i in range(32):
-			getattr(self, f'inputInvertCB_{i}').stateChanged.connect(partial(utilities.inputChanged, self))
-			getattr(self, f'inputDebounceCB_{i}').stateChanged.connect(partial(utilities.inputChanged, self))
+		for i in range(3):
+			for j in range(32):
+				getattr(self, f'c{i}_input_invert_{j}').stateChanged.connect(partial(utilities.inputChanged, self))
+				getattr(self, f'c{i}_input_debounce_{j}').stateChanged.connect(partial(utilities.inputChanged, self))
+
+		'''
 
 		# Spindle Tab
 		self.pidDefault_s.clicked.connect(partial(utilities.pidSetDefault, self))
