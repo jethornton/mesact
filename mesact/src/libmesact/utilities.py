@@ -122,6 +122,20 @@ def new_config(parent):
 	parent.servoPeriodSB.setValue(1000000)
 	parent.introGraphicLE.setText('emc2.gif')
 
-
+def inputChanged(parent): # test to see if not checked then enable both
+	#print(parent.sender().objectName().split('_'))
+	card, item, function, number = parent.sender().objectName().split('_')
+	#print(f'card {card} item {item} function {function} number {number}')
+	state =  parent.sender().checkState()
+	#print(f'state {state}')
+	debounce = ['7i96s', '7i97']
+	if state == 0: # only 7i96s and 7i97 have debounce
+		if parent.board in debounce:
+			getattr(parent, f'{card}_input_debounce_{number}').setEnabled(True)
+		getattr(parent, f'{card}_input_debounce_{number}').setEnabled(True)
+	if function == 'invert' and state == 2:
+		getattr(parent, f'{card}_input_debounce_{number}').setEnabled(False)
+	elif function == 'debounce' and state == 2:
+		getattr(parent, f'{card}_input_invert_{number}').setEnabled(False)
 
 
