@@ -52,6 +52,9 @@ def changed(parent):
 			else:
 				getattr(parent, f'c{daughter}_settings_{i}').setTabVisible(4, False)
 
+		for i in range(32): # hide debounce check boxes
+			getattr(parent, f'c{daughter}_input_debounce_{i}').setEnabled(False)
+
 	else:
 		parent.mainTW.setTabVisible(4 + index, False)
 
