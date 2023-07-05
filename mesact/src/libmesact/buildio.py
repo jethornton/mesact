@@ -232,9 +232,9 @@ def build(parent):
 	p1b = parent.p1_board
 	p2b = parent.p2_board
 
-	print(f'main_board {mb}')
-	print(f'p1_board {p1b}')
-	print(f'p2_board {p2b}')
+	#print(f'main_board {mb}')
+	#print(f'p1_board {p1b}')
+	#print(f'p2_board {p2b}')
 
 	# build main board inputs if a combo card
 	if mb in combo_boards:
@@ -263,8 +263,21 @@ def build(parent):
 				if parent.board == '7i97':
 					hm2 =  f'hm2_7i97.0.inmux.00.input-{i:02}{invert}\n'
 
+				#print(f'{input_dict[key]} {hm2}')
+				contents.append(f'{input_dict[key]} {hm2}')
+
+	if p2b: # daughter card on P2
+		for i in range(32):
+			key = getattr(parent, f'c2_input_{i}').text()
+			invert = '-not' if getattr(parent, f'c2_input_invert_{i}').isChecked() else ''
+			slow = '-slow' if getattr(parent, f'c2_input_debounce_{i}').isChecked() else ''
+			if input_dict.get(key, False): # return False if key is not in dictionary
+				hm2 = f'hm2_{parent.board}.0.{p2b}.0.0.input-{i:02}{invert}'
 				print(f'{input_dict[key]} {hm2}')
-				#contents.append(f'{input_dict[key]} {hm2}{i:02}{invert}\n')
+				contents.append(f'{input_dict[key]} {hm2}')
+
+
+	''' 
 
 	return
 
@@ -299,7 +312,6 @@ def build(parent):
 						#print(f'HM2: {hm2input}{j:02d}{invert}{slow}')
 						print(f'Input Dictionary: {input_dict[key]}')
 
-	''' 
 		if getattr(parent, "mainTW").isTabVisible(i):
 
 	c0_JointTW.isTabVisible(7):
@@ -404,6 +416,7 @@ def build(parent):
 
 	# testing
 	parent.mainTW.setCurrentIndex(10)
+	parent.info_pte.clear()
 	parent.info_pte.appendPlainText('Build I/O Function')
 	for line in contents:
 		parent.info_pte.appendPlainText(line.strip())
