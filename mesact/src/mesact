@@ -97,7 +97,6 @@ class MainWindow(QMainWindow):
 		# Menu Items
 		self.actionNew.triggered.connect(partial(utilities.new_config, self))
 		self.actionOpen.triggered.connect(partial(self.loadini.checkini, self))
-		self.actionOpen_1.triggered.connect(partial(self.loadini.loadini, self, '/home/john/linuxcnc/configs/7i96s/7i96s.ini'))
 		self.actionCheck.triggered.connect(partial(check.checkit, self))
 		self.actionBuild.triggered.connect(partial(buildconfig.build, self))
 		#self.actionTabHelp.triggered.connect(partial(self.help, 0))
