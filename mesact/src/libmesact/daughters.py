@@ -3,15 +3,15 @@ def changed(parent):
 	# daughter card indexes start at 1
 	index = int(parent.sender().objectName()[-1])
 	if parent.sender().currentData(): # daughter card selected
-		print(f'index {index}')
+		#print(f'index {index}')
 		daughter = int(getattr(parent, f'daughterLB_{index}').text()[-1])
 		#print(daughter)
 		# c0_JointTW
 		board = parent.sender().currentData()
 		tab = int(parent.sender().objectName()[-1]) + 4
-		print(f'tab {tab}')
+		#print(f'tab {tab}')
 		connector = int(parent.sender().objectName()[-1]) + 1
-		print(f'connector {connector}')
+		#print(f'connector {connector}')
 		getattr(parent, f'c{connector}_JointTW').setTabText(0, parent.sender().currentText())
 		cards = {'7i76':{'axis':5, 'stepgen':5, 'analog':0, 'encoder':0, 'spinenc':1, 'spinana':1},
 			'7i77':{'axis':6, 'stepgen':0, 'analog':6, 'encoder':6, 'spinenc':1, 'spinana':1},
@@ -20,7 +20,7 @@ def changed(parent):
 			'7i85s':{'axis':4, 'stepgen':4, 'analog':0, 'encoder':4, 'spinenc':1, 'spinana':1}
 			}
 		parent.mainTW.setTabVisible(tab, True)
-		parent.mainTW.setTabText(tab, f'{parent.sender().currentText()}')
+		parent.mainTW.setTabText(tab, f'P{connector} {parent.sender().currentText()}')
 		axis = cards[board]['axis']
 		stepgen = cards[board]['stepgen']
 		analog = cards[board]['analog']
