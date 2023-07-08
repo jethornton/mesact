@@ -250,15 +250,15 @@ def build(parent):
 			#	print(f'Input Dictionary: {input_dict[key]}')
 
 			if input_dict.get(key, False): # return False if key is not in dictionary
-				if parent.board == '7i76e':
+				if mb == '7i76e':
 					hm2 =  f'hm2_7i76e.0.7i76.0.0.input-{i:02}{invert}\n'
-				if parent.board == '7i95':
+				if mb == '7i95':
 					hm2 =  f'hm2_7i95.0.inmux.00.input-{i:02}{invert}\n'
-				if parent.board == '7i96':
+				if mb == '7i96':
 					hm2 =  f'hm2_7i96.0.gpio.{i:03}.in{invert}\n'
-				if parent.board == '7i96s':
+				if mb == '7i96s':
 					hm2 = f'hm2_7i96s.0.inm.00.input-{i:02}{invert}\n'
-				if parent.board == '7i97':
+				if mb == '7i97':
 					hm2 =  f'hm2_7i97.0.inmux.00.input-{i:02}{invert}\n'
 
 				#print(f'{input_dict[key]} {hm2}')
@@ -270,7 +270,7 @@ def build(parent):
 			invert = '-not' if getattr(parent, f'c2_input_invert_{i}').isChecked() else ''
 			slow = '-slow' if getattr(parent, f'c2_input_debounce_{i}').isChecked() else ''
 			if input_dict.get(key, False): # return False if key is not in dictionary
-				hm2 = f'hm2_{parent.board}.0.{p2b}.0.0.input-{i:02}{invert}'
+				hm2 = f'hm2_{mb}.0.{p2b}.0.0.input-{i:02}{invert}'
 				print(f'{input_dict[key]} {hm2}')
 				contents.append(f'{input_dict[key]} {hm2}')
 
