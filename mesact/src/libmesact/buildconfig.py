@@ -11,6 +11,9 @@ from libmesact import buildss
 from libmesact import utilities
 
 def build(parent):
+	if not check.checkit(parent):
+		return
+
 	if parent.backupCB.isChecked():
 		utilities.backupFiles(parent)
 
@@ -39,11 +42,6 @@ def build(parent):
 				os.mkdir(os.path.expanduser('~/linuxcnc/subroutines'))
 			except OSError:
 				parent.info_pte.appendPlainText(f'OS error\n {traceback.print_exc()}')
-
-	# set boards
-	parent.main_board = parent.boardCB.currentData()
-	parent.p1_board = parent.daughterCB_0.currentData()
-	parent.p2_board = parent.daughterCB_1.currentData()
 
 	iniFile = os.path.join(parent.configPath, parent.configNameUnderscored + '.ini')
 	if os.path.exists(iniFile):
