@@ -29,12 +29,13 @@ def getResults(parent, prompt, result, viewport, task=None):
 	else:
 		output = prompt[1]
 		outcome = 'Failed'
-	getattr(parent, viewport).clear()
-	getattr(parent, viewport).setPlainText(f'{task} returned: {outcome}\n')
+	getattr(parent, viewport).appendPlainText(f'{task} returned: {outcome}\n')
 	getattr(parent, viewport).appendPlainText(f'{output}\n')
-	parent.firmwareTW.setCurrentIndex(1)
 
 def checkCard(parent):
+	parent.firmwareTW.setCurrentIndex(1)
+	parent.firmwarePTE.clear()
+	parent.firmwarePTE.setPlainText('Checking')
 	board = parent.boardCB.currentData()
 	cmd = []
 	prompt = None
@@ -69,6 +70,9 @@ def checkCard(parent):
 		getResults(parent, prompt, p.returncode, 'verifyPTE', 'Check for Board\n')
 
 def readhmid(parent):
+	parent.firmwareTW.setCurrentIndex(1)
+	parent.firmwarePTE.clear()
+	parent.firmwarePTE.setPlainText('Reading HMID')
 	#  mesaflash --device 7i92t --addr 10.10.10.10 --readhmid --dbname1 7i76 --dbname2 7i85s > 7i92_7i76_7i85sd.txt
 	board = parent.boardCB.currentData()
 	cmd = []
@@ -106,6 +110,9 @@ def readhmid(parent):
 		getResults(parent, prompt, p.returncode, 'firmwarePTE', 'Read HMID')
 
 def readpd(parent):
+	parent.firmwareTW.setCurrentIndex(1)
+	parent.firmwarePTE.clear()
+	parent.firmwarePTE.setPlainText('Reading PD')
 	board = parent.boardCB.currentData()
 	cmd = []
 	prompt = None
@@ -135,6 +142,9 @@ def readpd(parent):
 		getResults(parent, prompt, p.returncode, 'firmwarePTE', 'Read Pin Descriptions')
 
 def flashCard(parent):
+	parent.firmwareTW.setCurrentIndex(1)
+	parent.firmwarePTE.clear()
+	parent.firmwarePTE.setPlainText('Flashing')
 	board = parent.boardCB.currentData()
 	cmd = []
 	prompt = None
@@ -144,7 +154,7 @@ def flashCard(parent):
 	if parent.firmwareCB.currentData():
 		firmware = os.path.basename(parent.firmwareCB.currentData())
 		parent.firmwarePTE.clear()
-		parent.firmwarePTE.setPlainText(f'Flashing: {firmware} to {parent.board}')
+		parent.firmwarePTE.setPlainText(f'Flashing: {firmware} to {board}')
 		qApp.processEvents()
 		firmware = os.path.join(parent.lib_path, parent.firmwareCB.currentData())
 		if parent.boardType == 'eth':
@@ -175,6 +185,9 @@ def flashCard(parent):
 		return
 
 def reloadCard(parent):
+	parent.firmwareTW.setCurrentIndex(1)
+	parent.firmwarePTE.clear()
+	parent.firmwarePTE.setPlainText('Reloading')
 	board = parent.boardCB.currentData()
 	cmd = []
 	prompt = None
@@ -206,6 +219,9 @@ def reloadCard(parent):
 		parent.firmwarePTE.appendPlainText('Wait 30 seconds before Verifying the Firmware')
 
 def verifyFirmware(parent):
+	parent.firmwareTW.setCurrentIndex(1)
+	parent.firmwarePTE.clear()
+	parent.firmwarePTE.setPlainText('Verifying')
 	board = parent.boardCB.currentData()
 	cmd = []
 	prompt = None
