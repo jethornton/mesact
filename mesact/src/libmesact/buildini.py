@@ -34,8 +34,6 @@ def build(parent):
 		iniContents.append(f'CARD_0 = {parent.daughterCB_0.currentData()}\n')
 	if parent.daughterCB_1.currentData() != None:
 		iniContents.append(f'CARD_1 = {parent.daughterCB_1.currentData()}\n')
-	if parent.daughterCB_2.currentData() != None:
-		iniContents.append(f'CARD_2 = {parent.daughterCB_2.currentData()}\n')
 	# build the [EMC] section
 	iniContents.append('\n[EMC]\n')
 	iniContents.append(f'VERSION = {parent.emcVersion}\n')
