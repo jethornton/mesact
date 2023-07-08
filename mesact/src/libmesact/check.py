@@ -16,6 +16,12 @@ def checkit(parent):
 	if parent.boardType == 'eth' and not parent.ipAddressCB.currentData():
 		tabError = True
 		configErrors.append('\tAn IP address must be selected, 10.10.10.10 is recommended')
+	if parent.daughterCB_1.isEnabled(): # P2 is enabled
+		p1b = parent.daughterCB_0.currentData()
+		p2b = parent.daughterCB_1.currentData()
+		if p1b and not p2b: # P1 is selected but P2 is not selected
+			tabError = True
+			configErrors.append('\tThe P2 Daughter must be selected to get the sserial ports for P1')
 
 	if tabError:
 		configErrors.insert(nextHeader, 'Machine Tab:')
