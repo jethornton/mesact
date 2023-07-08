@@ -435,10 +435,9 @@ def build(parent):
 	for line in contents:
 		parent.info_pte.appendPlainText(line.strip())
 
-	'''
 	try:
 		with open(filePath, 'w') as f:
 			f.writelines(contents)
 	except OSError:
 		parent.info_pte.appendPlainText(f'OS error\n {traceback.print_exc()}')
-	'''
+
