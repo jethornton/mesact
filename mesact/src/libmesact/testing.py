@@ -68,7 +68,15 @@ def xyyz_config(parent):
 	parent.c0_homeSequence_3.setText('0')
 
 def set_joints(parent, axes):
-	parent.configNameLE.setText(f'{"".join(axes)}')
+	# value = <value_if_true> if <expression> else <value_if_false>
+	mb = parent.boardCB.currentText()
+	p1 = parent.daughterCB_0.currentData()
+	p2 = parent.daughterCB_1.currentData()
+	mb = mb if mb else ''
+	p1 = f' P1-{p1}' if p1 else ''
+	p2 = f' P2-{p2}' if p2 else ''
+	name = mb if mb else ''
+	parent.configNameLE.setText(f'{mb}{p1}{p2} {"".join(axes)}')
 	for joint, axis in enumerate(axes):
 		getattr(parent, f'c0_scale_{joint}').setText('1000')
 		getattr(parent, f'c0_axis_{joint}').setCurrentIndex(getattr(parent, f'c0_axis_{joint}').findData(axis))
