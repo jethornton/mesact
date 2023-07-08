@@ -221,16 +221,14 @@ def build(parent):
 	'''
 	if tab 4 is used we need to know what firmware is loaded to determine the 
 	smart serial ports
-	
-	need to figure out what board the inputs are for
-	parent.main_board
-	parent.p1_board
-	parent.p2_board
 
 	'''
-	mb = parent.main_board
-	p1b = parent.p1_board
-	p2b = parent.p2_board
+	if parent.boardCB.currentData() == '7i92t':
+		mb = '7i92'
+	else:
+		mb = parent.boardCB.currentData()
+	p1b = parent.daughterCB_0.currentData()
+	p2b = parent.daughterCB_1.currentData()
 
 	#print(f'main_board {mb}')
 	#print(f'p1_board {p1b}')
@@ -276,6 +274,22 @@ def build(parent):
 				print(f'{input_dict[key]} {hm2}')
 				contents.append(f'{input_dict[key]} {hm2}')
 
+	if p1b: # daughter card on P1
+		if p2b: # P2 selected so we know the sserial channels
+			print('here')
+		else:
+			title = 'Error'
+			msg = ('The P2 daughter card must be selected\n'
+			'so the correct smart serial port can be used.\n')
+			parent.errorMsgOk(msg, title)
+		for i in range(32):
+			key = getattr(parent, f'c1_input_{i}').text()
+			invert = '-not' if getattr(parent, f'c1_input_invert_{i}').isChecked() else ''
+			slow = '-slow' if getattr(parent, f'c1_input_debounce_{i}').isChecked() else ''
+			if input_dict.get(key, False): # return False if key is not in dictionary
+				hm2 = f'hm2_{mb}.0.{p1b}.0.0.input-{i:02}{invert}'
+				print(f'{input_dict[key]} {hm2}')
+				contents.append(f'{input_dict[key]} {hm2}')
 
 	''' 
 
