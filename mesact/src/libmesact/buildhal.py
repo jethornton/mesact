@@ -36,9 +36,9 @@ def build(parent):
 	pwmgens = parent.pwmgens_cb.currentData()
 	stepgens = parent.stepgens_cb.currentData()
 	halContents.append('config="')
-	if stepgens > 0:
+	if encoders > 0:
 		halContents.append(f'num_encoders={encoders} ')
-	if stepgens > 0:
+	if pwmgens > 0:
 		halContents.append(f'num_pwmgens={pwmgens} ')
 	if stepgens > 0:
 		halContents.append(f'num_stepgens={stepgens} ')
@@ -49,11 +49,7 @@ def build(parent):
 		halContents.append('setp hm2_[MESA](BOARD).0.pwmgen.pdm_frequency 6000000\n')
 	halContents.append(f'\nsetp hm2_[MESA](BOARD).0.watchdog.timeout_ns {parent.servoPeriodSB.value() * 5}\n')
 
-	halContents.append('\n# THREADS\n')
-	halContents.append(f'addf hm2_[MESA](BOARD).0.read servo-thread\n')
-	halContents.append('addf motion-command-handler servo-thread\n')
-	halContents.append('addf motion-controller servo-thread\n')
-
+	# loadrt pids
 	pid_count = 0
 	pid_string = ''
 	for axis in parent.coordinatesLB.text():
@@ -62,7 +58,13 @@ def build(parent):
 		elif parent.coordinatesLB.text().count(axis) > 1:
 			pid_string += f'pid.{axis.lower()}{pid_count},'
 			pid_count += 1
-	halContents.append(f'loadrt pid names={pid_string[:-1]}\n')
+	halContents.append(f'\nloadrt pid names={pid_string[:-1]}\n')
+
+	halContents.append('\n# THREADS\n')
+	halContents.append(f'addf hm2_[MESA](BOARD).0.read servo-thread\n')
+	halContents.append('addf motion-command-handler servo-thread\n')
+	halContents.append('addf motion-controller servo-thread\n')
+
 	pid_list = pid_string[:-1].split(',')
 	for pid in pid_list:
 		halContents.append(f'addf {pid}.do-pid-calcs servo-thread\n')
@@ -74,11 +76,10 @@ def build(parent):
 	if parent.boardType == 'eth':
 		halContents.append('\n# DPLL TIMER\n')
 		halContents.append(f'setp hm2_[MESA](BOARD).0.dpll.01.timer-us -50\n')
-		if board in dpll:
-			if 'stepgen' in dpll[board]:
-				halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.timer-number 1\n')
-			if 'encoder' in dpll[board]:
-				halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.timer-number 1\n')
+		if stepgens > 0:
+			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.timer-number 1\n')
+		if encoders > 0:
+			halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.timer-number 1\n')
 
 	# figure out which card each joint is on...
 	joint_list = []
@@ -121,7 +122,7 @@ def build(parent):
 
 		halContents.append(f'\nnet joint-{i}-enable => hm2_[MESA](BOARD).0.stepgen.0{i}.enable\n')
 
-		if getattr(parent, f'c{joint_list[i][1]}_analogGB_{i}').isHidden(): # stepper
+		if getattr(parent, f'c{joint_list[i][1]}_settings_{i}').isTabEnabled(2): # stepper
 			halContents.append(f'\nsetp hm2_[MESA](BOARD).0.stepgen.0{i}.dirsetup [JOINT_{i}](DIRSETUP)\n')
 			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.dirhold [JOINT_{i}](DIRHOLD)\n')
 			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.steplen [JOINT_{i}](STEPLEN)\n')
@@ -143,17 +144,16 @@ def build(parent):
 		halContents.append(f'\nnet joint.{i}.output <= {pid_list[i]}.output\n')
 		halContents.append(f'net joint.{i}.output => hm2_[MESA](BOARD).0.stepgen.0{i}.velocity-cmd\n')
 
-		if getattr(parent, f'c{joint_list[i][1]}_stepgenGB_{i}').isHidden(): # analog hm2_7i96s.0.7i77.0.1.analogena
+		if getattr(parent, f'c{joint_list[i][1]}_settings_{i}').isTabEnabled(3): # analog
 			halContents.append('# amp enable\n')
 			halContents.append(f'net joint-0-enable => hm2_[MESA](BOARD).0.{card}.0.{port}.analogena\n')
-
 
 			halContents.append('\n# PWM setup\n')
 			halContents.append(f'setp hm2_[MESA](BOARD).0.{card}.0.{port}.analogout{i}-scalemax [JOINT_{i}](ANALOG_SCALE_MAX)\n')
 			halContents.append(f'setp hm2_[MESA](BOARD).0.{card}.0.{port}.analogout{i}-minlim [JOINT_{i}](ANALOG_MIN_LIMIT)\n')
 			halContents.append(f'setp hm2_[MESA](BOARD).0.{card}.0.{port}.analogout{i}-maxlim [JOINT_{i}](ANALOG_MAX_LIMIT)\n\n')
-	'''
 
+	'''
 			halContents.append('\n# Encoder Setup\n')
 			halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.scale  [JOINT_0](ENCODER_SCALE)\n')
 			halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.counter-mode 0\n')
