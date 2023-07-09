@@ -61,25 +61,24 @@ def firmwareChanged(parent):
 
 			with open(pinfile, 'r') as file:
 				for line in file:
-					if 'of PWM in configuration' in line:
-						pwmgens = int(''.join(filter(str.isdigit, line)))
 					if 'of StepGen in configuration' in line:
 						stepgens = int(''.join(filter(str.isdigit, line)))
+					if 'of PWM in configuration' in line:
+						pwmgens = int(''.join(filter(str.isdigit, line)))
 					if 'of QCount in configuration' in line:
 						encoders = int(''.join(filter(str.isdigit, line)))
+			#print(f'sg {stepgens} pwm {pwmgens} enc {encoders}')
 
 			parent.stepgens_cb.clear()
 			parent.pwmgens_cb.clear()
 			parent.encoders_cb.clear()
-			if stepgens > 0:
-				for i in reversed(range(stepgens + 1)):
-					parent.stepgens_cb.addItem(str(i), i)
-			if pwmgens > 0:
-				for i in reversed(range(pwmgens + 1)):
-					parent.pwmgens_cb.addItem(str(i), i)
-			if encoders > 0:
-				for i in reversed(range(encoders + 1)):
-					parent.encoders_cb.addItem(str(i), i)
+
+			for i in reversed(range(stepgens + 1)):
+				parent.stepgens_cb.addItem(str(i), i)
+			for i in reversed(range(pwmgens + 1)):
+				parent.pwmgens_cb.addItem(str(i), i)
+			for i in reversed(range(encoders + 1)):
+				parent.encoders_cb.addItem(str(i), i)
 
 
 
