@@ -272,6 +272,58 @@ class updateini:
 			self.update_key(item[0], item[1], item[2])
 
 		# [HAL] missing all the hal files
+		custom = False
+		postgui = False
+		shutdown = False
+		start = self.sections['[HAL]'][0]
+		end = self.sections['[HAL]'][1]
+		for i in range(start, end): # find out if custom.hal is there
+			if 'custom.hal' in self.content[i]:
+				custom = True
+			if 'postgui.hal' in self.content[i]:
+				postgui = True
+			if 'shutdown.hal' in self.content[i]:
+				shutdown = True
+		if parent.customhalCB.isChecked():
+			start = self.sections['[HAL]'][0]
+			end = self.sections['[HAL]'][1]
+			if not custom: # insert it after main.hal
+				for i in range(start, end): # find main.hal
+					if 'main.hal' in self.content[i]:
+						self.content.insert(i + 1, 'HALFILE = custom.hal\n')
+						custom = True
+						self.get_sections()
+		if parent.postguiCB.isChecked():
+			start = self.sections['[HAL]'][0]
+			end = self.sections['[HAL]'][1]
+			if custom and not postgui: # insert after custom
+				for i in range(start, end): # find custom.hal
+					if 'custom.hal' in self.content[i]:
+						self.content.insert(i + 1, 'HALFILE = postgui.hal\n')
+						postgui = True
+						self.get_sections()
+			else: # insert after main
+				for i in range(start, end): # find main.hal
+					if 'main.hal' in self.content[i]:
+						self.content.insert(i + 1, 'HALFILE = postgui.hal\n')
+						postgui = True
+						self.get_sections()
+		if parent.shutdownCB.isChecked():
+			start = self.sections['[HAL]'][0]
+			end = self.sections['[HAL]'][1]
+			if postgui and not shutdown: # insert after postgui
+				for i in range(start, end): # find postgui.hal
+					if 'postgui.hal' in self.content[i]:
+						self.content.insert(i + 1, 'HALFILE = shutdown.hal\n')
+						shutdown = True
+						self.get_sections()
+			else: # insert after main
+				for i in range(start, end): # find main.hal
+					if 'main.hal' in self.content[i]:
+						self.content.insert(i + 1, 'HALFILE = shutdown.hal\n')
+						shutdown = True
+						self.get_sections()
+
 		if parent.haluiCB.isChecked():
 			self.update_key('HAL', 'HALUI', 'halui')
 
