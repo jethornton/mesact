@@ -238,7 +238,7 @@ def build(parent):
 	if mb in combo_boards:
 		for i in range(32):
 			key = getattr(parent, f'c0_input_{i}').text()
-			if parent.board == '7i96':
+			if mb == '7i96':
 				invert = '_not' if getattr(parent, f'c0_input_invert_{i}').isChecked() else ''
 			else:
 				invert = '-not' if getattr(parent, f'c0_input_invert_{i}').isChecked() else ''
@@ -262,7 +262,7 @@ def build(parent):
 					hm2 =  f'hm2_7i97.0.inmux.00.input-{i:02}{invert}\n'
 
 				#print(f'{input_dict[key]} {hm2}')
-				contents.append(f'{input_dict[key]} {hm2}')
+				contents.append(f'{input_dict[key]} {hm2}\n')
 
 	if p2b: # daughter card on P2
 		for i in range(32):
@@ -271,17 +271,10 @@ def build(parent):
 			slow = '-slow' if getattr(parent, f'c2_input_debounce_{i}').isChecked() else ''
 			if input_dict.get(key, False): # return False if key is not in dictionary
 				hm2 = f'hm2_{mb}.0.{p2b}.0.0.input-{i:02}{invert}'
-				print(f'{input_dict[key]} {hm2}')
-				contents.append(f'{input_dict[key]} {hm2}')
+				#print(f'{input_dict[key]} {hm2}')
+				contents.append(f'{input_dict[key]} {hm2}\n')
 
 	if p1b: # daughter card on P1
-		if p2b: # P2 selected so we know the sserial channels
-			print('here')
-		else:
-			title = 'Error'
-			msg = ('The P2 daughter card must be selected\n'
-			'so the correct smart serial port can be used.\n')
-			parent.errorMsgOk(msg, title)
 		for i in range(32):
 			key = getattr(parent, f'c1_input_{i}').text()
 			invert = '-not' if getattr(parent, f'c1_input_invert_{i}').isChecked() else ''
@@ -289,7 +282,7 @@ def build(parent):
 			if input_dict.get(key, False): # return False if key is not in dictionary
 				hm2 = f'hm2_{mb}.0.{p1b}.0.0.input-{i:02}{invert}'
 				print(f'{input_dict[key]} {hm2}')
-				contents.append(f'{input_dict[key]} {hm2}')
+				contents.append(f'{input_dict[key]} {hm2}\n')
 
 	''' 
 
