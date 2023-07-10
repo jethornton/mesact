@@ -95,7 +95,7 @@ def build(parent):
 	joints = len(parent.coordinatesLB.text())
 	axes = parent.coordinatesLB.text()
 
-	for i in range(joints):
+	for i in range(joints): # Fix Me if two daughter cards we crash!
 		halContents.append(f'\n# Joint {i} Axis {axes[i]}\n')
 		halContents.append(f'# PID Setup\n')
 		halContents.append(f'setp {pid_list[i]}.Pgain [JOINT_{i}](P)\n')
@@ -122,7 +122,7 @@ def build(parent):
 
 		halContents.append(f'\nnet joint-{i}-enable => hm2_[MESA](BOARD).0.stepgen.0{i}.enable\n')
 
-		if getattr(parent, f'c{joint_list[i][1]}_settings_{i}').isTabEnabled(2): # stepper
+		if getattr(parent, f'c{joint_list[i][1]}_settings_{i}').isTabVisible(2): # stepper
 			halContents.append(f'\nsetp hm2_[MESA](BOARD).0.stepgen.0{i}.dirsetup [JOINT_{i}](DIRSETUP)\n')
 			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.dirhold [JOINT_{i}](DIRHOLD)\n')
 			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.steplen [JOINT_{i}](STEPLEN)\n')
@@ -144,15 +144,15 @@ def build(parent):
 		halContents.append(f'\nnet joint.{i}.output <= {pid_list[i]}.output\n')
 		halContents.append(f'net joint.{i}.output => hm2_[MESA](BOARD).0.stepgen.0{i}.velocity-cmd\n')
 
-		if getattr(parent, f'c{joint_list[i][1]}_settings_{i}').isTabEnabled(3): # analog
+		if getattr(parent, f'c{joint_list[i][1]}_settings_{i}').isTabVisible(3): # analog
 			halContents.append('# amp enable\n')
-			halContents.append(f'net joint-0-enable => hm2_[MESA](BOARD).0.{card}.0.{port}.analogena\n')
+			# FIX ME
+			#halContents.append(f'net joint-0-enable => hm2_[MESA](BOARD).0.{card}.0.{port}.analogena\n')
 
-			halContents.append('\n# PWM setup\n')
-			halContents.append(f'setp hm2_[MESA](BOARD).0.{card}.0.{port}.analogout{i}-scalemax [JOINT_{i}](ANALOG_SCALE_MAX)\n')
-			halContents.append(f'setp hm2_[MESA](BOARD).0.{card}.0.{port}.analogout{i}-minlim [JOINT_{i}](ANALOG_MIN_LIMIT)\n')
-			halContents.append(f'setp hm2_[MESA](BOARD).0.{card}.0.{port}.analogout{i}-maxlim [JOINT_{i}](ANALOG_MAX_LIMIT)\n\n')
-
+			#halContents.append('\n# PWM setup\n')
+			#halContents.append(f'setp hm2_[MESA](BOARD).0.{card}.0.{port}.analogout{i}-scalemax [JOINT_{i}](ANALOG_SCALE_MAX)\n')
+			#halContents.append(f'setp hm2_[MESA](BOARD).0.{card}.0.{port}.analogout{i}-minlim [JOINT_{i}](ANALOG_MIN_LIMIT)\n')
+			#halContents.append(f'setp hm2_[MESA](BOARD).0.{card}.0.{port}.analogout{i}-maxlim [JOINT_{i}](ANALOG_MAX_LIMIT)\n\n')
 	'''
 			halContents.append('\n# Encoder Setup\n')
 			halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.scale  [JOINT_0](ENCODER_SCALE)\n')
