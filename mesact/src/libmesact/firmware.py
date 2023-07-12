@@ -49,19 +49,9 @@ def firmwareChanged(parent):
 			pwmgens = 0
 			encoders = 0
 
-			'''
-			Module: PWM
-			There are 1 of PWM in configuration
-
-			Module: StepGen
-			There are 5 of StepGen in configuration
-
-			Module: QCount
-			There are 1 of QCount in configuration
-			'''
-
-			p2 = False
+			# get smart serial channels for each connector
 			p1 = False
+			p2 = False
 			parent.p2_channels = []
 			parent.p1_channels = []
 			with open(pinfile, 'r') as file:
@@ -72,11 +62,12 @@ def firmwareChanged(parent):
 						pwmgens = int(''.join(filter(str.isdigit, line)))
 					if 'of QCount in configuration' in line:
 						encoders = int(''.join(filter(str.isdigit, line)))
-					if 'P2' in line:
-						p2 = True
 					if 'P1' in line:
-						p2 = False
 						p1 = True
+						p2 = False
+					if 'P2' in line:
+						p1 = False
+						p2 = True
 					if p1:
 						if 'TXData' in line:
 							for word in line.split():
@@ -92,10 +83,6 @@ def firmwareChanged(parent):
 			parent.p2_channels.sort()
 			parent.p2_channels_lb.setText(', '.join(parent.p2_channels))
 			parent.p1_channels_lb.setText(', '.join(parent.p1_channels))
-			#print(f'P2 Channels {p2_channels}')
-			#print(f'P1 Channels {p1_channels}')
-
-			#print(f'sg {stepgens} pwm {pwmgens} enc {encoders}')
 
 			parent.stepgens_cb.clear()
 			parent.pwmgens_cb.clear()
@@ -107,8 +94,6 @@ def firmwareChanged(parent):
 				parent.pwmgens_cb.addItem(str(i), i)
 			for i in reversed(range(encoders + 1)):
 				parent.encoders_cb.addItem(str(i), i)
-
-
 
 			with open(pinfile, 'r') as file:
 				data = file.read()
