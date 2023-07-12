@@ -52,23 +52,216 @@
         <string>Machine</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_271">
-        <item row="0" column="3">
-         <widget class="QGroupBox" name="groupBox_135">
-          <property name="title">
-           <string>Backups</string>
+        <item row="0" column="0" colspan="3">
+         <widget class="QGroupBox" name="gridGroupBox">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
           </property>
-          <layout class="QGridLayout" name="gridLayout_307">
-           <item row="0" column="0">
-            <widget class="QCheckBox" name="backupCB">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="title">
+           <string>Machine</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_46">
+           <property name="leftMargin">
+            <number>9</number>
+           </property>
+           <property name="topMargin">
+            <number>15</number>
+           </property>
+           <property name="rightMargin">
+            <number>9</number>
+           </property>
+           <property name="bottomMargin">
+            <number>9</number>
+           </property>
+           <item row="0" column="3" colspan="2">
+            <widget class="QLineEdit" name="configNameLE">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
              <property name="toolTip">
-              <string>Create a backup copy of files
-before building configuration files</string>
+              <string>Any combination of letters and digits
+including the dash and underscore.
+Spaces are replaced with underscore.</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="3" colspan="2">
+            <widget class="QLabel" name="pathLabel">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>300</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
              </property>
              <property name="text">
-              <string>Enable</string>
+              <string/>
              </property>
-             <property name="checked">
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QLabel" name="label">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>50</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Name</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QLabel" name="label_2">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>50</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Path</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="1" column="2">
+         <widget class="QGroupBox" name="groupBox_103">
+          <property name="title">
+           <string>Testing</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_234">
+           <item row="7" column="0">
+            <widget class="QPushButton" name="set_7i92t_p2_7i77_pb">
+             <property name="enabled">
               <bool>false</bool>
+             </property>
+             <property name="text">
+              <string>7i92T P2 7i77</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QPushButton" name="set_7i96s_7i76_pb">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string>7i96S P1 7i76</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QPushButton" name="set_7i96s_7i77_pb">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string>7i96S P1 7i77</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="0">
+            <widget class="QPushButton" name="set_7i92t_p2_7i76_pb">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string>7i92T P2 7i76</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="0">
+            <widget class="QPushButton" name="test_build_pb">
+             <property name="text">
+              <string>Test Build HAL</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QPushButton" name="set_7i96s_pb">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string>7i96S</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QPushButton" name="default_settings_pb">
+             <property name="text">
+              <string>Default Settings</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QPushButton" name="set_7i92t_p1_7i76_pb">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string>7i92T P1 7i76</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="0">
+            <widget class="QPushButton" name="set_7i92t_p1_7i77_pb">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string>7i92T P1 7i77</string>
              </property>
             </widget>
            </item>
@@ -79,7 +272,7 @@ before building configuration files</string>
          <widget class="QGroupBox" name="groupBox_2">
           <property name="minimumSize">
            <size>
-            <width>200</width>
+            <width>250</width>
             <height>200</height>
            </size>
           </property>
@@ -87,8 +280,8 @@ before building configuration files</string>
            <string>Info</string>
           </property>
           <layout class="QGridLayout" name="gridLayout_2">
-           <item row="3" column="1">
-            <widget class="QLabel" name="coordinatesLB">
+           <item row="0" column="1">
+            <widget class="QLabel" name="emcVersionLB">
              <property name="frameShape">
               <enum>QFrame::Box</enum>
              </property>
@@ -100,23 +293,29 @@ before building configuration files</string>
              </property>
             </widget>
            </item>
-           <item row="4" column="0">
-            <widget class="QLabel" name="label_4">
+           <item row="6" column="1">
+            <widget class="QLabel" name="pythonLB">
+             <property name="frameShape">
+              <enum>QFrame::Box</enum>
+             </property>
              <property name="text">
-              <string>Screen Size</string>
+              <string/>
              </property>
              <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              <set>Qt::AlignCenter</set>
              </property>
             </widget>
            </item>
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_1307">
+           <item row="3" column="1">
+            <widget class="QLabel" name="coordinatesLB">
+             <property name="frameShape">
+              <enum>QFrame::Box</enum>
+             </property>
              <property name="text">
-              <string>LinuxCNC:</string>
+              <string/>
              </property>
              <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              <set>Qt::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -146,16 +345,13 @@ before building configuration files</string>
              </property>
             </widget>
            </item>
-           <item row="0" column="1">
-            <widget class="QLabel" name="emcVersionLB">
-             <property name="frameShape">
-              <enum>QFrame::Box</enum>
-             </property>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_1307">
              <property name="text">
-              <string/>
+              <string>LinuxCNC:</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
              </property>
             </widget>
            </item>
@@ -169,10 +365,33 @@ before building configuration files</string>
              </property>
             </widget>
            </item>
-           <item row="2" column="0">
-            <widget class="QLabel" name="label_1308">
+           <item row="4" column="0">
+            <widget class="QLabel" name="label_4">
              <property name="text">
-              <string>Mesaflash:</string>
+              <string>Screen Size</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLabel" name="mesaflashVersionLB">
+             <property name="frameShape">
+              <enum>QFrame::Box</enum>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="0">
+            <widget class="QLabel" name="label_1481">
+             <property name="text">
+              <string>Python</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -189,21 +408,18 @@ before building configuration files</string>
              </property>
             </widget>
            </item>
-           <item row="4" column="1">
-            <widget class="QLabel" name="sizeLB">
-             <property name="frameShape">
-              <enum>QFrame::Box</enum>
-             </property>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_1308">
              <property name="text">
-              <string/>
+              <string>Mesaflash:</string>
              </property>
              <property name="alignment">
-              <set>Qt::AlignCenter</set>
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
              </property>
             </widget>
            </item>
-           <item row="2" column="1">
-            <widget class="QLabel" name="mesaflashVersionLB">
+           <item row="4" column="1">
+            <widget class="QLabel" name="sizeLB">
              <property name="frameShape">
               <enum>QFrame::Box</enum>
              </property>
@@ -225,33 +441,10 @@ before building configuration files</string>
              </property>
             </widget>
            </item>
-           <item row="6" column="0">
-            <widget class="QLabel" name="label_1481">
-             <property name="text">
-              <string>Python</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="6" column="1">
-            <widget class="QLabel" name="pythonLB">
-             <property name="frameShape">
-              <enum>QFrame::Box</enum>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
           </layout>
          </widget>
         </item>
-        <item row="0" column="4" rowspan="3">
+        <item row="0" column="3" rowspan="3">
          <widget class="QGroupBox" name="groupBox">
           <property name="title">
            <string>Mesa Setup</string>
@@ -399,199 +592,17 @@ before building configuration files</string>
                 </property>
                </widget>
               </item>
+              <item row="4" column="0" colspan="2">
+               <widget class="QLabel" name="firmware_lb">
+                <property name="frameShape">
+                 <enum>QFrame::Box</enum>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
              </layout>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item row="2" column="1">
-         <spacer name="verticalSpacer_76">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item row="1" column="2">
-         <spacer name="horizontalSpacer_95">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item row="0" column="0" colspan="3">
-         <widget class="QGroupBox" name="gridGroupBox">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true"/>
-          </property>
-          <property name="title">
-           <string>Machine</string>
-          </property>
-          <layout class="QGridLayout" name="gridLayout_46">
-           <property name="leftMargin">
-            <number>9</number>
-           </property>
-           <property name="topMargin">
-            <number>15</number>
-           </property>
-           <property name="rightMargin">
-            <number>9</number>
-           </property>
-           <property name="bottomMargin">
-            <number>9</number>
-           </property>
-           <item row="1" column="2" colspan="2">
-            <widget class="QLabel" name="pathLabel">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>300</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>26</height>
-              </size>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="2" colspan="2">
-            <widget class="QLineEdit" name="configNameLE">
-             <property name="toolTip">
-              <string>Any combination of letters and digits
-including the dash and underscore.
-Spaces are replaced with underscore.</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="0" colspan="2">
-            <widget class="QLabel" name="label">
-             <property name="text">
-              <string>Name</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0" colspan="2">
-            <widget class="QLabel" name="label_2">
-             <property name="text">
-              <string>Path</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item row="1" column="3">
-         <widget class="QGroupBox" name="groupBox_103">
-          <property name="title">
-           <string>Testing</string>
-          </property>
-          <layout class="QGridLayout" name="gridLayout_234">
-           <item row="5" column="0">
-            <widget class="QPushButton" name="set_7i92t_7i77_pb">
-             <property name="enabled">
-              <bool>false</bool>
-             </property>
-             <property name="text">
-              <string>Set 7i92T + 7i77</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="0">
-            <widget class="QPushButton" name="set_7i96s_7i76_pb">
-             <property name="enabled">
-              <bool>false</bool>
-             </property>
-             <property name="text">
-              <string>Set 7i96S + 7i76</string>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="0">
-            <widget class="QPushButton" name="set_7i96s_7i77_pb">
-             <property name="enabled">
-              <bool>false</bool>
-             </property>
-             <property name="text">
-              <string>Set 7i96S + 7i77</string>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="0">
-            <widget class="QPushButton" name="set_7i92t_7i76_pb">
-             <property name="enabled">
-              <bool>false</bool>
-             </property>
-             <property name="text">
-              <string>Set 7i92T + 7i76</string>
-             </property>
-            </widget>
-           </item>
-           <item row="6" column="0">
-            <widget class="QPushButton" name="test_build_pb">
-             <property name="text">
-              <string>Test Build HAL</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <widget class="QPushButton" name="set_7i96s_pb">
-             <property name="enabled">
-              <bool>false</bool>
-             </property>
-             <property name="text">
-              <string>Set 7i96S</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="0">
-            <widget class="QPushButton" name="default_settings_pb">
-             <property name="text">
-              <string>Default Settings</string>
-             </property>
             </widget>
            </item>
           </layout>
@@ -892,6 +903,57 @@ or encoders</string>
               <property name="alignment">
                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
               </property>
+             </widget>
+            </item>
+            <item row="0" column="2">
+             <widget class="QGroupBox" name="groupBox_105">
+              <property name="title">
+               <string>Smart Serial</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_272">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_688">
+                 <property name="text">
+                  <string>Port</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="label_690">
+                 <property name="text">
+                  <string>C hannels</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_689">
+                 <property name="text">
+                  <string>P1</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QLabel" name="p1_channels_lb">
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="label_692">
+                 <property name="text">
+                  <string>P2</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QLabel" name="p2_channels_lb">
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
              </widget>
             </item>
            </layout>
@@ -40523,6 +40585,35 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
               <widget class="QCheckBox" name="gladevcpCB">
                <property name="text">
                 <string>GladeVCP Panel</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QGroupBox" name="groupBox_135">
+            <property name="geometry">
+             <rect>
+              <x>580</x>
+              <y>10</y>
+              <width>95</width>
+              <height>105</height>
+             </rect>
+            </property>
+            <property name="title">
+             <string>Backups</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_307">
+             <item row="0" column="0">
+              <widget class="QCheckBox" name="backupCB">
+               <property name="toolTip">
+                <string>Create a backup copy of files
+before building configuration files</string>
+               </property>
+               <property name="text">
+                <string>Enable</string>
+               </property>
+               <property name="checked">
+                <bool>false</bool>
                </property>
               </widget>
              </item>

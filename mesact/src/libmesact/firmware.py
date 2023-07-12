@@ -35,6 +35,7 @@ def noFirmware(parent, board):
 
 def firmwareChanged(parent):
 	if parent.firmwareCB.currentData():
+		parent.firmware_lb.setText(parent.firmwareCB.currentText())
 		parent.firmwareTW.setCurrentIndex(1)
 		board = parent.boardCB.currentData()
 		if '-' in board:
@@ -59,6 +60,10 @@ def firmwareChanged(parent):
 			There are 1 of QCount in configuration
 			'''
 
+			p2 = False
+			p1 = False
+			parent.p2_channels = []
+			parent.p1_channels = []
 			with open(pinfile, 'r') as file:
 				for line in file:
 					if 'of StepGen in configuration' in line:
@@ -67,6 +72,29 @@ def firmwareChanged(parent):
 						pwmgens = int(''.join(filter(str.isdigit, line)))
 					if 'of QCount in configuration' in line:
 						encoders = int(''.join(filter(str.isdigit, line)))
+					if 'P2' in line:
+						p2 = True
+					if 'P1' in line:
+						p2 = False
+						p1 = True
+					if p1:
+						if 'TXData' in line:
+							for word in line.split():
+								if word.startswith('TXData'):
+									parent.p1_channels.append(word[-1])
+					if p2:
+						if 'TXData' in line:
+							for word in line.split():
+								if word.startswith('TXData'):
+									parent.p2_channels.append(word[-1])
+
+			parent.p1_channels.sort()
+			parent.p2_channels.sort()
+			parent.p2_channels_lb.setText(', '.join(parent.p2_channels))
+			parent.p1_channels_lb.setText(', '.join(parent.p1_channels))
+			#print(f'P2 Channels {p2_channels}')
+			#print(f'P1 Channels {p1_channels}')
+
 			#print(f'sg {stepgens} pwm {pwmgens} enc {encoders}')
 
 			parent.stepgens_cb.clear()

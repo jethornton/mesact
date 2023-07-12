@@ -149,6 +149,8 @@ def build(parent):
 	<pcw-home> 7I77+7I77 0,1,2 on first 7I77 3,4,5 on second
 	<pcw-home> 7I76+7I77, 0,1 on 7I76, 2,3,4 on 7I77
 
+	<pcw--home> the field I/O is always on the lower channels (relative to analog on the 7I77 or expansion on the 7I76)
+
 	hm2_7i76e.0.7i76.0.0.input-00
 	hm2_7i76e.0.7i76.0.0.input-00-not
 	hm2_7i76e.0.7i76.0.0.output-00
@@ -274,13 +276,21 @@ def build(parent):
 				#print(f'{input_dict[key]} {hm2}')
 				contents.append(f'{input_dict[key]} {hm2}\n')
 
-	if p1b: # daughter card on P1
+	if p1b: # daughter card on P1 hm2_7i92.0.7i77.0.3.input-00
+		if parent.daughterCB_1.currentData() == '7i77':
+			ss_io_port = 3
+		else:
+			ss_io_port = 2
+		print(f'P1 Channels: {parent.p1_channels}')
+
 		for i in range(32):
 			key = getattr(parent, f'c1_input_{i}').text()
 			invert = '-not' if getattr(parent, f'c1_input_invert_{i}').isChecked() else ''
 			slow = '-slow' if getattr(parent, f'c1_input_debounce_{i}').isChecked() else ''
 			if input_dict.get(key, False): # return False if key is not in dictionary
-				hm2 = f'hm2_{mb}.0.{p1b}.0.0.input-{i:02}{invert}'
+				# hm2_7i92.0.7i76.0.2.input-00
+				# hm2_7i92.0.7i77.0.3.input-00
+				hm2 = f'hm2_{mb}.0.{p1b}.0.{ss_io_port}.input-{i:02}{invert}'
 				print(f'{input_dict[key]} {hm2}')
 				contents.append(f'{input_dict[key]} {hm2}\n')
 
@@ -419,7 +429,6 @@ def build(parent):
 						contents.append(f'setp hm2_7i96s.0.outm.00.invert-{i:02} True\n')
 			if parent.board == '7i97':
 				contents.append(output_dict[key] + f'hm2_7i97.0.ssr.00.out-{i:02}\n')
-	'''
 
 	# testing
 	parent.mainTW.setCurrentIndex(10)
@@ -427,6 +436,7 @@ def build(parent):
 	parent.info_pte.appendPlainText('Build I/O Function')
 	for line in contents:
 		parent.info_pte.appendPlainText(line.strip())
+	'''
 
 	try:
 		with open(filePath, 'w') as f:

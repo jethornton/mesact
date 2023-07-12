@@ -15,8 +15,10 @@ def default_settings(parent):
 	parent.set_7i96s_pb.setEnabled(True)
 	parent.set_7i96s_7i76_pb.setEnabled(True)
 	parent.set_7i96s_7i77_pb.setEnabled(True)
-	parent.set_7i92t_7i76_pb.setEnabled(True)
-	parent.set_7i92t_7i77_pb.setEnabled(True)
+	parent.set_7i92t_p1_7i76_pb.setEnabled(True)
+	parent.set_7i92t_p2_7i76_pb.setEnabled(True)
+	parent.set_7i92t_p1_7i77_pb.setEnabled(True)
+	parent.set_7i92t_p2_7i77_pb.setEnabled(True)
 
 def set_7i96s(parent):
 	parent.boardCB.setCurrentIndex(parent.boardCB.findData('7i96s'))
@@ -44,7 +46,16 @@ def set_7i96s_7i77(parent):
 	parent.ipAddressCB.setCurrentIndex(parent.ipAddressCB.findData('10.10.10.10'))
 	parent.daughterCB_0.setCurrentIndex(parent.daughterCB_0.findData('7i77'))
 
-def set_7i92t_7i76(parent):
+def set_7i92t_p1_7i76(parent):
+	parent.boardCB.setCurrentIndex(parent.boardCB.findData('7i92t'))
+	parent.ipAddressCB.setCurrentIndex(parent.ipAddressCB.findData('10.10.10.10'))
+	parent.daughterCB_0.setCurrentIndex(parent.daughterCB_0.findData('7i76'))
+	set_joints(parent, 1, ['X', 'Y', 'Z'])
+	parent.c1_homeSequence_0.setText('2')
+	parent.c1_homeSequence_1.setText('1')
+	parent.c1_homeSequence_2.setText('0')
+
+def set_7i92t_p2_7i76(parent):
 	parent.boardCB.setCurrentIndex(parent.boardCB.findData('7i92t'))
 	parent.ipAddressCB.setCurrentIndex(parent.ipAddressCB.findData('10.10.10.10'))
 	parent.daughterCB_1.setCurrentIndex(parent.daughterCB_1.findData('7i76'))
@@ -53,7 +64,16 @@ def set_7i92t_7i76(parent):
 	parent.c2_homeSequence_1.setText('1')
 	parent.c2_homeSequence_2.setText('0')
 
-def set_7i92t_7i77(parent):
+def set_7i92t_p1_7i77(parent):
+	parent.boardCB.setCurrentIndex(parent.boardCB.findData('7i92t'))
+	parent.ipAddressCB.setCurrentIndex(parent.ipAddressCB.findData('10.10.10.10'))
+	parent.daughterCB_0.setCurrentIndex(parent.daughterCB_0.findData('7i77'))
+	set_joints(parent, 1, ['X', 'Y', 'Z'])
+	parent.c1_homeSequence_0.setText('2')
+	parent.c1_homeSequence_1.setText('1')
+	parent.c1_homeSequence_2.setText('0')
+
+def set_7i92t_p2_7i77(parent):
 	parent.boardCB.setCurrentIndex(parent.boardCB.findData('7i92t'))
 	parent.ipAddressCB.setCurrentIndex(parent.ipAddressCB.findData('10.10.10.10'))
 	parent.daughterCB_1.setCurrentIndex(parent.daughterCB_1.findData('7i77'))
@@ -71,7 +91,6 @@ def set_joints(parent, card, axes):
 	p1 = f' P1-{p1}' if p1 else ''
 	p2 = f' P2-{p2}' if p2 else ''
 	name = mb if mb else ''
-	parent.configNameLE.setText(f'{mb}{p1}{p2} {"".join(axes)}')
 	for joint, axis in enumerate(axes):
 		#print(card, joint)
 		getattr(parent, f'c{card}_scale_{joint}').setText('1000')
@@ -87,5 +106,6 @@ def set_joints(parent, card, axes):
 		getattr(parent, f'c{card}_pidDefault_{joint}').click()
 		getattr(parent, f'c{card}_ferrorDefault_{joint}').click()
 		getattr(parent, f'c{card}_drive_{joint}').setCurrentIndex(getattr(parent, f'c{card}_drive_{joint}').findText('Gecko 203v'))
+	parent.configNameLE.setText(f'{mb}{p1}{p2} {parent.coordinatesLB.text()}')
 
 

@@ -42,6 +42,15 @@ def build(parent):
 		halContents.append(f'num_pwmgens={pwmgens} ')
 	if stepgens > 0:
 		halContents.append(f'num_stepgens={stepgens} ')
+
+	daughter_channels = {'7i76': 2, '7i77': 3, '7i78': 1}
+	print(parent.daughterCB_0.currentData())
+	if parent.daughterCB_0.currentData() is not None:
+		print('here')
+		print(f'P2 + P1 Channels: {len(parent.p2_channels) + len(parent.p1_channels)}')
+	else:
+		print(f'P2 Channels {daughter_channels[parent.daughterCB_1.currentData()]}')
+
 	halContents.append('sserial_port_0=0xxxxxxx"\n')
 
 	if board == '7i96s':
