@@ -1,0 +1,15 @@
+The 7I76 has three software selectable process data modes. These different modes
+select different sets of 7I76 data to be transferred between the host and the 7I76 during
+real time process data exchanges. For high speed applications, choosing the correct mode
+can reduce the data transfer sizes, resulting in higher maximum update rates.
+
+MODE 0 I/O only mode (32 bits of input data, 16 bit of output data)
+
+MODE 1 I/O plus analog input mode (32 bits of input data, 16 bits of output data, 4
+analog input channels)
+
+MODE 2 I/O plus analog input and field voltage and MPG mode (32 bits of input data,
+16 bits of output data, 4 analog input channels, field voltage analog in, and
+2 MPG encoders on inputs 16..19). Default encoder count mode is 1X to
+match normal 100 PPR MPGs. Encoder input threshold is fixed at 2.5V for
+compatibility with 5V encoder outputs.
