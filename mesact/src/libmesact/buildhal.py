@@ -43,6 +43,7 @@ def build(parent):
 	if stepgens > 0:
 		halContents.append(f'num_stepgens={stepgens} ')
 
+	'''
 	daughter_channels = {'7i76': 2, '7i77': 3, '7i78': 1}
 	print(parent.daughterCB_0.currentData())
 	if parent.daughterCB_0.currentData() is not None:
@@ -50,8 +51,21 @@ def build(parent):
 		print(f'P2 + P1 Channels: {len(parent.p2_channels) + len(parent.p1_channels)}')
 	else:
 		print(f'P2 Channels {daughter_channels[parent.daughterCB_1.currentData()]}')
+	'''
 
-	halContents.append('sserial_port_0=0xxxxxxx"\n')
+	if parent.firmwareCB.currentData(): # get smarter later for now just add all channels
+		max_channels = int(max(parent.p1_channels + parent.p2_channels))
+		channels = ''
+		for i in range(8):
+			if i <= max_channels:
+				channels += '0'
+			else:
+				channels += 'x'
+		print(channels)
+		halContents.append(f'sserial_port_0={channels}"\n')
+
+	else:
+		halContents.append('sserial_port_0=00000000"\n')
 
 	if board == '7i96s':
 		halContents.append('setp hm2_[MESA](BOARD).0.pwmgen.pwm_frequency 20000\n')
