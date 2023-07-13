@@ -43,16 +43,6 @@ def build(parent):
 	if stepgens > 0:
 		halContents.append(f'num_stepgens={stepgens} ')
 
-	'''
-	daughter_channels = {'7i76': 2, '7i77': 3, '7i78': 1}
-	print(parent.daughterCB_0.currentData())
-	if parent.daughterCB_0.currentData() is not None:
-		print('here')
-		print(f'P2 + P1 Channels: {len(parent.p2_channels) + len(parent.p1_channels)}')
-	else:
-		print(f'P2 Channels {daughter_channels[parent.daughterCB_1.currentData()]}')
-	'''
-
 	if parent.firmwareCB.currentData(): # get smarter later for now just add all channels
 		max_channels = int(max(parent.p1_channels + parent.p2_channels))
 		channels = ''
