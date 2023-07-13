@@ -288,7 +288,7 @@ def build(parent):
 				# hm2_7i92.0.7i76.0.2.input-00
 				# hm2_7i92.0.7i77.0.3.input-00
 				hm2 = f'hm2_{mb}.0.{p1b}.0.{ss_io_port}.input-{i:02}{invert}'
-				print(f'{input_dict[key]} {hm2}')
+				#print(f'{input_dict[key]} {hm2}')
 				contents.append(f'{input_dict[key]} {hm2}\n')
 
 	''' 
