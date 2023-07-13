@@ -273,22 +273,16 @@ def build(parent):
 			slow = '-slow' if getattr(parent, f'c2_input_debounce_{i}').isChecked() else ''
 			if input_dict.get(key, False): # return False if key is not in dictionary
 				hm2 = f'hm2_{mb}.0.{p2b}.0.0.input-{i:02}{invert}'
-				#print(f'{input_dict[key]} {hm2}')
 				contents.append(f'{input_dict[key]} {hm2}\n')
 
-	if p1b: # daughter card on P1 hm2_7i92.0.7i77.0.3.input-00
+	if p1b: # daughter card on P1
 		ss_io_port = parent.p1_channels[0]
-		#print(f'P1 Channels: {parent.p1_channels}')
-
 		for i in range(32):
 			key = getattr(parent, f'c1_input_{i}').text()
 			invert = '-not' if getattr(parent, f'c1_input_invert_{i}').isChecked() else ''
 			slow = '-slow' if getattr(parent, f'c1_input_debounce_{i}').isChecked() else ''
 			if input_dict.get(key, False): # return False if key is not in dictionary
-				# hm2_7i92.0.7i76.0.2.input-00
-				# hm2_7i92.0.7i77.0.3.input-00
 				hm2 = f'hm2_{mb}.0.{p1b}.0.{ss_io_port}.input-{i:02}{invert}'
-				#print(f'{input_dict[key]} {hm2}')
 				contents.append(f'{input_dict[key]} {hm2}\n')
 
 	''' 
@@ -381,6 +375,9 @@ def build(parent):
 			contents.append(f'net estop-reset => estop-latch.{i}.reset\n')
 			contents.append(f'net remote-estop{i} estop-latch.{i}.fault-in <= {eStops[i]}')
 
+	'''
+
+
 	output_dict = {
 	'Coolant Flood': 'net flood-output iocontrol.0.coolant-flood => ',
 	'Coolant Mist': 'net mist-output iocontrol.0.coolant-mist => ',
@@ -404,36 +401,37 @@ def build(parent):
 	'Joint 8 Amp Enable': 'net joint-8-enable joint.8.amp-enable-out => ',
 	}
 
-	# build the outputs
-	for i in range(16):
-		# hm2_7i92.0.7i77.0.0.output-15
-		key = getattr(parent, 'outputPB_' + str(i)).text()
-		if output_dict.get(key, False): # return False if key is not in dictionary
-			if parent.board == '7i76e':
-				contents.append(output_dict[key] + f'hm2_7i76e.0.7i76.0.0.output-{i:02}\n')
-			if parent.board == '7i95': # hm2_7i95.0.ssr.00.out-00
-				contents.append(output_dict[key] + f'hm2_7i95.0.ssr.00.out-{i:02}\n')
-			if parent.board == '7i96':
-				contents.append(output_dict[key] + f'hm2_7i96.0.ssr.00.out-{i:02}\n')
-			if parent.board == '7i96s':
-				if i in range(4):
-					contents.append(output_dict[key] + f'hm2_7i96s.0.ssr.00.out-{i:02}\n')
-					if getattr(parent, f'outputInvertCB_{i}').isChecked():
-						contents.append(f'setp hm2_7i96s.0.ssr.00.invert-{i:02} True\n')
-				if i in range(4,6):
-					contents.append(output_dict[key] + f'hm2_7i96s.0.outm.00.out-{i:02}\n')
-					if getattr(parent, f'outputInvertCB_{i}').isChecked():
-						contents.append(f'setp hm2_7i96s.0.outm.00.invert-{i:02} True\n')
-			if parent.board == '7i97':
-				contents.append(output_dict[key] + f'hm2_7i97.0.ssr.00.out-{i:02}\n')
+	# build outputs
+	if mb in combo_boards: # build mother board outputs
+		for i in range(16):
+			key = getattr(parent, f'c0_output_{i}').text()
+			if output_dict.get(key, False): # return False if key is not in dictionary
+				if parent.board == '7i76e':
+					contents.append(output_dict[key] + f'hm2_7i76e.0.7i76.0.0.output-{i:02}\n')
+				if parent.board == '7i95': # hm2_7i95.0.ssr.00.out-00
+					contents.append(output_dict[key] + f'hm2_7i95.0.ssr.00.out-{i:02}\n')
+				if parent.board == '7i96':
+					contents.append(output_dict[key] + f'hm2_7i96.0.ssr.00.out-{i:02}\n')
+				if parent.board == '7i96s':
+					if i in range(4):
+						contents.append(output_dict[key] + f'hm2_7i96s.0.ssr.00.out-{i:02}\n')
+						if getattr(parent, f'outputInvertCB_{i}').isChecked():
+							contents.append(f'setp hm2_7i96s.0.ssr.00.invert-{i:02} True\n')
+					if i in range(4,6):
+						contents.append(output_dict[key] + f'hm2_7i96s.0.outm.00.out-{i:02}\n')
+						if getattr(parent, f'outputInvertCB_{i}').isChecked():
+							contents.append(f'setp hm2_7i96s.0.outm.00.invert-{i:02} True\n')
+				if parent.board == '7i97':
+					contents.append(output_dict[key] + f'hm2_7i97.0.ssr.00.out-{i:02}\n')
 
-	# testing
-	parent.mainTW.setCurrentIndex(10)
-	parent.info_pte.clear()
-	parent.info_pte.appendPlainText('Build I/O Function')
-	for line in contents:
-		parent.info_pte.appendPlainText(line.strip())
-	'''
+	if p2b: # build daughter card outputs for p2
+		for i in range(32):
+			key = getattr(parent, f'c2_input_{i}').text()
+			if output_dict.get(key, False): # return False if key is not in dictionary
+				contents.append(output_dict[key] + f'hm2_{mb}.0.{p2b}.00.output-{i:02}\n')
+			#hm2_7i92.0.7i77.0.0.output-00
+			#hm2_7i92.0.7i76.0.0.output-00
+
 
 	try:
 		with open(filePath, 'w') as f:
