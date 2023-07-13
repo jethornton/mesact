@@ -51,7 +51,6 @@ def build(parent):
 				channels += '0'
 			else:
 				channels += 'x'
-		print(channels)
 		halContents.append(f'sserial_port_0={channels}"\n')
 
 	else:
