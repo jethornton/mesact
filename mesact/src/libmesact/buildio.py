@@ -277,11 +277,8 @@ def build(parent):
 				contents.append(f'{input_dict[key]} {hm2}\n')
 
 	if p1b: # daughter card on P1 hm2_7i92.0.7i77.0.3.input-00
-		if parent.daughterCB_1.currentData() == '7i77':
-			ss_io_port = 3
-		else:
-			ss_io_port = 2
-		print(f'P1 Channels: {parent.p1_channels}')
+		ss_io_port = parent.p1_channels[0]
+		#print(f'P1 Channels: {parent.p1_channels}')
 
 		for i in range(32):
 			key = getattr(parent, f'c1_input_{i}').text()
