@@ -377,7 +377,6 @@ def build(parent):
 
 	'''
 
-
 	output_dict = {
 	'Coolant Flood': 'net flood-output iocontrol.0.coolant-flood => ',
 	'Coolant Mist': 'net mist-output iocontrol.0.coolant-mist => ',
@@ -425,13 +424,17 @@ def build(parent):
 					contents.append(output_dict[key] + f'hm2_7i97.0.ssr.00.out-{i:02}\n')
 
 	if p2b: # build daughter card outputs for p2
-		print(p2b)
 		for i in range(16):
 			key = getattr(parent, f'c2_output_{i}').text()
 			if output_dict.get(key, False): # return False if key is not in dictionary
 				contents.append(output_dict[key] + f'hm2_{mb}.0.{p2b}.00.output-{i:02}\n')
-			#hm2_7i92.0.7i77.0.0.output-00
-			#hm2_7i92.0.7i76.0.0.output-00
+
+	if p1b: # build daughter card outputs for p1
+		ss_io_port = parent.p1_channels[0]
+		for i in range(16):
+			key = getattr(parent, f'c1_output_{i}').text()
+			if output_dict.get(key, False): # return False if key is not in dictionary
+				contents.append(output_dict[key] + f'hm2_{mb}.0.{p2b}.0{ss_io_port}.output-{i:02}\n')
 
 
 	try:
