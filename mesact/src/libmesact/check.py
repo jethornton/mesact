@@ -29,7 +29,7 @@ def checkit(parent):
 	p2b = parent.daughterCB_1
 	fw = parent.firmwareCB
 
-	if p1b.currentData() and p2b.count() > 0: # firmware must be selected
+	if p1b.currentData(): # firmware must be selected
 		if not fw.currentData():
 			tabError = True
 			configErrors.append('\tFirmware must be selected to get the sserial ports for P1')
