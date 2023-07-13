@@ -16,14 +16,6 @@ def checkit(parent):
 	if parent.boardType == 'eth' and not parent.ipAddressCB.currentData():
 		tabError = True
 		configErrors.append('\tAn IP address must be selected, 10.10.10.10 is recommended')
-	if parent.daughterCB_1.isEnabled(): # P2 is enabled
-		mb = parent.boardCB.currentData()
-		p1b = parent.daughterCB_0.currentData()
-		p2b = parent.daughterCB_1.currentData()
-		one_ss = ['7i96', '7i96s']
-		if mb not in one_ss and p1b and not p2b: # P1 is selected but P2 is not selected
-			tabError = True
-			configErrors.append('\tThe P2 Daughter must be selected to get the sserial ports for P1')
 
 	if tabError:
 		configErrors.insert(nextHeader, 'Machine Tab:')
@@ -32,6 +24,15 @@ def checkit(parent):
 	# end of Machine Tab
 
 	# check the Firmware Tab for errors
+	mb = parent.boardCB
+	p1b = parent.daughterCB_0
+	p2b = parent.daughterCB_1
+	fw = parent.firmwareCB
+
+	if p1b.currentData() and p2b.count() > 0: # firmware must be selected
+		if not fw.currentData():
+			tabError = True
+			configErrors.append('\tFirmware must be selected to get the sserial ports for P1')
 
 	if tabError:
 		configErrors.insert(nextHeader, 'Firmware Tab:')
