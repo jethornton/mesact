@@ -106,7 +106,7 @@ def boardChanged(parent):
 			parent.daughterLB_1.setText('J3')
 			parent.mainTW.setTabText(4, 'J2')
 			parent.mainTW.setTabText(5, 'J3')
-			for item in idc50:
+			for item in db25:
 				parent.daughterCB_0.addItem(item[0], item[1])
 				parent.daughterCB_1.addItem(item[0], item[1])
 
@@ -120,7 +120,7 @@ def boardChanged(parent):
 			parent.daughterLB_1.setText('J3')
 			parent.mainTW.setTabText(4, 'J2')
 			parent.mainTW.setTabText(5, 'J3')
-			for item in idc50:
+			for item in db25:
 				parent.daughterCB_0.addItem(item[0], item[1])
 				parent.daughterCB_1.addItem(item[0], item[1])
 
