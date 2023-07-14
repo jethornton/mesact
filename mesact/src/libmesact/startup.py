@@ -47,7 +47,6 @@ def setup(parent):
 	parent.mainTW.setTabVisible(3, False)
 	parent.mainTW.setTabVisible(4, False)
 	parent.mainTW.setTabVisible(5, False)
-	parent.mainTW.setTabVisible(6, False)
 
 	# Firmware tab
 
