@@ -405,22 +405,22 @@ def build(parent):
 		for i in range(16):
 			key = getattr(parent, f'c0_output_{i}').text()
 			if output_dict.get(key, False): # return False if key is not in dictionary
-				if parent.board == '7i76e':
+				if mb == '7i76e':
 					contents.append(output_dict[key] + f'hm2_7i76e.0.7i76.0.0.output-{i:02}\n')
-				if parent.board == '7i95': # hm2_7i95.0.ssr.00.out-00
+				if mb == '7i95': # hm2_7i95.0.ssr.00.out-00
 					contents.append(output_dict[key] + f'hm2_7i95.0.ssr.00.out-{i:02}\n')
-				if parent.board == '7i96':
+				if mb == '7i96':
 					contents.append(output_dict[key] + f'hm2_7i96.0.ssr.00.out-{i:02}\n')
-				if parent.board == '7i96s':
+				if mb == '7i96s':
 					if i in range(4):
 						contents.append(output_dict[key] + f'hm2_7i96s.0.ssr.00.out-{i:02}\n')
-						if getattr(parent, f'outputInvertCB_{i}').isChecked():
+						if getattr(parent, f'c0_output_invert_{i}').isChecked():
 							contents.append(f'setp hm2_7i96s.0.ssr.00.invert-{i:02} True\n')
 					if i in range(4,6):
 						contents.append(output_dict[key] + f'hm2_7i96s.0.outm.00.out-{i:02}\n')
-						if getattr(parent, f'outputInvertCB_{i}').isChecked():
+						if getattr(parent, f'c0_output_invert_{i}').isChecked():
 							contents.append(f'setp hm2_7i96s.0.outm.00.invert-{i:02} True\n')
-				if parent.board == '7i97':
+				if mb == '7i97':
 					contents.append(output_dict[key] + f'hm2_7i97.0.ssr.00.out-{i:02}\n')
 
 	if p2b: # build daughter card outputs for p2
