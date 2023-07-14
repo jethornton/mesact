@@ -286,7 +286,7 @@ def build(parent):
 	# build the [INPUTS] section from pushbuttons
 	iniContents.append('\n[INPUTS]\n')
 	iniContents.append('# DO NOT change the inputs they are used by the configuration tool\n')
-	for i in range(4):
+	for i in range(3):
 		if parent.mainTW.isTabVisible(i + 3): # if the board tab is visible
 			if getattr(parent, f'c{i}_JointTW').isTabVisible(1):
 				for j in range(32):
@@ -298,7 +298,7 @@ def build(parent):
 	# build the [OUTPUTS] section from pushbuttons
 	iniContents.append('\n[OUTPUTS]\n')
 	iniContents.append('# DO NOT change the outputs they are used by the configuration tool\n')
-	for i in range(4):
+	for i in range(3):
 		if parent.mainTW.isTabVisible(i + 3): # if the board tab is visible
 			index = getattr(parent, f'c{i}_JointTW').indexOf(getattr(parent, f'c{i}_outputs'))
 			if getattr(parent, f'c{i}_JointTW').isTabVisible(index): # if the outputs tab is visible
