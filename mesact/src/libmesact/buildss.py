@@ -7,8 +7,11 @@ def build(parent):
 		os.remove(filePath)
 	if parent.ssCardCB.currentData():
 		ssCard = parent.ssCardCB.currentText()
-		board = parent.board
-		parent.machinePTE.appendPlainText(f'Building {filePath}')
+		if parent.boardCB.currentData() == '7i92t':
+			mb = '7i92'
+		else:
+			mb = parent.boardCB.currentData()
+		parent.info_pte.appendPlainText(f'Building {filePath}')
 		contents = []
 		contents = ['# This file was created with the Mesa Configuration Tool on ']
 		contents.append(datetime.now().strftime('%b %d %Y %H:%M:%S') + '\n')
@@ -204,38 +207,38 @@ def build(parent):
 		daughterBoards =['7i76', '7i77', '7i78']
 
 		combiBoards = ['7i76e', '7i95', '7i96', '7i96s', '7i97']
-		if ssCard != '7i73' and board in combiBoards:
+		if ssCard != '7i73' and mb in combiBoards:
 			for i in range(inputs):
 				if getattr(parent, f'ss{ssCard}in_' + str(i)).text() != 'Select':
 					key = getattr(parent, f'ss{ssCard}in_' + str(i)).text()
-					contents.append(f'{input_dict[key]} hm2_{board}.0.{ssCard}.0.0.input-{i:02}\n')
+					contents.append(f'{input_dict[key]} hm2_{mb}.0.{ssCard}.0.0.input-{i:02}\n')
 			for i in range(outputs):
 				if getattr(parent, f'ss{ssCard}out_' + str(i)).text() != 'Select':
 
 					key = getattr(parent, f'ss{ssCard}out_' + str(i)).text()
 					if output_dict.get(key, False): # return False if key is not in dictionary
-						contents.append(f'{output_dict[key]} hm2_{board}.0.{ssCard}.0.0.output-{i:02}\n')
+						contents.append(f'{output_dict[key]} hm2_{mb}.0.{ssCard}.0.0.output-{i:02}\n')
 
 		elif ssCard == '7i73':
 			for i in range(16):
 				if getattr(parent, 'ss7i73key_' + str(i)).text() != 'Select':
 					keyPin = getattr(parent, 'ss7i73key_' + str(i)).text()
-					contents.append(f'net ss7i73key_{i} hm2_{board}.0.7i73.0.0.input-{i:02} <= {keyPin}\n')
+					contents.append(f'net ss7i73key_{i} hm2_{mb}.0.7i73.0.0.input-{i:02} <= {keyPin}\n')
 			for i in range(12):
 				if getattr(parent, 'ss7i73lcd_' + str(i)).text() != 'Select':
 					lcdPin = getattr(parent, 'ss7i73lcd_' + str(i)).text()
-					contents.append(f'net ss7i73lcd_{i} hm2_{board}.0.7i73.0.0.output-{i:02} => {lcdPin}\n')
+					contents.append(f'net ss7i73lcd_{i} hm2_{mb}.0.7i73.0.0.output-{i:02} => {lcdPin}\n')
 			for i in range(16):
 				if getattr(parent, 'ss7i73in_' + str(i)).text() != 'Select':
 					inPin = getattr(parent, 'ss7i73in_' + str(i)).text()
-					contents.append(f'net ss7i73in_{i} hm2_{board}.0.7i73.0.0.input-{i:02} <= {inPin}\n')
+					contents.append(f'net ss7i73in_{i} hm2_{mb}.0.7i73.0.0.input-{i:02} <= {inPin}\n')
 			for i in range(2):
 				if getattr(parent, 'ss7i73out_' + str(i)).text() != 'Select':
 					outPin = getattr(parent, 'ss7i73out_' + str(i)).text()
-					contents.append(f'net ss7i73out_{i} hm2_{board}.0.7i84.0.0.output-{i:02} => {outPin}\n')
+					contents.append(f'net ss7i73out_{i} hm2_{mb}.0.7i84.0.0.output-{i:02} => {outPin}\n')
 
 		try:
 			with open(filePath, 'w') as f:
 				f.writelines(contents)
 		except OSError:
-			parent.machinePTE.appendPlainText(f'OS error\n {traceback.print_exc()}')
+			parent.info_pte.appendPlainText(f'OS error\n {traceback.print_exc()}')
