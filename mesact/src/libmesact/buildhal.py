@@ -127,15 +127,16 @@ def build(parent):
 		halContents.append(f'net joint-{i}-enable <= joint.{i}.amp-enable-out\n')
 		halContents.append(f'net joint-{i}-enable => {pid_list[i]}.enable\n')
 
-		if getattr(parent, f'c{joint_list[i][1]}_StepInvert_{i}').isChecked():
-			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.step.invert_output True\n')
-		if getattr(parent, f'c{joint_list[i][1]}_DirInvert_{i}').isChecked():
-			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.direction.invert_output True\n')
-
-		halContents.append(f'\nnet joint-{i}-enable => hm2_[MESA](BOARD).0.stepgen.0{i}.enable\n')
-
 		if getattr(parent, f'c{joint_list[i][1]}_settings_{i}').isTabVisible(2): # stepper
-			halContents.append(f'\nsetp hm2_[MESA](BOARD).0.stepgen.0{i}.dirsetup [JOINT_{i}](DIRSETUP)\n')
+			if getattr(parent, f'c{joint_list[i][1]}_StepInvert_{i}').isChecked():
+				halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.step.invert_output True\n')
+			if getattr(parent, f'c{joint_list[i][1]}_DirInvert_{i}').isChecked():
+				halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.direction.invert_output True\n')
+
+			halContents.append(f'\nnet joint-{i}-enable => hm2_[MESA](BOARD).0.stepgen.0{i}.enable\n')
+
+			halContents.append(f'\n# Joint {i} Step Generator Settings\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.dirsetup [JOINT_{i}](DIRSETUP)\n')
 			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.dirhold [JOINT_{i}](DIRHOLD)\n')
 			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.steplen [JOINT_{i}](STEPLEN)\n')
 			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.stepspace [JOINT_{i}](STEPSPACE)\n')
@@ -145,16 +146,16 @@ def build(parent):
 			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.step_type 0\n')
 			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.control-type 1\n\n')
 
-		halContents.append('\n# position command and feedback\n')
-		halContents.append(f'net joint-{i}-pos-cmd <= joint.{i}.motor-pos-cmd\n')
-		halContents.append(f'net joint-{i}-pos-cmd => {pid_list[i]}.command\n')
+			halContents.append('\n# position command and feedback\n')
+			halContents.append(f'net joint-{i}-pos-cmd <= joint.{i}.motor-pos-cmd\n')
+			halContents.append(f'net joint-{i}-pos-cmd => {pid_list[i]}.command\n')
 
-		halContents.append(f'\nnet joint-{i}-pos-fb <= hm2_[MESA](BOARD).0.stepgen.0{i}.position-fb\n')
-		halContents.append(f'net joint-{i}-pos-fb => joint.{i}.motor-pos-fb\n')
-		halContents.append(f'net joint-{i}-pos-fb => {pid_list[i]}.feedback\n')
+			halContents.append(f'\nnet joint-{i}-pos-fb <= hm2_[MESA](BOARD).0.stepgen.0{i}.position-fb\n')
+			halContents.append(f'net joint-{i}-pos-fb => joint.{i}.motor-pos-fb\n')
+			halContents.append(f'net joint-{i}-pos-fb => {pid_list[i]}.feedback\n')
 
-		halContents.append(f'\nnet joint.{i}.output <= {pid_list[i]}.output\n')
-		halContents.append(f'net joint.{i}.output => hm2_[MESA](BOARD).0.stepgen.0{i}.velocity-cmd\n')
+			halContents.append(f'\nnet joint.{i}.output <= {pid_list[i]}.output\n')
+			halContents.append(f'net joint.{i}.output => hm2_[MESA](BOARD).0.stepgen.0{i}.velocity-cmd\n')
 
 		if getattr(parent, f'c{joint_list[i][1]}_settings_{i}').isTabVisible(3): # analog
 			halContents.append('# amp enable\n')
