@@ -48,14 +48,11 @@ def boardChanged(parent):
 				parent.c0_JointTW.setTabVisible(i, False)
 			parent.daughterLB_0.setText('P2')
 			parent.daughterLB_1.setText('P3')
-			parent.daughterLB_2.setText('P4')
 			parent.mainTW.setTabText(4, 'P2')
 			parent.mainTW.setTabText(5, 'P3')
-			parent.mainTW.setTabText(6, 'P4')
 			for item in idc50:
 				parent.daughterCB_0.addItem(item[0], item[1])
 				parent.daughterCB_1.addItem(item[0], item[1])
-				parent.daughterCB_2.addItem(item[0], item[1])
 
 		elif board == '5i25': # PCI DB25F IDC26
 			parent.boardType = 'pci'
@@ -107,14 +104,11 @@ def boardChanged(parent):
 			parent.ipAddressCB.setEnabled(True)
 			parent.daughterLB_0.setText('J2')
 			parent.daughterLB_1.setText('J3')
-			parent.daughterLB_2.setText('J4')
 			parent.mainTW.setTabText(4, 'J2')
 			parent.mainTW.setTabText(5, 'J3')
-			parent.mainTW.setTabText(6, 'J4')
 			for item in idc50:
 				parent.daughterCB_0.addItem(item[0], item[1])
 				parent.daughterCB_1.addItem(item[0], item[1])
-				parent.daughterCB_2.addItem(item[0], item[1])
 
 		elif board == '7i80db-25': # ETH DB25F
 			parent.boardType = 'eth'
@@ -124,14 +118,11 @@ def boardChanged(parent):
 			parent.ipAddressCB.setEnabled(True)
 			parent.daughterLB_0.setText('J2')
 			parent.daughterLB_1.setText('J3')
-			parent.daughterLB_2.setText('J4')
 			parent.mainTW.setTabText(4, 'J2')
 			parent.mainTW.setTabText(5, 'J3')
-			parent.mainTW.setTabText(6, 'J4')
 			for item in idc50:
 				parent.daughterCB_0.addItem(item[0], item[1])
 				parent.daughterCB_1.addItem(item[0], item[1])
-				parent.daughterCB_2.addItem(item[0], item[1])
 
 		elif board == '7i80hd-16': # ETH IDC50
 			parent.boardType = 'eth'
@@ -141,14 +132,11 @@ def boardChanged(parent):
 			parent.ipAddressCB.setEnabled(True)
 			parent.daughterLB_0.setText('P1')
 			parent.daughterLB_1.setText('P2')
-			parent.daughterLB_2.setText('P3')
 			parent.mainTW.setTabText(4, 'P1')
 			parent.mainTW.setTabText(5, 'P2')
-			parent.mainTW.setTabText(6, 'P3')
 			for item in idc50:
 				parent.daughterCB_0.addItem(item[0], item[1])
 				parent.daughterCB_1.addItem(item[0], item[1])
-				parent.daughterCB_2.addItem(item[0], item[1])
 
 		elif board == '7i80hd-25': # ETH IDC50
 			parent.boardType = 'eth'
@@ -158,14 +146,11 @@ def boardChanged(parent):
 			parent.ipAddressCB.setEnabled(True)
 			parent.daughterLB_0.setText('P1')
 			parent.daughterLB_1.setText('P2')
-			parent.daughterLB_2.setText('P3')
 			parent.mainTW.setTabText(4, 'P1')
 			parent.mainTW.setTabText(5, 'P2')
-			parent.mainTW.setTabText(6, 'P3')
 			for item in idc50:
 				parent.daughterCB_0.addItem(item[0], item[1])
 				parent.daughterCB_1.addItem(item[0], item[1])
-				parent.daughterCB_2.addItem(item[0], item[1])
 
 		elif board == '7i80hd-ts': # ETH IDC50
 			parent.boardType = 'eth'
@@ -175,14 +160,11 @@ def boardChanged(parent):
 			parent.ipAddressCB.setEnabled(True)
 			parent.daughterLB_0.setText('P1')
 			parent.daughterLB_1.setText('P2')
-			parent.daughterLB_2.setText('P3')
 			parent.mainTW.setTabText(4, 'P1')
 			parent.mainTW.setTabText(5, 'P2')
-			parent.mainTW.setTabText(6, 'P3')
 			for item in idc50:
 				parent.daughterCB_0.addItem(item[0], item[1])
 				parent.daughterCB_1.addItem(item[0], item[1])
-				parent.daughterCB_2.addItem(item[0], item[1])
 
 		elif board == '7i92': # ETH DB25F IDC26
 			parent.boardType = 'eth'
