@@ -23,14 +23,6 @@ def setup(parent):
 		pass
 	parent.configNameLE.setFocus()
 
-	# tests
-	msg = ('Current Test(s)\n'
-	'Build and test the main.hal file\n'
-	'\n'
-	)
-	parent.tests_pte.setPlainText(msg)
-	#parent.mainTW.setCurrentIndex(11)
-
 	exitAction = QAction(QIcon.fromTheme('application-exit'), 'Exit', parent)
 	#exitAction.setShortcut('Ctrl+Q')
 	exitAction.setStatusTip('Exit application')
