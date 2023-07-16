@@ -224,6 +224,18 @@ def boardChanged(parent):
 				getattr(parent, f'c0_settings_{i}').setTabVisible(3, False)
 				getattr(parent, f'c0_settings_{i}').setTabVisible(4, False)
 
+		elif board == '7i95t': # ETH 6 Axis Step/Direction
+			parent.boardType = 'eth'
+			parent.c0_JointTW.setTabText(0, name)
+			parent.ipAddressCB.setEnabled(True)
+			parent.daughterLB_0.setText('P1')
+			parent.mainTW.setTabText(4, 'P1')
+			for item in db25:
+				parent.daughterCB_0.addItem(item[0], item[1])
+			for i in range(6): # hide analog and encoder tabs
+				getattr(parent, f'c0_settings_{i}').setTabVisible(3, False)
+				getattr(parent, f'c0_settings_{i}').setTabVisible(4, False)
+
 		elif board == '7i96': # ETH 5 Axis Step/Direction
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
