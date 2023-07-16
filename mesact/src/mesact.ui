@@ -934,8 +934,11 @@ or encoders</string>
                </item>
                <item row="1" column="1">
                 <widget class="QLabel" name="p1_channels_lb">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
                  <property name="text">
-                  <string>TextLabel</string>
+                  <string/>
                  </property>
                 </widget>
                </item>
@@ -948,8 +951,11 @@ or encoders</string>
                </item>
                <item row="2" column="1">
                 <widget class="QLabel" name="p2_channels_lb">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
                  <property name="text">
-                  <string>TextLabel</string>
+                  <string/>
                  </property>
                 </widget>
                </item>
