@@ -3,7 +3,7 @@ from datetime import datetime
 
 def build(parent):
 	board = parent.boardCB.currentData()
-	aliasdict = {'7i92t': '7i92'}
+	aliasdict = {'7i92t': '7i92', '7i95t': '7i95'}
 	if board in aliasdict:
 		board = aliasdict[board]
 
