@@ -16,9 +16,11 @@ def setup(parent):
 	if not os.path.exists(libpath):
 		os.makedirs(libpath)
 
+
 	try:
-		parent.resize(parent.settings.value('window size'))
-		parent.move(parent.settings.value('window position'))
+		parent.resize(parent.settings.value('window_size'))
+		parent.move(parent.settings.value('window_position'))
+		parent.no_check_firmware_cb.setChecked(True if parent.settings.value('no_nag_firmware') == "true" else False)
 	except:
 		pass
 	parent.configNameLE.setFocus()

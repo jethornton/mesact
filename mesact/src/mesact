@@ -19,7 +19,7 @@ from traceback import StackSummary
 from functools import partial
 
 from PyQt5.QtWidgets import QApplication, QMainWindow, QProgressBar
-from PyQt5.QtWidgets import QMessageBox
+from PyQt5.QtWidgets import QMessageBox, QCheckBox
 from PyQt5.QtCore import QTimer, QSettings, qVersion
 from PyQt5 import uic
 
@@ -39,7 +39,7 @@ from libmesact import updateini
 from libmesact import buildconfig
 from libmesact import sscards
 from libmesact import pcinfo
-
+from libmesact import settings
 from libmesact import shutdown
 # testing imports
 from libmesact import testing
@@ -84,7 +84,7 @@ class MainWindow(QMainWindow):
 		self.progressBar = QProgressBar()
 		self.statusBar().addPermanentWidget(self.progressBar)
 		self.timer=QTimer()
-		self.settings = QSettings('CnC_Machines', 'MesaCT')
+		self.settings = QSettings('MesaCT', 'mesact')
 		self.updateini = updateini.updateini()
 		self.loadini = openini.loadini()
 		self.boardType = False # eth or pci
@@ -229,12 +229,10 @@ class MainWindow(QMainWindow):
 		self.cpu_info_pb.clicked.connect(partial(pcinfo.cpuInfo, self))
 		#self.latencyTestPB.clicked.connect(partial(tools.runLatencyHisogram, self))
 
-		'''
 		# Options Tab
+		self.no_check_firmware_cb.clicked.connect(partial(settings.update_settings, self))
 		#self.checkMesaflashCB.clicked.connect(partial(settings.update_value, self))
-		self.newUserCB.clicked.connect(partial(settings.update_value, self))
-		'''
-
+		#self.newUserCB.clicked.connect(partial(settings.update_value, self))
 
 	def resizeEvent(self, event):
 		width = self.geometry().width()
@@ -290,6 +288,19 @@ class MainWindow(QMainWindow):
 			return True
 		else:
 			return False
+
+	def msgYesNoCheck(self, text, title=None):
+		chkBox = QCheckBox()
+		chkBox.setText("Don't show this message again")
+		msgBox = QMessageBox()
+		msgBox.setCheckBox(chkBox)
+		msgBox.setIcon(QMessageBox.Warning)
+		msgBox.setWindowTitle(title)
+		msgBox.setText(text)
+		msgBox.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
+		returnValue = msgBox.exec()
+		answer = True if returnValue == QMessageBox.Yes else False
+		return answer, chkBox.isChecked()
 
 	def infoMsgOk(self, text, title=None):
 		msgBox = QMessageBox()

@@ -23,8 +23,9 @@ def load(parent):
 		noFirmware(parent, board)
 
 def noFirmware(parent, board):
+	#  if someone selects a board can you check for the firmware and ask in a dialog to DL?
 	parent.firmwareTW.setCurrentIndex(1)
-	msg = (f'No Firmware found for {board}\n'
+	msg = (f'No Firmware found for the {board}\n'
 	'Downloads > Firmware from the menu if you have an Internet connection\n'
 	'The firmware will be to downloaded and installed\n'
 	f'in {os.path.expanduser("~")}/.local/lib/libmesact/{board}.\n\n'
@@ -32,6 +33,15 @@ def noFirmware(parent, board):
 	f'https://github.com/jethornton/mesact_firmware/releases/download/1.0.0/{board}.tar.xz\n'
 	f'Extract the firmware to {os.path.expanduser("~")}/.local/lib/libmesact/{board}')
 	parent.firmwarePTE.setPlainText(msg)
+
+	no_nag = False
+	if not parent.settings.value('no_nag_firmware'):
+		msg = (f'No Firmware was found for the {board}.\n'
+		'Do you want to download the firmware now?')
+		response, no_nag = parent.msgYesNoCheck(msg, 'Firmware')
+	#print(response, no_nag)
+	if no_nag:
+		parent.settings.setValue('no_nag_firmware', True)
 
 def firmwareChanged(parent):
 	if parent.firmwareCB.currentData():
