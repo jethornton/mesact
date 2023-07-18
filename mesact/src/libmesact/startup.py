@@ -26,14 +26,12 @@ def setup(parent):
 	parent.configNameLE.setFocus()
 
 	exitAction = QAction(QIcon.fromTheme('application-exit'), 'Exit', parent)
-	#exitAction.setShortcut('Ctrl+Q')
 	exitAction.setStatusTip('Exit application')
 	exitAction.triggered.connect(parent.close)
 	parent.menuFile.addAction(exitAction)
 
 	docsAction = QAction(QIcon.fromTheme('document-open'), 'Mesa Manuals', parent)
 	docsAction.setStatusTip('Download Mesa Documents')
-	#preferencesAction.triggered.connect(partial(menu.edit_preferences, parent))
 	docsAction.triggered.connect(partial(updates.downloadDocs, parent))
 	parent.menuDownloads.addAction(docsAction)
 

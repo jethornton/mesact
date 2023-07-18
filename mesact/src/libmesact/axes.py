@@ -32,8 +32,6 @@ def axisChanged(parent):
 			parent.coordinatesLB.setText(''.join(coordList))
 
 def updateAxisInfo(parent):
-	#if parent.sender().objectName() == 'actionOpen':
-	#	return
 	card = parent.sender().objectName()[:2]
 	joint = parent.sender().objectName()[-1]
 	scale = getattr(parent, f'{card}_scale_' + joint).text()
@@ -110,8 +108,7 @@ def ferrorSetDefault(parent):
 		getattr(parent, f'{connector}_ferror_{joint}').setText(' 0.005')
 		getattr(parent, f'{connector}_min_ferror_{joint}').setText(' 0.0025')
 
-def analogSetDefault(parent): # think this is broken...
-	#tab = parent.sender().objectName()[-1]
+def analogSetDefault(parent):
 	connector = parent.sender().objectName()[:2]
 	joint = parent.sender().objectName()[-1]
 	getattr(parent, f'{connector}_analogMinLimit_{joint}').setText('-10')

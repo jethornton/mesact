@@ -213,28 +213,12 @@ def build(parent):
 	# build inputs from qpushbutton menus, check for debounce c0_input_0
 	hm2 = ''
 	eStops = []
-	# figure out board syntax
-	# print(f'parent.board {parent.board}')
-
-
-	#hm2 = f'hm2_{parent.board}.0.'
-	# Inputs tab 3 main boards and all in one boards
-	# tab 4 P1 & 5 P2 daughter boards
-	'''
-	if tab 4 is used we need to know what firmware is loaded to determine the 
-	smart serial ports
-
-	'''
 	if parent.boardCB.currentData() == '7i92t':
 		mb = '7i92'
 	else:
 		mb = parent.boardCB.currentData()
 	p1b = parent.daughterCB_0.currentData()
 	p2b = parent.daughterCB_1.currentData()
-
-	#print(f'main_board {mb}')
-	#print(f'p1_board {p1b}')
-	#print(f'p2_board {p2b}')
 
 	# build main board inputs if a combo card
 	if mb in combo_boards:
@@ -245,11 +229,6 @@ def build(parent):
 			else:
 				invert = '-not' if getattr(parent, f'c0_input_invert_{i}').isChecked() else ''
 			slow = '-slow' if getattr(parent, f'c0_input_debounce_{i}').isChecked() else ''
-			#hm2input = f'hm2_{parent.board}.0.{daughter}.input-'
-			#if key != 'Select':
-				#print(f'Key: {key}')
-				#print(f'HM2: {hm2input}{j:02d}{invert}{slow}')
-			#	print(f'Input Dictionary: {input_dict[key]}')
 
 			if input_dict.get(key, False): # return False if key is not in dictionary
 				if mb == '7i76e':
@@ -263,7 +242,6 @@ def build(parent):
 				if mb == '7i97':
 					hm2 =  f'hm2_7i97.0.inmux.00.input-{i:02}{invert}\n'
 
-				#print(f'{input_dict[key]} {hm2}')
 				contents.append(f'{input_dict[key]} {hm2}\n')
 
 	if p2b: # daughter card on P2
@@ -374,7 +352,6 @@ def build(parent):
 		for i in range(len(eStops)):
 			contents.append(f'net estop-reset => estop-latch.{i}.reset\n')
 			contents.append(f'net remote-estop{i} estop-latch.{i}.fault-in <= {eStops[i]}')
-
 	'''
 
 	output_dict = {
@@ -435,7 +412,6 @@ def build(parent):
 			key = getattr(parent, f'c1_output_{i}').text()
 			if output_dict.get(key, False): # return False if key is not in dictionary
 				contents.append(output_dict[key] + f'hm2_{mb}.0.{p2b}.0{ss_io_port}.output-{i:02}\n')
-
 
 	try:
 		with open(filePath, 'w') as f:

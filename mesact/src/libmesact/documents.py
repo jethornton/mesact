@@ -9,21 +9,13 @@ from libmesact import utilities
 class dialog(QDialog):
 	def __init__(self, parent):
 		super().__init__(parent)
-		#parent.statusbar.showMessage('Preferences Opened')
 
 		self.setGeometry(250, 250, 250, 250)
 		self.manualsPB = QPushButton('Mesa Manuals')
 
-		# center the label and increase the font size
-		#manualsPB.setAlignment(Qt.AlignCenter)
-		#parent.setFontSize(self.lblDialog, 15)
 		gridLayout = QGridLayout()
 		gridLayout.addWidget(self.manualsPB,0 ,0 )
-		#gridLayout.addWidget(QLabel('Save'),1 ,0 )
-		#gridLayout.addWidget(QCheckBox('Save Window Size & Position'),2 ,0 )
 		verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding) 
-		#gridLayout.addWidget(verticalSpacer, 2, 0)
-		#pb = QPushButton('Exit')
 		buttonBox = QDialogButtonBox()
 		buttonBox.setStandardButtons(QDialogButtonBox.Cancel | QDialogButtonBox.Save)
 		gridLayout.addWidget(buttonBox)
@@ -32,9 +24,6 @@ class dialog(QDialog):
 
 		saveBtn = buttonBox.button(QDialogButtonBox.Save)
 		saveBtn.clicked.connect(partial(self.apply, parent))
-
-		#self.gridLayout.addWidget(pb)
-		#pb.clicked.connect(self.close)
 
 		self.setLayout(gridLayout)
 		self.docs()
@@ -103,11 +92,6 @@ class dialog(QDialog):
 		'THCAD':'parallel/thcadman.pdf',
 		'THCAD2':'parallel/thcad2man.pdf',
 		}
-
-		#		'7i73 Pins':'man.pdf',
-
-		# http://www.mesanet.com/pdf/motion/7i48man.pdf
-		# http://www.mesanet.com/pdf/motion/7i33man.pdf
 
 		destination = str(QFileDialog.getExistingDirectory(parent, "Select a Directory to Save to"))
 		if destination != '':

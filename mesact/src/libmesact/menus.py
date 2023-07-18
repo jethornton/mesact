@@ -41,7 +41,7 @@ inputs = [{'Not Used':'Select'},
 ]
 
 # {'':['', ]},
-# '', 
+
 outputs = [{'Not Used':'Select'},
 	{'Spindle':['Spindle On', 'Spindle CW', 'Spindle CCW', 'Spindle Brake']},
 	{'I/O Control':['Coolant Flood', 'Coolant Mist', 'Lube Pump',
@@ -233,10 +233,7 @@ def build(parent):
 		add_menu(ain, menu)
 		button.setMenu(menu)
 
-
 	'''
-
-
 	for i in range(6):
 		button = getattr(parent, f'halPin_{i}')
 		menu = QMenu()

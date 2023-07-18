@@ -199,18 +199,14 @@ class loadini:
 
 		for section in self.sections.items():
 			if section[0].startswith('[JOINT'):
-				#print(section)
 				joint = section[0][-2]
 				card = 0
 				tab = 0
-				#print(joint)
 				start = section[1][0]
 				end = section[1][1]
 				for i in range(start, end):
-					#print(self.content[i])
 					if self.content[i].startswith('CARD'):
 						card = self.content[i].split('=')[1].strip()
-						#print(self.content[i].split('=')[1].strip())
 					elif self.content[i].startswith('TAB'):
 						tab = self.content[i].split('=')[1].strip()
 				joint = [
@@ -374,6 +370,7 @@ class loadini:
 						if value != 'Select':
 							self.update(parent, '[SSERIAL]', key, key)
 
+		''' FIXME use settings
 		# update the mesact.conf file
 		configPath = os.path.expanduser('~/.config/measct/mesact.conf')
 		config = ConfigParser()
@@ -390,6 +387,7 @@ class loadini:
 				config['TOOLS']['FIRMWARE'] = 'True'
 		with open(configPath, 'w') as cf:
 			config.write(cf)
+		'''
 
 		parent.loading = False
 

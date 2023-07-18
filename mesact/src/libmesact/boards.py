@@ -23,7 +23,6 @@ def boardChanged(parent):
 		board = parent.boardCB.currentData()
 		name = parent.boardCB.currentText()
 		# set all tabs visible then hide as needed
-		# parent.c0_JointTW.show()
 		for i in range(10):
 			parent.c0_JointTW.setTabVisible(i, True)
 		firmware.load(parent)
@@ -269,11 +268,6 @@ def boardChanged(parent):
 				getattr(parent, f'c0_input_{j}').setEnabled(True)
 				getattr(parent, f'c0_input_invert_{j}').setEnabled(True)
 				getattr(parent, f'c0_input_debounce_{j}').setEnabled(True)
-			'''
-			for j in range(6):
-				getattr(parent, f'outputPB_{j}').setEnabled(True)
-				getattr(parent, f'outputInvertCB_{j}').setEnabled(True)
-			'''
 			for j in range(11,32):
 				getattr(parent, f'c0_input_{j}').setEnabled(False)
 				getattr(parent, f'c0_input_invert_{j}').setEnabled(False)
@@ -284,17 +278,6 @@ def boardChanged(parent):
 			for i in range(6): # hide analog and encoder tabs
 				getattr(parent, f'c0_settings_{i}').setTabVisible(3, False)
 				getattr(parent, f'c0_settings_{i}').setTabVisible(4, False)
-			'''
-			c0_analogGB_0
-			hm2_7i96s.0.pwmgen.00.enable
-			hm2_7i96s.0.pwmgen.00.value
-
-			hm2_7i96s.0.pwmgen.00.offset-mode
-			hm2_7i96s.0.pwmgen.00.output-type
-			hm2_7i96s.0.pwmgen.00.scale
-			hm2_7i96s.0.pwmgen.pdm_frequency
-			hm2_7i96s.0.pwmgen.pwm_frequency
-			'''
 
 		elif board == '7i97': # ETH 6 Axis Analog
 			parent.boardType = 'eth'

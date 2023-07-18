@@ -160,7 +160,6 @@ def build(parent):
 			if getattr(parent, f"mdiCmdLE_{i}").text():
 				iniContents.append(f'MDI_COMMAND = {getattr(parent, f"mdiCmdLE_{i}").text()}\n')
 
-
 	# build the axes and joints
 	axes = [] # use only one axis letter with multiple joint axis
 	joint = 0

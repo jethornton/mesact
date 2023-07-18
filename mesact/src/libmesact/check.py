@@ -148,13 +148,15 @@ def checkit(parent):
 
 	# check the SS Cards Tab for errors
 	# end of SS Cards Tab
+
 	# check the Options Tab for errors
 	# end of Options Tab
+
 	# check the PLC Tab for errors
 	# end of PLC Tab
+
 	# check the PC Tab for errors
 	# end of PC Tab
-
 
 	parent.info_pte.clear()
 	if configErrors:

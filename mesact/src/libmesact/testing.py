@@ -8,7 +8,6 @@ def default_settings(parent):
 	parent.linearUnitsCB.setCurrentIndex(parent.linearUnitsCB.findData('inch'))
 	parent.positionOffsetCB.setCurrentIndex(parent.positionOffsetCB.findData('RELATIVE'))
 	parent.positionFeedbackCB.setCurrentIndex(parent.positionFeedbackCB.findData('COMMANDED'))
-	#parent..setCurrentIndex(parent..findData(''))
 	parent.maxFeedOverrideSB.setValue(1.2)
 	parent.defLinJogVelDSB.setValue(0.5)
 	parent.maxLinJogVelDSB.setValue(1.0)
@@ -92,7 +91,6 @@ def set_joints(parent, card, axes):
 	p2 = f' P2-{p2}' if p2 else ''
 	name = mb if mb else ''
 	for joint, axis in enumerate(axes):
-		#print(card, joint)
 		getattr(parent, f'c{card}_scale_{joint}').setText('1000')
 		getattr(parent, f'c{card}_axis_{joint}').setCurrentIndex(getattr(parent, f'c0_axis_{joint}').findData(axis))
 		if axis == 'Z':
