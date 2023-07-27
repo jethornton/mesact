@@ -1,0 +1,10 @@
+
+[GUI]
+window_position=@Point(4 83)
+window_size=@Size(800 600)
+
+[STARTUP]
+config=None or ini name if ini name load on startup
+
+[NAGS]
+firmware=True or False if True check for firmware when board is changed
