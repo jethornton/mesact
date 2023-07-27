@@ -316,7 +316,7 @@ class loadini:
 					self.update(parent, item[0], item[1], item[2])
 
 		options = [
-		['[OPTIONS]', 'LOAD_CONFIG', 'loadConfigCB'],
+		['[OPTIONS]', 'LOAD_CONFIG', 'load_config_cb'],
 		['[OPTIONS]', 'INTRO_GRAPHIC', 'introGraphicLE'],
 		['[OPTIONS]', 'INTRO_GRAPHIC_TIME', 'splashScreenSB'],
 		['[OPTIONS]', 'MANUAL_TOOL_CHANGE', 'manualToolChangeCB'],

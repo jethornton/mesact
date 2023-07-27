@@ -128,6 +128,28 @@ Spaces are replaced with underscore.</string>
              </property>
             </widget>
            </item>
+           <item row="1" column="2">
+            <widget class="QLabel" name="label_2">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>50</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>Path</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
            <item row="0" column="2">
             <widget class="QLabel" name="label">
              <property name="sizePolicy">
@@ -150,25 +172,13 @@ Spaces are replaced with underscore.</string>
              </property>
             </widget>
            </item>
-           <item row="1" column="2">
-            <widget class="QLabel" name="label_2">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>50</width>
-               <height>16777215</height>
-              </size>
+           <item row="2" column="3" colspan="2">
+            <widget class="QCheckBox" name="load_config_cb">
+             <property name="toolTip">
+              <string>Build Config to save this setting</string>
              </property>
              <property name="text">
-              <string>Path</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              <string>Load this Configuration at startup</string>
              </property>
             </widget>
            </item>
@@ -234,7 +244,7 @@ Spaces are replaced with underscore.</string>
               <bool>false</bool>
              </property>
              <property name="text">
-              <string>7i96S</string>
+              <string>7i96S XYZ</string>
              </property>
             </widget>
            </item>
@@ -40487,7 +40497,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
         <item>
          <widget class="QTabWidget" name="tabWidget_27">
           <property name="currentIndex">
-           <number>0</number>
+           <number>6</number>
           </property>
           <widget class="QWidget" name="tab_155">
            <attribute name="title">
@@ -41175,19 +41185,6 @@ reload all default PID values</string>
                </property>
                <property name="Option" stdset="0">
                 <string>NEWUSER</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QCheckBox" name="loadConfigCB">
-               <property name="text">
-                <string>Load this Configuration</string>
-               </property>
-               <property name="Section" stdset="0">
-                <string>STARTUP</string>
-               </property>
-               <property name="Option" stdset="0">
-                <string>CONFIG</string>
                </property>
               </widget>
              </item>
