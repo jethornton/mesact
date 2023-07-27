@@ -1,6 +1,6 @@
 Mesa Configuration Tool II
 
-Under Construction!
+The Mesa Configuration Tool I is located at https://github.com/jethornton/mesact1
 
 To run from a terminal you need to install some depenencies first
 sudo apt install python3-pyqt5
