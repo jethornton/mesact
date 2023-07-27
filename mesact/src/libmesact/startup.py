@@ -12,17 +12,31 @@ from libmesact import updates
 
 def setup(parent):
 
+	parent.platformLB.setText(sysconfig.get_platform())
+	parent.pythonLB.setText(python_version())
+	parent.pyqt5LB.setText(qVersion())
+
+	combos.build(parent)
+	menus.build(parent)
+
 	libpath = os.path.join(os.path.expanduser('~'), '.local/lib/libmesact/boards')
 	if not os.path.exists(libpath):
 		os.makedirs(libpath)
 
-
 	try:
-		parent.resize(parent.settings.value('window_size'))
-		parent.move(parent.settings.value('window_position'))
-		parent.no_check_firmware_cb.setChecked(True if parent.settings.value('no_nag_firmware') == "true" else False)
+		parent.resize(parent.settings.value('GUI/window_size'))
+		parent.move(parent.settings.value('GUI/window_position'))
+		parent.no_check_firmware_cb.setChecked(True if parent.settings.value('NAGS/firmware') == "true" else False)
 	except:
 		pass
+
+	if parent.settings.contains('STARTUP/config'):
+		print('Found STARTUP/config')
+		if parent.settings.value('STARTUP/config', False, type=bool):
+			config_file = parent.settings.value('STARTUP/config')
+			if os.path.isfile(config_file):
+				parent.loadini.loadini(parent, config_file)
+
 	parent.configNameLE.setFocus()
 
 	exitAction = QAction(QIcon.fromTheme('application-exit'), 'Exit', parent)
@@ -74,9 +88,4 @@ def setup(parent):
 		parent.checkBoardPB.setEnabled(False)
 		parent.mesaflashVersionLB.setText('Not Installed')
 
-	parent.platformLB.setText(sysconfig.get_platform())
-	parent.pythonLB.setText(python_version())
-	parent.pyqt5LB.setText(qVersion())
 
-	combos.build(parent)
-	menus.build(parent)

@@ -608,7 +608,7 @@ class updateini:
 
 		# update the [OPTIONS] section
 		options = [
-		['OPTIONS', 'LOAD_CONFIG', f'{parent.loadConfigCB.isChecked()}'],
+		['OPTIONS', 'LOAD_CONFIG', f'{parent.load_config_cb.isChecked()}'],
 		['OPTIONS', 'INTRO_GRAPHIC', f'{parent.introGraphicLE.text()}'],
 		['OPTIONS', 'INTRO_GRAPHIC_TIME', f'{parent.splashScreenSB.value()}'],
 		['OPTIONS', 'MANUAL_TOOL_CHANGE', f'{parent.manualToolChangeCB.isChecked()}'],

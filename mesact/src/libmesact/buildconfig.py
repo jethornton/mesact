@@ -44,6 +44,12 @@ def build(parent):
 				parent.info_pte.appendPlainText(f'OS error\n {traceback.print_exc()}')
 
 	iniFile = os.path.join(parent.configPath, parent.configNameUnderscored + '.ini')
+
+	if parent.load_config_cb.isChecked():
+		parent.settings.setValue('STARTUP/config', iniFile)
+	else:
+		parent.settings.setValue('STARTUP/config', False)
+
 	if os.path.exists(iniFile):
 		parent.updateini.update(parent, iniFile)
 	else:

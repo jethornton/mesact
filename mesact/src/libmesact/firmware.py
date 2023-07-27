@@ -39,15 +39,21 @@ def noFirmware(parent, board):
 	#print(parent.settings.value('test', False, type=bool))
 	#print(parent.settings.value('no_nag_firmware', None, type=bool))
 	#print(True if parent.settings.value('no_nag_firmware') == "true" else False)
-	if not parent.settings.value('no_nag_firmware', None, type=bool):
+	# msgYesNoCheck(self, title=None, body_text, chkbx_text="Don't show this message again"):
+
+	if not parent.settings.value('NAGS/firmware', None, type=bool):
 		msg = (f'No Firmware was found for the {board}.\n'
 		'Do you want to download the firmware now?')
-		response, no_nag = parent.msgYesNoCheck(msg, 'Firmware')
+		response, no_nag = parent.msgYesNoCheck('Firmware', msg, "Don't Check for Firmware Again!")
 		if response:
 			downloads.downloadFirmware(parent)
-		#print(response, no_nag)
+		print(response, no_nag)
 		if no_nag:
-			parent.settings.setValue('no_nag_firmware', True)
+			parent.settings.setValue('NAGS/firmware', True)
+			parent.no_check_firmware_cb.setChecked(True)
+		else:
+			parent.settings.setValue('NAGS/firmware', False)
+			parent.no_check_firmware_cb.setChecked(False)
 
 def firmwareChanged(parent):
 	if parent.firmwareCB.currentData():
@@ -124,5 +130,5 @@ def firmwareChanged(parent):
 			parent.firmwareDescPTE.setPlainText(data)
 		else:
 			parent.firmwareDescPTE.clear()
-			parent.firmwareDescPTE.setPlainText(f'No description file found\n'
+			parent.firmwareDescPTE.setPlainText(f'No description file found\n')
 

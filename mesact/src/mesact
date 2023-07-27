@@ -84,7 +84,7 @@ class MainWindow(QMainWindow):
 		self.progressBar = QProgressBar()
 		self.statusBar().addPermanentWidget(self.progressBar)
 		self.timer=QTimer()
-		self.settings = QSettings('MesaCT', 'mesact')
+		self.settings = QSettings('mesact', 'mesact')
 		self.updateini = updateini.updateini()
 		self.loadini = openini.loadini()
 		self.boardType = False # eth or pci
@@ -117,7 +117,6 @@ class MainWindow(QMainWindow):
 		self.checkBoardPB.clicked.connect(partial(flash.checkCard, self))
 
 		'''
-		self.loadConfigCB.clicked.connect(partial(settings.update_value, self))
 
 		self.enableMesaflashCB.clicked.connect(partial(utilities.firmwareTools, self))
 		self.enableMesaflashCB.clicked.connect(partial(settings.update_value, self))
@@ -231,6 +230,8 @@ class MainWindow(QMainWindow):
 
 		# Options Tab
 		self.no_check_firmware_cb.clicked.connect(partial(settings.update_settings, self))
+		# check load_config_cb when building only...
+		#self.load_config_cb.toggled.connect(partial(settings.update_settings, self))
 		#self.checkMesaflashCB.clicked.connect(partial(settings.update_value, self))
 		#self.newUserCB.clicked.connect(partial(settings.update_value, self))
 
@@ -289,14 +290,14 @@ class MainWindow(QMainWindow):
 		else:
 			return False
 
-	def msgYesNoCheck(self, text, title=None):
+	def msgYesNoCheck(self, title, body_text, chkbx_text):
 		chkBox = QCheckBox()
-		chkBox.setText("Don't show this message again")
+		chkBox.setText(chkbx_text)
 		msgBox = QMessageBox()
 		msgBox.setCheckBox(chkBox)
 		msgBox.setIcon(QMessageBox.Warning)
 		msgBox.setWindowTitle(title)
-		msgBox.setText(text)
+		msgBox.setText(body_text)
 		msgBox.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
 		returnValue = msgBox.exec()
 		answer = True if returnValue == QMessageBox.Yes else False
