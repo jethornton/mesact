@@ -40497,7 +40497,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
         <item>
          <widget class="QTabWidget" name="tabWidget_27">
           <property name="currentIndex">
-           <number>6</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="tab_155">
            <attribute name="title">
@@ -40657,7 +40657,7 @@ before building configuration files</string>
               </rect>
              </property>
              <property name="text">
-              <string>Don't Check for Firmware</string>
+              <string>Check for Firmware</string>
              </property>
             </widget>
            </widget>

@@ -41,7 +41,7 @@ def noFirmware(parent, board):
 	#print(True if parent.settings.value('no_nag_firmware') == "true" else False)
 	# msgYesNoCheck(self, title=None, body_text, chkbx_text="Don't show this message again"):
 
-	if not parent.settings.value('NAGS/firmware', None, type=bool):
+	if parent.settings.value('NAGS/firmware', None, type=bool):
 		msg = (f'No Firmware was found for the {board}.\n'
 		'Do you want to download the firmware now?')
 		response, no_nag = parent.msgYesNoCheck('Firmware', msg, "Don't Check for Firmware Again!")
@@ -49,11 +49,11 @@ def noFirmware(parent, board):
 			downloads.downloadFirmware(parent)
 		print(response, no_nag)
 		if no_nag:
-			parent.settings.setValue('NAGS/firmware', True)
-			parent.no_check_firmware_cb.setChecked(True)
-		else:
 			parent.settings.setValue('NAGS/firmware', False)
 			parent.no_check_firmware_cb.setChecked(False)
+		else:
+			parent.settings.setValue('NAGS/firmware', True)
+			parent.no_check_firmware_cb.setChecked(True)
 
 def firmwareChanged(parent):
 	if parent.firmwareCB.currentData():
