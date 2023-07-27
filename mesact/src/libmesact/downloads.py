@@ -34,7 +34,7 @@ def downloadAmd64Deb(parent):
 	directory = str(QFileDialog.getExistingDirectory(parent, "Select Directory"))
 	if directory != '':
 		parent.statusbar.showMessage('Checking Repo')
-		response = requests.get("https://api.github.com/repos/jethornton/mesact2/releases/latest")
+		response = requests.get("https://api.github.com/repos/jethornton/mesact/releases/latest")
 		repoVersion = response.json()["name"]
 		parent.statusbar.showMessage(f'Mesa Configuration Tool Version {repoVersion} amd64 Download Starting')
 		destination = os.path.join(directory, 'mesact_' + repoVersion + '_amd64.deb')
