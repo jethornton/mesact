@@ -328,7 +328,7 @@ class MainWindow(QMainWindow):
 		msg += f'{exc_type.__name__}\n'
 		msg += f'{exc_value}\n'
 		msg += 'Please file an issue at\n'
-		msg += 'https://github.com/jethornton/mesact2/issues'
+		msg += 'https://github.com/jethornton/mesact/issues'
 		print(msg)
 		self.errorMsgOk(msg, 'PROGRAM ERROR' )
 
