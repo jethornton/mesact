@@ -47,7 +47,6 @@ def noFirmware(parent, board):
 		response, no_nag = parent.msgYesNoCheck('Firmware', msg, "Don't Check for Firmware Again!")
 		if response:
 			downloads.downloadFirmware(parent)
-		print(response, no_nag)
 		if no_nag:
 			parent.settings.setValue('NAGS/firmware', False)
 			parent.no_check_firmware_cb.setChecked(False)

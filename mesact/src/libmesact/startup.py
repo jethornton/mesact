@@ -31,7 +31,6 @@ def setup(parent):
 		pass
 
 	if parent.settings.contains('STARTUP/config'):
-		print('Found STARTUP/config')
 		if parent.settings.value('STARTUP/config', False, type=bool):
 			config_file = parent.settings.value('STARTUP/config')
 			if os.path.isfile(config_file):
