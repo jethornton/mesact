@@ -1,0 +1,31 @@
+Format: 1.8
+Date: Sat, 18 Feb 2023 07:13:51 -0600
+Source: mesact
+Binary: mesact
+Architecture: source arm64
+Version: 2.0.0
+Distribution: unstable
+Urgency: medium
+Maintainer: John Thornton <dev@gnipsel.com>
+Changed-By: John Thornton <dev@gnipsel.com>
+Description:
+ mesact     - Mesa Configuration Tools for LinuxCNC
+Changes:
+ mesact (2.0.0) unstable; urgency=medium
+ .
+   * Total rework of GUI and code
+Checksums-Sha1:
+ 0bca7223a25a054405eb866cb228d18241e03d48 602 mesact_2.0.0.dsc
+ ea16faba07f462f06bc52a21d0fcff8cc63d7fe5 904096 mesact_2.0.0.tar.xz
+ a7f84430229f2cd18ee7625b8102c419b9d0c024 5358 mesact_2.0.0_arm64.buildinfo
+ b5a104d63393aa8c0b13497271eea230d60843d3 949660 mesact_2.0.0_arm64.deb
+Checksums-Sha256:
+ ba0bf704cbb460ae79554475399d928fe1a308b9bbd00913181157ca800a6f52 602 mesact_2.0.0.dsc
+ 678da715959b8fba2fe36b854e1e3876547e3b60664bc274b8f22588932bd881 904096 mesact_2.0.0.tar.xz
+ e8b80a2b6fdfffa6c9a4bcb4cf1517adf2414039fa93e494674252578182b1bc 5358 mesact_2.0.0_arm64.buildinfo
+ a1357a9702b974d40455e57b74c812596749060723ef212f3a90507a65b6eaa0 949660 mesact_2.0.0_arm64.deb
+Files:
+ 1e478ae5393dbd36dd7aea7907e6a2c4 602 utils optional mesact_2.0.0.dsc
+ 25c0dc6548374f27d60e7bb5d49c9a2f 904096 utils optional mesact_2.0.0.tar.xz
+ 8445497310e8fc97ee642bca996c57ec 5358 utils optional mesact_2.0.0_arm64.buildinfo
+ dafac591a11835c230222bda0eed856d 949660 utils optional mesact_2.0.0_arm64.deb
