@@ -11,8 +11,8 @@ Build-Depends: debhelper (>= 11.0.0)
 Package-List:
  mesact deb utils optional arch=any
 Checksums-Sha1:
- 2a763b686b14a7f2aae4ed395131e4832bafb976 2701732 mesact_2.0.0.tar.xz
+ 994f8e052a004e46df870c0846351799cd07281d 2861808 mesact_2.0.0.tar.xz
 Checksums-Sha256:
- 2b36270251ae17f984777a3c643d1cef7049fdf6f0535474612ce2da2e11445a 2701732 mesact_2.0.0.tar.xz
+ 7fbe169247c342b93ce8359df83aa52c9a884897420963e38bd1ca455cd18632 2861808 mesact_2.0.0.tar.xz
 Files:
- 02dbdaa4453c50dc2f02c77a56bd9d53 2701732 mesact_2.0.0.tar.xz
+ 348e2e1dd22e1dc25c43dbf1b6eba39d 2861808 mesact_2.0.0.tar.xz
