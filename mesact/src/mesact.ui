@@ -42242,8 +42242,9 @@ auto enp2s0
     <property name="title">
      <string>Help</string>
     </property>
+    <addaction name="actionDocuments"/>
     <addaction name="actionCheck_for_Updates"/>
-    <addaction name="actionAbout_MesaCT"/>
+    <addaction name="actionAboutMesaCT"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuDownloads"/>
@@ -42320,7 +42321,7 @@ auto enp2s0
     <string>Check for Updates</string>
    </property>
   </action>
-  <action name="actionAbout_MesaCT">
+  <action name="actionAboutMesaCT">
    <property name="text">
     <string>About MesaCT</string>
    </property>
@@ -42348,6 +42349,11 @@ auto enp2s0
   <action name="actionNew">
    <property name="text">
     <string>New</string>
+   </property>
+  </action>
+  <action name="actionDocuments">
+   <property name="text">
+    <string>Documents</string>
    </property>
   </action>
  </widget>

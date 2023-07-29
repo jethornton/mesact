@@ -28,6 +28,7 @@ from libmesact import boards
 from libmesact import downloads
 from libmesact import firmware
 from libmesact import daughters
+from libmesact import documents
 from libmesact import flash
 from libmesact import machine
 from libmesact import axes
@@ -55,7 +56,6 @@ class VersionError(QMainWindow):
 		msgBox.setStandardButtons(QMessageBox.Ok)
 		msgBox.exec()
 		sys.exit()
-
 
 class MainWindow(QMainWindow):
 	def __init__(self):
@@ -105,7 +105,8 @@ class MainWindow(QMainWindow):
 		self.actionMesaCT_Rpi_32_bit.triggered.connect(partial(downloads.downloadArmhDeb, self))
 		self.actionMesaCT_Rpi_64_bit.triggered.connect(partial(downloads.downloadArm64Deb, self))
 		self.actionFirmware.triggered.connect(partial(downloads.downloadFirmware, self))
-		#self.actionDocuments.triggered.connect(partial(downloads.openDoc, self))
+		self.actionDocuments.triggered.connect(partial(documents.openDoc, self))
+		#self.actionAboutMesaCT.triggered.connect(partial(downloads.downloadFirmware, self))
 		#self.actionBoardImages.triggered.connect(partial(updates.boardImages, self))
 		self.timer.timeout.connect(partial(downloads.clearProgressBar, self))
 

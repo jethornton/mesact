@@ -1,3 +1,4 @@
+import os, subprocess
 from functools import partial
 
 from PyQt5.QtWidgets import (QDialog, QLabel, QGridLayout, QPushButton,
@@ -5,6 +6,14 @@ from PyQt5.QtWidgets import (QDialog, QLabel, QGridLayout, QPushButton,
 from PyQt5.Qt import Qt
 
 from libmesact import utilities
+
+def openDoc(parent):
+	if parent.installed:
+		print('installed')
+		doc = os.path.join(parent.docs_path, 'mesact.pdf.gz')
+	else:
+		doc = os.path.join(parent.docs_path, 'mesact.pdf')
+	subprocess.call(('xdg-open', doc))
 
 class dialog(QDialog):
 	def __init__(self, parent):
