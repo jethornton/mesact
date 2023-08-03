@@ -15,10 +15,12 @@ Depends:  ${misc:Depends},
           python3 (>=3.6),
           python3-pyqt5 (>=5.15.0),
           python3-packaging,
-          python3-requests
-Suggests: linuxcnc-uspace,
-          mesaflash,
+          python3-requests,
           zip
+
+Suggests: linuxcnc-uspace,
+          mesaflash
+
 Description: Mesa Configuration Tools for LinuxCNC
  Between the program controling the execution of a CNC mill, CNC lathe
  or a robot, and the powerful drivers that know how to turn a motor,
