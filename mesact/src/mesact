@@ -29,6 +29,7 @@ from libmesact import downloads
 from libmesact import firmware
 from libmesact import daughters
 from libmesact import documents
+from libmesact import dialogs
 from libmesact import flash
 from libmesact import machine
 from libmesact import axes
@@ -106,7 +107,7 @@ class MainWindow(QMainWindow):
 		self.actionMesaCT_Rpi_64_bit.triggered.connect(partial(downloads.downloadArm64Deb, self))
 		self.actionFirmware.triggered.connect(partial(downloads.downloadFirmware, self))
 		self.actionDocuments.triggered.connect(partial(documents.openDoc, self))
-		#self.actionAboutMesaCT.triggered.connect(partial(downloads.downloadFirmware, self))
+		self.actionAboutMesaCT.triggered.connect(partial(dialogs.aboutDialog, self))
 		#self.actionBoardImages.triggered.connect(partial(updates.boardImages, self))
 		self.timer.timeout.connect(partial(downloads.clearProgressBar, self))
 
