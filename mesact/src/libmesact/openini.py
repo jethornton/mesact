@@ -416,7 +416,7 @@ class loadini:
 					elif isinstance(getattr(parent, obj), QLineEdit):
 						getattr(parent, obj).setText(value)
 					elif isinstance(getattr(parent, obj), QSpinBox):
-						getattr(parent, obj).setValue(abs(int(value)))
+						getattr(parent, obj).setValue(abs(int(value.split('.')[0])))
 					elif isinstance(getattr(parent, obj), QDoubleSpinBox):
 						getattr(parent, obj).setValue(float(value))
 					elif isinstance(getattr(parent, obj), QCheckBox):
