@@ -2,4 +2,5 @@ docs
 debian/mesact
 debian/.debhelper
 debian/debhelper-build-stamp
+debian/files
 debian/mesact.substvars
