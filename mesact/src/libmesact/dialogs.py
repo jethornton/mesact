@@ -1,3 +1,4 @@
+import os
 
 from PyQt5.QtWidgets import QDialog, QDialogButtonBox, QVBoxLayout, QLabel
 from PyQt5.QtGui import QPixmap
@@ -19,7 +20,9 @@ def aboutDialog(parent):
 	imageLabel = QLabel()
 	imageLabel.setAlignment(Qt.AlignCenter)
 
-	pixmap = QPixmap('mesact.jpg')
+	image_path = os.path.join(parent.lib_path, 'mesact.jpg')
+	print(image_path)
+	pixmap = QPixmap(image_path)
 	pixmap = pixmap.scaled(256, 256, Qt.KeepAspectRatio)
 	imageLabel.setPixmap(pixmap)
 	layout.addWidget(imageLabel)
