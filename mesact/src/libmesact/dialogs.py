@@ -15,15 +15,14 @@ def aboutDialog(parent):
 	titleLabel.setText('Mesa Configuration Tool')
 	titleLabel.setAlignment(Qt.AlignCenter)
 	layout.addWidget(titleLabel)
-	''''
+
 	imageLabel = QLabel()
 	imageLabel.setAlignment(Qt.AlignCenter)
 
-	pixmap = QPixmap('mesa.jpg')
-	pixmap = pixmap.scaled(128, 128, Qt.KeepAspectRatio)
+	pixmap = QPixmap('mesact.jpg')
+	pixmap = pixmap.scaled(256, 256, Qt.KeepAspectRatio)
 	imageLabel.setPixmap(pixmap)
 	layout.addWidget(imageLabel)
-	'''
 
 	authorLabel =  QLabel()
 	authorLabel.setText('Author: John Thornton')
