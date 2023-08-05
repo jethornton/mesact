@@ -309,7 +309,7 @@ def build(parent):
 	# build the [OPTIONS] section
 	iniContents.append('\n[OPTIONS]\n')
 	iniContents.append('# DO NOT change the options they are used by the configuration tool\n')
-	iniContents.append(f'LOAD_CONFIG = {parent.loadConfigCB.isChecked()}\n')
+	iniContents.append(f'LOAD_CONFIG = {parent.load_config_cb.isChecked()}\n')
 	iniContents.append(f'INTRO_GRAPHIC = {parent.introGraphicLE.text()}\n')
 	iniContents.append(f'INTRO_GRAPHIC_TIME = {parent.splashScreenSB.value()}\n')
 	iniContents.append(f'MANUAL_TOOL_CHANGE = {parent.manualToolChangeCB.isChecked()}\n')
