@@ -135,4 +135,11 @@ def inputChanged(parent): # test to see if not checked then enable both
 	elif function == 'debounce' and state == 2:
 		getattr(parent, f'{card}_input_invert_{number}').setEnabled(False)
 
+def cleanDir(parent, configPath):
+	with os.scandir(configPath) as i:
+		for entry in i:
+			if entry.is_file():
+				if entry.name.split('.')[-1] != 'ini':
+					os.remove(os.path.join(configPath, entry.name)) 
+
 
