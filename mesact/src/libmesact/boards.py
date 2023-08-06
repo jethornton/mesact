@@ -278,6 +278,21 @@ def boardChanged(parent):
 			for i in range(6): # hide analog and encoder tabs
 				getattr(parent, f'c0_settings_{i}').setTabVisible(3, False)
 				getattr(parent, f'c0_settings_{i}').setTabVisible(4, False)
+			parent.c0_spindle_pwm_type.clear()
+			pwm = [
+				['Select', False],
+				['PWM', 'pwm'],
+				]
+			for item in pwm:
+				parent.c0_spindle_pwm_type.addItem(item[0], item[1])
+			parent.c0_spindle_pwm_freq.setValue(20000)
+			parent.c0_spindle_encoder.clear()
+			encoder = [
+				['Select', False],
+				['Encoder', 'encoder'],
+				]
+			for item in encoder:
+				parent.c0_spindle_encoder.addItem(item[0], item[1])
 
 		elif board == '7i97': # ETH 6 Axis Analog
 			parent.boardType = 'eth'

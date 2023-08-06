@@ -139,5 +139,22 @@ def driveChanged(parent):
 		getattr(parent, f'{connector}DirSetup{joint}').setEnabled(True)
 		getattr(parent, f'{connector}DirHold{joint}').setEnabled(True)
 
+def spindleTypeChanged(parent):
+	connector = parent.sender().objectName()[1:2]
+	if parent.sender().currentData():
+		getattr(parent, f'c{connector}_spindle_pwm_freq').setEnabled(True)
+		getattr(parent, f'c{connector}_spindle_encoder').setEnabled(True)
+	else:
+		getattr(parent, f'c{connector}_spindle_pwm_freq').setEnabled(False)
+		getattr(parent, f'c{connector}_spindle_encoder').setCurrentIndex(0)
+		getattr(parent, f'c{connector}_spindle_encoder').setEnabled(False)
+		getattr(parent, f'c{connector}_spindle_scale').setEnabled(False)
+
+def spindleEncoderChanged(parent):
+	connector = parent.sender().objectName()[1:2]
+	if parent.sender().currentData():
+		getattr(parent, f'c{connector}_spindle_scale').setEnabled(True)
+	else:
+		getattr(parent, f'c{connector}_spindle_scale').setEnabled(False)
 
 

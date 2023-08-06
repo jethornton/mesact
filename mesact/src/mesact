@@ -181,6 +181,10 @@ class MainWindow(QMainWindow):
 				getattr(self, f'c{j}_analogDefault_{i}').clicked.connect(partial(axes.analogSetDefault, self))
 				getattr(self, f'c{j}_drive_{i}').currentIndexChanged.connect(partial(axes.driveChanged, self))
 
+		for i in range(3):
+			getattr(self, f'c{i}_spindle_pwm_type').currentIndexChanged.connect(partial(axes.spindleTypeChanged, self))
+			getattr(self, f'c{i}_spindle_encoder').currentIndexChanged.connect(partial(axes.spindleEncoderChanged, self))
+
 		# I/O Tab
 		for i in range(3):
 			for j in range(32):

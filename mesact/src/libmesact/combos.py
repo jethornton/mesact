@@ -156,7 +156,7 @@ def build(parent):
 			for item in drives:
 				getattr(parent, f'c{i}_drive_{j}').addItem(item[0], item[1])
 
-	# Spindle Tab
+	# Spindle Tab is done in boards.py
 
 
 	# SS Card Tab

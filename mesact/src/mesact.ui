@@ -11427,7 +11427,11 @@ Leave blank to home the joint manually.</string>
                 </widget>
                </item>
                <item row="2" column="1">
-                <widget class="QComboBox" name="c0_spindle_encoder"/>
+                <widget class="QComboBox" name="c0_spindle_encoder">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                </widget>
                </item>
                <item row="2" column="0">
                 <widget class="QLabel" name="label_1454">
@@ -11437,10 +11441,13 @@ Leave blank to home the joint manually.</string>
                 </widget>
                </item>
                <item row="0" column="1">
-                <widget class="QComboBox" name="c0_pwm_type"/>
+                <widget class="QComboBox" name="c0_spindle_pwm_type"/>
                </item>
                <item row="3" column="1">
                 <widget class="QDoubleSpinBox" name="c0_spindle_scale">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
                  <property name="decimals">
                   <number>1</number>
                  </property>
@@ -11464,7 +11471,10 @@ Leave blank to home the joint manually.</string>
                 </widget>
                </item>
                <item row="1" column="1">
-                <widget class="QSpinBox" name="c0_pwm_freq">
+                <widget class="QSpinBox" name="c0_spindle_pwm_freq">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
                  <property name="suffix">
                   <string> Hz</string>
                  </property>
@@ -21775,7 +21785,11 @@ Leave blank to home the joint manually.</string>
               </widget>
              </item>
              <item row="2" column="1">
-              <widget class="QComboBox" name="c1_spindle_encoder"/>
+              <widget class="QComboBox" name="c1_spindle_encoder">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+              </widget>
              </item>
              <item row="2" column="0">
               <widget class="QLabel" name="label_1459">
@@ -21785,10 +21799,13 @@ Leave blank to home the joint manually.</string>
               </widget>
              </item>
              <item row="0" column="1">
-              <widget class="QComboBox" name="c1_pwm_type"/>
+              <widget class="QComboBox" name="c1_spindle_pwm_type"/>
              </item>
              <item row="3" column="1">
               <widget class="QDoubleSpinBox" name="c1_spindle_scale">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
                <property name="decimals">
                 <number>1</number>
                </property>
@@ -21812,7 +21829,10 @@ Leave blank to home the joint manually.</string>
               </widget>
              </item>
              <item row="1" column="1">
-              <widget class="QSpinBox" name="c1_pwm_freq">
+              <widget class="QSpinBox" name="c1_spindle_pwm_freq">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
                <property name="suffix">
                 <string> Hz</string>
                </property>
@@ -31767,7 +31787,11 @@ Leave blank to home the joint manually.</string>
               </widget>
              </item>
              <item row="2" column="1">
-              <widget class="QComboBox" name="c2_spindle_encoder"/>
+              <widget class="QComboBox" name="c2_spindle_encoder">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+              </widget>
              </item>
              <item row="2" column="0">
               <widget class="QLabel" name="label_1463">
@@ -31777,10 +31801,13 @@ Leave blank to home the joint manually.</string>
               </widget>
              </item>
              <item row="0" column="1">
-              <widget class="QComboBox" name="c2_pwm_type"/>
+              <widget class="QComboBox" name="c2_spindle_pwm_type"/>
              </item>
              <item row="3" column="1">
               <widget class="QDoubleSpinBox" name="c2_spindle_scale">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
                <property name="decimals">
                 <number>1</number>
                </property>
@@ -31804,7 +31831,10 @@ Leave blank to home the joint manually.</string>
               </widget>
              </item>
              <item row="1" column="1">
-              <widget class="QSpinBox" name="c2_pwm_freq">
+              <widget class="QSpinBox" name="c2_spindle_pwm_freq">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
                <property name="suffix">
                 <string> Hz</string>
                </property>
