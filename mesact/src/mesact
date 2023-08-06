@@ -13,7 +13,7 @@ sudo apt install python3-packaging
 '''
 
 VERSION = '2.0.0'
-BUILD_DATE = '08/05/2023'
+BUILD_DATE = '08/06/2023'
 
 from traceback import StackSummary
 from functools import partial
