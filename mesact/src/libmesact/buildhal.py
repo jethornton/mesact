@@ -44,6 +44,8 @@ def build(parent):
 		halContents.append(f'num_stepgens={stepgens} ')
 
 	if parent.firmwareCB.currentData(): # get smarter later for now just add all channels
+		halContents.append('sserial_port_0=00000000"\n')
+		'''
 		max_channels = int(max(parent.p1_channels + parent.p2_channels))
 		channels = ''
 		for i in range(8):
@@ -52,7 +54,7 @@ def build(parent):
 			else:
 				channels += 'x'
 		halContents.append(f'sserial_port_0={channels}"\n')
-
+		'''
 	else:
 		halContents.append('sserial_port_0=00000000"\n')
 
