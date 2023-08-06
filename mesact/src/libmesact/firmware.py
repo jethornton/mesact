@@ -4,7 +4,6 @@ from libmesact import downloads
 from libmesact import dialogs
 
 def load(parent):
-	# firmware combobox
 	parent.firmwareCB.clear()
 	parent.firmwareDescPTE.clear()
 	board = parent.boardCB.currentData()
@@ -26,7 +25,6 @@ def load(parent):
 		noFirmware(parent, board)
 
 def noFirmware(parent, board):
-	#  if someone selects a board can you check for the firmware and ask in a dialog to DL?
 	parent.firmwareTW.setCurrentIndex(1)
 	msg = (f'No Firmware found for the {board}\n'
 	'Downloads > Firmware from the menu if you have an Internet connection\n'
@@ -36,11 +34,6 @@ def noFirmware(parent, board):
 	f'https://github.com/jethornton/mesact_firmware/releases/download/1.0.0/{board}.tar.xz\n'
 	f'Extract the firmware to {os.path.expanduser("~")}/.local/lib/libmesact/{board}')
 	parent.firmwarePTE.setPlainText(msg)
-	#		check_state = settings.value(SETTINGS_TRAY, False, type=bool)
-	#print(parent.settings.value('test', False, type=bool))
-	#print(parent.settings.value('no_nag_firmware', None, type=bool))
-	#print(True if parent.settings.value('no_nag_firmware') == "true" else False)
-	# msgYesNoCheck(self, title=None, body_text, chkbx_text="Don't show this message again"):
 
 	if parent.settings.value('NAGS/firmware', None, type=bool):
 		msg = (f'No Firmware was found for the {board}.\n'

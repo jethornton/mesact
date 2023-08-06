@@ -48,14 +48,12 @@ class dialog(QDialog):
 				'7i74', '7i84', '7i87']},
 			{'Misc. Boards':['7i77ISOL', 'THCAD', 'THCAD2']},
 		]
-		# '7i73 Pins', 
 
 		button = self.manualsPB
 		menu = QMenu()
 		menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
 		self.add_menu(docs, menu)
 		button.setMenu(menu)
-
 
 	def apply(self, parent):
 		pdfs = {'':'',

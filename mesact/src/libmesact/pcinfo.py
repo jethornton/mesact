@@ -63,11 +63,7 @@ def calcServoPercent(parent):
 	result = cpu_clocks_used * 100
 	parent.servoResultLB.setText(f'{result:.0f}%')
 
-def cpuSpeed(parent): # output spinbox units
-	# linux-x86_64
-	# linux-armv7l
-	# linux-aarch64
-
+def cpuSpeed(parent):
 	prompt = None
 	if not parent.password:
 		password = utilities.getPassword(parent)

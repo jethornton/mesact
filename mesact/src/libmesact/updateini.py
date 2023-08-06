@@ -703,10 +703,6 @@ class updateini:
 				self.delete_section('[SSERIAL]')
 
 		parent.info_pte.appendPlainText('Update INI Function')
-		#for line in self.content:
-		#	parent.info_pte.appendPlainText(line.strip())
-
-		#if parent.update_build_ini_cb.isChecked():
 		self.write_ini(parent, iniFile)
 
 	def write_ini(self, parent, iniFile):
@@ -753,12 +749,9 @@ class updateini:
 				self.get_sections() # update section start/end
 
 	def insert_section(self, index, section):
-		#print(f'index {index} section {section}')
 		self.content.insert(index, f'{section}\n')
 		self.content.insert(index, '\n')
-		#print(self.content)
 		self.get_sections() # update section start/end
-		#print(self.sections)
 
 	def delete_section(self, section):
 		start = self.sections[section][0]

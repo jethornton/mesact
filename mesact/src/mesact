@@ -119,7 +119,6 @@ class MainWindow(QMainWindow):
 		self.checkBoardPB.clicked.connect(partial(flash.checkCard, self))
 
 		'''
-
 		self.enableMesaflashCB.clicked.connect(partial(utilities.firmwareTools, self))
 		self.enableMesaflashCB.clicked.connect(partial(settings.update_value, self))
 		self.backupCB.clicked.connect(partial(utilities.backup, self))
@@ -160,7 +159,6 @@ class MainWindow(QMainWindow):
 		self.reloadPB.clicked.connect(partial(flash.reloadCard, self))
 		self.verifyPB.clicked.connect(partial(flash.verifyFirmware, self))
 		self.copyPB.clicked.connect(partial(flash.copyOutput, self))
-
 
 		# Info Tab
 

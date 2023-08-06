@@ -14,11 +14,7 @@ def downloadFirmware(parent):
 		firmware_url = f'https://github.com/jethornton/mesact_firmware/releases/download/1.0.0/{board}.tar.xz'
 		destination = os.path.join(os.path.expanduser('~'), f'.local/lib/libmesact/{board}.tar.xz')
 		if os.path.isdir(libpath):
-			#print(f'removed {destination}')
 			subprocess.run(["rm", "-rf", libpath])
-		#print(f'libpath {libpath}')
-		#print(f'firmware_url {firmware_url}')
-		#print(f'destination {destination}')
 
 		download(parent, firmware_url, destination)
 		with tarfile.open(destination) as f:
@@ -30,7 +26,6 @@ def downloadFirmware(parent):
 	else:
 		dialogs.infoMsgOk('Select a Board', 'Board')
 
-# NOTE: change repo back to mesact when merged into mesact
 def downloadAmd64Deb(parent):
 	directory = str(QFileDialog.getExistingDirectory(parent, "Select Directory"))
 	if directory != '':
@@ -82,7 +77,7 @@ def downloadArm64Deb(parent):
 
 def download(parent, down_url, save_loc):
 	def Handle_Progress(blocknum, blocksize, totalsize):
-		## calculate the progress
+		# calculate the progress
 		readed_data = blocknum * blocksize
 		if totalsize > 0:
 			download_percentage = readed_data * 100 / totalsize

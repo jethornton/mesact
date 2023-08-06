@@ -4,9 +4,6 @@ from datetime import datetime
 from libmesact import firmware
 
 def build(parent):
-	#card = parent.cardCB.currentText()
-	#port = parent.ioPort
-
 	filePath = os.path.join(parent.configPath, 'io.hal')
 	parent.info_pte.appendPlainText(f'Building {filePath}')
 	contents = []

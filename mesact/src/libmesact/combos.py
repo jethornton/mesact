@@ -37,7 +37,6 @@ def build(parent):
 	parent.ipAddressCB.setEditable(True)
 
 	# Firmware Tab
-
 	db25_daughters = [
 	['Select', False],
 	['7i74', '7i74'],
@@ -114,7 +113,6 @@ def build(parent):
 		parent.machinePTE.appendPlainText('No Editors were found!')
 
 	# Joint Tabs
-
 	axes = [
 		['Select', False],
 		['X', 'X'],

@@ -53,7 +53,6 @@ def checkCard(parent):
 		if check_ip(parent):
 			ipAddress = parent.ipAddressCB.currentText()
 			cmd = ['mesaflash', '--device', board, '--addr', ipAddress]
-			#print(f'command: {cmd}')
 			p = Popen(cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
 			prompt = p.communicate()
 		else:
@@ -65,7 +64,6 @@ def checkCard(parent):
 			parent.password = password
 		if parent.password != None:
 			cmd = ['sudo', '-S', 'mesaflash', '--device', board]
-			#print(f'command: {cmd}')
 			p = Popen(cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
 			prompt = p.communicate(parent.password + '\n')
 	if prompt:
@@ -75,7 +73,6 @@ def readhmid(parent):
 	parent.firmwareTW.setCurrentIndex(1)
 	parent.firmwarePTE.clear()
 	parent.firmwarePTE.setPlainText('Reading HMID')
-	#  mesaflash --device 7i92t --addr 10.10.10.10 --readhmid --dbname1 7i76 --dbname2 7i85s > 7i92_7i76_7i85sd.txt
 	board = parent.boardCB.currentData()
 	cmd = []
 	prompt = None
@@ -92,7 +89,6 @@ def readhmid(parent):
 			if parent.hmid_terminals_2.currentData():
 				cmd.append('--dbname2')
 				cmd.append(parent.hmid_terminals_2.currentData())
-			#print(f'command: {cmd}')
 			p = Popen(cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
 			prompt = p.communicate()
 		else:
@@ -104,7 +100,6 @@ def readhmid(parent):
 			parent.password = password
 		if parent.password != None:
 			cmd = ['sudo', '-S', 'mesaflash', '--device', board, '--readhmid']
-			#print(f'command: {cmd}')
 			p = Popen(cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
 			prompt = p.communicate(parent.password + '\n')
 
@@ -125,7 +120,6 @@ def readpd(parent):
 		if check_ip(parent):
 			ipAddress = parent.ipAddressCB.currentText()
 			cmd = ['mesaflash', '--device', board, '--addr', ipAddress, '--print-pd']
-			#print(f'command: {cmd}')
 			p = Popen(cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
 			prompt = p.communicate()
 		else:
@@ -137,7 +131,6 @@ def readpd(parent):
 			parent.password = password
 		if parent.password != None:
 			cmd = ['sudo', '-S', 'mesaflash', '--device', parent.board, '--print-pd']
-			#print(f'command: {cmd}')
 			p = Popen(cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
 			prompt = p.communicate(parent.password + '\n')
 	if prompt:
@@ -163,7 +156,6 @@ def flashCard(parent):
 			if check_ip(parent):
 				ipAddress = parent.ipAddressCB.currentText()
 				cmd = ['mesaflash', '--device', board, '--addr', ipAddress, '--write', firmware]
-				#print(f'command: {cmd}')
 				p = Popen(cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
 				prompt = p.communicate()
 			else:
@@ -175,7 +167,6 @@ def flashCard(parent):
 				parent.password = password
 			if parent.password != None:
 				cmd = ['sudo', '-S', 'mesaflash', '--device', parent.board, '--write', firmware]
-				#print(f'command: {cmd}')
 				p = Popen(cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
 				prompt = p.communicate(parent.password + '\n')
 
@@ -200,7 +191,6 @@ def reloadCard(parent):
 		if check_ip(parent):
 			ipAddress = parent.ipAddressCB.currentText()
 			cmd = ['mesaflash', '--device', board, '--addr', ipAddress, '--reload']
-			#print(f'command: {cmd}')
 			p = Popen(cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
 			prompt = p.communicate()
 		else:
@@ -212,7 +202,6 @@ def reloadCard(parent):
 			parent.password = password
 		if parent.password != None:
 			cmd = ['sudo', '-S', 'mesaflash', '--device', parent.board, '--reload']
-			#print(f'command: {cmd}')
 			p = Popen(cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
 			prompt = p.communicate(parent.password + '\n')
 
@@ -236,7 +225,6 @@ def verifyFirmware(parent):
 			if check_ip(parent):
 				ipAddress = parent.ipAddressCB.currentText()
 				cmd = ['mesaflash', '--device', board, '--addr', ipAddress, '--verify', firmware]
-				#print(f'command: {cmd}')
 				p = Popen(cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
 				prompt = p.communicate()
 			else:
@@ -248,7 +236,6 @@ def verifyFirmware(parent):
 				parent.password = password
 			if parent.password != None:
 				cmd = ['sudo', '-S', 'mesaflash', '--device', board, '--verify', firmware]
-				#print(f'command: {cmd}')
 				p = Popen(cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
 				prompt = p.communicate(parent.password + '\n')
 
