@@ -470,7 +470,7 @@ class updateini:
 					else:
 						self.update_key(f'JOINT_{n}', 'SCALE', f'{getattr(parent, f"c{i}_scale_{j}").text()}')
 
-					if not getattr(parent, f'c{i}_stepgenGB_{j}').isHidden():
+					if getattr(parent, f'c{i}_settings_{j}').isTabVisible(2): # Stepgen Tab
 						self.update_key(f'JOINT_{n}', 'DRIVE', getattr(parent, f'c{i}_drive_{j}').currentText())
 						self.update_key(f'JOINT_{n}', 'STEP_INVERT', getattr(parent, f'c{i}_StepInvert_{j}').isChecked())
 						self.update_key(f'JOINT_{n}', 'DIR_INVERT', getattr(parent, f'c{i}_DirInvert_{j}').isChecked())
@@ -481,7 +481,7 @@ class updateini:
 						self.update_key(f'JOINT_{n}', 'STEPLEN', getattr(parent, f'c{i}_StepTime_{j}').text())
 						self.update_key(f'JOINT_{n}', 'STEPSPACE', getattr(parent, f'c{i}_StepSpace_{j}').text())
 
-					if not getattr(parent, f'c{i}_analogGB_{j}').isHidden():
+					if getattr(parent, f'c{i}_settings_{j}').isTabVisible(3): # Analog Tab
 						self.update_key(f'JOINT_{n}', 'ENCODER_SCALE', getattr(parent, f'c{i}_encoderScale_{j}').text())
 						self.update_key(f'JOINT_{n}', 'ANALOG_SCALE_MAX', getattr(parent, f'c{i}_analogScaleMax_{j}').text())
 						self.update_key(f'JOINT_{n}', 'ANALOG_MIN_LIMIT', getattr(parent, f'c{i}_analogMinLimit_{j}').text())

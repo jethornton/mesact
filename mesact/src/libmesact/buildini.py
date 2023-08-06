@@ -188,7 +188,7 @@ def build(parent):
 				else:
 					iniContents.append(f'SCALE = {getattr(parent, f"c{i}_scale_{j}").text()}\n')
 
-				if not getattr(parent, f'c{i}_stepgenGB_{j}').isHidden():
+				if getattr(parent, f'c{i}_settings_{j}').isTabVisible(2): # Stepgen Tab
 					iniContents.append(f'DRIVE = {getattr(parent, f"c{i}_drive_{j}").currentText()}\n')
 					iniContents.append(f'STEP_INVERT = {getattr(parent, f"c{i}_StepInvert_{j}").isChecked()}\n')
 					iniContents.append(f'DIR_INVERT = {getattr(parent, f"c{i}_DirInvert_{j}").isChecked()}\n')
@@ -199,7 +199,7 @@ def build(parent):
 					iniContents.append(f'STEPLEN = {getattr(parent, f"c{i}_StepTime_{j}").text()}\n')
 					iniContents.append(f'STEPSPACE = {getattr(parent, f"c{i}_StepSpace_{j}").text()}\n')
 
-				if not getattr(parent, f'c{i}_analogGB_{j}').isHidden():
+				if getattr(parent, f'c{i}_settings_{j}').isTabVisible(3): # Analog Tab
 					iniContents.append(f'ENCODER_SCALE = {getattr(parent, f"c{i}_encoderScale_{j}").text()}\n')
 					iniContents.append(f'ANALOG_SCALE_MAX = {getattr(parent, f"c{i}_analogScaleMax_{j}").text()}\n')
 					iniContents.append(f'ANALOG_MIN_LIMIT = {getattr(parent, f"c{i}_analogMinLimit_{j}").text()}\n')
