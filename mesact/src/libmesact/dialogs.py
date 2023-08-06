@@ -21,7 +21,6 @@ def aboutDialog(parent):
 	imageLabel.setAlignment(Qt.AlignCenter)
 
 	image_path = os.path.join(parent.lib_path, 'mesact.jpg')
-	print(image_path)
 	pixmap = QPixmap(image_path)
 	pixmap = pixmap.scaled(256, 256, Qt.KeepAspectRatio)
 	imageLabel.setPixmap(pixmap)
