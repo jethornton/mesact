@@ -172,13 +172,20 @@ Spaces are replaced with underscore.</string>
              </property>
             </widget>
            </item>
-           <item row="2" column="3" colspan="2">
+           <item row="2" column="2" colspan="2">
             <widget class="QCheckBox" name="load_config_cb">
              <property name="toolTip">
               <string>Build Config to save this setting</string>
              </property>
              <property name="text">
               <string>Load this Configuration at startup</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="4">
+            <widget class="QCheckBox" name="backupCB">
+             <property name="text">
+              <string>Backup Configuration</string>
              </property>
             </widget>
            </item>
@@ -1456,36 +1463,8 @@ to the clipboard</string>
         <item row="3" column="2" colspan="2">
          <widget class="QGroupBox" name="groupBox_228">
           <property name="title">
-           <string>Test Settings</string>
+           <string/>
           </property>
-          <widget class="QCheckBox" name="update_build_ini_cb">
-           <property name="geometry">
-            <rect>
-             <x>20</x>
-             <y>40</y>
-             <width>201</width>
-             <height>25</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>Update Build INI</string>
-           </property>
-          </widget>
-          <widget class="QLabel" name="label_1606">
-           <property name="geometry">
-            <rect>
-             <x>10</x>
-             <y>60</y>
-             <width>231</width>
-             <height>81</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>When updating an INI if you
-want to actually build the INI
-file check this box</string>
-           </property>
-          </widget>
          </widget>
         </item>
         <item row="2" column="3">
@@ -40601,35 +40580,6 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
               <widget class="QCheckBox" name="gladevcpCB">
                <property name="text">
                 <string>GladeVCP Panel</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-           <widget class="QGroupBox" name="groupBox_135">
-            <property name="geometry">
-             <rect>
-              <x>580</x>
-              <y>10</y>
-              <width>95</width>
-              <height>105</height>
-             </rect>
-            </property>
-            <property name="title">
-             <string>Backups</string>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_307">
-             <item row="0" column="0">
-              <widget class="QCheckBox" name="backupCB">
-               <property name="toolTip">
-                <string>Create a backup copy of files
-before building configuration files</string>
-               </property>
-               <property name="text">
-                <string>Enable</string>
-               </property>
-               <property name="checked">
-                <bool>false</bool>
                </property>
               </widget>
              </item>
