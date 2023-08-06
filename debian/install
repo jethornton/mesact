@@ -2,6 +2,6 @@ mesact/src/mesact usr/bin
 mesact/src/mesact.ui usr/lib/libmesact
 mesact/src/libmesact/mesact.qss usr/lib/libmesact
 mesact/src/libmesact/mesact.jpg usr/lib/libmesact
-mesact/mesact.pdf usr/share/doc/mesact
+mesact/src/mesact.pdf usr/share/doc/mesact
 mesact/src/libmesact/*.py usr/lib/python3/dist-packages/libmesact
 mesact/*.desktop usr/share/applications
