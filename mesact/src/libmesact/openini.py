@@ -34,7 +34,7 @@ class loadini:
 			self.iniFile = os.path.join(configsDir, configName, configName + '.ini')
 			if not os.path.isfile(iniFile):
 				msg = f'File {self.iniFile} not found'
-				dialogs.errorMsgOk(msg, 'Not Found')
+				dialogs.errorMsgOk(parent, msg, 'Not Found')
 				return
 		if self.iniFile:
 			with open(self.iniFile) as f:
@@ -44,7 +44,7 @@ class loadini:
 						'The files will be saved to a zip file then\n'
 						'the all the files in the directory will be DELETED\n'
 						'Save a Backup and try and open the ini?')
-					if dialogs.errorMsg(msg, 'PNCconf File'):
+					if dialogs.errorMsg(parent, msg, 'PNCconf File'):
 						path, filename = os.path.split(self.iniFile)
 						utilities.backupFiles(parent, path)
 						utilities.cleanDir(parent, path)
@@ -57,7 +57,7 @@ class loadini:
 						'The files will be saved to a zip file then\n'
 						'the all the files in the directory will be DELETED\n'
 						'Save a Backup and try and open the ini?')
-					if dialogs.errorMsg(msg, 'Unknown File'):
+					if dialogs.errorMsg(parent, msg, 'Unknown File'):
 						path, filename = os.path.split(self.iniFile)
 						utilities.backupFiles(parent, path)
 						utilities.cleanDir(parent, path)
@@ -92,7 +92,7 @@ class loadini:
 						msg = (f'The ini file version is {iniVersion}\n'
 							f'The Configuration Tool version is {parent.version}\n'
 							'Save a Backup and try and open the ini?')
-						if dialogs.errorMsg(msg, 'Version Difference'):
+						if dialogs.errorMsg(parent, msg, 'Version Difference'):
 							path, filename = os.path.split(iniFile)
 							utilities.backupFiles(parent, path)
 							oldVersion = True
