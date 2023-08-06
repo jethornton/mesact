@@ -4,6 +4,8 @@ from subprocess import Popen, PIPE
 from PyQt5.QtWidgets import QApplication, QInputDialog, QLineEdit, qApp
 from PyQt5.QtWidgets import QDialogButtonBox
 
+from libmesact import dialogs
+
 def check_emc():
 	if "0x48414c32" in subprocess.getoutput('ipcs'):
 		return True
@@ -12,7 +14,7 @@ def check_emc():
 
 def check_ip(parent):
 	if not parent.ipAddressCB.currentData():
-		parent.errorMsgOk('An IP address must be selected', 'Error!')
+		dialogs.errorMsgOk('An IP address must be selected', 'Error!')
 		return False
 	return True
 
@@ -40,11 +42,11 @@ def checkCard(parent):
 	cmd = []
 	prompt = None
 	if not board:
-		parent.errorMsgOk(f'A board must be selected', 'Error')
+		dialogs.errorMsgOk(f'A board must be selected', 'Error')
 		return
 	prompt = None
 	if check_emc():
-		parent.errorMsgOk(f'LinuxCNC must NOT be running\n to read the {board}', 'Error')
+		dialogs.errorMsgOk(f'LinuxCNC must NOT be running\n to read the {board}', 'Error')
 		return
 
 	if parent.boardType == 'eth':
@@ -78,7 +80,7 @@ def readhmid(parent):
 	cmd = []
 	prompt = None
 	if check_emc():
-		parent.errorMsgOk(f'LinuxCNC must NOT be running\n to read the {parent.board}', 'Error')
+		dialogs.errorMsgOk(f'LinuxCNC must NOT be running\n to read the {parent.board}', 'Error')
 		return
 	if parent.boardType == 'eth':
 		if check_ip(parent):
@@ -117,7 +119,7 @@ def readpd(parent):
 	cmd = []
 	prompt = None
 	if check_emc():
-		parent.errorMsgOk(f'LinuxCNC must NOT be running\n to read the {parent.board}', 'Error')
+		dialogs.errorMsgOk(f'LinuxCNC must NOT be running\n to read the {parent.board}', 'Error')
 		return
 	if parent.boardType == 'eth':
 		if check_ip(parent):
@@ -149,7 +151,7 @@ def flashCard(parent):
 	cmd = []
 	prompt = None
 	if check_emc():
-		parent.errorMsgOk(f'LinuxCNC must NOT be running\n to flash the {parent.board}', 'Error')
+		dialogs.errorMsgOk(f'LinuxCNC must NOT be running\n to flash the {parent.board}', 'Error')
 		return
 	if parent.firmwareCB.currentData():
 		firmware = os.path.basename(parent.firmwareCB.currentData())
@@ -181,7 +183,7 @@ def flashCard(parent):
 			getResults(parent, prompt, p.returncode, 'firmwarePTE', 'Flash')
 
 	else:
-		parent.errorMsgOk('A firmware must be selected', 'Error!')
+		dialogs.errorMsgOk('A firmware must be selected', 'Error!')
 		return
 
 def reloadCard(parent):
@@ -192,7 +194,7 @@ def reloadCard(parent):
 	cmd = []
 	prompt = None
 	if check_emc():
-		parent.errorMsgOk(f'LinuxCNC must NOT be running\n to reload the {board}', 'Error')
+		dialogs.errorMsgOk(f'LinuxCNC must NOT be running\n to reload the {board}', 'Error')
 		return
 	if parent.boardType == 'eth':
 		if check_ip(parent):
@@ -226,7 +228,7 @@ def verifyFirmware(parent):
 	cmd = []
 	prompt = None
 	if check_emc():
-		parent.errorMsgOk(f'LinuxCNC must NOT be running\n to verify the {board}', 'Error')
+		dialogs.errorMsgOk(f'LinuxCNC must NOT be running\n to verify the {board}', 'Error')
 		return
 	if parent.firmwareCB.currentData():
 		firmware = os.path.join(parent.lib_path, parent.firmwareCB.currentData())
@@ -253,7 +255,7 @@ def verifyFirmware(parent):
 		if prompt:
 			getResults(parent, prompt, p.returncode, 'firmwarePTE', 'Verify Firmware')
 	else:
-		parent.errorMsgOk('A firmware must be selected', 'Error!')
+		dialogs.errorMsgOk('A firmware must be selected', 'Error!')
 		return
 
 def copyOutput(parent):

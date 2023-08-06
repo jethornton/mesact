@@ -2,6 +2,7 @@ import subprocess
 from subprocess import Popen, PIPE
 
 from libmesact import utilities
+from libmesact import dialogs
 
 def ipInfo(parent):
 	ip = subprocess.check_output(['ip', '-br', 'addr', 'show'], text=True)
@@ -43,7 +44,7 @@ def servoTmax(parent):
 			ret = prompt[0].splitlines()
 			parent.st_thread_tmax_sb.setValue(int(ret[2].split()[3]))
 	else:
-		parent.errorMsgOk('LinuxCNC must be running this configuration!','Error')
+		dialogs.errorMsgOk('LinuxCNC must be running this configuration!','Error')
 
 def calcServoPercent(parent):
 	error_text = []
@@ -52,7 +53,7 @@ def calcServoPercent(parent):
 	if parent.st_cpu_speed.value() <= 0:
 		error_text.append('CPU Speed must be greater than 0')
 	if error_text:
-		parent.errorMsgOk('\n'.join(error_text), 'Missing Entries')
+		dialogs.errorMsgOk('\n'.join(error_text), 'Missing Entries')
 		return
 	cpu_speed_hz = parent.st_cpu_speed.value() * parent.st_cpu_units_cb.currentData()
 	cpu_clock_time = 0.000000001 * parent.servoPeriodSB.value()
@@ -86,7 +87,7 @@ def cpuSpeed(parent): # output spinbox units
 
 def readTmax(parent):
 	if not utilities.check_emc():
-		parent.errorMsgOk(f'LinuxCNC must be running\nto get read.tmax', 'Error')
+		dialogs.errorMsgOk(f'LinuxCNC must be running\nto get read.tmax', 'Error')
 		return
 
 	p = Popen(['halcmd', 'show', 'param', 'hm2*read.tmax'],
@@ -98,7 +99,7 @@ def readTmax(parent):
 			ret = prompt[0].splitlines()
 			parent.read_tmax_sb.setValue(int(ret[2].split()[3]))
 		else:
-			parent.errorMsgOk(f'LinuxCNC must be running\na Mesa Ethernet configuration\nto get read.tmax', 'Error')
+			dialogs.errorMsgOk(f'LinuxCNC must be running\na Mesa Ethernet configuration\nto get read.tmax', 'Error')
 
 def writeTmax(parent):
 	if not utilities.check_emc():
@@ -113,7 +114,7 @@ def writeTmax(parent):
 			ret = prompt[0].splitlines()
 			parent.write_tmax_sb.setValue(int(ret[2].split()[3]))
 	else:
-		parent.errorMsgOk(f'LinuxCNC must be running\na Mesa Ethernet configuration\nto get write.tmax', 'Error')
+		dialogs.errorMsgOk(f'LinuxCNC must be running\na Mesa Ethernet configuration\nto get write.tmax', 'Error')
 
 def nicCalc(parent):
 	error_text = []
@@ -141,7 +142,7 @@ def nicCalc(parent):
 		parent.packetTimeLB.setText(f'{packet_time_percent:.1%}')
 
 	else:
-		parent.errorMsgOk('\n'.join(error_text))
+		dialogs.errorMsgOk('\n'.join(error_text))
 
 def cpuInfo(parent):
 	result = subprocess.check_output('lscpu',shell=True, text=True)

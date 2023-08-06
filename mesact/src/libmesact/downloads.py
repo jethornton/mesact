@@ -5,6 +5,7 @@ from functools import partial
 from PyQt5.QtWidgets import QApplication, QFileDialog
 
 from libmesact import firmware
+from libmesact import dialogs
 
 def downloadFirmware(parent):
 	board = parent.boardCB.currentData()
@@ -27,7 +28,7 @@ def downloadFirmware(parent):
 		# update firmware tab
 		firmware.load(parent)
 	else:
-		parent.infoMsgOk('Select a Board', 'Board')
+		dialogs.infoMsgOk('Select a Board', 'Board')
 
 # NOTE: change repo back to mesact when merged into mesact
 def downloadAmd64Deb(parent):
@@ -41,12 +42,12 @@ def downloadAmd64Deb(parent):
 		deburl = f'https://github.com/jethornton/mesact2/releases/download/{repoVersion}/mesact_{repoVersion}_amd64.deb'
 		download(parent, deburl, destination)
 		parent.statusbar.showMessage(f'Mesa Configuration Tool Version {repoVersion} Download Complete')
-		parent.infoMsgOk('Close the Configuration tool and reinstall', 'Download Complete')
+		dialogs.infoMsgOk('Close the Configuration tool and reinstall', 'Download Complete')
 	else:
 		parent.statusbar.showMessage('Download Cancled')
 
 def downloadArmhDeb(parent):
-	parent.infoMsgOk('File not avaliable for Pre-Release.\nFile will be avaliable when released.', 'Future Function')
+	dialogs.infoMsgOk('File not avaliable for Pre-Release.\nFile will be avaliable when released.', 'Future Function')
 	return
 	directory = str(QFileDialog.getExistingDirectory(parent, "Select Directory"))
 	if directory != '':
@@ -58,12 +59,12 @@ def downloadArmhDeb(parent):
 		deburl = f'https://github.com/jethornton/mesact/releases/download/{repoVersion}/mesact_{repoVersion}_armhf.deb'
 		download(parent, deburl, destination)
 		parent.statusbar.showMessage(f'Mesa Configuration Tool Version {repoVersion} Download Complete')
-		parent.infoMsgOk('Close the Configuration tool and reinstall', 'Download Complete')
+		dialogs.infoMsgOk('Close the Configuration tool and reinstall', 'Download Complete')
 	else:
 		parent.statusbar.showMessage('Download Cancled')
 
 def downloadArm64Deb(parent):
-	parent.infoMsgOk('File not avaliable for Pre-Release.\nFile will be avaliable when released.', 'Future Function')
+	dialogs.infoMsgOk('File not avaliable for Pre-Release.\nFile will be avaliable when released.', 'Future Function')
 	return
 	directory = str(QFileDialog.getExistingDirectory(parent, "Select Directory"))
 	if directory != '':
@@ -75,7 +76,7 @@ def downloadArm64Deb(parent):
 		deburl = f'https://github.com/jethornton/mesact/releases/download/{repoVersion}/mesact_{repoVersion}_arm64.deb'
 		download(parent, deburl, destination)
 		parent.statusbar.showMessage(f'Mesa Configuration Tool Version {repoVersion} Download Complete')
-		parent.infoMsgOk('Close the Configuration tool and reinstall', 'Download Complete')
+		dialogs.infoMsgOk('Close the Configuration tool and reinstall', 'Download Complete')
 	else:
 		parent.statusbar.showMessage('Download Cancled')
 

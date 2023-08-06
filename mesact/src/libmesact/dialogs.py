@@ -4,6 +4,80 @@ from PyQt5.QtWidgets import QDialog, QDialogButtonBox, QVBoxLayout, QLabel
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtCore import Qt
 
+def errorMsg(self, text, title=None):
+	msgBox = QMessageBox()
+	msgBox.setIcon(QMessageBox.Warning)
+	msgBox.setWindowTitle(title)
+	msgBox.setText(text)
+	msgBox.setStandardButtons(QMessageBox.Cancel | QMessageBox.Ok)
+	returnValue = msgBox.exec()
+	if returnValue == QMessageBox.Ok:
+		return True
+	else:
+		return False
+
+def errorMsgOk(self, text, title=None):
+	msgBox = QMessageBox()
+	msgBox.setIcon(QMessageBox.Warning)
+	msgBox.setWindowTitle(title)
+	msgBox.setText(text)
+	msgBox.setStandardButtons(QMessageBox.Ok)
+	returnValue = msgBox.exec()
+	if returnValue == QMessageBox.Ok:
+		return True
+	else:
+		return False
+
+def errorMsgYesNo(self, text, title=None): # unused function
+	msgBox = QMessageBox()
+	msgBox.setIcon(QMessageBox.Warning)
+	msgBox.setWindowTitle(title)
+	msgBox.setText(text)
+	msgBox.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
+	returnValue = msgBox.exec()
+	if returnValue == QMessageBox.Yes:
+		return True
+	else:
+		return False
+
+def questionMsg(self, text, title=None): # unused function
+	msgBox = QMessageBox()
+	msgBox.setIcon(QMessageBox.Question)
+	msgBox.setWindowTitle(title)
+	msgBox.setText(text)
+	msgBox.setStandardButtons(QMessageBox.Cancel | QMessageBox.Ok)
+	returnValue = msgBox.exec()
+	if returnValue == QMessageBox.Ok:
+		return True
+	else:
+		return False
+
+def msgYesNoCheck(self, title, body_text, chkbx_text):
+	chkBox = QCheckBox()
+	chkBox.setText(chkbx_text)
+	msgBox = QMessageBox()
+	msgBox.setCheckBox(chkBox)
+	msgBox.setIcon(QMessageBox.Warning)
+	msgBox.setWindowTitle(title)
+	msgBox.setText(body_text)
+	msgBox.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
+	returnValue = msgBox.exec()
+	answer = True if returnValue == QMessageBox.Yes else False
+	return answer, chkBox.isChecked()
+
+def infoMsgOk(self, text, title=None):
+	msgBox = QMessageBox()
+	msgBox.setIcon(QMessageBox.Information)
+	msgBox.setWindowTitle(title)
+	msgBox.setText(text)
+	msgBox.setStandardButtons(QMessageBox.Ok)
+	returnValue = msgBox.exec()
+	if returnValue == QMessageBox.Ok:
+		return True
+	else:
+		return False
+
+
 def aboutDialog(parent):
 	dialogBox = QDialog()
 	dialogBox.setMinimumSize(300, 300)
