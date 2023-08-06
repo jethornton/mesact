@@ -10,6 +10,7 @@ sys.dont_write_bytecode = True
 Depenencies
 sudo apt install python3-pyqt5
 sudo apt install python3-packaging
+sudo apt install zip
 '''
 
 VERSION = '2.0.0'
