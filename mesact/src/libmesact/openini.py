@@ -73,7 +73,6 @@ class loadini:
 			iniFile = ''
 
 	def loadini(self, parent, iniFile):
-		oldVersion = False
 		parent.loading = True
 		iniDict = {}
 		with open(iniFile,'r') as file:
@@ -85,17 +84,16 @@ class loadini:
 			for line in self.content[start:end]:
 				if line.startswith('VERSION'):
 					key, value = line.split('=')
-					iniVersion = value.strip()
-					if tuple(map(int, (iniVersion.split('.')))) < (1,2,0):
-						oldVersion = True
-					if parent.version != iniVersion:
-						msg = (f'The ini file version is {iniVersion}\n'
+					ini_version = tuple(map(int,value.strip().split('.')))
+					tool_version = tuple(map(int, parent.version.split('.')))
+					if ini_version < tool_version:
+						msg = (f'The ini file version is {value.strip()}\n'
 							f'The Configuration Tool version is {parent.version}\n'
 							'Save a Backup and try and open the ini?')
 						if dialogs.errorMsg(parent, msg, 'Version Difference'):
 							path, filename = os.path.split(iniFile)
 							utilities.backupFiles(parent, path)
-							oldVersion = True
+							utilities.cleanDir(parent, path)
 						else:
 							return
 
@@ -258,7 +256,6 @@ class loadini:
 		['[SPINDLE_0]', 'SPINDLE_TYPE', 'spindleTypeCB'],
 		['[SPINDLE_0]', 'ENCODER_SCALE', 'spindleEncoderScale'],
 		['[SPINDLE_0]', 'SCALE', 'spindleStepScale'],
-		['[SPINDLE_0]', 'SPINDLE_PWM_TYPE', 'spindlePwmTypeCB'],
 		['[SPINDLE_0]', 'PWM_FREQUENCY', 'pwmFrequencySB'],
 		['[SPINDLE_0]', 'MAX_RPM', 'spindleMaxRpm'],
 		['[SPINDLE_0]', 'MIN_RPM', 'spindleMinRpm'],
@@ -286,14 +283,6 @@ class loadini:
 		for item in spindle:
 			self.update(parent, item[0], item[1], item[2])
 
-		'''
-		INPUT_1_0 = Joint 0 Home
-		INPUT_INVERT_1_0 = True
-		INPUT_SLOW_1_0 = True
-		c0_input_0
-		c0_input_invert_0
-		c0_input_debounce_0
-		'''
 
 		for i in range(4):
 			for j in range(32):

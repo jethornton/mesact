@@ -93,6 +93,12 @@ def backupFiles(parent, configPath=None):
 	output = p2.communicate()[0]
 	parent.info_pte.appendPlainText(output.decode())
 
+def cleanDir(parent, configPath):
+	with os.scandir(configPath) as i:
+		for entry in i:
+			if entry.is_file():
+				os.remove(os.path.join(configPath, entry.name)) 
+
 def axisDisplayChanged(parent, radioButton):
 	for button in parent.axisButtonGroup.buttons():
 		if button is not radioButton:
@@ -135,10 +141,5 @@ def inputChanged(parent): # test to see if not checked then enable both
 	elif function == 'debounce' and state == 2:
 		getattr(parent, f'{card}_input_invert_{number}').setEnabled(False)
 
-def cleanDir(parent, configPath):
-	with os.scandir(configPath) as i:
-		for entry in i:
-			if entry.is_file():
-				os.remove(os.path.join(configPath, entry.name)) 
 
 
