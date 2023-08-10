@@ -139,7 +139,6 @@ def cleanDir(parent, configPath):
 	with os.scandir(configPath) as i:
 		for entry in i:
 			if entry.is_file():
-				if entry.name.split('.')[-1] != 'ini':
-					os.remove(os.path.join(configPath, entry.name)) 
+				os.remove(os.path.join(configPath, entry.name)) 
 
 
