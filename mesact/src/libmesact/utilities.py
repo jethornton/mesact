@@ -86,7 +86,7 @@ def backupFiles(parent, configPath=None):
 	if not os.path.exists(backupDir):
 		os.mkdir(backupDir)
 	p1 = subprocess.Popen(['find',configPath,'-maxdepth','1','-type','f','-print'], stdout=subprocess.PIPE)
-	backupFile = os.path.join(backupDir, f'{datetime.now():%m-%d-%y-%H:%M:%S}')
+	backupFile = os.path.join(backupDir, f'{datetime.now():%m-%d-%y-%H-%M-%S}')
 	p2 = subprocess.Popen(['zip','-j',backupFile,'-@'], stdin=p1.stdout, stdout=subprocess.PIPE)
 	p1.stdout.close()
 	parent.info_pte.appendPlainText('Backing up Confguration')
