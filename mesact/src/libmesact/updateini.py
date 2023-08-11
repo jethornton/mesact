@@ -519,9 +519,8 @@ class updateini:
 						self.update_key(f'JOINT_{n}', 'HOME_IS_SHARED', True)
 					n += 1 # add a joint
 
-		'''
 		# update the [SPINDLE_0] section
-		if parent.spindleTypeCB.currentData():
+		if parent.spindleTypeCB.currentData() == 'pwm':
 			# If SPINDLE_0 section does not exist insert it after the last joint
 			if '[SPINDLE_0]' not in self.sections:
 				last_joint = None
@@ -534,9 +533,42 @@ class updateini:
 				self.get_sections() # update section start/end
 
 			self.update_key(f'SPINDLE_0', 'SPINDLE_TYPE', parent.spindleTypeCB.currentData())
-			if parent.spindlePwmTypeCB.currentText() != 'Select':
-				self.update_key(f'SPINDLE_0', 'SPINDLE_PWM_TYPE', parent.spindlePwmTypeCB.currentData())
-				self.update_key(f'SPINDLE_0', 'PWM_FREQUENCY', parent.pwmFrequencySB.value())
+			#self.update_key(f'SPINDLE_0', 'SPINDLE_PWM_TYPE', parent.spindleTypeCB.currentData())
+			self.update_key(f'SPINDLE_0', 'SPINDLE_PWM_FREQUENCY', parent.pwmFrequencySB.value())
+			self.update_key(f'SPINDLE_0', 'P', parent.p_s.value())
+			self.update_key(f'SPINDLE_0', 'I', parent.i_s.value())
+			self.update_key(f'SPINDLE_0', 'D', parent.d_s.value())
+			self.update_key(f'SPINDLE_0', 'FF0', parent.ff0_s.value())
+			self.update_key(f'SPINDLE_0', 'FF1', parent.ff1_s.value())
+			self.update_key(f'SPINDLE_0', 'FF2', parent.ff2_s.value())
+			self.update_key(f'SPINDLE_0', 'BIAS', parent.bias_s.value())
+			self.update_key(f'SPINDLE_0', 'DEADBAND', parent.deadband_s.value())
+			self.update_key(f'SPINDLE_0', 'MAX_ERROR', parent.maxError_s.value())
+			self.update_key(f'SPINDLE_0', 'MAX_OUTPUT', parent.maxOutput_s.value())
+			self.update_key(f'SPINDLE_0', 'OUTPUT_TYPE', parent.maxOutput_s.value())
+
+		'''
+
+		iniContents.append(f'SPINDLE_TYPE = {parent.spindleTypeCB.currentData()}\n')
+		if parent.spindleTypeCB.currentData() == 'pwm':
+			iniContents.append(f'SPINDLE_PWM_TYPE = 1\n')
+			iniContents.append(f'SPINDLE_PWM_FREQUENCY = {parent.pwmFrequencySB.value()}\n')
+			iniContents.append(f'SPINDLE_SCALE = {parent.spindleMaxRpm.value()}\n')
+		if parent.spindleTypeCB.currentData() == 'analog': ###### FIXME 
+			iniContents.append(f'SPINDLE_MAX_RPM = {parent.spindleMaxRpm.value()}\n')
+			iniContents.append(f'SPINDLE_MIN_RPM = {parent.spindleMinRpm.value()}\n')
+
+
+		To set up really basic operation (ignoring the ini file values and the PID), at the minimum,
+		you need to setup and connect PWMGen 00:
+
+		setp hm2_7i96s.0.pwmgen.00.scale 24000
+		setp hm2_7i96s.0.pwmgen.00.pwm_frequency 5000
+		setp hm2_7i96s.0.pwmgen.00.output_type 1
+
+		net spindle-vel-cmd-rpm-abs hm2_7i96s.0.pwmgen.00.value
+		net spindle-on spindle.0.on
+		net spindle-on hm2_7i96s.0.pwmgen.00.enable
 
 			if parent.spindleTypeCB.currentData() == 'analog':
 				self.update_key(f'SPINDLE_0', 'MAX_RPM', parent.spindleMaxRpm.value())
@@ -544,17 +576,6 @@ class updateini:
 
 			if parent.spindleFeedbackCB.currentData() == 'encoder':
 				self.update_key(f'SPINDLE_0', 'FEEDBACK', parent.spindleFeedbackCB.currentData())
-				self.update_key(f'SPINDLE_0', 'P', parent.p_s.value())
-				self.update_key(f'SPINDLE_0', 'I', parent.i_s.value())
-				self.update_key(f'SPINDLE_0', 'D', parent.d_s.value())
-				self.update_key(f'SPINDLE_0', 'FF0', parent.ff0_s.value())
-				self.update_key(f'SPINDLE_0', 'FF1', parent.ff1_s.value())
-				self.update_key(f'SPINDLE_0', 'FF2', parent.ff2_s.value())
-				self.update_key(f'SPINDLE_0', 'BIAS', parent.bias_s.value())
-				self.update_key(f'SPINDLE_0', 'DEADBAND', parent.deadband_s.value())
-				self.update_key(f'SPINDLE_0', 'MAX_ERROR', parent.maxError_s.value())
-				self.update_key(f'SPINDLE_0', 'MAX_OUTPUT', parent.maxOutput_s.value())
-				self.update_key(f'SPINDLE_0', 'OUTPUT_TYPE', parent.maxOutput_s.value())
 				self.update_key(f'SPINDLE_0', 'ENCODER_SCALE', parent.spindleEncoderScale.value())
 			else: # remove the above from the ini
 				self.delete_key('SPINDLE_0', 'FEEDBACK')

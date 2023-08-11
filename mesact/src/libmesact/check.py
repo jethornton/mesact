@@ -1,6 +1,6 @@
 
 def checkit(parent):
-	parent.mainTW.setCurrentIndex(10)
+	parent.mainTW.setCurrentIndex(11)
 	configErrors = []
 	tabError = False
 	nextHeader = 0
@@ -145,6 +145,22 @@ def checkit(parent):
 		nextHeader = len(configErrors)
 		tabError = False
 	# end of Joints Tab
+
+	# check the Spindle Tab for errors
+	if parent.spindleTypeCB.currentData() == 'pwm':
+		if parent.spindleMaxRpm.value() == 0:
+			tabError = True
+			configErrors.append(f'\tPWM Maximum RPM can not be 0')
+		if parent.maxOutput_s.value() == 0:
+			tabError = True
+			configErrors.append(f'\tPWM Max Output can not be 0')
+
+	if tabError:
+		configErrors.insert(nextHeader, 'Spindle Tab:')
+		nextHeader = len(configErrors)
+		tabError = False
+	# end of Spindle Tab
+
 
 	# check the SS Cards Tab for errors
 	# end of SS Cards Tab

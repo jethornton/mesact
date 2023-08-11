@@ -156,7 +156,17 @@ def build(parent):
 			for item in drives:
 				getattr(parent, f'c{i}_drive_{j}').addItem(item[0], item[1])
 
-	# Spindle Tab is done in boards.py
+	# Spindle Tab
+	spindle = [
+	['Select', False],
+	['On/Off', 'on_off'],
+	['Fwd/Rev', 'fwd_rev'],
+	['PWM', 'pwm'],
+	['Stepgen', 'stepgen'],
+	]
+
+	for item in spindle:
+		parent.spindleTypeCB.addItem(item[0], item[1])
 
 
 	# SS Card Tab

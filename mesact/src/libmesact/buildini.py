@@ -6,7 +6,6 @@ from PyQt5.QtWidgets import QSpinBox
 def build(parent):
 	buildErrors = []
 	iniFilePath = os.path.join(parent.configPath, parent.configNameUnderscored + '.ini')
-	parent.mainTW.setCurrentIndex(10)
 	parent.info_pte.appendPlainText(f'Building {iniFilePath}')
 
 	if not os.path.exists(parent.configPath):
@@ -238,20 +237,14 @@ def build(parent):
 					iniContents.append('HOME_IS_SHARED = True\n')
 				joint += 1
 
-	'''
 	# build the [SPINDLE] section if enabled
 	if parent.spindleTypeCB.currentData():
 		iniContents.append('\n[SPINDLE_0]\n')
-		iniContents.append(f'SPINDLE_TYPE = {parent.spindleTypeCB.currentData()}\n')
-		if parent.spindlePwmTypeCB.currentData():
-			iniContents.append(f'SPINDLE_PWM_TYPE = {parent.spindlePwmTypeCB.currentData()}\n')
+		iniContents.append(f'TYPE = {parent.spindleTypeCB.currentData()}\n')
+		if parent.spindleTypeCB.currentData() == 'pwm':
+			iniContents.append(f'PWM_TYPE = 1\n') ###### FIXME
 			iniContents.append(f'PWM_FREQUENCY = {parent.pwmFrequencySB.value()}\n')
-		if parent.spindleTypeCB.currentData() == 'analog':
-			iniContents.append(f'MAX_RPM = {parent.spindleMaxRpm.value()}\n')
-			iniContents.append(f'MIN_RPM = {parent.spindleMinRpm.value()}\n')
-
-		if parent.spindleFeedbackCB.currentData() == 'encoder':
-			iniContents.append(f'FEEDBACK = {parent.spindleFeedbackCB.currentData()}\n')
+			iniContents.append(f'SCALE = {parent.spindleMaxRpm.value()}\n')
 			iniContents.append(f'P = {parent.p_s.value():.1f}\n')
 			iniContents.append(f'I = {parent.i_s.value():.1f}\n')
 			iniContents.append(f'D = {parent.d_s.value():.1f}\n')
@@ -262,6 +255,13 @@ def build(parent):
 			iniContents.append(f'DEADBAND = {parent.deadband_s.value():.1f}\n')
 			iniContents.append(f'MAX_ERROR = {parent.maxError_s.value():.1f}\n')
 			iniContents.append(f'MAX_OUTPUT = {parent.maxOutput_s.value()}\n')
+
+		if parent.spindleTypeCB.currentData() == 'analog': ###### FIXME
+			iniContents.append(f'SPINDLE_MAX_RPM = {parent.spindleMaxRpm.value()}\n')
+			iniContents.append(f'SPINDLE_MIN_RPM = {parent.spindleMinRpm.value()}\n')
+
+		if parent.spindleFeedbackCB.currentData() == 'encoder':
+			iniContents.append(f'FEEDBACK = {parent.spindleFeedbackCB.currentData()}\n')
 			iniContents.append(f'OUTPUT_TYPE = {parent.maxOutput_s.value()}\n')
 			iniContents.append(f'ENCODER_SCALE = {parent.spindleEncoderScale.value():.1f}\n')
 
@@ -280,7 +280,6 @@ def build(parent):
 			iniContents.append(f'MAX_RPS = {parent.spindleMaxRps.text()}\n')
 			iniContents.append(f'MAX_ACCEL_RPM = {parent.spindleMaxAccel.value()}\n')
 			iniContents.append(f'MAX_ACCEL_RPS = {parent.spindleMaxRpss.text()}\n')
-	'''
 
 	# build the [INPUTS] section from pushbuttons
 	iniContents.append('\n[INPUTS]\n')

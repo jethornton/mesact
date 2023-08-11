@@ -13,8 +13,8 @@ sudo apt install python3-packaging
 sudo apt install zip
 '''
 
-VERSION = '2.0.0'
-BUILD_DATE = '08/06/2023'
+VERSION = '2.0.1'
+BUILD_DATE = '08/11/2023'
 
 from traceback import StackSummary
 from functools import partial
@@ -43,6 +43,7 @@ from libmesact import buildconfig
 from libmesact import sscards
 from libmesact import pcinfo
 from libmesact import settings
+from libmesact import spindle
 from libmesact import shutdown
 # testing imports
 from libmesact import testing
@@ -125,14 +126,14 @@ class MainWindow(QMainWindow):
 		self.backupCB.clicked.connect(partial(utilities.backup, self))
 		'''
 		self.default_settings_pb.clicked.connect(partial(testing.default_settings, self))
-		self.set_7i96s_pb.clicked.connect(partial(testing.set_7i96s, self))
+		self.set_7i96s_x_pb.clicked.connect(partial(testing.set_7i96s_x, self))
+		self.set_7i96s_xyz_pb.clicked.connect(partial(testing.set_7i96s_xyz, self))
 		self.set_7i96s_7i76_pb.clicked.connect(partial(testing.set_7i96s_7i76, self))
 		self.set_7i96s_7i77_pb.clicked.connect(partial(testing.set_7i96s_7i77, self))
 		self.set_7i92t_p1_7i76_pb.clicked.connect(partial(testing.set_7i92t_p1_7i76, self))
 		self.set_7i92t_p2_7i76_pb.clicked.connect(partial(testing.set_7i92t_p2_7i76, self))
 		self.set_7i92t_p1_7i77_pb.clicked.connect(partial(testing.set_7i92t_p1_7i77, self))
 		self.set_7i92t_p2_7i77_pb.clicked.connect(partial(testing.set_7i92t_p2_7i77, self))
-		self.test_build_pb.clicked.connect(partial(buildhal.build, self))
 
 		# Settings Tab
 		self.minLinJogVelDSB.valueChanged.connect(partial(utilities.unitsChanged, self))
@@ -164,8 +165,6 @@ class MainWindow(QMainWindow):
 		# Info Tab
 
 		# Axes Tab
-		#self.c0_axis_0.currentIndexChanged.connect(partial(axes.axisChanged, self))
-		# c0_copy_values_0
 		# for now just do one card
 		j = 0
 		for i in range(5):
@@ -181,27 +180,21 @@ class MainWindow(QMainWindow):
 				getattr(self, f'c{j}_analogDefault_{i}').clicked.connect(partial(axes.analogSetDefault, self))
 				getattr(self, f'c{j}_drive_{i}').currentIndexChanged.connect(partial(axes.driveChanged, self))
 
-		for i in range(3):
-			getattr(self, f'c{i}_spindle_pwm_type').currentIndexChanged.connect(partial(axes.spindleTypeChanged, self))
-			getattr(self, f'c{i}_spindle_encoder').currentIndexChanged.connect(partial(axes.spindleEncoderChanged, self))
-
 		# I/O Tab
 		for i in range(3):
 			for j in range(32):
 				getattr(self, f'c{i}_input_invert_{j}').stateChanged.connect(partial(utilities.inputChanged, self))
 				getattr(self, f'c{i}_input_debounce_{j}').stateChanged.connect(partial(utilities.inputChanged, self))
 
-		'''
-
 		# Spindle Tab
-		self.pidDefault_s.clicked.connect(partial(utilities.pidSetDefault, self))
-		self.spindleTypeCB.currentIndexChanged.connect(partial(utilities.spindleChanged, self))
+		self.spindleTypeCB.currentIndexChanged.connect(partial(spindle.spindle_type_changed, self))
+		self.pidDefault_s.clicked.connect(partial(spindle.spindle_pid_default, self))
+		'''
 		self.spindleFeedbackCB.currentIndexChanged.connect(partial(utilities.spindleFeedbackChanged, self))
 		self.spindleDriveCB.currentIndexChanged.connect(partial(utilities.driveChanged, self))
 		self.spindleMinRpm.valueChanged.connect(partial(utilities.spindleSettingsChanged, self))
 		self.spindleMaxRpm.valueChanged.connect(partial(utilities.spindleSettingsChanged, self))
 		self.spindleMaxAccel.valueChanged.connect(partial(utilities.spindleSettingsChanged, self))
-
 		'''
 		# Smart Serial Tab
 		self.ssCardCB.currentIndexChanged.connect(partial(sscards.ssCardChanged, self))
@@ -262,7 +255,7 @@ class MainWindow(QMainWindow):
 		msg += 'Please file an issue at\n'
 		msg += 'https://github.com/jethornton/mesact/issues'
 		print(msg)
-		self.errorMsgOk(msg, 'PROGRAM ERROR' )
+		dialogs.errorMsgOk(self, msg, 'PROGRAM ERROR' )
 
 	def closeEvent(self, event):
 		shutdown.save_settings(self)

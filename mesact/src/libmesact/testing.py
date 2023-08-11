@@ -1,4 +1,5 @@
 from libmesact import utilities
+from libmesact import spindle
 
 # this file is for testing during initial programming
 
@@ -11,7 +12,8 @@ def default_settings(parent):
 	parent.maxFeedOverrideSB.setValue(1.2)
 	parent.defLinJogVelDSB.setValue(0.5)
 	parent.maxLinJogVelDSB.setValue(1.0)
-	parent.set_7i96s_pb.setEnabled(True)
+	parent.set_7i96s_x_pb.setEnabled(True)
+	parent.set_7i96s_xyz_pb.setEnabled(True)
 	parent.set_7i96s_7i76_pb.setEnabled(True)
 	parent.set_7i96s_7i77_pb.setEnabled(True)
 	parent.set_7i92t_p1_7i76_pb.setEnabled(True)
@@ -19,7 +21,16 @@ def default_settings(parent):
 	parent.set_7i92t_p1_7i77_pb.setEnabled(True)
 	parent.set_7i92t_p2_7i77_pb.setEnabled(True)
 
-def set_7i96s(parent):
+def set_7i96s_x(parent):
+	parent.boardCB.setCurrentIndex(parent.boardCB.findData('7i96s'))
+	parent.ipAddressCB.setCurrentIndex(parent.ipAddressCB.findData('10.10.10.10'))
+	set_joints(parent, 0, ['X'])
+	parent.c0_homeSequence_0.setText('0')
+	parent.spindleTypeCB.setCurrentIndex(parent.spindleTypeCB.findData('pwm'))
+	parent.spindleMaxRpm.setValue(1000)
+	spindle.spindle_pid_default(parent)
+
+def set_7i96s_xyz(parent):
 	parent.boardCB.setCurrentIndex(parent.boardCB.findData('7i96s'))
 	parent.ipAddressCB.setCurrentIndex(parent.ipAddressCB.findData('10.10.10.10'))
 	set_joints(parent, 0, ['X', 'Y', 'Z'])

@@ -1,4 +1,4 @@
-import os
+import os, traceback
 from datetime import datetime
 
 def build(parent):
@@ -72,6 +72,8 @@ def build(parent):
 		elif parent.coordinatesLB.text().count(axis) > 1:
 			pid_string += f'pid.{axis.lower()}{pid_count},'
 			pid_count += 1
+	if parent.spindleTypeCB.currentData() == 'pwm':
+		pid_string += f'pid.s,'
 	halContents.append(f'\nloadrt pid names={pid_string[:-1]}\n')
 
 	halContents.append('\n# THREADS\n')
@@ -305,7 +307,6 @@ def build(parent):
 		halContents.append('net spindle-vel-cmd-rpm <= spindle.0.speed-out\n')
 		halContents.append('net spindle-vel-cmd-rpm-abs <= spindle.0.speed-out-abs\n')
 		halContents.append('\n# Spindle Command Pins\n')
-		halContents.append('net spindle-on <= spindle.0.on\n')
 		halContents.append('net spindle-cw <= spindle.0.forward\n')
 		halContents.append('net spindle-ccw <= spindle.0.reverse\n')
 		halContents.append('net spindle-brake <= spindle.0.brake\n')
@@ -316,16 +317,41 @@ def build(parent):
 		halContents.append('\n# Set spindle at speed signal\n')
 		if not parent.spindleFeedbackCB.currentData():
 			halContents.append('sets spindle-at-speed true\n')
+	'''
 
-		if parent.spindleTypeCB.currentData() == 'analog':
-			i = joints + 1
-			halContents.append('\n# Spindle Board Connections\n')
-			halContents.append(f'net spindle-on => hm2_[MESA](BOARD).0.pwmgen.0{i}.enable\n')
-			halContents.append(f'net spindle-vel-cmd-rpm hm2_[MESA](BOARD).0.pwmgen.0{i}.value\n')
-			halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.0{i}.scale [SPINDLE_0]MAX_RPM\n')
-			halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.pwm_frequency [SPINDLE_0](PWM_FREQUENCY)\n')
-			halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.0{i}.output-type [SPINDLE_0](SPINDLE_PWM_TYPE)\n')
+	if parent.spindleTypeCB.currentData() == 'pwm':
+		halContents.append('# Spindle PID Setup\n')
+		halContents.append(f'setp pid.s.Pgain [SPINDLE_0](P)\n')
+		halContents.append(f'setp pid.s.Igain [SPINDLE_0](I)\n')
+		halContents.append(f'setp pid.s.Dgain [SPINDLE_0](D)\n')
+		halContents.append(f'setp pid.s.bias [SPINDLE_0](BIAS)\n')
+		halContents.append(f'setp pid.s.FF0 [SPINDLE_0](FF0)\n')
+		halContents.append(f'setp pid.s.FF1 [SPINDLE_0](FF1)\n')
+		halContents.append(f'setp pid.s.FF2 [SPINDLE_0](FF2)\n')
+		halContents.append(f'setp pid.s.deadband [SPINDLE_0](DEADBAND)\n')
+		halContents.append(f'setp pid.s.maxoutput [SPINDLE_0](MAX_OUTPUT)\n')
+		halContents.append(f'setp pid.s.error-previous-target true\n')
 
+		halContents.append('# Spindle PWM Setup\n')
+		halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.0{i}.output-type [SPINDLE_0](PWM_TYPE)\n')
+		halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.pwm_frequency [SPINDLE_0](PWM_FREQUENCY)\n')
+		halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.0{i}.scale [SPINDLE_0]SCALE\n')
+
+		halContents.append('\n# Spindle Enable\n')
+		halContents.append('net spindle-on <= spindle.0.on\n')
+		halContents.append('net spindle-on => pid.s.enable\n')
+		halContents.append(f'net spindle-on => hm2_[MESA](BOARD).0.pwmgen.0{i}.enable\n')
+
+		halContents.append('\n# Spindle Connections\n')
+		halContents.append('net spindle-vel-cmd <= spindle.0.speed-out-abs\n')
+		halContents.append('net spindle-vel-cmd => pid.s.command\n')
+		halContents.append('net spindle-pid-out <= pid.s.output\n')
+		halContents.append('net spindle-pid-out => hm2_[MESA](BOARD).0.pwmgen.00.value\n')
+
+		# for encoder feedback spindle at speed should use encoder speed
+		halContents.append('setp spindle.0.at-speed true\n')
+
+	'''
 		if parent.spindleTypeCB.currentData()[:7] == 'stepgen':
 			s = parent.spindleTypeCB.currentData()[-1]
 			halContents.append(f'\nnet spindle-on hm2_[MESA](BOARD).0.stepgen.0{s}.enable\n')
@@ -349,17 +375,6 @@ def build(parent):
 		encoder00 = ['7i96', '7i96s']
 		if board in encoder00:
 			s = pids - 1
-			halContents.append('# PID Setup\n')
-			halContents.append(f'setp pid.{s}.Pgain [SPINDLE_0](P)\n')
-			halContents.append(f'setp pid.{s}.Igain [SPINDLE_0](I)\n')
-			halContents.append(f'setp pid.{s}.Dgain [SPINDLE_0](D)\n')
-			halContents.append(f'setp pid.{s}.bias [SPINDLE_0](BIAS)\n')
-			halContents.append(f'setp pid.{s}.FF0 [SPINDLE_0](FF0)\n')
-			halContents.append(f'setp pid.{s}.FF1 [SPINDLE_0](FF1)\n')
-			halContents.append(f'setp pid.{s}.FF2 [SPINDLE_0](FF2)\n')
-			halContents.append(f'setp pid.{s}.deadband [SPINDLE_0](DEADBAND)\n')
-			halContents.append(f'setp pid.{s}.maxoutput [SPINDLE_0](MAX_OUTPUT)\n')
-			halContents.append(f'setp pid.{s}.error-previous-target true\n')
 
 			halContents.append('# Encoder Setup\n')
 			halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.00.counter-mode 0\n')
@@ -383,8 +398,6 @@ def build(parent):
 
 			halContents.append(f'\nnet spindle-enable => pid.{s}.enable\n')
 
-			# for encoder feedback spindle at speed should use encoder speed
-			halContents.append('sets spindle-at-speed true\n')
 	'''
 
 
@@ -423,12 +436,6 @@ def build(parent):
 		else:
 			halContents.append('loadrt classicladder_rt\n')
 		halContents.append('addf classicladder.0.refresh servo-thread 1\n')
-
-	# testing
-	#parent.mainTW.setCurrentIndex(10)
-	#parent.info_pte.appendPlainText('Build HAL Function')
-	#for line in halContents:
-	#	parent.info_pte.appendPlainText(line.strip())
 
 	try:
 		with open(halFilePath, 'w') as halFile:

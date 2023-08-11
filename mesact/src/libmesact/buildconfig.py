@@ -59,6 +59,7 @@ def build(parent):
 	buildio.build(parent)
 	buildmisc.build(parent)
 	buildss.build(parent)
+	parent.mainTW.setCurrentIndex(11)
 
 
 
