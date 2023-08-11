@@ -42277,7 +42277,7 @@ auto enp2s0
      <string>Help</string>
     </property>
     <addaction name="actionDocuments"/>
-    <addaction name="actionCheck_for_Updates"/>
+    <addaction name="actionCheckUpdates"/>
     <addaction name="actionAboutMesaCT"/>
    </widget>
    <addaction name="menuFile"/>
@@ -42350,7 +42350,7 @@ auto enp2s0
     <string>Deutsch</string>
    </property>
   </action>
-  <action name="actionCheck_for_Updates">
+  <action name="actionCheckUpdates">
    <property name="text">
     <string>Check for Updates</string>
    </property>

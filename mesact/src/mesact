@@ -45,6 +45,8 @@ from libmesact import pcinfo
 from libmesact import settings
 from libmesact import spindle
 from libmesact import shutdown
+from libmesact import updates
+
 # testing imports
 from libmesact import testing
 from libmesact import buildhal
@@ -103,12 +105,12 @@ class MainWindow(QMainWindow):
 		self.actionCheck.triggered.connect(partial(check.checkit, self))
 		self.actionBuild.triggered.connect(partial(buildconfig.build, self))
 		#self.actionTabHelp.triggered.connect(partial(self.help, 0))
-		#self.actionCheckUpdates.triggered.connect(partial(updates.checkUpdates, self))
 		self.actionMesaCT_PC_64_bit.triggered.connect(partial(downloads.downloadAmd64Deb, self))
 		self.actionMesaCT_Rpi_32_bit.triggered.connect(partial(downloads.downloadArmhDeb, self))
 		self.actionMesaCT_Rpi_64_bit.triggered.connect(partial(downloads.downloadArm64Deb, self))
 		self.actionFirmware.triggered.connect(partial(downloads.downloadFirmware, self))
 		self.actionDocuments.triggered.connect(partial(documents.openDoc, self))
+		self.actionCheckUpdates.triggered.connect(partial(updates.checkUpdates, self))
 		self.actionAboutMesaCT.triggered.connect(partial(dialogs.aboutDialog, self))
 		#self.actionBoardImages.triggered.connect(partial(updates.boardImages, self))
 		self.timer.timeout.connect(partial(downloads.clearProgressBar, self))

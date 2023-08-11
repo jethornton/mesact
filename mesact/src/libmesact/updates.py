@@ -29,10 +29,11 @@ def downloadFirmware(parent):
 def checkUpdates(parent):
 	response = requests.get(f"https://api.github.com/repos/jethornton/mesact/releases/latest")
 	repoVersion = response.json()["name"]
+	parent.mainTW.setCurrentIndex(11)
 	if version.parse(repoVersion) > version.parse(parent.version):
-		parent.machinePTE.appendPlainText(f'A newer version {repoVersion} is available for download')
+		parent.info_pte.appendPlainText(f'A newer version {repoVersion} is available for download')
 	elif version.parse(repoVersion) == version.parse(parent.version):
-		parent.machinePTE.appendPlainText(f'The Repo version {repoVersion} is the same as this version')
+		parent.info_pte.appendPlainText(f'The Repo version {repoVersion} is the same as this version')
 
 def downloadAmd64Deb(parent):
 	directory = str(QFileDialog.getExistingDirectory(parent, "Select Directory"))
