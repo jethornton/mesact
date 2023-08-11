@@ -1,3 +1,9 @@
+mesact (2.0.1) unstable; urgency=medium
+
+  * Add spindle section for 7i96s
+
+ -- John Thornton <dev@gnipsel.com>  Fri, 11 Aug 2023 13:39:20 -0500
+
 mesact (2.0.0) unstable; urgency=medium
 
   * Total rework of GUI and code
