@@ -89,11 +89,13 @@ class loadini:
 					if ini_version < tool_version:
 						msg = (f'The ini file version is {value.strip()}\n'
 							f'The Configuration Tool version is {parent.version}\n'
+							'The ini file will be saved to a zip file then deleted\n'
 							'Save a Backup and try and open the ini?')
 						if dialogs.errorMsg(parent, msg, 'Version Difference'):
 							path, filename = os.path.split(iniFile)
 							utilities.backupFiles(parent, path)
-							utilities.cleanDir(parent, path)
+							#utilities.cleanDir(parent, path)
+							utilities.file_delete(parent, iniFile)
 						else:
 							return
 

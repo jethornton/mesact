@@ -99,6 +99,10 @@ def cleanDir(parent, configPath):
 			if entry.is_file():
 				os.remove(os.path.join(configPath, entry.name)) 
 
+def file_delete(parent, file_path):
+	if os.path.isfile(file_path):
+		os.remove(file_path)
+
 def axisDisplayChanged(parent, radioButton):
 	for button in parent.axisButtonGroup.buttons():
 		if button is not radioButton:
