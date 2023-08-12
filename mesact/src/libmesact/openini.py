@@ -52,7 +52,7 @@ class loadini:
 					else:
 						return
 				elif 'Mesa' not in line:
-					msg = (f'The ini file was is not created\n'
+					msg = (f'The ini file was not created\n'
 						'with the Mesa Configuration Tool!\n'
 						'The files will be saved to a zip file then\n'
 						'the all the files in the directory will be DELETED\n'
