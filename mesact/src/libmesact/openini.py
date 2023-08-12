@@ -192,12 +192,6 @@ class loadini:
 				if i <= 5:
 					getattr(parent, f'mdiCmdLE_{i}').setText(item)
 
-				iniContents.append(f'AXIS = {getattr(parent, f"c{i}_axis_{j}").currentData()}\n')
-				iniContents.append(f'MIN_LIMIT = {getattr(parent, f"c{i}_min_limit_{j}").text()}\n')
-				iniContents.append(f'MAX_LIMIT = {getattr(parent, f"c{i}_max_limit_{j}").text()}\n')
-				iniContents.append(f'MAX_VELOCITY = {getattr(parent, f"c{i}_max_vel_{j}").text()}\n')
-				iniContents.append(f'MAX_ACCELERATION = {getattr(parent, f"c{i}_max_accel_{j}").text()}\n')
-
 		for section in self.sections.items():
 			if section[0].startswith('[JOINT'):
 				joint = section[0][-2]
