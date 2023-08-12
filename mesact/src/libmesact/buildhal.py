@@ -58,9 +58,6 @@ def build(parent):
 	else:
 		halContents.append('sserial_port_0=00000000"\n')
 
-	if board == '7i96s':
-		halContents.append('setp hm2_[MESA](BOARD).0.pwmgen.pwm_frequency 20000\n')
-		halContents.append('setp hm2_[MESA](BOARD).0.pwmgen.pdm_frequency 6000000\n')
 	halContents.append(f'\nsetp hm2_[MESA](BOARD).0.watchdog.timeout_ns {parent.servoPeriodSB.value() * 5}\n')
 
 	# loadrt pids
