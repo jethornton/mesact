@@ -317,7 +317,7 @@ def build(parent):
 	'''
 
 	if parent.spindleTypeCB.currentData() == 'pwm':
-		halContents.append('# Spindle PID Setup\n')
+		halContents.append('\n# Spindle PID Setup\n')
 		halContents.append(f'setp pid.s.Pgain [SPINDLE_0](P)\n')
 		halContents.append(f'setp pid.s.Igain [SPINDLE_0](I)\n')
 		halContents.append(f'setp pid.s.Dgain [SPINDLE_0](D)\n')
