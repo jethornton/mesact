@@ -155,7 +155,7 @@ def build(parent):
 	# build the [HALUI] section
 	if parent.haluiCB.isChecked():
 		iniContents.append('\n[HALUI]\n')
-		for i in range(6):
+		for i in range(10):
 			if getattr(parent, f"mdiCmdLE_{i}").text():
 				iniContents.append(f'MDI_COMMAND = {getattr(parent, f"mdiCmdLE_{i}").text()}\n')
 

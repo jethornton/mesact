@@ -341,7 +341,7 @@ class updateini:
 					if self.content[i].startswith('MDI_COMMAND'):
 						ini_mdi.append(self.content[i].split('=')[1].strip())
 				tool_mdi = []
-				for i in range(6):
+				for i in range(10):
 					mdi_text = f'{getattr(parent, f"mdiCmdLE_{i}").text()}'
 					if mdi_text:
 						tool_mdi.append(f'{getattr(parent, f"mdiCmdLE_{i}").text()}')
