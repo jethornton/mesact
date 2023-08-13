@@ -9,7 +9,7 @@ def build(parent):
 	contents = []
 	contents = ['# This file was created with the Mesa Configuration Tool on ']
 	contents.append(datetime.now().strftime('%b %d %Y %H:%M:%S') + '\n')
-	contents.append('# If you make changes to this file DO NOT use the Configuration Tool\n\n')
+	contents.append('# If you make changes to this file DO NOT use the Configuration Tool\n')
 
 	input_dict = {
 		'Joint 0 Home':'net joint-0-home joint.0.home-sw-in <=',
@@ -218,6 +218,7 @@ def build(parent):
 	p2b = parent.daughterCB_1.currentData()
 
 	# build main board inputs if a combo card
+	contents.append('\n# Inputs\n')
 	if mb in combo_boards:
 		for i in range(32):
 			key = getattr(parent, f'c0_input_{i}').text()
@@ -229,15 +230,15 @@ def build(parent):
 
 			if input_dict.get(key, False): # return False if key is not in dictionary
 				if mb == '7i76e':
-					hm2 =  f'hm2_7i76e.0.7i76.0.0.input-{i:02}{invert}\n'
+					hm2 =  f'hm2_7i76e.0.7i76.0.0.input-{i:02}{invert}'
 				if mb == '7i95':
-					hm2 =  f'hm2_7i95.0.inmux.00.input-{i:02}{invert}\n'
+					hm2 =  f'hm2_7i95.0.inmux.00.input-{i:02}{invert}'
 				if mb == '7i96':
-					hm2 =  f'hm2_7i96.0.gpio.{i:03}.in{invert}\n'
+					hm2 =  f'hm2_7i96.0.gpio.{i:03}.in{invert}'
 				if mb == '7i96s':
-					hm2 = f'hm2_7i96s.0.inm.00.input-{i:02}{invert}\n'
+					hm2 = f'hm2_7i96s.0.inm.00.input-{i:02}{invert}'
 				if mb == '7i97':
-					hm2 =  f'hm2_7i97.0.inmux.00.input-{i:02}{invert}\n'
+					hm2 =  f'hm2_7i97.0.inmux.00.input-{i:02}{invert}'
 
 				contents.append(f'{input_dict[key]} {hm2}\n')
 
@@ -375,6 +376,7 @@ def build(parent):
 	}
 
 	# build outputs
+	contents.append('\n# Outputs\n')
 	if mb in combo_boards: # build mother board outputs
 		for i in range(16):
 			key = getattr(parent, f'c0_output_{i}').text()
