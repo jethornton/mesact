@@ -31436,63 +31436,90 @@ Leave blank to home the joint manually.</string>
                <item row="0" column="1">
                 <widget class="QDoubleSpinBox" name="p_s">
                  <property name="decimals">
-                  <number>1</number>
+                  <number>2</number>
+                 </property>
+                 <property name="maximum">
+                  <double>1000.000000000000000</double>
                  </property>
                 </widget>
                </item>
                <item row="3" column="1">
                 <widget class="QDoubleSpinBox" name="i_s">
                  <property name="decimals">
-                  <number>1</number>
+                  <number>2</number>
+                 </property>
+                 <property name="maximum">
+                  <double>1000.000000000000000</double>
                  </property>
                 </widget>
                </item>
                <item row="5" column="1">
                 <widget class="QDoubleSpinBox" name="d_s">
                  <property name="decimals">
-                  <number>1</number>
+                  <number>2</number>
+                 </property>
+                 <property name="maximum">
+                  <double>1000.000000000000000</double>
                  </property>
                 </widget>
                </item>
                <item row="7" column="1">
                 <widget class="QDoubleSpinBox" name="ff0_s">
                  <property name="decimals">
-                  <number>1</number>
+                  <number>2</number>
+                 </property>
+                 <property name="maximum">
+                  <double>1000.000000000000000</double>
                  </property>
                 </widget>
                </item>
                <item row="9" column="1">
                 <widget class="QDoubleSpinBox" name="ff1_s">
                  <property name="decimals">
-                  <number>1</number>
+                  <number>2</number>
+                 </property>
+                 <property name="maximum">
+                  <double>1000.000000000000000</double>
                  </property>
                 </widget>
                </item>
                <item row="11" column="1">
                 <widget class="QDoubleSpinBox" name="ff2_s">
                  <property name="decimals">
-                  <number>1</number>
+                  <number>2</number>
+                 </property>
+                 <property name="maximum">
+                  <double>1000.000000000000000</double>
                  </property>
                 </widget>
                </item>
                <item row="0" column="3">
                 <widget class="QDoubleSpinBox" name="deadband_s">
                  <property name="decimals">
-                  <number>1</number>
+                  <number>2</number>
+                 </property>
+                 <property name="maximum">
+                  <double>1000.000000000000000</double>
                  </property>
                 </widget>
                </item>
                <item row="3" column="3">
                 <widget class="QDoubleSpinBox" name="bias_s">
                  <property name="decimals">
-                  <number>1</number>
+                  <number>2</number>
+                 </property>
+                 <property name="maximum">
+                  <double>1000.000000000000000</double>
                  </property>
                 </widget>
                </item>
                <item row="7" column="3">
                 <widget class="QDoubleSpinBox" name="maxError_s">
                  <property name="decimals">
-                  <number>1</number>
+                  <number>2</number>
+                 </property>
+                 <property name="maximum">
+                  <double>1000.000000000000000</double>
                  </property>
                 </widget>
                </item>
