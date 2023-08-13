@@ -174,6 +174,9 @@ def checkit(parent):
 	if len(mdi) != max(mdi) + 1:
 		tabError = True
 		configErrors.append(f'\tMDI commands must start at 0 and not skip any')
+	if len(mdi) > 0 and not parent.haluiCB.isChecked():
+		tabError = True
+		configErrors.append(f'\tMDI commands require Hal User Interface to be checked')
 
 	if tabError:
 		configErrors.insert(nextHeader, 'Options Tab:')
