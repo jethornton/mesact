@@ -228,19 +228,46 @@ def build(parent):
 				invert = '-not' if getattr(parent, f'c0_input_invert_{i}').isChecked() else ''
 			slow = '-slow' if getattr(parent, f'c0_input_debounce_{i}').isChecked() else ''
 
-			if input_dict.get(key, False): # return False if key is not in dictionary
-				if mb == '7i76e':
-					hm2 =  f'hm2_7i76e.0.7i76.0.0.input-{i:02}{invert}'
-				if mb == '7i95':
-					hm2 =  f'hm2_7i95.0.inmux.00.input-{i:02}{invert}'
-				if mb == '7i96':
-					hm2 =  f'hm2_7i96.0.gpio.{i:03}.in{invert}'
-				if mb == '7i96s':
-					hm2 = f'hm2_7i96s.0.inm.00.input-{i:02}{invert}'
-				if mb == '7i97':
-					hm2 =  f'hm2_7i97.0.inmux.00.input-{i:02}{invert}'
+			if mb == '7i76e':
+				hm2 =  f'hm2_7i76e.0.7i76.0.0.input-{i:02}{invert}'
+			if mb == '7i95':
+				hm2 =  f'hm2_7i95.0.inmux.00.input-{i:02}{invert}'
+			if mb == '7i96':
+				hm2 =  f'hm2_7i96.0.gpio.{i:03}.in{invert}'
+			if mb == '7i96s':
+				hm2 = f'hm2_7i96s.0.inm.00.input-{i:02}{invert}'
+			if mb == '7i97':
+				hm2 =  f'hm2_7i97.0.inmux.00.input-{i:02}{invert}'
 
+			if input_dict.get(key, False): # return False if key is not in dictionary
 				contents.append(f'{input_dict[key]} {hm2}\n')
+			else: # handle special cases
+				if key == 'Home All':
+					contents.append('\n# Home All Joints\n')
+					contents.append('net home-all ' + f'{hm2}\n')
+					for i in range(6):
+						if getattr(parent, 'axisCB_' + str(i)).currentData():
+							contents.append('net home-all ' + f'joint.{i}.home-sw-in\n')
+				elif key[0:6] == 'E Stop':
+					eStops.append(hm2)
+					print(hm2)
+
+	#Build E-Stop Chain
+	if len(eStops) > 0:
+		contents.append('# E-Stop Chain\n')
+		contents.append(f'loadrt estop_latch count={len(eStops)}\n')
+		for i in range(len(eStops)):
+			contents.append(f'addf estop-latch.{i} servo-thread\n')
+		contents.append('\n# E-Stop Loop\n')
+		contents.append('net estop-loopin iocontrol.0.user-enable-out => estop-latch.0.ok-in\n')
+		for i in range(len(eStops) - 1):
+			contents.append(f'net estop-{i}-out estop-latch.{i}.ok-out => estop-latch.{i+1}.ok-in\n')
+		contents.append(f'net estop-loopout estop-latch.{len(eStops)-1}.ok-out => iocontrol.0.emc-enable-in\n')
+		contents.append('\n# E-Stop Reset\n')
+		contents.append(f'net estop-reset iocontrol.0.user-request-enable\n')
+		for i in range(len(eStops)):
+			contents.append(f'net estop-reset => estop-latch.{i}.reset\n')
+			contents.append(f'net remote-estop{i} estop-latch.{i}.fault-in <= {eStops[i]}\n')
 
 	if p2b: # daughter card on P2
 		for i in range(32):
@@ -323,33 +350,6 @@ def build(parent):
 					if card in daughterBoards: # use input-00-not and output-00
 						hm2 =  f'hm2_{parent.board}.0.{card}.0.0.input-{i:02}{invert}\n'
 
-			else: # handle special cases
-				if key == 'Home All':
-					contents.append('\n# Home All Joints\n')
-					contents.append('net home-all ' + f'{hm2}\n')
-					for i in range(6):
-						if getattr(parent, 'axisCB_' + str(i)).currentData():
-							contents.append('net home-all ' + f'joint.{i}.home-sw-in\n')
-				elif key[0:6] == 'E Stop':
-					eStops.append(hm2)
-
-
-	#Build E-Stop Chain
-	if len(eStops) > 0:
-		contents.append('# E-Stop Chain\n')
-		contents.append(f'loadrt estop_latch count={len(eStops)}\n')
-		for i in range(len(eStops)):
-			contents.append(f'addf estop-latch.{i} servo-thread\n')
-		contents.append('\n# E-Stop Loop\n')
-		contents.append('net estop-loopin iocontrol.0.user-enable-out => estop-latch.0.ok-in\n')
-		for i in range(len(eStops) - 1):
-			contents.append(f'net estop-{i}-out estop-latch.{i}.ok-out => estop-latch.{i+1}.ok-in\n')
-		contents.append(f'net estop-loopout estop-latch.{len(eStops)-1}.ok-out => iocontrol.0.emc-enable-in\n')
-		contents.append('\n# E-Stop Reset\n')
-		contents.append(f'net estop-reset iocontrol.0.user-request-enable\n')
-		for i in range(len(eStops)):
-			contents.append(f'net estop-reset => estop-latch.{i}.reset\n')
-			contents.append(f'net remote-estop{i} estop-latch.{i}.fault-in <= {eStops[i]}')
 	'''
 
 	output_dict = {
