@@ -329,7 +329,7 @@ def build(parent):
 		halContents.append(f'setp pid.s.maxoutput [SPINDLE_0](MAX_OUTPUT)\n')
 		halContents.append(f'setp pid.s.error-previous-target true\n')
 
-		halContents.append('# Spindle PWM Setup\n')
+		halContents.append('\n# Spindle PWM Setup\n')
 		halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.0{i}.output-type [SPINDLE_0](PWM_TYPE)\n')
 		halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.pwm_frequency [SPINDLE_0](PWM_FREQUENCY)\n')
 		halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.0{i}.scale [SPINDLE_0]SCALE\n')
@@ -346,6 +346,7 @@ def build(parent):
 		halContents.append('net spindle-pid-out => hm2_[MESA](BOARD).0.pwmgen.00.value\n')
 
 		# for encoder feedback spindle at speed should use encoder speed
+		halContents.append('\n# Spindle Feedback\n')
 		halContents.append('setp spindle.0.at-speed true\n')
 
 	'''
