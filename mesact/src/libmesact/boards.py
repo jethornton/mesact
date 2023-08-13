@@ -280,12 +280,6 @@ def boardChanged(parent):
 				getattr(parent, f'c0_settings_{i}').setTabVisible(4, False)
 			parent.pwmFrequencySB.setValue(15000)
 			parent.spindleFeedbackCB.clear()
-			encoder = [
-				['Select', False],
-				['Encoder', 'encoder'],
-				]
-			for item in encoder:
-				parent.spindleFeedbackCB.addItem(item[0], item[1])
 
 		elif board == '7i97': # ETH 6 Axis Analog
 			parent.boardType = 'eth'

@@ -166,6 +166,13 @@ def build(parent):
 	for item in spindle:
 		parent.spindleTypeCB.addItem(item[0], item[1])
 
+	encoder = [
+		['Select', False],
+		['Encoder', 'encoder'],
+		]
+
+	for item in encoder:
+		parent.spindleFeedbackCB.addItem(item[0], item[1])
 
 	# SS Card Tab
 	ssCards = [
