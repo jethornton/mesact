@@ -166,6 +166,19 @@ def checkit(parent):
 	# end of SS Cards Tab
 
 	# check the Options Tab for errors
+	mdi = []
+	for i in range(9):
+		cmd = getattr(parent, f'mdiCmdLE_{i}').text()
+		if len(cmd) > 0:
+			mdi.append(i)
+	if len(mdi) != max(mdi) + 1:
+		tabError = True
+		configErrors.append(f'\tMDI commands must start at 0 and not skip any')
+
+	if tabError:
+		configErrors.insert(nextHeader, 'Options Tab:')
+		nextHeader = len(configErrors)
+		tabError = False
 	# end of Options Tab
 
 	# check the PLC Tab for errors
