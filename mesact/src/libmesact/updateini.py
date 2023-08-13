@@ -233,7 +233,7 @@ class updateini:
 			self.update_key(item[0], item[1], item[2])
 
 		rs274ngc = [
-		['RS274NGC', 'PARAMETER_FILE', f'{parent.configNameUnderscored}.var'],
+		['RS274NGC', 'PARAMETER_FILE', 'parameters.var'],
 		['RS274NGC', 'SUBROUTINE_PATH', f'{os.path.expanduser("~/linuxcnc/subroutines")}']
 		]
 

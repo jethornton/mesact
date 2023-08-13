@@ -111,7 +111,7 @@ def build(parent):
 
 	# build the [RS274NGC] section
 	iniContents.append('\n[RS274NGC]\n')
-	iniContents.append(f'PARAMETER_FILE = {parent.configNameUnderscored}.var\n')
+	iniContents.append(f'PARAMETER_FILE = parameters.var\n')
 	if parent.subroutineCB.isChecked():
 		iniContents.append(f'SUBROUTINE_PATH = {os.path.expanduser("~/linuxcnc/subroutines")}\n')
 
