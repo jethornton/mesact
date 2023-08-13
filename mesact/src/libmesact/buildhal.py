@@ -94,6 +94,14 @@ def build(parent):
 		if encoders > 0:
 			halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.timer-number 1\n')
 
+	# add special hal functions
+	if parent.spindleMinRpm.value() > 0: # use limit1
+		halContents.append('\n# Setup Spindle Limits\n')
+		halContents.append('loadrt limit1 names=spindle-limit\n')
+		halContents.append('addf spindle-limit servo-thread\n')
+		halContents.append(f'setp spindle-limit.min [SPINDLE_0](MIN_RPM)\n')
+		halContents.append(f'setp spindle-limit.max [SPINDLE_0](MAX_RPM)\n')
+
 	# figure out which card each joint is on...
 	joint_list = []
 	for i in range(3):
@@ -339,9 +347,15 @@ def build(parent):
 		halContents.append('net spindle-on => pid.s.enable\n')
 		halContents.append(f'net spindle-on => hm2_[MESA](BOARD).0.pwmgen.0{i}.enable\n')
 
+
 		halContents.append('\n# Spindle Connections\n')
 		halContents.append('net spindle-vel-cmd <= spindle.0.speed-out-abs\n')
-		halContents.append('net spindle-vel-cmd => pid.s.command\n')
+		if parent.spindleMinRpm.value() > 0: # use limit1
+			halContents.append('net spindle-vel-cmd => spindle-limit.in\n')
+			halContents.append('net spindle-limit-cmd <= spindle-limit.out\n')
+			halContents.append('net spindle-limit-cmd => pid.s.command\n')
+		else:
+			halContents.append('net spindle-vel-cmd => pid.s.command\n')
 		halContents.append('net spindle-pid-out <= pid.s.output\n')
 		halContents.append('net spindle-pid-out => hm2_[MESA](BOARD).0.pwmgen.00.value\n')
 
