@@ -171,12 +171,13 @@ def checkit(parent):
 		cmd = getattr(parent, f'mdiCmdLE_{i}').text()
 		if len(cmd) > 0:
 			mdi.append(i)
-	if len(mdi) != max(mdi) + 1:
-		tabError = True
-		configErrors.append(f'\tMDI commands must start at 0 and not skip any')
-	if len(mdi) > 0 and not parent.haluiCB.isChecked():
-		tabError = True
-		configErrors.append(f'\tMDI commands require Hal User Interface to be checked')
+	if len(mdi) > 0:
+		if len(mdi) != max(mdi) + 1:
+			tabError = True
+			configErrors.append(f'\tMDI commands must start at 0 and not skip any')
+		if not parent.haluiCB.isChecked():
+			tabError = True
+			configErrors.append(f'\tMDI commands require Hal User Interface to be checked')
 
 	if tabError:
 		configErrors.insert(nextHeader, 'Options Tab:')
