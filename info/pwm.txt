@@ -1,4 +1,16 @@
 
+With bipolar supplies if you want 0 output, the PWM must be 50% of full scale.
+This is done by setting the PWM offset mode true:
+
+set hm2_7i96s.0.pwmgen.00.offset-mode true
+
+Note that you must use an additional output to control spindle enable
+because the analog out will start up at full negative speed when linuxCNC
+is not running 
+
+You have the PWM frequency set to 20 KHz in your hal file:
+setp hm2_5i24.0.pwmgen.pwm_frequency 20000 
+
 <JT-Cave> pcw--home, what does hm2_7i96s.0.pwmgen.pdm_frequency do?
 <Tom_L> XXCoder, not machining but thought you might like: https://www.youtube.com/watch?v=hwRuEHtA9NE
 <travis_farmer> cool, just fired up my own IRC server, just for something to do ;-)
