@@ -250,7 +250,6 @@ def build(parent):
 							contents.append('net home-all ' + f'joint.{i}.home-sw-in\n')
 				elif key[0:6] == 'E Stop':
 					eStops.append(hm2)
-					print(hm2)
 
 	#Build E-Stop Chain
 	if len(eStops) > 0:
