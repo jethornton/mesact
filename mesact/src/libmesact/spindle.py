@@ -20,21 +20,7 @@ def spindle_pid_default(parent):
 def spindle_type_changed(parent):
 	if parent.sender().currentData():
 		spindle_type = parent.sender().currentData()
-		if spindle_type == 'on_off':
-			parent.pwmFrequencySB.setEnabled(False)
-			parent.spindleMinRpm.setEnabled(True)
-			parent.spindleMaxRpm.setEnabled(True)
-			parent.spindle_feedback_gb.setEnabled(False)
-			parent.spindle_pid_gb.setEnabled(False)
-			parent.spindle_stepgen_gb.setEnabled(False)
-		elif spindle_type == 'fwd_rev':
-			parent.pwmFrequencySB.setEnabled(False)
-			parent.spindleMinRpm.setEnabled(True)
-			parent.spindleMaxRpm.setEnabled(True)
-			parent.spindle_feedback_gb.setEnabled(False)
-			parent.spindle_pid_gb.setEnabled(False)
-			parent.spindle_stepgen_gb.setEnabled(False)
-		elif spindle_type == 'pwm':
+		if spindle_type == 'pwm':
 			parent.pwmFrequencySB.setEnabled(True)
 			parent.spindleMinRpm.setEnabled(True)
 			parent.spindleMaxRpm.setEnabled(True)
@@ -45,8 +31,8 @@ def spindle_type_changed(parent):
 			parent.pwmFrequencySB.setEnabled(False)
 			parent.spindleMinRpm.setEnabled(True)
 			parent.spindleMaxRpm.setEnabled(True)
-			parent.spindle_feedback_gb.setEnabled(False)
-			parent.spindle_pid_gb.setEnabled(False)
+			parent.spindle_feedback_gb.setEnabled(True)
+			parent.spindle_pid_gb.setEnabled(True)
 			parent.spindle_stepgen_gb.setEnabled(True)
 	else: # disable everything
 		parent.pwmFrequencySB.setEnabled(False)

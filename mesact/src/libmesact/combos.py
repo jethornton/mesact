@@ -159,8 +159,6 @@ def build(parent):
 	# Spindle Tab
 	spindle = [
 	['Select', False],
-	['On/Off', 'on_off'],
-	['Fwd/Rev', 'fwd_rev'],
 	['PWM', 'pwm'],
 	['Stepgen', 'stepgen'],
 	]
