@@ -189,8 +189,7 @@ class loadini:
 					item = item[1].strip()
 					mdicmd.append(item)
 			for i, item in enumerate(mdicmd):
-				if i <= 5:
-					getattr(parent, f'mdiCmdLE_{i}').setText(item)
+				getattr(parent, f'mdiCmdLE_{i}').setText(item)
 
 		for section in self.sections.items():
 			if section[0].startswith('[JOINT'):
