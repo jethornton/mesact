@@ -255,10 +255,8 @@ def build(parent):
 			iniContents.append(f'DEADBAND = {parent.deadband_s.value():.1f}\n')
 			iniContents.append(f'MAX_ERROR = {parent.maxError_s.value():.1f}\n')
 			iniContents.append(f'MAX_OUTPUT = {parent.maxOutput_s.value()}\n')
-
-		if parent.spindleTypeCB.currentData() == 'analog': ###### FIXME
-			iniContents.append(f'SPINDLE_MAX_RPM = {parent.spindleMaxRpm.value()}\n')
-			iniContents.append(f'SPINDLE_MIN_RPM = {parent.spindleMinRpm.value()}\n')
+			iniContents.append(f'MIN_RPM = {parent.spindleMinRpm.value()}\n')
+			iniContents.append(f'MAX_RPM = {parent.spindleMaxRpm.value()}\n')
 
 		if parent.spindleFeedbackCB.currentData() == 'encoder':
 			iniContents.append(f'FEEDBACK = {parent.spindleFeedbackCB.currentData()}\n')

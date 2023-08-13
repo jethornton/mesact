@@ -532,7 +532,7 @@ class updateini:
 				self.content.insert(index, '\n')
 				self.get_sections() # update section start/end
 
-			self.update_key(f'SPINDLE_0', 'SPINDLE_TYPE', parent.spindleTypeCB.currentData())
+			self.update_key(f'SPINDLE_0', 'TYPE', parent.spindleTypeCB.currentData())
 			#self.update_key(f'SPINDLE_0', 'SPINDLE_PWM_TYPE', parent.spindleTypeCB.currentData())
 			self.update_key(f'SPINDLE_0', 'SPINDLE_PWM_FREQUENCY', parent.pwmFrequencySB.value())
 			self.update_key(f'SPINDLE_0', 'P', parent.p_s.value())
@@ -546,18 +546,10 @@ class updateini:
 			self.update_key(f'SPINDLE_0', 'MAX_ERROR', parent.maxError_s.value())
 			self.update_key(f'SPINDLE_0', 'MAX_OUTPUT', parent.maxOutput_s.value())
 			self.update_key(f'SPINDLE_0', 'OUTPUT_TYPE', parent.maxOutput_s.value())
+			self.update_key(f'SPINDLE_0', 'MIN_RPM', parent.spindleMinRpm.value())
+			self.update_key(f'SPINDLE_0', 'MAX_RPM', parent.spindleMaxRpm.value())
 
 		'''
-
-		iniContents.append(f'SPINDLE_TYPE = {parent.spindleTypeCB.currentData()}\n')
-		if parent.spindleTypeCB.currentData() == 'pwm':
-			iniContents.append(f'SPINDLE_PWM_TYPE = 1\n')
-			iniContents.append(f'SPINDLE_PWM_FREQUENCY = {parent.pwmFrequencySB.value()}\n')
-			iniContents.append(f'SPINDLE_SCALE = {parent.spindleMaxRpm.value()}\n')
-		if parent.spindleTypeCB.currentData() == 'analog': ###### FIXME 
-			iniContents.append(f'SPINDLE_MAX_RPM = {parent.spindleMaxRpm.value()}\n')
-			iniContents.append(f'SPINDLE_MIN_RPM = {parent.spindleMinRpm.value()}\n')
-
 
 		To set up really basic operation (ignoring the ini file values and the PID), at the minimum,
 		you need to setup and connect PWMGen 00:

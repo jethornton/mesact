@@ -249,7 +249,7 @@ class loadini:
 					self.update(parent, item[0], item[1], item[2])
 
 		spindle = [
-		['[SPINDLE_0]', 'SPINDLE_TYPE', 'spindleTypeCB'],
+		['[SPINDLE_0]', 'TYPE', 'spindleTypeCB'],
 		['[SPINDLE_0]', 'ENCODER_SCALE', 'spindleEncoderScale'],
 		['[SPINDLE_0]', 'SCALE', 'spindleStepScale'],
 		['[SPINDLE_0]', 'PWM_FREQUENCY', 'pwmFrequencySB'],
