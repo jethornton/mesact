@@ -82,8 +82,8 @@ def build(parent):
 		parent.info_pte.appendPlainText(f'OS error\n {traceback.print_exc()}')
 
 	# create the var file if not there
-	varFilePath = os.path.join(parent.configPath, 'parameters' + '.var')
-	try: #
+	varFilePath = os.path.join(parent.configPath, 'parameters.var')
+	try:
 		open(varFilePath, 'x')
 	except FileExistsError:
 		pass
