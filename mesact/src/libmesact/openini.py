@@ -171,6 +171,8 @@ class loadini:
 						getattr(parent, f'filterExtLE_{i}').setText(item)
 					break
 
+		self.update(parent, '[EMCMOT]', 'SERVO_PERIOD', 'servoPeriodSB')
+
 		traj = [
 		['[TRAJ]', 'LINEAR_UNITS', 'linearUnitsCB'],
 		['[TRAJ]', 'MAX_LINEAR_VELOCITY', 'trajMaxLinVelDSB'],
