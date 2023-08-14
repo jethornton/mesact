@@ -39,6 +39,8 @@ def boardChanged(parent):
 				getattr(parent, f'c{i}_settings_{j}').setTabVisible(2, True)
 				getattr(parent, f'c{i}_settings_{j}').setTabVisible(3, True)
 				getattr(parent, f'c{i}_settings_{j}').setTabVisible(4, True)
+		for i in range(1, 7):
+			parent.spindleTypeCB.model().item(i).setEnabled(False)
 
 		if board == '5i24': # PCI IDC50
 			parent.boardType = 'pci'
@@ -280,6 +282,9 @@ def boardChanged(parent):
 				getattr(parent, f'c0_settings_{i}').setTabVisible(4, False)
 			parent.pwmFrequencySB.setValue(15000)
 			parent.spindleFeedbackCB.clear()
+			parent.spindleTypeCB.model().item(1).setEnabled(True)
+			for i in range(2, 7):
+				parent.spindleTypeCB.model().item(i).setEnabled(False)
 
 		elif board == '7i97': # ETH 6 Axis Analog
 			parent.boardType = 'eth'

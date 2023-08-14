@@ -160,6 +160,10 @@ def build(parent):
 	spindle = [
 	['Select', False],
 	['PWM', 'pwm'],
+	['PWM/DIR', 'pwm_dir'],
+	['UP/DOWN', 'up_down'],
+	['PDM/DIR', 'pdm_dir'],
+	['DIR/PWM', 'dir_pwm'],
 	['Stepgen', 'stepgen'],
 	]
 

@@ -189,6 +189,7 @@ class MainWindow(QMainWindow):
 				getattr(self, f'c{i}_input_debounce_{j}').stateChanged.connect(partial(utilities.inputChanged, self))
 
 		# Spindle Tab
+		self.output_type = '' # hostmot2 output-type
 		self.spindleTypeCB.currentIndexChanged.connect(partial(spindle.spindle_type_changed, self))
 		self.pidDefault_s.clicked.connect(partial(spindle.spindle_pid_default, self))
 		'''
