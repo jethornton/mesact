@@ -137,7 +137,7 @@ def inputChanged(parent): # test to see if not checked then enable both
 	state =  parent.sender().checkState()
 	debounce = ['7i96s', '7i97']
 	if state == 0: # only 7i96s and 7i97 have debounce
-		if parent.board in debounce:
+		if parent.boardCB.currentData() in debounce:
 			getattr(parent, f'{card}_input_debounce_{number}').setEnabled(True)
 		getattr(parent, f'{card}_input_invert_{number}').setEnabled(True)
 	if function == 'invert' and state == 2:
