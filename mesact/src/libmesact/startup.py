@@ -19,6 +19,11 @@ def setup(parent):
 	combos.build(parent)
 	menus.build(parent)
 
+	# set tab visibility
+	parent.mainTW.setTabVisible(3, False)
+	parent.mainTW.setTabVisible(4, False)
+	parent.mainTW.setTabVisible(5, False)
+
 	libpath = os.path.join(os.path.expanduser('~'), '.local/lib/libmesact/boards')
 	if not os.path.exists(libpath):
 		os.makedirs(libpath)
@@ -47,11 +52,6 @@ def setup(parent):
 	docsAction.setStatusTip('Download Mesa Documents')
 	docsAction.triggered.connect(partial(updates.downloadDocs, parent))
 	parent.menuDownloads.addAction(docsAction)
-
-	# set tab visibility
-	parent.mainTW.setTabVisible(3, False)
-	parent.mainTW.setTabVisible(4, False)
-	parent.mainTW.setTabVisible(5, False)
 
 	# Firmware tab
 
