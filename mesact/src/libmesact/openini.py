@@ -381,6 +381,10 @@ class loadini:
 		if self.iniUnknown: # delete the ini file
 			os.remove(self.iniFile)
 
+		parent.status_lb.setText('Opened')
+		parent.actionBuild.setText('Build Config')
+
+
 	def update(self, parent, section, key, obj):
 		booleanDict = {'true': True, 'yes': True, '1': True,
 			'false': False, 'no': False, '0': False,}
