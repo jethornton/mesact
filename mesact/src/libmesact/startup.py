@@ -4,7 +4,8 @@ from functools import partial
 
 from PyQt5.QtCore import qVersion
 from PyQt5.QtGui import  QIcon
-from PyQt5.QtWidgets import QAction
+from PyQt5.QtWidgets import QAction, QCheckBox, QLineEdit
+from PyQt5.QtWidgets import QComboBox, QSpinBox, QDoubleSpinBox, QCheckBox
 
 from libmesact import combos
 from libmesact import menus
@@ -87,4 +88,15 @@ def setup(parent):
 		parent.checkBoardPB.setEnabled(False)
 		parent.mesaflashVersionLB.setText('Not Installed')
 
+	# Change Events
+	for child in parent.findChildren(QLineEdit):
+		child.textChanged.connect(parent.changed)
+	for child in parent.findChildren(QComboBox):
+		child.currentIndexChanged.connect(parent.changed)
+	for child in parent.findChildren(QSpinBox):
+		child.valueChanged.connect(parent.changed)
+	for child in parent.findChildren(QDoubleSpinBox):
+		child.valueChanged.connect(parent.changed)
+	for child in parent.findChildren(QCheckBox):
+		child.stateChanged.connect(parent.changed)
 

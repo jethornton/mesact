@@ -20,7 +20,7 @@ from traceback import StackSummary
 from functools import partial
 
 from PyQt5.QtWidgets import QApplication, QMainWindow, QProgressBar
-from PyQt5.QtWidgets import QMessageBox, QCheckBox
+from PyQt5.QtWidgets import QMessageBox
 from PyQt5.QtCore import QTimer, QSettings, qVersion
 from PyQt5 import uic
 
@@ -235,6 +235,12 @@ class MainWindow(QMainWindow):
 		#self.load_config_cb.toggled.connect(partial(settings.update_settings, self))
 		#self.checkMesaflashCB.clicked.connect(partial(settings.update_value, self))
 		#self.newUserCB.clicked.connect(partial(settings.update_value, self))
+
+	def changed(self):
+		#if isinstance(self.sender(), QComboBox):
+		#	if self.sender().currentData():
+		self.status_lb.setText('Changed')
+		self.actionBuild.setText('Build Config *')
 
 	def resizeEvent(self, event):
 		width = self.geometry().width()
