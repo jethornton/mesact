@@ -187,7 +187,8 @@ def boardChanged(parent):
 			info = ('Connector 5v Power\n'
 			'W3 Up for P1\n'
 			'W4 Up for P2\n'
-			'\nIP Address\nW5 Down W6 Up for 10.10.10.10'
+			'\nIP Address\nW5 Down W6 Up for 10.10.10.10\n'
+			'Default firmware 7i92t_g540d.bin'
 			)
 			parent.board_info_pte.setPlainText(info)
 			for i in range(1, tabs + 1):
@@ -264,6 +265,12 @@ def boardChanged(parent):
 			parent.ipAddressCB.setEnabled(True)
 			parent.daughterLB_0.setText('P1')
 			parent.mainTW.setTabText(4, 'P1')
+			info = ('Connector 5v Power\n'
+			'W6 Up for P1\n'
+			'\nIP Address\nW4 Down W5 Up for 10.10.10.10\n'
+			'\nDefault Firmware 7i96s_d.bit\n'
+			)
+			parent.board_info_pte.setPlainText(info)
 			for item in db25:
 				parent.daughterCB_0.addItem(item[0], item[1])
 			for j in range(11):
