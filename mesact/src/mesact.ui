@@ -787,65 +787,6 @@ from board</string>
               </layout>
              </widget>
             </item>
-            <item row="2" column="2">
-             <widget class="QGroupBox" name="options_gb_b0">
-              <property name="title">
-               <string>Options</string>
-              </property>
-              <layout class="QGridLayout" name="gridLayout_435">
-               <item row="2" column="1">
-                <widget class="QComboBox" name="pwmgens_cb"/>
-               </item>
-               <item row="3" column="0">
-                <widget class="QLabel" name="label_1605">
-                 <property name="text">
-                  <string>Encoders</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="1">
-                <widget class="QComboBox" name="stepgens_cb"/>
-               </item>
-               <item row="2" column="0">
-                <widget class="QLabel" name="label_1603">
-                 <property name="text">
-                  <string>PWM Generators</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="1">
-                <widget class="QComboBox" name="encoders_cb"/>
-               </item>
-               <item row="1" column="0">
-                <widget class="QLabel" name="label_1604">
-                 <property name="text">
-                  <string>Step Generators</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="0" colspan="2">
-                <widget class="QLabel" name="label_1477">
-                 <property name="text">
-                  <string>Total for Firmware Selected</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </widget>
-            </item>
-            <item row="2" column="1">
-             <spacer name="horizontalSpacer_51">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
             <item row="0" column="0">
              <widget class="QGroupBox" name="firmwareGB">
               <property name="enabled">
@@ -948,7 +889,53 @@ or encoders</string>
               </property>
              </widget>
             </item>
-            <item row="0" column="2">
+            <item row="2" column="1">
+             <widget class="QGroupBox" name="options_gb_b0">
+              <property name="title">
+               <string>Options</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_435">
+               <item row="2" column="1">
+                <widget class="QComboBox" name="pwmgens_cb"/>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="label_1605">
+                 <property name="text">
+                  <string>Encoders</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QComboBox" name="stepgens_cb"/>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="label_1603">
+                 <property name="text">
+                  <string>PWM Generators</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QComboBox" name="encoders_cb"/>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_1604">
+                 <property name="text">
+                  <string>Step Generators</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0" colspan="2">
+                <widget class="QLabel" name="label_1477">
+                 <property name="text">
+                  <string>Total for Firmware Selected</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="2" column="2">
              <widget class="QGroupBox" name="groupBox_105">
               <property name="title">
                <string>Smart Serial</string>
@@ -1005,11 +992,14 @@ or encoders</string>
               </layout>
              </widget>
             </item>
+            <item row="0" column="2" rowspan="2" colspan="2">
+             <widget class="QPlainTextEdit" name="firmwareDescPTE"/>
+            </item>
            </layout>
           </widget>
           <widget class="QWidget" name="tab_180">
            <attribute name="title">
-            <string>Results</string>
+            <string>I/O Map</string>
            </attribute>
            <layout class="QGridLayout" name="gridLayout_439">
             <item row="1" column="0">
@@ -1047,24 +1037,6 @@ to the clipboard</string>
                 <pointsize>10</pointsize>
                 <weight>50</weight>
                 <bold>false</bold>
-               </font>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-          <widget class="QWidget" name="tab_14">
-           <attribute name="title">
-            <string>Info</string>
-           </attribute>
-           <layout class="QVBoxLayout" name="verticalLayout_6">
-            <item>
-             <widget class="QPlainTextEdit" name="firmwareDescPTE">
-              <property name="font">
-               <font>
-                <family>BPG Courier S GPL&amp;GNU</family>
-                <weight>75</weight>
-                <bold>true</bold>
                </font>
               </property>
              </widget>

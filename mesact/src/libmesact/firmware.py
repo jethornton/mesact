@@ -51,7 +51,6 @@ def noFirmware(parent, board):
 def firmwareChanged(parent):
 	if parent.firmwareCB.currentData():
 		parent.firmware_lb.setText(parent.firmwareCB.currentText())
-		parent.firmwareTW.setCurrentIndex(1)
 		board = parent.boardCB.currentData()
 		if '-' in board:
 			board = board.replace("-", "_")
