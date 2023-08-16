@@ -54,12 +54,7 @@ from libmesact import buildhal
 class VersionError(QMainWindow):
 	def __init__(self, msg):
 		super(VersionError, self).__init__()
-		msgBox = QMessageBox()
-		msgBox.setIcon(QMessageBox.Warning)
-		msgBox.setWindowTitle('Version Error')
-		msgBox.setText(msg)
-		msgBox.setStandardButtons(QMessageBox.Ok)
-		msgBox.exec()
+		dialogs.errorMsgOk(self, msg, 'Version Error')
 		sys.exit()
 
 class MainWindow(QMainWindow):
