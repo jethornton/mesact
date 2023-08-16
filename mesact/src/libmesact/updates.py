@@ -24,7 +24,7 @@ def downloadFirmware(parent):
 		# update firmware tab
 		boards.loadFirmware(parent)
 	else:
-		dialogs.infoMsgOk(parent, 'Select a Board', 'Board')
+		dialogs.infoMsgOk('Select a Board', 'Board')
 
 def checkUpdates(parent):
 	response = requests.get(f"https://api.github.com/repos/jethornton/mesact/releases/latest")
@@ -46,7 +46,7 @@ def downloadAmd64Deb(parent):
 		deburl = f'https://github.com/jethornton/mesact/releases/download/{repoVersion}/mesact_{repoVersion}_amd64.deb'
 		utilities.download(parent, deburl, destination)
 		parent.statusbar.showMessage(f'Mesa Configuration Tool Version {repoVersion} Download Complete')
-		dialogs.infoMsgOk(parent, 'Close the Configuration tool and reinstall', 'Download Complete')
+		dialogs.infoMsgOk('Close the Configuration tool and reinstall', 'Download Complete')
 	else:
 		parent.statusbar.showMessage('Download Cancled')
 
@@ -61,7 +61,7 @@ def downloadArmhDeb(parent):
 		deburl = f'https://github.com/jethornton/mesact/releases/download/{repoVersion}/mesact_{repoVersion}_armhf.deb'
 		utilities.download(parent, deburl, destination)
 		parent.statusbar.showMessage(f'Mesa Configuration Tool Version {repoVersion} Download Complete')
-		dialogs.infoMsgOk(parent, 'Close the Configuration tool and reinstall', 'Download Complete')
+		dialogs.infoMsgOk('Close the Configuration tool and reinstall', 'Download Complete')
 	else:
 		parent.statusbar.showMessage('Download Cancled')
 

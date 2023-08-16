@@ -4,7 +4,7 @@ def spindle_pid_default(parent):
 	if parent.spindleMaxRpm.value() <= parent.spindleMinRpm.value():
 		msg = ('Spindle Maximum RPM must be higher\n'
 		'than Spindle Minimum RPM')
-		dialogs.errorMsgOk(parent, msg, 'Configuration Error!')
+		dialogs.errorMsgOk(msg, 'Configuration Error!')
 		return
 	getattr(parent, 'p_s').setValue(0)
 	getattr(parent, 'i_s').setValue(0)

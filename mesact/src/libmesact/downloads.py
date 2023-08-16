@@ -24,7 +24,7 @@ def downloadFirmware(parent):
 		# update firmware tab
 		firmware.load(parent)
 	else:
-		dialogs.infoMsgOk(parent, 'Select a Board', 'Board')
+		dialogs.infoMsgOk('Select a Board', 'Board')
 
 def downloadAmd64Deb(parent):
 	directory = str(QFileDialog.getExistingDirectory(parent, "Select Directory"))
@@ -37,13 +37,11 @@ def downloadAmd64Deb(parent):
 		deburl = f'https://github.com/jethornton/mesact2/releases/download/{repoVersion}/mesact_{repoVersion}_amd64.deb'
 		download(parent, deburl, destination)
 		parent.statusbar.showMessage(f'Mesa Configuration Tool Version {repoVersion} Download Complete')
-		dialogs.infoMsgOk(parent, 'Close the Configuration tool and reinstall', 'Download Complete')
+		dialogs.infoMsgOk('Close the Configuration tool and reinstall', 'Download Complete')
 	else:
 		parent.statusbar.showMessage('Download Cancled')
 
 def downloadArmhDeb(parent):
-	dialogs.infoMsgOk(parent, 'File not avaliable for Pre-Release.\nFile will be avaliable when released.', 'Future Function')
-	return
 	directory = str(QFileDialog.getExistingDirectory(parent, "Select Directory"))
 	if directory != '':
 		parent.statusbar.showMessage('Checking Repo')
@@ -54,13 +52,11 @@ def downloadArmhDeb(parent):
 		deburl = f'https://github.com/jethornton/mesact/releases/download/{repoVersion}/mesact_{repoVersion}_armhf.deb'
 		download(parent, deburl, destination)
 		parent.statusbar.showMessage(f'Mesa Configuration Tool Version {repoVersion} Download Complete')
-		dialogs.infoMsgOk(parent, 'Close the Configuration tool and reinstall', 'Download Complete')
+		dialogs.infoMsgOk('Close the Configuration tool and reinstall', 'Download Complete')
 	else:
 		parent.statusbar.showMessage('Download Cancled')
 
 def downloadArm64Deb(parent):
-	dialogs.infoMsgOk(parent, 'File not avaliable for Pre-Release.\nFile will be avaliable when released.', 'Future Function')
-	return
 	directory = str(QFileDialog.getExistingDirectory(parent, "Select Directory"))
 	if directory != '':
 		parent.statusbar.showMessage('Checking Repo')
@@ -71,7 +67,7 @@ def downloadArm64Deb(parent):
 		deburl = f'https://github.com/jethornton/mesact/releases/download/{repoVersion}/mesact_{repoVersion}_arm64.deb'
 		download(parent, deburl, destination)
 		parent.statusbar.showMessage(f'Mesa Configuration Tool Version {repoVersion} Download Complete')
-		dialogs.infoMsgOk(parent, 'Close the Configuration tool and reinstall', 'Download Complete')
+		dialogs.infoMsgOk('Close the Configuration tool and reinstall', 'Download Complete')
 	else:
 		parent.statusbar.showMessage('Download Cancled')
 

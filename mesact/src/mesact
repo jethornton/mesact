@@ -49,13 +49,6 @@ from libmesact import updates
 
 # testing imports
 from libmesact import testing
-from libmesact import buildhal
-
-class VersionError(QMainWindow):
-	def __init__(self, msg):
-		super(VersionError, self).__init__()
-		dialogs.errorMsgOk(self, msg, 'Version Error')
-		sys.exit()
 
 class MainWindow(QMainWindow):
 	def __init__(self):
@@ -259,7 +252,7 @@ class MainWindow(QMainWindow):
 		msg += 'Please file an issue at\n'
 		msg += 'https://github.com/jethornton/mesact/issues'
 		print(msg)
-		dialogs.errorMsgOk(self, msg, 'PROGRAM ERROR' )
+		dialogs.errorMsgOk(msg, 'PROGRAM ERROR' )
 
 	def closeEvent(self, event):
 		shutdown.save_settings(self)
@@ -269,11 +262,14 @@ app = QApplication(sys.argv)
 qt_version = qVersion().split('.')
 if (sys.version_info.major, sys.version_info.minor) < (3, 6):
 	msg = (f'Python 3.6 or newer is required.\nYour Python is {python_version()}')
-	ex = VersionError(msg)
+	dialogs.errorMsgOk(msg, 'Version Error')
+	sys.exit()
 elif (int(qt_version[0]), int(qt_version[1])) < (5, 15):
 	msg = (f'PyQt5 5.15 or newer is required.\nYour PyQt5 is {qVersion()}\n'
 	'Try updating python3-pyqt5')
-	ex = VersionError(msg)
+	dialogs.errorMsgOk(msg, 'Version Error')
+	sys.exit()
+
 else:
 	ex = MainWindow()
 sys.exit(app.exec_())
