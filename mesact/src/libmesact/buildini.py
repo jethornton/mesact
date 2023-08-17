@@ -204,7 +204,7 @@ def build(parent):
 					iniContents.append(f'ANALOG_MIN_LIMIT = {getattr(parent, f"c{i}_analogMinLimit_{j}").text()}\n')
 					iniContents.append(f'ANALOG_MAX_LIMIT = {getattr(parent, f"c{i}_analogMaxLimit_{j}").text()}\n')
 
-				iniContents.append(f'FERROR = {getattr(parent, f"c{i}_ferror_{j}").text()}\n')
+				iniContents.append(f'FERROR = {getattr(parent, f"c{i}_max_ferror_{j}").text()}\n')
 				iniContents.append(f'MIN_FERROR = {getattr(parent, f"c{i}_min_ferror_{j}").text()}\n')
 				iniContents.append(f'DEADBAND = {getattr(parent, f"c{i}_deadband_{j}").text()}\n')
 				iniContents.append(f'P = {getattr(parent, f"c{i}_p_{j}").text()}\n')

@@ -102,10 +102,10 @@ def ferrorSetDefault(parent):
 	connector = parent.sender().objectName()[:2]
 	joint = parent.sender().objectName()[-1]
 	if parent.linearUnitsCB.currentData() == 'inch':
-		getattr(parent, f'{connector}_ferror_{joint}').setText(' 0.002')
+		getattr(parent, f'{connector}_max_ferror_{joint}').setText(' 0.002')
 		getattr(parent, f'{connector}_min_ferror_{joint}').setText(' 0.001')
 	else:
-		getattr(parent, f'{connector}_ferror_{joint}').setText(' 0.005')
+		getattr(parent, f'{connector}_max_ferror_{joint}').setText(' 0.005')
 		getattr(parent, f'{connector}_min_ferror_{joint}').setText(' 0.0025')
 
 def analogSetDefault(parent):

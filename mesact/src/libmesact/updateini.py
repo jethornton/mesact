@@ -487,7 +487,7 @@ class updateini:
 						self.update_key(f'JOINT_{n}', 'ANALOG_MIN_LIMIT', getattr(parent, f'c{i}_analogMinLimit_{j}').text())
 						self.update_key(f'JOINT_{n}', 'ANALOG_MAX_LIMIT', getattr(parent, f'c{i}_analogMaxLimit_{j}').text())
 
-					self.update_key(f'JOINT_{n}', 'FERROR', getattr(parent, f'c{i}_ferror_{j}').text())
+					self.update_key(f'JOINT_{n}', 'FERROR', getattr(parent, f'c{i}_max_ferror_{j}').text())
 					self.update_key(f'JOINT_{n}', 'MIN_FERROR', getattr(parent, f'c{i}_min_ferror_{j}').text())
 					self.update_key(f'JOINT_{n}', 'DEADBAND', getattr(parent, f'c{i}_deadband_{j}').text())
 					self.update_key(f'JOINT_{n}', 'P', getattr(parent, f'c{i}_p_{j}').text())

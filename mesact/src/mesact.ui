@@ -2108,7 +2108,7 @@ joint to the next joint</string>
                     </widget>
                    </item>
                    <item row="0" column="3">
-                    <widget class="QLineEdit" name="c0_ferror_0">
+                    <widget class="QLineEdit" name="c0_max_ferror_0">
                      <property name="minimumSize">
                       <size>
                        <width>0</width>
@@ -3526,7 +3526,7 @@ joint to the next joint</string>
                     </widget>
                    </item>
                    <item row="0" column="3">
-                    <widget class="QLineEdit" name="c0_ferror_1">
+                    <widget class="QLineEdit" name="c0_max_ferror_1">
                      <property name="minimumSize">
                       <size>
                        <width>0</width>
@@ -4928,7 +4928,7 @@ joint to the next joint</string>
                     </widget>
                    </item>
                    <item row="0" column="3">
-                    <widget class="QLineEdit" name="c0_ferror_2">
+                    <widget class="QLineEdit" name="c0_max_ferror_2">
                      <property name="minimumSize">
                       <size>
                        <width>0</width>
@@ -6330,7 +6330,7 @@ joint to the next joint</string>
                     </widget>
                    </item>
                    <item row="0" column="3">
-                    <widget class="QLineEdit" name="c0_ferror_3">
+                    <widget class="QLineEdit" name="c0_max_ferror_3">
                      <property name="minimumSize">
                       <size>
                        <width>0</width>
@@ -7732,7 +7732,7 @@ joint to the next joint</string>
                     </widget>
                    </item>
                    <item row="0" column="3">
-                    <widget class="QLineEdit" name="c0_ferror_4">
+                    <widget class="QLineEdit" name="c0_max_ferror_4">
                      <property name="minimumSize">
                       <size>
                        <width>0</width>
@@ -9115,7 +9115,7 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                    <item row="0" column="3">
-                    <widget class="QLineEdit" name="c0_ferror_5">
+                    <widget class="QLineEdit" name="c0_max_ferror_5">
                      <property name="minimumSize">
                       <size>
                        <width>0</width>
@@ -12002,7 +12002,7 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                    <item row="0" column="3">
-                    <widget class="QLineEdit" name="c1_ferror_0">
+                    <widget class="QLineEdit" name="c1_max_ferror_0">
                      <property name="minimumSize">
                       <size>
                        <width>0</width>
@@ -13401,7 +13401,7 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                    <item row="0" column="3">
-                    <widget class="QLineEdit" name="c1_ferror_1">
+                    <widget class="QLineEdit" name="c1_max_ferror_1">
                      <property name="minimumSize">
                       <size>
                        <width>0</width>
@@ -14800,7 +14800,7 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                    <item row="0" column="3">
-                    <widget class="QLineEdit" name="c1_ferror_2">
+                    <widget class="QLineEdit" name="c1_max_ferror_2">
                      <property name="minimumSize">
                       <size>
                        <width>0</width>
@@ -16199,7 +16199,7 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                    <item row="0" column="3">
-                    <widget class="QLineEdit" name="c1_ferror_3">
+                    <widget class="QLineEdit" name="c1_max_ferror_3">
                      <property name="minimumSize">
                       <size>
                        <width>0</width>
@@ -17598,7 +17598,7 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                    <item row="0" column="3">
-                    <widget class="QLineEdit" name="c1_ferror_4">
+                    <widget class="QLineEdit" name="c1_max_ferror_4">
                      <property name="minimumSize">
                       <size>
                        <width>0</width>
@@ -18997,7 +18997,7 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                    <item row="0" column="3">
-                    <widget class="QLineEdit" name="c1_ferror_5">
+                    <widget class="QLineEdit" name="c1_max_ferror_5">
                      <property name="minimumSize">
                       <size>
                        <width>0</width>
@@ -21917,7 +21917,7 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                    <item row="0" column="3">
-                    <widget class="QLineEdit" name="c2_ferror_0">
+                    <widget class="QLineEdit" name="c2_max_ferror_0">
                      <property name="minimumSize">
                       <size>
                        <width>0</width>
@@ -23316,7 +23316,7 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                    <item row="0" column="3">
-                    <widget class="QLineEdit" name="c2_ferror_1">
+                    <widget class="QLineEdit" name="c2_max_ferror_1">
                      <property name="minimumSize">
                       <size>
                        <width>0</width>
@@ -24715,7 +24715,7 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                    <item row="0" column="3">
-                    <widget class="QLineEdit" name="c2_ferror_2">
+                    <widget class="QLineEdit" name="c2_max_ferror_2">
                      <property name="minimumSize">
                       <size>
                        <width>0</width>
@@ -26114,7 +26114,7 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                    <item row="0" column="3">
-                    <widget class="QLineEdit" name="c2_ferror_3">
+                    <widget class="QLineEdit" name="c2_max_ferror_3">
                      <property name="minimumSize">
                       <size>
                        <width>0</width>
@@ -27513,7 +27513,7 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                    <item row="0" column="3">
-                    <widget class="QLineEdit" name="c2_ferror_4">
+                    <widget class="QLineEdit" name="c2_max_ferror_4">
                      <property name="minimumSize">
                       <size>
                        <width>0</width>
@@ -28912,7 +28912,7 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                    <item row="0" column="3">
-                    <widget class="QLineEdit" name="c2_ferror_5">
+                    <widget class="QLineEdit" name="c2_max_ferror_5">
                      <property name="minimumSize">
                       <size>
                        <width>0</width>

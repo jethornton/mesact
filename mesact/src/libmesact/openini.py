@@ -238,7 +238,7 @@ class loadini:
 				[f'[JOINT_{joint}]', 'BIAS', f'c{card}_bias_{tab}'],
 				[f'[JOINT_{joint}]', 'MAX_OUTPUT', f'c{card}_maxOutput_{tab}'],
 				[f'[JOINT_{joint}]', 'MAX_ERROR', f'c{card}_maxError_{tab}'],
-				[f'[JOINT_{joint}]', 'FERROR', f'c{card}_ferror_{tab}'],
+				[f'[JOINT_{joint}]', 'FERROR', f'c{card}_max_ferror_{tab}'],
 				[f'[JOINT_{joint}]', 'MIN_FERROR', f'c{card}_min_ferror_{tab}'],
 				[f'[JOINT_{joint}]', 'ENCODER_SCALE', f'c{card}_encoderScale_{tab}'],
 				[f'[JOINT_{joint}]', 'ANALOG_SCALE_MAX', f'c{card}_analogScaleMax_{tab}'],
