@@ -288,7 +288,6 @@ def boardChanged(parent):
 				getattr(parent, f'c0_settings_{i}').setTabVisible(3, False)
 				getattr(parent, f'c0_settings_{i}').setTabVisible(4, False)
 			parent.pwmFrequencySB.setValue(15000)
-			parent.spindleFeedbackCB.clear()
 			parent.spindleTypeCB.model().item(1).setEnabled(True)
 			for i in range(2, 7):
 				parent.spindleTypeCB.model().item(i).setEnabled(False)
