@@ -14,7 +14,7 @@ def default_settings(parent):
 	parent.maxLinJogVelDSB.setValue(1.0)
 	parent.set_7i96s_x_pb.setEnabled(True)
 	parent.set_7i96s_xyz_pb.setEnabled(True)
-	parent.set_7i96s_7i76_pb.setEnabled(True)
+	parent.set_7i96s_xyyz_pb.setEnabled(True)
 	parent.set_7i96s_7i77_pb.setEnabled(True)
 	parent.set_7i92t_p1_7i76_pb.setEnabled(True)
 	parent.set_7i92t_p2_7i76_pb.setEnabled(True)
@@ -37,6 +37,15 @@ def set_7i96s_xyz(parent):
 	parent.c0_homeSequence_0.setText('2')
 	parent.c0_homeSequence_1.setText('1')
 	parent.c0_homeSequence_2.setText('0')
+
+def set_7i96s_xyyz(parent):
+	parent.boardCB.setCurrentIndex(parent.boardCB.findData('7i96s'))
+	parent.ipAddressCB.setCurrentIndex(parent.ipAddressCB.findData('10.10.10.10'))
+	set_joints(parent, 0, ['X', 'Y', 'Y', 'Z'])
+	parent.c0_homeSequence_0.setText('2')
+	parent.c0_homeSequence_1.setText('1')
+	parent.c0_homeSequence_2.setText('-1')
+	parent.c0_homeSequence_3.setText('0')
 
 def set_7i96s_7i76(parent):
 	parent.boardCB.setCurrentIndex(parent.boardCB.findData('7i96s'))
