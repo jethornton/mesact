@@ -152,12 +152,12 @@ def checkit(parent):
 					configErrors.append(f'\tJoint {j} Max Following Error must not be blank')
 
 				if getattr(parent, f'c{i}_settings_{j}').isTabVisible(2): # Stepgen Tab
-					if getattr(parent, f'c{i}_drive_{j}').text() == '':
+					if not getattr(parent, f'c{i}_drive_{j}').currentData():
 						tabError = True
 						configErrors.append(f'\tJoint {j} Stepgen Type must not be blank')
 					if getattr(parent, f'c{i}_StepTime_{j}').text() == '':
 						tabError = True
-						configErrors.append(f'\tJoint {j} Stepgen Step Time must not be blank')
+						configErrors.append(f'\tJoint {j} Stepgen Step Time must be selected')
 					if getattr(parent, f'c{i}_StepSpace_{j}').text() == '':
 						tabError = True
 						configErrors.append(f'\tJoint {j} Stepgen Step Space must not be blank')
