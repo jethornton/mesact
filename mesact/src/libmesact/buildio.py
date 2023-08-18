@@ -294,7 +294,7 @@ def build_io(parent):
 			key = getattr(parent, f'c2_input_{i}').text()
 			invert = '-not' if getattr(parent, f'c2_input_invert_{i}').isChecked() else ''
 			slow = '-slow' if getattr(parent, f'c2_input_debounce_{i}').isChecked() else ''
-			if input_dict.get(key, False): # return False if key is not in dictionary
+			if INPUTS.get(key, False): # return False if key is not in dictionary
 				hm2 = f'hm2_{mb}.0.{p2b}.0.0.input-{i:02}{invert}'
 				contents.append(f'{input_dict[key]} {hm2}\n')
 
@@ -304,7 +304,7 @@ def build_io(parent):
 			key = getattr(parent, f'c1_input_{i}').text()
 			invert = '-not' if getattr(parent, f'c1_input_invert_{i}').isChecked() else ''
 			slow = '-slow' if getattr(parent, f'c1_input_debounce_{i}').isChecked() else ''
-			if input_dict.get(key, False): # return False if key is not in dictionary
+			if INPUTS.get(key, False): # return False if key is not in dictionary
 				hm2 = f'hm2_{mb}.0.{p1b}.0.{ss_io_port}.input-{i:02}{invert}'
 				contents.append(f'{input_dict[key]} {hm2}\n')
 
@@ -335,14 +335,14 @@ def build_io(parent):
 	if p2b: # build daughter card outputs for p2
 		for i in range(16):
 			key = getattr(parent, f'c2_output_{i}').text()
-			if output_dict.get(key, False): # return False if key is not in dictionary
+			if OUTPUTS.get(key, False): # return False if key is not in dictionary
 				contents.append(OUTPUTS[key] + f'hm2_{mb}.0.{p2b}.00.output-{i:02}\n')
 
 	if p1b: # build daughter card outputs for p1
 		ss_io_port = parent.p1_channels[0]
 		for i in range(16):
 			key = getattr(parent, f'c1_output_{i}').text()
-			if output_dict.get(key, False): # return False if key is not in dictionary
+			if OUTPUTS.get(key, False): # return False if key is not in dictionary
 				contents.append(OUTPUTS[key] + f'hm2_{mb}.0.{p2b}.0{ss_io_port}.output-{i:02}\n')
 
 	try:
