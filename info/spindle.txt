@@ -1,3 +1,8 @@
+7i76E potentiometer enable direction encoder
+7i76 potentiometer enable direction encoder
+7i77 axis analog enable
+7i96  encoder
+7i96S potentiometer encoder
 
 
 Combo Boards
@@ -9,9 +14,29 @@ Combo Boards
 7i97
 
 Daughter Boards
-7i76
-7i77
-7i78
+7i92t 7i76 P2
+Pins
+hm2_7i92.0.7i76.0.0.spindir
+hm2_7i92.0.7i76.0.0.spinena
+hm2_7i92.0.7i76.0.0.spinout
+
+Parameters
+hm2_7i92.0.7i76.0.0.spindir-invert
+hm2_7i92.0.7i76.0.0.spinena-invert
+hm2_7i92.0.7i76.0.0.spinout-maxlim
+hm2_7i92.0.7i76.0.0.spinout-minlim
+hm2_7i92.0.7i76.0.0.spinout-scalemax
+
+7i92t 7i77 P2
+Pins
+hm2_7i92.0.7i77.0.1.spinena
+
+Parameters
+
+7i92t 7i78 P2
+Pins
+
+Parameters
 
 	['5i24/6i24', '5i24'],
 	['5i25/6i25', '5i25'],
