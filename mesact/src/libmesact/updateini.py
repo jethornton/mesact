@@ -549,6 +549,8 @@ class updateini:
 			self.update_key(f'SPINDLE_0', 'MIN_RPM', parent.spindleMinRpm.value())
 			self.update_key(f'SPINDLE_0', 'MAX_RPM', parent.spindleMaxRpm.value())
 
+			self.update_key(f'SPINDLE_0', 'ENCODER_SCALE', parent.spindleEncoderScale.value())
+
 		'''
 
 		To set up really basic operation (ignoring the ini file values and the PID), at the minimum,
