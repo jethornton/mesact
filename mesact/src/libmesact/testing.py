@@ -3,10 +3,18 @@ from libmesact import spindle
 
 # this file is for testing during initial programming
 
-def default_settings(parent):
+def default_metric(parent):
 	utilities.new_config(parent)
-	parent.guiCB.setCurrentIndex(parent.guiCB.findData('axis'))
+	parent.linearUnitsCB.setCurrentIndex(parent.linearUnitsCB.findData('mm'))
+	default(parent)
+
+def default_imperial(parent):
+	utilities.new_config(parent)
 	parent.linearUnitsCB.setCurrentIndex(parent.linearUnitsCB.findData('inch'))
+	default(parent)
+
+def default(parent):
+	parent.guiCB.setCurrentIndex(parent.guiCB.findData('axis'))
 	parent.positionOffsetCB.setCurrentIndex(parent.positionOffsetCB.findData('RELATIVE'))
 	parent.positionFeedbackCB.setCurrentIndex(parent.positionFeedbackCB.findData('COMMANDED'))
 	parent.maxFeedOverrideSB.setValue(1.2)
@@ -18,7 +26,6 @@ def default_settings(parent):
 	parent.set_7i96s_7i77_pb.setEnabled(True)
 	parent.set_7i92t_p1_7i76_pb.setEnabled(True)
 	parent.set_7i92t_p2_7i76_pb.setEnabled(True)
-	parent.set_7i92t_p1_7i77_pb.setEnabled(True)
 	parent.set_7i92t_p2_7i77_pb.setEnabled(True)
 
 def set_7i96s_x(parent):

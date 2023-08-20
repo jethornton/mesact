@@ -198,34 +198,17 @@ Spaces are replaced with underscore.</string>
            <string>Testing</string>
           </property>
           <layout class="QGridLayout" name="gridLayout_234">
-           <item row="5" column="0">
-            <widget class="QPushButton" name="set_7i92t_p1_7i76_pb">
+           <item row="7" column="0">
+            <widget class="QPushButton" name="set_7i92t_p2_7i76_pb">
              <property name="enabled">
               <bool>false</bool>
              </property>
              <property name="text">
-              <string>7i92T P1 7i76</string>
+              <string>7i92T P2 7i76</string>
              </property>
             </widget>
            </item>
-           <item row="4" column="0">
-            <widget class="QPushButton" name="set_7i96s_7i77_pb">
-             <property name="enabled">
-              <bool>false</bool>
-             </property>
-             <property name="text">
-              <string>7i96S P1 7i77</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="0">
-            <widget class="QPushButton" name="default_settings_pb">
-             <property name="text">
-              <string>Default Settings</string>
-             </property>
-            </widget>
-           </item>
-           <item row="8" column="0">
+           <item row="9" column="0">
             <widget class="QPushButton" name="set_7i92t_p2_7i77_pb">
              <property name="enabled">
               <bool>false</bool>
@@ -236,16 +219,6 @@ Spaces are replaced with underscore.</string>
             </widget>
            </item>
            <item row="3" column="0">
-            <widget class="QPushButton" name="set_7i96s_xyyz_pb">
-             <property name="enabled">
-              <bool>false</bool>
-             </property>
-             <property name="text">
-              <string>7i96S XYYZ</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="0">
             <widget class="QPushButton" name="set_7i96s_xyz_pb">
              <property name="enabled">
               <bool>false</bool>
@@ -255,33 +228,60 @@ Spaces are replaced with underscore.</string>
              </property>
             </widget>
            </item>
-           <item row="7" column="0">
-            <widget class="QPushButton" name="set_7i92t_p1_7i77_pb">
-             <property name="enabled">
-              <bool>false</bool>
-             </property>
-             <property name="text">
-              <string>7i92T P1 7i77</string>
-             </property>
-            </widget>
-           </item>
-           <item row="6" column="0">
-            <widget class="QPushButton" name="set_7i92t_p2_7i76_pb">
-             <property name="enabled">
-              <bool>false</bool>
-             </property>
-             <property name="text">
-              <string>7i92T P2 7i76</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0">
+           <item row="2" column="0">
             <widget class="QPushButton" name="set_7i96s_x_pb">
              <property name="enabled">
               <bool>false</bool>
              </property>
              <property name="text">
               <string>7i96S X</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="0">
+            <widget class="QPushButton" name="set_7i92t_p1_7i76_pb">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string>7i92T P1 7i76</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="0">
+            <widget class="QPushButton" name="set_7i96s_7i77_pb">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string>7i96S P1 7i77</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QPushButton" name="default_imperial_pb">
+             <property name="text">
+              <string>Default Imperial</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QPushButton" name="set_7i96s_xyyz_pb">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="text">
+              <string>7i96S XYYZ</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QPushButton" name="default_metric_pb">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="text">
+              <string>Default Metric</string>
              </property>
             </widget>
            </item>
