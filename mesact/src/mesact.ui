@@ -9070,14 +9070,6 @@ Leave blank to home the joint manually.</string>
                   </layout>
                  </widget>
                 </item>
-                <item row="1" column="2">
-                 <widget class="QGroupBox" name="groupBox_227">
-                  <property name="title">
-                   <string>Tools</string>
-                  </property>
-                  <layout class="QGridLayout" name="gridLayout_445"/>
-                 </widget>
-                </item>
                 <item row="0" column="1" colspan="2">
                  <widget class="QGroupBox" name="groupBox_77">
                   <property name="maximumSize">
@@ -9139,6 +9131,12 @@ Leave blank to home the joint manually.</string>
                    </item>
                   </layout>
                  </widget>
+                </item>
+                <item row="2" column="1">
+                 <widget class="QWidget" name="widget_14" native="true"/>
+                </item>
+                <item row="2" column="2">
+                 <widget class="QWidget" name="widget_13" native="true"/>
                 </item>
                </layout>
               </widget>
@@ -11599,7 +11597,10 @@ Leave blank to home the joint manually.</string>
                 <string>PID</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_66">
-                <item row="0" column="0" rowspan="2">
+                <item row="2" column="1">
+                 <widget class="QWidget" name="widget" native="true"/>
+                </item>
+                <item row="0" column="0" rowspan="3">
                  <widget class="QGroupBox" name="groupBox_30">
                   <property name="minimumSize">
                    <size>
@@ -11965,7 +11966,7 @@ Leave blank to home the joint manually.</string>
                   </layout>
                  </widget>
                 </item>
-                <item row="0" column="1">
+                <item row="0" column="1" colspan="2">
                  <widget class="QGroupBox" name="groupBox_78">
                   <property name="maximumSize">
                    <size>
@@ -12045,6 +12046,26 @@ Leave blank to home the joint manually.</string>
                     <string>Reverse Direction</string>
                    </property>
                   </widget>
+                 </widget>
+                </item>
+                <item row="1" column="2">
+                 <widget class="QGroupBox" name="groupBox_107">
+                  <property name="title">
+                   <string>Tools</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_274">
+                   <item row="0" column="0">
+                    <widget class="QPushButton" name="c1_copy_values_0">
+                     <property name="toolTip">
+                      <string>Copy all the values from this
+joint to the next joint</string>
+                     </property>
+                     <property name="text">
+                      <string>Copy Values</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
                  </widget>
                 </item>
                </layout>
@@ -12998,7 +13019,112 @@ Leave blank to home the joint manually.</string>
                 <string>PID</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_75">
-                <item row="0" column="0" rowspan="2">
+                <item row="1" column="1">
+                 <widget class="QGroupBox" name="groupBox_35">
+                  <property name="title">
+                   <string>Options</string>
+                  </property>
+                  <widget class="QCheckBox" name="c1_reverse_1">
+                   <property name="geometry">
+                    <rect>
+                     <x>10</x>
+                     <y>30</y>
+                     <width>171</width>
+                     <height>25</height>
+                    </rect>
+                   </property>
+                   <property name="text">
+                    <string>Reverse Direction</string>
+                   </property>
+                  </widget>
+                 </widget>
+                </item>
+                <item row="1" column="2">
+                 <widget class="QGroupBox" name="groupBox_108">
+                  <property name="title">
+                   <string>Tools</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_280">
+                   <item row="0" column="0">
+                    <widget class="QPushButton" name="c1_copy_values_1">
+                     <property name="toolTip">
+                      <string>Copy all the values from this
+joint to the next joint</string>
+                     </property>
+                     <property name="text">
+                      <string>Copy Values</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="0" column="1" colspan="2">
+                 <widget class="QGroupBox" name="groupBox_79">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>100</height>
+                   </size>
+                  </property>
+                  <property name="title">
+                   <string>Following Error</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_183">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_1058">
+                     <property name="text">
+                      <string>Min</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QLineEdit" name="c1_min_ferror_1">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2">
+                    <widget class="QLabel" name="label_1059">
+                     <property name="text">
+                      <string>Max</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="3">
+                    <widget class="QLineEdit" name="c1_max_ferror_1">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="3">
+                    <widget class="QPushButton" name="c1_ferrorDefault_1">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>Default Values</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="2" column="1">
+                 <widget class="QWidget" name="widget_2" native="true"/>
+                </item>
+                <item row="0" column="0" rowspan="3">
                  <widget class="QGroupBox" name="groupBox_34">
                   <property name="minimumSize">
                    <size>
@@ -13362,88 +13488,6 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                   </layout>
-                 </widget>
-                </item>
-                <item row="0" column="1">
-                 <widget class="QGroupBox" name="groupBox_79">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>100</height>
-                   </size>
-                  </property>
-                  <property name="title">
-                   <string>Following Error</string>
-                  </property>
-                  <layout class="QGridLayout" name="gridLayout_183">
-                   <item row="0" column="0">
-                    <widget class="QLabel" name="label_1058">
-                     <property name="text">
-                      <string>Min</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="1">
-                    <widget class="QLineEdit" name="c1_min_ferror_1">
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="2">
-                    <widget class="QLabel" name="label_1059">
-                     <property name="text">
-                      <string>Max</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="3">
-                    <widget class="QLineEdit" name="c1_max_ferror_1">
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="3">
-                    <widget class="QPushButton" name="c1_ferrorDefault_1">
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>Default Values</string>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </widget>
-                </item>
-                <item row="1" column="1">
-                 <widget class="QGroupBox" name="groupBox_35">
-                  <property name="title">
-                   <string>Options</string>
-                  </property>
-                  <widget class="QCheckBox" name="c1_reverse_1">
-                   <property name="geometry">
-                    <rect>
-                     <x>10</x>
-                     <y>30</y>
-                     <width>171</width>
-                     <height>25</height>
-                    </rect>
-                   </property>
-                   <property name="text">
-                    <string>Reverse Direction</string>
-                   </property>
-                  </widget>
                  </widget>
                 </item>
                </layout>
@@ -14397,7 +14441,112 @@ Leave blank to home the joint manually.</string>
                 <string>PID</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_84">
-                <item row="0" column="0" rowspan="2">
+                <item row="1" column="1">
+                 <widget class="QGroupBox" name="groupBox_39">
+                  <property name="title">
+                   <string>Options</string>
+                  </property>
+                  <widget class="QCheckBox" name="c1_reverse_2">
+                   <property name="geometry">
+                    <rect>
+                     <x>10</x>
+                     <y>30</y>
+                     <width>171</width>
+                     <height>25</height>
+                    </rect>
+                   </property>
+                   <property name="text">
+                    <string>Reverse Direction</string>
+                   </property>
+                  </widget>
+                 </widget>
+                </item>
+                <item row="0" column="1" colspan="2">
+                 <widget class="QGroupBox" name="groupBox_80">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>100</height>
+                   </size>
+                  </property>
+                  <property name="title">
+                   <string>Following Error</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_184">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_1060">
+                     <property name="text">
+                      <string>Min</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QLineEdit" name="c1_min_ferror_2">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2">
+                    <widget class="QLabel" name="label_1061">
+                     <property name="text">
+                      <string>Max</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="3">
+                    <widget class="QLineEdit" name="c1_max_ferror_2">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="3">
+                    <widget class="QPushButton" name="c1_ferrorDefault_2">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>Default Values</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="1" column="2">
+                 <widget class="QGroupBox" name="groupBox_109">
+                  <property name="title">
+                   <string>Tools</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_277">
+                   <item row="0" column="0">
+                    <widget class="QPushButton" name="c1_copy_values_2">
+                     <property name="toolTip">
+                      <string>Copy all the values from this
+joint to the next joint</string>
+                     </property>
+                     <property name="text">
+                      <string>Copy Values</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="2" column="1">
+                 <widget class="QWidget" name="widget_3" native="true"/>
+                </item>
+                <item row="0" column="0" rowspan="3">
                  <widget class="QGroupBox" name="groupBox_38">
                   <property name="minimumSize">
                    <size>
@@ -14761,88 +14910,6 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                   </layout>
-                 </widget>
-                </item>
-                <item row="0" column="1">
-                 <widget class="QGroupBox" name="groupBox_80">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>100</height>
-                   </size>
-                  </property>
-                  <property name="title">
-                   <string>Following Error</string>
-                  </property>
-                  <layout class="QGridLayout" name="gridLayout_184">
-                   <item row="0" column="0">
-                    <widget class="QLabel" name="label_1060">
-                     <property name="text">
-                      <string>Min</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="1">
-                    <widget class="QLineEdit" name="c1_min_ferror_2">
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="2">
-                    <widget class="QLabel" name="label_1061">
-                     <property name="text">
-                      <string>Max</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="3">
-                    <widget class="QLineEdit" name="c1_max_ferror_2">
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="3">
-                    <widget class="QPushButton" name="c1_ferrorDefault_2">
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>Default Values</string>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </widget>
-                </item>
-                <item row="1" column="1">
-                 <widget class="QGroupBox" name="groupBox_39">
-                  <property name="title">
-                   <string>Options</string>
-                  </property>
-                  <widget class="QCheckBox" name="c1_reverse_2">
-                   <property name="geometry">
-                    <rect>
-                     <x>10</x>
-                     <y>30</y>
-                     <width>171</width>
-                     <height>25</height>
-                    </rect>
-                   </property>
-                   <property name="text">
-                    <string>Reverse Direction</string>
-                   </property>
-                  </widget>
                  </widget>
                 </item>
                </layout>
@@ -15796,7 +15863,112 @@ Leave blank to home the joint manually.</string>
                 <string>PID</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_93">
-                <item row="0" column="0" rowspan="2">
+                <item row="1" column="1">
+                 <widget class="QGroupBox" name="groupBox_43">
+                  <property name="title">
+                   <string>Options</string>
+                  </property>
+                  <widget class="QCheckBox" name="c1_reverse_3">
+                   <property name="geometry">
+                    <rect>
+                     <x>10</x>
+                     <y>30</y>
+                     <width>171</width>
+                     <height>25</height>
+                    </rect>
+                   </property>
+                   <property name="text">
+                    <string>Reverse Direction</string>
+                   </property>
+                  </widget>
+                 </widget>
+                </item>
+                <item row="0" column="1" colspan="2">
+                 <widget class="QGroupBox" name="groupBox_81">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>100</height>
+                   </size>
+                  </property>
+                  <property name="title">
+                   <string>Following Error</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_185">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_1062">
+                     <property name="text">
+                      <string>Min</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QLineEdit" name="c1_min_ferror_3">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2">
+                    <widget class="QLabel" name="label_1063">
+                     <property name="text">
+                      <string>Max</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="3">
+                    <widget class="QLineEdit" name="c1_max_ferror_3">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="3">
+                    <widget class="QPushButton" name="c1_ferrorDefault_3">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>Default Values</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="1" column="2">
+                 <widget class="QGroupBox" name="groupBox_110">
+                  <property name="title">
+                   <string>Tools</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_276">
+                   <item row="0" column="0">
+                    <widget class="QPushButton" name="c1_copy_values_3">
+                     <property name="toolTip">
+                      <string>Copy all the values from this
+joint to the next joint</string>
+                     </property>
+                     <property name="text">
+                      <string>Copy Values</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="2" column="1">
+                 <widget class="QWidget" name="widget_4" native="true"/>
+                </item>
+                <item row="0" column="0" rowspan="3">
                  <widget class="QGroupBox" name="groupBox_42">
                   <property name="minimumSize">
                    <size>
@@ -16160,88 +16332,6 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                   </layout>
-                 </widget>
-                </item>
-                <item row="0" column="1">
-                 <widget class="QGroupBox" name="groupBox_81">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>100</height>
-                   </size>
-                  </property>
-                  <property name="title">
-                   <string>Following Error</string>
-                  </property>
-                  <layout class="QGridLayout" name="gridLayout_185">
-                   <item row="0" column="0">
-                    <widget class="QLabel" name="label_1062">
-                     <property name="text">
-                      <string>Min</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="1">
-                    <widget class="QLineEdit" name="c1_min_ferror_3">
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="2">
-                    <widget class="QLabel" name="label_1063">
-                     <property name="text">
-                      <string>Max</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="3">
-                    <widget class="QLineEdit" name="c1_max_ferror_3">
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="3">
-                    <widget class="QPushButton" name="c1_ferrorDefault_3">
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>Default Values</string>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </widget>
-                </item>
-                <item row="1" column="1">
-                 <widget class="QGroupBox" name="groupBox_43">
-                  <property name="title">
-                   <string>Options</string>
-                  </property>
-                  <widget class="QCheckBox" name="c1_reverse_3">
-                   <property name="geometry">
-                    <rect>
-                     <x>10</x>
-                     <y>30</y>
-                     <width>171</width>
-                     <height>25</height>
-                    </rect>
-                   </property>
-                   <property name="text">
-                    <string>Reverse Direction</string>
-                   </property>
-                  </widget>
                  </widget>
                 </item>
                </layout>
@@ -17195,7 +17285,112 @@ Leave blank to home the joint manually.</string>
                 <string>PID</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_102">
-                <item row="0" column="0" rowspan="2">
+                <item row="0" column="1" colspan="2">
+                 <widget class="QGroupBox" name="groupBox_82">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>100</height>
+                   </size>
+                  </property>
+                  <property name="title">
+                   <string>Following Error</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_186">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_1064">
+                     <property name="text">
+                      <string>Min</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QLineEdit" name="c1_min_ferror_4">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2">
+                    <widget class="QLabel" name="label_1065">
+                     <property name="text">
+                      <string>Max</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="3">
+                    <widget class="QLineEdit" name="c1_max_ferror_4">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="3">
+                    <widget class="QPushButton" name="c1_ferrorDefault_4">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>Default Values</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QGroupBox" name="groupBox_47">
+                  <property name="title">
+                   <string>Options</string>
+                  </property>
+                  <widget class="QCheckBox" name="c1_reverse_4">
+                   <property name="geometry">
+                    <rect>
+                     <x>10</x>
+                     <y>30</y>
+                     <width>171</width>
+                     <height>25</height>
+                    </rect>
+                   </property>
+                   <property name="text">
+                    <string>Reverse Direction</string>
+                   </property>
+                  </widget>
+                 </widget>
+                </item>
+                <item row="1" column="2">
+                 <widget class="QGroupBox" name="groupBox_111">
+                  <property name="title">
+                   <string>Tools</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_275">
+                   <item row="0" column="0">
+                    <widget class="QPushButton" name="c1_copy_values_4">
+                     <property name="toolTip">
+                      <string>Copy all the values from this
+joint to the next joint</string>
+                     </property>
+                     <property name="text">
+                      <string>Copy Values</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="2" column="1">
+                 <widget class="QWidget" name="widget_5" native="true"/>
+                </item>
+                <item row="0" column="0" rowspan="3">
                  <widget class="QGroupBox" name="groupBox_46">
                   <property name="minimumSize">
                    <size>
@@ -17559,88 +17754,6 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                   </layout>
-                 </widget>
-                </item>
-                <item row="0" column="1">
-                 <widget class="QGroupBox" name="groupBox_82">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>100</height>
-                   </size>
-                  </property>
-                  <property name="title">
-                   <string>Following Error</string>
-                  </property>
-                  <layout class="QGridLayout" name="gridLayout_186">
-                   <item row="0" column="0">
-                    <widget class="QLabel" name="label_1064">
-                     <property name="text">
-                      <string>Min</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="1">
-                    <widget class="QLineEdit" name="c1_min_ferror_4">
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="2">
-                    <widget class="QLabel" name="label_1065">
-                     <property name="text">
-                      <string>Max</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="3">
-                    <widget class="QLineEdit" name="c1_max_ferror_4">
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="3">
-                    <widget class="QPushButton" name="c1_ferrorDefault_4">
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>Default Values</string>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </widget>
-                </item>
-                <item row="1" column="1">
-                 <widget class="QGroupBox" name="groupBox_47">
-                  <property name="title">
-                   <string>Options</string>
-                  </property>
-                  <widget class="QCheckBox" name="c1_reverse_4">
-                   <property name="geometry">
-                    <rect>
-                     <x>10</x>
-                     <y>30</y>
-                     <width>171</width>
-                     <height>25</height>
-                    </rect>
-                   </property>
-                   <property name="text">
-                    <string>Reverse Direction</string>
-                   </property>
-                  </widget>
                  </widget>
                 </item>
                </layout>
@@ -18594,7 +18707,92 @@ Leave blank to home the joint manually.</string>
                 <string>PID</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_112">
-                <item row="0" column="0" rowspan="2">
+                <item row="0" column="1" colspan="2">
+                 <widget class="QGroupBox" name="groupBox_83">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>100</height>
+                   </size>
+                  </property>
+                  <property name="title">
+                   <string>Following Error</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_187">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_1066">
+                     <property name="text">
+                      <string>Min</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QLineEdit" name="c1_min_ferror_5">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2">
+                    <widget class="QLabel" name="label_1067">
+                     <property name="text">
+                      <string>Max</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="3">
+                    <widget class="QLineEdit" name="c1_max_ferror_5">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="3">
+                    <widget class="QPushButton" name="c1_ferrorDefault_5">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>Default Values</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QGroupBox" name="groupBox_51">
+                  <property name="title">
+                   <string>Options</string>
+                  </property>
+                  <widget class="QCheckBox" name="c1_reverse_5">
+                   <property name="geometry">
+                    <rect>
+                     <x>10</x>
+                     <y>30</y>
+                     <width>171</width>
+                     <height>25</height>
+                    </rect>
+                   </property>
+                   <property name="text">
+                    <string>Reverse Direction</string>
+                   </property>
+                  </widget>
+                 </widget>
+                </item>
+                <item row="2" column="1">
+                 <widget class="QWidget" name="widget_12" native="true"/>
+                </item>
+                <item row="0" column="0" rowspan="3">
                  <widget class="QGroupBox" name="groupBox_50">
                   <property name="minimumSize">
                    <size>
@@ -18960,87 +19158,8 @@ Leave blank to home the joint manually.</string>
                   </layout>
                  </widget>
                 </item>
-                <item row="0" column="1">
-                 <widget class="QGroupBox" name="groupBox_83">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>100</height>
-                   </size>
-                  </property>
-                  <property name="title">
-                   <string>Following Error</string>
-                  </property>
-                  <layout class="QGridLayout" name="gridLayout_187">
-                   <item row="0" column="0">
-                    <widget class="QLabel" name="label_1066">
-                     <property name="text">
-                      <string>Min</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="1">
-                    <widget class="QLineEdit" name="c1_min_ferror_5">
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="2">
-                    <widget class="QLabel" name="label_1067">
-                     <property name="text">
-                      <string>Max</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="3">
-                    <widget class="QLineEdit" name="c1_max_ferror_5">
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="3">
-                    <widget class="QPushButton" name="c1_ferrorDefault_5">
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>Default Values</string>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </widget>
-                </item>
-                <item row="1" column="1">
-                 <widget class="QGroupBox" name="groupBox_51">
-                  <property name="title">
-                   <string>Options</string>
-                  </property>
-                  <widget class="QCheckBox" name="c1_reverse_5">
-                   <property name="geometry">
-                    <rect>
-                     <x>10</x>
-                     <y>30</y>
-                     <width>171</width>
-                     <height>25</height>
-                    </rect>
-                   </property>
-                   <property name="text">
-                    <string>Reverse Direction</string>
-                   </property>
-                  </widget>
-                 </widget>
+                <item row="2" column="2">
+                 <widget class="QWidget" name="widget_11" native="true"/>
                 </item>
                </layout>
               </widget>
@@ -21514,7 +21633,112 @@ Leave blank to home the joint manually.</string>
                 <string>PID</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_145">
-                <item row="0" column="0" rowspan="2">
+                <item row="0" column="1" colspan="2">
+                 <widget class="QGroupBox" name="groupBox_84">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>100</height>
+                   </size>
+                  </property>
+                  <property name="title">
+                   <string>Following Error</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_188">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_1068">
+                     <property name="text">
+                      <string>Min</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QLineEdit" name="c2_min_ferror_0">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2">
+                    <widget class="QLabel" name="label_1069">
+                     <property name="text">
+                      <string>Max</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="3">
+                    <widget class="QLineEdit" name="c2_max_ferror_0">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="3">
+                    <widget class="QPushButton" name="c2_ferrorDefault_0">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>Default Values</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="1" column="2">
+                 <widget class="QGroupBox" name="groupBox_112">
+                  <property name="title">
+                   <string>Tools</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_287">
+                   <item row="0" column="0">
+                    <widget class="QPushButton" name="c2_copy_values_0">
+                     <property name="toolTip">
+                      <string>Copy all the values from this
+joint to the next joint</string>
+                     </property>
+                     <property name="text">
+                      <string>Copy Values</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QGroupBox" name="groupBox_55">
+                  <property name="title">
+                   <string>Options</string>
+                  </property>
+                  <widget class="QCheckBox" name="c2_reverse_0">
+                   <property name="geometry">
+                    <rect>
+                     <x>10</x>
+                     <y>30</y>
+                     <width>171</width>
+                     <height>25</height>
+                    </rect>
+                   </property>
+                   <property name="text">
+                    <string>Reverse Direction</string>
+                   </property>
+                  </widget>
+                 </widget>
+                </item>
+                <item row="2" column="1">
+                 <widget class="QWidget" name="widget_6" native="true"/>
+                </item>
+                <item row="0" column="0" rowspan="3">
                  <widget class="QGroupBox" name="groupBox_54">
                   <property name="minimumSize">
                    <size>
@@ -21878,88 +22102,6 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                   </layout>
-                 </widget>
-                </item>
-                <item row="0" column="1">
-                 <widget class="QGroupBox" name="groupBox_84">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>100</height>
-                   </size>
-                  </property>
-                  <property name="title">
-                   <string>Following Error</string>
-                  </property>
-                  <layout class="QGridLayout" name="gridLayout_188">
-                   <item row="0" column="0">
-                    <widget class="QLabel" name="label_1068">
-                     <property name="text">
-                      <string>Min</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="1">
-                    <widget class="QLineEdit" name="c2_min_ferror_0">
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="2">
-                    <widget class="QLabel" name="label_1069">
-                     <property name="text">
-                      <string>Max</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="3">
-                    <widget class="QLineEdit" name="c2_max_ferror_0">
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="3">
-                    <widget class="QPushButton" name="c2_ferrorDefault_0">
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>Default Values</string>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </widget>
-                </item>
-                <item row="1" column="1">
-                 <widget class="QGroupBox" name="groupBox_55">
-                  <property name="title">
-                   <string>Options</string>
-                  </property>
-                  <widget class="QCheckBox" name="c2_reverse_0">
-                   <property name="geometry">
-                    <rect>
-                     <x>10</x>
-                     <y>30</y>
-                     <width>171</width>
-                     <height>25</height>
-                    </rect>
-                   </property>
-                   <property name="text">
-                    <string>Reverse Direction</string>
-                   </property>
-                  </widget>
                  </widget>
                 </item>
                </layout>
@@ -22913,7 +23055,112 @@ Leave blank to home the joint manually.</string>
                 <string>PID</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_156">
-                <item row="0" column="0" rowspan="2">
+                <item row="1" column="2">
+                 <widget class="QGroupBox" name="groupBox_113">
+                  <property name="title">
+                   <string>Tools</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_286">
+                   <item row="0" column="0">
+                    <widget class="QPushButton" name="c2_copy_values_1">
+                     <property name="toolTip">
+                      <string>Copy all the values from this
+joint to the next joint</string>
+                     </property>
+                     <property name="text">
+                      <string>Copy Values</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="0" column="1" colspan="2">
+                 <widget class="QGroupBox" name="groupBox_85">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>100</height>
+                   </size>
+                  </property>
+                  <property name="title">
+                   <string>Following Error</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_189">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_1070">
+                     <property name="text">
+                      <string>Min</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QLineEdit" name="c2_min_ferror_1">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2">
+                    <widget class="QLabel" name="label_1071">
+                     <property name="text">
+                      <string>Max</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="3">
+                    <widget class="QLineEdit" name="c2_max_ferror_1">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="3">
+                    <widget class="QPushButton" name="c2_ferrorDefault_1">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>Default Values</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QGroupBox" name="groupBox_59">
+                  <property name="title">
+                   <string>Options</string>
+                  </property>
+                  <widget class="QCheckBox" name="c2_reverse_1">
+                   <property name="geometry">
+                    <rect>
+                     <x>10</x>
+                     <y>30</y>
+                     <width>171</width>
+                     <height>25</height>
+                    </rect>
+                   </property>
+                   <property name="text">
+                    <string>Reverse Direction</string>
+                   </property>
+                  </widget>
+                 </widget>
+                </item>
+                <item row="2" column="1">
+                 <widget class="QWidget" name="widget_7" native="true"/>
+                </item>
+                <item row="0" column="0" rowspan="3">
                  <widget class="QGroupBox" name="groupBox_58">
                   <property name="minimumSize">
                    <size>
@@ -23277,88 +23524,6 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                   </layout>
-                 </widget>
-                </item>
-                <item row="0" column="1">
-                 <widget class="QGroupBox" name="groupBox_85">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>100</height>
-                   </size>
-                  </property>
-                  <property name="title">
-                   <string>Following Error</string>
-                  </property>
-                  <layout class="QGridLayout" name="gridLayout_189">
-                   <item row="0" column="0">
-                    <widget class="QLabel" name="label_1070">
-                     <property name="text">
-                      <string>Min</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="1">
-                    <widget class="QLineEdit" name="c2_min_ferror_1">
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="2">
-                    <widget class="QLabel" name="label_1071">
-                     <property name="text">
-                      <string>Max</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="3">
-                    <widget class="QLineEdit" name="c2_max_ferror_1">
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="3">
-                    <widget class="QPushButton" name="c2_ferrorDefault_1">
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>Default Values</string>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </widget>
-                </item>
-                <item row="1" column="1">
-                 <widget class="QGroupBox" name="groupBox_59">
-                  <property name="title">
-                   <string>Options</string>
-                  </property>
-                  <widget class="QCheckBox" name="c2_reverse_1">
-                   <property name="geometry">
-                    <rect>
-                     <x>10</x>
-                     <y>30</y>
-                     <width>171</width>
-                     <height>25</height>
-                    </rect>
-                   </property>
-                   <property name="text">
-                    <string>Reverse Direction</string>
-                   </property>
-                  </widget>
                  </widget>
                 </item>
                </layout>
@@ -24312,7 +24477,112 @@ Leave blank to home the joint manually.</string>
                 <string>PID</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_167">
-                <item row="0" column="0" rowspan="2">
+                <item row="1" column="2">
+                 <widget class="QGroupBox" name="groupBox_114">
+                  <property name="title">
+                   <string>Tools</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_285">
+                   <item row="0" column="0">
+                    <widget class="QPushButton" name="c2_copy_values_2">
+                     <property name="toolTip">
+                      <string>Copy all the values from this
+joint to the next joint</string>
+                     </property>
+                     <property name="text">
+                      <string>Copy Values</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="0" column="1" colspan="2">
+                 <widget class="QGroupBox" name="groupBox_86">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>100</height>
+                   </size>
+                  </property>
+                  <property name="title">
+                   <string>Following Error</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_190">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_1072">
+                     <property name="text">
+                      <string>Min</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QLineEdit" name="c2_min_ferror_2">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2">
+                    <widget class="QLabel" name="label_1073">
+                     <property name="text">
+                      <string>Max</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="3">
+                    <widget class="QLineEdit" name="c2_max_ferror_2">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="3">
+                    <widget class="QPushButton" name="c2_ferrorDefault_2">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>Default Values</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QGroupBox" name="groupBox_65">
+                  <property name="title">
+                   <string>Options</string>
+                  </property>
+                  <widget class="QCheckBox" name="c2_reverse_2">
+                   <property name="geometry">
+                    <rect>
+                     <x>10</x>
+                     <y>30</y>
+                     <width>171</width>
+                     <height>25</height>
+                    </rect>
+                   </property>
+                   <property name="text">
+                    <string>Reverse Direction</string>
+                   </property>
+                  </widget>
+                 </widget>
+                </item>
+                <item row="2" column="1">
+                 <widget class="QWidget" name="widget_8" native="true"/>
+                </item>
+                <item row="0" column="0" rowspan="3">
                  <widget class="QGroupBox" name="groupBox_64">
                   <property name="minimumSize">
                    <size>
@@ -24676,88 +24946,6 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                   </layout>
-                 </widget>
-                </item>
-                <item row="0" column="1">
-                 <widget class="QGroupBox" name="groupBox_86">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>100</height>
-                   </size>
-                  </property>
-                  <property name="title">
-                   <string>Following Error</string>
-                  </property>
-                  <layout class="QGridLayout" name="gridLayout_190">
-                   <item row="0" column="0">
-                    <widget class="QLabel" name="label_1072">
-                     <property name="text">
-                      <string>Min</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="1">
-                    <widget class="QLineEdit" name="c2_min_ferror_2">
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="2">
-                    <widget class="QLabel" name="label_1073">
-                     <property name="text">
-                      <string>Max</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="3">
-                    <widget class="QLineEdit" name="c2_max_ferror_2">
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="3">
-                    <widget class="QPushButton" name="c2_ferrorDefault_2">
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>Default Values</string>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </widget>
-                </item>
-                <item row="1" column="1">
-                 <widget class="QGroupBox" name="groupBox_65">
-                  <property name="title">
-                   <string>Options</string>
-                  </property>
-                  <widget class="QCheckBox" name="c2_reverse_2">
-                   <property name="geometry">
-                    <rect>
-                     <x>10</x>
-                     <y>30</y>
-                     <width>171</width>
-                     <height>25</height>
-                    </rect>
-                   </property>
-                   <property name="text">
-                    <string>Reverse Direction</string>
-                   </property>
-                  </widget>
                  </widget>
                 </item>
                </layout>
@@ -25711,7 +25899,112 @@ Leave blank to home the joint manually.</string>
                 <string>PID</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_193">
-                <item row="0" column="0" rowspan="2">
+                <item row="1" column="1">
+                 <widget class="QGroupBox" name="groupBox_69">
+                  <property name="title">
+                   <string>Options</string>
+                  </property>
+                  <widget class="QCheckBox" name="c2_reverse_3">
+                   <property name="geometry">
+                    <rect>
+                     <x>10</x>
+                     <y>30</y>
+                     <width>171</width>
+                     <height>25</height>
+                    </rect>
+                   </property>
+                   <property name="text">
+                    <string>Reverse Direction</string>
+                   </property>
+                  </widget>
+                 </widget>
+                </item>
+                <item row="1" column="2">
+                 <widget class="QGroupBox" name="groupBox_115">
+                  <property name="title">
+                   <string>Tools</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_284">
+                   <item row="0" column="0">
+                    <widget class="QPushButton" name="c2_copy_values_3">
+                     <property name="toolTip">
+                      <string>Copy all the values from this
+joint to the next joint</string>
+                     </property>
+                     <property name="text">
+                      <string>Copy Values</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="0" column="1" colspan="2">
+                 <widget class="QGroupBox" name="groupBox_88">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>100</height>
+                   </size>
+                  </property>
+                  <property name="title">
+                   <string>Following Error</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_195">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_1074">
+                     <property name="text">
+                      <string>Min</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QLineEdit" name="c2_min_ferror_3">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2">
+                    <widget class="QLabel" name="label_1075">
+                     <property name="text">
+                      <string>Max</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="3">
+                    <widget class="QLineEdit" name="c2_max_ferror_3">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="3">
+                    <widget class="QPushButton" name="c2_ferrorDefault_3">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>Default Values</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="2" column="1">
+                 <widget class="QWidget" name="widget_9" native="true"/>
+                </item>
+                <item row="0" column="0" rowspan="3">
                  <widget class="QGroupBox" name="groupBox_68">
                   <property name="minimumSize">
                    <size>
@@ -26075,88 +26368,6 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                   </layout>
-                 </widget>
-                </item>
-                <item row="0" column="1">
-                 <widget class="QGroupBox" name="groupBox_88">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>100</height>
-                   </size>
-                  </property>
-                  <property name="title">
-                   <string>Following Error</string>
-                  </property>
-                  <layout class="QGridLayout" name="gridLayout_195">
-                   <item row="0" column="0">
-                    <widget class="QLabel" name="label_1074">
-                     <property name="text">
-                      <string>Min</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="1">
-                    <widget class="QLineEdit" name="c2_min_ferror_3">
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="2">
-                    <widget class="QLabel" name="label_1075">
-                     <property name="text">
-                      <string>Max</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="3">
-                    <widget class="QLineEdit" name="c2_max_ferror_3">
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="3">
-                    <widget class="QPushButton" name="c2_ferrorDefault_3">
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>Default Values</string>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </widget>
-                </item>
-                <item row="1" column="1">
-                 <widget class="QGroupBox" name="groupBox_69">
-                  <property name="title">
-                   <string>Options</string>
-                  </property>
-                  <widget class="QCheckBox" name="c2_reverse_3">
-                   <property name="geometry">
-                    <rect>
-                     <x>10</x>
-                     <y>30</y>
-                     <width>171</width>
-                     <height>25</height>
-                    </rect>
-                   </property>
-                   <property name="text">
-                    <string>Reverse Direction</string>
-                   </property>
-                  </widget>
                  </widget>
                 </item>
                </layout>
@@ -27110,7 +27321,112 @@ Leave blank to home the joint manually.</string>
                 <string>PID</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_211">
-                <item row="0" column="0" rowspan="2">
+                <item row="1" column="1">
+                 <widget class="QGroupBox" name="groupBox_92">
+                  <property name="title">
+                   <string>Options</string>
+                  </property>
+                  <widget class="QCheckBox" name="c2_reverse_4">
+                   <property name="geometry">
+                    <rect>
+                     <x>10</x>
+                     <y>30</y>
+                     <width>171</width>
+                     <height>25</height>
+                    </rect>
+                   </property>
+                   <property name="text">
+                    <string>Reverse Direction</string>
+                   </property>
+                  </widget>
+                 </widget>
+                </item>
+                <item row="0" column="1" colspan="2">
+                 <widget class="QGroupBox" name="groupBox_91">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>100</height>
+                   </size>
+                  </property>
+                  <property name="title">
+                   <string>Following Error</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_213">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_1076">
+                     <property name="text">
+                      <string>Min</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QLineEdit" name="c2_min_ferror_4">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2">
+                    <widget class="QLabel" name="label_1077">
+                     <property name="text">
+                      <string>Max</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="3">
+                    <widget class="QLineEdit" name="c2_max_ferror_4">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="3">
+                    <widget class="QPushButton" name="c2_ferrorDefault_4">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>Default Values</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="1" column="2">
+                 <widget class="QGroupBox" name="groupBox_116">
+                  <property name="title">
+                   <string>Tools</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_283">
+                   <item row="0" column="0">
+                    <widget class="QPushButton" name="c2_copy_values_4">
+                     <property name="toolTip">
+                      <string>Copy all the values from this
+joint to the next joint</string>
+                     </property>
+                     <property name="text">
+                      <string>Copy Values</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="2" column="1">
+                 <widget class="QWidget" name="widget_10" native="true"/>
+                </item>
+                <item row="0" column="0" rowspan="3">
                  <widget class="QGroupBox" name="groupBox_90">
                   <property name="minimumSize">
                    <size>
@@ -27474,88 +27790,6 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                   </layout>
-                 </widget>
-                </item>
-                <item row="0" column="1">
-                 <widget class="QGroupBox" name="groupBox_91">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>100</height>
-                   </size>
-                  </property>
-                  <property name="title">
-                   <string>Following Error</string>
-                  </property>
-                  <layout class="QGridLayout" name="gridLayout_213">
-                   <item row="0" column="0">
-                    <widget class="QLabel" name="label_1076">
-                     <property name="text">
-                      <string>Min</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="1">
-                    <widget class="QLineEdit" name="c2_min_ferror_4">
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="2">
-                    <widget class="QLabel" name="label_1077">
-                     <property name="text">
-                      <string>Max</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="3">
-                    <widget class="QLineEdit" name="c2_max_ferror_4">
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="3">
-                    <widget class="QPushButton" name="c2_ferrorDefault_4">
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>Default Values</string>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </widget>
-                </item>
-                <item row="1" column="1">
-                 <widget class="QGroupBox" name="groupBox_92">
-                  <property name="title">
-                   <string>Options</string>
-                  </property>
-                  <widget class="QCheckBox" name="c2_reverse_4">
-                   <property name="geometry">
-                    <rect>
-                     <x>10</x>
-                     <y>30</y>
-                     <width>171</width>
-                     <height>25</height>
-                    </rect>
-                   </property>
-                   <property name="text">
-                    <string>Reverse Direction</string>
-                   </property>
-                  </widget>
                  </widget>
                 </item>
                </layout>
@@ -28509,7 +28743,92 @@ Leave blank to home the joint manually.</string>
                 <string>PID</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_223">
-                <item row="0" column="0" rowspan="2">
+                <item row="1" column="1">
+                 <widget class="QGroupBox" name="groupBox_97">
+                  <property name="title">
+                   <string>Options</string>
+                  </property>
+                  <widget class="QCheckBox" name="c2_reverse_5">
+                   <property name="geometry">
+                    <rect>
+                     <x>10</x>
+                     <y>30</y>
+                     <width>171</width>
+                     <height>25</height>
+                    </rect>
+                   </property>
+                   <property name="text">
+                    <string>Reverse Direction</string>
+                   </property>
+                  </widget>
+                 </widget>
+                </item>
+                <item row="0" column="1" colspan="2">
+                 <widget class="QGroupBox" name="groupBox_96">
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>100</height>
+                   </size>
+                  </property>
+                  <property name="title">
+                   <string>Following Error</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_225">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_1078">
+                     <property name="text">
+                      <string>Min</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QLineEdit" name="c2_min_ferror_5">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2">
+                    <widget class="QLabel" name="label_1079">
+                     <property name="text">
+                      <string>Max</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="3">
+                    <widget class="QLineEdit" name="c2_max_ferror_5">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="3">
+                    <widget class="QPushButton" name="c2_ferrorDefault_5">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>Default Values</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="2" column="1">
+                 <widget class="QWidget" name="widget_16" native="true"/>
+                </item>
+                <item row="0" column="0" rowspan="3">
                  <widget class="QGroupBox" name="groupBox_95">
                   <property name="minimumSize">
                    <size>
@@ -28875,87 +29194,8 @@ Leave blank to home the joint manually.</string>
                   </layout>
                  </widget>
                 </item>
-                <item row="0" column="1">
-                 <widget class="QGroupBox" name="groupBox_96">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>100</height>
-                   </size>
-                  </property>
-                  <property name="title">
-                   <string>Following Error</string>
-                  </property>
-                  <layout class="QGridLayout" name="gridLayout_225">
-                   <item row="0" column="0">
-                    <widget class="QLabel" name="label_1078">
-                     <property name="text">
-                      <string>Min</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="1">
-                    <widget class="QLineEdit" name="c2_min_ferror_5">
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="2">
-                    <widget class="QLabel" name="label_1079">
-                     <property name="text">
-                      <string>Max</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="3">
-                    <widget class="QLineEdit" name="c2_max_ferror_5">
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="3">
-                    <widget class="QPushButton" name="c2_ferrorDefault_5">
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>Default Values</string>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </widget>
-                </item>
-                <item row="1" column="1">
-                 <widget class="QGroupBox" name="groupBox_97">
-                  <property name="title">
-                   <string>Options</string>
-                  </property>
-                  <widget class="QCheckBox" name="c2_reverse_5">
-                   <property name="geometry">
-                    <rect>
-                     <x>10</x>
-                     <y>30</y>
-                     <width>171</width>
-                     <height>25</height>
-                    </rect>
-                   </property>
-                   <property name="text">
-                    <string>Reverse Direction</string>
-                   </property>
-                  </widget>
-                 </widget>
+                <item row="2" column="2">
+                 <widget class="QWidget" name="widget_15" native="true"/>
                 </item>
                </layout>
               </widget>

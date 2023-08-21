@@ -109,16 +109,39 @@ def axisDisplayChanged(parent, radioButton):
 			button.setChecked(False)
 
 def copyValues(parent):
-	entries = ['_scale_', 
-	'_min_limit_', 
-	'_max_limit_', 
-	'_max_vel_', 
-	'_max_accel_', ]
+	entries = ['_scale_',
+	'_min_limit_',
+	'_max_limit_',
+	'_max_vel_',
+	'_max_accel_',
+	'_p_',
+	'_i_',
+	'_d_',
+	'_ff0_',
+	'_ff0_',
+	'_ff1_',
+	'_ff2_',
+	'_deadband_',
+	'_bias_',
+	'_maxOutput_',
+	'_maxError_',
+	'_min_ferror_',
+	'_max_ferror_'
+	]
+
 	button = parent.sender().objectName()
 	card = button[:2]
 	joint = button[-1]
+	next_joint = int(joint) + 1
+	next_tab = int(joint) + 2
 	for item in entries:
 		getattr(parent, f'{card}{item}{int(joint) + 1}').setText(getattr(parent, f'{card}{item}{joint}').text())
+
+	step_driver = getattr(parent, f'{card}_drive_{joint}').currentText()
+	index = getattr(parent, f'{card}_drive_{next_joint}').findText(step_driver)
+	getattr(parent, f'{card}_drive_{next_joint}').setCurrentIndex(index)
+	getattr(parent, f'{card}_axis_{next_joint}').setFocus()
+	getattr(parent, f'{card}_JointTW').setCurrentIndex(next_tab)
 
 def new_config(parent):
 	for child in parent.findChildren(QLineEdit):
