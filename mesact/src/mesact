@@ -14,7 +14,7 @@ sudo apt install zip
 '''
 
 VERSION = '2.0.1'
-BUILD_DATE = '08/22/2023'
+BUILD_DATE = '08/24/2023'
 
 from traceback import StackSummary
 from functools import partial
@@ -25,7 +25,6 @@ from PyQt5.QtCore import QTimer, QSettings, qVersion
 from PyQt5 import uic
 
 from libmesact import startup
-from libmesact import connections
 from libmesact import boards
 from libmesact import downloads
 from libmesact import firmware
@@ -83,9 +82,149 @@ class MainWindow(QMainWindow):
 		self.loadini = openini.loadini()
 		self.boardType = False # eth or pci
 		self.password = None
-		connections.connect(self)
+		self.connections()
 		startup.setup(self)
 		self.show()
+
+	def connections(self):
+		# Menu Items
+		self.actionNew.triggered.connect(partial(utilities.new_config, self))
+		self.actionOpen.triggered.connect(partial(self.loadini.checkini, self))
+		self.actionCheck.triggered.connect(partial(check.checkit, self))
+		self.actionBuild.triggered.connect(partial(buildconfig.build, self))
+		#self.actionTabHelp.triggered.connect(partial(self.help, 0))
+		self.actionMesaCT_PC_64_bit.triggered.connect(partial(downloads.downloadAmd64Deb, self))
+		self.actionMesaCT_Rpi_32_bit.triggered.connect(partial(downloads.downloadArmhDeb, self))
+		self.actionMesaCT_Rpi_64_bit.triggered.connect(partial(downloads.downloadArm64Deb, self))
+		self.actionFirmware.triggered.connect(partial(downloads.downloadFirmware, self))
+		self.actionDocuments.triggered.connect(partial(documents.openDoc, self))
+		self.actionCheckUpdates.triggered.connect(partial(updates.checkUpdates, self))
+		self.actionAboutMesaCT.triggered.connect(partial(dialogs.aboutDialog, self))
+		#self.actionBoardImages.triggered.connect(partial(updates.boardImages, self))
+		self.timer.timeout.connect(partial(downloads.clearProgressBar, self))
+
+		# Machine Tab
+		self.configNameLE.textChanged[str].connect(partial(machine.configNameChanged, self))
+		self.boardCB.currentIndexChanged.connect(partial(boards.boardChanged, self))
+		for i in range(2):
+			getattr(self, f'daughterCB_{i}').currentIndexChanged.connect(partial(daughters.changed, self))
+		self.checkBoardPB.clicked.connect(partial(flash.checkCard, self))
+
+		'''
+		self.enableMesaflashCB.clicked.connect(partial(utilities.firmwareTools, self))
+		self.enableMesaflashCB.clicked.connect(partial(settings.update_value, self))
+		self.backupCB.clicked.connect(partial(utilities.backup, self))
+		'''
+		self.default_imperial_pb.clicked.connect(partial(testing.default_imperial, self))
+		self.default_metric_pb.clicked.connect(partial(testing.default_metric, self))
+		self.set_7i96s_x_pb.clicked.connect(partial(testing.set_7i96s_x, self))
+		self.set_7i96s_xyz_pb.clicked.connect(partial(testing.set_7i96s_xyz, self))
+		self.set_7i96s_xyyz_pb.clicked.connect(partial(testing.set_7i96s_xyyz, self))
+		self.set_7i96s_7i77_pb.clicked.connect(partial(testing.set_7i96s_7i77, self))
+		self.set_7i92t_p1_7i76_pb.clicked.connect(partial(testing.set_7i92t_p1_7i76, self))
+		self.set_7i92t_p2_7i76_pb.clicked.connect(partial(testing.set_7i92t_p2_7i76, self))
+		self.set_7i92t_p2_7i77_pb.clicked.connect(partial(testing.set_7i92t_p2_7i77, self))
+
+		# Settings Tab
+		self.minLinJogVelDSB.valueChanged.connect(partial(utilities.unitsChanged, self))
+		self.defLinJogVelDSB.valueChanged.connect(partial(utilities.unitsChanged, self))
+		self.maxLinJogVelDSB.valueChanged.connect(partial(utilities.unitsChanged, self))
+		self.minAngJogVelDSB.valueChanged.connect(partial(utilities.unitsChanged, self))
+		self.defAngJogVelDSB.valueChanged.connect(partial(utilities.unitsChanged, self))
+		self.maxAngJogVelDSB.valueChanged.connect(partial(utilities.unitsChanged, self))
+		self.axisButtonGroup.setExclusive(False)  # Radio buttons are not exclusive
+		self.axisButtonGroup.buttonClicked.connect(partial(utilities.axisDisplayChanged, self))
+		self.linearUnitsCB.currentIndexChanged.connect(partial(utilities.unitsChanged, self))
+		self.trajMaxLinVelDSB.valueChanged.connect(partial(utilities.maxVelChanged, self))
+
+		'''
+		#self.frontToolLatheRB.buttonClicked.connect(partial(utilities.axisDisplayChanged, self))
+		#self.backToolLatheRB.buttonClicked.connect(partial(utilities.axisDisplayChanged, self))
+		#self.foamRB.buttonClicked.connect(partial(utilities.axisDisplayChanged, self))
+		'''
+
+		# Firmware Tab
+		self.firmwareCB.currentIndexChanged.connect(partial(firmware.firmwareChanged, self))
+		self.readhmidPB.clicked.connect(partial(flash.readhmid, self))
+		self.readpdPB.clicked.connect(partial(flash.readpd, self))
+		self.flashPB.clicked.connect(partial(flash.flashCard, self))
+		self.reloadPB.clicked.connect(partial(flash.reloadCard, self))
+		self.verifyPB.clicked.connect(partial(flash.verifyFirmware, self))
+		self.copyPB.clicked.connect(partial(flash.copyOutput, self))
+
+		# Info Tab
+
+		# Axes Tab
+		# for now just do one card
+		#j = 0
+		for j in range(3):
+			for i in range(5):
+				getattr(self, f'c{j}_copy_values_{i}').clicked.connect(partial(utilities.copyValues, self))
+
+		for i in range(6):
+			for j in range(3): # <-- change when more cards are added
+				getattr(self, f'c{j}_axis_{i}').currentIndexChanged.connect(partial(axes.axisChanged, self))
+				getattr(self, f'c{j}_scale_{i}').textChanged.connect(partial(axes.updateAxisInfo, self))
+				getattr(self, f'c{j}_max_vel_{i}').textChanged.connect(partial(axes.updateAxisInfo, self))
+				getattr(self, f'c{j}_max_accel_{i}').textChanged.connect(partial(axes.updateAxisInfo, self))
+				getattr(self, f'c{j}_pidDefault_{i}').clicked.connect(partial(axes.pidSetDefault, self))
+				getattr(self, f'c{j}_ferrorDefault_{i}').clicked.connect(partial(axes.ferrorSetDefault, self))
+				getattr(self, f'c{j}_analogDefault_{i}').clicked.connect(partial(axes.analogSetDefault, self))
+				getattr(self, f'c{j}_drive_{i}').currentIndexChanged.connect(partial(axes.driveChanged, self))
+
+		# I/O Tab
+		for i in range(3):
+			for j in range(32):
+				getattr(self, f'c{i}_input_invert_{j}').stateChanged.connect(partial(utilities.inputChanged, self))
+				getattr(self, f'c{i}_input_debounce_{j}').stateChanged.connect(partial(utilities.inputChanged, self))
+
+		# Spindle Tab
+		self.output_type = '' # hostmot2 output-type
+		self.spindleTypeCB.currentIndexChanged.connect(partial(spindle.spindle_type_changed, self))
+		self.pidDefault_s.clicked.connect(partial(spindle.spindle_pid_default, self))
+		'''
+		self.spindleFeedbackCB.currentIndexChanged.connect(partial(utilities.spindleFeedbackChanged, self))
+		self.spindleDriveCB.currentIndexChanged.connect(partial(utilities.driveChanged, self))
+		self.spindleMinRpm.valueChanged.connect(partial(utilities.spindleSettingsChanged, self))
+		self.spindleMaxRpm.valueChanged.connect(partial(utilities.spindleSettingsChanged, self))
+		self.spindleMaxAccel.valueChanged.connect(partial(utilities.spindleSettingsChanged, self))
+		'''
+		# Smart Serial Tab
+		self.ssCardCB.currentIndexChanged.connect(partial(sscards.ssCardChanged, self))
+		self.ss7i73_keypadCB.currentIndexChanged.connect(partial(sscards.ss7i73Changed, self))
+		self.ss7i73lcdCB.currentIndexChanged.connect(partial(sscards.ss7i73Changed, self))
+		'''
+
+		# HAL Tab
+		self.buildHalPB.clicked.connect(partial(hal.buildHal, self))
+		for i in range(6):
+			getattr(self, f'halFunctionCB_{i}').currentIndexChanged.connect(partial(hal.functionChanged, self))
+		for i in range(4):
+			getattr(self, f'functionCountSB_{i}').valueChanged.connect(partial(hal.countChanged, self))
+
+		# Pins Tab
+		self.cardPinsPB.clicked.connect(partial(card.getCardPins, self))
+		'''
+		# PC Tab st_cpu_speed_pb
+		self.mb_info_PB.clicked.connect(partial(pcinfo.mbInfo, self))
+		self.nic_cpu_speed_pb.clicked.connect(partial(pcinfo.cpuSpeed, self))
+		self.nicPB.clicked.connect(partial(pcinfo.nicInfo, self))
+		self.ip_nic_PB.clicked.connect(partial(pcinfo.ipInfo, self))
+		self.servoThreadTmaxPB.clicked.connect(partial(pcinfo.servoTmax, self))
+		self.st_cpu_speed_pb.clicked.connect(partial(pcinfo.cpuSpeed, self))
+		self.calcServoPB.clicked.connect(partial(pcinfo.calcServoPercent, self))
+		self.readTmaxPB.clicked.connect(partial(pcinfo.readTmax, self))
+		self.writeTmaxPB.clicked.connect(partial(pcinfo.writeTmax, self))
+		self.calcNicPB.clicked.connect(partial(pcinfo.nicCalc, self))
+		self.cpu_info_pb.clicked.connect(partial(pcinfo.cpuInfo, self))
+		#self.latencyTestPB.clicked.connect(partial(tools.runLatencyHisogram, self))
+
+		# Options Tab
+		self.no_check_firmware_cb.clicked.connect(partial(settings.update_settings, self))
+		# check load_config_cb when building only...
+		#self.load_config_cb.toggled.connect(partial(settings.update_settings, self))
+		#self.checkMesaflashCB.clicked.connect(partial(settings.update_value, self))
+		#self.newUserCB.clicked.connect(partial(settings.update_value, self))
 
 	def changed(self):
 		#if isinstance(self.sender(), QComboBox):
