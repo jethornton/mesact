@@ -8,15 +8,14 @@ def boardChanged(parent):
 	['7i77', '7i77'],
 	['7i78', '7i78'],
 	['7i85', '7i85'],
-	['7i85S', '7i85s'],
+	['7i85S', '7i85s']
 	]
 	idc50 = [
 	['Select', None],
 	['7i33TA', '7i33ta'],
 	['7i37TA', '7i37ta'],
 	['7i47', '7i47'],
-	['7i47S', '7i47s'],
-	['7i49', '7i49'],
+	['7i47S', '7i47s']
 	]
 
 	if parent.boardCB.currentData():
