@@ -6,7 +6,8 @@ The Mesa Configuration Tool works with most Debian and Debian based Operating
 Systems including the Raspberry Pi with the exception of Raspbian 10.
 
 Requirements:
-Python Version 3.6 or newer 
+
+Python Version 3.6 or newer (formatted string literals)
 PyQt5 Version 5.15.0 or newer (QTabWidget.setTabVisible())
 
 To run from a terminal you need to install some depenencies first
