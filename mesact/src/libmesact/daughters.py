@@ -1,9 +1,9 @@
 
 def changed(parent):
-	# daughter card indexes start at 1
 	index = int(parent.sender().objectName()[-1])
+	# daughter card indexes start at 1
 	if parent.sender().currentData(): # daughter card selected
-		daughter = int(getattr(parent, f'daughterLB_{index}').text()[-1])
+		daughter = index + 1
 		board = parent.sender().currentData()
 		tab = int(parent.sender().objectName()[-1]) + 4
 		connector = int(parent.sender().objectName()[-1]) + 1
