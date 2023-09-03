@@ -46,6 +46,7 @@ from libmesact import settings
 from libmesact import spindle
 from libmesact import shutdown
 from libmesact import updates
+from libmesact import mdi
 
 # testing imports
 from libmesact import testing
@@ -225,6 +226,12 @@ class MainWindow(QMainWindow):
 		#self.load_config_cb.toggled.connect(partial(settings.update_settings, self))
 		#self.checkMesaflashCB.clicked.connect(partial(settings.update_value, self))
 		#self.newUserCB.clicked.connect(partial(settings.update_value, self))
+
+		# Options Tab - MDI
+		for i in range(10):
+			mdi.add_mdi_command_row(self)
+
+		self.addMdiCommandPB.clicked.connect(partial(mdi.add_mdi_command_row, self))
 
 	def changed(self):
 		#if isinstance(self.sender(), QComboBox):

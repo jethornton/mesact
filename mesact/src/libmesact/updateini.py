@@ -3,6 +3,9 @@ from datetime import datetime
 
 from PyQt5.QtWidgets import QSpinBox
 
+from libmesact import mdi
+
+
 class updateini:
 	def __init__(self):
 		super().__init__()
@@ -341,15 +344,16 @@ class updateini:
 					if self.content[i].startswith('MDI_COMMAND'):
 						ini_mdi.append(self.content[i].split('=')[1].strip())
 				tool_mdi = []
-				for i in range(10):
-					mdi_text = f'{getattr(parent, f"mdiCmdLE_{i}").text()}'
+				for i in range(mdi.get_mdi_commands_count(parent)):
+					mdi_text = mdi.get_mdi_command(parent, i)
 					if mdi_text:
-						tool_mdi.append(f'{getattr(parent, f"mdiCmdLE_{i}").text()}')
+						tool_mdi.append(mdi_text)
 
 				if len(ini_mdi) == len(tool_mdi):
 					for i, j in enumerate(range(index[0] + 1, index[1])):
 						if self.content[j].startswith('MDI_COMMAND'):
-							self.content[j] = f'MDI_COMMAND = {getattr(parent, f"mdiCmdLE_{i}").text()}\n'
+							cmd = mdi.get_mdi_command(parent, i)
+							self.content[j] = f'MDI_COMMAND = {cmd}\n'
 				elif len(ini_mdi) > len(tool_mdi):
 					remove = len(ini_mdi) - len(tool_mdi)
 					for i in reversed(range(index[0] + 1, index[1])):
@@ -360,10 +364,11 @@ class updateini:
 				elif len(ini_mdi) < len(tool_mdi):
 					add = len(tool_mdi) - len(ini_mdi)
 					for i, j in enumerate(range(index[0] + 1, index[1] + add)):
+						cmd = mdi.get_mdi_command(parent, i)
 						if self.content[j].startswith('MDI_COMMAND'): # replace it
-							self.content[j] = f'MDI_COMMAND = {getattr(parent, f"mdiCmdLE_{i}").text()}\n'
+							self.content[j] = f'MDI_COMMAND = {cmd}\n'
 						elif self.content[j].strip() == '': # insert it
-							self.content.insert(j, f'MDI_COMMAND = {getattr(parent, f"mdiCmdLE_{i}").text()}\n')
+							self.content.insert(j, f'MDI_COMMAND = {cmd}\n')
 					self.get_sections() # update section start/end
 
 		############ Massive rework needed here
