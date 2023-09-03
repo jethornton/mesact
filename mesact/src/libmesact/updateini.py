@@ -7,9 +7,19 @@ from libmesact import mdi
 
 
 class updateini:
+	generated_hal_items = [
+		'main.hal',
+		'io.hal',
+		'sserial.hal',
+		'custom.hal',
+		'postgui.hal',
+		'shutdown.hal',
+		'HALUI'
+	]
+
 	def __init__(self):
 		super().__init__()
-		self.content = ''
+		self.content = []
 		self.sections = {}
 
 	def update(self, parent, iniFile):
@@ -274,61 +284,31 @@ class updateini:
 		for item in traj:
 			self.update_key(item[0], item[1], item[2])
 
-		# [HAL] missing all the hal files
-		custom = False
-		postgui = False
-		shutdown = False
-		start = self.sections['[HAL]'][0]
-		end = self.sections['[HAL]'][1]
-		for i in range(start, end): # find out if custom.hal is there
-			if 'custom.hal' in self.content[i]:
-				custom = True
-			if 'postgui.hal' in self.content[i]:
-				postgui = True
-			if 'shutdown.hal' in self.content[i]:
-				shutdown = True
-		if parent.customhalCB.isChecked():
-			start = self.sections['[HAL]'][0]
-			end = self.sections['[HAL]'][1]
-			if not custom: # insert it after main.hal
-				for i in range(start, end): # find main.hal
-					if 'main.hal' in self.content[i]:
-						self.content.insert(i + 1, 'HALFILE = custom.hal\n')
-						custom = True
-						self.get_sections()
-		if parent.postguiCB.isChecked():
-			start = self.sections['[HAL]'][0]
-			end = self.sections['[HAL]'][1]
-			if custom and not postgui: # insert after custom
-				for i in range(start, end): # find custom.hal
-					if 'custom.hal' in self.content[i]:
-						self.content.insert(i + 1, 'HALFILE = postgui.hal\n')
-						postgui = True
-						self.get_sections()
-			else: # insert after main
-				for i in range(start, end): # find main.hal
-					if 'main.hal' in self.content[i]:
-						self.content.insert(i + 1, 'HALFILE = postgui.hal\n')
-						postgui = True
-						self.get_sections()
-		if parent.shutdownCB.isChecked():
-			start = self.sections['[HAL]'][0]
-			end = self.sections['[HAL]'][1]
-			if postgui and not shutdown: # insert after postgui
-				for i in range(start, end): # find postgui.hal
-					if 'postgui.hal' in self.content[i]:
-						self.content.insert(i + 1, 'HALFILE = shutdown.hal\n')
-						shutdown = True
-						self.get_sections()
-			else: # insert after main
-				for i in range(start, end): # find main.hal
-					if 'main.hal' in self.content[i]:
-						self.content.insert(i + 1, 'HALFILE = shutdown.hal\n')
-						shutdown = True
-						self.get_sections()
+		# Update [HAL] section using same rules as for INI file building
+		start, end = self.get_section_bounds('[HAL]')
+		# remove all generated files
+		for i in reversed(range(start, end)):
+			if any(hal_file in self.content[i] for hal_file in self.generated_hal_items):
+				del self.content[i]
 
+		self.get_sections()
+		start, end = self.get_section_bounds('[HAL]')
+
+		# add in reversed order to avoid indexes calculation
 		if parent.haluiCB.isChecked():
-			self.update_key('HAL', 'HALUI', 'halui')
+			self.content.insert(end, 'HALUI = halui\n')
+		if parent.shutdownCB.isChecked():
+			self.content.insert(end, 'SHUTDOWN = shutdown.hal\n')
+		if parent.postguiCB.isChecked():
+			self.content.insert(end, 'POSTGUI_HALFILE = postgui.hal\n')
+		if parent.customhalCB.isChecked():
+			self.content.insert(start + 1, 'HALFILE = custom.hal\n')
+		if parent.ssCardCB.currentData():
+			self.content.insert(start + 1, 'HALFILE = sserial.hal\n')
+		self.content.insert(start + 1, 'HALFILE = io.hal\n')
+		self.content.insert(start + 1, 'HALFILE = main.hal\n')
+
+		self.get_sections()
 
 		# [HALUI]
 		if parent.haluiCB.isChecked() and '[HALUI]' not in self.sections:
@@ -774,9 +754,11 @@ class updateini:
 		self.get_sections() # update section start/end
 
 	def delete_section(self, section):
-		start = self.sections[section][0]
-		end = self.sections[section][1]
+		start, end = self.get_section_bounds(section)
 		del self.content[start:end]
 		self.get_sections() # update section start/end
 
-
+	def get_section_bounds(self, section):
+		start = self.sections[section][0]
+		end = self.sections[section][1]
+		return start, end
