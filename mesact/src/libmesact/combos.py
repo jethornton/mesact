@@ -110,7 +110,7 @@ def build(parent):
 			parent.editorCB.addItem(key, value)
 	if not installed:
 		parent.editorCB.addItem('None', False)
-		parent.machinePTE.appendPlainText('No Editors were found!')
+		parent.verifyPTE.appendPlainText('No Editors were found!')
 
 	# Joint Tabs
 	axes = [
