@@ -68,6 +68,7 @@ def setup(parent):
 	try: # don't crash if your not running debian
 		emc = subprocess.check_output(['apt-cache', 'policy', 'linuxcnc-uspace'], encoding='UTF-8')
 	except:
+		emc = None
 		pass
 
 	if emc:
