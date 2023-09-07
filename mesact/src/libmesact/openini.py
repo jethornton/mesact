@@ -6,6 +6,8 @@ from PyQt5.QtWidgets import (QFileDialog, QLabel, QLineEdit, QSpinBox,
 
 from libmesact import utilities
 from libmesact import dialogs
+from libmesact import mdi
+
 
 class loadini:
 	def __init__(self):
@@ -185,13 +187,14 @@ class loadini:
 			start = self.sections['[HALUI]'][0]
 			end = self.sections['[HALUI]'][1]
 			mdicmd = []
+			mdi.cleanup_mdi_commands(parent)
 			for item in self.content[start:end]:
 				if item != '\n' and item.startswith('MDI_COMMAND'):
 					item = item.split('=')
 					item = item[1].strip()
 					mdicmd.append(item)
 			for i, item in enumerate(mdicmd):
-				getattr(parent, f'mdiCmdLE_{i}').setText(item)
+				mdi.set_mdi_command(parent, i, item)
 
 		for section in self.sections.items():
 			if section[0].startswith('[JOINT'):

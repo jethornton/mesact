@@ -41272,140 +41272,61 @@ to File Open in Axis</string>
            <attribute name="title">
             <string>MDI</string>
            </attribute>
-           <widget class="QGroupBox" name="mdiCommandsGB">
-            <property name="geometry">
-             <rect>
-              <x>10</x>
-              <y>10</y>
-              <width>441</width>
-              <height>401</height>
-             </rect>
-            </property>
-            <property name="title">
-             <string>MDI Commands</string>
-            </property>
-            <property name="checkable">
-             <bool>false</bool>
-            </property>
-            <property name="checked">
-             <bool>false</bool>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_312">
-             <item row="3" column="0">
-              <widget class="QLabel" name="label_1386">
-               <property name="text">
-                <string>MDI Command 2</string>
-               </property>
-              </widget>
-             </item>
-             <item row="8" column="1">
-              <widget class="QLineEdit" name="mdiCmdLE_7"/>
-             </item>
-             <item row="3" column="1">
-              <widget class="QLineEdit" name="mdiCmdLE_2"/>
-             </item>
-             <item row="7" column="1">
-              <widget class="QLineEdit" name="mdiCmdLE_6"/>
-             </item>
-             <item row="1" column="1">
-              <widget class="QLineEdit" name="mdiCmdLE_0"/>
-             </item>
-             <item row="2" column="0">
-              <widget class="QLabel" name="label_1380">
-               <property name="text">
-                <string>MDI Command 1</string>
-               </property>
-              </widget>
-             </item>
-             <item row="6" column="0">
-              <widget class="QLabel" name="label_1390">
-               <property name="text">
-                <string>MDI Command 5</string>
-               </property>
-              </widget>
-             </item>
-             <item row="5" column="0">
-              <widget class="QLabel" name="label_1389">
-               <property name="text">
-                <string>MDI Command 4</string>
-               </property>
-              </widget>
-             </item>
-             <item row="5" column="1">
-              <widget class="QLineEdit" name="mdiCmdLE_4"/>
-             </item>
-             <item row="4" column="1">
-              <widget class="QLineEdit" name="mdiCmdLE_3"/>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="label_1310">
-               <property name="text">
-                <string>MDI Command 0</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="0" colspan="2">
-              <widget class="QLabel" name="label_1391">
-               <property name="frameShape">
-                <enum>QFrame::Box</enum>
-               </property>
-               <property name="text">
-                <string>MDI Commands must start at 0 and not skip a number</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="9" column="1">
-              <widget class="QLineEdit" name="mdiCmdLE_8"/>
-             </item>
-             <item row="4" column="0">
-              <widget class="QLabel" name="label_1388">
-               <property name="text">
-                <string>MDI Command 3</string>
-               </property>
-              </widget>
-             </item>
-             <item row="6" column="1">
-              <widget class="QLineEdit" name="mdiCmdLE_5"/>
-             </item>
-             <item row="2" column="1">
-              <widget class="QLineEdit" name="mdiCmdLE_1"/>
-             </item>
-             <item row="10" column="1">
-              <widget class="QLineEdit" name="mdiCmdLE_9"/>
-             </item>
-             <item row="7" column="0">
-              <widget class="QLabel" name="label_1441">
-               <property name="text">
-                <string>MDI Command 6</string>
-               </property>
-              </widget>
-             </item>
-             <item row="8" column="0">
-              <widget class="QLabel" name="label_1442">
-               <property name="text">
-                <string>MDI Command 7</string>
-               </property>
-              </widget>
-             </item>
-             <item row="9" column="0">
-              <widget class="QLabel" name="label_1443">
-               <property name="text">
-                <string>MDI Command 8</string>
-               </property>
-              </widget>
-             </item>
-             <item row="10" column="0">
-              <widget class="QLabel" name="label_1444">
-               <property name="text">
-                <string>MDI Command 9</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
+           <layout class="QVBoxLayout" name="verticalLayout_6">
+            <item>
+             <widget class="QGroupBox" name="mdiCommandsGB">
+              <property name="title">
+               <string>MDI Commands</string>
+              </property>
+              <property name="checkable">
+               <bool>false</bool>
+              </property>
+              <property name="checked">
+               <bool>false</bool>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_312">
+               <item row="0" column="0" colspan="2">
+                <widget class="QLabel" name="label_1391">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string>MDI Commands must start at 0 and not skip a number</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QPushButton" name="addMdiCommandPB">
+                 <property name="text">
+                  <string>Add MDI Command</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QScrollArea" name="scrollArea">
+                 <property name="widgetResizable">
+                  <bool>true</bool>
+                 </property>
+                 <widget class="QWidget" name="scrollAreaWidgetContents">
+                  <property name="geometry">
+                   <rect>
+                    <x>0</x>
+                    <y>0</y>
+                    <width>706</width>
+                    <height>341</height>
+                   </rect>
+                  </property>
+                  <layout class="QGridLayout" name="mdiCommandsListGL"/>
+                 </widget>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
           </widget>
           <widget class="QWidget" name="tab_160">
            <attribute name="title">

@@ -3,6 +3,9 @@ from datetime import datetime
 
 from PyQt5.QtWidgets import QSpinBox
 
+from libmesact import mdi
+
+
 class updateini:
 	def __init__(self):
 		super().__init__()
@@ -336,35 +339,20 @@ class updateini:
 		if '[HALUI]' in self.sections:
 			index = self.sections['[HALUI]']
 			if len(index) == 2:
-				ini_mdi = []
-				for i in range(index[0], index[1]):
+				start = index[0]
+				end = index[1]
+				# remove all existing MDI commands
+				for i in reversed(range(start, end)):
 					if self.content[i].startswith('MDI_COMMAND'):
-						ini_mdi.append(self.content[i].split('=')[1].strip())
+						del self.content[i]
 				tool_mdi = []
-				for i in range(10):
-					mdi_text = f'{getattr(parent, f"mdiCmdLE_{i}").text()}'
+				for i in range(mdi.get_mdi_commands_count(parent)):
+					mdi_text = mdi.get_mdi_command(parent, i)
 					if mdi_text:
-						tool_mdi.append(f'{getattr(parent, f"mdiCmdLE_{i}").text()}')
-
-				if len(ini_mdi) == len(tool_mdi):
-					for i, j in enumerate(range(index[0] + 1, index[1])):
-						if self.content[j].startswith('MDI_COMMAND'):
-							self.content[j] = f'MDI_COMMAND = {getattr(parent, f"mdiCmdLE_{i}").text()}\n'
-				elif len(ini_mdi) > len(tool_mdi):
-					remove = len(ini_mdi) - len(tool_mdi)
-					for i in reversed(range(index[0] + 1, index[1])):
-						if self.content[i].startswith('MDI_COMMAND') and remove > 0:
-							del self.content[i]
-							remove -= 1
-					self.get_sections() # update section start/end
-				elif len(ini_mdi) < len(tool_mdi):
-					add = len(tool_mdi) - len(ini_mdi)
-					for i, j in enumerate(range(index[0] + 1, index[1] + add)):
-						if self.content[j].startswith('MDI_COMMAND'): # replace it
-							self.content[j] = f'MDI_COMMAND = {getattr(parent, f"mdiCmdLE_{i}").text()}\n'
-						elif self.content[j].strip() == '': # insert it
-							self.content.insert(j, f'MDI_COMMAND = {getattr(parent, f"mdiCmdLE_{i}").text()}\n')
-					self.get_sections() # update section start/end
+						tool_mdi.append(mdi_text)
+				for i in reversed(range(len(tool_mdi))):
+					self.content.insert(start + 1, f'MDI_COMMAND = {tool_mdi[i]}\n')
+				self.get_sections() # update section start/end
 
 		############ Massive rework needed here
 		# if the section exists and is in the tool update it
