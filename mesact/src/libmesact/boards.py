@@ -231,6 +231,11 @@ def boardChanged(parent):
 			parent.ipAddressCB.setEnabled(True)
 			parent.daughterLB_0.setText('P1')
 			parent.mainTW.setTabText(4, 'P1')
+			info = ('The 7i95T requires LinuxCNC version 2.10 to run\n'
+			'\nIP Address\nW15 Down W16 Up for 10.10.10.10\n'
+			'Default firmware 7i95t_d.bin'
+			)
+			parent.board_info_pte.setPlainText(info)
 			for item in db25:
 				parent.daughterCB_0.addItem(item[0], item[1])
 			for i in range(6): # hide analog and encoder tabs
