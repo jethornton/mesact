@@ -41316,7 +41316,7 @@ to File Open in Axis</string>
                     <x>0</x>
                     <y>0</y>
                     <width>706</width>
-                    <height>341</height>
+                    <height>290</height>
                    </rect>
                   </property>
                   <layout class="QGridLayout" name="mdiCommandsListGL"/>
