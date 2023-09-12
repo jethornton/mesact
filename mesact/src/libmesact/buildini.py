@@ -3,6 +3,9 @@ from datetime import datetime
 
 from PyQt5.QtWidgets import QSpinBox
 
+from libmesact import mdi
+
+
 def build(parent):
 	buildErrors = []
 	iniFilePath = os.path.join(parent.configPath, parent.configNameUnderscored + '.ini')
@@ -155,9 +158,10 @@ def build(parent):
 	# build the [HALUI] section
 	if parent.haluiCB.isChecked():
 		iniContents.append('\n[HALUI]\n')
-		for i in range(10):
-			if getattr(parent, f"mdiCmdLE_{i}").text():
-				iniContents.append(f'MDI_COMMAND = {getattr(parent, f"mdiCmdLE_{i}").text()}\n')
+		for i in range(mdi.get_mdi_commands_count(parent)):
+			cmd = mdi.get_mdi_command(parent, i)
+			if cmd:
+				iniContents.append(f'MDI_COMMAND = {cmd}\n')
 
 	# build the axes and joints
 	axes = [] # use only one axis letter with multiple joint axis

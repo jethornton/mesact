@@ -1,3 +1,5 @@
+from libmesact import mdi
+
 
 def checkit(parent):
 	parent.mainTW.setCurrentIndex(11)
@@ -230,13 +232,13 @@ def checkit(parent):
 	# end of SS Cards Tab
 
 	# check the Options Tab for errors
-	mdi = []
-	for i in range(9):
-		cmd = getattr(parent, f'mdiCmdLE_{i}').text()
+	mdi_commands = []
+	for i in range(mdi.get_mdi_commands_count(parent)):
+		cmd = mdi.get_mdi_command(parent, i)
 		if len(cmd) > 0:
-			mdi.append(i)
-	if len(mdi) > 0:
-		if len(mdi) != max(mdi) + 1:
+			mdi_commands.append(i)
+	if len(mdi_commands) > 0:
+		if len(mdi_commands) != max(mdi_commands) + 1:
 			tabError = True
 			configErrors.append(f'\tMDI commands must start at 0 and not skip any')
 		if not parent.haluiCB.isChecked():
