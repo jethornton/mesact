@@ -1,0 +1,4 @@
+
+<Tom_L> suggestion: in "Options" add a place to add tools to the tool table and optionally rename the tool.tbl
+<Tom_L> or map to 'tooledit' which would be fairly easy i think
+<Tom_L> you'd have to make sure it was installed
