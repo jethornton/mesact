@@ -87,14 +87,17 @@ def setup(parent):
 	try:
 		mf = subprocess.check_output('mesaflash', encoding='UTF-8')
 		if len(mf) > 0:
-			installed = mf.split()[2]
-			parent.mesaflashVersionLB.setText(installed)
-			parent.firmwareGB.setEnabled(True)
-			parent.checkBoardPB.setEnabled(True)
+			version = mf.split()[2]
+			parent.mesaflash_version = tuple(int(i) for i in version.split('.'))
+			parent.mesaflashVersionLB.setText(version)
+			parent.mesaflash = True
 	except FileNotFoundError as error:
 		parent.firmwareGB.setEnabled(False)
 		parent.checkBoardPB.setEnabled(False)
 		parent.mesaflashVersionLB.setText('Not Installed')
+		parent.mesaflash = False
+		parent.mesaflash_version = ()
+
 
 	# Change Events
 	for child in parent.findChildren(QLineEdit):

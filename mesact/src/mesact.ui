@@ -239,22 +239,22 @@ Spaces are replaced with underscore.</string>
             </widget>
            </item>
            <item row="6" column="0">
-            <widget class="QPushButton" name="set_7i92t_p1_7i76_pb">
+            <widget class="QPushButton" name="set_7i95t_xyz_pb">
              <property name="enabled">
               <bool>false</bool>
              </property>
              <property name="text">
-              <string>7i92T P1 7i76</string>
+              <string>7i95T XYZ</string>
              </property>
             </widget>
            </item>
            <item row="5" column="0">
-            <widget class="QPushButton" name="set_7i96s_7i77_pb">
+            <widget class="QPushButton" name="set_7i95t_x_pb">
              <property name="enabled">
               <bool>false</bool>
              </property>
              <property name="text">
-              <string>7i96S P1 7i77</string>
+              <string>7i95T X</string>
              </property>
             </widget>
            </item>
@@ -682,7 +682,7 @@ Spaces are replaced with underscore.</string>
              </spacer>
             </item>
             <item row="2" column="0">
-             <widget class="QGroupBox" name="groupBox_217">
+             <widget class="QGroupBox" name="read_hmid_gb">
               <property name="minimumSize">
                <size>
                 <width>150</width>
@@ -31771,7 +31771,7 @@ Leave blank to home the joint manually.</string>
             <item row="0" column="0" rowspan="2">
              <widget class="QGroupBox" name="spindleGB">
               <property name="enabled">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
               <property name="title">
                <string>Spindle Settings</string>
@@ -40822,7 +40822,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
         <item>
          <widget class="QTabWidget" name="tabWidget_27">
           <property name="currentIndex">
-           <number>0</number>
+           <number>8</number>
           </property>
           <widget class="QWidget" name="tab_155">
            <attribute name="title">
@@ -41498,6 +41498,21 @@ reload all default PID values</string>
              </widget>
             </item>
            </layout>
+          </widget>
+          <widget class="QWidget" name="tab_14">
+           <attribute name="title">
+            <string>Tools</string>
+           </attribute>
+           <widget class="QTableView" name="tool_tbl">
+            <property name="geometry">
+             <rect>
+              <x>50</x>
+              <y>60</y>
+              <width>256</width>
+              <height>192</height>
+             </rect>
+            </property>
+           </widget>
           </widget>
          </widget>
         </item>
