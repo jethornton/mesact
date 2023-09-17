@@ -85,11 +85,12 @@ def build(parent):
 
 	dpll = {'7i96':['stepgen', 'encoder'],
 		'7i96s':['stepgen', 'encoder'],}
+	stepgen_timer = ['7i76e', '7i92', '7i95', '7i95t', '7i96', '7i96s']
 
 	if parent.boardType == 'eth':
 		halContents.append('\n# DPLL TIMER\n')
 		halContents.append(f'setp hm2_[MESA](BOARD).0.dpll.01.timer-us -50\n')
-		if stepgens > 0:
+		if board in stepgen_timer:
 			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.timer-number 1\n')
 		if encoders > 0:
 			halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.timer-number 1\n')
