@@ -13,8 +13,8 @@ sudo apt install python3-packaging
 sudo apt install zip
 '''
 
-VERSION = '2.0.2'
-BUILD_DATE = '09/12/2023'
+VERSION = '2.0.3'
+BUILD_DATE = '09/17/2023'
 
 from traceback import StackSummary
 from functools import partial
