@@ -96,7 +96,7 @@ def build(parent):
 			halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.timer-number 1\n')
 
 	# add special hal functions
-	if parent.spindleMinRpm.value() > 0: # use limit1
+	if parent.spindleMinRpmFwd.value() > 0: # use limit1
 		halContents.append('\n# Setup Spindle Limits\n')
 		halContents.append('loadrt limit1 names=spindle-limit\n')
 		halContents.append('addf spindle-limit servo-thread\n')
@@ -351,7 +351,7 @@ def build(parent):
 
 		halContents.append('\n# Spindle Connections\n')
 		halContents.append('net spindle-vel-cmd <= spindle.0.speed-out-abs\n')
-		if parent.spindleMinRpm.value() > 0: # use limit1
+		if parent.spindleMinRpmFwd.value() > 0: # use limit1
 			halContents.append('net spindle-vel-cmd => spindle-limit.in\n')
 			halContents.append('net spindle-limit-cmd <= spindle-limit.out\n')
 			halContents.append('net spindle-limit-cmd => pid.s.command\n')

@@ -185,11 +185,14 @@ class MainWindow(QMainWindow):
 		self.output_type = '' # hostmot2 output-type
 		self.spindleTypeCB.currentIndexChanged.connect(partial(spindle.spindle_type_changed, self))
 		self.pidDefault_s.clicked.connect(partial(spindle.spindle_pid_default, self))
+		self.spindleMinRpmFwd.valueChanged.connect(partial(spindle.spindleSettingsChanged, self))
+		self.spindleMinRpmRev.valueChanged.connect(partial(spindle.spindleSettingsChanged, self))
+		self.spindleMaxRpmFwd.valueChanged.connect(partial(spindle.spindleSettingsChanged, self))
+		self.spindleMaxRpmRev.valueChanged.connect(partial(spindle.spindleSettingsChanged, self))
+
 		'''
 		self.spindleFeedbackCB.currentIndexChanged.connect(partial(utilities.spindleFeedbackChanged, self))
 		self.spindleDriveCB.currentIndexChanged.connect(partial(utilities.driveChanged, self))
-		self.spindleMinRpm.valueChanged.connect(partial(utilities.spindleSettingsChanged, self))
-		self.spindleMaxRpm.valueChanged.connect(partial(utilities.spindleSettingsChanged, self))
 		self.spindleMaxAccel.valueChanged.connect(partial(utilities.spindleSettingsChanged, self))
 		'''
 		# Smart Serial Tab

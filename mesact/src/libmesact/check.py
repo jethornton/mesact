@@ -214,7 +214,7 @@ def checkit(parent):
 
 	# check the Spindle Tab for errors
 	if parent.spindleTypeCB.currentData() == 'pwm':
-		if parent.spindleMaxRpm.value() == 0:
+		if parent.spindleMaxRpmFwd.value() == 0:
 			tabError = True
 			configErrors.append(f'\tPWM Maximum RPM can not be 0')
 		if parent.maxOutput_s.value() == 0:
