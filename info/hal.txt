@@ -21,6 +21,9 @@ halcmd show all hm2 > 7i92T-7i77-7i76-pins.txt
 halcmd show all hm2 > 7i92T-7i78-P1-pins.txt
 halcmd show all hm2 > 7i92T-7i78-P2-pins.txt
 
+halcmd show all hm2 > 7i95T-pins.txt
+
+
 halcmd show all hm2 > 7i96-pins.txt
 
 halcmd show all hm2 > 7i96S-pins.txt

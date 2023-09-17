@@ -121,14 +121,17 @@ class updateini:
 				last_key = key
 				last_axis = f'[AXIS_{value}]'
 
-		if parent.boardCB.currentData() == '7i92t':
-			board = '7i92'
+		'''
+		board_names = {'7i92t': '7i92', '7i95t': '7i95'}
+		if parent.boardCB.currentData() in board_names:
+			board = board_names[parent.boardCB.currentData()]
 		else:
 			board = parent.boardCB.currentData()
+		'''
 
 		mesa = [
 		['MESA', 'VERSION', f'{parent.version}'],
-		['MESA', 'BOARD', f'{board}'],
+		['MESA', 'BOARD', f'{parent.board}'],
 		['MESA', 'BOARD_NAME', f'{parent.boardCB.currentData()}'],
 		['MESA', 'FIRMWARE', f'{parent.firmwareCB.currentText()}'],
 		['MESA', 'CARD_0', f'{parent.daughterCB_0.currentData()}'],

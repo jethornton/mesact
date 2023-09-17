@@ -25,11 +25,15 @@ def build(parent):
 	# build the [MESA] section
 	iniContents.append('\n[MESA]\n')
 	iniContents.append(f'VERSION = {parent.version}\n')
-	if parent.boardCB.currentData() == '7i92t':
-		board = '7i92'
+
+	'''
+	board_names = {'7i92t': '7i92', '7i95t': '7i95'}
+	if parent.boardCB.currentData() in board_names:
+		board = board_names[parent.boardCB.currentData()]
 	else:
 		board = parent.boardCB.currentData()
-	iniContents.append(f'BOARD = {board}\n')
+	'''
+	iniContents.append(f'BOARD = {parent.board}\n')
 	iniContents.append(f'BOARD_NAME = {parent.boardCB.currentData()}\n')
 	iniContents.append(f'FIRMWARE = {parent.firmwareCB.currentData()}\n')
 	if parent.daughterCB_0.currentData() != None:

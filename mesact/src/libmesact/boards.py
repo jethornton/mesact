@@ -41,7 +41,14 @@ def boardChanged(parent):
 		for i in range(1, 7):
 			parent.spindleTypeCB.model().item(i).setEnabled(False)
 
+		if parent.mesaflash: # set mesaflash tools on if installed
+			parent.firmwareGB.setEnabled(True)
+			parent.checkBoardPB.setEnabled(True)
+			parent.read_hmid_gb.setEnabled(True)
+
+
 		if board == '5i24': # PCI IDC50
+			parent.board = '5i24'
 			parent.boardType = 'pci'
 			parent.c0_JointTW.setTabText(0, name)
 			for i in range(1, tabs + 1):
@@ -55,6 +62,7 @@ def boardChanged(parent):
 				parent.daughterCB_1.addItem(item[0], item[1])
 
 		elif board == '5i25': # PCI DB25F IDC26
+			parent.board = '5i25'
 			parent.boardType = 'pci'
 			parent.c0_JointTW.setTabText(0, name)
 			for i in range(1, tabs + 1):
@@ -68,6 +76,7 @@ def boardChanged(parent):
 				parent.daughterCB_1.addItem(item[0], item[1])
 
 		elif board == '7i76e': # ETH 5 Axis Step/Direction
+			parent.board = '7i76e'
 			# 5 step/dir 32 inputs 16 outputs 1 spindle 1 encoder
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
@@ -97,6 +106,7 @@ def boardChanged(parent):
 				getattr(parent, f'c0_settings_{i}').setTabVisible(4, False)
 
 		elif board == '7i80db-16': # ETH DB25F
+			parent.board = '7i80db-16'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
 			for i in range(1, tabs + 1):
@@ -111,6 +121,7 @@ def boardChanged(parent):
 				parent.daughterCB_1.addItem(item[0], item[1])
 
 		elif board == '7i80db-25': # ETH DB25F
+			parent.board = '7i80db-25'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
 			for i in range(1, tabs + 1):
@@ -125,6 +136,7 @@ def boardChanged(parent):
 				parent.daughterCB_1.addItem(item[0], item[1])
 
 		elif board == '7i80hd-16': # ETH IDC50
+			parent.board = '7i80hd-16'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
 			for i in range(1, tabs + 1):
@@ -139,6 +151,7 @@ def boardChanged(parent):
 				parent.daughterCB_1.addItem(item[0], item[1])
 
 		elif board == '7i80hd-25': # ETH IDC50
+			parent.board = '7i80hd-25'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
 			for i in range(1, tabs + 1):
@@ -153,6 +166,7 @@ def boardChanged(parent):
 				parent.daughterCB_1.addItem(item[0], item[1])
 
 		elif board == '7i80hd-ts': # ETH IDC50
+			parent.board = '7i80hd-ts'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
 			for i in range(1, tabs + 1):
@@ -167,6 +181,7 @@ def boardChanged(parent):
 				parent.daughterCB_1.addItem(item[0], item[1])
 
 		elif board == '7i92': # ETH DB25F IDC26
+			parent.board = '7i92'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
 			for i in range(1, tabs + 1):
@@ -181,6 +196,7 @@ def boardChanged(parent):
 				parent.daughterCB_1.addItem(item[0], item[1])
 
 		elif board == '7i92t': # ETH DB25F IDC26
+			parent.board = '7i92'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
 			info = ('Connector 5v Power\n'
@@ -200,6 +216,7 @@ def boardChanged(parent):
 				parent.daughterCB_1.addItem(item[0], item[1])
 
 		elif board == '7i93': # ETH IDC50
+			parent.board = '7i93'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
 			for i in range(1, tabs + 1):
@@ -214,6 +231,7 @@ def boardChanged(parent):
 				parent.daughterCB_1.addItem(item[0], item[1])
 
 		elif board == '7i95': # ETH 6 Axis Step/Direction
+			parent.board = '7i95'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
 			parent.ipAddressCB.setEnabled(True)
@@ -226,18 +244,32 @@ def boardChanged(parent):
 				getattr(parent, f'c0_settings_{i}').setTabVisible(4, False)
 
 		elif board == '7i95t': # ETH 6 Axis Step/Direction
+			parent.board = '7i95'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
 			parent.ipAddressCB.setEnabled(True)
 			parent.daughterLB_0.setText('P1')
 			parent.mainTW.setTabText(4, 'P1')
+			info = ('The 7i95T requires LinuxCNC version 2.10 to run\n'
+			'\nTo Flash the 7i95T Mesaflash version 3.4.7\nor newer must be installed\n'
+			'\nIP Address Jumpers\nW15 Down W16 Up for 10.10.10.10\n'
+			'\nDefault firmware 7i95t_d.bin'
+			)
+			parent.board_info_pte.setPlainText(info)
 			for item in db25:
 				parent.daughterCB_0.addItem(item[0], item[1])
 			for i in range(6): # hide analog and encoder tabs
 				getattr(parent, f'c0_settings_{i}').setTabVisible(3, False)
 				getattr(parent, f'c0_settings_{i}').setTabVisible(4, False)
 
+			if parent.mesaflash:
+				if parent.mesaflash_version < (3, 4, 9):
+					parent.firmwareGB.setEnabled(True)
+					parent.checkBoardPB.setEnabled(True)
+					parent.read_hmid_gb.setEnabled(True)
+
 		elif board == '7i96': # ETH 5 Axis Step/Direction
+			parent.board = '7i96'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
 			parent.c0_JointTW.setTabVisible(6, False)
@@ -257,6 +289,7 @@ def boardChanged(parent):
 				getattr(parent, f'c0_settings_{i}').setTabVisible(4, False)
 
 		elif board == '7i96s': # ETH 5 Axis Step/Direction
+			parent.board = '7i96s'
 			parent.boardType = 'eth'
 			# 5 step/dir 11 inputs 6 outputs 1 spindle 1 encoder
 			parent.c0_JointTW.setTabText(0, name)
@@ -287,11 +320,13 @@ def boardChanged(parent):
 				getattr(parent, f'c0_settings_{i}').setTabVisible(3, False)
 				getattr(parent, f'c0_settings_{i}').setTabVisible(4, False)
 			parent.pwmFrequencySB.setValue(15000)
+			parent.spindleGB.setEnabled(True)
 			parent.spindleTypeCB.model().item(1).setEnabled(True)
 			for i in range(2, 7):
 				parent.spindleTypeCB.model().item(i).setEnabled(False)
 
 		elif board == '7i97': # ETH 6 Axis Analog
+			parent.board = '7i97'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
 			parent.ipAddressCB.setEnabled(True)
@@ -303,6 +338,7 @@ def boardChanged(parent):
 				getattr(parent, f'c0_settings_{i}').setTabVisible(2, False)
 
 		elif board == '7i98': # ETH IDC26
+			parent.board = '7i98'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
 			for i in range(1, tabs + 1):
@@ -317,10 +353,16 @@ def boardChanged(parent):
 				parent.daughterCB_1.addItem(item[0], item[1])
 
 	else:
+		parent.board = ''
 		parent.boardType = False
 		parent.c0_JointTW.setTabText(0, 'Board')
 		parent.mainTW.setTabVisible(3, False)
 		parent.daughterCB_0.clear()
 		parent.daughterCB_1.clear()
+		parent.spindleGB.setEnabled(False)
+		# if no board is selected turn off mesaflash tools
+		parent.firmwareGB.setEnabled(False)
+		parent.checkBoardPB.setEnabled(False)
+		parent.read_hmid_gb.setEnabled(False)
 
 
