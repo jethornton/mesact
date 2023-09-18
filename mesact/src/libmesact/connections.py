@@ -1,4 +1,4 @@
-
+# need to finish and move all connections here from mesact
 
 def connect(parent):
 	# Menu Items
@@ -24,11 +24,8 @@ def connect(parent):
 		getattr(parent, f'daughterCB_{i}').currentIndexChanged.connect(partial(daughters.changed, parent))
 	parent.checkBoardPB.clicked.connect(partial(flash.checkCard, parent))
 
-	'''
-	parent.enableMesaflashCB.clicked.connect(partial(utilities.firmwareTools, parent))
-	parent.enableMesaflashCB.clicked.connect(partial(settings.update_value, parent))
-	parent.backupCB.clicked.connect(partial(utilities.backup, parent))
-	'''
+	#parent.backupCB.clicked.connect(partial(utilities.backup, parent))
+
 	parent.default_imperial_pb.clicked.connect(partial(testing.default_imperial, parent))
 	parent.default_metric_pb.clicked.connect(partial(testing.default_metric, parent))
 	parent.set_7i96s_x_pb.clicked.connect(partial(testing.set_7i96s_x, parent))

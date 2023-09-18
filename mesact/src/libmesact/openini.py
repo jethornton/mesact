@@ -374,9 +374,6 @@ class loadini:
 		if config.has_option('STARTUP', 'CONFIG'):
 			if parent.loadConfigCB.isChecked():
 				config['STARTUP']['CONFIG'] = parent.configNameLE.text().lower()
-		if config.has_option('TOOLS', 'FIRMWARE'):
-			if parent.enableMesaflashCB.isChecked():
-				config['TOOLS']['FIRMWARE'] = 'True'
 		with open(configPath, 'w') as cf:
 			config.write(cf)
 		'''

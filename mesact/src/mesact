@@ -113,11 +113,8 @@ class MainWindow(QMainWindow):
 			getattr(self, f'daughterCB_{i}').currentIndexChanged.connect(partial(daughters.changed, self))
 		self.checkBoardPB.clicked.connect(partial(flash.checkCard, self))
 
-		'''
-		self.enableMesaflashCB.clicked.connect(partial(utilities.firmwareTools, self))
-		self.enableMesaflashCB.clicked.connect(partial(settings.update_value, self))
-		self.backupCB.clicked.connect(partial(utilities.backup, self))
-		'''
+		#self.backupCB.clicked.connect(partial(utilities.backup, self))
+
 		self.default_imperial_pb.clicked.connect(partial(testing.default_imperial, self))
 		self.default_metric_pb.clicked.connect(partial(testing.default_metric, self))
 		self.set_7i96s_x_pb.clicked.connect(partial(testing.set_7i96s_x, self))
