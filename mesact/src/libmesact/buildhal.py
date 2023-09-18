@@ -152,11 +152,16 @@ def build(parent):
 			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.step_type 0\n')
 			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.control-type 1\n\n')
 
+
 			halContents.append('\n# position command and feedback\n')
 			halContents.append(f'net joint-{i}-pos-cmd <= joint.{i}.motor-pos-cmd\n')
 			halContents.append(f'net joint-{i}-pos-cmd => {pid_list[i]}.command\n')
 
-			halContents.append(f'\nnet joint-{i}-pos-fb <= hm2_[MESA](BOARD).0.stepgen.0{i}.position-fb\n')
+			# no encoder feedback
+			if getattr(parent, f'c{joint_list[i][1]}_encoderScale_{i}').text():
+				halContents.append(f'\nnet joint-{i}-pos-fb <= hm2_[MESA](BOARD).0.encoder.0{i}.position\n')
+			else:
+				halContents.append(f'\nnet joint-{i}-pos-fb <= hm2_[MESA](BOARD).0.stepgen.0{i}.position-fb\n')
 			halContents.append(f'net joint-{i}-pos-fb => joint.{i}.motor-pos-fb\n')
 			halContents.append(f'net joint-{i}-pos-fb => {pid_list[i]}.feedback\n')
 
@@ -172,7 +177,8 @@ def build(parent):
 			#halContents.append(f'setp hm2_[MESA](BOARD).0.{card}.0.{port}.analogout{i}-scalemax [JOINT_{i}](ANALOG_SCALE_MAX)\n')
 			#halContents.append(f'setp hm2_[MESA](BOARD).0.{card}.0.{port}.analogout{i}-minlim [JOINT_{i}](ANALOG_MIN_LIMIT)\n')
 			#halContents.append(f'setp hm2_[MESA](BOARD).0.{card}.0.{port}.analogout{i}-maxlim [JOINT_{i}](ANALOG_MAX_LIMIT)\n\n')
-	'''
+
+		if getattr(parent, f'c{joint_list[i][1]}_settings_{i}').isTabVisible(4): # encoder
 			halContents.append('\n# Encoder Setup\n')
 			halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.scale  [JOINT_0](ENCODER_SCALE)\n')
 			halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.counter-mode 0\n')
@@ -180,6 +186,7 @@ def build(parent):
 			halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.index-invert 0\n')
 			halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.index-mask 0\n')
 			halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.index-mask-invert 0\n')
+	'''
 
 			halContents.append('\n# Position Command and Feedback\n')
 			halContents.append(f'net joint-{i}-fb <= hm2_[MESA](BOARD).0.encoder.0{i}.position\n')

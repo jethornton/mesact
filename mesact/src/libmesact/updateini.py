@@ -453,11 +453,13 @@ class updateini:
 						self.update_key(f'JOINT_{n}', 'STEPSPACE', getattr(parent, f'c{i}_StepSpace_{j}').text())
 
 					if getattr(parent, f'c{i}_settings_{j}').isTabVisible(3): # Analog Tab
-						self.update_key(f'JOINT_{n}', 'ENCODER_SCALE', getattr(parent, f'c{i}_encoderScale_{j}').text())
 						self.update_key(f'JOINT_{n}', 'ANALOG_SCALE_MAX', getattr(parent, f'c{i}_analogScaleMax_{j}').text())
 						self.update_key(f'JOINT_{n}', 'ANALOG_MIN_LIMIT', getattr(parent, f'c{i}_analogMinLimit_{j}').text())
 						self.update_key(f'JOINT_{n}', 'ANALOG_MAX_LIMIT', getattr(parent, f'c{i}_analogMaxLimit_{j}').text())
 
+					if getattr(parent, f'c{i}_settings_{j}').isTabVisible(4): # Encoder Tab
+						self.update_key(f'JOINT_{n}', 'ENCODER_SCALE', getattr(parent, f'c{i}_encoderScale_{j}').text())
+	
 					self.update_key(f'JOINT_{n}', 'FERROR', getattr(parent, f'c{i}_max_ferror_{j}').text())
 					self.update_key(f'JOINT_{n}', 'MIN_FERROR', getattr(parent, f'c{i}_min_ferror_{j}').text())
 					self.update_key(f'JOINT_{n}', 'DEADBAND', getattr(parent, f'c{i}_deadband_{j}').text())

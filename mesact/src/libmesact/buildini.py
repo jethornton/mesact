@@ -207,10 +207,12 @@ def build(parent):
 					iniContents.append(f'STEPSPACE = {getattr(parent, f"c{i}_StepSpace_{j}").text()}\n')
 
 				if getattr(parent, f'c{i}_settings_{j}').isTabVisible(3): # Analog Tab
-					iniContents.append(f'ENCODER_SCALE = {getattr(parent, f"c{i}_encoderScale_{j}").text()}\n')
 					iniContents.append(f'ANALOG_SCALE_MAX = {getattr(parent, f"c{i}_analogScaleMax_{j}").text()}\n')
 					iniContents.append(f'ANALOG_MIN_LIMIT = {getattr(parent, f"c{i}_analogMinLimit_{j}").text()}\n')
 					iniContents.append(f'ANALOG_MAX_LIMIT = {getattr(parent, f"c{i}_analogMaxLimit_{j}").text()}\n')
+
+				if getattr(parent, f'c{i}_settings_{j}').isTabVisible(4): # Encoder Tab
+					iniContents.append(f'ENCODER_SCALE = {getattr(parent, f"c{i}_encoderScale_{j}").text()}\n')
 
 				iniContents.append(f'FERROR = {getattr(parent, f"c{i}_max_ferror_{j}").text()}\n')
 				iniContents.append(f'MIN_FERROR = {getattr(parent, f"c{i}_min_ferror_{j}").text()}\n')
