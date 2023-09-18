@@ -252,9 +252,8 @@ def boardChanged(parent):
 			parent.board_info_pte.setPlainText(info)
 			for item in db25:
 				parent.daughterCB_0.addItem(item[0], item[1])
-			for i in range(6): # hide analog and encoder tabs
+			for i in range(6): # hide analog tabs
 				getattr(parent, f'c0_settings_{i}').setTabVisible(3, False)
-				getattr(parent, f'c0_settings_{i}').setTabVisible(4, False)
 
 			if parent.mesaflash:
 				if parent.mesaflash_version < (3, 4, 7):
