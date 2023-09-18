@@ -41,12 +41,6 @@ def boardChanged(parent):
 		for i in range(1, 7):
 			parent.spindleTypeCB.model().item(i).setEnabled(False)
 
-		if parent.mesaflash: # set mesaflash tools on if installed
-			parent.firmwareGB.setEnabled(True)
-			parent.checkBoardPB.setEnabled(True)
-			parent.read_hmid_gb.setEnabled(True)
-
-
 		if board == '5i24': # PCI IDC50
 			parent.board = '5i24'
 			parent.boardType = 'pci'
