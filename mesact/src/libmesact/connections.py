@@ -1,4 +1,27 @@
-# need to finish and move all connections here from mesact
+from functools import partial
+
+from libmesact import utilities
+from libmesact import check
+from libmesact import buildconfig
+from libmesact import downloads
+from libmesact import documents
+from libmesact import updates
+from libmesact import dialogs
+from libmesact import machine
+from libmesact import boards
+from libmesact import daughters
+from libmesact import flash
+from libmesact import firmware
+from libmesact import axes
+from libmesact import spindle
+from libmesact import sscards
+from libmesact import pcinfo
+from libmesact import settings
+from libmesact import mdi
+
+
+# testing imports
+from libmesact import testing
 
 def connect(parent):
 	# Menu Items
@@ -31,8 +54,8 @@ def connect(parent):
 	parent.set_7i96s_x_pb.clicked.connect(partial(testing.set_7i96s_x, parent))
 	parent.set_7i96s_xyz_pb.clicked.connect(partial(testing.set_7i96s_xyz, parent))
 	parent.set_7i96s_xyyz_pb.clicked.connect(partial(testing.set_7i96s_xyyz, parent))
-	parent.set_7i96s_7i77_pb.clicked.connect(partial(testing.set_7i96s_7i77, parent))
-	parent.set_7i92t_p1_7i76_pb.clicked.connect(partial(testing.set_7i92t_p1_7i76, parent))
+	parent.set_7i95t_x_pb.clicked.connect(partial(testing.set_7i95t_x, parent))
+	parent.set_7i95t_xyz_pb.clicked.connect(partial(testing.set_7i95t_xyz, parent))
 	parent.set_7i92t_p2_7i76_pb.clicked.connect(partial(testing.set_7i92t_p2_7i76, parent))
 	parent.set_7i92t_p2_7i77_pb.clicked.connect(partial(testing.set_7i92t_p2_7i77, parent))
 
@@ -93,17 +116,17 @@ def connect(parent):
 	parent.output_type = '' # hostmot2 output-type
 	parent.spindleTypeCB.currentIndexChanged.connect(partial(spindle.spindle_type_changed, parent))
 	parent.pidDefault_s.clicked.connect(partial(spindle.spindle_pid_default, parent))
-	'''
-	parent.spindleFeedbackCB.currentIndexChanged.connect(partial(utilities.spindleFeedbackChanged, parent))
-	parent.spindleDriveCB.currentIndexChanged.connect(partial(utilities.driveChanged, parent))
-	parent.spindleMinRpm.valueChanged.connect(partial(utilities.spindleSettingsChanged, parent))
-	parent.spindleMaxRpm.valueChanged.connect(partial(utilities.spindleSettingsChanged, parent))
-	parent.spindleMaxAccel.valueChanged.connect(partial(utilities.spindleSettingsChanged, parent))
-	'''
+	parent.spindleMinRpmFwd.valueChanged.connect(partial(spindle.spindleSettingsChanged, parent))
+	parent.spindleMinRpmRev.valueChanged.connect(partial(spindle.spindleSettingsChanged, parent))
+	parent.spindleMaxRpmFwd.valueChanged.connect(partial(spindle.spindleSettingsChanged, parent))
+	parent.spindleMaxRpmRev.valueChanged.connect(partial(spindle.spindleSettingsChanged, parent))
+	parent.spindleMaxAccel.valueChanged.connect(partial(spindle.spindleSettingsChanged, parent))
+
 	# Smart Serial Tab
 	parent.ssCardCB.currentIndexChanged.connect(partial(sscards.ssCardChanged, parent))
 	parent.ss7i73_keypadCB.currentIndexChanged.connect(partial(sscards.ss7i73Changed, parent))
 	parent.ss7i73lcdCB.currentIndexChanged.connect(partial(sscards.ss7i73Changed, parent))
+
 	'''
 
 	# HAL Tab
@@ -130,8 +153,14 @@ def connect(parent):
 	parent.cpu_info_pb.clicked.connect(partial(pcinfo.cpuInfo, parent))
 	#parent.latencyTestPB.clicked.connect(partial(tools.runLatencyHisogram, parent))
 
-	# Options Tab
+	# Options Tab - Display Tab
 	parent.no_check_firmware_cb.clicked.connect(partial(settings.update_settings, parent))
+
+	# Options Tab - MDI Tab
+	mdi.cleanup_mdi_commands(parent)
+	parent.addMdiCommandPB.clicked.connect(partial(mdi.add_mdi_command_row, parent))
+
+
 	# check load_config_cb when building only...
 	#parent.load_config_cb.toggled.connect(partial(settings.update_settings, parent))
 	#parent.checkMesaflashCB.clicked.connect(partial(settings.update_value, parent))
