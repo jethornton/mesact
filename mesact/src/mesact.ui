@@ -195,7 +195,7 @@ Spaces are replaced with underscore.</string>
         <item row="1" column="2">
          <widget class="QGroupBox" name="groupBox_103">
           <property name="title">
-           <string>Testing</string>
+           <string>Quick Start</string>
           </property>
           <layout class="QGridLayout" name="gridLayout_234">
            <item row="7" column="0">
@@ -42591,6 +42591,7 @@ auto enp2s0
    <addaction name="actionOpen"/>
    <addaction name="actionCheck"/>
    <addaction name="actionBuild"/>
+   <addaction name="actionDocuments"/>
   </widget>
   <action name="actionOpen">
    <property name="text">
