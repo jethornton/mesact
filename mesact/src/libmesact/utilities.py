@@ -168,5 +168,8 @@ def inputChanged(parent): # test to see if not checked then enable both
 	elif function == 'debounce' and state == 2:
 		getattr(parent, f'{card}_input_invert_{number}').setEnabled(False)
 
+def changed(parent): # if anything is changed add *
+	parent.status_lb.setText('Changed')
+	parent.actionBuild.setText('Build Config *')
 
 

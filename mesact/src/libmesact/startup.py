@@ -10,6 +10,7 @@ from PyQt5.QtWidgets import QComboBox, QSpinBox, QDoubleSpinBox, QCheckBox
 from libmesact import combos
 from libmesact import menus
 from libmesact import updates
+from libmesact import utilities
 
 def setup(parent):
 
@@ -98,16 +99,15 @@ def setup(parent):
 		parent.mesaflash = False
 		parent.mesaflash_version = ()
 
-
 	# Change Events
 	for child in parent.findChildren(QLineEdit):
-		child.textChanged.connect(parent.changed)
+		child.textChanged.connect(partial(utilities.changed, parent))
 	for child in parent.findChildren(QComboBox):
-		child.currentIndexChanged.connect(parent.changed)
+		child.currentIndexChanged.connect(partial(utilities.changed, parent))
 	for child in parent.findChildren(QSpinBox):
-		child.valueChanged.connect(parent.changed)
+		child.valueChanged.connect(partial(utilities.changed, parent))
 	for child in parent.findChildren(QDoubleSpinBox):
-		child.valueChanged.connect(parent.changed)
+		child.valueChanged.connect(partial(utilities.changed, parent))
 	for child in parent.findChildren(QCheckBox):
-		child.stateChanged.connect(parent.changed)
+		child.stateChanged.connect(partial(utilities.changed, parent))
 

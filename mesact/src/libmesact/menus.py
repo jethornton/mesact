@@ -1,4 +1,8 @@
+from functools import partial
+
 from PyQt5.QtWidgets import QMenu, QAction
+
+from libmesact import utilities
 
 inputs = [{'Not Used':'Select'},
 	{'Homing':['Joint 0 Home', 'Joint 1 Home', 'Joint 2 Home',
@@ -83,7 +87,7 @@ def build(parent):
 			button = getattr(parent, f'c{i}_input_{j}')
 			menu = QMenu()
 			menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
-			menu.triggered.connect(parent.changed)
+			menu.triggered.connect(partial(utilities.changed, parent))
 			add_menu(inputs, menu)
 			button.setMenu(menu)
 
@@ -93,7 +97,7 @@ def build(parent):
 			button = getattr(parent, f'c{i}_output_{j}')
 			menu = QMenu()
 			menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
-			menu.triggered.connect(parent.changed)
+			menu.triggered.connect(partial(utilities.changed, parent))
 			add_menu(outputs, menu)
 			button.setMenu(menu)
 
@@ -102,7 +106,7 @@ def build(parent):
 		button = getattr(parent, f'ss7i64in_{i}')
 		menu = QMenu()
 		menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
-		menu.triggered.connect(parent.changed)
+		menu.triggered.connect(partial(utilities.changed, parent))
 		add_menu(inputs, menu)
 		button.setMenu(menu)
 
@@ -110,7 +114,7 @@ def build(parent):
 		button = getattr(parent, f'ss7i64out_{i}')
 		menu = QMenu()
 		menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
-		menu.triggered.connect(parent.changed)
+		menu.triggered.connect(partial(utilities.changed, parent))
 		add_menu(outputs, menu)
 		button.setMenu(menu)
 
@@ -119,7 +123,7 @@ def build(parent):
 		button = getattr(parent, f'ss7i69in_{i}')
 		menu = QMenu()
 		menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
-		menu.triggered.connect(parent.changed)
+		menu.triggered.connect(partial(utilities.changed, parent))
 		add_menu(inputs, menu)
 		button.setMenu(menu)
 
@@ -127,7 +131,7 @@ def build(parent):
 		button = getattr(parent, f'ss7i69out_{i}')
 		menu = QMenu()
 		menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
-		menu.triggered.connect(parent.changed)
+		menu.triggered.connect(partial(utilities.changed, parent))
 		add_menu(outputs, menu)
 		button.setMenu(menu)
 
@@ -136,7 +140,7 @@ def build(parent):
 		button = getattr(parent, f'ss7i70in_{i}')
 		menu = QMenu()
 		menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
-		menu.triggered.connect(parent.changed)
+		menu.triggered.connect(partial(utilities.changed, parent))
 		add_menu(inputs, menu)
 		button.setMenu(menu)
 
@@ -145,7 +149,7 @@ def build(parent):
 		button = getattr(parent, f'ss7i71out_{i}')
 		menu = QMenu()
 		menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
-		menu.triggered.connect(parent.changed)
+		menu.triggered.connect(partial(utilities.changed, parent))
 		add_menu(outputs, menu)
 		button.setMenu(menu)
 
@@ -154,7 +158,7 @@ def build(parent):
 		button = getattr(parent, f'ss7i72out_{i}')
 		menu = QMenu()
 		menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
-		menu.triggered.connect(parent.changed)
+		menu.triggered.connect(partial(utilities.changed, parent))
 		add_menu(outputs, menu)
 		button.setMenu(menu)
 
@@ -163,7 +167,7 @@ def build(parent):
 		button = getattr(parent, f'ss7i73in_{i}')
 		menu = QMenu()
 		menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
-		menu.triggered.connect(parent.changed)
+		menu.triggered.connect(partial(utilities.changed, parent))
 		add_menu(inputs, menu)
 		button.setMenu(menu)
 
@@ -171,7 +175,7 @@ def build(parent):
 		button = getattr(parent, f'ss7i73out_{i}')
 		menu = QMenu()
 		menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
-		menu.triggered.connect(parent.changed)
+		menu.triggered.connect(partial(utilities.changed, parent))
 		add_menu(outputs, menu)
 		button.setMenu(menu)
 
@@ -180,7 +184,7 @@ def build(parent):
 		button = getattr(parent, f'ss7i73key_{i}')
 		menu = QMenu()
 		menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
-		menu.triggered.connect(parent.changed)
+		menu.triggered.connect(partial(utilities.changed, parent))
 		add_menu(outputs, menu)
 		button.setMenu(menu)
 
@@ -189,7 +193,7 @@ def build(parent):
 		button = getattr(parent, f'ss7i73key_{i}')
 		menu = QMenu()
 		menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
-		menu.triggered.connect(parent.changed)
+		menu.triggered.connect(partial(utilities.changed, parent))
 		add_menu(inputs, menu)
 		button.setMenu(menu)
 
@@ -198,7 +202,7 @@ def build(parent):
 		button = getattr(parent, f'ss7i73lcd_{i}')
 		menu = QMenu()
 		menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
-		menu.triggered.connect(parent.changed)
+		menu.triggered.connect(partial(utilities.changed, parent))
 		add_menu(outputs, menu)
 		button.setMenu(menu)
 
@@ -207,7 +211,7 @@ def build(parent):
 		button = getattr(parent, f'ss7i73lcd_{i}')
 		menu = QMenu()
 		menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
-		menu.triggered.connect(parent.changed)
+		menu.triggered.connect(partial(utilities.changed, parent))
 		add_menu(outputs, menu)
 		button.setMenu(menu)
 
@@ -215,7 +219,7 @@ def build(parent):
 		button = getattr(parent, f'ss7i73in_{i}')
 		menu = QMenu()
 		menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
-		menu.triggered.connect(parent.changed)
+		menu.triggered.connect(partial(utilities.changed, parent))
 		add_menu(inputs, menu)
 		button.setMenu(menu)
 
@@ -223,7 +227,7 @@ def build(parent):
 		button = getattr(parent, f'ss7i73out_{i}')
 		menu = QMenu()
 		menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
-		menu.triggered.connect(parent.changed)
+		menu.triggered.connect(partial(utilities.changed, parent))
 		add_menu(outputs, menu)
 		button.setMenu(menu)
 
@@ -232,7 +236,7 @@ def build(parent):
 		button = getattr(parent, f'ss7i84in_{i}')
 		menu = QMenu()
 		menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
-		menu.triggered.connect(parent.changed)
+		menu.triggered.connect(partial(utilities.changed, parent))
 		add_menu(inputs, menu)
 		button.setMenu(menu)
 
@@ -240,7 +244,7 @@ def build(parent):
 		button = getattr(parent, f'ss7i84out_{i}')
 		menu = QMenu()
 		menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
-		menu.triggered.connect(parent.changed)
+		menu.triggered.connect(partial(utilities.changed, parent))
 		add_menu(outputs, menu)
 		button.setMenu(menu)
 
@@ -249,7 +253,7 @@ def build(parent):
 		button = getattr(parent, f'ss7i87in_{i}')
 		menu = QMenu()
 		menu.triggered.connect(lambda action, button=button: button.setText(action.text()))
-		menu.triggered.connect(parent.changed)
+		menu.triggered.connect(partial(utilities.changed, parent))
 		add_menu(ain, menu)
 		button.setMenu(menu)
 
