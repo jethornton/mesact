@@ -41501,25 +41501,6 @@ reload all default PID values</string>
              </item>
             </layout>
            </widget>
-           <widget class="QCheckBox" name="enableMesaflashCB">
-            <property name="geometry">
-             <rect>
-              <x>30</x>
-              <y>170</y>
-              <width>181</width>
-              <height>25</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>Enable Firmware Tools</string>
-            </property>
-            <property name="Section" stdset="0">
-             <string>TOOLS</string>
-            </property>
-            <property name="Option" stdset="0">
-             <string>FIRMWARE</string>
-            </property>
-           </widget>
           </widget>
           <widget class="QWidget" name="tab_187">
            <attribute name="title">
