@@ -1,0 +1,11 @@
+
+<JT-Cave> pcw---home, do you have a sample of a 7i95t joint that is using encoder feedback?
+<JT-Cave> hmm I think I can use a 7i77 example to work with
+<pcw---home> Basically you swap encoder feedback for stepgen feedback and the PID output drives say a PWMgen instead of a stepgen
+<JT-Cave> ok thanks, missed the pid output part
+<pcw---home> JT-Cave: It could also have stepgen output (say a system with step/dir output but linear scale feedback)
+<JT-Cave> that's what I'm trying to code for a 7i95 stepgen with encoder feedback
+<JT-Cave> http://paste.debian.net/1292342/
+<JT-Cave> that's what I have so far and it doesn't error out but I need to rig up an encoder to a stepper to test
+<pcw---home> Yes, its basically identical except for the feedback source (and the encoder setup)
+<pcw---home> Also typically the P term would be a lot lower
