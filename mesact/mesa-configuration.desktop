@@ -1,7 +1,7 @@
 [Desktop Entry]
 Version=1.0
 Type=Application
-Name=MesaCT
+Name=Mesa CT
 Exec=mesact
 Icon=linuxcncicon
 Categories=Utility;Engineering;X-CNC;
