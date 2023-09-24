@@ -15,6 +15,8 @@ def check_emc():
 def check_ip(parent):
 	if not parent.ipAddressCB.currentData():
 		dialogs.errorMsgOk('An IP address must be selected', 'Error!')
+		parent.mainTW.setCurrentIndex(0)
+		parent.ipAddressCB.setFocus()
 		return False
 	return True
 
