@@ -120,6 +120,10 @@ def firmwareChanged(parent):
 				data = file.read()
 			parent.firmwarePTE.clear()
 			parent.firmwarePTE.setPlainText(data)
+			parent.firmware_options_lb.setText('Total for Firmware Selected')
+
+		else: # no pin file
+			parent.firmware_options_lb.setText('No Pin file found!')
 
 		descfile = os.path.join(path + '.txt')
 		if os.path.exists(descfile):

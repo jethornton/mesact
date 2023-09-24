@@ -40,6 +40,16 @@ def boardChanged(parent):
 				getattr(parent, f'c{i}_settings_{j}').setTabVisible(4, True)
 		for i in range(1, 7):
 			parent.spindleTypeCB.model().item(i).setEnabled(False)
+		parent.firmware_options_lb.setText('No Firmware Selected!')
+		# Configure Options
+		parent.stepgens_cb.clear()
+		parent.stepgens_cb.addItem('n/a', 0)
+		parent.pwmgens_cb.clear()
+		parent.pwmgens_cb.addItem('n/a', 0)
+		parent.encoders_cb.clear()
+		parent.encoders_cb.addItem('n/a', 0)
+		parent.p1_channels_lb.clear()
+		parent.p2_channels_lb.clear()
 
 		if board == '5i24': # PCI IDC50
 			parent.board = '5i24'
