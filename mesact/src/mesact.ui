@@ -665,7 +665,7 @@ Spaces are replaced with underscore.</string>
           </property>
           <widget class="QWidget" name="tab_13">
            <attribute name="title">
-            <string>Firmware</string>
+            <string>Mesaflash</string>
            </attribute>
            <layout class="QGridLayout" name="gridLayout_400">
             <item row="1" column="0">

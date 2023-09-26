@@ -356,7 +356,7 @@ def boardChanged(parent):
 				parent.daughterCB_0.addItem(item[0], item[1])
 				parent.daughterCB_1.addItem(item[0], item[1])
 
-	else:
+	else: # no board is selected
 		parent.board = ''
 		parent.boardType = False
 		parent.c0_JointTW.setTabText(0, 'Board')
@@ -368,5 +368,6 @@ def boardChanged(parent):
 		parent.firmwareGB.setEnabled(False)
 		parent.checkBoardPB.setEnabled(False)
 		parent.read_hmid_gb.setEnabled(False)
-
+		parent.firmwareDescPTE.clear()
+		parent.firmwareCB.clear()
 
