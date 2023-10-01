@@ -47,7 +47,7 @@ inputs = [{'Not Used':'Select'},
 # {'':['', ]},
 
 outputs = [{'Not Used':'Select'},
-	{'Motion':['Motion Enable']),
+	{'Motion':['Motion Enable']},
 	{'Spindle':['Spindle On', 'Spindle CW', 'Spindle CCW', 'Spindle Brake']},
 	{'I/O Control':['Coolant Flood', 'Coolant Mist', 'Lube Pump',
 		'Tool Change', 'Tool Prepare', 'E-Stop Out']},
