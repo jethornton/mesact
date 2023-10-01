@@ -4,7 +4,7 @@ from functools import partial
 
 from PyQt5.QtCore import qVersion
 from PyQt5.QtGui import  QIcon
-from PyQt5.QtWidgets import QAction, QCheckBox, QLineEdit
+from PyQt5.QtWidgets import QAction, QCheckBox, QLineEdit, QPlainTextEdit
 from PyQt5.QtWidgets import QComboBox, QSpinBox, QDoubleSpinBox, QCheckBox
 
 from libmesact import combos
@@ -100,6 +100,8 @@ def setup(parent):
 		parent.mesaflash_version = ()
 
 	# Change Events
+	for child in parent.findChildren(QPlainTextEdit):
+		child.textChanged.connect(partial(utilities.changed, parent))
 	for child in parent.findChildren(QLineEdit):
 		child.textChanged.connect(partial(utilities.changed, parent))
 	for child in parent.findChildren(QComboBox):
