@@ -206,7 +206,7 @@ def checkit(parent):
 					configErrors.append(f'\t{selection} is more than the number of joints')
 
 	if tabError:
-		tab = parent.boardCB.currentText()
+		#tab = parent.boardCB.currentText()
 		configErrors.insert(nextHeader, f'{tab} Tab:')
 		nextHeader = len(configErrors)
 		tabError = False
