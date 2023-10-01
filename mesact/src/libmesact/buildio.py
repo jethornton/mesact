@@ -128,6 +128,7 @@ INPUTS = {
 {'Spindle':['Spindle Amp Fault', 'Spindle Inhibit', 'Spindle Oriented', 'Spindle Orient Fault']},
 
 OUTPUTS = {
+'Motion Enable': 'net motion-enable motion.motion-enabled => ',
 'Coolant Flood': 'net flood-output iocontrol.0.coolant-flood => ',
 'Coolant Mist': 'net mist-output iocontrol.0.coolant-mist => ',
 'Spindle On': 'net spindle-on => ',
@@ -235,8 +236,8 @@ def build_io(parent):
 		mb = '7i92'
 	else:
 		mb = parent.boardCB.currentData()
-	p1b = parent.daughterCB_0.currentData()
-	p2b = parent.daughterCB_1.currentData()
+	daughter_0 = parent.daughterCB_0.currentData()
+	daughter_1 = parent.daughterCB_1.currentData()
 
 	# build main board inputs if a combo card
 	contents.append('\n# Inputs\n')
@@ -289,23 +290,23 @@ def build_io(parent):
 			contents.append(f'net estop-reset => estop-latch.{i}.reset\n')
 			contents.append(f'net remote-estop{i} estop-latch.{i}.fault-in <= {eStops[i]}\n')
 
-	if p2b: # daughter card on P2
+	if daughter_1: # daughter card on second port
 		for i in range(32):
 			key = getattr(parent, f'c2_input_{i}').text()
 			invert = '-not' if getattr(parent, f'c2_input_invert_{i}').isChecked() else ''
 			slow = '-slow' if getattr(parent, f'c2_input_debounce_{i}').isChecked() else ''
 			if INPUTS.get(key, False): # return False if key is not in dictionary
-				hm2 = f'hm2_{mb}.0.{p2b}.0.0.input-{i:02}{invert}'
+				hm2 = f'hm2_{mb}.0.{daughter_1}.0.0.input-{i:02}{invert}'
 				contents.append(f'{input_dict[key]} {hm2}\n')
 
-	if p1b: # daughter card on P1
+	if daughter_0: # daughter card on first port
 		ss_io_port = parent.p1_channels[0]
 		for i in range(32):
 			key = getattr(parent, f'c1_input_{i}').text()
 			invert = '-not' if getattr(parent, f'c1_input_invert_{i}').isChecked() else ''
 			slow = '-slow' if getattr(parent, f'c1_input_debounce_{i}').isChecked() else ''
 			if INPUTS.get(key, False): # return False if key is not in dictionary
-				hm2 = f'hm2_{mb}.0.{p1b}.0.{ss_io_port}.input-{i:02}{invert}'
+				hm2 = f'hm2_{mb}.0.{daughter_0}.0.{ss_io_port}.input-{i:02}{invert}'
 				contents.append(f'{input_dict[key]} {hm2}\n')
 
 	# build outputs
@@ -332,18 +333,24 @@ def build_io(parent):
 				if mb == '7i97':
 					contents.append(OUTPUTS[key] + f'hm2_7i97.0.ssr.00.out-{i:02}\n')
 
-	if p2b: # build daughter card outputs for p2
+	if daughter_1: # build daughter card outputs for second port
 		for i in range(16):
 			key = getattr(parent, f'c2_output_{i}').text()
 			if OUTPUTS.get(key, False): # return False if key is not in dictionary
-				contents.append(OUTPUTS[key] + f'hm2_{mb}.0.{p2b}.00.output-{i:02}\n')
+				if daughter_1 == '7i77':
+					contents.append(OUTPUTS[key] + f'hm2_{mb}.0.{daughter_1}.0.0.output-{i:02}\n')
+				else:
+					contents.append(OUTPUTS[key] + f'hm2_{mb}.0.{daughter_1}.00.output-{i:02}\n')
 
-	if p1b: # build daughter card outputs for p1
+	if daughter_0: # build daughter card outputs for first port
 		ss_io_port = parent.p1_channels[0]
 		for i in range(16):
 			key = getattr(parent, f'c1_output_{i}').text()
 			if OUTPUTS.get(key, False): # return False if key is not in dictionary
-				contents.append(OUTPUTS[key] + f'hm2_{mb}.0.{p2b}.0{ss_io_port}.output-{i:02}\n')
+				if daughter_1 == '7i77':
+					contents.append(OUTPUTS[key] + f'hm2_{mb}.0.{daughter_1}.0.0.output-{i:02}\n')
+				else:
+					contents.append(OUTPUTS[key] + f'hm2_{mb}.0.{daughter_0}.0{ss_io_port}.output-{i:02}\n')
 
 	try:
 		with open(filePath, 'w') as f:
