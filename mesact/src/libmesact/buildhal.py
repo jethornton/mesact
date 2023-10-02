@@ -103,6 +103,11 @@ def build(parent):
 		halContents.append(f'setp spindle-limit.min [SPINDLE_0](MIN_RPM)\n')
 		halContents.append(f'setp spindle-limit.max [SPINDLE_0](MAX_RPM)\n')
 
+		if getattr(parent, f'c{joint_list[i][1]}_settings_{i}').isTabVisible(3): # analog
+			halContents.append('# amp enable\n')
+			# FIXME
+			halContents.append(f'net joint-0-enable motion.motion-enabled => hm2_[MESA](BOARD).0.{card}.0.{port}.analogena\n')
+
 	# figure out which card each joint is on...
 	joint_list = []
 	for i in range(3):
@@ -169,14 +174,10 @@ def build(parent):
 			halContents.append(f'net joint.{i}.output => hm2_[MESA](BOARD).0.stepgen.0{i}.velocity-cmd\n')
 
 		if getattr(parent, f'c{joint_list[i][1]}_settings_{i}').isTabVisible(3): # analog
-			halContents.append('# amp enable\n')
-			# FIX ME
-			#halContents.append(f'net joint-0-enable => hm2_[MESA](BOARD).0.{card}.0.{port}.analogena\n')
-
-			#halContents.append('\n# PWM setup\n')
-			#halContents.append(f'setp hm2_[MESA](BOARD).0.{card}.0.{port}.analogout{i}-scalemax [JOINT_{i}](ANALOG_SCALE_MAX)\n')
-			#halContents.append(f'setp hm2_[MESA](BOARD).0.{card}.0.{port}.analogout{i}-minlim [JOINT_{i}](ANALOG_MIN_LIMIT)\n')
-			#halContents.append(f'setp hm2_[MESA](BOARD).0.{card}.0.{port}.analogout{i}-maxlim [JOINT_{i}](ANALOG_MAX_LIMIT)\n\n')
+			halContents.append('\n# PWM setup\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.{card}.0.{port}.analogout{i}-scalemax [JOINT_{i}](ANALOG_SCALE_MAX)\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.{card}.0.{port}.analogout{i}-minlim [JOINT_{i}](ANALOG_MIN_LIMIT)\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.{card}.0.{port}.analogout{i}-maxlim [JOINT_{i}](ANALOG_MAX_LIMIT)\n\n')
 
 		if getattr(parent, f'c{joint_list[i][1]}_settings_{i}').isTabVisible(4): # encoder
 			halContents.append('\n# Encoder Setup\n')
