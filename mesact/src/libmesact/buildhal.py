@@ -103,10 +103,23 @@ def build(parent):
 		halContents.append(f'setp spindle-limit.min [SPINDLE_0](MIN_RPM)\n')
 		halContents.append(f'setp spindle-limit.max [SPINDLE_0](MAX_RPM)\n')
 
-		if getattr(parent, f'c{joint_list[i][1]}_settings_{i}').isTabVisible(3): # analog
-			halContents.append('# amp enable\n')
-			# FIXME
-			halContents.append(f'net joint-0-enable motion.motion-enabled => hm2_[MESA](BOARD).0.{card}.0.{port}.analogena\n')
+	# finger out where the analog card is and which one...
+	# P2 hm2_5i25.0.7i77.0.4.analogena
+
+	if parent.daughterCB_0.currentData():
+		card = parent.daughterCB_0.currentData()
+		port = '4'
+	elif parent.daughterCB_1.currentData():
+		card = parent.daughterCB_1.currentData()
+		port = '1'
+	else:
+		card = ''
+
+	analog_cards = ['7i77']
+
+	if card in analog_cards: # analog
+		halContents.append('\n# amp enable\n')
+		halContents.append(f'net joint-0-enable motion.motion-enabled => hm2_[MESA](BOARD).0.{card}.0.{port}.analogena\n')
 
 	# figure out which card each joint is on...
 	joint_list = []
@@ -180,13 +193,14 @@ def build(parent):
 			halContents.append(f'setp hm2_[MESA](BOARD).0.{card}.0.{port}.analogout{i}-maxlim [JOINT_{i}](ANALOG_MAX_LIMIT)\n\n')
 
 		if getattr(parent, f'c{joint_list[i][1]}_settings_{i}').isTabVisible(4): # encoder
-			halContents.append('\n# Encoder Setup\n')
-			halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.scale  [JOINT_0](ENCODER_SCALE)\n')
-			halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.counter-mode 0\n')
-			halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.filter 1\n')
-			halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.index-invert 0\n')
-			halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.index-mask 0\n')
-			halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.index-mask-invert 0\n')
+			if getattr(parent, f'c{joint_list[i][1]}_encoderScale_{i}').text():
+				halContents.append('\n# Encoder Setup\n')
+				halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.scale  [JOINT_0](ENCODER_SCALE)\n')
+				halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.counter-mode 0\n')
+				halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.filter 1\n')
+				halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.index-invert 0\n')
+				halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.index-mask 0\n')
+				halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.index-mask-invert 0\n')
 	'''
 
 			halContents.append('\n# Position Command and Feedback\n')
