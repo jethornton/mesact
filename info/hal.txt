@@ -1,8 +1,14 @@
-for ethernet
+
 In a terminal
 halrun
 loadrt hostmot2
+
+for ethernet
 loadrt hm2_eth board_ip=10.10.10.10
+
+for pci(e)
+loadrt hm2_pci
+
 after getting pins and parameters
 quit
 
