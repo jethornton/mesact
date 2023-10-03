@@ -9,6 +9,20 @@ loadrt hm2_eth board_ip=10.10.10.10
 for pci(e)
 loadrt hm2_pci
 
+for smart serial cards
+setp hm2_5i25.0.watchdog.timeout_ns 5000000
+
+# motion controller
+loadrt motmod servo_period_nsec=1000000 num_joints=[KINS](JOINTS)
+
+# THREADS
+addf hm2_5i25.0.read servo-thread
+addf motion-command-handler servo-thread
+addf motion-controller servo-thread
+addf pid.x.do-pid-calcs servo-thread
+addf hm2_5i25.0.write servo-thread
+
+
 after getting pins and parameters
 quit
 
