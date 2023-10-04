@@ -42,6 +42,7 @@ def connect(parent):
 
 	# Machine Tab
 	parent.configNameLE.textChanged[str].connect(partial(machine.configNameChanged, parent))
+	parent.load_config_cb.stateChanged.connect(partial(settings.update_settings, parent))
 	parent.boardCB.currentIndexChanged.connect(partial(boards.boardChanged, parent))
 	for i in range(2):
 		getattr(parent, f'daughterCB_{i}').currentIndexChanged.connect(partial(daughters.changed, parent))

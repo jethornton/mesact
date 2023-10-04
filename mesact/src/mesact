@@ -62,7 +62,7 @@ class MainWindow(QMainWindow):
 		self.updateini = updateini.updateini()
 		self.loadini = openini.loadini()
 		self.boardType = False # eth or pci
-		self.board = ''
+		#self.board = ''
 		self.password = None
 		self.mesaflash = False
 		connections.connect(self)

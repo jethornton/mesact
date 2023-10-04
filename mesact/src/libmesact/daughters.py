@@ -1,9 +1,9 @@
 
 def changed(parent):
-	index = int(parent.sender().objectName()[-1])
-	# daughter card indexes start at 1
+	# daughter tab indexes start at 1
 	if parent.sender().currentData(): # daughter card selected
-		daughter = index + 1
+		port = int(parent.sender().objectName()[-1])
+		daughter_tab = port + 1
 		board = parent.sender().currentData()
 		tab = int(parent.sender().objectName()[-1]) + 4
 		# daughterLB_0
@@ -31,47 +31,47 @@ def changed(parent):
 
 		for i in range(1,7): # show/hide axis tabs
 			if i <= axis:
-				getattr(parent, f'c{daughter}_JointTW').setTabVisible(i, True)
+				getattr(parent, f'c{daughter_tab}_JointTW').setTabVisible(i, True)
 			else:
-				getattr(parent, f'c{daughter}_JointTW').setTabVisible(i, False)
+				getattr(parent, f'c{daughter_tab}_JointTW').setTabVisible(i, False)
 
 		for i in range(6): # show/hide stepgen tabs
 			if stepgen > 0 and i <= stepgen:
-				getattr(parent, f'c{daughter}_settings_{i}').setTabVisible(2, True)
+				getattr(parent, f'c{daughter_tab}_settings_{i}').setTabVisible(2, True)
 			else:
-				getattr(parent, f'c{daughter}_settings_{i}').setTabVisible(2, False)
+				getattr(parent, f'c{daughter_tab}_settings_{i}').setTabVisible(2, False)
 
 		for i in range(6): # show/hide analog tabs
 			if analog > 0 and i <= analog:
-				getattr(parent, f'c{daughter}_settings_{i}').setTabVisible(3, True)
+				getattr(parent, f'c{daughter_tab}_settings_{i}').setTabVisible(3, True)
 			else:
-				getattr(parent, f'c{daughter}_settings_{i}').setTabVisible(3, False)
+				getattr(parent, f'c{daughter_tab}_settings_{i}').setTabVisible(3, False)
 
 		for i in range(6): # show/hide encoder tabs
 			if encoder > 0 and i <= encoder:
-				getattr(parent, f'c{daughter}_settings_{i}').setTabVisible(4, True)
+				getattr(parent, f'c{daughter_tab}_settings_{i}').setTabVisible(4, True)
 			else:
-				getattr(parent, f'c{daughter}_settings_{i}').setTabVisible(4, False)
+				getattr(parent, f'c{daughter_tab}_settings_{i}').setTabVisible(4, False)
 
 		for i in range(32): # hide debounce check boxes
-			getattr(parent, f'c{daughter}_input_debounce_{i}').setEnabled(False)
+			getattr(parent, f'c{daughter_tab}_input_debounce_{i}').setEnabled(False)
 
 		for i in range(32): # enable/disable inputs
 			if inputs > 0 and i <= inputs:
-				getattr(parent, f'c{daughter}_input_{i}').setEnabled(True)
-				getattr(parent, f'c{daughter}_input_invert_{i}').setEnabled(True)
+				getattr(parent, f'c{daughter_tab}_input_{i}').setEnabled(True)
+				getattr(parent, f'c{daughter_tab}_input_invert_{i}').setEnabled(True)
 			else:
-				getattr(parent, f'c{daughter}_input_{i}').setEnabled(False)
-				getattr(parent, f'c{daughter}_input_invert_{i}').setEnabled(False)
+				getattr(parent, f'c{daughter_tab}_input_{i}').setEnabled(False)
+				getattr(parent, f'c{daughter_tab}_input_invert_{i}').setEnabled(False)
 
 		for i in range(16): # enable/disable outputs
 			if outputs > 0 and i <= outputs:
-				getattr(parent, f'c{daughter}_output_{i}').setEnabled(True)
-				getattr(parent, f'c{daughter}_output_invert_{i}').setEnabled(True)
+				getattr(parent, f'c{daughter_tab}_output_{i}').setEnabled(True)
+				getattr(parent, f'c{daughter_tab}_output_invert_{i}').setEnabled(True)
 			else:
-				getattr(parent, f'c{daughter}_output_{i}').setEnabled(False)
-				getattr(parent, f'c{daughter}_output_invert_{i}').setEnabled(False)
+				getattr(parent, f'c{daughter_tab}_output_{i}').setEnabled(False)
+				getattr(parent, f'c{daughter_tab}_output_invert_{i}').setEnabled(False)
 
 	else:
-		parent.mainTW.setTabVisible(4 + index, False)
+		parent.mainTW.setTabVisible(4 + int(parent.sender().objectName()[-1]), False)
 

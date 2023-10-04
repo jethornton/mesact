@@ -4,8 +4,8 @@ def build(parent):
 	# Machine Tab
 	boards = [
 	['Select', False],
-	['5i24/6i24', '5i24'],
-	['5i25/6i25', '5i25'],
+	['5/6i24', '5i24'],
+	['5/6i25', '5i25'],
 	['7i76E', '7i76e'],
 	['7i80DB-16', '7i80db-16'],
 	['7i80DB-25', '7i80db-25'],

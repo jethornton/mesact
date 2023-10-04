@@ -48,8 +48,8 @@ def boardChanged(parent):
 		parent.pwmgens_cb.addItem('n/a', 0)
 		parent.encoders_cb.clear()
 		parent.encoders_cb.addItem('n/a', 0)
-		parent.p1_channels_lb.clear()
-		parent.p2_channels_lb.clear()
+		parent.port_0_channels_lb.clear()
+		parent.port_1_channels_lb.clear()
 
 		if board == '5i24': # PCI IDC50
 			parent.board = '5i24'
@@ -66,15 +66,18 @@ def boardChanged(parent):
 				parent.daughterCB_1.addItem(item[0], item[1])
 
 		elif board == '5i25': # PCI DB25F IDC26
+			# port 0 is P3 port 1 is P2
 			parent.board = '5i25'
 			parent.boardType = 'pci'
 			parent.c0_JointTW.setTabText(0, name)
 			for i in range(1, tabs + 1):
 				parent.c0_JointTW.setTabVisible(i, False)
-			parent.daughterLB_0.setText('P2')
-			parent.daughterLB_1.setText('P3')
-			parent.mainTW.setTabText(4, 'P2')
-			parent.mainTW.setTabText(5, 'P3')
+			parent.daughterLB_0.setText('P3')
+			parent.daughterLB_1.setText('P2')
+			parent.ss_port_0_lb.setText('P3')
+			parent.ss_port_1_lb.setText('P2')
+			#parent.mainTW.setTabText(4, 'P2')
+			#parent.mainTW.setTabText(5, 'P3')
 			for item in db25:
 				parent.daughterCB_0.addItem(item[0], item[1])
 				parent.daughterCB_1.addItem(item[0], item[1])

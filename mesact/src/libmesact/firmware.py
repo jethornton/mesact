@@ -73,8 +73,10 @@ def firmwareChanged(parent):
 			# get smart serial channels for each connector
 			p1 = False
 			p2 = False
-			parent.p2_channels = []
+			p3 = False
 			parent.p1_channels = []
+			parent.p2_channels = []
+			parent.p3_channels = []
 			with open(pinfile, 'r') as file:
 				for line in file:
 					if 'of StepGen in configuration' in line:
@@ -86,9 +88,15 @@ def firmwareChanged(parent):
 					if 'P1' in line:
 						p1 = True
 						p2 = False
+						p3 = False
 					if 'P2' in line:
 						p1 = False
 						p2 = True
+						p3 = False
+					if 'P3' in line:
+						p1 = False
+						p2 = False
+						p3 = True
 					if p1:
 						if 'TXData' in line:
 							for word in line.split():
@@ -99,11 +107,25 @@ def firmwareChanged(parent):
 							for word in line.split():
 								if word.startswith('TXData'):
 									parent.p2_channels.append(word[-1])
+					if p3:
+						if 'TXData' in line:
+							for word in line.split():
+								if word.startswith('TXData'):
+									parent.p3_channels.append(word[-1])
 
 			parent.p1_channels.sort()
 			parent.p2_channels.sort()
-			parent.p2_channels_lb.setText(', '.join(parent.p2_channels))
-			parent.p1_channels_lb.setText(', '.join(parent.p1_channels))
+			parent.p3_channels.sort()
+
+			if parent.ss_port_0_lb.text() == 'P2':
+				parent.port_0_channels_lb.setText(', '.join(parent.p2_channels))
+			elif parent.ss_port_0_lb.text() == 'P3':
+				parent.port_0_channels_lb.setText(', '.join(parent.p3_channels))
+
+			if parent.ss_port_1_lb.text() == 'P1':
+				parent.port_1_channels_lb.setText(', '.join(parent.p1_channels))
+			elif parent.ss_port_0_lb.text() == 'P2':
+				parent.port_0_channels_lb.setText(', '.join(parent.p2_channels))
 
 			parent.stepgens_cb.clear()
 			parent.pwmgens_cb.clear()

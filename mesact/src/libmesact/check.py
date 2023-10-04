@@ -27,11 +27,11 @@ def checkit(parent):
 
 	# check the Firmware Tab for errors
 	mb = parent.boardCB
-	p1b = parent.daughterCB_0
-	p2b = parent.daughterCB_1
+	#p0b = parent.daughterCB_0
+	#p1b = parent.daughterCB_1
 	fw = parent.firmwareCB
 
-	if p1b.currentData(): # firmware must be selected
+	if parent.daughterCB_1.currentData(): # firmware must be selected
 		if not fw.currentData():
 			tabError = True
 			configErrors.append('\tFirmware must be selected to get the sserial ports for P1')
@@ -154,6 +154,7 @@ def checkit(parent):
 					configErrors.append(f'\tJoint {j} Max Following Error must not be blank')
 
 				if getattr(parent, f'c{i}_settings_{j}').isTabVisible(2): # Stepgen Tab
+					print(f'c{i}_settings_{j}')
 					#if not getattr(parent, f'c{i}_drive_{j}').currentData():
 					#	tabError = True
 					#	configErrors.append(f'\tJoint {j} Stepgen Type must not be blank')

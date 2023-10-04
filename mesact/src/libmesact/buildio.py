@@ -290,23 +290,24 @@ def build_io(parent):
 			contents.append(f'net estop-reset => estop-latch.{i}.reset\n')
 			contents.append(f'net remote-estop{i} estop-latch.{i}.fault-in <= {eStops[i]}\n')
 
-	if daughter_1: # daughter card on second port
-		for i in range(32):
-			key = getattr(parent, f'c2_input_{i}').text()
-			invert = '-not' if getattr(parent, f'c2_input_invert_{i}').isChecked() else ''
-			slow = '-slow' if getattr(parent, f'c2_input_debounce_{i}').isChecked() else ''
-			if INPUTS.get(key, False): # return False if key is not in dictionary
-				hm2 = f'hm2_{mb}.0.{daughter_1}.0.0.input-{i:02}{invert}'
-				contents.append(f'{input_dict[key]} {hm2}\n')
-
 	if daughter_0: # daughter card on first port
-		ss_io_port = parent.p1_channels[0]
+		#ss_io_port = parent.port_0_channels_lb[0]
 		for i in range(32):
 			key = getattr(parent, f'c1_input_{i}').text()
 			invert = '-not' if getattr(parent, f'c1_input_invert_{i}').isChecked() else ''
 			slow = '-slow' if getattr(parent, f'c1_input_debounce_{i}').isChecked() else ''
 			if INPUTS.get(key, False): # return False if key is not in dictionary
 				hm2 = f'hm2_{mb}.0.{daughter_0}.0.{ss_io_port}.input-{i:02}{invert}'
+				contents.append(f'{input_dict[key]} {hm2}\n')
+
+	if daughter_1: # daughter card on second port
+		#ss_io_port = parent.port_1_channels_lb[0]
+		for i in range(32):
+			key = getattr(parent, f'c2_input_{i}').text()
+			invert = '-not' if getattr(parent, f'c2_input_invert_{i}').isChecked() else ''
+			slow = '-slow' if getattr(parent, f'c2_input_debounce_{i}').isChecked() else ''
+			if INPUTS.get(key, False): # return False if key is not in dictionary
+				hm2 = f'hm2_{mb}.0.{daughter_1}.0.0.input-{i:02}{invert}'
 				contents.append(f'{input_dict[key]} {hm2}\n')
 
 	# build outputs
@@ -333,7 +334,18 @@ def build_io(parent):
 				if mb == '7i97':
 					contents.append(OUTPUTS[key] + f'hm2_7i97.0.ssr.00.out-{i:02}\n')
 
+	if daughter_0: # build daughter card outputs for first port
+		ss_io_port = parent.p1_channels.text()[0]
+		for i in range(16):
+			key = getattr(parent, f'c1_output_{i}').text()
+			if OUTPUTS.get(key, False): # return False if key is not in dictionary
+				if daughter_0 == '7i77':
+					contents.append(OUTPUTS[key] + f'hm2_{mb}.0.{daughter_0}.0.0.output-{i:02}\n')
+				else:
+					contents.append(OUTPUTS[key] + f'hm2_{mb}.0.{daughter_0}.0{ss_io_port}.output-{i:02}\n')
+
 	if daughter_1: # build daughter card outputs for second port
+		ss_io_port = parent.p1_channels.text()[0]
 		for i in range(16):
 			key = getattr(parent, f'c2_output_{i}').text()
 			if OUTPUTS.get(key, False): # return False if key is not in dictionary
@@ -341,16 +353,6 @@ def build_io(parent):
 					contents.append(OUTPUTS[key] + f'hm2_{mb}.0.{daughter_1}.0.0.output-{i:02}\n')
 				else:
 					contents.append(OUTPUTS[key] + f'hm2_{mb}.0.{daughter_1}.00.output-{i:02}\n')
-
-	if daughter_0: # build daughter card outputs for first port
-		ss_io_port = parent.p1_channels[0]
-		for i in range(16):
-			key = getattr(parent, f'c1_output_{i}').text()
-			if OUTPUTS.get(key, False): # return False if key is not in dictionary
-				if daughter_1 == '7i77':
-					contents.append(OUTPUTS[key] + f'hm2_{mb}.0.{daughter_1}.0.0.output-{i:02}\n')
-				else:
-					contents.append(OUTPUTS[key] + f'hm2_{mb}.0.{daughter_0}.0{ss_io_port}.output-{i:02}\n')
 
 	try:
 		with open(filePath, 'w') as f:

@@ -956,14 +956,14 @@ or encoders</string>
                 </widget>
                </item>
                <item row="1" column="0">
-                <widget class="QLabel" name="label_689">
+                <widget class="QLabel" name="ss_port_0_lb">
                  <property name="text">
                   <string>P1</string>
                  </property>
                 </widget>
                </item>
                <item row="1" column="1">
-                <widget class="QLabel" name="p1_channels_lb">
+                <widget class="QLabel" name="port_0_channels_lb">
                  <property name="frameShape">
                   <enum>QFrame::Box</enum>
                  </property>
@@ -973,14 +973,14 @@ or encoders</string>
                 </widget>
                </item>
                <item row="2" column="0">
-                <widget class="QLabel" name="label_692">
+                <widget class="QLabel" name="ss_port_1_lb">
                  <property name="text">
                   <string>P2</string>
                  </property>
                 </widget>
                </item>
                <item row="2" column="1">
-                <widget class="QLabel" name="p2_channels_lb">
+                <widget class="QLabel" name="port_1_channels_lb">
                  <property name="frameShape">
                   <enum>QFrame::Box</enum>
                  </property>
@@ -41369,8 +41369,8 @@ to File Open in Axis</string>
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>706</width>
-                    <height>290</height>
+                    <width>98</width>
+                    <height>28</height>
                    </rect>
                   </property>
                   <layout class="QGridLayout" name="mdiCommandsListGL"/>
