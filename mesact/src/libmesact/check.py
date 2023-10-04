@@ -154,7 +154,6 @@ def checkit(parent):
 					configErrors.append(f'\tJoint {j} Max Following Error must not be blank')
 
 				if getattr(parent, f'c{i}_settings_{j}').isTabVisible(2): # Stepgen Tab
-					print(f'c{i}_settings_{j}')
 					#if not getattr(parent, f'c{i}_drive_{j}').currentData():
 					#	tabError = True
 					#	configErrors.append(f'\tJoint {j} Stepgen Type must not be blank')
