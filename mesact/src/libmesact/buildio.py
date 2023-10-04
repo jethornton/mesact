@@ -232,10 +232,11 @@ def build_io(parent):
 	# build inputs from qpushbutton menus, check for debounce c0_input_0
 	hm2 = ''
 	eStops = []
-	if parent.boardCB.currentData() == '7i92t':
-		mb = '7i92'
-	else:
-		mb = parent.boardCB.currentData()
+	board_names = {'7i92t': '7i92', '7i95t': '7i95'}
+	mb = parent.boardCB.currentData()
+	if mb in board_names:
+		mb = board_names[mb]
+
 	daughter_0 = parent.daughterCB_0.currentData()
 	daughter_1 = parent.daughterCB_1.currentData()
 
