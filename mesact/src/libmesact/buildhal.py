@@ -119,7 +119,7 @@ def build(parent):
 
 	if card in analog_cards: # analog
 		halContents.append('\n# amp enable\n')
-		halContents.append(f'net joint-0-enable motion.motion-enabled => hm2_[MESA](BOARD).0.{card}.0.{port}.analogena\n')
+		halContents.append(f'net motion-enable motion.motion-enabled => hm2_[MESA](BOARD).0.{card}.0.{port}.analogena\n')
 
 	# figure out which card each joint is on...
 	joint_list = []
