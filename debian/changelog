@@ -1,3 +1,9 @@
+mesact (2.0.4) unstable; urgency=medium
+
+  * Improve smart serial channel discovery
+
+ -- John Thornton <dev@gnipsel.com>  Wed, 04 Oct 2023 06:33:34 -0500
+
 mesact (2.0.3) unstable; urgency=medium
 
   * Update spindle section for version 2.9
