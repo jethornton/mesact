@@ -73,7 +73,6 @@ class MainWindow(QMainWindow):
 		width = self.geometry().width()
 		height =  self.geometry().height()
 		self.sizeLB.setText(f'{width}x{height}')
-		#print("Window has been resized")
 		QMainWindow.resizeEvent(self, event)
 
 	def excepthook(self, exc_type, exc_value, tb):
