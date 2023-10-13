@@ -103,25 +103,28 @@ def build(parent):
 		halContents.append(f'setp spindle-limit.min [SPINDLE_0](MIN_RPM)\n')
 		halContents.append(f'setp spindle-limit.max [SPINDLE_0](MAX_RPM)\n')
 
-	# finger out where the analog card is and which one...
+	# finger out where the analog daughter_card is and which one...
 	# P2 hm2_5i25.0.7i77.0.4.analogena
 
 	if parent.daughterCB_0.currentData():
-		card = parent.daughterCB_0.currentData()
-		port = '4'
-	elif parent.daughterCB_1.currentData():
-		card = parent.daughterCB_1.currentData()
+		daughter_card = parent.daughterCB_0.currentData()
 		port = '1'
+	elif parent.daughterCB_1.currentData():
+		daughter_card = parent.daughterCB_1.currentData()
+		if daughter_card == '7i77':
+			port = '4'
+		else:
+			port = '3'
 	else:
-		card = ''
+		daughter_card = ''
 
 	analog_cards = ['7i77']
 
-	if card in analog_cards: # analog
+	if daughter_card in analog_cards: # analog
 		halContents.append('\n# amp enable\n')
-		halContents.append(f'net motion-enable motion.motion-enabled => hm2_[MESA](BOARD).0.{card}.0.{port}.analogena\n')
+		halContents.append(f'net motion-enable motion.motion-enabled => hm2_[MESA](BOARD).0.{daughter_card}.0.{port}.analogena\n')
 
-	# figure out which card each joint is on...
+	# figure out which daughter_card each joint is on...
 	joint_list = []
 	for i in range(3):
 		for j in range(6):
@@ -188,9 +191,9 @@ def build(parent):
 
 		if getattr(parent, f'c{joint_list[i][1]}_settings_{i}').isTabVisible(3): # analog
 			halContents.append('\n# PWM setup\n')
-			halContents.append(f'setp hm2_[MESA](BOARD).0.{card}.0.{port}.analogout{i}-scalemax [JOINT_{i}](ANALOG_SCALE_MAX)\n')
-			halContents.append(f'setp hm2_[MESA](BOARD).0.{card}.0.{port}.analogout{i}-minlim [JOINT_{i}](ANALOG_MIN_LIMIT)\n')
-			halContents.append(f'setp hm2_[MESA](BOARD).0.{card}.0.{port}.analogout{i}-maxlim [JOINT_{i}](ANALOG_MAX_LIMIT)\n\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.{daughter_card}.0.{port}.analogout{i}-scalemax [JOINT_{i}](ANALOG_SCALE_MAX)\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.{daughter_card}.0.{port}.analogout{i}-minlim [JOINT_{i}](ANALOG_MIN_LIMIT)\n')
+			halContents.append(f'setp hm2_[MESA](BOARD).0.{daughter_card}.0.{port}.analogout{i}-maxlim [JOINT_{i}](ANALOG_MAX_LIMIT)\n\n')
 
 		if getattr(parent, f'c{joint_list[i][1]}_settings_{i}').isTabVisible(4): # encoder
 			if getattr(parent, f'c{joint_list[i][1]}_encoderScale_{i}').text():
