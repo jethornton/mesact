@@ -79,7 +79,6 @@ def firmwareChanged(parent):
 			parent.p3_channels = []
 			with open(pinfile, 'r') as file:
 				for line in file:
-					# possible FIXME
 					if 'of StepGen in configuration' in line:
 						stepgens = int(''.join(filter(str.isdigit, line)))
 					if 'of PWM in configuration' in line:
