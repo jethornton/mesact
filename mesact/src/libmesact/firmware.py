@@ -79,6 +79,7 @@ def firmwareChanged(parent):
 			parent.p3_channels = []
 			with open(pinfile, 'r') as file:
 				for line in file:
+					# possible FIXME
 					if 'of StepGen in configuration' in line:
 						stepgens = int(''.join(filter(str.isdigit, line)))
 					if 'of PWM in configuration' in line:
@@ -124,13 +125,14 @@ def firmwareChanged(parent):
 
 			if parent.ss_port_1_lb.text() == 'P1':
 				parent.port_1_channels_lb.setText(', '.join(parent.p1_channels))
-			elif parent.ss_port_0_lb.text() == 'P2':
-				parent.port_0_channels_lb.setText(', '.join(parent.p2_channels))
+			elif parent.ss_port_1_lb.text() == 'P2':
+				parent.port_1_channels_lb.setText(', '.join(parent.p2_channels))
 
 			parent.stepgens_cb.clear()
 			parent.pwmgens_cb.clear()
 			parent.encoders_cb.clear()
 
+			# FIXME
 			for i in reversed(range(stepgens + 1)):
 				parent.stepgens_cb.addItem(str(i), i)
 			for i in reversed(range(pwmgens + 1)):
