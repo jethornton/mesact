@@ -336,7 +336,7 @@ def build_io(parent):
 					contents.append(OUTPUTS[key] + f'hm2_7i97.0.ssr.00.out-{i:02}\n')
 
 	if daughter_0: # build daughter card outputs for first port
-		ss_io_port = parent.port_0_channels_lb.text()[0]
+		#ss_io_port = parent.port_0_channels_lb.text()[0]
 		for i in range(16):
 			key = getattr(parent, f'c1_output_{i}').text()
 			if OUTPUTS.get(key, False): # return False if key is not in dictionary
@@ -346,7 +346,7 @@ def build_io(parent):
 					contents.append(OUTPUTS[key] + f'hm2_{mb}.0.{daughter_0}.0{ss_io_port}.output-{i:02}\n')
 
 	if daughter_1: # build daughter card outputs for second port
-		ss_io_port = parent.port_1_channels_lb.text()[0]
+		#ss_io_port = parent.port_1_channels_lb.text()[0]
 		for i in range(16):
 			key = getattr(parent, f'c2_output_{i}').text()
 			if OUTPUTS.get(key, False): # return False if key is not in dictionary
