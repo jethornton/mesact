@@ -16,8 +16,9 @@ setp pid.x.deadband [JOINT_0]DEADBAND
 setp pid.x.maxoutput [JOINT_0]MAX_OUTPUT
 setp pid.x.error-previous-target true
 
-net x-index-enable => pid.x.index-enable
-net x-index-enable joint.0.index-enable <=> hm2_5i25.0.encoder.00.index-enable
+net x-index-enable <=> pid.x.index-enable
+net x-index-enable <=> joint.0.index-enable
+net x-index-enable <=> hm2_5i25.0.encoder.00.index-enable
 
 net x-enable <= joint.0.amp-enable-out
 net x-enable => pid.x.enable
