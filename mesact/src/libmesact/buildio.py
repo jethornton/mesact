@@ -3,6 +3,18 @@ from datetime import datetime
 
 from libmesact import firmware
 
+'''
+	{'Home and Limit':[
+		{'Joint 0':['Joint 0 Plus Home', 'Joint 0 Minus Home', 'Joint 0 Plus Minus Home']},
+		{'Joint 1':['Joint 1 Plus Home', 'Joint 1 Minus Home', 'Joint 1 Plus Minus Home']},
+		{'Joint 2':['Joint 2 Plus Home', 'Joint 2 Minus Home', 'Joint 2 Plus Minus Home']},
+		{'Joint 3':['Joint 3 Plus Home', 'Joint 3 Minus Home', 'Joint 3 Plus Minus Home']},
+		{'Joint 4':['Joint 4 Plus Home', 'Joint 4 Minus Home', 'Joint 4 Plus Minus Home']},
+		{'Joint 5':['Joint 5 Plus Home', 'Joint 5 Minus Home', 'Joint 5 Plus Minus Home']},
+		{'Joint 6':['Joint 6 Plus Home', 'Joint 6 Minus Home', 'Joint 6 Plus Minus Home']},
+		{'Joint 7':['Joint 7 Plus Home', 'Joint 7 Minus Home', 'Joint 7 Plus Minus Home']},
+		{'Joint 8':['Joint 8 Plus Home', 'Joint 8 Minus Home', 'Joint 8 Plus Minus Home']}]},
+'''
 INPUTS = {
 	'Joint 0 Home':'net joint-0-home joint.0.home-sw-in <=',
 	'Joint 1 Home':'net joint-1-home joint.1.home-sw-in <=',
@@ -52,42 +64,77 @@ INPUTS = {
 	'Joint 8 Both':'net both-limit-joint-8 joint.8.pos-lim-sw-in\n'
 		'net both-limit-joint-8 joint.8.neg-lim-sw-in <=',
 
-	'Joint 0 Plus and Home':'net pos-limit-and-home-joint-0 joint.0.pos-lim-sw-in\n'
-		'net pos-limit-and-home-joint-0 joint.0.home-sw-in <=',
-	'Joint 0 Minus and Home':'net neg-limit-and-home-joint-0 joint.0.neg-lim-sw-in\n'
-		'net neg-limit-and-home-joint-0 joint.0.home-sw-in <=',
-	'Joint 1 Plus and Home':'net pos-limit-and-home-joint-1 joint.1.pos-lim-sw-in\n'
-		'net pos-limit-and-home-joint-1 joint.1.home-sw-in <=',
-	'Joint 1 Minus and Home':'net neg-limit-and-home-joint-1 joint.1.neg-lim-sw-in\n'
-		'net neg-limit-and-home-joint-1 joint.1.home-sw-in <=',
-	'Joint 2 Plus and Home':'net pos-limit-and-home-joint-2 joint.2.pos-lim-sw-in\n'
-		'net pos-limit-and-home-joint-2 joint.2.home-sw-in <=',
-	'Joint 2 Minus and Home':'net neg-limit-and-home-joint-2 joint.2.neg-lim-sw-in\n'
-		'net neg-limit-and-home-joint-2 joint.2.home-sw-in <=',
-	'Joint 3 Plus and Home':'net pos-limit-and-home-joint-3 joint.3.pos-lim-sw-in\n'
-		'net pos-limit-and-home-joint-3 joint.3.home-sw-in <=',
-	'Joint 3 Minus and Home':'net neg-limit-and-home-joint-3 joint.3.neg-lim-sw-in\n'
-		'net neg-limit-and-home-joint-3 joint.3.home-sw-in <=',
-	'Joint 4 Plus and Home':'net pos-limit-and-home-joint-4 joint.4.pos-lim-sw-in\n'
-		'net pos-limit-and-home-joint-4 joint.4.home-sw-in <=',
-	'Joint 4 Minus and Home':'net neg-limit-and-home-joint-4 joint.4.neg-lim-sw-in\n'
-		'net neg-limit-and-home-joint-4 joint.4.home-sw-in <=',
-	'Joint 5 Plus and Home':'net pos-limit-and-home-joint-5 joint.5.pos-lim-sw-in\n'
-		'net pos-limit-and-home-joint-5 joint.5.home-sw-in <=',
-	'Joint 5 Minus and Home':'net neg-limit-and-home-joint-5 joint.5.neg-lim-sw-in\n'
-		'net neg-limit-and-home-joint-5 joint.5.home-sw-in <=',
-	'Joint 6 Plus and Home':'net pos-limit-and-home-joint-6 joint.6.pos-lim-sw-in\n'
-		'net pos-limit-and-home-joint-6 joint.6.home-sw-in <=',
-	'Joint 6 Minus and Home':'net neg-limit-and-home-joint-6 joint.6.neg-lim-sw-in\n'
-		'net neg-limit-and-home-joint-6 joint.6.home-sw-in <=',
-	'Joint 7 Plus and Home':'net pos-limit-and-home-joint-7 joint.7.pos-lim-sw-in\n'
-		'net pos-limit-and-home-joint-7 joint.7.home-sw-in <=',
-	'Joint 7 Minus and Home':'net neg-limit-and-home-joint-7 joint.7.neg-lim-sw-in\n'
-		'net neg-limit-and-home-joint-7 joint.7.home-sw-in <=',
-	'Joint 8 Plus and Home':'net pos-limit-and-home-joint-8 joint.8.pos-lim-sw-in\n'
-		'net pos-limit-and-home-joint-8 joint.8.home-sw-in <=',
-	'Joint 8 Minus and Home':'net neg-limit-and-home-joint-8 joint.8.neg-lim-sw-in\n'
-		'net neg-limit-and-home-joint-8 joint.8.home-sw-in <=',
+	'Joint 0 Plus Home':'net plus-home-joint-0 joint.0.pos-lim-sw-in\n'
+		'net plus-home-joint-0 joint.0.home-sw-in <=',
+	'Joint 0 Minus Home':'net minus-home-joint-0 joint.0.neg-lim-sw-in\n'
+		'net minus-home-joint-0 joint.0.home-sw-in <=',
+	'Joint 0 Plus Minus Home':'net plus-minus-home-joint-0 joint.0.pos-lim-sw-in\n'
+		'net plus-minus-home-joint-0 joint.0.neg-lim-sw-in\n'
+		'net plus-minus-home-joint-0 joint.0.home-sw-in <=',
+
+	'Joint 1 Plus Home':'net plus-home-joint-1 joint.1.pos-lim-sw-in\n'
+		'net plus-home-joint-1 joint.1.home-sw-in <=',
+	'Joint 1 Minus Home':'net minus-home-joint-1 joint.1.neg-lim-sw-in\n'
+		'net minus-home-joint-1 joint.1.home-sw-in <=',
+	'Joint 1 Plus Minus Home':'net plus-minus-home-joint-1 joint.1.pos-lim-sw-in\n'
+		'net plus-minus-home-joint-1 joint.1.neg-lim-sw-in\n'
+		'net plus-minus-home-joint-1 joint.1.home-sw-in <=',
+
+	'Joint 2 Plus Home':'net plus-home-joint-2 joint.2.pos-lim-sw-in\n'
+		'net plus-home-joint-2 joint.2.home-sw-in <=',
+	'Joint 2 Minus Home':'net minus-home-joint-2 joint.2.neg-lim-sw-in\n'
+		'net minus-home-joint-2 joint.2.home-sw-in <=',
+	'Joint 2 Plus Minus Home':'net plus-minus-home-joint-2 joint.2.pos-lim-sw-in\n'
+		'net plus-minus-home-joint-0 joint.2.neg-lim-sw-in\n'
+		'net plus-minus-home-joint-0 joint.2.home-sw-in <=',
+
+	'Joint 3 Plus Home':'net plus-home-joint-3 joint.3.pos-lim-sw-in\n'
+		'net plus-home-joint-3 joint.3.home-sw-in <=',
+	'Joint 3 Minus Home':'net minus-home-joint-3 joint.3.neg-lim-sw-in\n'
+		'net minus-home-joint-3 joint.3.home-sw-in <=',
+	'Joint 3 Plus Minus Home':'net plus-minus-home-joint-3 joint.3.pos-lim-sw-in\n'
+		'net plus-minus-home-joint-0 joint.3.neg-lim-sw-in\n'
+		'net plus-minus-home-joint-0 joint.3.home-sw-in <=',
+
+	'Joint 4 Plus Home':'net plus-home-joint-4 joint.4.pos-lim-sw-in\n'
+		'net plus-home-joint-4 joint.4.home-sw-in <=',
+	'Joint 4 Minus Home':'net minus-home-joint-4 joint.4.neg-lim-sw-in\n'
+		'net minus-home-joint-4 joint.4.home-sw-in <=',
+	'Joint 4 Plus Minus Home':'net plus-minus-home-joint-4 joint.4.pos-lim-sw-in\n'
+		'net plus-minus-home-joint-4 joint.4.neg-lim-sw-in\n'
+		'net plus-minus-home-joint-4 joint.4.home-sw-in <=',
+
+	'Joint 5 Plus Home':'net plus-home-joint-5 joint.5.pos-lim-sw-in\n'
+		'net plus-home-joint-5 joint.5.home-sw-in <=',
+	'Joint 5 Minus Home':'net minus-home-joint-5 joint.5.neg-lim-sw-in\n'
+		'net minus-home-joint-5 joint.5.home-sw-in <=',
+	'Joint 5 Plus Minus Home':'net plus-minus-home-joint-5 joint.5.pos-lim-sw-in\n'
+		'net plus-minus-home-joint-5 joint.5.neg-lim-sw-in\n'
+		'net plus-minus-home-joint-5 joint.5.home-sw-in <=',
+
+	'Joint 6 Plus Home':'net plus-home-joint-6 joint.6.pos-lim-sw-in\n'
+		'net plus-home-joint-6 joint.6.home-sw-in <=',
+	'Joint 6 Minus Home':'net minus-home-joint-6 joint.6.neg-lim-sw-in\n'
+		'net minus-home-joint-6 joint.6.home-sw-in <=',
+	'Joint 6 Plus Minus Home':'net plus-minus-home-joint-6 joint.6.pos-lim-sw-in\n'
+		'net plus-minus-home-joint-0 joint.6.neg-lim-sw-in\n'
+		'net plus-minus-home-joint-0 joint.6.home-sw-in <=',
+
+	'Joint 7 Plus Home':'net plus-home-joint-7 joint.7.pos-lim-sw-in\n'
+		'net plus-home-joint-7 joint.7.home-sw-in <=',
+	'Joint 7 Minus Home':'net minus-home-joint-7 joint.7.neg-lim-sw-in\n'
+		'net minus-home-joint-7 joint.7.home-sw-in <=',
+	'Joint 7 Plus Minus Home':'net plus-minus-home-joint-7 joint.7.pos-lim-sw-in\n'
+		'net plus-minus-home-joint-7 joint.7.neg-lim-sw-in\n'
+		'net plus-minus-home-joint-7 joint.7.home-sw-in <=',
+
+	'Joint 8 Plus Home':'net plus-home-joint-8 joint.8.pos-lim-sw-in\n'
+		'net plus-home-joint-8 joint.8.home-sw-in <=',
+	'Joint 8 Minus Home':'net minus-home-joint-8 joint.8.neg-lim-sw-in\n'
+		'net minus-home-joint-8 joint.8.home-sw-in <=',
+	'Joint 8 Plus Minus Home':'net plus-minus-home-joint-8 joint.8.pos-lim-sw-in\n'
+		'net plus-minus-home-joint-8 joint.8.neg-lim-sw-in\n'
+		'net plus-minus-home-joint-8 joint.8.home-sw-in <=',
 
 	'Jog X Plus':'net jog-x-plus halui.axis.x.plus <=',
 	'Jog X Minus':'net jog-x-minus halui.axis.x.minus <=',
@@ -291,16 +338,22 @@ def build_io(parent):
 			contents.append(f'net estop-reset => estop-latch.{i}.reset\n')
 			contents.append(f'net remote-estop{i} estop-latch.{i}.fault-in <= {eStops[i]}\n')
 
+	port_0_channels = {'7i76': '0', '7i77': '0'}
+	if daughter_0 in port_0_channels:
+		io_port = port_0_channels[daughter_0]
+	else:
+		io_port = '0'
+
 	if daughter_0: # daughter card on first port
-		#ss_io_port = parent.port_0_channels_lb[0]
 		for i in range(32):
 			key = getattr(parent, f'c1_input_{i}').text()
 			invert = '-not' if getattr(parent, f'c1_input_invert_{i}').isChecked() else ''
 			slow = '-slow' if getattr(parent, f'c1_input_debounce_{i}').isChecked() else ''
 			if INPUTS.get(key, False): # return False if key is not in dictionary
-				hm2 = f'hm2_{mb}.0.{daughter_0}.0.{ss_io_port}.input-{i:02}{invert}'
-				contents.append(f'{input_dict[key]} {hm2}\n')
+				hm2 = f'hm2_{mb}.0.{daughter_0}.0.{io_port}.input-{i:02}{invert}'
+				contents.append(f'{INPUTS[key]} {hm2}\n')
 
+	port_1_channels = {'7i76': '2', '7i77': '3'} # CHECKME <<<
 	if daughter_1: # daughter card on second port
 		#ss_io_port = parent.port_1_channels_lb[0]
 		for i in range(32):
@@ -309,7 +362,7 @@ def build_io(parent):
 			slow = '-slow' if getattr(parent, f'c2_input_debounce_{i}').isChecked() else ''
 			if INPUTS.get(key, False): # return False if key is not in dictionary
 				hm2 = f'hm2_{mb}.0.{daughter_1}.0.0.input-{i:02}{invert}'
-				contents.append(f'{input_dict[key]} {hm2}\n')
+				contents.append(f'{INPUTS[key]} {hm2}\n')
 
 	# build outputs
 	contents.append('\n# Outputs\n')
