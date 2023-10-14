@@ -122,7 +122,8 @@ def build(parent):
 
 	if daughter_card in analog_cards: # analog
 		halContents.append('\n# amp enable\n')
-		halContents.append(f'net motion-enable motion.motion-enabled => hm2_[MESA](BOARD).0.{daughter_card}.0.{port}.analogena\n')
+		halContents.append(f'net motion-enable <= motion.motion-enabled\n')
+		halContents.append(f'net motion-enable => hm2_[MESA](BOARD).0.{daughter_card}.0.{port}.analogena\n')
 
 	# figure out which daughter_card each joint is on...
 	joint_list = []
@@ -151,7 +152,11 @@ def build(parent):
 
 		halContents.append(f'\n# joint-{i} enable chain\n')
 		halContents.append(f'net joint-{i}-index-enable <=> {pid_list[i]}.index-enable\n')
-		halContents.append(f'net joint-{i}-enable <= joint.{i}.amp-enable-out\n')
+		halContents.append(f'net joint-{i}-index-enable <=> joint.{i}.index-enable\n')
+		if daughter_card in analog_cards: # analog
+			halContents.append(f'net joint-{i}-index-enable <=> hm2_[MESA](BOARD).0.encoder.0{i}.index-enable\n')
+
+		halContents.append(f'\nnet joint-{i}-enable <= joint.{i}.amp-enable-out\n')
 		halContents.append(f'net joint-{i}-enable => {pid_list[i]}.enable\n')
 
 		if getattr(parent, f'c{joint_list[i][1]}_settings_{i}').isTabVisible(2): # stepper
@@ -174,19 +179,22 @@ def build(parent):
 			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{i}.control-type 1\n\n')
 
 
-			halContents.append('\n# position command and feedback\n')
-			halContents.append(f'net joint-{i}-pos-cmd <= joint.{i}.motor-pos-cmd\n')
-			halContents.append(f'net joint-{i}-pos-cmd => {pid_list[i]}.command\n')
+		halContents.append('\n# position command and feedback\n')
+		halContents.append(f'net joint-{i}-pos-cmd <= joint.{i}.motor-pos-cmd\n')
+		halContents.append(f'net joint-{i}-pos-cmd => {pid_list[i]}.command\n')
 
-			# no encoder feedback
-			if getattr(parent, f'c{joint_list[i][1]}_encoderScale_{i}').text():
-				halContents.append(f'\nnet joint-{i}-pos-fb <= hm2_[MESA](BOARD).0.encoder.0{i}.position\n')
-			else:
-				halContents.append(f'\nnet joint-{i}-pos-fb <= hm2_[MESA](BOARD).0.stepgen.0{i}.position-fb\n')
-			halContents.append(f'net joint-{i}-pos-fb => joint.{i}.motor-pos-fb\n')
-			halContents.append(f'net joint-{i}-pos-fb => {pid_list[i]}.feedback\n')
+		# no encoder feedback
+		if getattr(parent, f'c{joint_list[i][1]}_settings_{i}').isTabVisible(3): # analog
+			halContents.append(f'\nnet joint-{i}-pos-fb <= hm2_[MESA](BOARD).0.encoder.0{i}.position\n')
+		else:
+			halContents.append(f'\nnet joint-{i}-pos-fb <= hm2_[MESA](BOARD).0.stepgen.0{i}.position-fb\n')
+		halContents.append(f'net joint-{i}-pos-fb => joint.{i}.motor-pos-fb\n')
+		halContents.append(f'net joint-{i}-pos-fb => {pid_list[i]}.feedback\n')
 
-			halContents.append(f'\nnet joint.{i}.output <= {pid_list[i]}.output\n')
+		halContents.append(f'\nnet joint.{i}.output <= {pid_list[i]}.output\n')
+		if getattr(parent, f'c{joint_list[i][1]}_settings_{i}').isTabVisible(3): # analog
+			halContents.append(f'net joint.{i}.output => hm2_[MESA](BOARD).0.{daughter_card}.0.{port}.analogout{i}\n')
+		else:
 			halContents.append(f'net joint.{i}.output => hm2_[MESA](BOARD).0.stepgen.0{i}.velocity-cmd\n')
 
 		if getattr(parent, f'c{joint_list[i][1]}_settings_{i}').isTabVisible(3): # analog
@@ -194,6 +202,7 @@ def build(parent):
 			halContents.append(f'setp hm2_[MESA](BOARD).0.{daughter_card}.0.{port}.analogout{i}-scalemax [JOINT_{i}](ANALOG_SCALE_MAX)\n')
 			halContents.append(f'setp hm2_[MESA](BOARD).0.{daughter_card}.0.{port}.analogout{i}-minlim [JOINT_{i}](ANALOG_MIN_LIMIT)\n')
 			halContents.append(f'setp hm2_[MESA](BOARD).0.{daughter_card}.0.{port}.analogout{i}-maxlim [JOINT_{i}](ANALOG_MAX_LIMIT)\n\n')
+
 
 		if getattr(parent, f'c{joint_list[i][1]}_settings_{i}').isTabVisible(4): # encoder
 			if getattr(parent, f'c{joint_list[i][1]}_encoderScale_{i}').text():
@@ -204,7 +213,19 @@ def build(parent):
 				halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.index-invert 0\n')
 				halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.index-mask 0\n')
 				halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{i}.index-mask-invert 0\n')
+
 	'''
+			halContents.append('\n# Position Feedback\n')
+			halContents.append(f'net joint-{i}-fb {pid_list[i]}.feedback <= hm2_[MESA](BOARD).0.encoder.0{i}.position\n')
+
+			halContents.append('\n')
+
+			net x-axis-enable pid.0.enable <= axis.0.amp-enable-out
+			net x-axis-enable hm2_5i25.0.7i77.0.1.analogena
+			net x-axis-fb pid.0.feedback <= hm2_5i25.0.encoder.00.position
+			net x-axis-fb axis.0.motor-pos-fb
+			net x-axis-pos-cmd axis.0.motor-pos-cmd => pid.0.command
+			net x-axis-command  pid.0.output  =>  hm2_5i25.0.7i77.0.1.analogout0
 
 			halContents.append('\n# Position Command and Feedback\n')
 			halContents.append(f'net joint-{i}-fb <= hm2_[MESA](BOARD).0.encoder.0{i}.position\n')
