@@ -1,0 +1,46 @@
+
+addf hm2_5i25.0.read servo-thread
+addf motion-command-handler servo-thread
+addf motion-controller servo-thread
+addf pid.x.do-pid-calcs servo-thread
+addf hm2_5i25.0.write servo-thread
+
+setp pid.x.Pgain [JOINT_0]P
+setp pid.x.Igain [JOINT_0]I
+setp pid.x.Dgain [JOINT_0]D
+setp pid.x.bias [JOINT_0]BIAS
+setp pid.x.FF0 [JOINT_0]FF0
+setp pid.x.FF1 [JOINT_0]FF1
+setp pid.x.FF2 [JOINT_0]FF2
+setp pid.x.deadband [JOINT_0]DEADBAND
+setp pid.x.maxoutput [JOINT_0]MAX_OUTPUT
+setp pid.x.error-previous-target true
+
+net x-index-enable => pid.x.index-enable
+net x-index-enable joint.0.index-enable <=> hm2_5i25.0.encoder.00.index-enable
+
+net x-enable <= joint.0.amp-enable-out
+net x-enable => pid.x.enable
+
+net x-pos-cmd => pid.x.command
+net x-pos-cmd <= joint.0.motor-pos-cmd
+
+net x-pos-fb => pid.x.feedback
+net x-pos-fb <= hm2_5i25.0.encoder.00.position
+net x-pos-fb => joint.0.motor-pos-fb
+
+net x-output <= pid.x.output
+net x-output => hm2_5i25.0.7i77.0.1.analogout0
+
+setp hm2_5i25.0.7i77.0.1.analogout0-scalemax [JOINT_0]OUTPUT_SCALE
+setp hm2_5i25.0.7i77.0.1.analogout0-minlim [JOINT_0]OUTPUT_MIN_LIMIT
+setp hm2_5i25.0.7i77.0.1.analogout0-maxlim [JOINT_0]OUTPUT_MAX_LIMIT
+
+setp hm2_5i25.0.encoder.00.counter-mode 0
+setp hm2_5i25.0.encoder.00.filter 1
+setp hm2_5i25.0.encoder.00.index-invert 0
+setp hm2_5i25.0.encoder.00.index-mask 0
+setp hm2_5i25.0.encoder.00.index-mask-invert 0
+setp hm2_5i25.0.encoder.00.scale  [JOINT_0]ENCODER_SCALE
+
+
