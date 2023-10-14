@@ -128,7 +128,7 @@ INPUTS = {
 {'Spindle':['Spindle Amp Fault', 'Spindle Inhibit', 'Spindle Oriented', 'Spindle Orient Fault']},
 
 OUTPUTS = {
-'Motion Enable': 'net motion-enable motion.motion-enabled => ',
+'Motion Enable': 'net motion-enable => ',
 'Coolant Flood': 'net flood-output iocontrol.0.coolant-flood => ',
 'Coolant Mist': 'net mist-output iocontrol.0.coolant-mist => ',
 'Spindle On': 'net spindle-on => ',
