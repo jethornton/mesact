@@ -46,8 +46,10 @@ def changed(parent):
 		for i in range(6): # show/hide analog tabs
 			if analog > 0 and i <= analog:
 				getattr(parent, f'c{daughter_tab}_settings_{i}').setTabVisible(3, True)
+				getattr(parent, f'c{daughter_tab}_scale_{i}').setEnabled(False)
 			else:
 				getattr(parent, f'c{daughter_tab}_settings_{i}').setTabVisible(3, False)
+				getattr(parent, f'c{daughter_tab}_scale_{i}').setEnabled(True)
 
 		for i in range(6): # show/hide encoder tabs
 			if encoder > 0 and i <= encoder:

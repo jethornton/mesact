@@ -101,9 +101,10 @@ def checkit(parent):
 		tab = getattr(parent, 'mainTW').tabText(i + 3)
 		for j in range(6):
 			if getattr(parent, f'c{i}_axis_{j}').currentData():
-				if getattr(parent, f'c{i}_scale_{j}').text() == '':
-					tabError = True
-					configErrors.append(f'\tJoint {j} Scale must not be blank')
+				if getattr(parent, f'c{i}_scale_{j}').isEnabled():
+					if getattr(parent, f'c{i}_scale_{j}').text() == '':
+						tabError = True
+						configErrors.append(f'\tJoint {j} Scale must not be blank')
 				if getattr(parent, f'c{i}_min_limit_{j}').text() == '':
 					tabError = True
 					configErrors.append(f'\tJoint {j} Min Limit must not be blank')

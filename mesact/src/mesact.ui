@@ -1488,7 +1488,7 @@ to the clipboard</string>
         <item>
          <widget class="QTabWidget" name="c0_JointTW">
           <property name="currentIndex">
-           <number>1</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="tab_27">
            <attribute name="title">
@@ -1674,15 +1674,7 @@ to the clipboard</string>
                   <property name="title">
                    <string>Options</string>
                   </property>
-                  <layout class="QGridLayout" name="gridLayout_444">
-                   <item row="0" column="0">
-                    <widget class="QCheckBox" name="c0_reverse_0">
-                     <property name="text">
-                      <string>Reverse Direction</string>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
+                  <layout class="QGridLayout" name="gridLayout_444"/>
                  </widget>
                 </item>
                 <item row="0" column="0" rowspan="3">
@@ -2127,6 +2119,22 @@ joint to the next joint</string>
                      </property>
                      <property name="text">
                       <string>Default Values</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="2" column="1" colspan="2">
+                 <widget class="QGroupBox" name="groupBox_117">
+                  <property name="title">
+                   <string>Information</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_288">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_689">
+                     <property name="text">
+                      <string>Change sign of Scale to reverse direction</string>
                      </property>
                     </widget>
                    </item>
@@ -2793,17 +2801,7 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </spacer>
                    </item>
-                   <item row="0" column="1">
-                    <widget class="QLineEdit" name="c0_encoderScale_0"/>
-                   </item>
-                   <item row="0" column="0">
-                    <widget class="QLabel" name="label_809">
-                     <property name="text">
-                      <string>Encoder Scale</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="0">
+                   <item row="2" column="0">
                     <spacer name="verticalSpacer_37">
                      <property name="orientation">
                       <enum>Qt::Vertical</enum>
@@ -2815,6 +2813,23 @@ Leave blank to home the joint manually.</string>
                       </size>
                      </property>
                     </spacer>
+                   </item>
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_809">
+                     <property name="text">
+                      <string>Encoder Scale</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QLineEdit" name="c0_encoderScale_0"/>
+                   </item>
+                   <item row="1" column="0" colspan="2">
+                    <widget class="QLabel" name="label_692">
+                     <property name="text">
+                      <string>Change sign of Encoder Scale to reverse direction</string>
+                     </property>
+                    </widget>
                    </item>
                   </layout>
                  </widget>
@@ -3458,15 +3473,7 @@ Leave blank to home the joint manually.</string>
                   <property name="title">
                    <string>Options</string>
                   </property>
-                  <layout class="QGridLayout" name="gridLayout_443">
-                   <item row="0" column="0">
-                    <widget class="QCheckBox" name="c0_reverse_1">
-                     <property name="text">
-                      <string>Reverse Direction</string>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
+                  <layout class="QGridLayout" name="gridLayout_443"/>
                  </widget>
                 </item>
                 <item row="1" column="2">
@@ -3545,6 +3552,22 @@ joint to the next joint</string>
                      </property>
                      <property name="text">
                       <string>Default Values</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="2" column="1" colspan="2">
+                 <widget class="QGroupBox" name="groupBox_118">
+                  <property name="title">
+                   <string>Information</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_289">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_696">
+                     <property name="text">
+                      <string>Change sign of Scale to reverse direction</string>
                      </property>
                     </widget>
                    </item>
@@ -4208,7 +4231,7 @@ Leave blank to home the joint manually.</string>
                   </property>
                  </spacer>
                 </item>
-                <item row="1" column="0">
+                <item row="2" column="0">
                  <spacer name="verticalSpacer_43">
                   <property name="orientation">
                    <enum>Qt::Vertical</enum>
@@ -4220,6 +4243,13 @@ Leave blank to home the joint manually.</string>
                    </size>
                   </property>
                  </spacer>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="label_731">
+                  <property name="text">
+                   <string>Change sign of Encoder Scale to reverse direction</string>
+                  </property>
+                 </widget>
                 </item>
                </layout>
               </widget>
@@ -4494,15 +4524,7 @@ Leave blank to home the joint manually.</string>
                   <property name="title">
                    <string>Options</string>
                   </property>
-                  <layout class="QGridLayout" name="gridLayout_442">
-                   <item row="0" column="0">
-                    <widget class="QCheckBox" name="c0_reverse_2">
-                     <property name="text">
-                      <string>Reverse Direction</string>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
+                  <layout class="QGridLayout" name="gridLayout_442"/>
                  </widget>
                 </item>
                 <item row="0" column="0" rowspan="3">
@@ -4947,6 +4969,22 @@ joint to the next joint</string>
                      </property>
                      <property name="text">
                       <string>Default Values</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="2" column="1" colspan="2">
+                 <widget class="QGroupBox" name="groupBox_119">
+                  <property name="title">
+                   <string>Information</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_290">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_697">
+                     <property name="text">
+                      <string>Change sign of Scale to reverse direction</string>
                      </property>
                     </widget>
                    </item>
@@ -5584,16 +5622,6 @@ Leave blank to home the joint manually.</string>
                    <string>Encoder</string>
                   </property>
                   <layout class="QGridLayout" name="gridLayout_123">
-                   <item row="0" column="1">
-                    <widget class="QLineEdit" name="c0_encoderScale_2"/>
-                   </item>
-                   <item row="0" column="0">
-                    <widget class="QLabel" name="label_811">
-                     <property name="text">
-                      <string>Encoder Scale</string>
-                     </property>
-                    </widget>
-                   </item>
                    <item row="0" column="2">
                     <spacer name="horizontalSpacer_57">
                      <property name="orientation">
@@ -5607,7 +5635,7 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </spacer>
                    </item>
-                   <item row="1" column="0">
+                   <item row="2" column="0">
                     <spacer name="verticalSpacer_42">
                      <property name="orientation">
                       <enum>Qt::Vertical</enum>
@@ -5619,6 +5647,23 @@ Leave blank to home the joint manually.</string>
                       </size>
                      </property>
                     </spacer>
+                   </item>
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_811">
+                     <property name="text">
+                      <string>Encoder Scale</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QLineEdit" name="c0_encoderScale_2"/>
+                   </item>
+                   <item row="1" column="0" colspan="2">
+                    <widget class="QLabel" name="label_732">
+                     <property name="text">
+                      <string>Change sign of Encoder Scale to reverse direction</string>
+                     </property>
+                    </widget>
                    </item>
                   </layout>
                  </widget>
@@ -6262,15 +6307,7 @@ Leave blank to home the joint manually.</string>
                   <property name="title">
                    <string>Options</string>
                   </property>
-                  <layout class="QGridLayout" name="gridLayout_441">
-                   <item row="0" column="0">
-                    <widget class="QCheckBox" name="c0_reverse_3">
-                     <property name="text">
-                      <string>Reverse Direction</string>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
+                  <layout class="QGridLayout" name="gridLayout_441"/>
                  </widget>
                 </item>
                 <item row="1" column="2">
@@ -6349,6 +6386,22 @@ joint to the next joint</string>
                      </property>
                      <property name="text">
                       <string>Default Values</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="2" column="1" colspan="2">
+                 <widget class="QGroupBox" name="groupBox_120">
+                  <property name="title">
+                   <string>Information</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_291">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_698">
+                     <property name="text">
+                      <string>Change sign of Scale to reverse direction</string>
                      </property>
                     </widget>
                    </item>
@@ -6986,6 +7039,26 @@ Leave blank to home the joint manually.</string>
                    <string>Encoder</string>
                   </property>
                   <layout class="QGridLayout" name="gridLayout_124">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_812">
+                     <property name="text">
+                      <string>Encoder Scale</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="0">
+                    <spacer name="verticalSpacer_41">
+                     <property name="orientation">
+                      <enum>Qt::Vertical</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>20</width>
+                       <height>40</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
                    <item row="0" column="2">
                     <spacer name="horizontalSpacer_56">
                      <property name="orientation">
@@ -6999,28 +7072,15 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </spacer>
                    </item>
-                   <item row="0" column="0">
-                    <widget class="QLabel" name="label_812">
-                     <property name="text">
-                      <string>Encoder Scale</string>
-                     </property>
-                    </widget>
-                   </item>
                    <item row="0" column="1">
                     <widget class="QLineEdit" name="c0_encoderScale_3"/>
                    </item>
-                   <item row="1" column="0">
-                    <spacer name="verticalSpacer_41">
-                     <property name="orientation">
-                      <enum>Qt::Vertical</enum>
+                   <item row="1" column="0" colspan="2">
+                    <widget class="QLabel" name="label_733">
+                     <property name="text">
+                      <string>Change sign of Encoder Scale to reverse direction</string>
                      </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>20</width>
-                       <height>40</height>
-                      </size>
-                     </property>
-                    </spacer>
+                    </widget>
                    </item>
                   </layout>
                  </widget>
@@ -7298,15 +7358,7 @@ Leave blank to home the joint manually.</string>
                   <property name="title">
                    <string>Options</string>
                   </property>
-                  <layout class="QGridLayout" name="gridLayout_438">
-                   <item row="0" column="0">
-                    <widget class="QCheckBox" name="c0_reverse_4">
-                     <property name="text">
-                      <string>Reverse Direction</string>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
+                  <layout class="QGridLayout" name="gridLayout_438"/>
                  </widget>
                 </item>
                 <item row="0" column="0" rowspan="3">
@@ -7751,6 +7803,22 @@ joint to the next joint</string>
                      </property>
                      <property name="text">
                       <string>Default Values</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="2" column="1" colspan="2">
+                 <widget class="QGroupBox" name="groupBox_121">
+                  <property name="title">
+                   <string>Information</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_292">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_699">
+                     <property name="text">
+                      <string>Change sign of Scale to reverse direction</string>
                      </property>
                     </widget>
                    </item>
@@ -8404,7 +8472,7 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </spacer>
                    </item>
-                   <item row="1" column="0">
+                   <item row="2" column="0">
                     <spacer name="verticalSpacer_40">
                      <property name="orientation">
                       <enum>Qt::Vertical</enum>
@@ -8416,6 +8484,13 @@ Leave blank to home the joint manually.</string>
                       </size>
                      </property>
                     </spacer>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="label_734">
+                     <property name="text">
+                      <string>Change sign of Encoder Scale to reverse direction</string>
+                     </property>
+                    </widget>
                    </item>
                   </layout>
                  </widget>
@@ -8693,15 +8768,7 @@ Leave blank to home the joint manually.</string>
                   <property name="title">
                    <string>Options</string>
                   </property>
-                  <layout class="QGridLayout" name="gridLayout_437">
-                   <item row="0" column="0">
-                    <widget class="QCheckBox" name="c0_reverse_5">
-                     <property name="text">
-                      <string>Reverse Direction</string>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
+                  <layout class="QGridLayout" name="gridLayout_437"/>
                  </widget>
                 </item>
                 <item row="0" column="0" rowspan="3">
@@ -9132,11 +9199,21 @@ Leave blank to home the joint manually.</string>
                   </layout>
                  </widget>
                 </item>
-                <item row="2" column="1">
-                 <widget class="QWidget" name="widget_14" native="true"/>
-                </item>
-                <item row="2" column="2">
-                 <widget class="QWidget" name="widget_13" native="true"/>
+                <item row="2" column="1" colspan="2">
+                 <widget class="QGroupBox" name="groupBox_122">
+                  <property name="title">
+                   <string>Information</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_293">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_700">
+                     <property name="text">
+                      <string>Change sign of Scale to reverse direction</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
                 </item>
                </layout>
               </widget>
@@ -9769,6 +9846,13 @@ Leave blank to home the joint manually.</string>
                    <string>Encoder</string>
                   </property>
                   <layout class="QGridLayout" name="gridLayout_127">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_814">
+                     <property name="text">
+                      <string>Encoder Scale</string>
+                     </property>
+                    </widget>
+                   </item>
                    <item row="0" column="2">
                     <spacer name="horizontalSpacer_54">
                      <property name="orientation">
@@ -9782,17 +9866,7 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </spacer>
                    </item>
-                   <item row="0" column="0">
-                    <widget class="QLabel" name="label_814">
-                     <property name="text">
-                      <string>Encoder Scale</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="1">
-                    <widget class="QLineEdit" name="c0_encoderScale_5"/>
-                   </item>
-                   <item row="1" column="0">
+                   <item row="2" column="0">
                     <spacer name="verticalSpacer_39">
                      <property name="orientation">
                       <enum>Qt::Vertical</enum>
@@ -9804,6 +9878,16 @@ Leave blank to home the joint manually.</string>
                       </size>
                      </property>
                     </spacer>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QLineEdit" name="c0_encoderScale_5"/>
+                   </item>
+                   <item row="1" column="0" colspan="2">
+                    <widget class="QLabel" name="label_735">
+                     <property name="text">
+                      <string>Change sign of Encoder Scale to reverse direction</string>
+                     </property>
+                    </widget>
                    </item>
                   </layout>
                  </widget>
@@ -11597,9 +11681,6 @@ Leave blank to home the joint manually.</string>
                 <string>PID</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_66">
-                <item row="2" column="1">
-                 <widget class="QWidget" name="widget" native="true"/>
-                </item>
                 <item row="0" column="0" rowspan="3">
                  <widget class="QGroupBox" name="groupBox_30">
                   <property name="minimumSize">
@@ -12033,19 +12114,6 @@ Leave blank to home the joint manually.</string>
                   <property name="title">
                    <string>Options</string>
                   </property>
-                  <widget class="QCheckBox" name="c1_reverse_0">
-                   <property name="geometry">
-                    <rect>
-                     <x>10</x>
-                     <y>30</y>
-                     <width>171</width>
-                     <height>25</height>
-                    </rect>
-                   </property>
-                   <property name="text">
-                    <string>Reverse Direction</string>
-                   </property>
-                  </widget>
                  </widget>
                 </item>
                 <item row="1" column="2">
@@ -12062,6 +12130,22 @@ joint to the next joint</string>
                      </property>
                      <property name="text">
                       <string>Copy Values</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="2" column="1" colspan="2">
+                 <widget class="QGroupBox" name="groupBox_123">
+                  <property name="title">
+                   <string>Information</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_294">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_701">
+                     <property name="text">
+                      <string>Change sign of Scale to reverse direction</string>
                      </property>
                     </widget>
                    </item>
@@ -12738,7 +12822,7 @@ Leave blank to home the joint manually.</string>
                   </property>
                  </spacer>
                 </item>
-                <item row="1" column="0">
+                <item row="2" column="0">
                  <spacer name="verticalSpacer_62">
                   <property name="orientation">
                    <enum>Qt::Vertical</enum>
@@ -12750,6 +12834,13 @@ Leave blank to home the joint manually.</string>
                    </size>
                   </property>
                  </spacer>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="label_736">
+                  <property name="text">
+                   <string>Change sign of Encoder Scale to reverse direction</string>
+                  </property>
+                 </widget>
                 </item>
                </layout>
               </widget>
@@ -13024,19 +13115,6 @@ Leave blank to home the joint manually.</string>
                   <property name="title">
                    <string>Options</string>
                   </property>
-                  <widget class="QCheckBox" name="c1_reverse_1">
-                   <property name="geometry">
-                    <rect>
-                     <x>10</x>
-                     <y>30</y>
-                     <width>171</width>
-                     <height>25</height>
-                    </rect>
-                   </property>
-                   <property name="text">
-                    <string>Reverse Direction</string>
-                   </property>
-                  </widget>
                  </widget>
                 </item>
                 <item row="1" column="2">
@@ -13120,9 +13198,6 @@ joint to the next joint</string>
                    </item>
                   </layout>
                  </widget>
-                </item>
-                <item row="2" column="1">
-                 <widget class="QWidget" name="widget_2" native="true"/>
                 </item>
                 <item row="0" column="0" rowspan="3">
                  <widget class="QGroupBox" name="groupBox_34">
@@ -13484,6 +13559,22 @@ joint to the next joint</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="2" column="1" colspan="2">
+                 <widget class="QGroupBox" name="groupBox_124">
+                  <property name="title">
+                   <string>Information</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_295">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_702">
+                     <property name="text">
+                      <string>Change sign of Scale to reverse direction</string>
                      </property>
                     </widget>
                    </item>
@@ -14160,7 +14251,7 @@ Leave blank to home the joint manually.</string>
                   </property>
                  </spacer>
                 </item>
-                <item row="1" column="0">
+                <item row="2" column="0">
                  <spacer name="verticalSpacer_60">
                   <property name="orientation">
                    <enum>Qt::Vertical</enum>
@@ -14172,6 +14263,13 @@ Leave blank to home the joint manually.</string>
                    </size>
                   </property>
                  </spacer>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="label_737">
+                  <property name="text">
+                   <string>Change sign of Encoder Scale to reverse direction</string>
+                  </property>
+                 </widget>
                 </item>
                </layout>
               </widget>
@@ -14446,19 +14544,6 @@ Leave blank to home the joint manually.</string>
                   <property name="title">
                    <string>Options</string>
                   </property>
-                  <widget class="QCheckBox" name="c1_reverse_2">
-                   <property name="geometry">
-                    <rect>
-                     <x>10</x>
-                     <y>30</y>
-                     <width>171</width>
-                     <height>25</height>
-                    </rect>
-                   </property>
-                   <property name="text">
-                    <string>Reverse Direction</string>
-                   </property>
-                  </widget>
                  </widget>
                 </item>
                 <item row="0" column="1" colspan="2">
@@ -14542,9 +14627,6 @@ joint to the next joint</string>
                    </item>
                   </layout>
                  </widget>
-                </item>
-                <item row="2" column="1">
-                 <widget class="QWidget" name="widget_3" native="true"/>
                 </item>
                 <item row="0" column="0" rowspan="3">
                  <widget class="QGroupBox" name="groupBox_38">
@@ -14906,6 +14988,22 @@ joint to the next joint</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="2" column="1" colspan="2">
+                 <widget class="QGroupBox" name="groupBox_125">
+                  <property name="title">
+                   <string>Information</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_296">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_703">
+                     <property name="text">
+                      <string>Change sign of Scale to reverse direction</string>
                      </property>
                     </widget>
                    </item>
@@ -15550,6 +15648,19 @@ Leave blank to home the joint manually.</string>
                 <string>Encoder</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_253">
+                <item row="2" column="0">
+                 <spacer name="verticalSpacer_58">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
                 <item row="0" column="1">
                  <spacer name="horizontalSpacer_68">
                   <property name="orientation">
@@ -15583,17 +15694,11 @@ Leave blank to home the joint manually.</string>
                  </widget>
                 </item>
                 <item row="1" column="0">
-                 <spacer name="verticalSpacer_58">
-                  <property name="orientation">
-                   <enum>Qt::Vertical</enum>
+                 <widget class="QLabel" name="label_738">
+                  <property name="text">
+                   <string>Change sign of Encoder Scale to reverse direction</string>
                   </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>20</width>
-                    <height>40</height>
-                   </size>
-                  </property>
-                 </spacer>
+                 </widget>
                 </item>
                </layout>
               </widget>
@@ -15868,19 +15973,6 @@ Leave blank to home the joint manually.</string>
                   <property name="title">
                    <string>Options</string>
                   </property>
-                  <widget class="QCheckBox" name="c1_reverse_3">
-                   <property name="geometry">
-                    <rect>
-                     <x>10</x>
-                     <y>30</y>
-                     <width>171</width>
-                     <height>25</height>
-                    </rect>
-                   </property>
-                   <property name="text">
-                    <string>Reverse Direction</string>
-                   </property>
-                  </widget>
                  </widget>
                 </item>
                 <item row="0" column="1" colspan="2">
@@ -15964,9 +16056,6 @@ joint to the next joint</string>
                    </item>
                   </layout>
                  </widget>
-                </item>
-                <item row="2" column="1">
-                 <widget class="QWidget" name="widget_4" native="true"/>
                 </item>
                 <item row="0" column="0" rowspan="3">
                  <widget class="QGroupBox" name="groupBox_42">
@@ -16328,6 +16417,22 @@ joint to the next joint</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="2" column="1" colspan="2">
+                 <widget class="QGroupBox" name="groupBox_126">
+                  <property name="title">
+                   <string>Information</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_297">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_704">
+                     <property name="text">
+                      <string>Change sign of Scale to reverse direction</string>
                      </property>
                     </widget>
                    </item>
@@ -16972,6 +17077,32 @@ Leave blank to home the joint manually.</string>
                 <string>Encoder</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_251">
+                <item row="0" column="1">
+                 <spacer name="horizontalSpacer_65">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="2" column="0">
+                 <spacer name="verticalSpacer_48">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
                 <item row="0" column="0">
                  <widget class="QGroupBox" name="c0_encoderGB_9">
                   <property name="title">
@@ -16991,31 +17122,12 @@ Leave blank to home the joint manually.</string>
                   </layout>
                  </widget>
                 </item>
-                <item row="0" column="1">
-                 <spacer name="horizontalSpacer_65">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>40</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
                 <item row="1" column="0">
-                 <spacer name="verticalSpacer_48">
-                  <property name="orientation">
-                   <enum>Qt::Vertical</enum>
+                 <widget class="QLabel" name="label_739">
+                  <property name="text">
+                   <string>Change sign of Encoder Scale to reverse direction</string>
                   </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>20</width>
-                    <height>40</height>
-                   </size>
-                  </property>
-                 </spacer>
+                 </widget>
                 </item>
                </layout>
               </widget>
@@ -17352,19 +17464,6 @@ Leave blank to home the joint manually.</string>
                   <property name="title">
                    <string>Options</string>
                   </property>
-                  <widget class="QCheckBox" name="c1_reverse_4">
-                   <property name="geometry">
-                    <rect>
-                     <x>10</x>
-                     <y>30</y>
-                     <width>171</width>
-                     <height>25</height>
-                    </rect>
-                   </property>
-                   <property name="text">
-                    <string>Reverse Direction</string>
-                   </property>
-                  </widget>
                  </widget>
                 </item>
                 <item row="1" column="2">
@@ -17386,9 +17485,6 @@ joint to the next joint</string>
                    </item>
                   </layout>
                  </widget>
-                </item>
-                <item row="2" column="1">
-                 <widget class="QWidget" name="widget_5" native="true"/>
                 </item>
                 <item row="0" column="0" rowspan="3">
                  <widget class="QGroupBox" name="groupBox_46">
@@ -17750,6 +17846,22 @@ joint to the next joint</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="2" column="1" colspan="2">
+                 <widget class="QGroupBox" name="groupBox_127">
+                  <property name="title">
+                   <string>Information</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_298">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_705">
+                     <property name="text">
+                      <string>Change sign of Scale to reverse direction</string>
                      </property>
                     </widget>
                    </item>
@@ -18426,7 +18538,7 @@ Leave blank to home the joint manually.</string>
                   </property>
                  </spacer>
                 </item>
-                <item row="1" column="0">
+                <item row="2" column="0">
                  <spacer name="verticalSpacer_47">
                   <property name="orientation">
                    <enum>Qt::Vertical</enum>
@@ -18438,6 +18550,13 @@ Leave blank to home the joint manually.</string>
                    </size>
                   </property>
                  </spacer>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="label_740">
+                  <property name="text">
+                   <string>Change sign of Encoder Scale to reverse direction</string>
+                  </property>
+                 </widget>
                 </item>
                </layout>
               </widget>
@@ -18774,23 +18893,7 @@ Leave blank to home the joint manually.</string>
                   <property name="title">
                    <string>Options</string>
                   </property>
-                  <widget class="QCheckBox" name="c1_reverse_5">
-                   <property name="geometry">
-                    <rect>
-                     <x>10</x>
-                     <y>30</y>
-                     <width>171</width>
-                     <height>25</height>
-                    </rect>
-                   </property>
-                   <property name="text">
-                    <string>Reverse Direction</string>
-                   </property>
-                  </widget>
                  </widget>
-                </item>
-                <item row="2" column="1">
-                 <widget class="QWidget" name="widget_12" native="true"/>
                 </item>
                 <item row="0" column="0" rowspan="3">
                  <widget class="QGroupBox" name="groupBox_50">
@@ -19158,8 +19261,21 @@ Leave blank to home the joint manually.</string>
                   </layout>
                  </widget>
                 </item>
-                <item row="2" column="2">
-                 <widget class="QWidget" name="widget_11" native="true"/>
+                <item row="2" column="1" colspan="2">
+                 <widget class="QGroupBox" name="groupBox_128">
+                  <property name="title">
+                   <string>Information</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_299">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_707">
+                     <property name="text">
+                      <string>Change sign of Scale to reverse direction</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
                 </item>
                </layout>
               </widget>
@@ -19831,7 +19947,7 @@ Leave blank to home the joint manually.</string>
                   </property>
                  </spacer>
                 </item>
-                <item row="1" column="0">
+                <item row="2" column="0">
                  <spacer name="verticalSpacer_45">
                   <property name="orientation">
                    <enum>Qt::Vertical</enum>
@@ -19843,6 +19959,13 @@ Leave blank to home the joint manually.</string>
                    </size>
                   </property>
                  </spacer>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="label_741">
+                  <property name="text">
+                   <string>Change sign of Encoder Scale to reverse direction</string>
+                  </property>
+                 </widget>
                 </item>
                </layout>
               </widget>
@@ -21720,23 +21843,7 @@ joint to the next joint</string>
                   <property name="title">
                    <string>Options</string>
                   </property>
-                  <widget class="QCheckBox" name="c2_reverse_0">
-                   <property name="geometry">
-                    <rect>
-                     <x>10</x>
-                     <y>30</y>
-                     <width>171</width>
-                     <height>25</height>
-                    </rect>
-                   </property>
-                   <property name="text">
-                    <string>Reverse Direction</string>
-                   </property>
-                  </widget>
                  </widget>
-                </item>
-                <item row="2" column="1">
-                 <widget class="QWidget" name="widget_6" native="true"/>
                 </item>
                 <item row="0" column="0" rowspan="3">
                  <widget class="QGroupBox" name="groupBox_54">
@@ -22098,6 +22205,22 @@ joint to the next joint</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="2" column="1" colspan="2">
+                 <widget class="QGroupBox" name="groupBox_129">
+                  <property name="title">
+                   <string>Information</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_300">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_708">
+                     <property name="text">
+                      <string>Change sign of Scale to reverse direction</string>
                      </property>
                     </widget>
                    </item>
@@ -22742,19 +22865,6 @@ Leave blank to home the joint manually.</string>
                 <string>Encoder</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_269">
-                <item row="0" column="1">
-                 <spacer name="horizontalSpacer_92">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>40</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
                 <item row="0" column="0">
                  <widget class="QGroupBox" name="c0_encoderGB_12">
                   <property name="title">
@@ -22774,7 +22884,7 @@ Leave blank to home the joint manually.</string>
                   </layout>
                  </widget>
                 </item>
-                <item row="1" column="0">
+                <item row="2" column="0">
                  <spacer name="verticalSpacer_74">
                   <property name="orientation">
                    <enum>Qt::Vertical</enum>
@@ -22786,6 +22896,26 @@ Leave blank to home the joint manually.</string>
                    </size>
                   </property>
                  </spacer>
+                </item>
+                <item row="0" column="1">
+                 <spacer name="horizontalSpacer_92">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="label_742">
+                  <property name="text">
+                   <string>Change sign of Encoder Scale to reverse direction</string>
+                  </property>
+                 </widget>
                 </item>
                </layout>
               </widget>
@@ -23142,23 +23272,7 @@ joint to the next joint</string>
                   <property name="title">
                    <string>Options</string>
                   </property>
-                  <widget class="QCheckBox" name="c2_reverse_1">
-                   <property name="geometry">
-                    <rect>
-                     <x>10</x>
-                     <y>30</y>
-                     <width>171</width>
-                     <height>25</height>
-                    </rect>
-                   </property>
-                   <property name="text">
-                    <string>Reverse Direction</string>
-                   </property>
-                  </widget>
                  </widget>
-                </item>
-                <item row="2" column="1">
-                 <widget class="QWidget" name="widget_7" native="true"/>
                 </item>
                 <item row="0" column="0" rowspan="3">
                  <widget class="QGroupBox" name="groupBox_58">
@@ -23520,6 +23634,22 @@ joint to the next joint</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="2" column="1" colspan="2">
+                 <widget class="QGroupBox" name="groupBox_130">
+                  <property name="title">
+                   <string>Information</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_301">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_709">
+                     <property name="text">
+                      <string>Change sign of Scale to reverse direction</string>
                      </property>
                     </widget>
                    </item>
@@ -24164,19 +24294,6 @@ Leave blank to home the joint manually.</string>
                 <string>Encoder</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_267">
-                <item row="0" column="1">
-                 <spacer name="horizontalSpacer_89">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>40</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
                 <item row="0" column="0">
                  <widget class="QGroupBox" name="c0_encoderGB_13">
                   <property name="title">
@@ -24196,7 +24313,7 @@ Leave blank to home the joint manually.</string>
                   </layout>
                  </widget>
                 </item>
-                <item row="1" column="0">
+                <item row="2" column="0">
                  <spacer name="verticalSpacer_72">
                   <property name="orientation">
                    <enum>Qt::Vertical</enum>
@@ -24208,6 +24325,26 @@ Leave blank to home the joint manually.</string>
                    </size>
                   </property>
                  </spacer>
+                </item>
+                <item row="0" column="1">
+                 <spacer name="horizontalSpacer_89">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="label_743">
+                  <property name="text">
+                   <string>Change sign of Encoder Scale to reverse direction</string>
+                  </property>
+                 </widget>
                 </item>
                </layout>
               </widget>
@@ -24564,23 +24701,7 @@ joint to the next joint</string>
                   <property name="title">
                    <string>Options</string>
                   </property>
-                  <widget class="QCheckBox" name="c2_reverse_2">
-                   <property name="geometry">
-                    <rect>
-                     <x>10</x>
-                     <y>30</y>
-                     <width>171</width>
-                     <height>25</height>
-                    </rect>
-                   </property>
-                   <property name="text">
-                    <string>Reverse Direction</string>
-                   </property>
-                  </widget>
                  </widget>
-                </item>
-                <item row="2" column="1">
-                 <widget class="QWidget" name="widget_8" native="true"/>
                 </item>
                 <item row="0" column="0" rowspan="3">
                  <widget class="QGroupBox" name="groupBox_64">
@@ -24942,6 +25063,22 @@ joint to the next joint</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="2" column="1" colspan="2">
+                 <widget class="QGroupBox" name="groupBox_131">
+                  <property name="title">
+                   <string>Information</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_302">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_719">
+                     <property name="text">
+                      <string>Change sign of Scale to reverse direction</string>
                      </property>
                     </widget>
                    </item>
@@ -25618,7 +25755,7 @@ Leave blank to home the joint manually.</string>
                   </property>
                  </spacer>
                 </item>
-                <item row="1" column="0">
+                <item row="2" column="0">
                  <spacer name="verticalSpacer_70">
                   <property name="orientation">
                    <enum>Qt::Vertical</enum>
@@ -25630,6 +25767,13 @@ Leave blank to home the joint manually.</string>
                    </size>
                   </property>
                  </spacer>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="label_744">
+                  <property name="text">
+                   <string>Change sign of Encoder Scale to reverse direction</string>
+                  </property>
+                 </widget>
                 </item>
                </layout>
               </widget>
@@ -25904,19 +26048,6 @@ Leave blank to home the joint manually.</string>
                   <property name="title">
                    <string>Options</string>
                   </property>
-                  <widget class="QCheckBox" name="c2_reverse_3">
-                   <property name="geometry">
-                    <rect>
-                     <x>10</x>
-                     <y>30</y>
-                     <width>171</width>
-                     <height>25</height>
-                    </rect>
-                   </property>
-                   <property name="text">
-                    <string>Reverse Direction</string>
-                   </property>
-                  </widget>
                  </widget>
                 </item>
                 <item row="1" column="2">
@@ -26000,9 +26131,6 @@ joint to the next joint</string>
                    </item>
                   </layout>
                  </widget>
-                </item>
-                <item row="2" column="1">
-                 <widget class="QWidget" name="widget_9" native="true"/>
                 </item>
                 <item row="0" column="0" rowspan="3">
                  <widget class="QGroupBox" name="groupBox_68">
@@ -26364,6 +26492,22 @@ joint to the next joint</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="2" column="1" colspan="2">
+                 <widget class="QGroupBox" name="groupBox_132">
+                  <property name="title">
+                   <string>Information</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_303">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_728">
+                     <property name="text">
+                      <string>Change sign of Scale to reverse direction</string>
                      </property>
                     </widget>
                    </item>
@@ -27008,19 +27152,6 @@ Leave blank to home the joint manually.</string>
                 <string>Encoder</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_263">
-                <item row="0" column="1">
-                 <spacer name="horizontalSpacer_83">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>40</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
                 <item row="0" column="0">
                  <widget class="QGroupBox" name="c0_encoderGB_15">
                   <property name="title">
@@ -27040,7 +27171,20 @@ Leave blank to home the joint manually.</string>
                   </layout>
                  </widget>
                 </item>
-                <item row="1" column="0">
+                <item row="0" column="1">
+                 <spacer name="horizontalSpacer_83">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="2" column="0">
                  <spacer name="verticalSpacer_68">
                   <property name="orientation">
                    <enum>Qt::Vertical</enum>
@@ -27052,6 +27196,13 @@ Leave blank to home the joint manually.</string>
                    </size>
                   </property>
                  </spacer>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="label_745">
+                  <property name="text">
+                   <string>Change sign of Encoder Scale to reverse direction</string>
+                  </property>
+                 </widget>
                 </item>
                </layout>
               </widget>
@@ -27326,19 +27477,6 @@ Leave blank to home the joint manually.</string>
                   <property name="title">
                    <string>Options</string>
                   </property>
-                  <widget class="QCheckBox" name="c2_reverse_4">
-                   <property name="geometry">
-                    <rect>
-                     <x>10</x>
-                     <y>30</y>
-                     <width>171</width>
-                     <height>25</height>
-                    </rect>
-                   </property>
-                   <property name="text">
-                    <string>Reverse Direction</string>
-                   </property>
-                  </widget>
                  </widget>
                 </item>
                 <item row="0" column="1" colspan="2">
@@ -27422,9 +27560,6 @@ joint to the next joint</string>
                    </item>
                   </layout>
                  </widget>
-                </item>
-                <item row="2" column="1">
-                 <widget class="QWidget" name="widget_10" native="true"/>
                 </item>
                 <item row="0" column="0" rowspan="3">
                  <widget class="QGroupBox" name="groupBox_90">
@@ -27786,6 +27921,22 @@ joint to the next joint</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="2" column="1" colspan="2">
+                 <widget class="QGroupBox" name="groupBox_133">
+                  <property name="title">
+                   <string>Information</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_304">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_729">
+                     <property name="text">
+                      <string>Change sign of Scale to reverse direction</string>
                      </property>
                     </widget>
                    </item>
@@ -28430,6 +28581,32 @@ Leave blank to home the joint manually.</string>
                 <string>Encoder</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_261">
+                <item row="0" column="1">
+                 <spacer name="horizontalSpacer_80">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="2" column="0">
+                 <spacer name="verticalSpacer_66">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
                 <item row="0" column="0">
                  <widget class="QGroupBox" name="c0_encoderGB_16">
                   <property name="title">
@@ -28449,31 +28626,12 @@ Leave blank to home the joint manually.</string>
                   </layout>
                  </widget>
                 </item>
-                <item row="0" column="1">
-                 <spacer name="horizontalSpacer_80">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>40</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
                 <item row="1" column="0">
-                 <spacer name="verticalSpacer_66">
-                  <property name="orientation">
-                   <enum>Qt::Vertical</enum>
+                 <widget class="QLabel" name="label_746">
+                  <property name="text">
+                   <string>Change sign of Encoder Scale to reverse direction</string>
                   </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>20</width>
-                    <height>40</height>
-                   </size>
-                  </property>
-                 </spacer>
+                 </widget>
                 </item>
                </layout>
               </widget>
@@ -28824,9 +28982,6 @@ Leave blank to home the joint manually.</string>
                    </item>
                   </layout>
                  </widget>
-                </item>
-                <item row="2" column="1">
-                 <widget class="QWidget" name="widget_16" native="true"/>
                 </item>
                 <item row="0" column="0" rowspan="3">
                  <widget class="QGroupBox" name="groupBox_95">
@@ -29194,8 +29349,21 @@ Leave blank to home the joint manually.</string>
                   </layout>
                  </widget>
                 </item>
-                <item row="2" column="2">
-                 <widget class="QWidget" name="widget_15" native="true"/>
+                <item row="2" column="1" colspan="2">
+                 <widget class="QGroupBox" name="groupBox_135">
+                  <property name="title">
+                   <string>Information</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_305">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_730">
+                     <property name="text">
+                      <string>Change sign of Scale to reverse direction</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
                 </item>
                </layout>
               </widget>
@@ -29867,7 +30035,7 @@ Leave blank to home the joint manually.</string>
                   </property>
                  </spacer>
                 </item>
-                <item row="1" column="0">
+                <item row="2" column="0">
                  <spacer name="verticalSpacer_64">
                   <property name="orientation">
                    <enum>Qt::Vertical</enum>
@@ -29879,6 +30047,13 @@ Leave blank to home the joint manually.</string>
                    </size>
                   </property>
                  </spacer>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="label_747">
+                  <property name="text">
+                   <string>Change sign of Encoder Scale to reverse direction</string>
+                  </property>
+                 </widget>
                 </item>
                </layout>
               </widget>
@@ -41369,8 +41544,8 @@ to File Open in Axis</string>
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>98</width>
-                    <height>28</height>
+                    <width>50</width>
+                    <height>18</height>
                    </rect>
                   </property>
                   <layout class="QGridLayout" name="mdiCommandsListGL"/>

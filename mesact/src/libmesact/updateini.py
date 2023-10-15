@@ -436,9 +436,8 @@ class updateini:
 					self.update_key(f'JOINT_{n}', 'MAX_VELOCITY', getattr(parent, f'c{i}_max_vel_{j}').text())
 					self.update_key(f'JOINT_{n}', 'MAX_ACCELERATION', getattr(parent, f'c{i}_max_accel_{j}').text())
 					self.update_key(f'JOINT_{n}', 'TYPE', getattr(parent, f'c{i}_axisType_{j}').text())
-					if getattr(parent, f'c{i}_reverse_{j}').isChecked():
-						self.update_key(f'JOINT_{n}', 'SCALE', f'-{getattr(parent, f"c{i}_scale_{j}").text()}')
-					else:
+
+					if getattr(parent, f'c{i}_scale_{j}').isEnabled():
 						self.update_key(f'JOINT_{n}', 'SCALE', f'{getattr(parent, f"c{i}_scale_{j}").text()}')
 
 					if getattr(parent, f'c{i}_settings_{j}').isTabVisible(2): # Stepgen Tab
@@ -459,7 +458,7 @@ class updateini:
 
 					if getattr(parent, f'c{i}_settings_{j}').isTabVisible(4): # Encoder Tab
 						self.update_key(f'JOINT_{n}', 'ENCODER_SCALE', getattr(parent, f'c{i}_encoderScale_{j}').text())
-	
+
 					self.update_key(f'JOINT_{n}', 'FERROR', getattr(parent, f'c{i}_max_ferror_{j}').text())
 					self.update_key(f'JOINT_{n}', 'MIN_FERROR', getattr(parent, f'c{i}_min_ferror_{j}').text())
 					self.update_key(f'JOINT_{n}', 'DEADBAND', getattr(parent, f'c{i}_deadband_{j}').text())

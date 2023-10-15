@@ -190,9 +190,8 @@ def build(parent):
 				iniContents.append(f'MAX_VELOCITY = {getattr(parent, f"c{i}_max_vel_{j}").text()}\n')
 				iniContents.append(f'MAX_ACCELERATION = {getattr(parent, f"c{i}_max_accel_{j}").text()}\n')
 				iniContents.append(f'TYPE = {getattr(parent, f"c{i}_axisType_{j}").text()}\n')
-				if getattr(parent, f'c{i}_reverse_{j}').isChecked():
-					iniContents.append(f'SCALE = -{getattr(parent, f"c{i}_scale_{j}").text()}\n')
-				else:
+
+				if getattr(parent, f'c{i}_scale_{j}').isEnabled():
 					iniContents.append(f'SCALE = {getattr(parent, f"c{i}_scale_{j}").text()}\n')
 
 				if getattr(parent, f'c{i}_settings_{j}').isTabVisible(2): # Stepgen Tab
