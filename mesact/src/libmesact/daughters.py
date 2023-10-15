@@ -35,11 +35,13 @@ def changed(parent):
 			else:
 				getattr(parent, f'c{daughter_tab}_JointTW').setTabVisible(i, False)
 
-		for i in range(6): # show/hide stepgen tabs
+		for i in range(6): # show/hide stepgen tabs c0_pidDefault_0
 			if stepgen > 0 and i <= stepgen:
 				getattr(parent, f'c{daughter_tab}_settings_{i}').setTabVisible(2, True)
+				getattr(parent, f'c{daughter_tab}_pidDefault_{i}').setEnabled(True)
 			else:
 				getattr(parent, f'c{daughter_tab}_settings_{i}').setTabVisible(2, False)
+				getattr(parent, f'c{daughter_tab}_pidDefault_{i}').setEnabled(False)
 
 		for i in range(6): # show/hide analog tabs
 			if analog > 0 and i <= analog:

@@ -1488,7 +1488,7 @@ to the clipboard</string>
         <item>
          <widget class="QTabWidget" name="c0_JointTW">
           <property name="currentIndex">
-           <number>0</number>
+           <number>1</number>
           </property>
           <widget class="QWidget" name="tab_27">
            <attribute name="title">
@@ -1858,7 +1858,7 @@ to the clipboard</string>
                       </size>
                      </property>
                      <property name="text">
-                      <string>Default Values</string>
+                      <string>Stepgen Values</string>
                      </property>
                     </widget>
                    </item>
@@ -3385,7 +3385,7 @@ Leave blank to home the joint manually.</string>
                       </size>
                      </property>
                      <property name="text">
-                      <string>Default Values</string>
+                      <string>Stepgen Values</string>
                      </property>
                     </widget>
                    </item>
@@ -4678,7 +4678,7 @@ Leave blank to home the joint manually.</string>
                       </size>
                      </property>
                      <property name="text">
-                      <string>Default Values</string>
+                      <string>Stepgen Values</string>
                      </property>
                     </widget>
                    </item>
@@ -6064,7 +6064,7 @@ Leave blank to home the joint manually.</string>
                       </size>
                      </property>
                      <property name="text">
-                      <string>Default Values</string>
+                      <string>Stepgen Values</string>
                      </property>
                     </widget>
                    </item>
@@ -7482,7 +7482,7 @@ Leave blank to home the joint manually.</string>
                       </size>
                      </property>
                      <property name="text">
-                      <string>Default Values</string>
+                      <string>Stepgen Values</string>
                      </property>
                     </widget>
                    </item>
@@ -8877,7 +8877,7 @@ Leave blank to home the joint manually.</string>
                       </size>
                      </property>
                      <property name="text">
-                      <string>Default Values</string>
+                      <string>Stepgen Values</string>
                      </property>
                     </widget>
                    </item>
@@ -11773,7 +11773,7 @@ Leave blank to home the joint manually.</string>
                       </size>
                      </property>
                      <property name="text">
-                      <string>Default Values</string>
+                      <string>Stepgen Values</string>
                      </property>
                     </widget>
                    </item>
@@ -13297,7 +13297,7 @@ joint to the next joint</string>
                       </size>
                      </property>
                      <property name="text">
-                      <string>Default Values</string>
+                      <string>Stepgen Values</string>
                      </property>
                     </widget>
                    </item>
@@ -14719,7 +14719,7 @@ joint to the next joint</string>
                       </size>
                      </property>
                      <property name="text">
-                      <string>Default Values</string>
+                      <string>Stepgen Values</string>
                      </property>
                     </widget>
                    </item>
@@ -16141,7 +16141,7 @@ joint to the next joint</string>
                       </size>
                      </property>
                      <property name="text">
-                      <string>Default Values</string>
+                      <string>Stepgen Values</string>
                      </property>
                     </widget>
                    </item>
@@ -17563,7 +17563,7 @@ joint to the next joint</string>
                       </size>
                      </property>
                      <property name="text">
-                      <string>Default Values</string>
+                      <string>Stepgen Values</string>
                      </property>
                     </widget>
                    </item>
@@ -18965,7 +18965,7 @@ Leave blank to home the joint manually.</string>
                       </size>
                      </property>
                      <property name="text">
-                      <string>Default Values</string>
+                      <string>Stepgen Values</string>
                      </property>
                     </widget>
                    </item>
@@ -21911,7 +21911,7 @@ joint to the next joint</string>
                       </size>
                      </property>
                      <property name="text">
-                      <string>Default Values</string>
+                      <string>Stepgen Values</string>
                      </property>
                     </widget>
                    </item>
@@ -23333,7 +23333,7 @@ joint to the next joint</string>
                       </size>
                      </property>
                      <property name="text">
-                      <string>Default Values</string>
+                      <string>Stepgen Values</string>
                      </property>
                     </widget>
                    </item>
@@ -24755,7 +24755,7 @@ joint to the next joint</string>
                       </size>
                      </property>
                      <property name="text">
-                      <string>Default Values</string>
+                      <string>Stepgen Values</string>
                      </property>
                     </widget>
                    </item>
@@ -26177,7 +26177,7 @@ joint to the next joint</string>
                       </size>
                      </property>
                      <property name="text">
-                      <string>Default Values</string>
+                      <string>Stepgen Values</string>
                      </property>
                     </widget>
                    </item>
@@ -27599,7 +27599,7 @@ joint to the next joint</string>
                       </size>
                      </property>
                      <property name="text">
-                      <string>Default Values</string>
+                      <string>Stepgen Values</string>
                      </property>
                     </widget>
                    </item>
@@ -29001,7 +29001,7 @@ Leave blank to home the joint manually.</string>
                       </size>
                      </property>
                      <property name="text">
-                      <string>Default Values</string>
+                      <string>Stepgen Values</string>
                      </property>
                     </widget>
                    </item>
