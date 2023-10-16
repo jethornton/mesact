@@ -118,7 +118,7 @@ def build(parent):
 	else:
 		daughter_card = ''
 
-	analog_cards = ['7i77']
+	analog_cards = ['7i77', '7i97']
 
 	if daughter_card in analog_cards: # analog
 		halContents.append('\n# amp enable\n')
@@ -147,7 +147,8 @@ def build(parent):
 		halContents.append(f'setp {pid_list[i]}.FF2 [JOINT_{i}](FF2)\n')
 		halContents.append(f'setp {pid_list[i]}.deadband [JOINT_{i}](DEADBAND)\n')
 		halContents.append(f'setp {pid_list[i]}.maxoutput [JOINT_{i}](MAX_OUTPUT)\n')
-		halContents.append(f'setp {pid_list[i]}.maxerror [JOINT_{i}](MAX_ERROR)\n')
+		if daughter_card not in analog_cards: # analog
+			halContents.append(f'setp {pid_list[i]}.maxerror [JOINT_{i}](MAX_ERROR)\n')
 		halContents.append(f'setp {pid_list[i]}.error-previous-target true\n')
 
 		halContents.append(f'\n# joint-{i} enable chain\n')

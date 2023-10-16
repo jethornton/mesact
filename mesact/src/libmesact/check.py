@@ -144,9 +144,10 @@ def checkit(parent):
 				if getattr(parent, f'c{i}_maxOutput_{j}').text() == '':
 					tabError = True
 					configErrors.append(f'\tJoint {j} PID Max Output must not be blank')
-				if getattr(parent, f'c{i}_maxError_{j}').text() == '':
-					tabError = True
-					configErrors.append(f'\tJoint {j} PID Max Error must not be blank')
+				if getattr(parent, f'c{i}_settings_{j}').isTabVisible(2): # Stepgen Tab
+					if getattr(parent, f'c{i}_maxError_{j}').text() == '':
+						tabError = True
+						configErrors.append(f'\tJoint {j} PID Max Error must not be blank')
 				if getattr(parent, f'c{i}_min_ferror_{j}').text() == '':
 					tabError = True
 					configErrors.append(f'\tJoint {j} Min Following Error must not be blank')
