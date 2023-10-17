@@ -107,15 +107,15 @@ class updateini:
 					#print(f'Adding {key} after {last_key}')
 					last_end = self.sections[last_key][1] + 1
 					#print(f'Insert {key} at {last_end}')
-					self.content.insert(last_end, f'{key}')
-					self.content.insert(last_end + 1, '')
+					self.content.insert(last_end, f'{key}\n')
+					self.content.insert(last_end + 1, '\n')
 					self.get_sections()
 					# need to check to see if the axis has been create
 					if f'[AXIS_{value}]' not in self.sections:
 						#print(f'Adding [AXIS_{value}] after {last_axis}')
 						last_end = self.sections[last_key][1] + 1
-						self.content.insert(last_end, f'[AXIS_{value}]')
-						self.content.insert(last_end + 1, '')
+						self.content.insert(last_end, f'[AXIS_{value}]\n')
+						self.content.insert(last_end + 1, '\n')
 						self.get_sections()
 
 				last_key = key
