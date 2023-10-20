@@ -1,3 +1,9 @@
+mesact (2.0.5) unstable; urgency=medium
+
+  * Improvements to 7i77 configurations
+
+ -- John Thornton <dev@gnipsel.com>  Fri, 20 Oct 2023 05:43:29 -0500
+
 mesact (2.0.4) unstable; urgency=medium
 
   * Improve smart serial channel discovery
