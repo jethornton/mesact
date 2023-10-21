@@ -100,6 +100,19 @@ def set_7i92t_p2_7i77(parent):
 	parent.c2_homeSequence_0.setText('2')
 	parent.c2_homeSequence_1.setText('1')
 	parent.c2_homeSequence_2.setText('0')
+	for i in range(3):
+		getattr(parent, f'c2_p_{i}').setText('100')
+		getattr(parent, f'c2_i_{i}').setText('0')
+		getattr(parent, f'c2_d_{i}').setText('0')
+		getattr(parent, f'c2_ff0_{i}').setText('0')
+		getattr(parent, f'c2_ff1_{i}').setText('0')
+		getattr(parent, f'c2_ff2_{i}').setText('0')
+		getattr(parent, f'c2_deadband_{i}').setText('0')
+		getattr(parent, f'c2_bias_{i}').setText('0')
+		getattr(parent, f'c2_maxOutput_{i}').setText('10')
+		getattr(parent, f'c2_analogMinLimit_{i}').setText('-10')
+		getattr(parent, f'c2_analogMaxLimit_{i}').setText('10')
+		getattr(parent, f'c2_analogScaleMax_{i}').setText('10')
 
 def set_joints(parent, card, axes):
 	# value = <value_if_true> if <expression> else <value_if_false>
