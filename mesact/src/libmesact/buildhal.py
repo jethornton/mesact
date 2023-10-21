@@ -108,13 +108,13 @@ def build(parent):
 
 	if parent.daughterCB_0.currentData():
 		daughter_card = parent.daughterCB_0.currentData()
-		port = '1'
-	elif parent.daughterCB_1.currentData():
-		daughter_card = parent.daughterCB_1.currentData()
 		if daughter_card == '7i77':
 			port = '4'
 		else:
 			port = '3'
+	elif parent.daughterCB_1.currentData():
+		daughter_card = parent.daughterCB_1.currentData()
+		port = '1'
 	else:
 		daughter_card = ''
 
