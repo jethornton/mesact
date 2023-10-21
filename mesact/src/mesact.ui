@@ -11674,7 +11674,7 @@ Leave blank to home the joint manually.</string>
             <item>
              <widget class="QTabWidget" name="c1_settings_0">
               <property name="currentIndex">
-               <number>0</number>
+               <number>3</number>
               </property>
               <widget class="QWidget" name="tab_54">
                <attribute name="title">

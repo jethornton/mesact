@@ -53,9 +53,10 @@ def build(parent):
 		iniContents.append(f'ADDRESS = {parent.ipAddressCB.currentText()}\n')
 	elif parent.boardType == 'pci':
 		iniContents.append('DRIVER = hm2_pci\n')
-	iniContents.append(f'STEPGENS = {parent.stepgens_cb.currentData()}\n')
-	iniContents.append(f'PWMGENS = {parent.pwmgens_cb.currentData()}\n')
-	iniContents.append(f'ENCODERS = {parent.encoders_cb.currentData()}\n')
+
+	#iniContents.append(f'STEPGENS = {parent.stepgens_cb.currentData()}\n')
+	#iniContents.append(f'PWMGENS = {parent.pwmgens_cb.currentData()}\n')
+	#iniContents.append(f'ENCODERS = {parent.encoders_cb.currentData()}\n')
 
 	# build the [DISPLAY] section maxFeedOverrideLE
 	iniContents.append('\n[DISPLAY]\n')
