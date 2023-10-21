@@ -7,6 +7,18 @@ def build(parent):
 	if board in aliasdict:
 		board = aliasdict[board]
 
+	if parent.daughterCB_0.currentData():
+		daughter_card = parent.daughterCB_0.currentData()
+		if daughter_card == '7i77':
+			port = '4'
+		else:
+			port = '3'
+	elif parent.daughterCB_1.currentData():
+		daughter_card = parent.daughterCB_1.currentData()
+		port = '1'
+	else:
+		daughter_card = ''
+
 	halFilePath = os.path.join(parent.configPath, 'main' + '.hal')
 	parent.info_pte.appendPlainText(f'Building {halFilePath}')
 
@@ -85,13 +97,14 @@ def build(parent):
 
 	dpll = {'7i96':['stepgen', 'encoder'],
 		'7i96s':['stepgen', 'encoder'],}
-	stepgen_timer = ['7i76e', '7i92', '7i95', '7i95t', '7i96', '7i96s']
+	stepgen_timer = ['7i76e', '7i95', '7i95t', '7i96', '7i96s']
 
 	if parent.boardType == 'eth':
 		halContents.append('\n# DPLL TIMER\n')
 		halContents.append(f'setp hm2_[MESA](BOARD).0.dpll.01.timer-us -50\n')
-		if board in stepgen_timer:
+		if board in stepgen_timer or daughter_card == '7i76':
 			halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.timer-number 1\n')
+
 		if encoders > 0:
 			halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.timer-number 1\n')
 
@@ -105,18 +118,6 @@ def build(parent):
 
 	# finger out where the analog daughter_card is and which one...
 	# P2 hm2_5i25.0.7i77.0.4.analogena
-
-	if parent.daughterCB_0.currentData():
-		daughter_card = parent.daughterCB_0.currentData()
-		if daughter_card == '7i77':
-			port = '4'
-		else:
-			port = '3'
-	elif parent.daughterCB_1.currentData():
-		daughter_card = parent.daughterCB_1.currentData()
-		port = '1'
-	else:
-		daughter_card = ''
 
 	analog_cards = ['7i77', '7i97']
 
@@ -199,7 +200,7 @@ def build(parent):
 			halContents.append(f'net joint.{i}.output => hm2_[MESA](BOARD).0.stepgen.0{i}.velocity-cmd\n')
 
 		if getattr(parent, f'c{joint_list[i][1]}_settings_{i}').isTabVisible(3): # analog
-			halContents.append('\n# PWM setup\n')
+			halContents.append(f'\n# Joint {i} Analog setup\n')
 			halContents.append(f'setp hm2_[MESA](BOARD).0.{daughter_card}.0.{port}.analogout{i}-scalemax [JOINT_{i}](ANALOG_SCALE_MAX)\n')
 			halContents.append(f'setp hm2_[MESA](BOARD).0.{daughter_card}.0.{port}.analogout{i}-minlim [JOINT_{i}](ANALOG_MIN_LIMIT)\n')
 			halContents.append(f'setp hm2_[MESA](BOARD).0.{daughter_card}.0.{port}.analogout{i}-maxlim [JOINT_{i}](ANALOG_MAX_LIMIT)\n\n')
