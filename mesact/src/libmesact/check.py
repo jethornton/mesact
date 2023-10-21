@@ -26,15 +26,6 @@ def checkit(parent):
 	# end of Machine Tab
 
 	# check the Firmware Tab for errors
-	mb = parent.boardCB
-	#p0b = parent.daughterCB_0
-	#p1b = parent.daughterCB_1
-	fw = parent.firmwareCB
-
-	if parent.daughterCB_1.currentData(): # firmware must be selected
-		if not fw.currentData():
-			tabError = True
-			configErrors.append('\tFirmware must be selected to get the sserial ports for P1')
 
 	if tabError:
 		configErrors.insert(nextHeader, 'Firmware Tab:')
