@@ -72,10 +72,10 @@ def boardChanged(parent):
 			parent.c0_JointTW.setTabText(0, name)
 			for i in range(1, tabs + 1):
 				parent.c0_JointTW.setTabVisible(i, False)
-			parent.daughterLB_0.setText('P3')
-			parent.daughterLB_1.setText('P2')
-			parent.ss_port_0_lb.setText('P3')
-			parent.ss_port_1_lb.setText('P2')
+			parent.daughterLB_0.setText('P2')
+			parent.daughterLB_1.setText('P3')
+			parent.ss_port_0_lb.setText('P2')
+			parent.ss_port_1_lb.setText('P3')
 			#parent.mainTW.setTabText(4, 'P2')
 			#parent.mainTW.setTabText(5, 'P3')
 			for item in db25:

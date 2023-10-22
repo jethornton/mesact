@@ -117,7 +117,9 @@ def firmwareChanged(parent):
 			parent.p2_channels.sort()
 			parent.p3_channels.sort()
 
-			if parent.ss_port_0_lb.text() == 'P2':
+			if parent.ss_port_0_lb.text() == 'P1':
+				parent.port_0_channels_lb.setText(', '.join(parent.p1_channels))
+			elif parent.ss_port_0_lb.text() == 'P2':
 				parent.port_0_channels_lb.setText(', '.join(parent.p2_channels))
 			elif parent.ss_port_0_lb.text() == 'P3':
 				parent.port_0_channels_lb.setText(', '.join(parent.p3_channels))
@@ -126,6 +128,8 @@ def firmwareChanged(parent):
 				parent.port_1_channels_lb.setText(', '.join(parent.p1_channels))
 			elif parent.ss_port_1_lb.text() == 'P2':
 				parent.port_1_channels_lb.setText(', '.join(parent.p2_channels))
+			elif parent.ss_port_1_lb.text() == 'P3':
+				parent.port_1_channels_lb.setText(', '.join(parent.p3_channels))
 
 			parent.stepgens_cb.clear()
 			parent.pwmgens_cb.clear()
