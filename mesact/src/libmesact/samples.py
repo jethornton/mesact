@@ -22,7 +22,6 @@ def default(parent):
 	parent.maxLinJogVelDSB.setValue(1.0)
 	parent.set_7i96s_x_pb.setEnabled(True)
 	parent.set_7i96s_xyz_pb.setEnabled(True)
-	parent.set_7i96s_xyyz_pb.setEnabled(True)
 	parent.set_7i95t_x_pb.setEnabled(True)
 	parent.set_7i95t_xyz_pb.setEnabled(True)
 	parent.set_7i92t_p2_7i76_pb.setEnabled(True)

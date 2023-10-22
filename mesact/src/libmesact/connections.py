@@ -18,10 +18,7 @@ from libmesact import sscards
 from libmesact import pcinfo
 from libmesact import settings
 from libmesact import mdi
-
-
-# testing imports
-from libmesact import testing
+from libmesact import samples
 
 def connect(parent):
 	# Menu Items
@@ -50,15 +47,14 @@ def connect(parent):
 
 	#parent.backupCB.clicked.connect(partial(utilities.backup, parent))
 
-	parent.default_imperial_pb.clicked.connect(partial(testing.default_imperial, parent))
-	parent.default_metric_pb.clicked.connect(partial(testing.default_metric, parent))
-	parent.set_7i96s_x_pb.clicked.connect(partial(testing.set_7i96s_x, parent))
-	parent.set_7i96s_xyz_pb.clicked.connect(partial(testing.set_7i96s_xyz, parent))
-	parent.set_7i96s_xyyz_pb.clicked.connect(partial(testing.set_7i96s_xyyz, parent))
-	parent.set_7i95t_x_pb.clicked.connect(partial(testing.set_7i95t_x, parent))
-	parent.set_7i95t_xyz_pb.clicked.connect(partial(testing.set_7i95t_xyz, parent))
-	parent.set_7i92t_p2_7i76_pb.clicked.connect(partial(testing.set_7i92t_p2_7i76, parent))
-	parent.set_7i92t_p2_7i77_pb.clicked.connect(partial(testing.set_7i92t_p2_7i77, parent))
+	parent.default_imperial_pb.clicked.connect(partial(samples.default_imperial, parent))
+	parent.default_metric_pb.clicked.connect(partial(samples.default_metric, parent))
+	parent.set_7i96s_x_pb.clicked.connect(partial(samples.set_7i96s_x, parent))
+	parent.set_7i96s_xyz_pb.clicked.connect(partial(samples.set_7i96s_xyz, parent))
+	parent.set_7i95t_x_pb.clicked.connect(partial(samples.set_7i95t_x, parent))
+	parent.set_7i95t_xyz_pb.clicked.connect(partial(samples.set_7i95t_xyz, parent))
+	parent.set_7i92t_p2_7i76_pb.clicked.connect(partial(samples.set_7i92t_p2_7i76, parent))
+	parent.set_7i92t_p2_7i77_pb.clicked.connect(partial(samples.set_7i92t_p2_7i77, parent))
 
 	# Settings Tab
 	parent.minLinJogVelDSB.valueChanged.connect(partial(utilities.unitsChanged, parent))
