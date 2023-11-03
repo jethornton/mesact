@@ -85,6 +85,8 @@ def firmwareChanged(parent):
 						pwmgens = int(''.join(filter(str.isdigit, line)))
 					if 'of QCount in configuration' in line:
 						encoders = int(''.join(filter(str.isdigit, line)))
+					if 'of MuxedQCount in configuration' in line:
+						encoders = int(''.join(filter(str.isdigit, line)))
 					if 'P1' in line:
 						p1 = True
 						p2 = False
