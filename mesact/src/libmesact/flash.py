@@ -27,19 +27,46 @@ def getPassword(parent):
 		return password
 
 def getResults(parent, prompt, result, viewport, task=None):
+	output = prompt[0]
 	if result == 0:
-		output = prompt[0]
 		outcome = 'Success'
 	else:
-		output = prompt[1]
 		outcome = 'Failed'
-	getattr(parent, viewport).appendPlainText(f'{task} returned: {outcome}\n')
+	getattr(parent, viewport).clear()
+	getattr(parent, viewport).appendPlainText(f'{task}')
+	getattr(parent, viewport).appendPlainText(f'returned: {outcome}')
 	getattr(parent, viewport).appendPlainText(f'{output}\n')
 
+def find_ip_board(parent):
+	address = False
+	if os.system("ping -c 1 10.10.10.10") == 0:
+		address = '10.10.10.10'
+	elif os.system("ping -c 1 192.168.1.121") == 0:
+		address = '192.168.1.121'
+
+	if address:
+		cmd = ['mesaflash', '--device', 'ether', '--addr', address]
+		p = Popen(cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
+		prompt = p.communicate()
+		getResults(parent, prompt, p.returncode, 'verifyPTE', 'Find IP Board')
+
+	'''
+
+	ret = os.system("ping -c 1 10.10.10.10")
+	if ret == 0:
+		#print('Device found on 10.10.10.10')
+		#print(prompt[0])
+		#print(p.returncode)
+
+	else:
+		ret = os.system("ping -c 3 192.168.1.121")
+		if ret == 0:
+			print('Device found on 192.168.1.121')
+	'''
 def checkCard(parent):
-	parent.firmwareTW.setCurrentIndex(1)
-	parent.firmwarePTE.clear()
-	parent.firmwarePTE.setPlainText('Checking')
+	#parent.firmwareTW.setCurrentIndex(1)
+	#parent.firmwarePTE.clear()
+	#parent.firmwarePTE.setPlainText('Checking')
 	board = parent.boardCB.currentData()
 	cmd = []
 	prompt = None

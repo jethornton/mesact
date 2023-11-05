@@ -359,13 +359,10 @@
              </property>
             </widget>
            </item>
-           <item row="4" column="1">
-            <widget class="QLabel" name="label_5">
-             <property name="text">
-              <string>Verify Board</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           <item row="2" column="2">
+            <widget class="QComboBox" name="ipAddressCB">
+             <property name="enabled">
+              <bool>false</bool>
              </property>
             </widget>
            </item>
@@ -378,7 +375,7 @@
               <string>Check if selected board is found</string>
              </property>
              <property name="text">
-              <string>Check</string>
+              <string>Verify Board</string>
              </property>
             </widget>
            </item>
@@ -404,23 +401,16 @@
              </property>
             </widget>
            </item>
-           <item row="0" column="2">
-            <widget class="QComboBox" name="boardCB"/>
-           </item>
-           <item row="2" column="2">
-            <widget class="QComboBox" name="ipAddressCB">
-             <property name="enabled">
-              <bool>false</bool>
-             </property>
-            </widget>
-           </item>
            <item row="3" column="1" colspan="2">
             <widget class="QGroupBox" name="groupBox_3">
              <property name="title">
               <string>Daughter Cards</string>
              </property>
              <layout class="QGridLayout" name="gridLayout_3">
-              <item row="0" column="0">
+              <item row="1" column="0">
+               <widget class="QComboBox" name="daughterCB_0"/>
+              </item>
+              <item row="0" column="1">
                <widget class="QLabel" name="label_6">
                 <property name="text">
                  <string>Connector</string>
@@ -430,10 +420,10 @@
                 </property>
                </widget>
               </item>
-              <item row="2" column="1">
+              <item row="2" column="0">
                <widget class="QComboBox" name="daughterCB_1"/>
               </item>
-              <item row="1" column="0">
+              <item row="1" column="1">
                <widget class="QLabel" name="daughterLB_0">
                 <property name="maximumSize">
                  <size>
@@ -452,7 +442,7 @@
                 </property>
                </widget>
               </item>
-              <item row="2" column="0">
+              <item row="2" column="1">
                <widget class="QLabel" name="daughterLB_1">
                 <property name="maximumSize">
                  <size>
@@ -471,7 +461,7 @@
                 </property>
                </widget>
               </item>
-              <item row="0" column="1">
+              <item row="0" column="0">
                <widget class="QLabel" name="label_7">
                 <property name="text">
                  <string>Card</string>
@@ -481,17 +471,14 @@
                 </property>
                </widget>
               </item>
-              <item row="1" column="1">
-               <widget class="QComboBox" name="daughterCB_0"/>
-              </item>
-              <item row="3" column="0" colspan="2">
+              <item row="4" column="0" colspan="2">
                <widget class="QLabel" name="label_687">
                 <property name="text">
                  <string>Cards must match firmware</string>
                 </property>
                </widget>
               </item>
-              <item row="4" column="0" colspan="2">
+              <item row="5" column="0" colspan="2">
                <widget class="QLabel" name="firmware_lb">
                 <property name="frameShape">
                  <enum>QFrame::Box</enum>
@@ -502,6 +489,16 @@
                </widget>
               </item>
              </layout>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QComboBox" name="boardCB"/>
+           </item>
+           <item row="4" column="1">
+            <widget class="QPushButton" name="find_ip_board_pb">
+             <property name="text">
+              <string>Fnd IP Board</string>
+             </property>
             </widget>
            </item>
           </layout>
@@ -41546,7 +41543,7 @@ to File Open in Axis</string>
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>50</width>
+                    <width>36</width>
                     <height>18</height>
                    </rect>
                   </property>
