@@ -21,6 +21,8 @@ def boardChanged(parent):
 	if parent.boardCB.currentData():
 		board = parent.boardCB.currentData()
 		name = parent.boardCB.currentText()
+		if parent.mesaflash:
+			parent.checkBoardPB.setEnabled(True)
 		# set all tabs visible then hide as needed
 		for i in range(10):
 			parent.c0_JointTW.setTabVisible(i, True)
