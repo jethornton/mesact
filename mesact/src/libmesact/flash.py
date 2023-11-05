@@ -27,7 +27,7 @@ def getPassword(parent):
 		return password
 
 def getResults(parent, prompt, result, viewport, task=None):
-	output = prompt[0]
+	output = prompt[0].lstrip()
 	if result == 0:
 		outcome = 'Success'
 	else:
@@ -49,6 +49,30 @@ def find_ip_board(parent):
 		p = Popen(cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
 		prompt = p.communicate()
 		getResults(parent, prompt, p.returncode, 'verifyPTE', 'Find IP Board')
+
+def verify_ip_board(parent): # make me toss up the error message and return False
+	address = parent.ipAddressCB.currentText()
+	cmd = ['mesaflash', '--device', 'ether', '--addr', address]
+	p = Popen(cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
+	prompt = p.communicate()
+	selected_board = parent.boardCB.currentText().upper()
+	connected_board= prompt[0].split()[2]
+	if selected_board == connected_board:
+		return True
+	else:
+		msg = (f'The selected {selected_board} board\n'
+		f'does not match the\nconnected {connected_board} board')
+		dialogs.errorMsgOk(msg, 'Error')
+		return False
+
+def connected_ip_board(parent):
+	address = parent.ipAddressCB.currentText()
+	cmd = ['mesaflash', '--device', 'ether', '--addr', address]
+	p = Popen(cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
+	prompt = p.communicate()
+	board = parent.boardCB.currentText().upper()
+	print(prompt[0].split()[2])
+
 
 def checkCard(parent):
 	board = parent.boardCB.currentData()
@@ -80,12 +104,9 @@ def checkCard(parent):
 			p = Popen(cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
 			prompt = p.communicate(parent.password + '\n')
 	if prompt:
-		getResults(parent, prompt, p.returncode, 'verifyPTE', 'Check for Board')
+		getResults(parent, prompt, p.returncode, 'verifyPTE', 'Verify Board')
 
 def readhmid(parent):
-	parent.firmwareTW.setCurrentIndex(1)
-	parent.firmwarePTE.clear()
-	parent.firmwarePTE.setPlainText('Reading HMID')
 	board = parent.boardCB.currentData()
 	cmd = []
 	prompt = None
@@ -94,16 +115,19 @@ def readhmid(parent):
 		return
 	if parent.boardType == 'eth':
 		if check_ip(parent):
-			ipAddress = parent.ipAddressCB.currentText()
-			cmd = ['mesaflash', '--device', board, '--addr', ipAddress, '--readhmid']
-			if parent.hmid_terminals_1.currentData():
-				cmd.append('--dbname1')
-				cmd.append(parent.hmid_terminals_1.currentData())
-			if parent.hmid_terminals_2.currentData():
-				cmd.append('--dbname2')
-				cmd.append(parent.hmid_terminals_2.currentData())
-			p = Popen(cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
-			prompt = p.communicate()
+			if verify_ip_board(parent):
+				ipAddress = parent.ipAddressCB.currentText()
+				cmd = ['mesaflash', '--device', board, '--addr', ipAddress, '--readhmid']
+				if parent.hmid_terminals_1.currentData():
+					cmd.append('--dbname1')
+					cmd.append(parent.hmid_terminals_1.currentData())
+				if parent.hmid_terminals_2.currentData():
+					cmd.append('--dbname2')
+					cmd.append(parent.hmid_terminals_2.currentData())
+				p = Popen(cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
+				prompt = p.communicate()
+			else:
+				return
 		else:
 			return
 
@@ -117,6 +141,9 @@ def readhmid(parent):
 			prompt = p.communicate(parent.password + '\n')
 
 	if prompt:
+		parent.firmwareTW.setCurrentIndex(1)
+		parent.firmwarePTE.clear()
+		parent.firmwarePTE.setPlainText('Reading HMID')
 		getResults(parent, prompt, p.returncode, 'firmwarePTE', 'Read HMID')
 
 def readpd(parent):
