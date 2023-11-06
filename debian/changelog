@@ -1,3 +1,9 @@
+mesact (2.0.6) unstable; urgency=medium
+
+  * Improve mesaflash checks and ip board discovery
+
+ -- John Thornton <dev@gnipsel.com>  Mon, 06 Nov 2023 07:22:05 -0600
+
 mesact (2.0.5) unstable; urgency=medium
 
   * Improvements to 7i77 configurations
