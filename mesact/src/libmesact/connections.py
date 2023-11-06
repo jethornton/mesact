@@ -48,6 +48,9 @@ def connect(parent):
 
 	#parent.backupCB.clicked.connect(partial(utilities.backup, parent))
 
+	# Firmware Tab
+	parent.firmwareCB.currentIndexChanged.connect(partial(flash.firmware_changed, parent))
+
 	parent.default_imperial_pb.clicked.connect(partial(samples.default_imperial, parent))
 	parent.default_metric_pb.clicked.connect(partial(samples.default_metric, parent))
 	parent.set_7i96s_x_pb.clicked.connect(partial(samples.set_7i96s_x, parent))
