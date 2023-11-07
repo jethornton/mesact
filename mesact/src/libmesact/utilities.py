@@ -5,7 +5,7 @@ from datetime import datetime
 from PyQt5.QtWidgets import (QApplication, QInputDialog, QLineEdit, QComboBox,
 	QDoubleSpinBox, QCheckBox)
 
-def isNumber(s):
+def is_number(s):
 	try:
 		s[-1].isdigit()
 		float(s)
@@ -171,5 +171,4 @@ def inputChanged(parent): # test to see if not checked then enable both
 def changed(parent): # if anything is changed add *
 	parent.status_lb.setText('Changed')
 	parent.actionBuild.setText('Build Config *')
-
 

@@ -35,30 +35,30 @@ def updateAxisInfo(parent):
 	card = parent.sender().objectName()[:2]
 	joint = parent.sender().objectName()[-1]
 	scale = getattr(parent, f'{card}_scale_' + joint).text()
-	if scale and utilities.isNumber(scale):
+	if scale and utilities.is_number(scale):
 		scale = float(scale)
 	else:
 		return
 
 	maxVelocity = getattr(parent, f'{card}_max_vel_' + joint).text()
-	if maxVelocity and utilities.isNumber(maxVelocity):
+	if maxVelocity and utilities.is_number(maxVelocity):
 		maxVelocity = float(maxVelocity)
 	else:
 		return
 
 	maxAccel = getattr(parent, f'{card}_max_accel_' + joint).text()
-	if maxAccel and utilities.isNumber(maxAccel):
+	if maxAccel and utilities.is_number(maxAccel):
 		maxAccel = float(maxAccel)
 	else:
 		return
 
 	if parent.linearUnitsCB.currentData():
 		accelTime = maxVelocity / maxAccel
-		getattr(parent, f'{card}_timeJoint_' + joint).setText(f'{accelTime:.2f} seconds')
+		getattr(parent, f'{card}_timeJoint_' + joint).setText(f'{accelTime:.3f} seconds')
 		accelDistance = accelTime * 0.5 * maxVelocity
-		getattr(parent, f'{card}_distanceJoint_' + joint).setText(f'{accelDistance:.2f} {parent.linearUnitsCB.currentData()}')
+		getattr(parent, f'{card}_distanceJoint_' + joint).setText(f'{accelDistance:.3f} {parent.linearUnitsCB.currentData()}')
 		stepRate = scale * maxVelocity
-		getattr(parent, f'{card}_stepRateJoint_' + joint).setText(f'{abs(stepRate):.0f} pulses')
+		getattr(parent, f'{card}_stepRateJoint_' + joint).setText(f'{abs(stepRate):.0f} Hz')
 
 def pidSetDefault(parent):
 	connector = parent.sender().objectName()[:2]
