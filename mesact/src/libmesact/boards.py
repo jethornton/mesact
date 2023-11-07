@@ -89,7 +89,7 @@ def boardChanged(parent):
 			# 5 step/dir 32 inputs 16 outputs 1 spindle 1 encoder
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
-			parent.c0_JointTW.setTabVisible(5, False)
+			parent.c0_JointTW.setTabVisible(6, False)
 			parent.ipAddressCB.setEnabled(True)
 			parent.daughterLB_0.setText('P1')
 			parent.daughterLB_1.setText('P2')
