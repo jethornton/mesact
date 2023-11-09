@@ -71,6 +71,7 @@ def connect(parent):
 	parent.axisButtonGroup.buttonClicked.connect(partial(utilities.axisDisplayChanged, parent))
 	parent.linearUnitsCB.currentIndexChanged.connect(partial(utilities.unitsChanged, parent))
 	parent.trajMaxLinVelDSB.valueChanged.connect(partial(utilities.maxVelChanged, parent))
+	parent.calc_scale_pb.clicked.connect(partial(utilities.calc_scale, parent))
 
 	'''
 	#parent.frontToolLatheRB.buttonClicked.connect(partial(utilities.axisDisplayChanged, parent))

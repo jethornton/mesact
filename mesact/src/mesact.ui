@@ -45,7 +45,7 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -1051,100 +1051,6 @@ to the clipboard</string>
         <string>Settings</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_451">
-        <item row="0" column="0" rowspan="3">
-         <widget class="QGroupBox" name="gridGroupBox_5">
-          <property name="styleSheet">
-           <string notr="true"/>
-          </property>
-          <property name="title">
-           <string>Display</string>
-          </property>
-          <layout class="QGridLayout" name="gridLayout_47">
-           <property name="leftMargin">
-            <number>9</number>
-           </property>
-           <property name="topMargin">
-            <number>15</number>
-           </property>
-           <property name="rightMargin">
-            <number>9</number>
-           </property>
-           <property name="bottomMargin">
-            <number>9</number>
-           </property>
-           <item row="2" column="0">
-            <widget class="QLabel" name="label_41">
-             <property name="text">
-              <string>Position Offset</string>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="0">
-            <widget class="QLabel" name="label_42">
-             <property name="text">
-              <string>Position Feedback</string>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="0">
-            <widget class="QLabel" name="label_9">
-             <property name="text">
-              <string>Maximum Feed Override</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QComboBox" name="guiCB"/>
-           </item>
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_40">
-             <property name="text">
-              <string>GUI</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="1">
-            <widget class="QComboBox" name="positionOffsetCB"/>
-           </item>
-           <item row="3" column="1">
-            <widget class="QComboBox" name="positionFeedbackCB"/>
-           </item>
-           <item row="4" column="1">
-            <widget class="QDoubleSpinBox" name="maxFeedOverrideSB">
-             <property name="decimals">
-              <number>1</number>
-             </property>
-             <property name="maximum">
-              <double>2.000000000000000</double>
-             </property>
-             <property name="singleStep">
-              <double>0.100000000000000</double>
-             </property>
-             <property name="value">
-              <double>1.200000000000000</double>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="2">
-            <widget class="QLabel" name="label_179">
-             <property name="text">
-              <string>1.0 = 100%</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <widget class="QLabel" name="label_3">
-             <property name="text">
-              <string>Linear Units</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="1">
-            <widget class="QComboBox" name="linearUnitsCB"/>
-           </item>
-          </layout>
-         </widget>
-        </item>
         <item row="0" column="1" colspan="2">
          <widget class="QGroupBox" name="gridGroupBox_4">
           <property name="styleSheet">
@@ -1237,18 +1143,6 @@ to the clipboard</string>
               <string/>
              </property>
             </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item row="1" column="1" rowspan="2" colspan="2">
-         <widget class="QGroupBox" name="groupBox_60">
-          <property name="title">
-           <string>G code Editor</string>
-          </property>
-          <layout class="QGridLayout" name="gridLayout_45">
-           <item row="0" column="0">
-            <widget class="QComboBox" name="editorCB"/>
            </item>
           </layout>
          </widget>
@@ -1457,13 +1351,6 @@ to the clipboard</string>
           </layout>
          </widget>
         </item>
-        <item row="3" column="2" colspan="2">
-         <widget class="QGroupBox" name="groupBox_228">
-          <property name="title">
-           <string/>
-          </property>
-         </widget>
-        </item>
         <item row="2" column="3">
          <spacer name="verticalSpacer_56">
           <property name="orientation">
@@ -1476,6 +1363,288 @@ to the clipboard</string>
            </size>
           </property>
          </spacer>
+        </item>
+        <item row="1" column="1" rowspan="2" colspan="2">
+         <widget class="QGroupBox" name="groupBox_60">
+          <property name="title">
+           <string>G code Editor</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_45">
+           <item row="0" column="0">
+            <widget class="QComboBox" name="editorCB"/>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="0" column="0" rowspan="3">
+         <widget class="QGroupBox" name="gridGroupBox_5">
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="title">
+           <string>Display</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_47">
+           <property name="leftMargin">
+            <number>9</number>
+           </property>
+           <property name="topMargin">
+            <number>15</number>
+           </property>
+           <property name="rightMargin">
+            <number>9</number>
+           </property>
+           <property name="bottomMargin">
+            <number>9</number>
+           </property>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_41">
+             <property name="text">
+              <string>Position Offset</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="label_42">
+             <property name="text">
+              <string>Position Feedback</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="label_9">
+             <property name="text">
+              <string>Maximum Feed Override</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QComboBox" name="guiCB"/>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_40">
+             <property name="text">
+              <string>GUI</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QComboBox" name="positionOffsetCB"/>
+           </item>
+           <item row="3" column="1">
+            <widget class="QComboBox" name="positionFeedbackCB"/>
+           </item>
+           <item row="4" column="1">
+            <widget class="QDoubleSpinBox" name="maxFeedOverrideSB">
+             <property name="decimals">
+              <number>1</number>
+             </property>
+             <property name="maximum">
+              <double>2.000000000000000</double>
+             </property>
+             <property name="singleStep">
+              <double>0.100000000000000</double>
+             </property>
+             <property name="value">
+              <double>1.200000000000000</double>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="2">
+            <widget class="QLabel" name="label_179">
+             <property name="text">
+              <string>1.0 = 100%</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_3">
+             <property name="text">
+              <string>Linear Units</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QComboBox" name="linearUnitsCB"/>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="3" column="2" colspan="2">
+         <widget class="QTabWidget" name="tabWidget_228">
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
+          <widget class="QWidget" name="tabWidget_228Page1" native="true">
+           <attribute name="title">
+            <string>Scale Calculator</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_307">
+            <item row="5" column="1">
+             <widget class="QLineEdit" name="scale_le">
+              <property name="alignment">
+               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="label_748">
+              <property name="text">
+               <string>Microsteps</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QLineEdit" name="stepper_teeth_le">
+              <property name="toolTip">
+               <string>Leave blank for direct drive</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              </property>
+              <property name="name" stdset="0">
+               <string>Stepper Teeth</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1">
+             <widget class="QLineEdit" name="leadscrew_teeth_le">
+              <property name="toolTip">
+               <string>Leave blank for direct drive</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              </property>
+              <property name="name" stdset="0">
+               <string>Leadscrew Teeth</string>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="0">
+             <widget class="QPushButton" name="calc_scale_pb">
+              <property name="text">
+               <string>Calculate Scale</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="label_749">
+              <property name="text">
+               <string>Stepper Teeth</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="1">
+             <widget class="QLineEdit" name="leadscrew_pitch_le">
+              <property name="toolTip">
+               <string>Rotations per user Unit</string>
+              </property>
+              <property name="statusTip">
+               <string/>
+              </property>
+              <property name="text">
+               <string>1</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              </property>
+              <property name="name" stdset="0">
+               <string>Leadscrew Pitch</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLineEdit" name="microsteps_le">
+              <property name="text">
+               <string/>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              </property>
+              <property name="name" stdset="0">
+               <string>Microsteps</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="0">
+             <widget class="QLabel" name="label_750">
+              <property name="text">
+               <string>Leadscrew Pitch</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLineEdit" name="steps_rev_le">
+              <property name="toolTip">
+               <string>Whole Steps per Rotation</string>
+              </property>
+              <property name="statusTip">
+               <string/>
+              </property>
+              <property name="text">
+               <string>200</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              </property>
+              <property name="name" stdset="0">
+               <string>Steps/Revolution</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0">
+             <widget class="QLabel" name="label_5">
+              <property name="text">
+               <string>Steps/Revolution</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="label_751">
+              <property name="text">
+               <string>Leadscrew Teeth</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="2">
+             <widget class="QLabel" name="label_752">
+              <property name="text">
+               <string>*</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="2">
+             <widget class="QLabel" name="label_753">
+              <property name="text">
+               <string>*</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tab_119">
+           <attribute name="title">
+            <string>Info</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="verticalLayout_28">
+            <item>
+             <widget class="QPlainTextEdit" name="plainTextEdit_3">
+              <property name="plainText">
+               <string>Required Entries marked with *
+
+For Direct Drive leave Motor Gear and Leadscrew Gear blank.
+
+For no Microsteps leave blank
+Leadscrew Pitch is turns per user unit. Example 6 turns per inch or .25 turns per mm</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -2862,23 +3031,13 @@ Leave blank to home the joint manually.</string>
                    <string>Joint Information</string>
                   </property>
                   <layout class="QGridLayout" name="gridLayout_27">
-                   <item row="0" column="0">
-                    <widget class="QLabel" name="label_181">
+                   <item row="2" column="0">
+                    <widget class="QLabel" name="label_185">
                      <property name="text">
-                      <string>Time to accelerate to max speed</string>
+                      <string>Step rate at max speed</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="2" column="1">
-                    <widget class="QLabel" name="c0_stepRateJoint_0">
-                     <property name="frameShape">
-                      <enum>QFrame::Box</enum>
-                     </property>
-                     <property name="text">
-                      <string/>
                      </property>
                     </widget>
                    </item>
@@ -2908,13 +3067,23 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="2" column="0">
-                    <widget class="QLabel" name="label_185">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_181">
                      <property name="text">
-                      <string>Step rate at max speed</string>
+                      <string>Time to accelerate to max speed</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="1">
+                    <widget class="QLabel" name="c0_stepRateJoint_0">
+                     <property name="frameShape">
+                      <enum>QFrame::Box</enum>
+                     </property>
+                     <property name="text">
+                      <string/>
                      </property>
                     </widget>
                    </item>

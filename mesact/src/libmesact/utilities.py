@@ -5,10 +5,18 @@ from datetime import datetime
 from PyQt5.QtWidgets import (QApplication, QInputDialog, QLineEdit, QComboBox,
 	QDoubleSpinBox, QCheckBox)
 
+from libmesact import dialogs
+
 def is_number(s):
 	try:
-		s[-1].isdigit()
 		float(s)
+		return True
+	except ValueError:
+		return False
+
+def is_int(n):
+	try:
+		int(n)
 		return True
 	except ValueError:
 		return False
@@ -172,3 +180,163 @@ def changed(parent): # if anything is changed add *
 	parent.status_lb.setText('Changed')
 	parent.actionBuild.setText('Build Config *')
 
+def calc_scale(parent):
+	# scale = steps/rev * microsteps * (leadscrew teeth / motor teeth) * leadscrew revs/ unit
+	if len(parent.steps_rev_le.text()) > 0: # required entry
+		if is_number(parent.steps_rev_le.text()):
+			steps_rev = int(float(parent.steps_rev_le.text())) if parent.steps_rev_le.text() != '' else False
+		else:
+			msg = (f'{parent.steps_rev_le.text()} is not a valid number\n'
+			f'for {parent.steps_rev_le.property("name")}')
+			dialogs.errorMsgOk(msg, 'Error')
+			return
+	else:
+		msg = (f'{parent.steps_rev_le.property("name")} must be not be blank')
+		dialogs.errorMsgOk(msg, 'Error')
+		return
+
+	if len(parent.leadscrew_pitch_le.text()) > 0: # required entry
+		if is_number(parent.leadscrew_pitch_le.text()):
+			leadscrew_pitch = float(parent.leadscrew_pitch_le.text())
+		else:
+			msg = (f'{parent.leadscrew_pitch_le.text()} is not a valid number\n'
+			f'for {parent.leadscrew_pitch_le.property("name")}')
+			dialogs.errorMsgOk(msg, 'Error')
+			return
+	else:
+		msg = (f'{parent.leadscrew_pitch_le.property("name")} must be not be blank')
+		dialogs.errorMsgOk(msg, 'Error')
+		return
+
+	if len(parent.microsteps_le.text()) > 0:
+		if is_number(parent.microsteps_le.text()):
+			micro_steps = int(float(parent.microsteps_le.text()))
+		else:
+			msg = (f'{parent.microsteps_le.text()} is not a valid number\n'
+			f'for {parent.microsteps_le.property("name")}')
+			dialogs.errorMsgOk(msg, 'Error')
+			return
+	else:
+		micro_steps = False
+
+	if len(parent.stepper_teeth_le.text()) > 0:
+		if is_number(parent.stepper_teeth_le.text()):
+			stepper_teeth = int(float(parent.stepper_teeth_le.text()))
+		else:
+			msg = (f'{parent.stepper_teeth_le.text()} is not a valid number\n'
+			f'for {parent.stepper_teeth_le.property("name")}')
+			dialogs.errorMsgOk(msg, 'Error')
+			return
+	else:
+		stepper_teeth = False
+
+
+	if len(parent.leadscrew_teeth_le.text()) > 0:
+		if is_number(parent.leadscrew_teeth_le.text()):
+			leadscrew_teeth = int(float(parent.leadscrew_teeth_le.text()))
+		else:
+			msg = (f'{parent.leadscrew_teeth_le.text()} is not a valid number\n'
+			f'for {parent.leadscrew_teeth_le.property("name")}')
+			dialogs.errorMsgOk(msg, 'Error')
+			return
+	else:
+		leadscrew_teeth = False
+
+	if micro_steps: # get steps per rev
+		steps_rev = steps_rev * micro_steps
+
+	print(steps_rev)
+
+	if leadscrew_teeth and stepper_teeth:
+		parent.scale_le.setText(f'{steps_rev * (leadscrew_teeth/stepper_teeth) * leadscrew_pitch}')
+	else:
+		parent.scale_le.setText(f'{steps_rev * leadscrew_pitch}')
+
+'''
+
+	parent.steps_rev = False
+	d = {'steps_rev_le': parent.steps_rev}
+	d['steps_rev_le'] = getattr(parent, 'steps_rev_le').text()
+	print(parent.steps_rev)
+	print(d['steps_rev_le'])
+
+
+
+
+	items = ['steps_rev_le', 'microsteps_le', 'stepper_teeth_le',
+		'leadscrew_teeth_le', 'leadscrew_pitch_le']
+
+	for item in items:
+		print(getattr(parent, item).text())
+
+
+	# check for blank entries
+	required_items = ['steps_rev_le', 'leadscrew_pitch_le']
+	for item in required_items:
+		if getattr(parent, f'{item}').text() == '':
+			msg = (f'{getattr(parent, item).property("name")}\ncan not be blank.')
+			dialogs.errorMsgOk(msg, 'Error')
+			return
+
+	items = ['steps_rev_le', 'microsteps_le', 'stepper_teeth_le',
+		'leadscrew_teeth_le', 'leadscrew_pitch_le']
+	for item in items:
+		if len(getattr(parent, f'{item}').text()) > 0:
+			if not is_number(getattr(parent, f'{item}').text()):
+				msg = (f'{getattr(parent, item).property("name")}\nis not a valid number.')
+				dialogs.errorMsgOk(msg, 'Error')
+				return
+
+	entries = [['steps_rev_le', steps_rev = '']]
+	for entry in entries:
+		if len(getattr(parent, f'{entry[0]}').text()) > 0:
+			if is_number(getattr(parent, f'{entry[0]}').text()):
+				setattr(parent, f'{entry[1]}', float(getattr(parent, f'{entry[0]}').text()))
+				print(parent.steps_rev)
+			else:
+				setattr(parent, f'{entry[1]}', False)
+		print(getattr(parent, f'{entry[1]}')
+
+
+
+	steps_rev = int(parent.steps_rev_le.text())
+	leadscrew_pitch = float(parent.leadscrew_pitch_le.text())
+
+
+	if is_int(parent.stepper_teeth_le.text()):
+		print('int')
+	else:
+		print('not')
+
+	if is_number(parent.stepper_teeth_le.text()):
+		print('float')
+	else:
+		print('not float')
+
+
+
+
+
+		# check for blank entries
+
+		# check for valid numbers
+		if not is_number(getattr(parent, f'{item}').text()):
+
+	# calculate scale
+	steps_rev = float(parent.steps_rev_le.text())
+	micro_steps = float(parent.microsteps_le.text())
+	pitch = float(parent.leadscrew_pitch_le.text())
+
+	if len(parent.stepper_teeth_le.text()) > 0:
+		if is_number(parent.stepper_teeth_le.text())
+			stepper_teeth = 
+
+
+	gear_reduction = float(parent.gear_reduction_le.text())
+
+
+	scale = (steps_rev * micro_steps) / gear_reduction * pitch
+	parent.scale_le.setText(f'{scale}')
+stepper_teeth_le
+leadscrew_teeth_le
+'''
