@@ -230,7 +230,6 @@ def calc_scale(parent):
 	else:
 		stepper_teeth = False
 
-
 	if len(parent.leadscrew_teeth_le.text()) > 0:
 		if is_number(parent.leadscrew_teeth_le.text()):
 			leadscrew_teeth = int(float(parent.leadscrew_teeth_le.text()))
@@ -245,98 +244,9 @@ def calc_scale(parent):
 	if micro_steps: # get steps per rev
 		steps_rev = steps_rev * micro_steps
 
-	print(steps_rev)
-
 	if leadscrew_teeth and stepper_teeth:
 		parent.scale_le.setText(f'{steps_rev * (leadscrew_teeth/stepper_teeth) * leadscrew_pitch}')
 	else:
 		parent.scale_le.setText(f'{steps_rev * leadscrew_pitch}')
 
-'''
 
-	parent.steps_rev = False
-	d = {'steps_rev_le': parent.steps_rev}
-	d['steps_rev_le'] = getattr(parent, 'steps_rev_le').text()
-	print(parent.steps_rev)
-	print(d['steps_rev_le'])
-
-
-
-
-	items = ['steps_rev_le', 'microsteps_le', 'stepper_teeth_le',
-		'leadscrew_teeth_le', 'leadscrew_pitch_le']
-
-	for item in items:
-		print(getattr(parent, item).text())
-
-
-	# check for blank entries
-	required_items = ['steps_rev_le', 'leadscrew_pitch_le']
-	for item in required_items:
-		if getattr(parent, f'{item}').text() == '':
-			msg = (f'{getattr(parent, item).property("name")}\ncan not be blank.')
-			dialogs.errorMsgOk(msg, 'Error')
-			return
-
-	items = ['steps_rev_le', 'microsteps_le', 'stepper_teeth_le',
-		'leadscrew_teeth_le', 'leadscrew_pitch_le']
-	for item in items:
-		if len(getattr(parent, f'{item}').text()) > 0:
-			if not is_number(getattr(parent, f'{item}').text()):
-				msg = (f'{getattr(parent, item).property("name")}\nis not a valid number.')
-				dialogs.errorMsgOk(msg, 'Error')
-				return
-
-	entries = [['steps_rev_le', steps_rev = '']]
-	for entry in entries:
-		if len(getattr(parent, f'{entry[0]}').text()) > 0:
-			if is_number(getattr(parent, f'{entry[0]}').text()):
-				setattr(parent, f'{entry[1]}', float(getattr(parent, f'{entry[0]}').text()))
-				print(parent.steps_rev)
-			else:
-				setattr(parent, f'{entry[1]}', False)
-		print(getattr(parent, f'{entry[1]}')
-
-
-
-	steps_rev = int(parent.steps_rev_le.text())
-	leadscrew_pitch = float(parent.leadscrew_pitch_le.text())
-
-
-	if is_int(parent.stepper_teeth_le.text()):
-		print('int')
-	else:
-		print('not')
-
-	if is_number(parent.stepper_teeth_le.text()):
-		print('float')
-	else:
-		print('not float')
-
-
-
-
-
-		# check for blank entries
-
-		# check for valid numbers
-		if not is_number(getattr(parent, f'{item}').text()):
-
-	# calculate scale
-	steps_rev = float(parent.steps_rev_le.text())
-	micro_steps = float(parent.microsteps_le.text())
-	pitch = float(parent.leadscrew_pitch_le.text())
-
-	if len(parent.stepper_teeth_le.text()) > 0:
-		if is_number(parent.stepper_teeth_le.text())
-			stepper_teeth = 
-
-
-	gear_reduction = float(parent.gear_reduction_le.text())
-
-
-	scale = (steps_rev * micro_steps) / gear_reduction * pitch
-	parent.scale_le.setText(f'{scale}')
-stepper_teeth_le
-leadscrew_teeth_le
-'''
