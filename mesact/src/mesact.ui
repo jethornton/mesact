@@ -1470,189 +1470,6 @@ to the clipboard</string>
           </layout>
          </widget>
         </item>
-        <item row="3" column="2" colspan="2">
-         <widget class="QTabWidget" name="tabWidget_228">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>250</height>
-           </size>
-          </property>
-          <property name="currentIndex">
-           <number>0</number>
-          </property>
-          <widget class="QWidget" name="tabWidget_228Page1" native="true">
-           <attribute name="title">
-            <string>Scale Calculator</string>
-           </attribute>
-           <layout class="QGridLayout" name="gridLayout_307">
-            <item row="5" column="1">
-             <widget class="QLineEdit" name="scale_le">
-              <property name="alignment">
-               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="0">
-             <widget class="QLabel" name="label_748">
-              <property name="text">
-               <string>Microsteps</string>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="1">
-             <widget class="QLineEdit" name="stepper_teeth_le">
-              <property name="toolTip">
-               <string>Leave blank for direct drive</string>
-              </property>
-              <property name="text">
-               <string/>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-              </property>
-              <property name="name" stdset="0">
-               <string>Stepper Teeth</string>
-              </property>
-             </widget>
-            </item>
-            <item row="3" column="1">
-             <widget class="QLineEdit" name="leadscrew_teeth_le">
-              <property name="toolTip">
-               <string>Leave blank for direct drive</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-              </property>
-              <property name="name" stdset="0">
-               <string>Leadscrew Teeth</string>
-              </property>
-             </widget>
-            </item>
-            <item row="5" column="0">
-             <widget class="QPushButton" name="calc_scale_pb">
-              <property name="text">
-               <string>Calculate Scale</string>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="0">
-             <widget class="QLabel" name="label_749">
-              <property name="text">
-               <string>Stepper Teeth</string>
-              </property>
-             </widget>
-            </item>
-            <item row="4" column="1">
-             <widget class="QLineEdit" name="leadscrew_pitch_le">
-              <property name="toolTip">
-               <string>Rotations per user Unit</string>
-              </property>
-              <property name="statusTip">
-               <string/>
-              </property>
-              <property name="text">
-               <string>1</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-              </property>
-              <property name="name" stdset="0">
-               <string>Leadscrew Pitch</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="1">
-             <widget class="QLineEdit" name="microsteps_le">
-              <property name="text">
-               <string/>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-              </property>
-              <property name="name" stdset="0">
-               <string>Microsteps</string>
-              </property>
-             </widget>
-            </item>
-            <item row="4" column="0">
-             <widget class="QLabel" name="label_750">
-              <property name="text">
-               <string>Leadscrew Pitch</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="1">
-             <widget class="QLineEdit" name="steps_rev_le">
-              <property name="toolTip">
-               <string>Whole Steps per Rotation</string>
-              </property>
-              <property name="statusTip">
-               <string/>
-              </property>
-              <property name="text">
-               <string>200</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-              </property>
-              <property name="name" stdset="0">
-               <string>Steps/Revolution</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="0">
-             <widget class="QLabel" name="label_5">
-              <property name="text">
-               <string>Steps/Revolution</string>
-              </property>
-             </widget>
-            </item>
-            <item row="3" column="0">
-             <widget class="QLabel" name="label_751">
-              <property name="text">
-               <string>Leadscrew Teeth</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="2">
-             <widget class="QLabel" name="label_752">
-              <property name="text">
-               <string>*</string>
-              </property>
-             </widget>
-            </item>
-            <item row="4" column="2">
-             <widget class="QLabel" name="label_753">
-              <property name="text">
-               <string>*</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-          <widget class="QWidget" name="tab_119">
-           <attribute name="title">
-            <string>Info</string>
-           </attribute>
-           <layout class="QVBoxLayout" name="verticalLayout_28">
-            <item>
-             <widget class="QPlainTextEdit" name="plainTextEdit_3">
-              <property name="plainText">
-               <string>Required Entries marked with *
-
-For Direct Drive leave Motor Gear and Leadscrew Gear blank.
-
-For no Microsteps leave blank
-
-Leadscrew Pitch is turns per user unit. Example 6 turns per inch or .25 turns per mm</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-         </widget>
-        </item>
        </layout>
       </widget>
       <widget class="QWidget" name="tab_3">
@@ -1669,29 +1486,214 @@ Leadscrew Pitch is turns per user unit. Example 6 turns per inch or .25 turns pe
            <attribute name="title">
             <string>Board</string>
            </attribute>
-           <widget class="QLabel" name="unitsLB_0">
-            <property name="geometry">
-             <rect>
-              <x>10</x>
-              <y>10</y>
-              <width>101</width>
-              <height>61</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>TextLabel</string>
-            </property>
-           </widget>
-           <widget class="QPlainTextEdit" name="board_info_pte">
-            <property name="geometry">
-             <rect>
-              <x>30</x>
-              <y>90</y>
-              <width>411</width>
-              <height>291</height>
-             </rect>
-            </property>
-           </widget>
+           <layout class="QGridLayout" name="gridLayout_321">
+            <item row="0" column="0">
+             <widget class="QLabel" name="unitsLB_0">
+              <property name="text">
+               <string>TextLabel</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QPlainTextEdit" name="board_info_pte"/>
+            </item>
+            <item row="1" column="1">
+             <widget class="QTabWidget" name="tabWidget_228">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="currentIndex">
+               <number>0</number>
+              </property>
+              <widget class="QWidget" name="tabWidget_228Page1">
+               <attribute name="title">
+                <string>Scale Calculator</string>
+               </attribute>
+               <layout class="QGridLayout" name="gridLayout_307">
+                <item row="1" column="0">
+                 <widget class="QLabel" name="label_748">
+                  <property name="text">
+                   <string>Microsteps</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="4" column="2">
+                 <widget class="QLabel" name="label_753">
+                  <property name="text">
+                   <string>*</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="1">
+                 <widget class="QLineEdit" name="stepper_teeth_le">
+                  <property name="toolTip">
+                   <string>Leave blank for direct drive</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                  <property name="name" stdset="0">
+                   <string>Stepper Teeth</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="2">
+                 <widget class="QLabel" name="label_752">
+                  <property name="text">
+                   <string>*</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="4" column="1">
+                 <widget class="QLineEdit" name="leadscrew_pitch_le">
+                  <property name="toolTip">
+                   <string>Rotations per user Unit</string>
+                  </property>
+                  <property name="statusTip">
+                   <string/>
+                  </property>
+                  <property name="text">
+                   <string>1</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                  <property name="name" stdset="0">
+                   <string>Leadscrew Pitch</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="0">
+                 <widget class="QLabel" name="label_5">
+                  <property name="text">
+                   <string>Steps/Revolution</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QLineEdit" name="steps_rev_le">
+                  <property name="toolTip">
+                   <string>Whole Steps per Rotation</string>
+                  </property>
+                  <property name="statusTip">
+                   <string/>
+                  </property>
+                  <property name="text">
+                   <string>200</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                  <property name="name" stdset="0">
+                   <string>Steps/Revolution</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QLineEdit" name="microsteps_le">
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                  <property name="name" stdset="0">
+                   <string>Microsteps</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="0">
+                 <widget class="QLabel" name="label_751">
+                  <property name="text">
+                   <string>Leadscrew Teeth</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="6" column="0">
+                 <widget class="QPushButton" name="calc_scale_pb">
+                  <property name="text">
+                   <string>Calculate Scale</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QLabel" name="label_749">
+                  <property name="text">
+                   <string>Stepper Teeth</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="4" column="0">
+                 <widget class="QLabel" name="label_750">
+                  <property name="text">
+                   <string>Leadscrew Pitch</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="6" column="1">
+                 <widget class="QLineEdit" name="scale_le">
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="1">
+                 <widget class="QLineEdit" name="leadscrew_teeth_le">
+                  <property name="toolTip">
+                   <string>Leave blank for direct drive</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                  <property name="name" stdset="0">
+                   <string>Leadscrew Teeth</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="5" column="1">
+                 <spacer name="verticalSpacer_54">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="tab_119">
+               <attribute name="title">
+                <string>Info</string>
+               </attribute>
+               <layout class="QVBoxLayout" name="verticalLayout_28">
+                <item>
+                 <widget class="QPlainTextEdit" name="plainTextEdit_3">
+                  <property name="plainText">
+                   <string>Required Entries marked with *
+
+For Direct Drive leave Motor Gear and Leadscrew Gear blank.
+
+For no Microsteps leave blank
+
+Leadscrew Pitch is turns per user unit. Example 6 turns per inch or .25 turns per mm</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </widget>
+            </item>
+           </layout>
           </widget>
           <widget class="QWidget" name="tab_15">
            <attribute name="title">
@@ -43068,15 +43070,6 @@ auto enp2s0
   <tabstop>minAngJogVelDSB</tabstop>
   <tabstop>defAngJogVelDSB</tabstop>
   <tabstop>maxAngJogVelDSB</tabstop>
-  <tabstop>tabWidget_228</tabstop>
-  <tabstop>steps_rev_le</tabstop>
-  <tabstop>microsteps_le</tabstop>
-  <tabstop>stepper_teeth_le</tabstop>
-  <tabstop>leadscrew_teeth_le</tabstop>
-  <tabstop>leadscrew_pitch_le</tabstop>
-  <tabstop>scale_le</tabstop>
-  <tabstop>calc_scale_pb</tabstop>
-  <tabstop>plainTextEdit_3</tabstop>
   <tabstop>c0_ff1_0</tabstop>
   <tabstop>c0_maxOutput_0</tabstop>
   <tabstop>c0_deadband_0</tabstop>
