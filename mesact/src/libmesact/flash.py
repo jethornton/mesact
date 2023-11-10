@@ -67,7 +67,12 @@ def verify_ip_board(parent): # make me toss up the error message and return Fals
 		p = Popen(cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
 		prompt = p.communicate()
 		selected_board = parent.boardCB.currentText().upper()
-		connected_board= prompt[0].split()[2]
+		if prompt[0].split()[0] == 'ETH':
+			connected_board = prompt[0].split()[2]
+		else:
+			msg = (f'Device found at {address}\nis not a Mesa Board')
+			dialogs.errorMsgOk(msg, 'Error')
+			return
 		if selected_board == connected_board:
 			return True
 		else:
