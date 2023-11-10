@@ -1472,6 +1472,12 @@ to the clipboard</string>
         </item>
         <item row="3" column="2" colspan="2">
          <widget class="QTabWidget" name="tabWidget_228">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>250</height>
+           </size>
+          </property>
           <property name="currentIndex">
            <number>0</number>
           </property>
@@ -1638,6 +1644,7 @@ to the clipboard</string>
 For Direct Drive leave Motor Gear and Leadscrew Gear blank.
 
 For no Microsteps leave blank
+
 Leadscrew Pitch is turns per user unit. Example 6 turns per inch or .25 turns per mm</string>
               </property>
              </widget>
