@@ -2,34 +2,58 @@
 from PyQt5.QtWidgets import QMessageBox
 
 from libmesact import utilities
+from libmesact import dialogs
+
+def copy_scale(parent):
+	if parent.scale_joint_cb.currentData():
+		print(parent.scale_joint_cb.currentData())
+		if len(parent.scale_le.text()) > 0:
+			getattr(parent, f'{parent.scale_joint_cb.currentData()}').setText(parent.scale_le.text())
+			#setattr(parent, getattr(parent, f'{parent.scale_joint_cb.currentData()}', parent.scale_le.text()))
+		else:
+			msg = ('Scale must not be blank')
+			dialogs.errorMsgOk(msg, 'Error')
+	else:
+		msg = ('Select a Joint to copy to')
+		dialogs.errorMsgOk(msg, 'Error')
 
 def axisChanged(parent):
-	connector = parent.sender().objectName()[:3]
-	joint = parent.sender().objectName()[-1]
-	axis = parent.sender().currentText()
-	if axis in ['X', 'Y', 'Z', 'U', 'V', 'W']:
-		getattr(parent, f'{connector}axisType_{joint}').setText('LINEAR')
-		parent.minAngJogVelDSB.setEnabled(False)
-		parent.defAngJogVelDSB.setEnabled(False)
-		parent.maxAngJogVelDSB.setEnabled(False)
-	elif axis in ['A', 'B', 'C']:
-		getattr(parent, f'{connector}axisType_{joint}').setText('ANGULAR')
-		parent.minAngJogVelDSB.setEnabled(True)
-		parent.defAngJogVelDSB.setEnabled(True)
-		parent.maxAngJogVelDSB.setEnabled(True)
-	else:
-		getattr(parent, f'{connector}axisType_{joint}').setText('')
-		parent.minAngJogVelDSB.setEnabled(False)
-		parent.defAngJogVelDSB.setEnabled(False)
-		parent.maxAngJogVelDSB.setEnabled(False)
-	coordList = []
+	if parent.sender().currentData():
+		connector = parent.sender().objectName()[:3]
+		joint = parent.sender().objectName()[-1]
+		axis = parent.sender().currentText()
+		if axis in ['X', 'Y', 'Z', 'U', 'V', 'W']:
+			getattr(parent, f'{connector}axisType_{joint}').setText('LINEAR')
+			parent.minAngJogVelDSB.setEnabled(False)
+			parent.defAngJogVelDSB.setEnabled(False)
+			parent.maxAngJogVelDSB.setEnabled(False)
+		elif axis in ['A', 'B', 'C']:
+			getattr(parent, f'{connector}axisType_{joint}').setText('ANGULAR')
+			parent.minAngJogVelDSB.setEnabled(True)
+			parent.defAngJogVelDSB.setEnabled(True)
+			parent.maxAngJogVelDSB.setEnabled(True)
+		else:
+			getattr(parent, f'{connector}axisType_{joint}').setText('')
+			parent.minAngJogVelDSB.setEnabled(False)
+			parent.defAngJogVelDSB.setEnabled(False)
+			parent.maxAngJogVelDSB.setEnabled(False)
+		coordList = []
 
-	for i in range(3):
-		for j in range(6):
-			axisLetter = getattr(parent, f'c{i}_axis_{j}').currentText()
-			if axisLetter != 'Select':
-				coordList.append(axisLetter)
-			parent.coordinatesLB.setText(''.join(coordList))
+		parent.scale_joint_cb.clear()
+		parent.scale_joint_cb.addItem('Select', False)
+		for i in range(3):
+			for j in range(6):
+				axisLetter = getattr(parent, f'c{i}_axis_{j}').currentText()
+				if axisLetter != 'Select':
+					coordList.append(axisLetter)
+					parent.scale_joint_cb.addItem(f'Axis {axisLetter} Joint {j} ', f'c{i}_scale_{j}')
+					#print(f'Axis {axisLetter} Joint {j} ')
+				parent.coordinatesLB.setText(''.join(coordList))
+		if coordList:
+			parent.copy_scale_pb.setEnabled(True)
+		else:
+			parent.copy_scale_pb.setEnabled(False)
+
 
 def updateAxisInfo(parent):
 	card = parent.sender().objectName()[:2]

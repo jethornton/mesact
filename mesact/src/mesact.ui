@@ -1551,7 +1551,7 @@ to the clipboard</string>
                       <string/>
                      </property>
                      <property name="text">
-                      <string>1</string>
+                      <string/>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -1674,6 +1674,19 @@ to the clipboard</string>
                       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                      </property>
                     </widget>
+                   </item>
+                   <item row="7" column="0">
+                    <widget class="QPushButton" name="copy_scale_pb">
+                     <property name="enabled">
+                      <bool>false</bool>
+                     </property>
+                     <property name="text">
+                      <string>Copy To &gt;</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="7" column="1">
+                    <widget class="QComboBox" name="scale_joint_cb"/>
                    </item>
                   </layout>
                  </widget>

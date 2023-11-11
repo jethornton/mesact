@@ -91,6 +91,7 @@ def connect(parent):
 	# Info Tab
 
 	# Axes Tab
+	parent.copy_scale_pb.clicked.connect(partial(axes.copy_scale, parent))
 	# for now just do one card
 	#j = 0
 	for j in range(3):
