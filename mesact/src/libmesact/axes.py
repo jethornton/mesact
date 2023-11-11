@@ -6,7 +6,6 @@ from libmesact import dialogs
 
 def copy_scale(parent):
 	if parent.scale_joint_cb.currentData():
-		print(parent.scale_joint_cb.currentData())
 		if len(parent.scale_le.text()) > 0:
 			getattr(parent, f'{parent.scale_joint_cb.currentData()}').setText(parent.scale_le.text())
 			#setattr(parent, getattr(parent, f'{parent.scale_joint_cb.currentData()}', parent.scale_le.text()))
