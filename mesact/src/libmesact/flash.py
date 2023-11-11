@@ -44,17 +44,22 @@ def getResults(parent, prompt, result, viewport, task=None):
 	getattr(parent, viewport).appendPlainText(f'{output}\n')
 
 def find_ip_board(parent):
-	address = False
-	if os.system("ping -c 1 10.10.10.10") == 0:
-		address = '10.10.10.10'
-	elif os.system("ping -c 1 192.168.1.121") == 0:
-		address = '192.168.1.121'
+	addresses = ['10.10.10.10', '192.168.1.121']
+	for address in addresses:
+		cmd = ['ping', '-c', '1', address]
+		output = subprocess.run(cmd, capture_output=True, text=True)
+		if output.returncode == 0:
+			cmd = ['mesaflash', '--device', 'ether', '--addr', address]
+			output = subprocess.run(cmd, capture_output=True, text=True)
+			if output.returncode == 0:
+				parent.verifyPTE.clear()
+				msg = (f'Find IP Board Results:{output.stdout}')
+				parent.verifyPTE.setPlainText(msg)
+				return
 
-	if address:
-		cmd = ['mesaflash', '--device', 'ether', '--addr', address]
-		p = Popen(cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
-		prompt = p.communicate()
-		getResults(parent, prompt, p.returncode, 'verifyPTE', 'Find IP Board')
+	# print(f'Return Code: {output.returncode}')
+	# print(f'Std Output: {output.stdout}')
+	# print(f'Std Error: {output.stderr}')
 
 def verify_ip_board(parent): # make me toss up the error message and return False
 	if check_ip(parent):
