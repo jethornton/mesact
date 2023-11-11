@@ -17,7 +17,7 @@ def errorMsgCancelOk(text, title):
 	else:
 		return False
 
-def errorMsgOk(text, title):
+def errorMsgOk(text, title=None):
 	msgBox = QMessageBox()
 	msgBox.setIcon(QMessageBox.Warning)
 	msgBox.setWindowTitle(title)
