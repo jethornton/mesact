@@ -245,8 +245,8 @@ def calc_scale(parent):
 		steps_rev = steps_rev * micro_steps
 
 	if leadscrew_teeth and stepper_teeth:
-		parent.scale_le.setText(f'{steps_rev * (leadscrew_teeth/stepper_teeth) * leadscrew_pitch}')
+		parent.scale_le.setText(f'{round(steps_rev * (leadscrew_teeth/stepper_teeth) * leadscrew_pitch, 4):g}')
 	else:
-		parent.scale_le.setText(f'{steps_rev * leadscrew_pitch}')
+		parent.scale_le.setText(f'{round(steps_rev * leadscrew_pitch, 4):g}')
 
 
