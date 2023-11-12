@@ -3,7 +3,7 @@ from platform import python_version
 from functools import partial
 
 from PyQt5.QtCore import qVersion
-from PyQt5.QtGui import  QIcon
+from PyQt5.QtGui import  QIcon, QIntValidator, QDoubleValidator
 from PyQt5.QtWidgets import QAction, QCheckBox, QLineEdit, QPlainTextEdit
 from PyQt5.QtWidgets import QComboBox, QSpinBox, QDoubleSpinBox, QCheckBox
 
@@ -113,3 +113,12 @@ def setup(parent):
 	for child in parent.findChildren(QCheckBox):
 		child.stateChanged.connect(partial(utilities.changed, parent))
 
+	# allow only integers
+	onlyInt = QIntValidator()
+	only_numbers = QDoubleValidator()
+	#onlyInt.setRange(0, 4) low, high
+	parent.steps_rev_le.setValidator(onlyInt)
+	parent.microsteps_le.setValidator(onlyInt)
+	parent.stepper_teeth_le.setValidator(onlyInt)
+	parent.leadscrew_teeth_le.setValidator(onlyInt)
+	parent.leadscrew_pitch_le.setValidator(only_numbers)
