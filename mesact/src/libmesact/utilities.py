@@ -53,9 +53,17 @@ def unitsChanged(parent):
 			getattr(parent, f'unitsLB_{i}').setText('Select Units\nSettings Tab')
 		return
 	if parent.linearUnitsCB.currentData() == 'mm':
+		for i in range(6):
+			for j in range(3): # <-- change when more cards are added
+				getattr(parent, f'c{j}_max_vel_{i}').setPlaceholderText('mm/sec')
+				getattr(parent, f'c{j}_max_accel_{i}').setPlaceholderText('mm/sec^2')
 		unitsSecond = 'mm/sec'
 		unitsMinute = 'mm/min'
 	elif parent.linearUnitsCB.currentData() == 'inch':
+		for i in range(6):
+			for j in range(3): # <-- change when more cards are added
+				getattr(parent, f'c{j}_max_vel_{i}').setPlaceholderText('inch/sec')
+				getattr(parent, f'c{j}_max_accel_{i}').setPlaceholderText('inch/sec^2')
 		unitsSecond = 'in/sec'
 		unitsMinute = 'in/min'
 	for i in range(3):
@@ -181,6 +189,8 @@ def changed(parent): # if anything is changed add *
 	parent.actionBuild.setText('Build Config *')
 
 def calc_scale(parent):
+	print(float(parent.microsteps_le.text()))
+	return
 	# scale = steps/rev * microsteps * (leadscrew teeth / motor teeth) * leadscrew revs/ unit
 	if len(parent.steps_rev_le.text()) > 0: # required entry
 		if is_number(parent.steps_rev_le.text()):
