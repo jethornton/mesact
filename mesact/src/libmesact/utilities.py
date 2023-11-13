@@ -51,30 +51,32 @@ def unitsChanged(parent):
 		unitsMinute = ''
 		for i in range(3):
 			getattr(parent, f'unitsLB_{i}').setText('Select Units\nSettings Tab')
+		for i in range(6):
+			for j in range(3): # <-- change when more cards are added
+				getattr(parent, f'c{j}_max_vel_{i}').setPlaceholderText('')
+				getattr(parent, f'c{j}_max_accel_{i}').setPlaceholderText('')
 		return
 	if parent.linearUnitsCB.currentData() == 'mm':
-		for i in range(6):
-			for j in range(3): # <-- change when more cards are added
-				getattr(parent, f'c{j}_max_vel_{i}').setPlaceholderText('mm/sec')
-				getattr(parent, f'c{j}_max_accel_{i}').setPlaceholderText('mm/sec^2')
-		unitsSecond = 'mm/sec'
-		unitsMinute = 'mm/min'
+		units_second = 'mm/sec'
+		units_second2 = 'mm/sec^2'
+		units_minute = 'mm/min'
 	elif parent.linearUnitsCB.currentData() == 'inch':
-		for i in range(6):
-			for j in range(3): # <-- change when more cards are added
-				getattr(parent, f'c{j}_max_vel_{i}').setPlaceholderText('inch/sec')
-				getattr(parent, f'c{j}_max_accel_{i}').setPlaceholderText('inch/sec^2')
-		unitsSecond = 'in/sec'
-		unitsMinute = 'in/min'
+		units_second = 'inch/sec'
+		units_second2 = 'inch/sec^2'
+		units_minute = 'inch/min'
+	for i in range(6):
+		for j in range(3): # <-- change when more cards are added
+			getattr(parent, f'c{j}_max_vel_{i}').setPlaceholderText(units_second)
+			getattr(parent, f'c{j}_max_accel_{i}').setPlaceholderText(units_second2)
 	for i in range(3):
-		getattr(parent, f'unitsLB_{i}').setText(f'Vel & Acc\n{unitsSecond}')
-	parent.trajMaxLinVelDSB.setSuffix(f' {unitsSecond}')
-	parent.minLinJogVelDSB.setSuffix(f' {unitsSecond}')
-	parent.defLinJogVelDSB.setSuffix(f' {unitsSecond}')
-	parent.maxLinJogVelDSB.setSuffix(f' {unitsSecond}')
-	parent.minLinearVelLB.setText(f'{parent.minLinJogVelDSB.value() * 60:.1f} {unitsMinute}')
-	parent.defLinearVelLB.setText(f'{parent.defLinJogVelDSB.value() * 60:.1f} {unitsMinute}')
-	parent.maxLinearVelLB.setText(f'{parent.maxLinJogVelDSB.value() * 60:.1f} {unitsMinute}')
+		getattr(parent, f'unitsLB_{i}').setText(f'Vel & Acc\n{units_second}')
+	parent.trajMaxLinVelDSB.setSuffix(f' {units_second}')
+	parent.minLinJogVelDSB.setSuffix(f' {units_second}')
+	parent.defLinJogVelDSB.setSuffix(f' {units_second}')
+	parent.maxLinJogVelDSB.setSuffix(f' {units_second}')
+	parent.minLinearVelLB.setText(f'{parent.minLinJogVelDSB.value() * 60:.1f} {units_minute}')
+	parent.defLinearVelLB.setText(f'{parent.defLinJogVelDSB.value() * 60:.1f} {units_minute}')
+	parent.maxLinearVelLB.setText(f'{parent.maxLinJogVelDSB.value() * 60:.1f} {units_minute}')
 	if set('ABC')&set(parent.coordinatesLB.text()): # angular axis
 		parent.minAngularVelLB.setText(f'{parent.minAngJogVelDSB.value() * 60:.1f} deg/min')
 		parent.defAngularVelLB.setText(f'{parent.defAngJogVelDSB.value() * 60:.1f} deg/min')
