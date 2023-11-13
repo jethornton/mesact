@@ -125,7 +125,6 @@ def setup(parent):
 	#self.lineEdit.setValidator(validator)
 
 	#only_numbers.setNumberOptions(QLocale.RejectGroupSeparator)
-	#onlyInt.setRange(0, 4) low, high
 	parent.steps_rev_le.setValidator(only_int)
 	parent.microsteps_le.setValidator(only_int)
 	parent.stepper_teeth_le.setValidator(only_int)
