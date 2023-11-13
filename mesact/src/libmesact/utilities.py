@@ -189,8 +189,6 @@ def changed(parent): # if anything is changed add *
 	parent.actionBuild.setText('Build Config *')
 
 def calc_scale(parent):
-	print(float(parent.microsteps_le.text()))
-	return
 	# scale = steps/rev * microsteps * (leadscrew teeth / motor teeth) * leadscrew revs/ unit
 	if len(parent.steps_rev_le.text()) > 0: # required entry
 		if is_number(parent.steps_rev_le.text()):
