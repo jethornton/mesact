@@ -2,8 +2,8 @@ import os, subprocess, sysconfig
 from platform import python_version
 from functools import partial
 
-from PyQt5.QtCore import qVersion
-from PyQt5.QtGui import  QIcon, QIntValidator, QDoubleValidator
+from PyQt5.QtCore import qVersion, QRegExp, QLocale
+from PyQt5.QtGui import  QIcon, QIntValidator, QDoubleValidator, QRegExpValidator
 from PyQt5.QtWidgets import QAction, QCheckBox, QLineEdit, QPlainTextEdit
 from PyQt5.QtWidgets import QComboBox, QSpinBox, QDoubleSpinBox, QCheckBox
 
@@ -114,11 +114,29 @@ def setup(parent):
 		child.stateChanged.connect(partial(utilities.changed, parent))
 
 	# allow only integers
-	onlyInt = QIntValidator()
+	only_int = QIntValidator()
+	c_locale = QLocale(QLocale.C)
+	only_int.setLocale(c_locale)
+
 	only_numbers = QDoubleValidator()
+	only_numbers.setNotation(QDoubleValidator.StandardNotation)
+	only_numbers.setLocale(c_locale)
+	#validator = QRegExpValidator(QRegExp(r'[0-9].+'))
+	#self.lineEdit.setValidator(validator)
+
+	#only_numbers.setNumberOptions(QLocale.RejectGroupSeparator)
 	#onlyInt.setRange(0, 4) low, high
-	parent.steps_rev_le.setValidator(onlyInt)
-	parent.microsteps_le.setValidator(onlyInt)
-	parent.stepper_teeth_le.setValidator(onlyInt)
-	parent.leadscrew_teeth_le.setValidator(onlyInt)
+	parent.steps_rev_le.setValidator(only_int)
+	parent.microsteps_le.setValidator(only_int)
+	parent.stepper_teeth_le.setValidator(only_int)
+	parent.leadscrew_teeth_le.setValidator(only_int)
 	parent.leadscrew_pitch_le.setValidator(only_numbers)
+
+	# c0_scale_0 c0_min_limit_0 c0_max_limit_0 c0_max_vel_0 c0_max_accel_0
+	float_list = ['_scale_', '_min_limit_', '_max_limit_', '_max_vel_',
+	'_max_accel_']
+	for item in float_list:
+		for i in range(3):
+			for j in range(6):
+				getattr(parent, f'c{i}{item}{j}').setValidator(only_numbers)
+
