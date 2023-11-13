@@ -1743,9 +1743,6 @@ Leadscrew Pitch is turns per user unit. Example 6 turns per inch or .25 turns pe
                  <property name="toolTip">
                   <string>Mininum Travel Limit</string>
                  </property>
-                 <property name="statusTip">
-                  <string/>
-                 </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
@@ -1755,9 +1752,6 @@ Leadscrew Pitch is turns per user unit. Example 6 turns per inch or .25 turns pe
                 <widget class="QLineEdit" name="c0_max_limit_0">
                  <property name="toolTip">
                   <string>Maximum Travel Limit</string>
-                 </property>
-                 <property name="statusTip">
-                  <string/>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -1828,9 +1822,6 @@ Leadscrew Pitch is turns per user unit. Example 6 turns per inch or .25 turns pe
                  <property name="toolTip">
                   <string>Maximum Velocity in Units per Second</string>
                  </property>
-                 <property name="statusTip">
-                  <string/>
-                 </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
@@ -1850,9 +1841,6 @@ Leadscrew Pitch is turns per user unit. Example 6 turns per inch or .25 turns pe
                 <widget class="QLineEdit" name="c0_max_accel_0">
                  <property name="toolTip">
                   <string>Maximum Acceleration in Units per Second per Second</string>
-                 </property>
-                 <property name="statusTip">
-                  <string/>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -3250,9 +3238,6 @@ Leave blank to home the joint manually.</string>
                  <property name="toolTip">
                   <string>Maximum Velocity in Units per Second</string>
                  </property>
-                 <property name="statusTip">
-                  <string/>
-                 </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
@@ -3262,9 +3247,6 @@ Leave blank to home the joint manually.</string>
                 <widget class="QLineEdit" name="c0_max_limit_1">
                  <property name="toolTip">
                   <string>Maximum Travel Limit</string>
-                 </property>
-                 <property name="statusTip">
-                  <string/>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -3285,9 +3267,6 @@ Leave blank to home the joint manually.</string>
                 <widget class="QLineEdit" name="c0_max_accel_1">
                  <property name="toolTip">
                   <string>Maximum Acceleration in Units per Second per Second</string>
-                 </property>
-                 <property name="statusTip">
-                  <string/>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -3324,9 +3303,6 @@ Leave blank to home the joint manually.</string>
                 <widget class="QLineEdit" name="c0_min_limit_1">
                  <property name="toolTip">
                   <string>Mininum Travel Limit</string>
-                 </property>
-                 <property name="statusTip">
-                  <string/>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -4651,9 +4627,6 @@ Leave blank to home the joint manually.</string>
                  <property name="toolTip">
                   <string>Maximum Travel Limit</string>
                  </property>
-                 <property name="statusTip">
-                  <string/>
-                 </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
@@ -4683,9 +4656,6 @@ Leave blank to home the joint manually.</string>
                 <widget class="QLineEdit" name="c0_max_vel_2">
                  <property name="toolTip">
                   <string>Maximum Velocity in Units per Second</string>
-                 </property>
-                 <property name="statusTip">
-                  <string/>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -4724,9 +4694,6 @@ Leave blank to home the joint manually.</string>
                  <property name="toolTip">
                   <string>Mininum Travel Limit</string>
                  </property>
-                 <property name="statusTip">
-                  <string/>
-                 </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
@@ -4755,9 +4722,6 @@ Leave blank to home the joint manually.</string>
                 <widget class="QLineEdit" name="c0_max_accel_2">
                  <property name="toolTip">
                   <string>Maximum Acceleration in Units per Second per Second</string>
-                 </property>
-                 <property name="statusTip">
-                  <string/>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -6158,9 +6122,6 @@ Leave blank to home the joint manually.</string>
                  <property name="toolTip">
                   <string>Maximum Velocity in Units per Second</string>
                  </property>
-                 <property name="statusTip">
-                  <string/>
-                 </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
@@ -6181,9 +6142,6 @@ Leave blank to home the joint manually.</string>
                  <property name="toolTip">
                   <string>Maximum Travel Limit</string>
                  </property>
-                 <property name="statusTip">
-                  <string/>
-                 </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
@@ -6193,9 +6151,6 @@ Leave blank to home the joint manually.</string>
                 <widget class="QLineEdit" name="c0_min_limit_3">
                  <property name="toolTip">
                   <string>Mininum Travel Limit</string>
-                 </property>
-                 <property name="statusTip">
-                  <string/>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -6226,9 +6181,6 @@ Leave blank to home the joint manually.</string>
                 <widget class="QLineEdit" name="c0_max_accel_3">
                  <property name="toolTip">
                   <string>Maximum Acceleration in Units per Second per Second</string>
-                 </property>
-                 <property name="statusTip">
-                  <string/>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -7553,9 +7505,6 @@ Leave blank to home the joint manually.</string>
                  <property name="toolTip">
                   <string>Maximum Velocity in Units per Second</string>
                  </property>
-                 <property name="statusTip">
-                  <string/>
-                 </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
@@ -7565,9 +7514,6 @@ Leave blank to home the joint manually.</string>
                 <widget class="QLineEdit" name="c0_max_limit_4">
                  <property name="toolTip">
                   <string>Maximum Travel Limit</string>
-                 </property>
-                 <property name="statusTip">
-                  <string/>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -7623,9 +7569,6 @@ Leave blank to home the joint manually.</string>
                  <property name="toolTip">
                   <string>Maximum Acceleration in Units per Second per Second</string>
                  </property>
-                 <property name="statusTip">
-                  <string/>
-                 </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
@@ -7664,9 +7607,6 @@ Leave blank to home the joint manually.</string>
                 <widget class="QLineEdit" name="c0_min_limit_4">
                  <property name="toolTip">
                   <string>Mininum Travel Limit</string>
-                 </property>
-                 <property name="statusTip">
-                  <string/>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -9007,9 +8947,6 @@ Leave blank to home the joint manually.</string>
                  <property name="toolTip">
                   <string>Maximum Travel Limit</string>
                  </property>
-                 <property name="statusTip">
-                  <string/>
-                 </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
@@ -9030,9 +8967,6 @@ Leave blank to home the joint manually.</string>
                  <property name="toolTip">
                   <string>Maximum Acceleration in Units per Second per Second</string>
                  </property>
-                 <property name="statusTip">
-                  <string/>
-                 </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
@@ -9043,9 +8977,6 @@ Leave blank to home the joint manually.</string>
                  <property name="toolTip">
                   <string>Mininum Travel Limit</string>
                  </property>
-                 <property name="statusTip">
-                  <string/>
-                 </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
@@ -9055,9 +8986,6 @@ Leave blank to home the joint manually.</string>
                 <widget class="QLineEdit" name="c0_max_vel_5">
                  <property name="toolTip">
                   <string>Maximum Velocity in Units per Second</string>
-                 </property>
-                 <property name="statusTip">
-                  <string/>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -11956,7 +11884,7 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="3">
                 <widget class="QLineEdit" name="c1_min_limit_0">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Mininum Travel Limit</string>
                  </property>
                  <property name="alignment">
@@ -11966,7 +11894,7 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="4">
                 <widget class="QLineEdit" name="c1_max_limit_0">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Maximum Travel Limit</string>
                  </property>
                  <property name="alignment">
@@ -12035,7 +11963,7 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="5">
                 <widget class="QLineEdit" name="c1_max_vel_0">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Maximum Velocity in Units per Second</string>
                  </property>
                  <property name="alignment">
@@ -12055,7 +11983,7 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="6">
                 <widget class="QLineEdit" name="c1_max_accel_0">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Maximum Acceleration in Units per Second per Second</string>
                  </property>
                  <property name="alignment">
@@ -13407,7 +13335,7 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="3">
                 <widget class="QLineEdit" name="c1_min_limit_1">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Mininum Travel Limit</string>
                  </property>
                  <property name="alignment">
@@ -13417,7 +13345,7 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="4">
                 <widget class="QLineEdit" name="c1_max_limit_1">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Maximum Travel Limit</string>
                  </property>
                  <property name="alignment">
@@ -13486,7 +13414,7 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="5">
                 <widget class="QLineEdit" name="c1_max_vel_1">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Maximum Velocity in Units per Second</string>
                  </property>
                  <property name="alignment">
@@ -13506,7 +13434,7 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="6">
                 <widget class="QLineEdit" name="c1_max_accel_1">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Maximum Acceleration in Units per Second per Second</string>
                  </property>
                  <property name="alignment">
@@ -14848,7 +14776,7 @@ Leave blank to home the joint manually.</string>
               <layout class="QGridLayout" name="gridLayout_83">
                <item row="1" column="4">
                 <widget class="QLineEdit" name="c1_max_limit_2">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Maximum Travel Limit</string>
                  </property>
                  <property name="alignment">
@@ -14858,7 +14786,7 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="6">
                 <widget class="QLineEdit" name="c1_max_accel_2">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Maximum Acceleration in Units per Second per Second</string>
                  </property>
                  <property name="alignment">
@@ -14878,7 +14806,7 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="5">
                 <widget class="QLineEdit" name="c1_max_vel_2">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Maximum Velocity in Units per Second</string>
                  </property>
                  <property name="alignment">
@@ -14971,7 +14899,7 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="3">
                 <widget class="QLineEdit" name="c1_min_limit_2">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Mininum Travel Limit</string>
                  </property>
                  <property name="alignment">
@@ -16309,7 +16237,7 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="3">
                 <widget class="QLineEdit" name="c1_min_limit_3">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Mininum Travel Limit</string>
                  </property>
                  <property name="alignment">
@@ -16319,7 +16247,7 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="4">
                 <widget class="QLineEdit" name="c1_max_limit_3">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Maximum Travel Limit</string>
                  </property>
                  <property name="alignment">
@@ -16388,7 +16316,7 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="5">
                 <widget class="QLineEdit" name="c1_max_vel_3">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Maximum Velocity in Units per Second</string>
                  </property>
                  <property name="alignment">
@@ -16408,7 +16336,7 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="6">
                 <widget class="QLineEdit" name="c1_max_accel_3">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Maximum Acceleration in Units per Second per Second</string>
                  </property>
                  <property name="alignment">
@@ -17760,7 +17688,7 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="3">
                 <widget class="QLineEdit" name="c1_min_limit_4">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Mininum Travel Limit</string>
                  </property>
                  <property name="alignment">
@@ -17770,7 +17698,7 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="4">
                 <widget class="QLineEdit" name="c1_max_limit_4">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Maximum Travel Limit</string>
                  </property>
                  <property name="alignment">
@@ -17839,7 +17767,7 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="5">
                 <widget class="QLineEdit" name="c1_max_vel_4">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Maximum Velocity in Units per Second</string>
                  </property>
                  <property name="alignment">
@@ -17859,7 +17787,7 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="6">
                 <widget class="QLineEdit" name="c1_max_accel_4">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Maximum Acceleration in Units per Second per Second</string>
                  </property>
                  <property name="alignment">
@@ -19201,7 +19129,7 @@ Leave blank to home the joint manually.</string>
               <layout class="QGridLayout" name="gridLayout_111">
                <item row="1" column="3">
                 <widget class="QLineEdit" name="c1_min_limit_5">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Mininum Travel Limit</string>
                  </property>
                  <property name="alignment">
@@ -19280,7 +19208,7 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="6">
                 <widget class="QLineEdit" name="c1_max_accel_5">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Maximum Acceleration in Units per Second per Second</string>
                  </property>
                  <property name="alignment">
@@ -19290,7 +19218,7 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="5">
                 <widget class="QLineEdit" name="c1_max_vel_5">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Maximum Velocity in Units per Second</string>
                  </property>
                  <property name="alignment">
@@ -19334,7 +19262,7 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="4">
                 <widget class="QLineEdit" name="c1_max_limit_5">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Maximum Travel Limit</string>
                  </property>
                  <property name="alignment">
@@ -22163,8 +22091,11 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="3">
                 <widget class="QLineEdit" name="c2_min_limit_0">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Mininum Travel Limit</string>
+                 </property>
+                 <property name="statusTip">
+                  <string/>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -22173,8 +22104,11 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="4">
                 <widget class="QLineEdit" name="c2_max_limit_0">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Maximum Travel Limit</string>
+                 </property>
+                 <property name="statusTip">
+                  <string/>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -22242,8 +22176,11 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="5">
                 <widget class="QLineEdit" name="c2_max_vel_0">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Maximum Velocity in Units per Second</string>
+                 </property>
+                 <property name="statusTip">
+                  <string/>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -22262,8 +22199,11 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="6">
                 <widget class="QLineEdit" name="c2_max_accel_0">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Maximum Acceleration in Units per Second per Second</string>
+                 </property>
+                 <property name="statusTip">
+                  <string/>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -23614,7 +23554,7 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="3">
                 <widget class="QLineEdit" name="c2_min_limit_1">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Mininum Travel Limit</string>
                  </property>
                  <property name="alignment">
@@ -23624,7 +23564,7 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="4">
                 <widget class="QLineEdit" name="c2_max_limit_1">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Maximum Travel Limit</string>
                  </property>
                  <property name="alignment">
@@ -23693,7 +23633,7 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="5">
                 <widget class="QLineEdit" name="c2_max_vel_1">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Maximum Velocity in Units per Second</string>
                  </property>
                  <property name="alignment">
@@ -23713,7 +23653,7 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="6">
                 <widget class="QLineEdit" name="c2_max_accel_1">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Maximum Acceleration in Units per Second per Second</string>
                  </property>
                  <property name="alignment">
@@ -25065,7 +25005,7 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="3">
                 <widget class="QLineEdit" name="c2_min_limit_2">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Mininum Travel Limit</string>
                  </property>
                  <property name="alignment">
@@ -25075,7 +25015,7 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="4">
                 <widget class="QLineEdit" name="c2_max_limit_2">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Maximum Travel Limit</string>
                  </property>
                  <property name="alignment">
@@ -25144,7 +25084,7 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="5">
                 <widget class="QLineEdit" name="c2_max_vel_2">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Maximum Velocity in Units per Second</string>
                  </property>
                  <property name="alignment">
@@ -25164,7 +25104,7 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="6">
                 <widget class="QLineEdit" name="c2_max_accel_2">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Maximum Acceleration in Units per Second per Second</string>
                  </property>
                  <property name="alignment">
@@ -26516,7 +26456,7 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="3">
                 <widget class="QLineEdit" name="c2_min_limit_3">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Mininum Travel Limit</string>
                  </property>
                  <property name="alignment">
@@ -26526,7 +26466,7 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="4">
                 <widget class="QLineEdit" name="c2_max_limit_3">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Maximum Travel Limit</string>
                  </property>
                  <property name="alignment">
@@ -26595,7 +26535,7 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="5">
                 <widget class="QLineEdit" name="c2_max_vel_3">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Maximum Velocity in Units per Second</string>
                  </property>
                  <property name="alignment">
@@ -26615,7 +26555,7 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="6">
                 <widget class="QLineEdit" name="c2_max_accel_3">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Maximum Acceleration in Units per Second per Second</string>
                  </property>
                  <property name="alignment">
@@ -27967,7 +27907,7 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="3">
                 <widget class="QLineEdit" name="c2_min_limit_4">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Mininum Travel Limit</string>
                  </property>
                  <property name="alignment">
@@ -27977,7 +27917,7 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="4">
                 <widget class="QLineEdit" name="c2_max_limit_4">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Maximum Travel Limit</string>
                  </property>
                  <property name="alignment">
@@ -28046,7 +27986,7 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="5">
                 <widget class="QLineEdit" name="c2_max_vel_4">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Maximum Velocity in Units per Second</string>
                  </property>
                  <property name="alignment">
@@ -28066,7 +28006,7 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="6">
                 <widget class="QLineEdit" name="c2_max_accel_4">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Maximum Acceleration in Units per Second per Second</string>
                  </property>
                  <property name="alignment">
@@ -29418,7 +29358,7 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="3">
                 <widget class="QLineEdit" name="c2_min_limit_5">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Mininum Travel Limit</string>
                  </property>
                  <property name="alignment">
@@ -29428,7 +29368,7 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="4">
                 <widget class="QLineEdit" name="c2_max_limit_5">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Maximum Travel Limit</string>
                  </property>
                  <property name="alignment">
@@ -29497,7 +29437,7 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="5">
                 <widget class="QLineEdit" name="c2_max_vel_5">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Maximum Velocity in Units per Second</string>
                  </property>
                  <property name="alignment">
@@ -29517,7 +29457,7 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="6">
                 <widget class="QLineEdit" name="c2_max_accel_5">
-                 <property name="statusTip">
+                 <property name="toolTip">
                   <string>Maximum Acceleration in Units per Second per Second</string>
                  </property>
                  <property name="alignment">
@@ -44328,7 +44268,6 @@ auto enp2s0
   <tabstop>c1_output_invert_13</tabstop>
   <tabstop>c1_output_invert_14</tabstop>
   <tabstop>c1_output_invert_15</tabstop>
-  <tabstop>c2_JointTW</tabstop>
   <tabstop>daughter_info_pte_1</tabstop>
   <tabstop>c2_min_limit_0</tabstop>
   <tabstop>c2_max_limit_0</tabstop>
