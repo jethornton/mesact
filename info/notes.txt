@@ -17,5 +17,8 @@ Dependencies to build a deb
 sudo apt install dh-python
 sudo apt install devscripts
 
+Software used
+sudo apt install qttools5-dev-tools
+
 to build a deb from the top most directory
 debuild -us -uc
