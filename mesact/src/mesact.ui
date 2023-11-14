@@ -45,7 +45,7 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -1480,7 +1480,7 @@ to the clipboard</string>
         <item>
          <widget class="QTabWidget" name="c0_JointTW">
           <property name="currentIndex">
-           <number>0</number>
+           <number>2</number>
           </property>
           <widget class="QWidget" name="tab_27">
            <attribute name="title">
@@ -3460,7 +3460,7 @@ Leave blank to home the joint manually.</string>
             <item>
              <widget class="QTabWidget" name="c0_settings_1">
               <property name="currentIndex">
-               <number>0</number>
+               <number>3</number>
               </property>
               <widget class="QWidget" name="tab_32">
                <attribute name="title">
@@ -43617,113 +43617,113 @@ auto enp2s0
   <tabstop>positionOffsetCB</tabstop>
   <tabstop>positionFeedbackCB</tabstop>
   <tabstop>maxFeedOverrideSB</tabstop>
-  <tabstop>frontToolLatheRB</tabstop>
-  <tabstop>backToolLatheRB</tabstop>
-  <tabstop>foamRB</tabstop>
-  <tabstop>editorCB</tabstop>
-  <tabstop>trajMaxLinVelDSB</tabstop>
   <tabstop>minLinJogVelDSB</tabstop>
   <tabstop>defLinJogVelDSB</tabstop>
   <tabstop>maxLinJogVelDSB</tabstop>
   <tabstop>minAngJogVelDSB</tabstop>
   <tabstop>defAngJogVelDSB</tabstop>
   <tabstop>maxAngJogVelDSB</tabstop>
-  <tabstop>c0_ff1_0</tabstop>
-  <tabstop>c0_maxOutput_0</tabstop>
-  <tabstop>c0_deadband_0</tabstop>
-  <tabstop>c0_pidDefault_0</tabstop>
-  <tabstop>c0_ff0_0</tabstop>
-  <tabstop>c0_bias_0</tabstop>
-  <tabstop>c0_d_0</tabstop>
-  <tabstop>c0_maxError_0</tabstop>
+  <tabstop>frontToolLatheRB</tabstop>
+  <tabstop>backToolLatheRB</tabstop>
+  <tabstop>foamRB</tabstop>
+  <tabstop>editorCB</tabstop>
+  <tabstop>trajMaxLinVelDSB</tabstop>
+  <tabstop>board_info_pte</tabstop>
+  <tabstop>tabWidget_228</tabstop>
+  <tabstop>steps_rev_le</tabstop>
+  <tabstop>microsteps_le</tabstop>
+  <tabstop>stepper_teeth_le</tabstop>
+  <tabstop>leadscrew_teeth_le</tabstop>
+  <tabstop>leadscrew_pitch_le</tabstop>
+  <tabstop>calc_scale_pb</tabstop>
+  <tabstop>scale_le</tabstop>
+  <tabstop>copy_scale_pb</tabstop>
+  <tabstop>scale_joint_cb</tabstop>
+  <tabstop>c0_axis_0</tabstop>
+  <tabstop>c0_scale_0</tabstop>
+  <tabstop>c0_min_limit_0</tabstop>
+  <tabstop>c0_max_limit_0</tabstop>
+  <tabstop>c0_max_vel_0</tabstop>
+  <tabstop>c0_max_accel_0</tabstop>
+  <tabstop>c0_settings_0</tabstop>
   <tabstop>c0_p_0</tabstop>
+  <tabstop>c0_i_0</tabstop>
+  <tabstop>c0_d_0</tabstop>
+  <tabstop>c0_ff0_0</tabstop>
+  <tabstop>c0_ff1_0</tabstop>
   <tabstop>c0_ff2_0</tabstop>
-  <tabstop>c0_copy_values_0</tabstop>
+  <tabstop>c0_deadband_0</tabstop>
+  <tabstop>c0_bias_0</tabstop>
+  <tabstop>c0_maxOutput_0</tabstop>
+  <tabstop>c0_maxError_0</tabstop>
+  <tabstop>c0_pidDefault_0</tabstop>
   <tabstop>c0_min_ferror_0</tabstop>
   <tabstop>c0_max_ferror_0</tabstop>
   <tabstop>c0_ferrorDefault_0</tabstop>
-  <tabstop>c0_homeOffset_0</tabstop>
-  <tabstop>c0_homeLatchVel_0</tabstop>
+  <tabstop>c0_copy_values_0</tabstop>
   <tabstop>c0_home_0</tabstop>
-  <tabstop>c0_homeFinalVelocity_0</tabstop>
+  <tabstop>c0_homeOffset_0</tabstop>
   <tabstop>c0_homeSearchVel_0</tabstop>
+  <tabstop>c0_homeLatchVel_0</tabstop>
+  <tabstop>c0_homeFinalVelocity_0</tabstop>
   <tabstop>c0_homeSequence_0</tabstop>
   <tabstop>c0_homeUseIndex_0</tabstop>
   <tabstop>c0_homeSwitchShared_0</tabstop>
   <tabstop>c0_homeIgnoreLimits_0</tabstop>
+  <tabstop>c0_drive_0</tabstop>
   <tabstop>c0_StepTime_0</tabstop>
   <tabstop>c0_StepInvert_0</tabstop>
   <tabstop>c0_StepSpace_0</tabstop>
   <tabstop>c0_DirSetup_0</tabstop>
   <tabstop>c0_DirInvert_0</tabstop>
-  <tabstop>c0_drive_0</tabstop>
   <tabstop>c0_DirHold_0</tabstop>
-  <tabstop>c0_analogScaleMax_0</tabstop>
-  <tabstop>c0_analogMaxLimit_0</tabstop>
   <tabstop>c0_analogMinLimit_0</tabstop>
+  <tabstop>c0_analogMaxLimit_0</tabstop>
+  <tabstop>c0_analogScaleMax_0</tabstop>
   <tabstop>c0_analogDefault_0</tabstop>
   <tabstop>c0_encoderScale_0</tabstop>
-  <tabstop>c0_max_vel_1</tabstop>
-  <tabstop>c0_max_limit_1</tabstop>
-  <tabstop>c0_max_accel_1</tabstop>
   <tabstop>c0_axis_1</tabstop>
-  <tabstop>c0_min_limit_1</tabstop>
   <tabstop>c0_scale_1</tabstop>
+  <tabstop>c0_min_limit_1</tabstop>
+  <tabstop>c0_max_limit_1</tabstop>
+  <tabstop>c0_max_vel_1</tabstop>
+  <tabstop>c0_max_accel_1</tabstop>
   <tabstop>c0_settings_1</tabstop>
-  <tabstop>c0_d_1</tabstop>
-  <tabstop>c0_i_1</tabstop>
-  <tabstop>c0_deadband_1</tabstop>
-  <tabstop>c0_ff0_1</tabstop>
-  <tabstop>c0_bias_1</tabstop>
   <tabstop>c0_p_1</tabstop>
-  <tabstop>c0_maxOutput_1</tabstop>
-  <tabstop>c0_ff2_1</tabstop>
-  <tabstop>c0_pidDefault_1</tabstop>
-  <tabstop>c0_maxError_1</tabstop>
+  <tabstop>c0_i_1</tabstop>
+  <tabstop>c0_d_1</tabstop>
+  <tabstop>c0_ff0_1</tabstop>
   <tabstop>c0_ff1_1</tabstop>
-  <tabstop>c0_copy_values_1</tabstop>
+  <tabstop>c0_ff2_1</tabstop>
+  <tabstop>c0_deadband_1</tabstop>
+  <tabstop>c0_bias_1</tabstop>
+  <tabstop>c0_maxOutput_1</tabstop>
+  <tabstop>c0_maxError_1</tabstop>
+  <tabstop>c0_pidDefault_1</tabstop>
   <tabstop>c0_min_ferror_1</tabstop>
   <tabstop>c0_max_ferror_1</tabstop>
   <tabstop>c0_ferrorDefault_1</tabstop>
-  <tabstop>c0_homeOffset_1</tabstop>
-  <tabstop>c0_homeLatchVel_1</tabstop>
+  <tabstop>c0_copy_values_1</tabstop>
   <tabstop>c0_home_1</tabstop>
-  <tabstop>c0_homeFinalVelocity_1</tabstop>
+  <tabstop>c0_homeOffset_1</tabstop>
   <tabstop>c0_homeSearchVel_1</tabstop>
+  <tabstop>c0_homeLatchVel_1</tabstop>
+  <tabstop>c0_homeFinalVelocity_1</tabstop>
   <tabstop>c0_homeSequence_1</tabstop>
   <tabstop>c0_homeUseIndex_1</tabstop>
   <tabstop>c0_homeSwitchShared_1</tabstop>
   <tabstop>c0_homeIgnoreLimits_1</tabstop>
-  <tabstop>c0_StepTime_1</tabstop>
-  <tabstop>c0_DirInvert_1</tabstop>
-  <tabstop>c0_StepSpace_1</tabstop>
-  <tabstop>c0_DirHold_1</tabstop>
-  <tabstop>c0_DirSetup_1</tabstop>
   <tabstop>c0_drive_1</tabstop>
+  <tabstop>c0_StepTime_1</tabstop>
+  <tabstop>c0_StepSpace_1</tabstop>
+  <tabstop>c0_DirSetup_1</tabstop>
+  <tabstop>c0_DirHold_1</tabstop>
   <tabstop>c0_StepInvert_1</tabstop>
-  <tabstop>c0_analogScaleMax_1</tabstop>
-  <tabstop>c0_analogMaxLimit_1</tabstop>
+  <tabstop>c0_DirInvert_1</tabstop>
   <tabstop>c0_analogMinLimit_1</tabstop>
+  <tabstop>c0_analogMaxLimit_1</tabstop>
+  <tabstop>c0_analogScaleMax_1</tabstop>
   <tabstop>c0_analogDefault_1</tabstop>
-  <tabstop>c0_encoderScale_1</tabstop>
-  <tabstop>c0_max_limit_2</tabstop>
-  <tabstop>c0_max_vel_2</tabstop>
-  <tabstop>c0_axis_2</tabstop>
-  <tabstop>c0_min_limit_2</tabstop>
-  <tabstop>c0_max_accel_2</tabstop>
-  <tabstop>c0_scale_2</tabstop>
-  <tabstop>c0_settings_2</tabstop>
-  <tabstop>c0_i_2</tabstop>
-  <tabstop>c0_ff1_2</tabstop>
-  <tabstop>c0_maxOutput_2</tabstop>
-  <tabstop>c0_deadband_2</tabstop>
-  <tabstop>c0_pidDefault_2</tabstop>
-  <tabstop>c0_ff0_2</tabstop>
-  <tabstop>c0_bias_2</tabstop>
-  <tabstop>c0_d_2</tabstop>
-  <tabstop>c0_maxError_2</tabstop>
-  <tabstop>c0_p_2</tabstop>
-  <tabstop>c0_ff2_2</tabstop>
   <tabstop>c0_copy_values_2</tabstop>
   <tabstop>c0_min_ferror_2</tabstop>
   <tabstop>c0_max_ferror_2</tabstop>
@@ -45243,15 +45243,34 @@ auto enp2s0
   <tabstop>info_pte</tabstop>
   <tabstop>tests_pte</tabstop>
   <tabstop>c0_JointTW</tabstop>
-  <tabstop>c0_min_limit_0</tabstop>
-  <tabstop>c0_max_limit_0</tabstop>
-  <tabstop>c0_max_vel_0</tabstop>
-  <tabstop>c0_axis_0</tabstop>
-  <tabstop>c0_scale_0</tabstop>
-  <tabstop>c0_settings_0</tabstop>
-  <tabstop>c0_max_accel_0</tabstop>
-  <tabstop>board_info_pte</tabstop>
-  <tabstop>c0_i_0</tabstop>
+  <tabstop>c0_i_2</tabstop>
+  <tabstop>c0_d_2</tabstop>
+  <tabstop>c0_encoderScale_1</tabstop>
+  <tabstop>c0_pidDefault_2</tabstop>
+  <tabstop>c0_deadband_2</tabstop>
+  <tabstop>c0_ff2_2</tabstop>
+  <tabstop>c0_settings_2</tabstop>
+  <tabstop>c0_axis_2</tabstop>
+  <tabstop>c0_ff0_2</tabstop>
+  <tabstop>c2_JointTW</tabstop>
+  <tabstop>c0_maxOutput_2</tabstop>
+  <tabstop>c0_max_vel_2</tabstop>
+  <tabstop>c0_p_2</tabstop>
+  <tabstop>c0_scale_2</tabstop>
+  <tabstop>c0_max_limit_2</tabstop>
+  <tabstop>c0_maxError_2</tabstop>
+  <tabstop>c0_max_accel_2</tabstop>
+  <tabstop>c0_bias_2</tabstop>
+  <tabstop>plainTextEdit_3</tabstop>
+  <tabstop>c0_min_limit_2</tabstop>
+  <tabstop>c0_ff1_2</tabstop>
+  <tabstop>angular_scale_pb</tabstop>
+  <tabstop>copy_angluar_scale_pb</tabstop>
+  <tabstop>lin_steps_rev_le</tabstop>
+  <tabstop>lin_microsteps_le</tabstop>
+  <tabstop>copy_angluar_scale_cb</tabstop>
+  <tabstop>angular_scale_le</tabstop>
+  <tabstop>lin_rotations_le</tabstop>
  </tabstops>
  <resources/>
  <connections/>
