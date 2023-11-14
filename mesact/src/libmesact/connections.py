@@ -71,7 +71,6 @@ def connect(parent):
 	parent.axisButtonGroup.buttonClicked.connect(partial(utilities.axisDisplayChanged, parent))
 	parent.linearUnitsCB.currentIndexChanged.connect(partial(utilities.unitsChanged, parent))
 	parent.trajMaxLinVelDSB.valueChanged.connect(partial(utilities.maxVelChanged, parent))
-	parent.calc_scale_pb.clicked.connect(partial(utilities.calc_scale, parent))
 
 	'''
 	#parent.frontToolLatheRB.buttonClicked.connect(partial(utilities.axisDisplayChanged, parent))
@@ -91,7 +90,10 @@ def connect(parent):
 	# Info Tab
 
 	# Axes Tab
+	parent.calc_scale_pb.clicked.connect(partial(utilities.calc_scale, parent))
 	parent.copy_scale_pb.clicked.connect(partial(axes.copy_scale, parent))
+	parent.angular_scale_pb.clicked.connect(partial(utilities.calc_angular_scale, parent))
+	parent.copy_angluar_scale_pb.clicked.connect(partial(axes.copy_angular_scale, parent))
 	# for now just do one card
 	#j = 0
 	for j in range(3):

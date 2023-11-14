@@ -190,9 +190,54 @@ def changed(parent): # if anything is changed add *
 	parent.status_lb.setText('Changed')
 	parent.actionBuild.setText('Build Config *')
 
+def calc_angular_scale(parent):
+	if len(parent.lin_steps_rev_le.text()) > 0: # required entry
+		if is_number(parent.lin_steps_rev_le.text()):
+			steps_rev = int(float(parent.lin_steps_rev_le.text())) if parent.lin_steps_rev_le.text() != '' else False
+		else:
+			msg = (f'{parent.lin_steps_rev_le.text()} is not a valid number\n'
+			f'for {parent.lin_steps_rev_le.property("name")}')
+			dialogs.errorMsgOk(msg, 'Error')
+			return
+	else:
+		msg = (f'{parent.lin_steps_rev_le.property("name")} must be not be blank')
+		dialogs.errorMsgOk(msg, 'Error')
+		return
+
+	if len(parent.lin_rotations_le.text()) > 0: # required entry
+		if is_number(parent.lin_rotations_le.text()):
+			gear_ratio = int(float(parent.lin_rotations_le.text())) if parent.lin_rotations_le.text() != '' else False
+		else:
+			msg = (f'{parent.lin_rotations_le.text()} is not a valid number\n'
+			f'for {parent.lin_rotations_le.property("name")}')
+			dialogs.errorMsgOk(msg, 'Error')
+			return
+	else:
+		msg = (f'{parent.lin_rotations_le.property("name")} must be not be blank')
+		dialogs.errorMsgOk(msg, 'Error')
+		return
+
+
+	if len(parent.lin_microsteps_le.text()) > 0:
+		if is_number(parent.lin_microsteps_le.text()):
+			micro_steps = int(float(parent.lin_microsteps_le.text()))
+		else:
+			msg = (f'{parent.lin_microsteps_le.text()} is not a valid number\n'
+			f'for {parent.lin_microsteps_le.property("name")}')
+			dialogs.errorMsgOk(msg, 'Error')
+			return
+	else:
+		micro_steps = False
+
+	if micro_steps:
+		steps_rev = steps_rev * micro_steps
+
+	parent.angular_scale_le.setText(f'{(steps_rev * gear_ratio) / 360:.2f}')
+
+
 def calc_scale(parent):
 	# scale = steps/rev * microsteps * (leadscrew teeth / motor teeth) * leadscrew revs/ unit
-	if len(parent.steps_rev_le.text()) > 0: # required entry
+	if len(parent.lin_steps_rev_le.text()) > 0: # required entry
 		if is_number(parent.steps_rev_le.text()):
 			steps_rev = int(float(parent.steps_rev_le.text())) if parent.steps_rev_le.text() != '' else False
 		else:

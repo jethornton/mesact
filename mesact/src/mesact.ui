@@ -1500,7 +1500,7 @@ to the clipboard</string>
             <item row="1" column="1">
              <widget class="QGroupBox" name="groupBox_146">
               <property name="title">
-               <string>Calculators</string>
+               <string>Scale Calculators</string>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_29">
                <item>
@@ -1516,7 +1516,7 @@ to the clipboard</string>
                  </property>
                  <widget class="QWidget" name="tabWidget_228Page1">
                   <attribute name="title">
-                   <string>Scale Calculator</string>
+                   <string>Linear</string>
                   </attribute>
                   <layout class="QGridLayout" name="gridLayout_307">
                    <item row="0" column="2">
@@ -1692,7 +1692,7 @@ to the clipboard</string>
                  </widget>
                  <widget class="QWidget" name="tab_119">
                   <attribute name="title">
-                   <string>Scale Info</string>
+                   <string>Info</string>
                   </attribute>
                   <layout class="QVBoxLayout" name="verticalLayout_28">
                    <item>
@@ -1709,6 +1709,134 @@ Leadscrew Pitch is turns per user unit. Example 6 turns per inch or .25 turns pe
                     </widget>
                    </item>
                   </layout>
+                 </widget>
+                 <widget class="QWidget" name="tab_191">
+                  <attribute name="title">
+                   <string>Angular</string>
+                  </attribute>
+                  <layout class="QGridLayout" name="gridLayout_324">
+                   <item row="0" column="1">
+                    <widget class="QLineEdit" name="lin_steps_rev_le">
+                     <property name="toolTip">
+                      <string>Whole Steps per Rotation</string>
+                     </property>
+                     <property name="statusTip">
+                      <string/>
+                     </property>
+                     <property name="text">
+                      <string>200</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                     </property>
+                     <property name="name" stdset="0">
+                      <string>Steps/Revolution</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="4" column="0">
+                    <widget class="QPushButton" name="angular_scale_pb">
+                     <property name="text">
+                      <string>Calculate Scale</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="0">
+                    <widget class="QLabel" name="label_758">
+                     <property name="text">
+                      <string>Input Rotations</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="5" column="1">
+                    <widget class="QComboBox" name="copy_angluar_scale_cb"/>
+                   </item>
+                   <item row="1" column="1">
+                    <widget class="QLineEdit" name="lin_microsteps_le">
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                     </property>
+                     <property name="name" stdset="0">
+                      <string>Microsteps</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="1">
+                    <widget class="QLineEdit" name="lin_rotations_le">
+                     <property name="toolTip">
+                      <string>Leave blank for direct drive</string>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                     </property>
+                     <property name="name" stdset="0">
+                      <string>Input Rotations</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="2">
+                    <widget class="QLabel" name="label_759">
+                     <property name="text">
+                      <string>to 1</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_754">
+                     <property name="text">
+                      <string>Steps/Revolution</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="5" column="0">
+                    <widget class="QPushButton" name="copy_angluar_scale_pb">
+                     <property name="enabled">
+                      <bool>false</bool>
+                     </property>
+                     <property name="text">
+                      <string>Copy To &gt;</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="label_757">
+                     <property name="text">
+                      <string>Microsteps</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="4" column="1">
+                    <widget class="QLineEdit" name="angular_scale_le">
+                     <property name="alignment">
+                      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="1">
+                    <spacer name="verticalSpacer_76">
+                     <property name="orientation">
+                      <enum>Qt::Vertical</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>20</width>
+                       <height>40</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                  </layout>
+                 </widget>
+                 <widget class="QWidget" name="tab_192">
+                  <attribute name="title">
+                   <string>Info</string>
+                  </attribute>
                  </widget>
                 </widget>
                </item>

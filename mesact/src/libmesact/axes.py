@@ -8,13 +8,24 @@ def copy_scale(parent):
 	if parent.scale_joint_cb.currentData():
 		if len(parent.scale_le.text()) > 0:
 			getattr(parent, f'{parent.scale_joint_cb.currentData()}').setText(parent.scale_le.text())
-			#setattr(parent, getattr(parent, f'{parent.scale_joint_cb.currentData()}', parent.scale_le.text()))
 		else:
 			msg = ('Scale must not be blank')
 			dialogs.errorMsgOk(msg, 'Error')
 	else:
 		msg = ('Select a Joint to copy to')
 		dialogs.errorMsgOk(msg, 'Error')
+
+def copy_angular_scale(parent):
+	if parent.copy_angluar_scale_cb.currentData():
+		if len(parent.angular_scale_le.text()) > 0:
+			getattr(parent, f'{parent.copy_angluar_scale_cb.currentData()}').setText(parent.angular_scale_le.text())
+		else:
+			msg = ('Scale must not be blank')
+			dialogs.errorMsgOk(msg, 'Error')
+	else:
+		msg = ('Select a Joint to copy to')
+		dialogs.errorMsgOk(msg, 'Error')
+
 
 def axisChanged(parent):
 	if parent.sender().currentData():
@@ -40,18 +51,24 @@ def axisChanged(parent):
 
 		parent.scale_joint_cb.clear()
 		parent.scale_joint_cb.addItem('Select', False)
+		parent.copy_angluar_scale_cb.clear()
+		parent.copy_angluar_scale_cb.addItem('Select', False)
 		for i in range(3):
 			for j in range(6):
 				axisLetter = getattr(parent, f'c{i}_axis_{j}').currentText()
 				if axisLetter != 'Select':
 					coordList.append(axisLetter)
 					parent.scale_joint_cb.addItem(f'Axis {axisLetter} Joint {j} ', f'c{i}_scale_{j}')
-					#print(f'Axis {axisLetter} Joint {j} ')
+					parent.copy_angluar_scale_cb.addItem(f'Axis {axisLetter} Joint {j} ', f'c{i}_scale_{j}')
 				parent.coordinatesLB.setText(''.join(coordList))
 		if coordList:
 			parent.copy_scale_pb.setEnabled(True)
+			parent.copy_angluar_scale_pb.setEnabled(True)
 		else:
 			parent.copy_scale_pb.setEnabled(False)
+			parent.copy_angluar_scale_pb.setEnabled(False)
+			parent.scale_joint_cb.clear()
+			parent.copy_angluar_scale_cb.clear()
 
 
 def updateAxisInfo(parent):
