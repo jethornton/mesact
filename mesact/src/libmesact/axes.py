@@ -32,12 +32,14 @@ def axisChanged(parent):
 		connector = parent.sender().objectName()[:3]
 		joint = parent.sender().objectName()[-1]
 		axis = parent.sender().currentText()
-		if axis in ['X', 'Y', 'Z', 'U', 'V', 'W']:
+		linear_axes = ['X', 'Y', 'Z', 'U', 'V', 'W']
+		angular_axes = ['A', 'B', 'C']
+		if axis in linear_axes:
 			getattr(parent, f'{connector}axisType_{joint}').setText('LINEAR')
 			parent.minAngJogVelDSB.setEnabled(False)
 			parent.defAngJogVelDSB.setEnabled(False)
 			parent.maxAngJogVelDSB.setEnabled(False)
-		elif axis in ['A', 'B', 'C']:
+		elif axis in angular_axes:
 			getattr(parent, f'{connector}axisType_{joint}').setText('ANGULAR')
 			parent.minAngJogVelDSB.setEnabled(True)
 			parent.defAngJogVelDSB.setEnabled(True)
@@ -55,11 +57,13 @@ def axisChanged(parent):
 		parent.copy_angluar_scale_cb.addItem('Select', False)
 		for i in range(3):
 			for j in range(6):
-				axisLetter = getattr(parent, f'c{i}_axis_{j}').currentText()
-				if axisLetter != 'Select':
-					coordList.append(axisLetter)
-					parent.scale_joint_cb.addItem(f'Axis {axisLetter} Joint {j} ', f'c{i}_scale_{j}')
-					parent.copy_angluar_scale_cb.addItem(f'Axis {axisLetter} Joint {j} ', f'c{i}_scale_{j}')
+				axis_letter = getattr(parent, f'c{i}_axis_{j}').currentText()
+				if axis_letter != 'Select':
+					coordList.append(axis_letter)
+					if axis_letter in linear_axes:
+						parent.scale_joint_cb.addItem(f'Axis {axis_letter} Joint {j} ', f'c{i}_scale_{j}')
+					elif axis_letter in angular_axes:
+						parent.copy_angluar_scale_cb.addItem(f'Axis {axis_letter} Joint {j} ', f'c{i}_scale_{j}')
 				parent.coordinatesLB.setText(''.join(coordList))
 		if coordList:
 			parent.copy_scale_pb.setEnabled(True)
