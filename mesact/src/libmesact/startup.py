@@ -119,7 +119,7 @@ def setup(parent):
 	only_int.setLocale(c_locale)
 
 	only_numbers = QDoubleValidator()
-	only_numbers.setNotation(QDoubleValidator.StandardNotation)
+	#only_numbers.setNotation(QDoubleValidator.StandardNotation)
 	only_numbers.setLocale(c_locale)
 	#validator = QRegExpValidator(QRegExp(r'[0-9].+'))
 	#self.lineEdit.setValidator(validator)
