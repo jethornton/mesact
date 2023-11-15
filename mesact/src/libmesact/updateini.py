@@ -474,22 +474,31 @@ class updateini:
 						self.update_key(f'JOINT_{n}', 'MAX_ERROR', getattr(parent, f'c{i}_maxError_{j}').text())
 					if getattr(parent, f'c{i}_home_{i}').text():
 						self.update_key(f'JOINT_{n}', 'HOME', getattr(parent, f"c{i}_home_{j}").text())
+					else:
+						self.delete_key(f'JOINT_{n}', 'HOME')
 					if getattr(parent, f"c{i}_homeOffset_{j}").text():
 						self.update_key(f'JOINT_{n}', 'HOME_OFFSET', getattr(parent, f"c{i}_homeOffset_{j}").text())
+					else:
+						self.delete_key(f'JOINT_{n}', 'HOME_OFFSET')
 					if getattr(parent, f"c{i}_homeSearchVel_{j}").text():
 						self.update_key(f'JOINT_{n}', 'HOME_SEARCH_VEL', getattr(parent, f"c{i}_homeSearchVel_{j}").text())
+					else:
+						self.delete_key(f'JOINT_{n}', 'HOME_SEARCH_VEL')
 					if getattr(parent, f"c{i}_homeLatchVel_{j}").text():
 						self.update_key(f'JOINT_{n}', 'HOME_LATCH_VEL', getattr(parent, f"c{i}_homeLatchVel_{j}").text())
+					else:
+						self.delete_key(f'JOINT_{n}', 'HOME_LATCH_VEL')
 					if getattr(parent, f"c{i}_homeFinalVelocity_{j}").text():
 						self.update_key(f'JOINT_{n}', 'HOME_FINAL_VEL', getattr(parent, f"c{i}_homeFinalVelocity_{j}").text())
+					else:
+						self.delete_key(f'JOINT_{n}', 'HOME_FINAL_VEL')
 					if getattr(parent, f"c{i}_homeSequence_{j}").text():
 						self.update_key(f'JOINT_{n}', 'HOME_SEQUENCE', getattr(parent, f"c{i}_homeSequence_{j}").text())
-					if getattr(parent, f"c{i}_homeIgnoreLimits_{j}").isChecked():
-						self.update_key(f'JOINT_{n}', 'HOME_IGNORE_LIMITS', True)
-					if getattr(parent, f"c{i}_homeUseIndex_{j}").isChecked():
-						self.update_key(f'JOINT_{n}', 'HOME_USE_INDEX', True)
-					if getattr(parent, f"c{i}_homeSwitchShared_{j}").isChecked():
-						self.update_key(f'JOINT_{n}', 'HOME_IS_SHARED', True)
+					else:
+						self.delete_key(f'JOINT_{n}', 'HOME_SEQUENCE')
+					self.update_key(f'JOINT_{n}', 'HOME_IGNORE_LIMITS', getattr(parent, f"c{i}_homeIgnoreLimits_{j}").isChecked())
+					self.update_key(f'JOINT_{n}', 'HOME_USE_INDEX', getattr(parent, f"c{i}_homeUseIndex_{j}").isChecked())
+					self.update_key(f'JOINT_{n}', 'HOME_IS_SHARED', getattr(parent, f"c{i}_homeSwitchShared_{j}").isChecked())
 					n += 1 # add a joint
 
 		# update the [SPINDLE_0] section
