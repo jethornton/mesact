@@ -194,6 +194,12 @@ class updateini:
 			self.delete_key('DISPLAY', 'MIN_ANGULAR_VELOCITY')
 			self.delete_key('DISPLAY', 'DEFAULT_ANGULAR_VELOCITY')
 			self.delete_key('DISPLAY', 'MAX_ANGULAR_VELOCITY')
+
+		if parent.jog_increments.text():
+			display.append(['DISPLAY', 'INCREMENTS', f'{parent.jog_increments.text()}'])
+		else:
+			self.delete_key('DISPLAY', 'INCREMENTS')
+
 		if parent.pyvcpCB.isChecked():
 			display.append(['DISPLAY', 'PYVCP', f'{parent.configNameUnderscored}.xml'])
 		else:
@@ -533,7 +539,7 @@ class updateini:
 			self.update_key(f'SPINDLE_0', 'MIN_REVERSE_VELOCITY', parent.spindleMinRpmRev.value())
 			self.update_key(f'SPINDLE_0', 'MAX_REVERSE_VELOCITY', parent.spindleMaxRpmRev.value())
 
-			self.update_key(f'SPINDLE_0', 'ENCODER_SCALE', parent.spindleEncoderScale.value())
+			self.update_key(f'SPINDLE_0', 'SCALE', parent.spindleEncoderScale.value())
 
 		'''
 

@@ -152,6 +152,7 @@ class loadini:
 		['[DISPLAY]', 'MIN_ANGULAR_VELOCITY', 'minAngJogVelDSB'],
 		['[DISPLAY]', 'DEFAULT_ANGULAR_VELOCITY', 'defAngJogVelDSB'],
 		['[DISPLAY]', 'MAX_ANGULAR_VELOCITY', 'maxAngJogVelDSB'],
+		['[DISPLAY]', 'INCREMENTS', 'jog_increments'],
 		['[DISPLAY]', 'LATHE', 'frontToolLatheRB'],
 		['[DISPLAY]', 'BACK_TOOL_LATHE', 'backToolLatheRB'],
 		['[DISPLAY]', 'FOAM', 'foamRB'],

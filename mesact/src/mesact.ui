@@ -41817,8 +41817,8 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
            <widget class="QGroupBox" name="groupBox_136">
             <property name="geometry">
              <rect>
-              <x>10</x>
-              <y>170</y>
+              <x>20</x>
+              <y>260</y>
               <width>326</width>
               <height>141</height>
              </rect>
@@ -41920,6 +41920,32 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
               <string>Check for Firmware</string>
              </property>
             </widget>
+           </widget>
+           <widget class="QGroupBox" name="groupBox_147">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>120</y>
+              <width>351</width>
+              <height>121</height>
+             </rect>
+            </property>
+            <property name="title">
+             <string>Jog Increments</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_327">
+             <item row="0" column="0">
+              <widget class="QLineEdit" name="jog_increments"/>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_755">
+               <property name="text">
+                <string>Comma seperated list optionally followed
+by a unit (cm, mm, um, inch, in or mil)</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </widget>
           </widget>
           <widget class="QWidget" name="tab_156">

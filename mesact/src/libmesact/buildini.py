@@ -75,7 +75,8 @@ def build(parent):
 		iniContents.append(f'MIN_ANGULAR_VELOCITY = {parent.minAngJogVelDSB.value():.1f}\n')
 		iniContents.append(f'DEFAULT_ANGULAR_VELOCITY = {parent.defAngJogVelDSB.value():.1f}\n')
 		iniContents.append(f'MAX_ANGULAR_VELOCITY = {parent.maxAngJogVelDSB.value():.1f}\n')
-
+	if parent.jog_increments.text():
+		iniContents.append(f'INCREMENTS = {parent.jog_increments.text()}\n')
 	iniContents.append('CYCLE_TIME = 0.1\n')
 	iniContents.append(f'INTRO_GRAPHIC = {parent.introGraphicLE.text()}\n')
 	iniContents.append(f'INTRO_TIME = {parent.splashScreenSB.value()}\n')
@@ -269,7 +270,7 @@ def build(parent):
 
 		if parent.spindleFeedbackCB.currentData() == 'encoder':
 			iniContents.append(f'FEEDBACK = {parent.spindleFeedbackCB.currentData()}\n')
-			iniContents.append(f'ENCODER_SCALE = {parent.spindleEncoderScale.value():.1f}\n')
+			iniContents.append(f'SCALE = {parent.spindleEncoderScale.value():.1f}\n')
 
 		if parent.spindleTypeCB.currentData()[:7] == 'stepgen':
 			iniContents.append(f'DRIVE = {parent.spindleDriveCB.currentText()}\n')
