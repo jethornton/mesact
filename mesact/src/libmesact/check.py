@@ -1,5 +1,5 @@
 from libmesact import mdi
-
+from libmesact import dialogs
 
 def checkit(parent):
 	parent.mainTW.setCurrentIndex(11)
@@ -76,6 +76,31 @@ def checkit(parent):
 	# end of Settings Tab
 
 	# check the Joint Tabs for errors c0_axis_0 c0_max_vel_0
+
+	# check for data but no axis letter
+	joint_items = ['_scale_', '_min_limit_', '_max_limit_', '_max_vel_',
+		'_max_accel_', '_p_', '_i_', '_d_', '_ff0_', '_ff1_', '_ff2_', '_deadband_',
+		'_bias_', '_maxOutput_', '_maxError_', '_min_ferror_', '_max_ferror_',
+		'_StepTime_', '_StepSpace_', '_DirSetup_', '_DirHold_', '_analogMinLimit_',
+		'_analogMaxLimit_', '_analogScaleMax_']
+	for i in range(3):
+		for j in range(6):
+			if not getattr(parent,f'c{i}_axis_{j}').currentData():
+				for item in joint_items:
+					if getattr(parent, f'c{i}{item}{j}').text():
+						print(getattr(parent, f'c{i}{item}{j}').text())
+						msg = (f'Joint{j} has data but no Axis Letter\n'
+							'Delete that data?')
+						if dialogs.errorMsgYesNo(msg, 'Error'):
+							for item in joint_items:
+								getattr(parent, f'c{i}{item}{j}').setText('')
+							return
+						else: # change to offending tab
+							parent.mainTW.setCurrentIndex(i + 3)
+							getattr(parent, f'c{i}_JointTW').setCurrentIndex(j + 1)
+							return
+		
+
 	if parent.boardCB.currentData(): # only check if a board is selected
 		if len(parent.coordinatesLB.text()) == 0:
 			tabError = True
