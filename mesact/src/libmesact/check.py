@@ -80,6 +80,18 @@ def checkit(parent):
 		if len(parent.coordinatesLB.text()) == 0:
 			tabError = True
 			configErrors.append('\tAt least one Joint must be configured starting with Joint 0')
+		else:
+
+			# check for home sequence errors
+			coordinates = parent.coordinatesLB.text()
+			for i in range(3):
+				for j in range(6):
+					if getattr(parent,f'c{i}_axis_{j}').currentData():
+						home_sequence = getattr(parent,f'c{i}_homeSequence_{j}').text()
+						axis = getattr(parent,f'c{i}_axis_{j}').currentData()
+						if '-' in home_sequence and coordinates.count(axis) == 1:
+							tabError = True
+							configErrors.append(f'\tNegative Home Sequence on Joint {j} should only be used with multiple a joint Axis')
 
 	'''
 	For the common trivkins kinematics, joint numbers are assigned in sequence according to the trivkins parameter
