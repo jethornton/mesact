@@ -29,18 +29,6 @@ def errorMsgOk(text, title=None):
 	else:
 		return False
 
-def errorMsgYesNo(text, title=None): # unused function
-	msgBox = QMessageBox()
-	msgBox.setIcon(QMessageBox.Warning)
-	msgBox.setWindowTitle(title)
-	msgBox.setText(text)
-	msgBox.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
-	returnValue = msgBox.exec()
-	if returnValue == QMessageBox.Yes:
-		return True
-	else:
-		return False
-
 def questionMsg(text, title=None): # unused function
 	msgBox = QMessageBox()
 	msgBox.setIcon(QMessageBox.Question)
@@ -49,6 +37,18 @@ def questionMsg(text, title=None): # unused function
 	msgBox.setStandardButtons(QMessageBox.Cancel | QMessageBox.Ok)
 	returnValue = msgBox.exec()
 	if returnValue == QMessageBox.Ok:
+		return True
+	else:
+		return False
+
+def errorMsgYesNo(text, title=None):
+	msgBox = QMessageBox()
+	msgBox.setIcon(QMessageBox.Warning)
+	msgBox.setWindowTitle(title)
+	msgBox.setText(text)
+	msgBox.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
+	returnValue = msgBox.exec()
+	if returnValue == QMessageBox.Yes:
 		return True
 	else:
 		return False
