@@ -45,7 +45,7 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -1480,7 +1480,7 @@ to the clipboard</string>
         <item>
          <widget class="QTabWidget" name="c0_JointTW">
           <property name="currentIndex">
-           <number>1</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="tab_27">
            <attribute name="title">
@@ -3460,7 +3460,7 @@ Leave blank to home the joint manually.</string>
             <item>
              <widget class="QTabWidget" name="c0_settings_1">
               <property name="currentIndex">
-               <number>3</number>
+               <number>0</number>
               </property>
               <widget class="QWidget" name="tab_32">
                <attribute name="title">

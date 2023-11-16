@@ -422,18 +422,17 @@ class updateini:
 		n = 0 # joint number
 		for i in range(3):
 			for j in range(6):
-				axis = getattr(parent, f'c{i}_axis_{j}').currentData()
-				if axis and axis not in axes:
-					axes.append(axis)
-					#print(axis)
-					self.update_key(f'AXIS_{axis}', 'MIN_LIMIT', getattr(parent, f'c{i}_min_limit_{j}').text())
-					self.update_key(f'AXIS_{axis}', 'MAX_LIMIT', getattr(parent, f'c{i}_max_limit_{j}').text())
-					self.update_key(f'AXIS_{axis}', 'MAX_VELOCITY', getattr(parent, f'c{i}_max_vel_{j}').text())
-					self.update_key(f'AXIS_{axis}', 'MAX_ACCELERATION', getattr(parent, f'c{i}_max_accel_{j}').text())
-				#iniContents.append(f'CARD = {i}\n')
-				#iniContents.append(f'TAB = {j}\n')
-
 				if getattr(parent, f'c{i}_axis_{j}').currentData():
+					axis = getattr(parent, f'c{i}_axis_{j}').currentData()
+					if axis not in axes:
+						axes.append(axis)
+						self.update_key(f'AXIS_{axis}', 'MIN_LIMIT', getattr(parent, f'c{i}_min_limit_{j}').text())
+						self.update_key(f'AXIS_{axis}', 'MAX_LIMIT', getattr(parent, f'c{i}_max_limit_{j}').text())
+						self.update_key(f'AXIS_{axis}', 'MAX_VELOCITY', getattr(parent, f'c{i}_max_vel_{j}').text())
+						self.update_key(f'AXIS_{axis}', 'MAX_ACCELERATION', getattr(parent, f'c{i}_max_accel_{j}').text())
+					#iniContents.append(f'CARD = {i}\n')
+					#iniContents.append(f'TAB = {j}\n')
+
 					self.update_key(f'JOINT_{n}', 'CARD', f'{i}')
 					self.update_key(f'JOINT_{n}', 'TAB', f'{j}')
 					self.update_key(f'JOINT_{n}', 'AXIS', getattr(parent, f'c{i}_axis_{j}').currentData())
