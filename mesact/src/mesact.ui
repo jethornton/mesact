@@ -2005,7 +2005,7 @@ Leadscrew Pitch is turns per user unit. Example 6 turns per inch or .25 turns pe
             <item>
              <widget class="QTabWidget" name="c0_settings_0">
               <property name="currentIndex">
-               <number>4</number>
+               <number>0</number>
               </property>
               <widget class="QWidget" name="tab_28">
                <attribute name="title">
@@ -3460,7 +3460,7 @@ Leave blank to home the joint manually.</string>
             <item>
              <widget class="QTabWidget" name="c0_settings_1">
               <property name="currentIndex">
-               <number>4</number>
+               <number>0</number>
               </property>
               <widget class="QWidget" name="tab_32">
                <attribute name="title">
@@ -4899,7 +4899,7 @@ Leave blank to home the joint manually.</string>
             <item>
              <widget class="QTabWidget" name="c0_settings_2">
               <property name="currentIndex">
-               <number>4</number>
+               <number>0</number>
               </property>
               <widget class="QWidget" name="tab_36">
                <attribute name="title">
@@ -6338,7 +6338,7 @@ Leave blank to home the joint manually.</string>
             <item>
              <widget class="QTabWidget" name="c0_settings_3">
               <property name="currentIndex">
-               <number>4</number>
+               <number>0</number>
               </property>
               <widget class="QWidget" name="tab_40">
                <attribute name="title">
@@ -7777,7 +7777,7 @@ Leave blank to home the joint manually.</string>
             <item>
              <widget class="QTabWidget" name="c0_settings_4">
               <property name="currentIndex">
-               <number>4</number>
+               <number>0</number>
               </property>
               <widget class="QWidget" name="tab_44">
                <attribute name="title">
@@ -9209,7 +9209,7 @@ Leave blank to home the joint manually.</string>
             <item>
              <widget class="QTabWidget" name="c0_settings_5">
               <property name="currentIndex">
-               <number>4</number>
+               <number>0</number>
               </property>
               <widget class="QWidget" name="tab_48">
                <attribute name="title">
@@ -10476,7 +10476,7 @@ Leave blank to home the joint manually.</string>
             <item>
              <widget class="QTabWidget" name="tabWidget_2">
               <property name="currentIndex">
-               <number>1</number>
+               <number>0</number>
               </property>
               <widget class="QWidget" name="tab_4">
                <attribute name="title">
