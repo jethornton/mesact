@@ -28,9 +28,9 @@ def copy_angular_scale(parent):
 
 
 def axisChanged(parent):
+	connector = parent.sender().objectName()[:3]
+	joint = parent.sender().objectName()[-1]
 	if parent.sender().currentData():
-		connector = parent.sender().objectName()[:3]
-		joint = parent.sender().objectName()[-1]
 		axis = parent.sender().currentText()
 		linear_axes = ['X', 'Y', 'Z', 'U', 'V', 'W']
 		angular_axes = ['A', 'B', 'C']
@@ -73,7 +73,8 @@ def axisChanged(parent):
 			parent.copy_angluar_scale_pb.setEnabled(False)
 			parent.scale_joint_cb.clear()
 			parent.copy_angluar_scale_cb.clear()
-
+	else:
+		getattr(parent, f'{connector}axisType_{joint}').setText('')
 
 def updateAxisInfo(parent):
 	card = parent.sender().objectName()[:2]
