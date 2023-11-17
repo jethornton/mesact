@@ -45,7 +45,7 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>12</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -660,7 +660,7 @@ Spaces are replaced with underscore.</string>
         <item>
          <widget class="QTabWidget" name="firmwareTW">
           <property name="currentIndex">
-           <number>0</number>
+           <number>1</number>
           </property>
           <widget class="QWidget" name="tab_13">
            <attribute name="title">
@@ -1480,7 +1480,7 @@ to the clipboard</string>
         <item>
          <widget class="QTabWidget" name="c0_JointTW">
           <property name="currentIndex">
-           <number>0</number>
+           <number>8</number>
           </property>
           <widget class="QWidget" name="tab_27">
            <attribute name="title">
@@ -2005,7 +2005,7 @@ Leadscrew Pitch is turns per user unit. Example 6 turns per inch or .25 turns pe
             <item>
              <widget class="QTabWidget" name="c0_settings_0">
               <property name="currentIndex">
-               <number>0</number>
+               <number>4</number>
               </property>
               <widget class="QWidget" name="tab_28">
                <attribute name="title">
@@ -3460,7 +3460,7 @@ Leave blank to home the joint manually.</string>
             <item>
              <widget class="QTabWidget" name="c0_settings_1">
               <property name="currentIndex">
-               <number>0</number>
+               <number>4</number>
               </property>
               <widget class="QWidget" name="tab_32">
                <attribute name="title">
@@ -4899,7 +4899,7 @@ Leave blank to home the joint manually.</string>
             <item>
              <widget class="QTabWidget" name="c0_settings_2">
               <property name="currentIndex">
-               <number>0</number>
+               <number>4</number>
               </property>
               <widget class="QWidget" name="tab_36">
                <attribute name="title">
@@ -6338,7 +6338,7 @@ Leave blank to home the joint manually.</string>
             <item>
              <widget class="QTabWidget" name="c0_settings_3">
               <property name="currentIndex">
-               <number>0</number>
+               <number>4</number>
               </property>
               <widget class="QWidget" name="tab_40">
                <attribute name="title">
@@ -7777,7 +7777,7 @@ Leave blank to home the joint manually.</string>
             <item>
              <widget class="QTabWidget" name="c0_settings_4">
               <property name="currentIndex">
-               <number>0</number>
+               <number>4</number>
               </property>
               <widget class="QWidget" name="tab_44">
                <attribute name="title">
@@ -9209,7 +9209,7 @@ Leave blank to home the joint manually.</string>
             <item>
              <widget class="QTabWidget" name="c0_settings_5">
               <property name="currentIndex">
-               <number>0</number>
+               <number>4</number>
               </property>
               <widget class="QWidget" name="tab_48">
                <attribute name="title">
@@ -10476,7 +10476,7 @@ Leave blank to home the joint manually.</string>
             <item>
              <widget class="QTabWidget" name="tabWidget_2">
               <property name="currentIndex">
-               <number>0</number>
+               <number>1</number>
               </property>
               <widget class="QWidget" name="tab_4">
                <attribute name="title">
@@ -41786,7 +41786,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
         <item>
          <widget class="QTabWidget" name="tabWidget_27">
           <property name="currentIndex">
-           <number>0</number>
+           <number>8</number>
           </property>
           <widget class="QWidget" name="tab_155">
            <attribute name="title">
@@ -42305,8 +42305,8 @@ to File Open in Axis</string>
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>36</width>
-                    <height>18</height>
+                    <width>706</width>
+                    <height>290</height>
                    </rect>
                   </property>
                   <layout class="QGridLayout" name="mdiCommandsListGL"/>
@@ -43750,385 +43750,385 @@ auto enp2s0
   <tabstop>c0_analogMaxLimit_1</tabstop>
   <tabstop>c0_analogScaleMax_1</tabstop>
   <tabstop>c0_analogDefault_1</tabstop>
-  <tabstop>c0_copy_values_2</tabstop>
+  <tabstop>c0_encoderScale_1</tabstop>
+  <tabstop>c0_axis_2</tabstop>
+  <tabstop>c0_scale_2</tabstop>
+  <tabstop>c0_min_limit_2</tabstop>
+  <tabstop>c0_max_limit_2</tabstop>
+  <tabstop>c0_max_vel_2</tabstop>
+  <tabstop>c0_max_accel_2</tabstop>
+  <tabstop>c0_settings_2</tabstop>
+  <tabstop>c0_p_2</tabstop>
+  <tabstop>c0_i_2</tabstop>
+  <tabstop>c0_d_2</tabstop>
+  <tabstop>c0_ff0_2</tabstop>
+  <tabstop>c0_ff1_2</tabstop>
+  <tabstop>c0_ff2_2</tabstop>
+  <tabstop>c0_deadband_2</tabstop>
+  <tabstop>c0_bias_2</tabstop>
+  <tabstop>c0_maxOutput_2</tabstop>
+  <tabstop>c0_maxError_2</tabstop>
+  <tabstop>c0_pidDefault_2</tabstop>
   <tabstop>c0_min_ferror_2</tabstop>
   <tabstop>c0_max_ferror_2</tabstop>
   <tabstop>c0_ferrorDefault_2</tabstop>
-  <tabstop>c0_homeOffset_2</tabstop>
-  <tabstop>c0_homeLatchVel_2</tabstop>
+  <tabstop>c0_copy_values_2</tabstop>
   <tabstop>c0_home_2</tabstop>
-  <tabstop>c0_homeFinalVelocity_2</tabstop>
+  <tabstop>c0_homeOffset_2</tabstop>
   <tabstop>c0_homeSearchVel_2</tabstop>
+  <tabstop>c0_homeLatchVel_2</tabstop>
+  <tabstop>c0_homeFinalVelocity_2</tabstop>
   <tabstop>c0_homeSequence_2</tabstop>
   <tabstop>c0_homeUseIndex_2</tabstop>
   <tabstop>c0_homeSwitchShared_2</tabstop>
   <tabstop>c0_homeIgnoreLimits_2</tabstop>
-  <tabstop>c0_DirHold_2</tabstop>
-  <tabstop>c0_DirInvert_2</tabstop>
-  <tabstop>c0_StepInvert_2</tabstop>
-  <tabstop>c0_DirSetup_2</tabstop>
-  <tabstop>c0_StepSpace_2</tabstop>
-  <tabstop>c0_StepTime_2</tabstop>
   <tabstop>c0_drive_2</tabstop>
-  <tabstop>c0_analogScaleMax_2</tabstop>
-  <tabstop>c0_analogMaxLimit_2</tabstop>
+  <tabstop>c0_StepTime_2</tabstop>
+  <tabstop>c0_StepInvert_2</tabstop>
+  <tabstop>c0_StepSpace_2</tabstop>
+  <tabstop>c0_DirSetup_2</tabstop>
+  <tabstop>c0_DirInvert_2</tabstop>
+  <tabstop>c0_DirHold_2</tabstop>
   <tabstop>c0_analogMinLimit_2</tabstop>
+  <tabstop>c0_analogMaxLimit_2</tabstop>
+  <tabstop>c0_analogScaleMax_2</tabstop>
   <tabstop>c0_analogDefault_2</tabstop>
   <tabstop>c0_encoderScale_2</tabstop>
   <tabstop>c0_axis_3</tabstop>
-  <tabstop>c0_max_vel_3</tabstop>
-  <tabstop>c0_max_limit_3</tabstop>
-  <tabstop>c0_min_limit_3</tabstop>
-  <tabstop>c0_max_accel_3</tabstop>
   <tabstop>c0_scale_3</tabstop>
+  <tabstop>c0_min_limit_3</tabstop>
+  <tabstop>c0_max_limit_3</tabstop>
+  <tabstop>c0_max_vel_3</tabstop>
+  <tabstop>c0_max_accel_3</tabstop>
   <tabstop>c0_settings_3</tabstop>
-  <tabstop>c0_i_3</tabstop>
-  <tabstop>c0_ff1_3</tabstop>
-  <tabstop>c0_maxOutput_3</tabstop>
-  <tabstop>c0_deadband_3</tabstop>
-  <tabstop>c0_pidDefault_3</tabstop>
-  <tabstop>c0_ff0_3</tabstop>
-  <tabstop>c0_bias_3</tabstop>
-  <tabstop>c0_d_3</tabstop>
-  <tabstop>c0_maxError_3</tabstop>
   <tabstop>c0_p_3</tabstop>
+  <tabstop>c0_i_3</tabstop>
+  <tabstop>c0_d_3</tabstop>
+  <tabstop>c0_ff0_3</tabstop>
+  <tabstop>c0_ff1_3</tabstop>
   <tabstop>c0_ff2_3</tabstop>
-  <tabstop>c0_copy_values_3</tabstop>
+  <tabstop>c0_deadband_3</tabstop>
+  <tabstop>c0_bias_3</tabstop>
+  <tabstop>c0_maxOutput_3</tabstop>
+  <tabstop>c0_maxError_3</tabstop>
+  <tabstop>c0_pidDefault_3</tabstop>
   <tabstop>c0_min_ferror_3</tabstop>
   <tabstop>c0_max_ferror_3</tabstop>
   <tabstop>c0_ferrorDefault_3</tabstop>
-  <tabstop>c0_homeOffset_3</tabstop>
-  <tabstop>c0_homeLatchVel_3</tabstop>
+  <tabstop>c0_copy_values_3</tabstop>
   <tabstop>c0_home_3</tabstop>
-  <tabstop>c0_homeFinalVelocity_3</tabstop>
+  <tabstop>c0_homeOffset_3</tabstop>
   <tabstop>c0_homeSearchVel_3</tabstop>
+  <tabstop>c0_homeLatchVel_3</tabstop>
+  <tabstop>c0_homeFinalVelocity_3</tabstop>
   <tabstop>c0_homeSequence_3</tabstop>
   <tabstop>c0_homeUseIndex_3</tabstop>
   <tabstop>c0_homeSwitchShared_3</tabstop>
   <tabstop>c0_homeIgnoreLimits_3</tabstop>
-  <tabstop>c0_DirHold_3</tabstop>
-  <tabstop>c0_DirInvert_3</tabstop>
-  <tabstop>c0_StepInvert_3</tabstop>
-  <tabstop>c0_StepTime_3</tabstop>
   <tabstop>c0_drive_3</tabstop>
+  <tabstop>c0_StepTime_3</tabstop>
+  <tabstop>c0_StepInvert_3</tabstop>
   <tabstop>c0_StepSpace_3</tabstop>
   <tabstop>c0_DirSetup_3</tabstop>
-  <tabstop>c0_analogScaleMax_3</tabstop>
-  <tabstop>c0_analogMaxLimit_3</tabstop>
+  <tabstop>c0_DirInvert_3</tabstop>
+  <tabstop>c0_DirHold_3</tabstop>
   <tabstop>c0_analogMinLimit_3</tabstop>
+  <tabstop>c0_analogMaxLimit_3</tabstop>
+  <tabstop>c0_analogScaleMax_3</tabstop>
   <tabstop>c0_analogDefault_3</tabstop>
   <tabstop>c0_encoderScale_3</tabstop>
   <tabstop>c0_axis_4</tabstop>
-  <tabstop>c0_max_accel_4</tabstop>
-  <tabstop>c0_min_limit_4</tabstop>
-  <tabstop>c0_max_vel_4</tabstop>
-  <tabstop>c0_max_limit_4</tabstop>
   <tabstop>c0_scale_4</tabstop>
+  <tabstop>c0_min_limit_4</tabstop>
+  <tabstop>c0_max_limit_4</tabstop>
+  <tabstop>c0_max_vel_4</tabstop>
+  <tabstop>c0_max_accel_4</tabstop>
   <tabstop>c0_settings_4</tabstop>
-  <tabstop>c0_i_4</tabstop>
-  <tabstop>c0_ff1_4</tabstop>
-  <tabstop>c0_maxOutput_4</tabstop>
-  <tabstop>c0_deadband_4</tabstop>
-  <tabstop>c0_pidDefault_4</tabstop>
-  <tabstop>c0_ff0_4</tabstop>
-  <tabstop>c0_bias_4</tabstop>
-  <tabstop>c0_d_4</tabstop>
-  <tabstop>c0_maxError_4</tabstop>
   <tabstop>c0_p_4</tabstop>
+  <tabstop>c0_i_4</tabstop>
+  <tabstop>c0_d_4</tabstop>
+  <tabstop>c0_ff0_4</tabstop>
+  <tabstop>c0_ff1_4</tabstop>
   <tabstop>c0_ff2_4</tabstop>
-  <tabstop>c0_copy_values_4</tabstop>
+  <tabstop>c0_deadband_4</tabstop>
+  <tabstop>c0_bias_4</tabstop>
+  <tabstop>c0_maxOutput_4</tabstop>
+  <tabstop>c0_maxError_4</tabstop>
+  <tabstop>c0_pidDefault_4</tabstop>
   <tabstop>c0_min_ferror_4</tabstop>
   <tabstop>c0_max_ferror_4</tabstop>
   <tabstop>c0_ferrorDefault_4</tabstop>
-  <tabstop>c0_homeOffset_4</tabstop>
-  <tabstop>c0_homeLatchVel_4</tabstop>
+  <tabstop>c0_copy_values_4</tabstop>
   <tabstop>c0_home_4</tabstop>
-  <tabstop>c0_homeFinalVelocity_4</tabstop>
+  <tabstop>c0_homeOffset_4</tabstop>
   <tabstop>c0_homeSearchVel_4</tabstop>
+  <tabstop>c0_homeLatchVel_4</tabstop>
+  <tabstop>c0_homeFinalVelocity_4</tabstop>
   <tabstop>c0_homeSequence_4</tabstop>
   <tabstop>c0_homeUseIndex_4</tabstop>
   <tabstop>c0_homeSwitchShared_4</tabstop>
   <tabstop>c0_homeIgnoreLimits_4</tabstop>
-  <tabstop>c0_DirSetup_4</tabstop>
-  <tabstop>c0_DirHold_4</tabstop>
-  <tabstop>c0_StepTime_4</tabstop>
   <tabstop>c0_drive_4</tabstop>
-  <tabstop>c0_DirInvert_4</tabstop>
+  <tabstop>c0_StepTime_4</tabstop>
   <tabstop>c0_StepInvert_4</tabstop>
   <tabstop>c0_StepSpace_4</tabstop>
-  <tabstop>c0_analogScaleMax_4</tabstop>
-  <tabstop>c0_analogMaxLimit_4</tabstop>
+  <tabstop>c0_DirSetup_4</tabstop>
+  <tabstop>c0_DirInvert_4</tabstop>
+  <tabstop>c0_DirHold_4</tabstop>
   <tabstop>c0_analogMinLimit_4</tabstop>
+  <tabstop>c0_analogMaxLimit_4</tabstop>
+  <tabstop>c0_analogScaleMax_4</tabstop>
   <tabstop>c0_analogDefault_4</tabstop>
   <tabstop>c0_encoderScale_4</tabstop>
-  <tabstop>c0_max_limit_5</tabstop>
-  <tabstop>c0_max_accel_5</tabstop>
-  <tabstop>c0_min_limit_5</tabstop>
-  <tabstop>c0_max_vel_5</tabstop>
   <tabstop>c0_axis_5</tabstop>
   <tabstop>c0_scale_5</tabstop>
+  <tabstop>c0_min_limit_5</tabstop>
+  <tabstop>c0_max_limit_5</tabstop>
+  <tabstop>c0_max_vel_5</tabstop>
+  <tabstop>c0_max_accel_5</tabstop>
   <tabstop>c0_settings_5</tabstop>
-  <tabstop>c0_i_5</tabstop>
-  <tabstop>c0_ff1_5</tabstop>
-  <tabstop>c0_maxOutput_5</tabstop>
-  <tabstop>c0_deadband_5</tabstop>
-  <tabstop>c0_pidDefault_5</tabstop>
-  <tabstop>c0_ff0_5</tabstop>
-  <tabstop>c0_bias_5</tabstop>
-  <tabstop>c0_d_5</tabstop>
-  <tabstop>c0_maxError_5</tabstop>
   <tabstop>c0_p_5</tabstop>
+  <tabstop>c0_i_5</tabstop>
+  <tabstop>c0_d_5</tabstop>
+  <tabstop>c0_ff0_5</tabstop>
+  <tabstop>c0_ff1_5</tabstop>
   <tabstop>c0_ff2_5</tabstop>
+  <tabstop>c0_deadband_5</tabstop>
+  <tabstop>c0_bias_5</tabstop>
+  <tabstop>c0_maxOutput_5</tabstop>
+  <tabstop>c0_maxError_5</tabstop>
+  <tabstop>c0_pidDefault_5</tabstop>
   <tabstop>c0_min_ferror_5</tabstop>
   <tabstop>c0_max_ferror_5</tabstop>
   <tabstop>c0_ferrorDefault_5</tabstop>
-  <tabstop>c0_homeOffset_5</tabstop>
-  <tabstop>c0_homeLatchVel_5</tabstop>
   <tabstop>c0_home_5</tabstop>
-  <tabstop>c0_homeFinalVelocity_5</tabstop>
+  <tabstop>c0_homeOffset_5</tabstop>
   <tabstop>c0_homeSearchVel_5</tabstop>
+  <tabstop>c0_homeLatchVel_5</tabstop>
+  <tabstop>c0_homeFinalVelocity_5</tabstop>
   <tabstop>c0_homeSequence_5</tabstop>
   <tabstop>c0_homeUseIndex_5</tabstop>
   <tabstop>c0_homeSwitchShared_5</tabstop>
   <tabstop>c0_homeIgnoreLimits_5</tabstop>
-  <tabstop>c0_DirHold_5</tabstop>
-  <tabstop>c0_DirInvert_5</tabstop>
-  <tabstop>c0_StepInvert_5</tabstop>
-  <tabstop>c0_StepTime_5</tabstop>
   <tabstop>c0_drive_5</tabstop>
+  <tabstop>c0_StepTime_5</tabstop>
+  <tabstop>c0_StepInvert_5</tabstop>
   <tabstop>c0_StepSpace_5</tabstop>
   <tabstop>c0_DirSetup_5</tabstop>
-  <tabstop>c0_analogScaleMax_5</tabstop>
-  <tabstop>c0_analogMaxLimit_5</tabstop>
+  <tabstop>c0_DirInvert_5</tabstop>
+  <tabstop>c0_DirHold_5</tabstop>
   <tabstop>c0_analogMinLimit_5</tabstop>
+  <tabstop>c0_analogMaxLimit_5</tabstop>
+  <tabstop>c0_analogScaleMax_5</tabstop>
   <tabstop>c0_analogDefault_5</tabstop>
   <tabstop>c0_encoderScale_5</tabstop>
   <tabstop>tabWidget_2</tabstop>
-  <tabstop>c0_input_3</tabstop>
-  <tabstop>c0_input_2</tabstop>
   <tabstop>c0_input_0</tabstop>
   <tabstop>c0_input_invert_0</tabstop>
-  <tabstop>c0_input_7</tabstop>
-  <tabstop>c0_input_1</tabstop>
-  <tabstop>c0_input_5</tabstop>
   <tabstop>c0_input_debounce_0</tabstop>
-  <tabstop>c0_input_4</tabstop>
-  <tabstop>c0_input_6</tabstop>
+  <tabstop>c0_input_1</tabstop>
   <tabstop>c0_input_invert_1</tabstop>
-  <tabstop>c0_input_invert_2</tabstop>
-  <tabstop>c0_input_invert_3</tabstop>
-  <tabstop>c0_input_invert_4</tabstop>
-  <tabstop>c0_input_invert_5</tabstop>
-  <tabstop>c0_input_invert_6</tabstop>
-  <tabstop>c0_input_invert_7</tabstop>
   <tabstop>c0_input_debounce_1</tabstop>
+  <tabstop>c0_input_2</tabstop>
+  <tabstop>c0_input_invert_2</tabstop>
   <tabstop>c0_input_debounce_2</tabstop>
+  <tabstop>c0_input_3</tabstop>
+  <tabstop>c0_input_invert_3</tabstop>
   <tabstop>c0_input_debounce_3</tabstop>
+  <tabstop>c0_input_4</tabstop>
+  <tabstop>c0_input_invert_4</tabstop>
   <tabstop>c0_input_debounce_4</tabstop>
+  <tabstop>c0_input_5</tabstop>
+  <tabstop>c0_input_invert_5</tabstop>
   <tabstop>c0_input_debounce_5</tabstop>
+  <tabstop>c0_input_6</tabstop>
+  <tabstop>c0_input_invert_6</tabstop>
   <tabstop>c0_input_debounce_6</tabstop>
+  <tabstop>c0_input_7</tabstop>
+  <tabstop>c0_input_invert_7</tabstop>
   <tabstop>c0_input_debounce_7</tabstop>
-  <tabstop>c0_input_9</tabstop>
   <tabstop>c0_input_8</tabstop>
-  <tabstop>c0_input_invert_10</tabstop>
-  <tabstop>c0_input_debounce_10</tabstop>
-  <tabstop>c0_input_debounce_11</tabstop>
-  <tabstop>c0_input_invert_12</tabstop>
-  <tabstop>c0_input_debounce_9</tabstop>
-  <tabstop>c0_input_invert_11</tabstop>
-  <tabstop>c0_input_10</tabstop>
-  <tabstop>c0_input_debounce_12</tabstop>
-  <tabstop>c0_input_debounce_13</tabstop>
   <tabstop>c0_input_invert_8</tabstop>
   <tabstop>c0_input_debounce_8</tabstop>
+  <tabstop>c0_input_9</tabstop>
+  <tabstop>c0_input_invert_9</tabstop>
+  <tabstop>c0_input_debounce_9</tabstop>
+  <tabstop>c0_input_10</tabstop>
+  <tabstop>c0_input_invert_10</tabstop>
+  <tabstop>c0_input_debounce_10</tabstop>
+  <tabstop>c0_input_11</tabstop>
+  <tabstop>c0_input_invert_11</tabstop>
+  <tabstop>c0_input_debounce_11</tabstop>
+  <tabstop>c0_input_12</tabstop>
+  <tabstop>c0_input_invert_12</tabstop>
+  <tabstop>c0_input_debounce_12</tabstop>
+  <tabstop>c0_input_13</tabstop>
+  <tabstop>c0_input_invert_13</tabstop>
+  <tabstop>c0_input_debounce_13</tabstop>
+  <tabstop>c0_input_14</tabstop>
+  <tabstop>c0_input_invert_14</tabstop>
+  <tabstop>c0_input_debounce_14</tabstop>
   <tabstop>c0_input_15</tabstop>
   <tabstop>c0_input_invert_15</tabstop>
-  <tabstop>c0_input_13</tabstop>
-  <tabstop>c0_input_invert_14</tabstop>
   <tabstop>c0_input_debounce_15</tabstop>
-  <tabstop>c0_input_12</tabstop>
-  <tabstop>c0_input_invert_13</tabstop>
-  <tabstop>c0_input_debounce_14</tabstop>
-  <tabstop>c0_input_invert_9</tabstop>
-  <tabstop>c0_input_11</tabstop>
-  <tabstop>c0_input_14</tabstop>
   <tabstop>c0_input_16</tabstop>
   <tabstop>c0_input_invert_16</tabstop>
   <tabstop>c0_input_debounce_16</tabstop>
   <tabstop>c0_input_17</tabstop>
-  <tabstop>c0_input_18</tabstop>
-  <tabstop>c0_input_19</tabstop>
-  <tabstop>c0_input_20</tabstop>
-  <tabstop>c0_input_21</tabstop>
-  <tabstop>c0_input_22</tabstop>
-  <tabstop>c0_input_23</tabstop>
   <tabstop>c0_input_invert_17</tabstop>
-  <tabstop>c0_input_invert_18</tabstop>
-  <tabstop>c0_input_invert_19</tabstop>
-  <tabstop>c0_input_invert_20</tabstop>
-  <tabstop>c0_input_invert_21</tabstop>
-  <tabstop>c0_input_invert_22</tabstop>
-  <tabstop>c0_input_invert_23</tabstop>
   <tabstop>c0_input_debounce_17</tabstop>
+  <tabstop>c0_input_18</tabstop>
+  <tabstop>c0_input_invert_18</tabstop>
   <tabstop>c0_input_debounce_18</tabstop>
+  <tabstop>c0_input_19</tabstop>
+  <tabstop>c0_input_invert_19</tabstop>
   <tabstop>c0_input_debounce_19</tabstop>
+  <tabstop>c0_input_20</tabstop>
+  <tabstop>c0_input_invert_20</tabstop>
   <tabstop>c0_input_debounce_20</tabstop>
+  <tabstop>c0_input_21</tabstop>
+  <tabstop>c0_input_invert_21</tabstop>
   <tabstop>c0_input_debounce_21</tabstop>
+  <tabstop>c0_input_22</tabstop>
+  <tabstop>c0_input_invert_22</tabstop>
   <tabstop>c0_input_debounce_22</tabstop>
+  <tabstop>c0_input_23</tabstop>
+  <tabstop>c0_input_invert_23</tabstop>
   <tabstop>c0_input_debounce_23</tabstop>
+  <tabstop>c0_input_24</tabstop>
+  <tabstop>c0_input_invert_24</tabstop>
   <tabstop>c0_input_debounce_24</tabstop>
-  <tabstop>c0_input_27</tabstop>
-  <tabstop>c0_input_invert_30</tabstop>
   <tabstop>c0_input_25</tabstop>
-  <tabstop>c0_input_debounce_29</tabstop>
+  <tabstop>c0_input_invert_25</tabstop>
   <tabstop>c0_input_debounce_25</tabstop>
-  <tabstop>c0_input_29</tabstop>
-  <tabstop>c0_input_debounce_26</tabstop>
-  <tabstop>c0_input_debounce_28</tabstop>
   <tabstop>c0_input_26</tabstop>
   <tabstop>c0_input_invert_26</tabstop>
-  <tabstop>c0_input_invert_29</tabstop>
+  <tabstop>c0_input_debounce_26</tabstop>
+  <tabstop>c0_input_27</tabstop>
+  <tabstop>c0_input_invert_27</tabstop>
   <tabstop>c0_input_debounce_27</tabstop>
-  <tabstop>c0_input_30</tabstop>
-  <tabstop>c0_input_24</tabstop>
-  <tabstop>c0_input_invert_25</tabstop>
-  <tabstop>c0_input_invert_28</tabstop>
   <tabstop>c0_input_28</tabstop>
-  <tabstop>c0_input_debounce_31</tabstop>
-  <tabstop>c0_input_invert_31</tabstop>
+  <tabstop>c0_input_invert_28</tabstop>
+  <tabstop>c0_input_debounce_28</tabstop>
+  <tabstop>c0_input_29</tabstop>
+  <tabstop>c0_input_invert_29</tabstop>
+  <tabstop>c0_input_debounce_29</tabstop>
+  <tabstop>c0_input_30</tabstop>
+  <tabstop>c0_input_invert_30</tabstop>
   <tabstop>c0_input_debounce_30</tabstop>
   <tabstop>c0_input_31</tabstop>
-  <tabstop>c0_input_invert_24</tabstop>
-  <tabstop>c0_input_invert_27</tabstop>
+  <tabstop>c0_input_invert_31</tabstop>
+  <tabstop>c0_input_debounce_31</tabstop>
   <tabstop>tabWidget_31</tabstop>
   <tabstop>c0_output_0</tabstop>
   <tabstop>c0_output_invert_0</tabstop>
   <tabstop>c0_output_1</tabstop>
-  <tabstop>c0_output_2</tabstop>
-  <tabstop>c0_output_3</tabstop>
-  <tabstop>c0_output_4</tabstop>
-  <tabstop>c0_output_5</tabstop>
-  <tabstop>c0_output_6</tabstop>
-  <tabstop>c0_output_7</tabstop>
   <tabstop>c0_output_invert_1</tabstop>
+  <tabstop>c0_output_2</tabstop>
   <tabstop>c0_output_invert_2</tabstop>
+  <tabstop>c0_output_3</tabstop>
   <tabstop>c0_output_invert_3</tabstop>
+  <tabstop>c0_output_4</tabstop>
   <tabstop>c0_output_invert_4</tabstop>
+  <tabstop>c0_output_5</tabstop>
   <tabstop>c0_output_invert_5</tabstop>
+  <tabstop>c0_output_6</tabstop>
   <tabstop>c0_output_invert_6</tabstop>
+  <tabstop>c0_output_7</tabstop>
   <tabstop>c0_output_invert_7</tabstop>
   <tabstop>c0_output_8</tabstop>
   <tabstop>c0_output_invert_8</tabstop>
   <tabstop>c0_output_9</tabstop>
-  <tabstop>c0_output_10</tabstop>
-  <tabstop>c0_output_11</tabstop>
-  <tabstop>c0_output_12</tabstop>
-  <tabstop>c0_output_13</tabstop>
-  <tabstop>c0_output_14</tabstop>
-  <tabstop>c0_output_15</tabstop>
   <tabstop>c0_output_invert_9</tabstop>
+  <tabstop>c0_output_10</tabstop>
   <tabstop>c0_output_invert_10</tabstop>
+  <tabstop>c0_output_11</tabstop>
   <tabstop>c0_output_invert_11</tabstop>
+  <tabstop>c0_output_12</tabstop>
   <tabstop>c0_output_invert_12</tabstop>
+  <tabstop>c0_output_13</tabstop>
   <tabstop>c0_output_invert_13</tabstop>
+  <tabstop>c0_output_14</tabstop>
   <tabstop>c0_output_invert_14</tabstop>
+  <tabstop>c0_output_15</tabstop>
   <tabstop>c0_output_invert_15</tabstop>
-  <tabstop>c1_JointTW</tabstop>
-  <tabstop>daughter_info_pte_0</tabstop>
-  <tabstop>c1_min_limit_0</tabstop>
-  <tabstop>c1_max_limit_0</tabstop>
-  <tabstop>c1_max_vel_0</tabstop>
-  <tabstop>c1_max_accel_0</tabstop>
-  <tabstop>c1_axis_0</tabstop>
-  <tabstop>c1_scale_0</tabstop>
-  <tabstop>c1_settings_0</tabstop>
-  <tabstop>c1_i_0</tabstop>
-  <tabstop>c1_ff1_0</tabstop>
-  <tabstop>c1_maxOutput_0</tabstop>
-  <tabstop>c1_deadband_0</tabstop>
-  <tabstop>c1_pidDefault_0</tabstop>
-  <tabstop>c1_ff0_0</tabstop>
-  <tabstop>c1_bias_0</tabstop>
-  <tabstop>c1_d_0</tabstop>
-  <tabstop>c1_maxError_0</tabstop>
-  <tabstop>c1_p_0</tabstop>
-  <tabstop>c1_ff2_0</tabstop>
-  <tabstop>c1_min_ferror_0</tabstop>
-  <tabstop>c1_max_ferror_0</tabstop>
-  <tabstop>c1_ferrorDefault_0</tabstop>
-  <tabstop>c1_copy_values_0</tabstop>
-  <tabstop>c1_homeOffset_0</tabstop>
-  <tabstop>c1_homeLatchVel_0</tabstop>
-  <tabstop>c1_home_0</tabstop>
-  <tabstop>c1_homeFinalVelocity_0</tabstop>
-  <tabstop>c1_homeSearchVel_0</tabstop>
-  <tabstop>c1_homeSequence_0</tabstop>
-  <tabstop>c1_homeUseIndex_0</tabstop>
-  <tabstop>c1_homeSwitchShared_0</tabstop>
-  <tabstop>c1_homeIgnoreLimits_0</tabstop>
-  <tabstop>c1_DirHold_0</tabstop>
-  <tabstop>c1_DirInvert_0</tabstop>
-  <tabstop>c1_StepInvert_0</tabstop>
-  <tabstop>c1_StepTime_0</tabstop>
-  <tabstop>c1_drive_0</tabstop>
-  <tabstop>c1_StepSpace_0</tabstop>
-  <tabstop>c1_DirSetup_0</tabstop>
-  <tabstop>c1_analogScaleMax_0</tabstop>
-  <tabstop>c1_analogMaxLimit_0</tabstop>
-  <tabstop>c1_analogMinLimit_0</tabstop>
-  <tabstop>c1_analogDefault_0</tabstop>
-  <tabstop>c1_encoderScale_0</tabstop>
-  <tabstop>c1_min_limit_1</tabstop>
-  <tabstop>c1_max_limit_1</tabstop>
-  <tabstop>c1_max_vel_1</tabstop>
-  <tabstop>c1_max_accel_1</tabstop>
-  <tabstop>c1_axis_1</tabstop>
-  <tabstop>c1_scale_1</tabstop>
-  <tabstop>c1_settings_1</tabstop>
-  <tabstop>c1_copy_values_1</tabstop>
-  <tabstop>c1_min_ferror_1</tabstop>
-  <tabstop>c1_max_ferror_1</tabstop>
-  <tabstop>c1_ferrorDefault_1</tabstop>
-  <tabstop>c1_i_1</tabstop>
-  <tabstop>c1_ff1_1</tabstop>
-  <tabstop>c1_maxOutput_1</tabstop>
-  <tabstop>c1_deadband_1</tabstop>
-  <tabstop>c1_pidDefault_1</tabstop>
-  <tabstop>c1_ff0_1</tabstop>
-  <tabstop>c1_bias_1</tabstop>
-  <tabstop>c1_d_1</tabstop>
-  <tabstop>c1_maxError_1</tabstop>
-  <tabstop>c1_p_1</tabstop>
-  <tabstop>c1_ff2_1</tabstop>
-  <tabstop>c1_homeOffset_1</tabstop>
-  <tabstop>c1_homeLatchVel_1</tabstop>
-  <tabstop>c1_home_1</tabstop>
-  <tabstop>c1_homeFinalVelocity_1</tabstop>
-  <tabstop>c1_homeSearchVel_1</tabstop>
-  <tabstop>c1_homeSequence_1</tabstop>
-  <tabstop>c1_homeUseIndex_1</tabstop>
-  <tabstop>c1_homeSwitchShared_1</tabstop>
-  <tabstop>c1_homeIgnoreLimits_1</tabstop>
-  <tabstop>c1_DirHold_1</tabstop>
-  <tabstop>c1_DirInvert_1</tabstop>
-  <tabstop>c1_StepInvert_1</tabstop>
-  <tabstop>c1_StepTime_1</tabstop>
-  <tabstop>c1_drive_1</tabstop>
-  <tabstop>c1_StepSpace_1</tabstop>
-  <tabstop>c1_DirSetup_1</tabstop>
-  <tabstop>c1_analogScaleMax_1</tabstop>
-  <tabstop>c1_analogMaxLimit_1</tabstop>
-  <tabstop>c1_analogMinLimit_1</tabstop>
-  <tabstop>c1_analogDefault_1</tabstop>
-  <tabstop>c1_encoderScale_1</tabstop>
-  <tabstop>c1_max_limit_2</tabstop>
-  <tabstop>c1_max_accel_2</tabstop>
-  <tabstop>c1_max_vel_2</tabstop>
-  <tabstop>c1_scale_2</tabstop>
-  <tabstop>c1_axis_2</tabstop>
-  <tabstop>c1_min_limit_2</tabstop>
-  <tabstop>c1_settings_2</tabstop>
-  <tabstop>c1_min_ferror_2</tabstop>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>spindleTypeCB</tabstop>
+  <tabstop>pwmFrequencySB</tabstop>
+  <tabstop>spindleMinRpmFwd</tabstop>
+  <tabstop>spindleMinRpmRev</tabstop>
+  <tabstop>spindleMaxRpmFwd</tabstop>
+  <tabstop>spindleMaxRpmRev</tabstop>
+  <tabstop>spindleMaxAccel</tabstop>
+  <tabstop>spindleFeedbackCB</tabstop>
+  <tabstop>spindleEncoderScale</tabstop>
+  <tabstop>p_s</tabstop>
+  <tabstop>i_s</tabstop>
+  <tabstop>d_s</tabstop>
+  <tabstop>ff0_s</tabstop>
+  <tabstop>ff1_s</tabstop>
+  <tabstop>ff2_s</tabstop>
+  <tabstop>deadband_s</tabstop>
+  <tabstop>bias_s</tabstop>
+  <tabstop>maxOutput_s</tabstop>
+  <tabstop>maxError_s</tabstop>
+  <tabstop>pidDefault_s</tabstop>
+  <tabstop>ssCardCB</tabstop>
+  <tabstop>tabWidget_27</tabstop>
+  <tabstop>manualToolChangeCB</tabstop>
+  <tabstop>pyvcpCB</tabstop>
+  <tabstop>gladevcpCB</tabstop>
+  <tabstop>jog_increments</tabstop>
+  <tabstop>introGraphicLE</tabstop>
+  <tabstop>splashScreenSB</tabstop>
+  <tabstop>no_check_firmware_cb</tabstop>
+  <tabstop>customhalCB</tabstop>
+  <tabstop>postguiCB</tabstop>
+  <tabstop>shutdownCB</tabstop>
+  <tabstop>haluiCB</tabstop>
+  <tabstop>numDioSB</tabstop>
+  <tabstop>numAioSB</tabstop>
+  <tabstop>numSpindlesSB</tabstop>
+  <tabstop>numJointSB</tabstop>
+  <tabstop>numExtraJointsSB</tabstop>
+  <tabstop>filterExtLE_0</tabstop>
+  <tabstop>filterExtLE_1</tabstop>
+  <tabstop>filterExtLE_2</tabstop>
+  <tabstop>subroutineCB</tabstop>
+  <tabstop>customSubDirPB</tabstop>
+  <tabstop>scrollArea</tabstop>
+  <tabstop>addMdiCommandPB</tabstop>
+  <tabstop>servoPeriodSB</tabstop>
+  <tabstop>debugCB</tabstop>
+  <tabstop>noforcehomingCB</tabstop>
+  <tabstop>newUserCB</tabstop>
+  <tabstop>readme_pte</tabstop>
+  <tabstop>ladderGB</tabstop>
+  <tabstop>ladderRungsSB</tabstop>
+  <tabstop>ladderBitsSB</tabstop>
+  <tabstop>ladderWordsSB</tabstop>
+  <tabstop>ladderTimersSB</tabstop>
+  <tabstop>iecTimerSB</tabstop>
+  <tabstop>ladderMonostablesSB</tabstop>
+  <tabstop>ladderCountersSB</tabstop>
+  <tabstop>ladderInputsSB</tabstop>
+  <tabstop>ladderFloatOutputsSB</tabstop>
+  <tabstop>ladderFloatInputsSB</tabstop>
+  <tabstop>ladderS32InputsSB</tabstop>
+  <tabstop>ladderS32OuputsSB</tabstop>
+  <tabstop>ladderSectionsSB</tabstop>
+  <tabstop>ladderSymbolsSB</tabstop>
+  <tabstop>ladderExpresionsSB</tabstop>
+  <tabstop>ladderOutputsSB</tabstop>
+  <tabstop>tabWidget_3</tabstop>
+  <tabstop>servoThreadTmaxPB</tabstop>
+  <tabstop>st_thread_tmax_sb</tabstop>
+  <tabstop>st_cpu_speed_pb</tabstop>
+  <tabstop>st_cpu_speed</tabstop>
+  <tabstop>st_cpu_units_cb</tabstop>
+  <tabstop>calcServoPB</tabstop>
+  <tabstop>info_pte</tabstop>
+  <tabstop>tests_pte</tabstop>
   <tabstop>c1_max_ferror_2</tabstop>
   <tabstop>c1_ferrorDefault_2</tabstop>
   <tabstop>c1_copy_values_2</tabstop>
@@ -44811,27 +44811,27 @@ auto enp2s0
   <tabstop>c2_output_invert_13</tabstop>
   <tabstop>c2_output_invert_14</tabstop>
   <tabstop>c2_output_invert_15</tabstop>
-  <tabstop>tabWidget</tabstop>
-  <tabstop>spindleFeedbackCB</tabstop>
-  <tabstop>spindleEncoderScale</tabstop>
-  <tabstop>pidDefault_s</tabstop>
-  <tabstop>p_s</tabstop>
-  <tabstop>i_s</tabstop>
-  <tabstop>d_s</tabstop>
-  <tabstop>ff0_s</tabstop>
-  <tabstop>ff1_s</tabstop>
-  <tabstop>ff2_s</tabstop>
-  <tabstop>deadband_s</tabstop>
-  <tabstop>bias_s</tabstop>
-  <tabstop>maxError_s</tabstop>
-  <tabstop>maxOutput_s</tabstop>
-  <tabstop>pwmFrequencySB</tabstop>
-  <tabstop>spindleTypeCB</tabstop>
-  <tabstop>spindleMinRpmFwd</tabstop>
-  <tabstop>spindleMaxAccel</tabstop>
-  <tabstop>spindleMaxRpmFwd</tabstop>
-  <tabstop>spindleMinRpmRev</tabstop>
-  <tabstop>spindleMaxRpmRev</tabstop>
+  <tabstop>c1_ff2_0</tabstop>
+  <tabstop>c1_homeFinalVelocity_0</tabstop>
+  <tabstop>c1_homeSearchVel_0</tabstop>
+  <tabstop>c1_DirSetup_0</tabstop>
+  <tabstop>c1_homeSequence_0</tabstop>
+  <tabstop>c1_homeUseIndex_0</tabstop>
+  <tabstop>c1_homeSwitchShared_0</tabstop>
+  <tabstop>c1_homeIgnoreLimits_0</tabstop>
+  <tabstop>c1_DirHold_0</tabstop>
+  <tabstop>c1_DirInvert_0</tabstop>
+  <tabstop>c1_StepInvert_0</tabstop>
+  <tabstop>c1_StepTime_0</tabstop>
+  <tabstop>c1_StepSpace_0</tabstop>
+  <tabstop>c1_drive_0</tabstop>
+  <tabstop>c1_max_ferror_0</tabstop>
+  <tabstop>c1_min_ferror_0</tabstop>
+  <tabstop>c1_ferrorDefault_0</tabstop>
+  <tabstop>c1_home_0</tabstop>
+  <tabstop>c1_copy_values_0</tabstop>
+  <tabstop>c1_homeOffset_0</tabstop>
+  <tabstop>c1_homeLatchVel_0</tabstop>
   <tabstop>spindleDirInvert</tabstop>
   <tabstop>spindleDirSetup</tabstop>
   <tabstop>spindleStepSpace</tabstop>
@@ -44840,7 +44840,7 @@ auto enp2s0
   <tabstop>spindleDirHold</tabstop>
   <tabstop>spindleStepInvert</tabstop>
   <tabstop>spindleStepScale</tabstop>
-  <tabstop>ssCardCB</tabstop>
+  <tabstop>c1_analogScaleMax_0</tabstop>
   <tabstop>plainTextEdit</tabstop>
   <tabstop>plainTextEdit_2</tabstop>
   <tabstop>tabWidget_35</tabstop>
@@ -45194,59 +45194,59 @@ auto enp2s0
   <tabstop>ss7i87in_2</tabstop>
   <tabstop>ss7i87in_1</tabstop>
   <tabstop>ss7i87in_7</tabstop>
-  <tabstop>tabWidget_27</tabstop>
-  <tabstop>manualToolChangeCB</tabstop>
-  <tabstop>splashScreenSB</tabstop>
-  <tabstop>introGraphicLE</tabstop>
-  <tabstop>pyvcpCB</tabstop>
-  <tabstop>gladevcpCB</tabstop>
-  <tabstop>no_check_firmware_cb</tabstop>
-  <tabstop>haluiCB</tabstop>
-  <tabstop>customhalCB</tabstop>
-  <tabstop>shutdownCB</tabstop>
-  <tabstop>postguiCB</tabstop>
-  <tabstop>numDioSB</tabstop>
-  <tabstop>numSpindlesSB</tabstop>
-  <tabstop>numAioSB</tabstop>
-  <tabstop>numJointSB</tabstop>
-  <tabstop>numExtraJointsSB</tabstop>
-  <tabstop>filterExtLE_0</tabstop>
-  <tabstop>filterExtLE_1</tabstop>
-  <tabstop>filterExtLE_2</tabstop>
-  <tabstop>subroutineCB</tabstop>
-  <tabstop>customSubDirPB</tabstop>
-  <tabstop>addMdiCommandPB</tabstop>
-  <tabstop>scrollArea</tabstop>
-  <tabstop>servoPeriodSB</tabstop>
-  <tabstop>debugCB</tabstop>
-  <tabstop>noforcehomingCB</tabstop>
-  <tabstop>newUserCB</tabstop>
-  <tabstop>readme_pte</tabstop>
+  <tabstop>c1_analogMaxLimit_0</tabstop>
+  <tabstop>c1_analogMinLimit_0</tabstop>
+  <tabstop>c1_max_vel_1</tabstop>
+  <tabstop>c1_max_limit_1</tabstop>
+  <tabstop>c1_analogDefault_0</tabstop>
+  <tabstop>c1_encoderScale_0</tabstop>
+  <tabstop>c1_max_accel_1</tabstop>
+  <tabstop>c1_copy_values_1</tabstop>
+  <tabstop>c1_axis_1</tabstop>
+  <tabstop>c1_settings_1</tabstop>
+  <tabstop>c1_scale_1</tabstop>
+  <tabstop>c1_min_ferror_1</tabstop>
+  <tabstop>c1_ferrorDefault_1</tabstop>
+  <tabstop>c1_max_ferror_1</tabstop>
+  <tabstop>c1_i_1</tabstop>
+  <tabstop>c1_ff1_1</tabstop>
+  <tabstop>c1_maxOutput_1</tabstop>
+  <tabstop>c1_deadband_1</tabstop>
+  <tabstop>c1_pidDefault_1</tabstop>
+  <tabstop>c1_ff0_1</tabstop>
+  <tabstop>c1_bias_1</tabstop>
+  <tabstop>c1_maxError_1</tabstop>
+  <tabstop>c1_d_1</tabstop>
+  <tabstop>c1_p_1</tabstop>
+  <tabstop>c1_ff2_1</tabstop>
+  <tabstop>c1_homeOffset_1</tabstop>
+  <tabstop>c1_homeLatchVel_1</tabstop>
+  <tabstop>c1_home_1</tabstop>
   <tabstop>tool_tbl</tabstop>
-  <tabstop>ladderGB</tabstop>
-  <tabstop>ladderRungsSB</tabstop>
-  <tabstop>ladderBitsSB</tabstop>
-  <tabstop>ladderS32OuputsSB</tabstop>
-  <tabstop>ladderExpresionsSB</tabstop>
-  <tabstop>ladderFloatInputsSB</tabstop>
-  <tabstop>ladderFloatOutputsSB</tabstop>
-  <tabstop>ladderSymbolsSB</tabstop>
-  <tabstop>ladderCountersSB</tabstop>
-  <tabstop>ladderS32InputsSB</tabstop>
-  <tabstop>ladderOutputsSB</tabstop>
-  <tabstop>ladderTimersSB</tabstop>
-  <tabstop>iecTimerSB</tabstop>
-  <tabstop>ladderMonostablesSB</tabstop>
-  <tabstop>ladderWordsSB</tabstop>
-  <tabstop>ladderInputsSB</tabstop>
-  <tabstop>ladderSectionsSB</tabstop>
-  <tabstop>tabWidget_3</tabstop>
-  <tabstop>st_cpu_speed_pb</tabstop>
-  <tabstop>servoThreadTmaxPB</tabstop>
-  <tabstop>st_cpu_speed</tabstop>
-  <tabstop>calcServoPB</tabstop>
-  <tabstop>st_thread_tmax_sb</tabstop>
-  <tabstop>st_cpu_units_cb</tabstop>
+  <tabstop>c1_homeFinalVelocity_1</tabstop>
+  <tabstop>c1_homeSearchVel_1</tabstop>
+  <tabstop>c1_homeSequence_1</tabstop>
+  <tabstop>c1_DirSetup_1</tabstop>
+  <tabstop>c1_analogMinLimit_1</tabstop>
+  <tabstop>c1_drive_1</tabstop>
+  <tabstop>c1_StepTime_1</tabstop>
+  <tabstop>c1_analogMaxLimit_1</tabstop>
+  <tabstop>c1_DirInvert_1</tabstop>
+  <tabstop>c1_StepSpace_1</tabstop>
+  <tabstop>c1_analogDefault_1</tabstop>
+  <tabstop>c1_homeSwitchShared_1</tabstop>
+  <tabstop>c1_homeIgnoreLimits_1</tabstop>
+  <tabstop>c1_DirHold_1</tabstop>
+  <tabstop>c1_homeUseIndex_1</tabstop>
+  <tabstop>c1_StepInvert_1</tabstop>
+  <tabstop>c1_analogScaleMax_1</tabstop>
+  <tabstop>c1_encoderScale_1</tabstop>
+  <tabstop>c1_max_vel_2</tabstop>
+  <tabstop>c1_max_limit_2</tabstop>
+  <tabstop>c1_scale_2</tabstop>
+  <tabstop>c1_min_limit_2</tabstop>
+  <tabstop>c1_max_accel_2</tabstop>
+  <tabstop>c1_axis_2</tabstop>
   <tabstop>servo_thread_pte</tabstop>
   <tabstop>nt_cpu_units_cb</tabstop>
   <tabstop>readTmaxPB</tabstop>
@@ -45266,30 +45266,30 @@ auto enp2s0
   <tabstop>ipInfoPTE</tabstop>
   <tabstop>ip_nic_PB</tabstop>
   <tabstop>ethernetPTE</tabstop>
-  <tabstop>info_pte</tabstop>
-  <tabstop>tests_pte</tabstop>
+  <tabstop>c1_settings_2</tabstop>
+  <tabstop>c1_min_ferror_2</tabstop>
   <tabstop>c0_JointTW</tabstop>
-  <tabstop>c0_i_2</tabstop>
-  <tabstop>c0_d_2</tabstop>
-  <tabstop>c0_encoderScale_1</tabstop>
-  <tabstop>c0_pidDefault_2</tabstop>
-  <tabstop>c0_deadband_2</tabstop>
-  <tabstop>c0_ff2_2</tabstop>
-  <tabstop>c0_settings_2</tabstop>
-  <tabstop>c0_axis_2</tabstop>
-  <tabstop>c0_ff0_2</tabstop>
+  <tabstop>c1_bias_0</tabstop>
+  <tabstop>c1_i_0</tabstop>
+  <tabstop>c1_max_vel_0</tabstop>
+  <tabstop>c1_min_limit_0</tabstop>
+  <tabstop>c1_pidDefault_0</tabstop>
+  <tabstop>c1_p_0</tabstop>
+  <tabstop>c1_maxError_0</tabstop>
+  <tabstop>c1_d_0</tabstop>
+  <tabstop>c1_maxOutput_0</tabstop>
   <tabstop>c2_JointTW</tabstop>
-  <tabstop>c0_maxOutput_2</tabstop>
-  <tabstop>c0_max_vel_2</tabstop>
-  <tabstop>c0_p_2</tabstop>
-  <tabstop>c0_scale_2</tabstop>
-  <tabstop>c0_max_limit_2</tabstop>
-  <tabstop>c0_maxError_2</tabstop>
-  <tabstop>c0_max_accel_2</tabstop>
-  <tabstop>c0_bias_2</tabstop>
+  <tabstop>daughter_info_pte_0</tabstop>
+  <tabstop>c1_ff1_0</tabstop>
+  <tabstop>c1_max_accel_0</tabstop>
+  <tabstop>c1_settings_0</tabstop>
+  <tabstop>c1_max_limit_0</tabstop>
+  <tabstop>c1_scale_0</tabstop>
+  <tabstop>c1_deadband_0</tabstop>
+  <tabstop>c1_axis_0</tabstop>
   <tabstop>plainTextEdit_3</tabstop>
-  <tabstop>c0_min_limit_2</tabstop>
-  <tabstop>c0_ff1_2</tabstop>
+  <tabstop>c1_JointTW</tabstop>
+  <tabstop>c1_ff0_0</tabstop>
   <tabstop>angular_scale_pb</tabstop>
   <tabstop>copy_angluar_scale_pb</tabstop>
   <tabstop>lin_steps_rev_le</tabstop>
@@ -45297,6 +45297,7 @@ auto enp2s0
   <tabstop>copy_angluar_scale_cb</tabstop>
   <tabstop>angular_scale_le</tabstop>
   <tabstop>lin_rotations_le</tabstop>
+  <tabstop>c1_min_limit_1</tabstop>
  </tabstops>
  <resources/>
  <connections/>
