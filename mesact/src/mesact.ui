@@ -45,7 +45,7 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>12</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -388,6 +388,9 @@
                <weight>75</weight>
                <bold>true</bold>
               </font>
+             </property>
+             <property name="readOnly">
+              <bool>true</bool>
              </property>
             </widget>
            </item>
@@ -992,7 +995,11 @@ or encoders</string>
              </widget>
             </item>
             <item row="0" column="2" rowspan="2" colspan="2">
-             <widget class="QPlainTextEdit" name="firmwareDescPTE"/>
+             <widget class="QPlainTextEdit" name="firmwareDescPTE">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
             </item>
            </layout>
           </widget>
@@ -1037,6 +1044,9 @@ to the clipboard</string>
                 <weight>50</weight>
                 <bold>false</bold>
                </font>
+              </property>
+              <property name="readOnly">
+               <bool>true</bool>
               </property>
              </widget>
             </item>
@@ -1495,7 +1505,11 @@ to the clipboard</string>
              </widget>
             </item>
             <item row="1" column="0">
-             <widget class="QPlainTextEdit" name="board_info_pte"/>
+             <widget class="QPlainTextEdit" name="board_info_pte">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
             </item>
             <item row="1" column="1">
              <widget class="QGroupBox" name="groupBox_146">
@@ -1512,7 +1526,7 @@ to the clipboard</string>
                   </size>
                  </property>
                  <property name="currentIndex">
-                  <number>0</number>
+                  <number>2</number>
                  </property>
                  <widget class="QWidget" name="tabWidget_228Page1">
                   <attribute name="title">
@@ -33194,6 +33208,9 @@ Leave blank to home the joint manually.</string>
                 <height>16777215</height>
                </size>
               </property>
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
               <property name="plainText">
                <string>The Smart Serial Card Configuration is very new.
 
@@ -33206,6 +33223,9 @@ The 7i83 and 7i87 are not currently supported.</string>
             </item>
             <item row="1" column="1">
              <widget class="QPlainTextEdit" name="plainTextEdit_2">
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
               <property name="plainText">
                <string>SSERIAL Wiring using a standard CAT5 Cable
 Pin 0 is at the bottom
@@ -34427,7 +34447,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
             <item>
              <widget class="QTabWidget" name="tabWidget_36">
               <property name="currentIndex">
-               <number>0</number>
+               <number>1</number>
               </property>
               <widget class="QWidget" name="tab_84">
                <attribute name="title">
@@ -38030,7 +38050,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
             <item>
              <widget class="QTabWidget" name="tabWidget_39">
               <property name="currentIndex">
-               <number>0</number>
+               <number>1</number>
               </property>
               <widget class="QWidget" name="tab_174">
                <attribute name="title">
@@ -39231,7 +39251,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
             <item>
              <widget class="QTabWidget" name="tabWidget_40">
               <property name="currentIndex">
-               <number>0</number>
+               <number>1</number>
               </property>
               <widget class="QWidget" name="tab_176">
                <attribute name="title">
@@ -40349,7 +40369,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
             <item>
              <widget class="QTabWidget" name="tabWidget_41">
               <property name="currentIndex">
-               <number>0</number>
+               <number>1</number>
               </property>
               <widget class="QWidget" name="tab_178">
                <attribute name="title">
@@ -41786,7 +41806,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
         <item>
          <widget class="QTabWidget" name="tabWidget_27">
           <property name="currentIndex">
-           <number>0</number>
+           <number>8</number>
           </property>
           <widget class="QWidget" name="tab_155">
            <attribute name="title">
@@ -42305,8 +42325,8 @@ to File Open in Axis</string>
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>98</width>
-                    <height>28</height>
+                    <width>706</width>
+                    <height>290</height>
                    </rect>
                   </property>
                   <layout class="QGridLayout" name="mdiCommandsListGL"/>
@@ -45064,45 +45084,30 @@ auto enp2s0
   <tabstop>ss7i72out_21</tabstop>
   <tabstop>ss7i72out_22</tabstop>
   <tabstop>ss7i72out_23</tabstop>
-  <tabstop>ss7i72out_42</tabstop>
-  <tabstop>ss7i72out_43</tabstop>
-  <tabstop>ss7i72out_44</tabstop>
-  <tabstop>ss7i72out_45</tabstop>
-  <tabstop>ss7i72out_46</tabstop>
-  <tabstop>ss7i72out_47</tabstop>
-  <tabstop>ss7i72out_36</tabstop>
-  <tabstop>ss7i72out_37</tabstop>
-  <tabstop>ss7i72out_38</tabstop>
-  <tabstop>ss7i72out_39</tabstop>
-  <tabstop>ss7i72out_40</tabstop>
-  <tabstop>ss7i72out_41</tabstop>
-  <tabstop>ss7i72out_30</tabstop>
-  <tabstop>ss7i72out_31</tabstop>
-  <tabstop>ss7i72out_32</tabstop>
-  <tabstop>ss7i72out_33</tabstop>
-  <tabstop>ss7i72out_34</tabstop>
-  <tabstop>ss7i72out_35</tabstop>
   <tabstop>ss7i72out_24</tabstop>
   <tabstop>ss7i72out_25</tabstop>
   <tabstop>ss7i72out_26</tabstop>
   <tabstop>ss7i72out_27</tabstop>
   <tabstop>ss7i72out_28</tabstop>
   <tabstop>ss7i72out_29</tabstop>
-  <tabstop>tabWidget_40</tabstop>
-  <tabstop>ss7i73key_8</tabstop>
-  <tabstop>ss7i73key_9</tabstop>
-  <tabstop>ss7i73key_10</tabstop>
-  <tabstop>ss7i73key_11</tabstop>
-  <tabstop>ss7i73key_12</tabstop>
-  <tabstop>ss7i73key_13</tabstop>
-  <tabstop>ss7i73key_14</tabstop>
-  <tabstop>ss7i73key_15</tabstop>
-  <tabstop>ss7i73lcd_1</tabstop>
-  <tabstop>ss7i73lcd_5</tabstop>
-  <tabstop>ss7i73lcd_2</tabstop>
-  <tabstop>ss7i73lcd_3</tabstop>
-  <tabstop>ss7i73lcd_4</tabstop>
-  <tabstop>ss7i73lcd_0</tabstop>
+  <tabstop>ss7i72out_30</tabstop>
+  <tabstop>ss7i72out_31</tabstop>
+  <tabstop>ss7i72out_32</tabstop>
+  <tabstop>ss7i72out_33</tabstop>
+  <tabstop>ss7i72out_34</tabstop>
+  <tabstop>ss7i72out_35</tabstop>
+  <tabstop>ss7i72out_36</tabstop>
+  <tabstop>ss7i72out_37</tabstop>
+  <tabstop>ss7i72out_38</tabstop>
+  <tabstop>ss7i72out_39</tabstop>
+  <tabstop>ss7i72out_40</tabstop>
+  <tabstop>ss7i72out_41</tabstop>
+  <tabstop>ss7i72out_42</tabstop>
+  <tabstop>ss7i72out_43</tabstop>
+  <tabstop>ss7i72out_44</tabstop>
+  <tabstop>ss7i72out_45</tabstop>
+  <tabstop>ss7i72out_46</tabstop>
+  <tabstop>ss7i72out_47</tabstop>
   <tabstop>ss7i73key_0</tabstop>
   <tabstop>ss7i73key_1</tabstop>
   <tabstop>ss7i73key_2</tabstop>
@@ -45111,12 +45116,26 @@ auto enp2s0
   <tabstop>ss7i73key_5</tabstop>
   <tabstop>ss7i73key_6</tabstop>
   <tabstop>ss7i73key_7</tabstop>
-  <tabstop>ss7i73lcd_9</tabstop>
-  <tabstop>ss7i73lcd_8</tabstop>
-  <tabstop>ss7i73lcd_11</tabstop>
-  <tabstop>ss7i73lcd_7</tabstop>
-  <tabstop>ss7i73lcd_10</tabstop>
+  <tabstop>ss7i73key_8</tabstop>
+  <tabstop>ss7i73key_9</tabstop>
+  <tabstop>ss7i73key_10</tabstop>
+  <tabstop>ss7i73key_11</tabstop>
+  <tabstop>ss7i73key_12</tabstop>
+  <tabstop>ss7i73key_13</tabstop>
+  <tabstop>ss7i73key_14</tabstop>
+  <tabstop>ss7i73key_15</tabstop>
+  <tabstop>ss7i73lcd_0</tabstop>
+  <tabstop>ss7i73lcd_1</tabstop>
+  <tabstop>ss7i73lcd_2</tabstop>
+  <tabstop>ss7i73lcd_3</tabstop>
+  <tabstop>ss7i73lcd_4</tabstop>
+  <tabstop>ss7i73lcd_5</tabstop>
   <tabstop>ss7i73lcd_6</tabstop>
+  <tabstop>ss7i73lcd_7</tabstop>
+  <tabstop>ss7i73lcd_8</tabstop>
+  <tabstop>ss7i73lcd_9</tabstop>
+  <tabstop>ss7i73lcd_10</tabstop>
+  <tabstop>ss7i73lcd_11</tabstop>
   <tabstop>ss7i73in_0</tabstop>
   <tabstop>ss7i73in_1</tabstop>
   <tabstop>ss7i73in_2</tabstop>
@@ -45137,6 +45156,7 @@ auto enp2s0
   <tabstop>ss7i73out_1</tabstop>
   <tabstop>ss7i73_keypadCB</tabstop>
   <tabstop>ss7i73lcdCB</tabstop>
+  <tabstop>tabWidget_40</tabstop>
   <tabstop>tabWidget_41</tabstop>
   <tabstop>ss7i84in_0</tabstop>
   <tabstop>ss7i84in_1</tabstop>
@@ -45170,14 +45190,6 @@ auto enp2s0
   <tabstop>ss7i84in_29</tabstop>
   <tabstop>ss7i84in_30</tabstop>
   <tabstop>ss7i84in_31</tabstop>
-  <tabstop>ss7i84out_8</tabstop>
-  <tabstop>ss7i84out_9</tabstop>
-  <tabstop>ss7i84out_10</tabstop>
-  <tabstop>ss7i84out_11</tabstop>
-  <tabstop>ss7i84out_12</tabstop>
-  <tabstop>ss7i84out_13</tabstop>
-  <tabstop>ss7i84out_14</tabstop>
-  <tabstop>ss7i84out_15</tabstop>
   <tabstop>ss7i84out_0</tabstop>
   <tabstop>ss7i84out_1</tabstop>
   <tabstop>ss7i84out_2</tabstop>
@@ -45186,13 +45198,21 @@ auto enp2s0
   <tabstop>ss7i84out_5</tabstop>
   <tabstop>ss7i84out_6</tabstop>
   <tabstop>ss7i84out_7</tabstop>
+  <tabstop>ss7i84out_8</tabstop>
+  <tabstop>ss7i84out_9</tabstop>
+  <tabstop>ss7i84out_10</tabstop>
+  <tabstop>ss7i84out_11</tabstop>
+  <tabstop>ss7i84out_12</tabstop>
+  <tabstop>ss7i84out_13</tabstop>
+  <tabstop>ss7i84out_14</tabstop>
+  <tabstop>ss7i84out_15</tabstop>
   <tabstop>ss7i87in_0</tabstop>
-  <tabstop>ss7i87in_4</tabstop>
-  <tabstop>ss7i87in_6</tabstop>
-  <tabstop>ss7i87in_3</tabstop>
-  <tabstop>ss7i87in_5</tabstop>
-  <tabstop>ss7i87in_2</tabstop>
   <tabstop>ss7i87in_1</tabstop>
+  <tabstop>ss7i87in_2</tabstop>
+  <tabstop>ss7i87in_3</tabstop>
+  <tabstop>ss7i87in_4</tabstop>
+  <tabstop>ss7i87in_5</tabstop>
+  <tabstop>ss7i87in_6</tabstop>
   <tabstop>ss7i87in_7</tabstop>
   <tabstop>c1_analogMaxLimit_0</tabstop>
   <tabstop>c1_analogMinLimit_0</tabstop>
@@ -45290,13 +45310,13 @@ auto enp2s0
   <tabstop>plainTextEdit_3</tabstop>
   <tabstop>c1_JointTW</tabstop>
   <tabstop>c1_ff0_0</tabstop>
-  <tabstop>angular_scale_pb</tabstop>
-  <tabstop>copy_angluar_scale_pb</tabstop>
   <tabstop>lin_steps_rev_le</tabstop>
   <tabstop>lin_microsteps_le</tabstop>
-  <tabstop>copy_angluar_scale_cb</tabstop>
-  <tabstop>angular_scale_le</tabstop>
   <tabstop>lin_rotations_le</tabstop>
+  <tabstop>angular_scale_pb</tabstop>
+  <tabstop>angular_scale_le</tabstop>
+  <tabstop>copy_angluar_scale_pb</tabstop>
+  <tabstop>copy_angluar_scale_cb</tabstop>
   <tabstop>c1_min_limit_1</tabstop>
  </tabstops>
  <resources/>
