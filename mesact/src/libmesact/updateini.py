@@ -426,6 +426,7 @@ class updateini:
 					axis = getattr(parent, f'c{i}_axis_{j}').currentData()
 					if axis not in axes:
 						axes.append(axis)
+						#print(f'AXIS_{axis} MIN_LIMIT {getattr(parent, f"c{i}_min_limit_{j}").text()}')
 						self.update_key(f'AXIS_{axis}', 'MIN_LIMIT', getattr(parent, f'c{i}_min_limit_{j}').text())
 						self.update_key(f'AXIS_{axis}', 'MAX_LIMIT', getattr(parent, f'c{i}_max_limit_{j}').text())
 						self.update_key(f'AXIS_{axis}', 'MAX_VELOCITY', getattr(parent, f'c{i}_max_vel_{j}').text())
@@ -436,6 +437,7 @@ class updateini:
 					self.update_key(f'JOINT_{n}', 'CARD', f'{i}')
 					self.update_key(f'JOINT_{n}', 'TAB', f'{j}')
 					self.update_key(f'JOINT_{n}', 'AXIS', getattr(parent, f'c{i}_axis_{j}').currentData())
+					#print(f'JOINT_{n} MIN_LIMIT {getattr(parent, f"c{i}_min_limit_{j}").text()}')
 					self.update_key(f'JOINT_{n}', 'MIN_LIMIT', getattr(parent, f'c{i}_min_limit_{j}').text())
 					self.update_key(f'JOINT_{n}', 'MAX_LIMIT', getattr(parent, f'c{i}_max_limit_{j}').text())
 					self.update_key(f'JOINT_{n}', 'MAX_VELOCITY', getattr(parent, f'c{i}_max_vel_{j}').text())
@@ -728,6 +730,8 @@ class updateini:
 			previous = key
 
 	def update_key(self, section, key, value):
+		#if key == 'HOME_IGNORE_LIMITS':
+		#	print(section, key, value)
 		found = False
 		start = self.sections[f'[{section}]'][0]
 		end = self.sections[f'[{section}]'][1]
@@ -737,8 +741,8 @@ class updateini:
 				self.content[index] = f'{key} = {value}\n'
 				found = True
 				break
-			else:
-				found = False
+			#else:
+			#	found = False
 		if not found:
 			self.content.insert(end, f'{key} = {value}\n')
 			self.get_sections() # update section start/end
