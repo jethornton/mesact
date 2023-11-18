@@ -659,7 +659,7 @@ class updateini:
 		end = self.sections[f'[{section}]'][1]
 		for item in self.content[start:end]:
 			if item.split('=')[0].strip() == key:
-				index = self.content.index(item, start)
+				index = self.content.index(item, start, end)
 				self.content[index] = f'{key} = {value}\n'
 				found = True
 				break
