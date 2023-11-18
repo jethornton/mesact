@@ -389,7 +389,7 @@
                <bold>true</bold>
               </font>
              </property>
-             <property name="readOnly">
+             <property name="tabChangesFocus">
               <bool>true</bool>
              </property>
             </widget>
@@ -43618,6 +43618,11 @@ auto enp2s0
   <action name="actionDocuments">
    <property name="text">
     <string>Documents</string>
+   </property>
+  </action>
+  <action name="actionTest">
+   <property name="text">
+    <string>Test</string>
    </property>
   </action>
  </widget>
