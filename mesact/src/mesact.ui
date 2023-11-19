@@ -1493,7 +1493,7 @@ to the clipboard</string>
         <item>
          <widget class="QTabWidget" name="c0_JointTW">
           <property name="currentIndex">
-           <number>0</number>
+           <number>8</number>
           </property>
           <widget class="QWidget" name="tab_27">
            <attribute name="title">
@@ -42343,8 +42343,8 @@ to File Open in Axis</string>
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>706</width>
-                    <height>290</height>
+                    <width>98</width>
+                    <height>28</height>
                    </rect>
                   </property>
                   <layout class="QGridLayout" name="mdiCommandsListGL"/>
@@ -43682,10 +43682,6 @@ auto enp2s0
   <tabstop>configNameLE</tabstop>
   <tabstop>load_config_cb</tabstop>
   <tabstop>backupCB</tabstop>
-  <tabstop>boardCB</tabstop>
-  <tabstop>ipAddressCB</tabstop>
-  <tabstop>daughterCB_0</tabstop>
-  <tabstop>daughterCB_1</tabstop>
   <tabstop>default_imperial_pb</tabstop>
   <tabstop>default_metric_pb</tabstop>
   <tabstop>set_7i96s_x_pb</tabstop>
@@ -43694,6 +43690,10 @@ auto enp2s0
   <tabstop>set_7i95t_xyz_pb</tabstop>
   <tabstop>set_7i92t_p2_7i76_pb</tabstop>
   <tabstop>set_7i92t_p2_7i77_pb</tabstop>
+  <tabstop>boardCB</tabstop>
+  <tabstop>ipAddressCB</tabstop>
+  <tabstop>daughterCB_0</tabstop>
+  <tabstop>daughterCB_1</tabstop>
   <tabstop>find_ip_board_pb</tabstop>
   <tabstop>checkBoardPB</tabstop>
   <tabstop>verifyPTE</tabstop>
