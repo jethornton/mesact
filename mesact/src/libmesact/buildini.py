@@ -241,9 +241,12 @@ def build(parent):
 					iniContents.append(f'HOME_FINAL_VEL = {getattr(parent, f"c{i}_homeFinalVelocity_{j}").text()}\n')
 				if getattr(parent, f"c{i}_homeSequence_{j}").text():
 					iniContents.append(f'HOME_SEQUENCE = {getattr(parent, f"c{i}_homeSequence_{j}").text()}\n')
-				iniContents.append(f'HOME_IGNORE_LIMITS = {getattr(parent, f"c{i}_homeIgnoreLimits_{j}").isChecked()}\n')
-				iniContents.append(f'HOME_USE_INDEX = {getattr(parent, f"c{i}_homeUseIndex_{j}").isChecked()}\n')
-				iniContents.append(f'HOME_IS_SHARED = {getattr(parent, f"c{i}_homeSwitchShared_{j}").isChecked()}\n')
+				if getattr(parent, f"c{i}_homeIgnoreLimits_{j}").isChecked():
+					iniContents.append(f'HOME_IGNORE_LIMITS = {getattr(parent, f"c{i}_homeIgnoreLimits_{j}").isChecked()}\n')
+				if getattr(parent, f"c{i}_homeUseIndex_{j}").isChecked():
+					iniContents.append(f'HOME_USE_INDEX = {getattr(parent, f"c{i}_homeUseIndex_{j}").isChecked()}\n')
+				if getattr(parent, f"c{i}_homeSwitchShared_{j}").isChecked():
+					iniContents.append(f'HOME_IS_SHARED = {getattr(parent, f"c{i}_homeSwitchShared_{j}").isChecked()}\n')
 				joint += 1
 
 	# build the [SPINDLE] section if enabled
