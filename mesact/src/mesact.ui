@@ -996,8 +996,11 @@ or encoders</string>
             </item>
             <item row="0" column="2" rowspan="2" colspan="2">
              <widget class="QPlainTextEdit" name="firmwareDescPTE">
-              <property name="readOnly">
+              <property name="tabChangesFocus">
                <bool>true</bool>
+              </property>
+              <property name="readOnly">
+               <bool>false</bool>
               </property>
              </widget>
             </item>
@@ -1506,8 +1509,11 @@ to the clipboard</string>
             </item>
             <item row="1" column="0">
              <widget class="QPlainTextEdit" name="board_info_pte">
-              <property name="readOnly">
+              <property name="tabChangesFocus">
                <bool>true</bool>
+              </property>
+              <property name="readOnly">
+               <bool>false</bool>
               </property>
              </widget>
             </item>
@@ -1526,7 +1532,7 @@ to the clipboard</string>
                   </size>
                  </property>
                  <property name="currentIndex">
-                  <number>2</number>
+                  <number>0</number>
                  </property>
                  <widget class="QWidget" name="tabWidget_228Page1">
                   <attribute name="title">
@@ -12001,6 +12007,9 @@ Leave blank to home the joint manually.</string>
               <height>291</height>
              </rect>
             </property>
+            <property name="tabChangesFocus">
+             <bool>true</bool>
+            </property>
            </widget>
           </widget>
           <widget class="QWidget" name="tab_53">
@@ -22207,6 +22216,9 @@ Leave blank to home the joint manually.</string>
               <width>411</width>
               <height>291</height>
              </rect>
+            </property>
+            <property name="tabChangesFocus">
+             <bool>true</bool>
             </property>
            </widget>
           </widget>
@@ -33208,8 +33220,11 @@ Leave blank to home the joint manually.</string>
                 <height>16777215</height>
                </size>
               </property>
-              <property name="readOnly">
+              <property name="tabChangesFocus">
                <bool>true</bool>
+              </property>
+              <property name="readOnly">
+               <bool>false</bool>
               </property>
               <property name="plainText">
                <string>The Smart Serial Card Configuration is very new.
@@ -33223,8 +33238,11 @@ The 7i83 and 7i87 are not currently supported.</string>
             </item>
             <item row="1" column="1">
              <widget class="QPlainTextEdit" name="plainTextEdit_2">
-              <property name="readOnly">
+              <property name="tabChangesFocus">
                <bool>true</bool>
+              </property>
+              <property name="readOnly">
+               <bool>false</bool>
               </property>
               <property name="plainText">
                <string>SSERIAL Wiring using a standard CAT5 Cable
@@ -34447,7 +34465,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
             <item>
              <widget class="QTabWidget" name="tabWidget_36">
               <property name="currentIndex">
-               <number>1</number>
+               <number>0</number>
               </property>
               <widget class="QWidget" name="tab_84">
                <attribute name="title">
@@ -38050,7 +38068,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
             <item>
              <widget class="QTabWidget" name="tabWidget_39">
               <property name="currentIndex">
-               <number>1</number>
+               <number>0</number>
               </property>
               <widget class="QWidget" name="tab_174">
                <attribute name="title">
@@ -39251,7 +39269,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
             <item>
              <widget class="QTabWidget" name="tabWidget_40">
               <property name="currentIndex">
-               <number>1</number>
+               <number>0</number>
               </property>
               <widget class="QWidget" name="tab_176">
                <attribute name="title">
@@ -40369,7 +40387,7 @@ TB2 PIN	SIGNAL	CAT5 PIN	CAT5 568B COLOR
             <item>
              <widget class="QTabWidget" name="tabWidget_41">
               <property name="currentIndex">
-               <number>1</number>
+               <number>0</number>
               </property>
               <widget class="QWidget" name="tab_178">
                <attribute name="title">
@@ -42325,8 +42343,8 @@ to File Open in Axis</string>
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>98</width>
-                    <height>28</height>
+                    <width>706</width>
+                    <height>290</height>
                    </rect>
                   </property>
                   <layout class="QGridLayout" name="mdiCommandsListGL"/>
@@ -42476,7 +42494,11 @@ reload all default PID values</string>
               </property>
               <layout class="QGridLayout" name="gridLayout_436">
                <item row="1" column="0" colspan="2">
-                <widget class="QPlainTextEdit" name="readme_pte"/>
+                <widget class="QPlainTextEdit" name="readme_pte">
+                 <property name="tabChangesFocus">
+                  <bool>true</bool>
+                 </property>
+                </widget>
                </item>
                <item row="0" column="0" colspan="2">
                 <widget class="QLabel" name="label_1482">
@@ -43138,7 +43160,11 @@ is 80% of the Servo Thread Period</string>
              </spacer>
             </item>
             <item row="0" column="1" rowspan="3">
-             <widget class="QPlainTextEdit" name="servo_thread_pte"/>
+             <widget class="QPlainTextEdit" name="servo_thread_pte">
+              <property name="tabChangesFocus">
+               <bool>true</bool>
+              </property>
+             </widget>
             </item>
            </layout>
           </widget>
@@ -43315,7 +43341,11 @@ try increasing the thread period.</string>
              </widget>
             </item>
             <item row="0" column="1" rowspan="3">
-             <widget class="QPlainTextEdit" name="nic_test_pte"/>
+             <widget class="QPlainTextEdit" name="nic_test_pte">
+              <property name="tabChangesFocus">
+               <bool>true</bool>
+              </property>
+             </widget>
             </item>
            </layout>
           </widget>
@@ -43334,8 +43364,14 @@ try increasing the thread period.</string>
                 <family>Courier</family>
                </font>
               </property>
+              <property name="tabChangesFocus">
+               <bool>true</bool>
+              </property>
+              <property name="readOnly">
+               <bool>false</bool>
+              </property>
               <property name="textInteractionFlags">
-               <set>Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+               <set>Qt::TextEditorInteraction</set>
               </property>
              </widget>
             </item>
@@ -43397,7 +43433,11 @@ try increasing the thread period.</string>
                   </property>
                   <layout class="QGridLayout" name="gridLayout_432">
                    <item row="0" column="0">
-                    <widget class="QPlainTextEdit" name="ipInfoPTE"/>
+                    <widget class="QPlainTextEdit" name="ipInfoPTE">
+                     <property name="tabChangesFocus">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
                    </item>
                    <item row="1" column="0">
                     <widget class="QPushButton" name="ip_nic_PB">
@@ -43418,6 +43458,9 @@ try increasing the thread period.</string>
                <layout class="QVBoxLayout" name="verticalLayout_55">
                 <item>
                  <widget class="QPlainTextEdit" name="ethernetPTE">
+                  <property name="tabChangesFocus">
+                   <bool>true</bool>
+                  </property>
                   <property name="plainText">
                    <string>1. Remove any PCI or USB NIC's
 2. Click IP and NIC Info to get current settings
@@ -43450,7 +43493,11 @@ auto enp2s0
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_34">
         <item>
-         <widget class="QPlainTextEdit" name="info_pte"/>
+         <widget class="QPlainTextEdit" name="info_pte">
+          <property name="tabChangesFocus">
+           <bool>true</bool>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -43460,7 +43507,11 @@ auto enp2s0
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_57">
         <item>
-         <widget class="QPlainTextEdit" name="tests_pte"/>
+         <widget class="QPlainTextEdit" name="tests_pte">
+          <property name="tabChangesFocus">
+           <bool>true</bool>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
