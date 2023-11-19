@@ -403,7 +403,7 @@ class updateini:
 					self.update_key(f'JOINT_{n}', 'MAX_OUTPUT', getattr(parent, f'c{i}_maxOutput_{j}').text())
 					if getattr(parent, f'c{i}_settings_{j}').isTabVisible(2): # Stepgen Tab
 						self.update_key(f'JOINT_{n}', 'MAX_ERROR', getattr(parent, f'c{i}_maxError_{j}').text())
-					if getattr(parent, f'c{i}_home_{i}').text():
+					if getattr(parent, f'c{i}_home_{j}').text():
 						self.update_key(f'JOINT_{n}', 'HOME', getattr(parent, f"c{i}_home_{j}").text())
 					else:
 						self.delete_key(f'JOINT_{n}', 'HOME')
