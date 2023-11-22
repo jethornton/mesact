@@ -140,8 +140,21 @@ class loadini:
 		for item in hm2:
 			self.update(parent, item[0], item[1], item[2])
 
+		if '[DISPLAY]' in self.sections: # allow custom gui
+			start = self.sections['[DISPLAY]'][0]
+			end = self.sections['[DISPLAY]'][1]
+			#index = self.content.index('DISPLAY', start, end)
+			for item in self.content[start:end]:
+				if item.startswith('DISPLAY'):
+					key, value = item.split('=')
+					#print(parent.guiCB.findData(value.strip()))
+					index = parent.guiCB.findData(value.strip())
+					if index > 0:
+						parent.guiCB.setCurrentIndex(index)
+					else:
+						parent.guiCB.setItemText(0, value.strip())
+
 		display = [
-		['[DISPLAY]', 'DISPLAY', 'guiCB'],
 		['[DISPLAY]', 'EDITOR', 'editorCB'],
 		['[DISPLAY]', 'POSITION_OFFSET', 'positionOffsetCB'],
 		['[DISPLAY]', 'POSITION_FEEDBACK', 'positionFeedbackCB'],

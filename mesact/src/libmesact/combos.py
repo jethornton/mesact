@@ -69,6 +69,7 @@ def build(parent):
 
 	for item in gui:
 		parent.guiCB.addItem(item[0], item[1])
+	parent.guiCB.setEditable(True)
 
 	linearUnits = [
 		['Select', False],

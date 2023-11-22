@@ -60,6 +60,10 @@ def build(parent):
 
 	# build the [DISPLAY] section maxFeedOverrideLE
 	iniContents.append('\n[DISPLAY]\n')
+	if not parent.guiCB.currentData(): # use the user gui
+		iniContents.append(f'DISPLAY = {parent.guiCB.currentText()}\n')
+	else:
+		iniContents.append(f'DISPLAY = {parent.guiCB.currentData()}\n')
 	iniContents.append(f'DISPLAY = {parent.guiCB.itemData(parent.guiCB.currentIndex())}\n')
 	if parent.editorCB.currentData():
 		iniContents.append(f'EDITOR = {parent.editorCB.currentData()}\n')

@@ -158,7 +158,6 @@ class updateini:
 			self.update_key(item[0], item[1], item[2])
 
 		display = [
-		['DISPLAY', 'DISPLAY', f'{parent.guiCB.itemData(parent.guiCB.currentIndex())}'],
 		['DISPLAY', 'PROGRAM_PREFIX', f'{os.path.expanduser("~/linuxcnc/nc_files")}'],
 		['DISPLAY', 'POSITION_OFFSET', f'{parent.positionOffsetCB.currentData()}'],
 		['DISPLAY', 'POSITION_FEEDBACK', f'{parent.positionFeedbackCB.currentData()}'],
@@ -168,11 +167,18 @@ class updateini:
 		['DISPLAY', 'INTRO_TIME', f'{parent.splashScreenSB.value()}'],
 		['DISPLAY', 'OPEN_FILE', f'""']
 		]
-		if parent.editorCB.currentData():
+
+		if not parent.guiCB.currentData(): # use the user gui
+			display.append(['DISPLAY', 'DISPLAY', f'{parent.guiCB.currentText()}'])
+		else:
+			display.append(['DISPLAY', 'DISPLAY', f'{parent.guiCB.currentData()}'])
+
+		if parent.editorCB.currentData(): # if an editor is not selected delete it
 			display.append(['DISPLAY', 'EDITOR', f'{parent.editorCB.currentData()}'])
 		else:
 			self.delete_key('DISPLAY', 'EDITOR')
-		if set('XYZUVW')&set(parent.coordinatesLB.text()):
+
+		if set('XYZUVW')&set(parent.coordinatesLB.text()): # if no linear axes delete linear velocitys
 			display.append(['DISPLAY', 'MIN_LINEAR_VELOCITY', f'{parent.minLinJogVelDSB.value()}'])
 			display.append(['DISPLAY', 'DEFAULT_LINEAR_VELOCITY', f'{parent.defLinJogVelDSB.value()}'])
 			display.append(['DISPLAY', 'MAX_LINEAR_VELOCITY', f'{parent.maxLinJogVelDSB.value()}'])
@@ -180,7 +186,8 @@ class updateini:
 			self.delete_key('DISPLAY', 'MIN_LINEAR_VELOCITY')
 			self.delete_key('DISPLAY', 'DEFAULT_LINEAR_VELOCITY')
 			self.delete_key('DISPLAY', 'MAX_LINEAR_VELOCITY')
-		if set('ABC')&set(parent.coordinatesLB.text()):
+
+		if set('ABC')&set(parent.coordinatesLB.text()): # if no angular axes delete angular velocitys
 			display.append(['DISPLAY', 'MIN_ANGULAR_VELOCITY', f'{parent.minAngJogVelDSB.value()}'])
 			display.append(['DISPLAY', 'DEFAULT_ANGULAR_VELOCITY', f'{parent.defAngJogVelDSB.value()}'])
 			display.append(['DISPLAY', 'MAX_ANGULAR_VELOCITY', f'{parent.maxAngJogVelDSB.value()}'])
@@ -189,7 +196,7 @@ class updateini:
 			self.delete_key('DISPLAY', 'DEFAULT_ANGULAR_VELOCITY')
 			self.delete_key('DISPLAY', 'MAX_ANGULAR_VELOCITY')
 
-		if parent.jog_increments.text():
+		if parent.jog_increments.text(): # if no user jog increments delete increments
 			display.append(['DISPLAY', 'INCREMENTS', f'{parent.jog_increments.text()}'])
 		else:
 			self.delete_key('DISPLAY', 'INCREMENTS')

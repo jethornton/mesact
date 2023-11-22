@@ -34,7 +34,7 @@ def checkit(parent):
 	# end of Firmware Tab
 
 	# check the Settings Tab for errors
-	if not parent.guiCB.currentData():
+	if parent.guiCB.currentText() == 'Select': # allow custom gui
 		tabError = True
 		configErrors.append('\tA GUI must be selected')
 	if not parent.linearUnitsCB.currentData():
