@@ -1,3 +1,6 @@
+
+from PyQt5.QtWidgets import QWidget
+
 from libmesact import mdi
 from libmesact import dialogs
 
@@ -76,6 +79,35 @@ def checkit(parent):
 	# end of Settings Tab
 
 	# check the Joint Tabs for errors c0_axis_0 c0_max_vel_0
+
+	# check for multiple daughter cards visible
+	'''
+	card_0_index = parent.mainTW.indexOf(parent.mainTW.findChild(QWidget, 'card_0'))
+	card_1_index = parent.mainTW.indexOf(parent.mainTW.findChild(QWidget, 'card_1'))
+	card_2_index = parent.mainTW.indexOf(parent.mainTW.findChild(QWidget, 'card_2'))
+	print(parent.mainTW.isTabVisible(card_0_index))
+	print(parent.mainTW.isTabVisible(card_1_index))
+	print(parent.mainTW.isTabVisible(card_2_index))
+	'''
+
+	# check for joints starting at 0, this does not work with multiple daughter cards
+	joint_list = []
+	for i in range(3):
+		for j in range(6):
+			if getattr(parent,f'c{i}_axis_{j}').currentData():
+				joint_list.append(j)
+	if len(joint_list) > 0 and min(joint_list) != 0:
+		tabError = True
+		configErrors.append('\tAxes must be configured starting with Joint 0')
+
+	# check for joints out of order, this does not work with multiple daughter cards
+	if len(joint_list) > 0:
+		joint_check = []
+		for i in range(len(joint_list)):
+			joint_check.append(i)
+		if joint_list != joint_check:
+			tabError = True
+			configErrors.append('\tJoints must be configured in sequence starting with Joint 0')
 
 	# check for data but no axis letter
 	joint_items = ['_scale_', '_min_limit_', '_max_limit_', '_max_vel_',

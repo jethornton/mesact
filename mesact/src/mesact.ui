@@ -22,9 +22,6 @@
     <height>600</height>
    </size>
   </property>
-  <property name="windowTitle">
-   <string>MainWindow</string>
-  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
@@ -1485,7 +1482,7 @@ to the clipboard</string>
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="tab_3">
+      <widget class="QWidget" name="card_0">
        <attribute name="title">
         <string/>
        </attribute>
@@ -1493,7 +1490,7 @@ to the clipboard</string>
         <item>
          <widget class="QTabWidget" name="c0_JointTW">
           <property name="currentIndex">
-           <number>8</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="tab_27">
            <attribute name="title">
@@ -11971,7 +11968,7 @@ Leave blank to home the joint manually.</string>
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="tab_24">
+      <widget class="QWidget" name="card_1">
        <attribute name="title">
         <string/>
        </attribute>
@@ -22181,7 +22178,7 @@ Leave blank to home the joint manually.</string>
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="tab_25">
+      <widget class="QWidget" name="card_2">
        <attribute name="title">
         <string/>
        </attribute>
@@ -43682,6 +43679,10 @@ auto enp2s0
   <tabstop>configNameLE</tabstop>
   <tabstop>load_config_cb</tabstop>
   <tabstop>backupCB</tabstop>
+  <tabstop>boardCB</tabstop>
+  <tabstop>ipAddressCB</tabstop>
+  <tabstop>daughterCB_0</tabstop>
+  <tabstop>daughterCB_1</tabstop>
   <tabstop>default_imperial_pb</tabstop>
   <tabstop>default_metric_pb</tabstop>
   <tabstop>set_7i96s_x_pb</tabstop>
@@ -43690,10 +43691,6 @@ auto enp2s0
   <tabstop>set_7i95t_xyz_pb</tabstop>
   <tabstop>set_7i92t_p2_7i76_pb</tabstop>
   <tabstop>set_7i92t_p2_7i77_pb</tabstop>
-  <tabstop>boardCB</tabstop>
-  <tabstop>ipAddressCB</tabstop>
-  <tabstop>daughterCB_0</tabstop>
-  <tabstop>daughterCB_1</tabstop>
   <tabstop>find_ip_board_pb</tabstop>
   <tabstop>checkBoardPB</tabstop>
   <tabstop>verifyPTE</tabstop>
