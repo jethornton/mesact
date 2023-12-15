@@ -30,10 +30,11 @@ def copy_angular_scale(parent):
 def axisChanged(parent):
 	connector = parent.sender().objectName()[:3]
 	joint = parent.sender().objectName()[-1]
+	linear_axes = ['X', 'Y', 'Z', 'U', 'V', 'W']
+	angular_axes = ['A', 'B', 'C']
+
 	if parent.sender().currentData():
 		axis = parent.sender().currentText()
-		linear_axes = ['X', 'Y', 'Z', 'U', 'V', 'W']
-		angular_axes = ['A', 'B', 'C']
 		if axis in linear_axes:
 			getattr(parent, f'{connector}axisType_{joint}').setText('LINEAR')
 			parent.minAngJogVelDSB.setEnabled(False)
@@ -49,32 +50,36 @@ def axisChanged(parent):
 			parent.minAngJogVelDSB.setEnabled(False)
 			parent.defAngJogVelDSB.setEnabled(False)
 			parent.maxAngJogVelDSB.setEnabled(False)
-		coordList = []
 
 		parent.scale_joint_cb.clear()
 		parent.scale_joint_cb.addItem('Select', False)
 		parent.copy_angluar_scale_cb.clear()
 		parent.copy_angluar_scale_cb.addItem('Select', False)
-		for i in range(3):
-			for j in range(6):
-				axis_letter = getattr(parent, f'c{i}_axis_{j}').currentText()
-				if axis_letter != 'Select':
-					coordList.append(axis_letter)
-					if axis_letter in linear_axes:
-						parent.scale_joint_cb.addItem(f'Axis {axis_letter} Joint {j} ', f'c{i}_scale_{j}')
-					elif axis_letter in angular_axes:
-						parent.copy_angluar_scale_cb.addItem(f'Axis {axis_letter} Joint {j} ', f'c{i}_scale_{j}')
-				parent.coordinatesLB.setText(''.join(coordList))
-		if coordList:
-			parent.copy_scale_pb.setEnabled(True)
-			parent.copy_angluar_scale_pb.setEnabled(True)
-		else:
-			parent.copy_scale_pb.setEnabled(False)
-			parent.copy_angluar_scale_pb.setEnabled(False)
-			parent.scale_joint_cb.clear()
-			parent.copy_angluar_scale_cb.clear()
 	else:
 		getattr(parent, f'{connector}axisType_{joint}').setText('')
+
+	# update coordinates label
+	coordList = []
+	for i in range(3):
+		for j in range(6):
+			axis_letter = getattr(parent, f'c{i}_axis_{j}').currentText()
+			if axis_letter != 'Select':
+				coordList.append(axis_letter)
+				if axis_letter in linear_axes:
+					parent.scale_joint_cb.addItem(f'Axis {axis_letter} Joint {j} ', f'c{i}_scale_{j}')
+				elif axis_letter in angular_axes:
+					parent.copy_angluar_scale_cb.addItem(f'Axis {axis_letter} Joint {j} ', f'c{i}_scale_{j}')
+			parent.coordinatesLB.setText(''.join(coordList))
+	if coordList:
+		parent.copy_scale_pb.setEnabled(True)
+		parent.copy_angluar_scale_pb.setEnabled(True)
+	else:
+		parent.copy_scale_pb.setEnabled(False)
+		parent.copy_angluar_scale_pb.setEnabled(False)
+		parent.scale_joint_cb.clear()
+		parent.copy_angluar_scale_cb.clear()
+
+
 
 def updateAxisInfo(parent):
 	card = parent.sender().objectName()[:2]

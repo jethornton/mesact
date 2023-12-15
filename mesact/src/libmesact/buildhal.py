@@ -132,7 +132,6 @@ def build(parent):
 		for j in range(6):
 			if getattr(parent, f'c{i}_axis_{j}').currentData():
 				joint_list.append(f'c{i}_axis_{j}')
-
 	joints = len(parent.coordinatesLB.text())
 	axes = parent.coordinatesLB.text()
 
