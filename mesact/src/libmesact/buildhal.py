@@ -485,10 +485,16 @@ def build(parent):
 		halContents.append('net tool-change-loop iocontrol.0.tool-change => iocontrol.0.tool-changed\n')
 
 	if parent.ladderGB.isChecked():
+		ladderOptionsList = ['ladderRungsSB', 'ladderBitsSB', 'ladderWordsSB',
+		'ladderTimersSB', 'iecTimerSB', 'ladderMonostablesSB', 'ladderCountersSB',
+		'ladderInputsSB', 'ladderOutputsSB', 'ladderExpresionsSB',
+		'ladderSectionsSB', 'ladderSymbolsSB', 'ladderS32InputsSB',
+		'ladderS32OuputsSB', 'ladderFloatInputsSB', 'ladderFloatOutputsSB']
+
 		halContents.append('\n# # Load Classicladder without GUI\n')
 		# this line needs to be built from the options if any are above 0
 		ladderOptions = []
-		for option in parent.ladderOptionsList:
+		for option in ladderOptionsList:
 			if getattr(parent, option).value() > 0:
 				ladderOptions.append(getattr(parent, option).property('option') + '=' + str(getattr(parent, option).value()))
 		if ladderOptions:
