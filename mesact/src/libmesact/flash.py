@@ -195,9 +195,8 @@ def readpd(parent):
 		getResults(parent, prompt, p.returncode, 'firmwarePTE', 'Read Pin Descriptions')
 
 def flashCard(parent):
-	parent.firmwareTW.setCurrentIndex(1)
-	parent.firmwarePTE.clear()
-	parent.firmwarePTE.setPlainText('Flashing')
+	parent.firmwareDescPTE.clear()
+	parent.firmwareDescPTE.setPlainText('Flashing')
 	board = parent.boardCB.currentData()
 	cmd = []
 	prompt = None
@@ -206,8 +205,8 @@ def flashCard(parent):
 		return
 	if parent.firmwareCB.currentData():
 		firmware = os.path.basename(parent.firmwareCB.currentData())
-		parent.firmwarePTE.clear()
-		parent.firmwarePTE.setPlainText(f'Flashing: {firmware} to {board}')
+		parent.firmwareDescPTE.clear()
+		parent.firmwareDescPTE.setPlainText(f'Flashing: {firmware} to {board}')
 		qApp.processEvents()
 		firmware = os.path.join(parent.lib_path, parent.firmwareCB.currentData())
 		if parent.boardType == 'eth':
@@ -230,6 +229,7 @@ def flashCard(parent):
 
 		if prompt:
 			getResults(parent, prompt, p.returncode, 'firmwarePTE', 'Flash')
+			parent.firmwareTW.setCurrentIndex(1)
 
 	else:
 		dialogs.errorMsgOk('A firmware must be selected', 'Error!')
@@ -237,8 +237,8 @@ def flashCard(parent):
 
 def reloadCard(parent):
 	parent.firmwareTW.setCurrentIndex(1)
-	parent.firmwarePTE.clear()
-	parent.firmwarePTE.setPlainText('Reloading')
+	parent.firmwareDescPTE.clear()
+	parent.firmwareDescPTE.setPlainText('Reloading')
 	board = parent.boardCB.currentData()
 	cmd = []
 	prompt = None
@@ -269,8 +269,8 @@ def reloadCard(parent):
 
 def verifyFirmware(parent):
 	parent.firmwareTW.setCurrentIndex(1)
-	parent.firmwarePTE.clear()
-	parent.firmwarePTE.setPlainText('Verifying')
+	parent.firmwareDescPTE.clear()
+	parent.firmwareDescPTE.setPlainText('Verifying')
 	board = parent.boardCB.currentData()
 	cmd = []
 	prompt = None
