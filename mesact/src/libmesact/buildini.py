@@ -230,8 +230,7 @@ def build(parent):
 				iniContents.append(f'FF2 = {getattr(parent, f"c{i}_ff2_{j}").text()}\n')
 				iniContents.append(f'BIAS = {getattr(parent, f"c{i}_bias_{j}").text()}\n')
 				iniContents.append(f'MAX_OUTPUT = {getattr(parent, f"c{i}_maxOutput_{j}").text()}\n')
-				if getattr(parent, f'c{i}_settings_{j}').isTabVisible(2): # Stepgen Tab
-					iniContents.append(f'MAX_ERROR = {getattr(parent, f"c{i}_maxError_{j}").text()}\n')
+				iniContents.append(f'MAX_ERROR = {getattr(parent, f"c{i}_maxError_{j}").text()}\n')
 
 				if getattr(parent, f"c{i}_home_{j}").text():
 					iniContents.append(f'HOME = {getattr(parent, f"c{i}_home_{j}").text()}\n')

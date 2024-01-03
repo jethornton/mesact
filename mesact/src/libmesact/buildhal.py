@@ -18,6 +18,7 @@ def build(parent):
 		port = '1'
 	else:
 		daughter_card = ''
+		port = '0'
 
 	halFilePath = os.path.join(parent.configPath, 'main' + '.hal')
 	parent.info_pte.appendPlainText(f'Building {halFilePath}')
