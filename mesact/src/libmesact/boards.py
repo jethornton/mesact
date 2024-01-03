@@ -277,7 +277,7 @@ def boardChanged(parent):
 					parent.firmwareGB.setEnabled(False)
 					parent.checkBoardPB.setEnabled(False)
 					parent.read_hmid_gb.setEnabled(False)
-					parent.firmwareDescPTE.setPlainText('The 7i95T requires Mesaflash 3.4.7 or newer')
+					parent.firmware_info_pte.setPlainText('The 7i95T requires Mesaflash 3.4.7 or newer')
 
 		elif board == '7i96': # ETH 5 Axis Step/Direction
 			parent.board = '7i96'
@@ -375,6 +375,6 @@ def boardChanged(parent):
 		parent.firmwareGB.setEnabled(False)
 		parent.checkBoardPB.setEnabled(False)
 		parent.read_hmid_gb.setEnabled(False)
-		parent.firmwareDescPTE.clear()
+		parent.firmware_info_pte.clear()
 		parent.firmwareCB.clear()
 

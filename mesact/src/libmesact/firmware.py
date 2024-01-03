@@ -5,7 +5,7 @@ from libmesact import dialogs
 
 def load(parent):
 	parent.firmwareCB.clear()
-	parent.firmwareDescPTE.clear()
+	parent.firmware_info_pte.clear()
 	board = parent.boardCB.currentData()
 	path = os.path.join(parent.firmware_path, board)
 	if os.path.exists(path):
@@ -156,9 +156,9 @@ def firmwareChanged(parent):
 		if os.path.exists(descfile):
 			with open(descfile, 'r') as file:
 				data = file.read()
-			parent.firmwareDescPTE.clear()
-			parent.firmwareDescPTE.setPlainText(data)
+			parent.firmware_info_pte.clear()
+			parent.firmware_info_pte.setPlainText(data)
 		else:
-			parent.firmwareDescPTE.clear()
-			parent.firmwareDescPTE.setPlainText(f'No description file found\n')
+			parent.firmware_info_pte.clear()
+			parent.firmware_info_pte.setPlainText(f'No description file found\n')
 

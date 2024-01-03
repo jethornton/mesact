@@ -195,8 +195,6 @@ def readpd(parent):
 		getResults(parent, prompt, p.returncode, 'firmwarePTE', 'Read Pin Descriptions')
 
 def flashCard(parent):
-	parent.firmwareDescPTE.clear()
-	parent.firmwareDescPTE.setPlainText('Flashing')
 	board = parent.boardCB.currentData()
 	cmd = []
 	prompt = None
@@ -205,12 +203,12 @@ def flashCard(parent):
 		return
 	if parent.firmwareCB.currentData():
 		firmware = os.path.basename(parent.firmwareCB.currentData())
-		parent.firmwareDescPTE.clear()
-		parent.firmwareDescPTE.setPlainText(f'Flashing: {firmware} to {board}')
-		qApp.processEvents()
 		firmware = os.path.join(parent.lib_path, parent.firmwareCB.currentData())
 		if parent.boardType == 'eth':
 			if verify_ip_board(parent):
+				parent.firmware_info_pte.clear()
+				parent.firmware_info_pte.setPlainText(f'Flashing: {parent.firmwareCB.currentText()} to {board}')
+				qApp.processEvents()
 				ipAddress = parent.ipAddressCB.currentText()
 				cmd = ['mesaflash', '--device', board, '--addr', ipAddress, '--write', firmware]
 				p = Popen(cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
@@ -223,22 +221,22 @@ def flashCard(parent):
 				password = getPassword(parent)
 				parent.password = password
 			if parent.password != None:
+				parent.firmware_info_pte.clear()
+				parent.firmware_info_pte.setPlainText(f'Flashing: {parent.firmwareCB.currentText()} to {board}')
+				qApp.processEvents()
 				cmd = ['sudo', '-S', 'mesaflash', '--device', parent.board, '--write', firmware]
 				p = Popen(cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
 				prompt = p.communicate(parent.password + '\n')
 
 		if prompt:
-			getResults(parent, prompt, p.returncode, 'firmwarePTE', 'Flash')
-			parent.firmwareTW.setCurrentIndex(1)
+			getResults(parent, prompt, p.returncode, 'results_pte', 'Flash')
+			parent.firmwareTW.setCurrentIndex(2)
 
 	else:
 		dialogs.errorMsgOk('A firmware must be selected', 'Error!')
 		return
 
 def reloadCard(parent):
-	parent.firmwareTW.setCurrentIndex(1)
-	parent.firmwareDescPTE.clear()
-	parent.firmwareDescPTE.setPlainText('Reloading')
 	board = parent.boardCB.currentData()
 	cmd = []
 	prompt = None
@@ -247,6 +245,9 @@ def reloadCard(parent):
 		return
 	if parent.boardType == 'eth':
 		if verify_ip_board(parent):
+			parent.firmware_info_pte.clear()
+			parent.firmware_info_pte.setPlainText('Reloading')
+			qApp.processEvents()
 			ipAddress = parent.ipAddressCB.currentText()
 			cmd = ['mesaflash', '--device', board, '--addr', ipAddress, '--reload']
 			p = Popen(cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
@@ -264,13 +265,11 @@ def reloadCard(parent):
 			prompt = p.communicate(parent.password + '\n')
 
 	if prompt:
-		getResults(parent, prompt, p.returncode, 'firmwarePTE', 'Reload Firmware')
-		parent.firmwarePTE.appendPlainText('Wait 30 seconds before Verifying the Firmware')
+		getResults(parent, prompt, p.returncode, 'firmware_info_pte', 'Reload Firmware')
+		parent.firmware_info_pte.appendPlainText('Wait 30 seconds before Verifying')
 
 def verifyFirmware(parent):
-	parent.firmwareTW.setCurrentIndex(1)
-	parent.firmwareDescPTE.clear()
-	parent.firmwareDescPTE.setPlainText('Verifying')
+	parent.firmware_info_pte.clear()
 	board = parent.boardCB.currentData()
 	cmd = []
 	prompt = None
@@ -281,6 +280,8 @@ def verifyFirmware(parent):
 		firmware = os.path.join(parent.lib_path, parent.firmwareCB.currentData())
 		if parent.boardType == 'eth':
 			if verify_ip_board(parent):
+				parent.firmware_info_pte.setPlainText(f'Verifying {parent.firmwareCB.currentText()} on {board}')
+				qApp.processEvents()
 				ipAddress = parent.ipAddressCB.currentText()
 				cmd = ['mesaflash', '--device', board, '--addr', ipAddress, '--verify', firmware]
 				p = Popen(cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
@@ -293,12 +294,15 @@ def verifyFirmware(parent):
 				password = getPassword(parent)
 				parent.password = password
 			if parent.password != None:
+				parent.firmware_info_pte.setPlainText(f'Verifying {parent.firmwareCB.currentText()} on {board}')
+				qApp.processEvents()
 				cmd = ['sudo', '-S', 'mesaflash', '--device', board, '--verify', firmware]
 				p = Popen(cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
 				prompt = p.communicate(parent.password + '\n')
 
 		if prompt:
-			getResults(parent, prompt, p.returncode, 'firmwarePTE', 'Verify Firmware')
+			getResults(parent, prompt, p.returncode, 'results_pte', 'Verify Firmware')
+			parent.firmwareTW.setCurrentIndex(2)
 	else:
 		dialogs.errorMsgOk('A firmware must be selected', 'Error!')
 		return

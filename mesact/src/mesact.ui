@@ -869,25 +869,6 @@ is the same as the board</string>
               </layout>
              </widget>
             </item>
-            <item row="0" column="1">
-             <widget class="QLabel" name="label_1472">
-              <property name="frameShape">
-               <enum>QFrame::Box</enum>
-              </property>
-              <property name="text">
-               <string>After selecting the
-the firmware if
-needed you can
-decrease the number
-of stepgens,
-pwmgens,
-or encoders</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-              </property>
-             </widget>
-            </item>
             <item row="2" column="1">
              <widget class="QGroupBox" name="options_gb_b0">
               <property name="title">
@@ -991,8 +972,8 @@ or encoders</string>
               </layout>
              </widget>
             </item>
-            <item row="0" column="2" rowspan="2" colspan="2">
-             <widget class="QPlainTextEdit" name="firmwareDescPTE">
+            <item row="0" column="1" rowspan="2" colspan="3">
+             <widget class="QPlainTextEdit" name="firmware_info_pte">
               <property name="tabChangesFocus">
                <bool>true</bool>
               </property>
@@ -1049,6 +1030,16 @@ to the clipboard</string>
                <bool>true</bool>
               </property>
              </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tab_3">
+           <attribute name="title">
+            <string>Results</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="verticalLayout_30">
+            <item>
+             <widget class="QPlainTextEdit" name="results_pte"/>
             </item>
            </layout>
           </widget>
@@ -42340,8 +42331,8 @@ to File Open in Axis</string>
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>98</width>
-                    <height>28</height>
+                    <width>50</width>
+                    <height>18</height>
                    </rect>
                   </property>
                   <layout class="QGridLayout" name="mdiCommandsListGL"/>
@@ -43705,10 +43696,9 @@ auto enp2s0
   <tabstop>stepgens_cb</tabstop>
   <tabstop>pwmgens_cb</tabstop>
   <tabstop>encoders_cb</tabstop>
-  <tabstop>firmwareDescPTE</tabstop>
+  <tabstop>firmware_info_pte</tabstop>
   <tabstop>pushButton</tabstop>
   <tabstop>pushButton_2</tabstop>
-  <tabstop>firmwareTW</tabstop>
   <tabstop>firmwarePTE</tabstop>
   <tabstop>copyPB</tabstop>
   <tabstop>guiCB</tabstop>
