@@ -11,12 +11,6 @@ def build(parent):
 	iniFilePath = os.path.join(parent.configPath, parent.configNameUnderscored + '.ini')
 	parent.info_pte.appendPlainText(f'Building {iniFilePath}')
 
-	if not os.path.exists(parent.configPath):
-		try:
-			os.mkdir(parent.configPath)
-		except OSError:
-			parent.info_pte.appendPlainText(f'OS error\n {traceback.print_exc()}')
-
 	iniContents = ['# This file was created with the Mesa Configuration Tool on ']
 	iniContents.append(datetime.now().strftime('%b %d %Y %H:%M:%S') + '\n')
 	iniContents.append('# Changes to most things are ok and will be read by the Configuration Tool\n')
