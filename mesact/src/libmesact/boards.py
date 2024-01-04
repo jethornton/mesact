@@ -20,6 +20,7 @@ def boardChanged(parent):
 
 	if parent.boardCB.currentData():
 		board = parent.boardCB.currentData()
+		parent.board_0 = parent.boardCB.currentData()
 		name = parent.boardCB.currentText()
 		if parent.mesaflash:
 			parent.checkBoardPB.setEnabled(True)

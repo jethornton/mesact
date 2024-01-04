@@ -5,13 +5,14 @@ from libmesact import settings
 from libmesact import check
 from libmesact import buildini
 from libmesact import buildhal
+from libmesact import buildhal2
 from libmesact import buildio
 from libmesact import buildmisc
 from libmesact import utilities
 
 def build(parent):
-	if not check.checkit(parent):
-		return
+	#if not check.checkit(parent):
+	#	return
 
 	if parent.backupCB.isChecked():
 		utilities.backupFiles(parent)
@@ -42,12 +43,24 @@ def build(parent):
 			except OSError:
 				parent.info_pte.appendPlainText(f'OS error\n {traceback.print_exc()}')
 
+	# build configuration directory if it doesn't exist
+	# parent.configPath is updated when the machine name changes
+	if not os.path.exists(parent.configPath):
+		try:
+			os.mkdir(parent.configPath)
+		except OSError:
+			parent.info_pte.appendPlainText(f'OS error\n {traceback.print_exc()}')
+
 	iniFile = os.path.join(parent.configPath, parent.configNameUnderscored + '.ini')
 
 	if parent.load_config_cb.isChecked():
 		parent.settings.setValue('STARTUP/config', iniFile)
 	else:
 		parent.settings.setValue('STARTUP/config', False)
+
+	buildhal2.build(parent)
+	return
+	# testing
 
 	if os.path.exists(iniFile):
 		parent.updateini.update(parent, iniFile)

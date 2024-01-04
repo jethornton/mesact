@@ -14,6 +14,9 @@ from libmesact import utilities
 
 def setup(parent):
 
+	# testing
+	parent.configNameLE.setText('bh2')
+
 	parent.platformLB.setText(sysconfig.get_platform())
 	parent.pythonLB.setText(python_version())
 	parent.pyqt5LB.setText(qVersion())
@@ -138,4 +141,10 @@ def setup(parent):
 		for i in range(3):
 			for j in range(6):
 				getattr(parent, f'c{i}{item}{j}').setValidator(only_numbers)
+
+	# setup must have variables
+	# board names
+	parent.board_0 = False
+	parent.board_1 = False
+	parent.board_2 = False
 
