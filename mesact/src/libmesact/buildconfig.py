@@ -11,8 +11,9 @@ from libmesact import buildmisc
 from libmesact import utilities
 
 def build(parent):
-	#if not check.checkit(parent):
-	#	return
+	if not parent.testing:
+		if not check.checkit(parent):
+			return
 
 	if parent.backupCB.isChecked():
 		utilities.backupFiles(parent)
@@ -58,9 +59,10 @@ def build(parent):
 	else:
 		parent.settings.setValue('STARTUP/config', False)
 
-	buildhal2.build(parent)
-	return
-	# testing
+	if parent.testing: # testing
+		buildhal2.build(parent)
+		return
+	
 
 	if os.path.exists(iniFile):
 		parent.updateini.update(parent, iniFile)

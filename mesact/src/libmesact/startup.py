@@ -14,8 +14,8 @@ from libmesact import utilities
 
 def setup(parent):
 
-	# testing
-	parent.configNameLE.setText('bh2')
+	if parent.testing: # testing
+		parent.configNameLE.setText('bh2')
 
 	parent.platformLB.setText(sysconfig.get_platform())
 	parent.pythonLB.setText(python_version())

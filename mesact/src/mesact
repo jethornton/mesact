@@ -34,6 +34,10 @@ from libmesact import shutdown
 class MainWindow(QMainWindow):
 	def __init__(self):
 		super().__init__()
+		if sys.argv[-1] == 't':
+			self.testing = True
+		else:
+			self.testing = False
 		if os.path.split(sys.argv[0])[0] == '/usr/bin':
 			self.lib_path = '/usr/lib/libmesact'
 			self.docs_path = '/usr/share/doc/mesact'
