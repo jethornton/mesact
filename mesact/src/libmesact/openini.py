@@ -75,6 +75,7 @@ class loadini:
 			iniFile = ''
 
 	def loadini(self, parent, iniFile):
+		utilities.new_config(parent)
 		parent.loading = True
 		iniDict = {}
 		with open(iniFile,'r') as file:
