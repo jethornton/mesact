@@ -54,6 +54,7 @@ halcmd show all hm2 > 7i96S-7i85-pins.txt
 halcmd show all hm2 > 7i96S-7i85S-pins.txt
 
 halcmd show all hm2 > 7i97-pins.txt
+halcmd show all hm2 > 7i97_D.txt
 
 for pci
 In a terminal
