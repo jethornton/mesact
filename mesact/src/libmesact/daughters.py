@@ -1,11 +1,10 @@
 
 def changed(parent):
-	# daughter tab indexes start at 1
+	port = int(parent.sender().objectName()[-1])
+	daughter_tab = port + 1
+	board = parent.sender().currentData()
+	setattr(parent, f'board_{daughter_tab}', board)
 	if parent.sender().currentData(): # daughter card selected
-		port = int(parent.sender().objectName()[-1])
-		daughter_tab = port + 1
-		board = parent.sender().currentData()
-		setattr(parent, f'board_{daughter_tab}', board)
 		#print(f'board_{daughter_tab}')
 		main_tw_tab = int(parent.sender().objectName()[-1]) + 4
 		# daughterLB_0
