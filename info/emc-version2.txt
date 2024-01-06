@@ -1,0 +1,43 @@
+john@debian13:~$ uname -a
+Linux debian13 6.5.0-1-rt-amd64 #1 SMP PREEMPT_RT Debian 6.5.3-1 (2023-09-13) x86_64 GNU/Linux
+john@debian13:~$ apt-cache policy linuxcnc-uspace
+linuxcnc-uspace:
+  Installed: 2.9.0~pre1+git20230208.f1270d6ed7-1
+  Candidate: 2.9.0~pre1+git20230208.f1270d6ed7-1
+  Version table:
+ *** 2.9.0~pre1+git20230208.f1270d6ed7-1 500
+        500 http://deb.debian.org/debian trixie/main amd64 Packages
+        100 /var/lib/dpkg/status
+
+john@debian12:~$ uname -a
+Linux debian12 6.0.0-5-rt-amd64 #1 SMP PREEMPT_RT Debian 6.0.10-2 (2022-12-01) x86_64 GNU/Linux
+john@debian12:~$ apt-cache policy linuxcnc-uspace
+linuxcnc-uspace:
+  Installed: 2.9.0~pre0+git20221105.ffb6bda926-1.2
+  Candidate: 2.9.0~pre0+git20221105.ffb6bda926-1.2
+  Version table:
+ *** 2.9.0~pre0+git20221105.ffb6bda926-1.2 500
+        500 http://deb.debian.org/debian bookworm/main amd64 Packages
+        100 /var/lib/dpkg/status
+
+john@debian11:~$ uname -a
+Linux debian11 5.10.0-18-rt-amd64 #1 SMP PREEMPT_RT Debian 5.10.140-1 (2022-09-02) x86_64 GNU/Linux
+john@debian11:~$ apt-cache policy linuxcnc-uspace
+linuxcnc-uspace:
+  Installed: 1:2.9.0~pre0
+  Candidate: 1:2.9.0~pre0
+  Version table:
+ *** 1:2.9.0~pre0 100
+        100 /var/lib/dpkg/status
+
+john@debian10:~$ uname -a
+Linux debian10 4.19.0-21-rt-amd64 #1 SMP PREEMPT RT Debian 4.19.249-2 (2022-06-30) x86_64 GNU/Linux
+john@debian10:~$ apt-cache policy linuxcnc-uspace
+linuxcnc-uspace:
+  Installed: 1:2.9.0~pre0
+  Candidate: 1:2.9.0~pre0
+  Version table:
+ *** 1:2.9.0~pre0 100
+        100 /var/lib/dpkg/status
+
+

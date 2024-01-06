@@ -1,0 +1,27 @@
+linuxcnc-uspace:
+  Installed: 1:2.9.2.14.gb3a390692b
+
+linuxcnc-uspace:
+  Installed: 2.9.0~pre0+git20220402.2500863908-4
+
+linuxcnc-uspace:
+  Installed: 1:2.9.0~pre1
+
+linuxcnc-uspace:
+  Installed: 1:2.9.0~pre1
+
+linuxcnc-uspace:
+  Installed: 1:2.9.2.14.gb3a390692b
+
+linuxcnc-uspace:
+  Installed: 2.9.0~pre1+git20230208.f1270d6ed7-1
+
+linuxcnc-uspace:
+  Installed: 2.9.0~pre0+git20221105.ffb6bda926-1.2
+
+linuxcnc-uspace:
+  Installed: 1:2.9.0~pre0
+
+linuxcnc-uspace:
+  Installed: 1:2.9.0~pre0
+
