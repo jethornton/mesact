@@ -45,21 +45,21 @@ def getResults(parent, prompt, result, viewport, task=None):
 
 def find_ip_board(parent):
 	addresses = ['10.10.10.10', '192.168.1.121']
+	parent.verifyPTE.setPlainText('Looking for IP boards')
+	qApp.processEvents()
 	for address in addresses:
+		parent.verifyPTE.appendPlainText(f'Checking {address}')
+		qApp.processEvents()
 		cmd = ['ping', '-c', '1', address]
 		output = subprocess.run(cmd, capture_output=True, text=True)
+		print(output.returncode)
 		if output.returncode == 0:
-			cmd = ['mesaflash', '--device', 'ether', '--addr', address]
-			output = subprocess.run(cmd, capture_output=True, text=True)
-			if output.returncode == 0:
-				parent.verifyPTE.clear()
-				msg = (f'Find IP Board Results:{output.stdout}')
-				parent.verifyPTE.setPlainText(msg)
-				return
-
-	# print(f'Return Code: {output.returncode}')
-	# print(f'Std Output: {output.stdout}')
-	# print(f'Std Error: {output.stderr}')
+			parent.verifyPTE.clear()
+			msg = (f'Find IP Board Results:{output.stdout}')
+			parent.verifyPTE.setPlainText(msg)
+			break
+		elif output.returncode != 0:
+			parent.verifyPTE.appendPlainText(f'No Board found at {address}')
 
 def verify_ip_board(parent): # make me toss up the error message and return False
 	if check_ip(parent):
