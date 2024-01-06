@@ -172,6 +172,7 @@ def new_config(parent):
 		child.setChecked(False)
 	parent.servoPeriodSB.setValue(1000000)
 	parent.introGraphicLE.setText('emc2.gif')
+	parent.mainTW.setCurrentIndex(0)
 
 def inputChanged(parent): # test to see if not checked then enable both
 	card, item, function, number = parent.sender().objectName().split('_')
