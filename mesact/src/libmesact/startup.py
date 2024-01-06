@@ -14,9 +14,6 @@ from libmesact import utilities
 
 def setup(parent):
 
-	if parent.testing: # testing
-		parent.configNameLE.setText('bh2')
-
 	parent.platformLB.setText(sysconfig.get_platform())
 	parent.pythonLB.setText(python_version())
 	parent.pyqt5LB.setText(qVersion())
@@ -149,4 +146,9 @@ def setup(parent):
 	parent.board_0 = False
 	parent.board_1 = False
 	parent.board_2 = False
+
+	if parent.testing: # testing
+		parent.configNameLE.setText('bh2')
+		parent.boardCB.setCurrentIndex(parent.boardCB.findData('5i25'))
+
 

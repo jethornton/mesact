@@ -59,17 +59,16 @@ def build(parent):
 	else:
 		parent.settings.setValue('STARTUP/config', False)
 
-	if parent.testing: # testing
-		buildhal2.build(parent)
-		return
-	
-
 	if os.path.exists(iniFile):
 		parent.updateini.update(parent, iniFile)
 	else:
 		buildini.build(parent)
 
-	buildhal.build(parent)
+	if parent.testing: # testing
+		buildhal2.build(parent)
+	else:
+		buildhal.build(parent)
+
 	buildio.build_io(parent)
 	buildio.build_ss(parent)
 	buildmisc.build(parent)
