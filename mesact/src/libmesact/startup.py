@@ -79,10 +79,12 @@ def setup(parent):
 		# get second line
 		line = emc.split('\n')[1]
 		version = line.split()[1]
+
 		if ':' in version:
 			version = version.split(':')[1]
-		if '+' in version:
-			version = version.split('+')[0]
+			version = '.'.join(version.split('.', 3)[:3])
+		if '~' in version:
+			version = version.split('~')[0]
 		if 'none' in version:
 			parent.emcVersionLB.setText('Not Installed')
 		else:
