@@ -10,9 +10,8 @@ from libmesact import buildmisc
 from libmesact import utilities
 
 def build(parent):
-	if not parent.testing:
-		if not check.checkit(parent):
-			return
+	if not check.checkit(parent):
+		return
 
 	if parent.backupCB.isChecked():
 		utilities.backupFiles(parent)

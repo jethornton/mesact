@@ -147,8 +147,4 @@ def setup(parent):
 	parent.board_1 = False
 	parent.board_2 = False
 
-	if parent.testing: # testing
-		parent.configNameLE.setText('bh2')
-		parent.boardCB.setCurrentIndex(parent.boardCB.findData('5i25'))
-
 
