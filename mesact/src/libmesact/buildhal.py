@@ -226,7 +226,7 @@ def build(parent):
 		halContents.append('\n# Spindle PWM Setup\n')
 		halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.00.output-type [SPINDLE_0](PWM_TYPE)\n')
 		halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.pwm_frequency [SPINDLE_0](PWM_FREQUENCY)\n')
-		halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.00.scale [SPINDLE_0]SCALE\n')
+		halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.00.scale [SPINDLE_0]MAX_OUTPUT\n')
 
 		halContents.append('\n# Spindle Enable\n')
 		halContents.append('net spindle-on <= spindle.0.on\n')
