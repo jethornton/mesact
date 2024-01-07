@@ -100,15 +100,6 @@ def checkit(parent):
 		tabError = True
 		configErrors.append('\tAxes must be configured starting with Joint 0')
 
-	# check for joints out of order, this does not work with multiple daughter cards
-	if len(joint_list) > 0:
-		joint_check = []
-		for i in range(len(joint_list)):
-			joint_check.append(i)
-		if joint_list != joint_check:
-			tabError = True
-			configErrors.append('\tJoints must be configured in sequence starting with Joint 0')
-
 	# check for data but no axis letter
 	joint_items = ['_scale_', '_min_limit_', '_max_limit_', '_max_vel_',
 		'_max_accel_', '_p_', '_i_', '_d_', '_ff0_', '_ff1_', '_ff2_', '_deadband_',
