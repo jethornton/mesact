@@ -145,10 +145,10 @@ class updateini:
 		if parent.boardType == 'eth':
 			hm2 = [
 			['HM2', 'DRIVER', 'hm2_eth'],
-			['HM2', 'IPADDRESS', f'{parent.ipAddressCB.currentText()}']
+			['HM2', 'ADDRESS', f'{parent.ipAddressCB.currentText()}']
 			]
 		else:
-			self.delete_key('HM2', 'IPADDRESS')
+			self.delete_key('HM2', 'ADDRESS')
 		if parent.boardType == 'pci':
 			hm2 = [['HM2', 'DRIVER', 'hm2_pci']]
 		#hm2.append(['HM2', 'STEPGENS', f'{parent.stepgens_cb.currentData()}'])
