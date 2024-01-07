@@ -102,6 +102,10 @@ def build(parent):
 			halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.timer-number 1\n')
 			
 	'''
+
+	halContents.append('\n# amp enable\n')
+	halContents.append(f'net motion-enable <= motion.motion-enabled\n')
+
 	# Joints and Axes
 	joint = 0
 	# analog ports are for 7i77 daughter cards only 7i97 is different
@@ -124,9 +128,12 @@ def build(parent):
 					halContents.append(f'setp {pid_list[joint]}.FF2 [JOINT_{joint}](FF2)\n')
 					halContents.append(f'setp {pid_list[joint]}.deadband [JOINT_{joint}](DEADBAND)\n')
 					halContents.append(f'setp {pid_list[joint]}.maxoutput [JOINT_{joint}](MAX_OUTPUT)\n')
+					halContents.append(f'setp {pid_list[joint]}.error-previous-target True\n')
+
 					if board in step_boards: # stepper
 						halContents.append('# limit stepgen velocity corrections caused by position feedback jitter\n')
 						halContents.append(f'setp {pid_list[joint]}.maxerror [JOINT_{joint}](MAX_ERROR)\n')
+
 					halContents.append(f'\n# joint-{joint} enable chain\n')
 					halContents.append(f'net joint-{joint}-index-enable <=> {pid_list[joint]}.index-enable\n')
 					halContents.append(f'net joint-{joint}-index-enable <=> joint.{joint}.index-enable\n')
@@ -134,6 +141,8 @@ def build(parent):
 						halContents.append(f'net joint-{joint}-index-enable <=> hm2_[MESA](BOARD).0.encoder.0{joint}.index-enable\n')
 					halContents.append(f'\nnet joint-{joint}-enable <= joint.{joint}.amp-enable-out\n')
 					halContents.append(f'net joint-{joint}-enable => {pid_list[joint]}.enable\n')
+					if board == '7i97':
+						halContents.append(f'net motion-enable => hm2_[MESA](BOARD).0.pwmgen.0{output}.enable')
 
 					if board in step_boards: # stepper c0_StepInvert_0
 						if getattr(parent, f'c{card}_StepInvert_{output}').isChecked():
@@ -153,6 +162,13 @@ def build(parent):
 						halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{joint}.maxaccel [JOINT_{joint}](STEPGEN_MAX_ACC)\n')
 						halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{joint}.step_type 0\n')
 						halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{joint}.control-type 1\n\n')
+
+					if board == '7i97':
+						halContents.append('# PWM Generator setup\n')
+						halContents.append(f'setp [MESA](BOARD).pwmgen.0{output}.output-type 1 #PWM pin0\n')
+						halContents.append(f'setp [MESA](BOARD).pwmgen.0{output}.offset-mode 1 # offset mode so 50% = 0\n')
+						halContents.append(f'setp [MESA](BOARD).pwmgen.0{output}0.scale [JOINT_0]OUTPUT_SCALE\n')
+
 
 					halContents.append('\n# position command and feedback\n')
 					halContents.append(f'net joint-{joint}-pos-cmd <= joint.{joint}.motor-pos-cmd\n')

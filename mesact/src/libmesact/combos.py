@@ -20,6 +20,7 @@ def build(parent):
 	['7i96', '7i96'],
 	['7i96S', '7i96s'],
 	['7i97', '7i97'],
+	['7i97T', '7i97t'],
 	['7i98', '7i98'],
 	]
 
@@ -215,5 +216,30 @@ def build(parent):
 	for item in cpuSpeed:
 		parent.st_cpu_units_cb.addItem(item[0], item[1])
 
+	# Options Tab
+	debug = [
+		['Debug Off', '0x00000000'],
+		['Debug Configuration', '0x00000002'],
+		['Debug Task Issues', '0x00000008'],
+		['Debug NML', '0x00000010'],
+		['Debug Motion Time', '0x00000040'],
+		['Debug Interpreter', '0x00000080'],
+		['Debug RCS', '0x00000100'],
+		['Debug Interperter List', '0x00000800'],
+		['Debug IO Control', '0x00001000'],
+		['Debug O Word', '0x00002000'],
+		['Debug Remap', '0x00004000'],
+		['Debug Python', '0x00008000'],
+		['Debug Named Parameters', '0x00010000'],
+		['Debug Gdbon Signal', '0x00020000'],
+		['Debug Python Task', '0x00040000'],
+		['Debug User 1', '0x10000000'],
+		['Debug User 2', '0x20000000'],
+		['Debug Unconditional', '0x40000000'],
+		['Debug All', '0x7FFFFFFF']
+		]
+
+	for item in debug:
+		parent.debugCB.addItem(item[0], item[1])
 
 

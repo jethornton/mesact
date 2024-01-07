@@ -349,6 +349,18 @@ def boardChanged(parent):
 			for i in range(6): # hide stepper tab
 				getattr(parent, f'c0_settings_{i}').setTabVisible(2, False)
 
+		elif board == '7i97t': # ETH 6 Axis Analog
+			parent.board = '7i97'
+			parent.boardType = 'eth'
+			parent.c0_JointTW.setTabText(0, name)
+			parent.ipAddressCB.setEnabled(True)
+			parent.daughterLB_0.setText('P1')
+			parent.mainTW.setTabText(4, 'P1')
+			for item in db25:
+				parent.daughterCB_0.addItem(item[0], item[1])
+			for i in range(6): # hide stepper tab
+				getattr(parent, f'c0_settings_{i}').setTabVisible(2, False)
+
 		elif board == '7i98': # ETH IDC26
 			parent.board = '7i98'
 			parent.boardType = 'eth'
