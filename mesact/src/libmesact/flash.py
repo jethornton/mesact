@@ -52,8 +52,9 @@ def find_ip_board(parent):
 		qApp.processEvents()
 		cmd = ['ping', '-c', '1', address]
 		output = subprocess.run(cmd, capture_output=True, text=True)
-		print(output.returncode)
 		if output.returncode == 0:
+			cmd = ['mesaflash', '--device', 'ether', '--addr', address]
+			output = subprocess.run(cmd, capture_output=True, text=True)
 			parent.verifyPTE.clear()
 			msg = (f'Find IP Board Results:{output.stdout}')
 			parent.verifyPTE.setPlainText(msg)
