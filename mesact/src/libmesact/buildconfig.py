@@ -5,7 +5,6 @@ from libmesact import settings
 from libmesact import check
 from libmesact import buildini
 from libmesact import buildhal
-from libmesact import buildhal2
 from libmesact import buildio
 from libmesact import buildmisc
 from libmesact import utilities
@@ -64,11 +63,7 @@ def build(parent):
 	else:
 		buildini.build(parent)
 
-	if parent.testing: # testing
-		buildhal2.build(parent)
-	else:
-		buildhal.build(parent)
-
+	buildhal.build(parent)
 	buildio.build_io(parent)
 	buildio.build_ss(parent)
 	buildmisc.build(parent)
