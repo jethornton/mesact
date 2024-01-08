@@ -44,6 +44,9 @@ def getResults(parent, prompt, result, viewport, task=None):
 	getattr(parent, viewport).appendPlainText(f'{output}\n')
 
 def find_ip_board(parent):
+	if check_emc():
+		dialogs.errorMsgOk(f'LinuxCNC must NOT be running\n to search for a board', 'Error')
+		return
 	addresses = ['10.10.10.10', '192.168.1.121']
 	parent.verifyPTE.setPlainText('Looking for IP boards')
 	qApp.processEvents()
@@ -63,6 +66,10 @@ def find_ip_board(parent):
 			parent.verifyPTE.appendPlainText(f'No Board found at {address}')
 
 def verify_ip_board(parent): # make me toss up the error message and return False
+	board = parent.boardCB.currentData()
+	if check_emc():
+		dialogs.errorMsgOk(f'LinuxCNC must NOT be running\n to read the {board}', 'Error')
+		return
 	if check_ip(parent):
 		address = parent.ipAddressCB.currentText()
 		if os.system(f'ping -c 1 {address}') != 0:
