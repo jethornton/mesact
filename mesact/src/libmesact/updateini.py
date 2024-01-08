@@ -474,10 +474,10 @@ class updateini:
 			self.update_key(f'SPINDLE_0', 'MAX_ERROR', parent.maxError_s.value())
 			self.update_key(f'SPINDLE_0', 'MAX_OUTPUT', parent.maxOutput_s.value())
 			self.update_key(f'SPINDLE_0', 'OUTPUT_TYPE', parent.maxOutput_s.value())
-			self.update_key(f'SPINDLE_0', 'MIN_FWD_RPM', parent.spindleMinRpmFwd.value())
-			self.update_key(f'SPINDLE_0', 'MAX_FWD_RPM', parent.spindleMaxRpmFwd.value())
-			self.update_key(f'SPINDLE_0', 'MIN_REV_RPM', parent.spindleMinRpmRev.value())
-			self.update_key(f'SPINDLE_0', 'MAX_REV_RPM', parent.spindleMaxRpmRev.value())
+			self.update_key(f'SPINDLE_0', 'MIN_FORWARD_VELOCITY', parent.spindleMinRpmFwd.value())
+			self.update_key(f'SPINDLE_0', 'MAX_FORWARD_VELOCITY', parent.spindleMaxRpmFwd.value())
+			self.update_key(f'SPINDLE_0', 'MIN_REVERSE_VELOCITY', parent.spindleMinRpmRev.value())
+			self.update_key(f'SPINDLE_0', 'MAX_REVERSE_VELOCITY', parent.spindleMaxRpmRev.value())
 
 			self.update_key(f'SPINDLE_0', 'SCALE', parent.spindleEncoderScale.value())
 

@@ -236,12 +236,7 @@ def build(parent):
 
 		halContents.append('\n# Spindle Connections\n')
 		halContents.append('net spindle-vel-cmd <= spindle.0.speed-out-abs\n')
-		if parent.spindleMinRpmFwd.value() > 0: # use limit1
-			halContents.append('net spindle-vel-cmd => spindle-limit.in\n')
-			halContents.append('net spindle-limit-cmd <= spindle-limit.out\n')
-			halContents.append('net spindle-limit-cmd => pid.s.command\n')
-		else:
-			halContents.append('net spindle-vel-cmd => pid.s.command\n')
+		halContents.append('net spindle-vel-cmd => pid.s.command\n')
 		halContents.append('net spindle-pid-out <= pid.s.output\n')
 		halContents.append('net spindle-pid-out => hm2_[MESA](BOARD).0.pwmgen.00.value\n')
 

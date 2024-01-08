@@ -86,6 +86,7 @@ def setup(parent):
 			parent.emcVersionLB.setText('Not Installed')
 		else:
 			parent.emcVersionLB.setText(version)
+			parent.emc_version = tuple(int(i) for i in version.split('.'))
 
 	try:
 		mf = subprocess.check_output('mesaflash', encoding='UTF-8')

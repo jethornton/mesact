@@ -24,10 +24,11 @@ def spindle_type_changed(parent):
 		if spindle_type == 'pwm':
 			parent.output_type = '1'
 			parent.pwmFrequencySB.setEnabled(True)
-			parent.spindleMinRpmFwd.setEnabled(True)
-			parent.spindleMinRpmRev.setEnabled(True)
+			if parent.emc_version >= (2, 9, 0):
+				parent.spindleMinRpmFwd.setEnabled(True)
+				parent.spindleMinRpmRev.setEnabled(True)
+				parent.spindleMaxRpmRev.setEnabled(True)
 			parent.spindleMaxRpmFwd.setEnabled(True)
-			parent.spindleMaxRpmRev.setEnabled(True)
 			parent.spindle_feedback_gb.setEnabled(True)
 			parent.spindle_pid_gb.setEnabled(True)
 			parent.spindle_stepgen_gb.setEnabled(False)

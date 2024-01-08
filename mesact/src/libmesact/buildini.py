@@ -263,10 +263,11 @@ def build(parent):
 			iniContents.append(f'DEADBAND = {parent.deadband_s.value():.1f}\n')
 			iniContents.append(f'MAX_ERROR = {parent.maxError_s.value():.1f}\n')
 			iniContents.append(f'MAX_OUTPUT = {parent.maxOutput_s.value()}\n')
-			iniContents.append(f'MIN_FWD_RPM = {parent.spindleMinRpmFwd.value()}\n')
-			iniContents.append(f'MAX_FWD_RPM = {parent.spindleMaxRpmFwd.value()}\n')
-			iniContents.append(f'MIN_REV_RPM = {parent.spindleMinRpmRev.value()}\n')
-			iniContents.append(f'MAX_REV_RPM = {parent.spindleMaxRpmRev.value()}\n')
+
+			iniContents.append(f'MIN_FORWARD_VELOCITY = {parent.spindleMinRpmFwd.value()}\n')
+			iniContents.append(f'MAX_FORWARD_VELOCITY = {parent.spindleMaxRpmFwd.value()}\n')
+			iniContents.append(f'MIN_REVERSE_VELOCITY = {parent.spindleMinRpmRev.value()}\n')
+			iniContents.append(f'MAX_REVERSE_VELOCITY = {parent.spindleMaxRpmRev.value()}\n')
 
 		if parent.spindleFeedbackCB.currentData() == 'encoder':
 			iniContents.append(f'FEEDBACK = {parent.spindleFeedbackCB.currentData()}\n')
