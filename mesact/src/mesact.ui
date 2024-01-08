@@ -11557,7 +11557,7 @@ Leave blank to home the joint manually.</string>
           </widget>
           <widget class="QWidget" name="c0_outputs">
            <attribute name="title">
-            <string>Ouputs</string>
+            <string>Outputs</string>
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout_39">
             <item>
@@ -21767,7 +21767,7 @@ Leave blank to home the joint manually.</string>
           </widget>
           <widget class="QWidget" name="c1_outputs">
            <attribute name="title">
-            <string>Ouputs</string>
+            <string>Outputs</string>
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout_40">
             <item>
@@ -32002,7 +32002,7 @@ Leave blank to home the joint manually.</string>
           </widget>
           <widget class="QWidget" name="c2_outputs">
            <attribute name="title">
-            <string>Ouputs</string>
+            <string>Outputs</string>
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout_41">
             <item>
