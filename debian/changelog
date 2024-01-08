@@ -1,3 +1,9 @@
+mesact (2.1.0) unstable; urgency=medium
+
+  * Allow using any drive outputs
+
+ -- John Thornton <dev@gnipsel.com>  Mon, 08 Jan 2024 07:50:24 -0600
+
 mesact (2.0.8) unstable; urgency=medium
 
   * Fix loading ClassicLadder
