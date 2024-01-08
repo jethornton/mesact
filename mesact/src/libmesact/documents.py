@@ -40,8 +40,8 @@ class dialog(QDialog):
 	def docs(self):
 		docs = [
 			{'Main Boards':['5i24', '5i25', '6i24', '6i25', '7i80DB', '7i80HD',
-				'7i90HD', '7i92', '7i92T', '7i93', '7i98']},
-			{'Combo Boards':['7i76E', '7i95', '7i95T', '7i96', '7i96S', '7i97', ]},
+				'7i90HD', '7i92', '7i92T', '7i93', '7i97', '7i97T', '7i98']},
+			{'Combo Boards':['7i76E', '7i95', '7i95T', '7i96', '7i96S', ]},
 			{'Daughter Boards':['7i33', '7i37', '7i44', '7i47', '7i48', '7i76',
 				'7i77', '7i78', '7i85', '7i85S', '7i88', '7i89', ]},
 			{'Smart Serial Boards':['7i64', '7i69', '7i70', '7i71', '7i72', '7i73',
@@ -97,6 +97,8 @@ class dialog(QDialog):
 		'7i83':'parallel/7i83man.pdf',
 		'7i84':'parallel/7i84man.pdf',
 		'7i87':'parallel/7i87man.pdf',
+		'7i97':'parallel/7i87man.pdf',
+		'7i97T':'parallel/7i87man.pdf',
 		'THCAD':'parallel/thcadman.pdf',
 		'THCAD2':'parallel/thcad2man.pdf',
 		}
