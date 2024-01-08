@@ -102,6 +102,16 @@ def setup(parent):
 		parent.mesaflash = False
 		parent.mesaflash_version = ()
 
+	try:
+		os_name = subprocess.check_output(['lsb_release', '-is'], encoding='UTF-8').split()
+		os_version = subprocess.check_output(['lsb_release', '-rs'], encoding='UTF-8').split()
+		parent.os_name_lb.setText(f'{os_name[0]} {os_version[0]}')
+		code_name = subprocess.check_output(['lsb_release', '-cs'], encoding='UTF-8').split()
+		parent.os_code_name_lb.setText(f'{code_name[0].title()}')
+	except:
+		parent.os_name_lb.setText('OS Unknown')
+		parent.os_code_name_lb.setText('No Codename')
+
 	# Change Events
 	for child in parent.findChildren(QPlainTextEdit):
 		child.textChanged.connect(partial(utilities.changed, parent))
