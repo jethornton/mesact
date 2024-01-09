@@ -77,20 +77,65 @@ def checkit(parent):
 		nextHeader = len(configErrors)
 		tabError = False
 	# end of Settings Tab
-
-	# check the Joint Tabs for errors c0_axis_0 c0_max_vel_0
-
-	# check for multiple daughter cards visible
 	'''
+
+	# check the Board Tabs for errors
+
+	axis_boards = ['7i76E', '7i95', '7i95T', '7i96', '7i96S', '7i97', '7i97T']
+
+
 	card_0_index = parent.mainTW.indexOf(parent.mainTW.findChild(QWidget, 'card_0'))
 	card_1_index = parent.mainTW.indexOf(parent.mainTW.findChild(QWidget, 'card_1'))
 	card_2_index = parent.mainTW.indexOf(parent.mainTW.findChild(QWidget, 'card_2'))
-	print(parent.mainTW.isTabVisible(card_0_index))
-	print(parent.mainTW.isTabVisible(card_1_index))
-	print(parent.mainTW.isTabVisible(card_2_index))
-	'''
+	if parent.mainTW.isTabVisible(card_0_index):
+		tab = parent.mainTW.tabText(card_0_index)
+		print(tab)
+		if tab in axis_boards: # Check for axis issues
+			if len(parent.coordinatesLB.text()) == 0:
+				tabError = True
+				configErrors.append('\tAt least one Axis must be configured')
 
-	# check for joints starting at 0, this does not work with multiple daughter cards
+	if tabError:
+		configErrors.insert(nextHeader, f'{tab} Tab:')
+		nextHeader = len(configErrors)
+		tabError = False
+	# end of Board 0 Tab
+
+
+	if parent.mainTW.isTabVisible(card_1_index):
+		tab = parent.mainTW.tabText(card_1_index)
+		print(tab)
+		if tab in axis_boards: # Check for axis issues
+			if len(parent.coordinatesLB.text()) == 0:
+				tabError = True
+				configErrors.append('\tAt least one Axis must be configured')
+
+	if tabError:
+		configErrors.insert(nextHeader, f'{tab} Tab:')
+		nextHeader = len(configErrors)
+		tabError = False
+	# end of Board 1 Tab
+
+
+	if parent.mainTW.isTabVisible(card_2_index):
+		tab = parent.mainTW.tabText(card_2_index)
+		print(tab)
+		if tab in axis_boards: # Check for axis issues
+			if len(parent.coordinatesLB.text()) == 0:
+				tabError = True
+				configErrors.append('\tAt least one Axis must be configured')
+
+	if tabError:
+		configErrors.insert(nextHeader, f'{tab} Tab:')
+		nextHeader = len(configErrors)
+		tabError = False
+	# end of Board 2 Tab
+
+
+
+
+
+
 	joint_list = []
 	for i in range(3):
 		for j in range(6):
@@ -122,14 +167,12 @@ def checkit(parent):
 							parent.mainTW.setCurrentIndex(i + 3)
 							getattr(parent, f'c{i}_JointTW').setCurrentIndex(j + 1)
 							return
-		
 
 	if parent.boardCB.currentData(): # only check if a board is selected
 		if len(parent.coordinatesLB.text()) == 0:
 			tabError = True
-			configErrors.append('\tAt least one Joint must be configured starting with Joint 0')
+			configErrors.append('\tAt least one Axis must be configured')
 		else:
-
 			# check for home sequence errors
 			coordinates = parent.coordinatesLB.text()
 			for i in range(3):
@@ -140,12 +183,6 @@ def checkit(parent):
 						if '-' in home_sequence and coordinates.count(axis) == 1:
 							tabError = True
 							configErrors.append(f'\tNegative Home Sequence on Joint {j} should only be used with multiple a joint Axis')
-
-	'''
-	For the common trivkins kinematics, joint numbers are assigned in sequence according to the trivkins parameter
-	<Tom_L> so it looks like they do need to be consecutive
-	<Tom_L>  It is permitted to write an axis name more than once (e.g., X Y Y Z for a gantry machine).
-	'''
 
 	# check each tab so error message is correct so loose the for i in range
 	for i in range(3):
@@ -257,13 +294,9 @@ def checkit(parent):
 				if int(selection.split()[1]) > joints:
 					tabError = True
 					configErrors.append(f'\t{selection} is more than the number of joints')
+	'''
 
-	if tabError:
-		#tab = parent.boardCB.currentText()
-		configErrors.insert(nextHeader, f'{tab} Tab:')
-		nextHeader = len(configErrors)
-		tabError = False
-	# end of Joints Tab
+
 
 	# check the Spindle Tab for errors
 	if parent.spindleTypeCB.currentData() == 'pwm':
