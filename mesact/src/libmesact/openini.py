@@ -272,8 +272,8 @@ class loadini:
 		['[SPINDLE_0]', 'ENCODER_SCALE', 'spindleEncoderScale'],
 		['[SPINDLE_0]', 'SCALE', 'spindleStepScale'],
 		['[SPINDLE_0]', 'PWM_FREQUENCY', 'pwmFrequencySB'],
-		['[SPINDLE_0]', 'MIN_VELOCITY', 'spindleMinRpmFwd'],
-		['[SPINDLE_0]', 'MAX_VELOCITY', 'spindleMaxRpmFwd'],
+		['[SPINDLE_0]', 'MIN_FORWARD_VELOCITY', 'spindleMinRpmFwd'],
+		['[SPINDLE_0]', 'MAX_FORWARD_VELOCITY', 'spindleMaxRpmFwd'],
 		['[SPINDLE_0]', 'MIN_REVERSE_VELOCITY', 'spindleMinRpmRev'],
 		['[SPINDLE_0]', 'MAX_REVERSE_VELOCITY', 'spindleMaxRpmRev'],
 		['[SPINDLE_0]', 'DEADBAND', 'deadband_s'],
@@ -299,7 +299,6 @@ class loadini:
 
 		for item in spindle:
 			self.update(parent, item[0], item[1], item[2])
-
 
 		for i in range(4):
 			for j in range(32):
