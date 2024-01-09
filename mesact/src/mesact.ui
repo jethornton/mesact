@@ -43512,20 +43512,6 @@ auto enp2s0
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="tab_188">
-       <attribute name="title">
-        <string>Tests</string>
-       </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_57">
-        <item>
-         <widget class="QPlainTextEdit" name="tests_pte">
-          <property name="tabChangesFocus">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
      </widget>
     </item>
    </layout>
@@ -44214,7 +44200,6 @@ auto enp2s0
   <tabstop>st_cpu_units_cb</tabstop>
   <tabstop>calcServoPB</tabstop>
   <tabstop>info_pte</tabstop>
-  <tabstop>tests_pte</tabstop>
   <tabstop>c1_max_ferror_2</tabstop>
   <tabstop>c1_ferrorDefault_2</tabstop>
   <tabstop>c1_copy_values_2</tabstop>
