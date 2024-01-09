@@ -83,7 +83,7 @@ def build(parent):
 	halContents.append(f'addf hm2_[MESA](BOARD).0.write servo-thread\n')
 
 	step_boards  = ['7i76', '7i76e', '7i95', '7i95t', '7i96', '7i96s']
-	analog_boards = ['7i77', '7i97']
+	analog_boards = ['7i77', '7i97', '7i97t']
 
 	if len(set(board_list) & set(step_boards)) > 0:
 		halContents.append('\n# DPLL TIMER\n')
