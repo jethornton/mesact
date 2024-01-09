@@ -84,24 +84,29 @@ def checkit(parent):
 	axis_boards = ['7i76', '7i76e', '7i77', '7i78', '7i85', '7i85s', '7i95',
 	'7i95t', '7i96', '7i96s', '7i97', '7i97t']
 
-	card_0_index = parent.mainTW.indexOf(parent.mainTW.findChild(QWidget, 'card_0'))
-	card_1_index = parent.mainTW.indexOf(parent.mainTW.findChild(QWidget, 'card_1'))
-	card_2_index = parent.mainTW.indexOf(parent.mainTW.findChild(QWidget, 'card_2'))
+	# find the card index by tab name
+	#card_index_0 = parent.mainTW.indexOf(parent.mainTW.findChild(QWidget, 'card_0'))
+	#card_index_1 = parent.mainTW.indexOf(parent.mainTW.findChild(QWidget, 'card_1'))
+	#card_index_2 = parent.mainTW.indexOf(parent.mainTW.findChild(QWidget, 'card_2'))
+
+	card_indexes = {}
+	for i in range(3):
+		card_indexes[f'card_index_{i}'] = parent.mainTW.indexOf(parent.mainTW.findChild(QWidget, f'card_{i}'))
+
 
 	if parent.boardCB.currentData() in axis_boards:
 		board = parent.boardCB.currentData()
-		tab = parent.mainTW.tabText(card_0_index)
+		tab = parent.mainTW.tabText(card_indexes['card_index_0'])
 
 	elif parent.daughterCB_0.currentData() in axis_boards:
 		board = parent.daughterCB_0.currentData()
-		tab = parent.mainTW.tabText(card_1_index)
+		tab = parent.mainTW.tabText(card_indexes['card_index_1'])
 
 	elif parent.daughterCB_1.currentData() in axis_boards:
 		board = parent.daughterCB_1.currentData()
-		tab = parent.mainTW.tabText(card_2_index)
+		tab = parent.mainTW.tabText(card_indexes['card_index_2'])
 
 	if len(parent.coordinatesLB.text()) == 0 and board is not None:
-		print('here')
 		tabError = True
 		configErrors.append('\tAt least one Axis must be configured')
 
@@ -114,10 +119,14 @@ def checkit(parent):
 
 	# check the Board Tabs for errors
 
+
+
+	for i in range(3):
+		#print(card_indexes[f'card_index_{i}'])
+		if parent.mainTW.isTabVisible(card_indexes[f'card_index_{i}']):
+			print(i)
+
 	'''
-
-
-
 	if parent.mainTW.isTabVisible(card_0_index):
 		print(tab)
 		if tab in axis_boards: # Check for axis issues
