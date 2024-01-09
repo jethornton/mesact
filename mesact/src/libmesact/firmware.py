@@ -55,6 +55,10 @@ def noFirmware(parent, board):
 
 def firmwareChanged(parent):
 	if parent.firmwareCB.currentData():
+		parent.stepgens_cb.clear()
+		parent.pwmgens_cb.clear()
+		parent.encoders_cb.clear()
+
 		parent.firmware_lb.setText(parent.firmwareCB.currentText())
 		board = parent.boardCB.currentData()
 		if '-' in board:
@@ -131,11 +135,7 @@ def firmwareChanged(parent):
 			elif parent.ss_port_1_lb.text() == 'P3':
 				parent.port_1_channels_lb.setText(', '.join(parent.p3_channels))
 
-			parent.stepgens_cb.clear()
-			parent.pwmgens_cb.clear()
-			parent.encoders_cb.clear()
-
-			# FIXME
+			# FIXME whats wrong?
 			for i in reversed(range(stepgens + 1)):
 				parent.stepgens_cb.addItem(str(i), i)
 			for i in reversed(range(pwmgens + 1)):
