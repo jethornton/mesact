@@ -5,7 +5,6 @@ from libmesact import mdi
 from libmesact import dialogs
 
 def checkit(parent):
-	parent.mainTW.setCurrentIndex(11)
 	configErrors = []
 	tabError = False
 	nextHeader = 0
@@ -110,6 +109,17 @@ def checkit(parent):
 		tabError = True
 		configErrors.append('\tAt least one Axis must be configured')
 
+	else: # check for home sequence errors
+		coordinates = parent.coordinatesLB.text()
+		for i in range(3):
+			for j in range(6):
+				if getattr(parent,f'c{i}_axis_{j}').currentData():
+					home_sequence = getattr(parent,f'c{i}_homeSequence_{j}').text()
+					axis = getattr(parent,f'c{i}_axis_{j}').currentData()
+					if '-' in home_sequence and coordinates.count(axis) == 1:
+						tabError = True
+						configErrors.append(f'\tNegative Home Sequence on Joint {j} should only be used with multiple a joint Axis')
+
 	if tabError:
 		configErrors.insert(nextHeader, f'{tab} Tab:')
 		nextHeader = len(configErrors)
@@ -119,12 +129,133 @@ def checkit(parent):
 
 	# check the Board Tabs for errors
 
-
+	# check for data but no axis letter
+	joint_items = ['_scale_', '_min_limit_', '_max_limit_', '_max_vel_',
+		'_max_accel_', '_p_', '_i_', '_d_', '_ff0_', '_ff1_', '_ff2_', '_deadband_',
+		'_bias_', '_maxOutput_', '_maxError_', '_min_ferror_', '_max_ferror_',
+		'_StepTime_', '_StepSpace_', '_DirSetup_', '_DirHold_', '_analogMinLimit_',
+		'_analogMaxLimit_', '_analogScaleMax_']
+	for i in range(3):
+		for j in range(6):
+			if not getattr(parent,f'c{i}_axis_{j}').currentData():
+				for item in joint_items:
+					if getattr(parent, f'c{i}{item}{j}').text():
+						msg = (f'Joint{j} has data but no Axis Letter\n'
+							'Delete that data?')
+						if dialogs.errorMsgYesNo(msg, 'Error'):
+							for item in joint_items:
+								getattr(parent, f'c{i}{item}{j}').setText('')
+						else: # change to offending tab
+							parent.mainTW.setCurrentIndex(i + 3)
+							getattr(parent, f'c{i}_JointTW').setCurrentIndex(j + 1)
+							return
 
 	for i in range(3):
 		#print(card_indexes[f'card_index_{i}'])
 		if parent.mainTW.isTabVisible(card_indexes[f'card_index_{i}']):
-			print(i)
+			for j in range(6): # Check for joint errors
+				if getattr(parent, f'c{i}_axis_{j}').currentData(): # the axis has a letter
+					if getattr(parent, f'c{i}_scale_{j}').text() == '':
+						tabError = True
+						configErrors.append(f'\tDrive {j} Scale must not be blank')
+					if getattr(parent, f'c{i}_min_limit_{j}').text() == '':
+						tabError = True
+						configErrors.append(f'\tDrive {j} Min Limit must not be blank')
+					if getattr(parent, f'c{i}_max_limit_{j}').text() == '':
+						tabError = True
+						configErrors.append(f'\tDrive {j} Max Limit must not be blank')
+					if getattr(parent, f'c{i}_max_vel_{j}').text() == '':
+						tabError = True
+						configErrors.append(f'\tDrive {j} Max Velocity must not be blank')
+					if getattr(parent, f'c{i}_max_accel_{j}').text() == '':
+						tabError = True
+						configErrors.append(f'\tDrive {j} Max Accel must not be blank')
+					if getattr(parent, f'c{i}_p_{j}').text() == '':
+						tabError = True
+						configErrors.append(f'\tDrive {j} PID P must not be blank')
+					if getattr(parent, f'c{i}_i_{j}').text() == '':
+						tabError = True
+						configErrors.append(f'\tDrive {j} PID I must not be blank')
+					if getattr(parent, f'c{i}_d_{j}').text() == '':
+						tabError = True
+						configErrors.append(f'\tDrive {j} PID D must not be blank')
+					if getattr(parent, f'c{i}_ff0_{j}').text() == '':
+						tabError = True
+						configErrors.append(f'\tDrive {j} PID FF0 must not be blank')
+					if getattr(parent, f'c{i}_ff1_{j}').text() == '':
+						tabError = True
+						configErrors.append(f'\tDrive {j} PIF FF1 must not be blank')
+					if getattr(parent, f'c{i}_ff2_{j}').text() == '':
+						tabError = True
+						configErrors.append(f'\tDrive {j} PID FF2 must not be blank')
+					if getattr(parent, f'c{i}_deadband_{j}').text() == '':
+						tabError = True
+						configErrors.append(f'\tDrive {j} PID Deadband must not be blank')
+					if getattr(parent, f'c{i}_bias_{j}').text() == '':
+						tabError = True
+						configErrors.append(f'\tDrive {j} PID Bias must not be blank')
+					if getattr(parent, f'c{i}_maxOutput_{j}').text() == '':
+						tabError = True
+						configErrors.append(f'\tDrive {j} PID Max Output must not be blank')
+					if getattr(parent, f'c{i}_settings_{j}').isTabVisible(2): # Stepgen Tab
+						if getattr(parent, f'c{i}_maxError_{j}').text() == '':
+							tabError = True
+							configErrors.append(f'\tDrive {j} PID Max Error must not be blank')
+					if getattr(parent, f'c{i}_min_ferror_{j}').text() == '':
+						tabError = True
+						configErrors.append(f'\tDrive {j} Min Following Error must not be blank')
+					if getattr(parent, f'c{i}_max_ferror_{j}').text() == '':
+						tabError = True
+						configErrors.append(f'\tDrive {j} Max Following Error must not be blank')
+
+					if getattr(parent, f'c{i}_settings_{j}').isTabVisible(2): # Stepgen Tab
+						if getattr(parent, f'c{i}_StepTime_{j}').text() == '':
+							tabError = True
+							configErrors.append(f'\tDrive {j} Stepgen Step Time must not be blank')
+						if getattr(parent, f'c{i}_StepSpace_{j}').text() == '':
+							tabError = True
+							configErrors.append(f'\tDrive {j} Stepgen Step Space must not be blank')
+						if getattr(parent, f'c{i}_DirSetup_{j}').text() == '':
+							tabError = True
+							configErrors.append(f'\tDrive {j} Stepgen Direction Setup must not be blank')
+						if getattr(parent, f'c{i}_DirHold_{j}').text() == '':
+							tabError = True
+							configErrors.append(f'\tDrive {j} Stepgen Direction Hold must not be blank')
+
+					if getattr(parent, f'c{i}_settings_{j}').isTabVisible(3): # Analog Tab
+						if getattr(parent, f'c{i}_analogMinLimit_{j}').text() == '':
+							tabError = True
+							configErrors.append(f'\tJoint {j} Analog Min Limit must not be blank')
+						if getattr(parent, f'c{i}_analogMaxLimit_{j}').text() == '':
+							tabError = True
+							configErrors.append(f'\tDrive {j} Analog Max Limit must not be blank')
+						if getattr(parent, f'c{i}_analogScaleMax_{j}').text() == '':
+							tabError = True
+							configErrors.append(f'\tDrive {j} Analog Scale Max must not be blank')
+
+	# check I/O for errors
+	# get the joints
+	joints = 0
+	for i in range(3):
+		for j in range(6):
+			if getattr(parent, f'c{i}_axis_{j}').currentData():
+				joints += 1
+				#print(f'Joint: {joints}')
+	for i in range(3):
+		for j in range(32):
+			selection = getattr(parent, f'c{i}_input_{j}').text()
+			if selection.startswith('Joint'):
+				if int(selection.split()[1]) > joints:
+					tabError = True
+					configErrors.append(f'\t{selection} is more than the number of joints')
+
+	for i in range(3):
+		for j in range(16):
+			selection = getattr(parent, f'c{i}_output_{j}').text()
+			if selection.startswith('Joint'):
+				if int(selection.split()[1]) > joints:
+					tabError = True
+					configErrors.append(f'\t{selection} is more than the number of joints')
 
 	'''
 	if parent.mainTW.isTabVisible(card_0_index):
@@ -184,155 +315,19 @@ def checkit(parent):
 		tabError = True
 		configErrors.append('\tAxes must be configured starting with Joint 0')
 
-	# check for data but no axis letter
-	joint_items = ['_scale_', '_min_limit_', '_max_limit_', '_max_vel_',
-		'_max_accel_', '_p_', '_i_', '_d_', '_ff0_', '_ff1_', '_ff2_', '_deadband_',
-		'_bias_', '_maxOutput_', '_maxError_', '_min_ferror_', '_max_ferror_',
-		'_StepTime_', '_StepSpace_', '_DirSetup_', '_DirHold_', '_analogMinLimit_',
-		'_analogMaxLimit_', '_analogScaleMax_']
-	for i in range(3):
-		for j in range(6):
-			if not getattr(parent,f'c{i}_axis_{j}').currentData():
-				for item in joint_items:
-					if getattr(parent, f'c{i}{item}{j}').text():
-						print(getattr(parent, f'c{i}{item}{j}').text())
-						msg = (f'Joint{j} has data but no Axis Letter\n'
-							'Delete that data?')
-						if dialogs.errorMsgYesNo(msg, 'Error'):
-							for item in joint_items:
-								getattr(parent, f'c{i}{item}{j}').setText('')
-							return
-						else: # change to offending tab
-							parent.mainTW.setCurrentIndex(i + 3)
-							getattr(parent, f'c{i}_JointTW').setCurrentIndex(j + 1)
-							return
 
 	if parent.boardCB.currentData(): # only check if a board is selected
 		if len(parent.coordinatesLB.text()) == 0:
 			tabError = True
 			configErrors.append('\tAt least one Axis must be configured')
-		else:
-			# check for home sequence errors
-			coordinates = parent.coordinatesLB.text()
-			for i in range(3):
-				for j in range(6):
-					if getattr(parent,f'c{i}_axis_{j}').currentData():
-						home_sequence = getattr(parent,f'c{i}_homeSequence_{j}').text()
-						axis = getattr(parent,f'c{i}_axis_{j}').currentData()
-						if '-' in home_sequence and coordinates.count(axis) == 1:
-							tabError = True
-							configErrors.append(f'\tNegative Home Sequence on Joint {j} should only be used with multiple a joint Axis')
 
 	# check each tab so error message is correct so loose the for i in range
 	for i in range(3):
 		tab = getattr(parent, 'mainTW').tabText(i + 3)
 		for j in range(6):
-			if getattr(parent, f'c{i}_axis_{j}').currentData():
-				if getattr(parent, f'c{i}_scale_{j}').isEnabled():
-					if getattr(parent, f'c{i}_scale_{j}').text() == '':
-						tabError = True
-						configErrors.append(f'\tJoint {j} Scale must not be blank')
-				if getattr(parent, f'c{i}_min_limit_{j}').text() == '':
-					tabError = True
-					configErrors.append(f'\tJoint {j} Min Limit must not be blank')
-				if getattr(parent, f'c{i}_max_limit_{j}').text() == '':
-					tabError = True
-					configErrors.append(f'\tJoint {j} Max Limit must not be blank')
-				if getattr(parent, f'c{i}_max_vel_{j}').text() == '':
-					tabError = True
-					configErrors.append(f'\tJoint {j} Max Velocity must not be blank')
-				if getattr(parent, f'c{i}_max_accel_{j}').text() == '':
-					tabError = True
-					configErrors.append(f'\tJoint {j} Max Accel must not be blank')
-				if getattr(parent, f'c{i}_p_{j}').text() == '':
-					tabError = True
-					configErrors.append(f'\tJoint {j} PID P must not be blank')
-				if getattr(parent, f'c{i}_i_{j}').text() == '':
-					tabError = True
-					configErrors.append(f'\tJoint {j} PID I must not be blank')
-				if getattr(parent, f'c{i}_d_{j}').text() == '':
-					tabError = True
-					configErrors.append(f'\tJoint {j} PID D must not be blank')
-				if getattr(parent, f'c{i}_ff0_{j}').text() == '':
-					tabError = True
-					configErrors.append(f'\tJoint {j} PID FF0 must not be blank')
-				if getattr(parent, f'c{i}_ff1_{j}').text() == '':
-					tabError = True
-					configErrors.append(f'\tJoint {j} PIF FF1 must not be blank')
-				if getattr(parent, f'c{i}_ff2_{j}').text() == '':
-					tabError = True
-					configErrors.append(f'\tJoint {j} PID FF2 must not be blank')
-				if getattr(parent, f'c{i}_deadband_{j}').text() == '':
-					tabError = True
-					configErrors.append(f'\tJoint {j} PID Deadband must not be blank')
-				if getattr(parent, f'c{i}_bias_{j}').text() == '':
-					tabError = True
-					configErrors.append(f'\tJoint {j} PID Bias must not be blank')
-				if getattr(parent, f'c{i}_maxOutput_{j}').text() == '':
-					tabError = True
-					configErrors.append(f'\tJoint {j} PID Max Output must not be blank')
-				if getattr(parent, f'c{i}_settings_{j}').isTabVisible(2): # Stepgen Tab
-					if getattr(parent, f'c{i}_maxError_{j}').text() == '':
-						tabError = True
-						configErrors.append(f'\tJoint {j} PID Max Error must not be blank')
-				if getattr(parent, f'c{i}_min_ferror_{j}').text() == '':
-					tabError = True
-					configErrors.append(f'\tJoint {j} Min Following Error must not be blank')
-				if getattr(parent, f'c{i}_max_ferror_{j}').text() == '':
-					tabError = True
-					configErrors.append(f'\tJoint {j} Max Following Error must not be blank')
 
-				if getattr(parent, f'c{i}_settings_{j}').isTabVisible(2): # Stepgen Tab
-					#if not getattr(parent, f'c{i}_drive_{j}').currentData():
-					#	tabError = True
-					#	configErrors.append(f'\tJoint {j} Stepgen Type must not be blank')
-					if getattr(parent, f'c{i}_StepTime_{j}').text() == '':
-						tabError = True
-						configErrors.append(f'\tJoint {j} Stepgen Step Time must not be blank')
-					if getattr(parent, f'c{i}_StepSpace_{j}').text() == '':
-						tabError = True
-						configErrors.append(f'\tJoint {j} Stepgen Step Space must not be blank')
-					if getattr(parent, f'c{i}_DirSetup_{j}').text() == '':
-						tabError = True
-						configErrors.append(f'\tJoint {j} Stepgen Direction Setup must not be blank')
-					if getattr(parent, f'c{i}_DirHold_{j}').text() == '':
-						tabError = True
-						configErrors.append(f'\tJoint {j} Stepgen Direction Hold must not be blank')
 
-				if getattr(parent, f'c{i}_settings_{j}').isTabVisible(3): # Analog Tab
-					if getattr(parent, f'c{i}_analogMinLimit_{j}').text() == '':
-						tabError = True
-						configErrors.append(f'\tJoint {j} Analog Min Limit must not be blank')
-					if getattr(parent, f'c{i}_analogMaxLimit_{j}').text() == '':
-						tabError = True
-						configErrors.append(f'\tJoint {j} Analog Max Limit must not be blank')
-					if getattr(parent, f'c{i}_analogScaleMax_{j}').text() == '':
-						tabError = True
-						configErrors.append(f'\tJoint {j} Analog Scale Max must not be blank')
 
-	# check I/O for errors
-	# get the joints
-	joints = 0
-	for i in range(3):
-		for j in range(6):
-			if getattr(parent, f'c{i}_axis_{j}').currentData():
-				joints += 1
-				#print(f'Joint: {joints}')
-	for i in range(3):
-		for j in range(32):
-			selection = getattr(parent, f'c{i}_input_{j}').text()
-			if selection.startswith('Joint'):
-				if int(selection.split()[1]) > joints:
-					tabError = True
-					configErrors.append(f'\t{selection} is more than the number of joints')
-
-	for i in range(3):
-		for j in range(16):
-			selection = getattr(parent, f'c{i}_output_{j}').text()
-			if selection.startswith('Joint'):
-				if int(selection.split()[1]) > joints:
-					tabError = True
-					configErrors.append(f'\t{selection} is more than the number of joints')
 	'''
 
 
@@ -383,6 +378,8 @@ def checkit(parent):
 	# end of PC Tab
 
 	parent.info_pte.clear()
+	parent.mainTW.setCurrentIndex(11)
+
 	if configErrors:
 		checkit.result = '\n'.join(configErrors)
 		parent.info_pte.setPlainText(checkit.result)
