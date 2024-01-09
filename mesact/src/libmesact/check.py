@@ -52,14 +52,14 @@ def checkit(parent):
 	if parent.maxFeedOverrideSB.value() == 0.0:
 		tabError = True
 		configErrors.append('\tThe Max Feed Override must be greater than zero, 1.2 is suggested')
-	if set('XYZUVW')&set(parent.coordinatesLB.text()):
+	if set('XYZUVW') & set(parent.coordinatesLB.text()):
 		if parent.defLinJogVelDSB.value() == 0.0:
 			tabError = True
 			configErrors.append('\tDefault Linear Jog Velocity must be greater than zero')
 		if parent.maxLinJogVelDSB.value() == 0.0:
 			tabError = True
 			configErrors.append('\tMaximum Linear Jog Velocity must be greater than zero')
-	if set('ABC')&set(parent.coordinatesLB.text()):
+	if set('ABC') & set(parent.coordinatesLB.text()):
 		if parent.defAngJogVelDSB.value() == 0.0:
 			tabError = True
 			configErrors.append('\tDefault Angular Jog Velocity must be greater than zero')
@@ -77,18 +77,48 @@ def checkit(parent):
 		nextHeader = len(configErrors)
 		tabError = False
 	# end of Settings Tab
-	'''
 
-	# check the Board Tabs for errors
 
-	axis_boards = ['7i76E', '7i95', '7i95T', '7i96', '7i96S', '7i97', '7i97T']
-
+	# check for no Axis
+	board = None
+	axis_boards = ['7i76', '7i76e', '7i77', '7i78', '7i85', '7i85s', '7i95',
+	'7i95t', '7i96', '7i96s', '7i97', '7i97t']
 
 	card_0_index = parent.mainTW.indexOf(parent.mainTW.findChild(QWidget, 'card_0'))
 	card_1_index = parent.mainTW.indexOf(parent.mainTW.findChild(QWidget, 'card_1'))
 	card_2_index = parent.mainTW.indexOf(parent.mainTW.findChild(QWidget, 'card_2'))
-	if parent.mainTW.isTabVisible(card_0_index):
+
+	if parent.boardCB.currentData() in axis_boards:
+		board = parent.boardCB.currentData()
 		tab = parent.mainTW.tabText(card_0_index)
+
+	elif parent.daughterCB_0.currentData() in axis_boards:
+		board = parent.daughterCB_0.currentData()
+		tab = parent.mainTW.tabText(card_1_index)
+
+	elif parent.daughterCB_1.currentData() in axis_boards:
+		board = parent.daughterCB_1.currentData()
+		tab = parent.mainTW.tabText(card_2_index)
+
+	if len(parent.coordinatesLB.text()) == 0 and board is not None:
+		print('here')
+		tabError = True
+		configErrors.append('\tAt least one Axis must be configured')
+
+	if tabError:
+		configErrors.insert(nextHeader, f'{tab} Tab:')
+		nextHeader = len(configErrors)
+		tabError = False
+	# end of no Axis
+
+
+	# check the Board Tabs for errors
+
+	'''
+
+
+
+	if parent.mainTW.isTabVisible(card_0_index):
 		print(tab)
 		if tab in axis_boards: # Check for axis issues
 			if len(parent.coordinatesLB.text()) == 0:
@@ -103,7 +133,7 @@ def checkit(parent):
 
 
 	if parent.mainTW.isTabVisible(card_1_index):
-		tab = parent.mainTW.tabText(card_1_index)
+		
 		print(tab)
 		if tab in axis_boards: # Check for axis issues
 			if len(parent.coordinatesLB.text()) == 0:
@@ -118,7 +148,7 @@ def checkit(parent):
 
 
 	if parent.mainTW.isTabVisible(card_2_index):
-		tab = parent.mainTW.tabText(card_2_index)
+		
 		print(tab)
 		if tab in axis_boards: # Check for axis issues
 			if len(parent.coordinatesLB.text()) == 0:
