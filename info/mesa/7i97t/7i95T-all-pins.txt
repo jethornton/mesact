@@ -1,0 +1,1072 @@
+Loaded HAL Components:
+ID      Type  Name                                            PID   State
+    52  User  halcmd110873                                    110873 ready
+    46  User  axisui                                          110788 ready
+    44  User  inihal                                          110784 ready
+    33  RT    pid                                                   ready
+    30  RT    hm2_eth                                               ready
+    27  RT    hostmot2                                              ready
+    24  RT    __servo-thread                                        ready
+    23  RT    motmod                                                ready
+    20  RT    trivkins                                              ready
+    15  RT    homemod                                               ready
+    10  RT    tpmod                                                 ready
+     4  User  iocontrol                                       110742 ready
+
+Component Pins:
+Owner   Type  Dir         Value  Name
+    23  float OUT             0  axis.a.eoffset
+    23  bit   IN          FALSE  axis.a.eoffset-clear
+    23  s32   IN              0  axis.a.eoffset-counts
+    23  bit   IN          FALSE  axis.a.eoffset-enable
+    23  float OUT             0  axis.a.eoffset-request
+    23  float IN              0  axis.a.eoffset-scale
+    23  float IN              1  axis.a.jog-accel-fraction
+    23  s32   IN              0  axis.a.jog-counts
+    23  bit   IN          FALSE  axis.a.jog-enable
+    23  float IN              0  axis.a.jog-scale
+    23  bit   IN          FALSE  axis.a.jog-vel-mode
+    23  bit   OUT         FALSE  axis.a.kb-jog-active
+    23  float OUT             0  axis.a.pos-cmd
+    23  float OUT             0  axis.a.teleop-pos-cmd
+    23  bit   OUT         FALSE  axis.a.teleop-tp-enable
+    23  float OUT             0  axis.a.teleop-vel-cmd
+    23  float OUT             0  axis.a.teleop-vel-lim
+    23  bit   OUT         FALSE  axis.a.wheel-jog-active
+    23  float OUT             0  axis.b.eoffset
+    23  bit   IN          FALSE  axis.b.eoffset-clear
+    23  s32   IN              0  axis.b.eoffset-counts
+    23  bit   IN          FALSE  axis.b.eoffset-enable
+    23  float OUT             0  axis.b.eoffset-request
+    23  float IN              0  axis.b.eoffset-scale
+    23  float IN              1  axis.b.jog-accel-fraction
+    23  s32   IN              0  axis.b.jog-counts
+    23  bit   IN          FALSE  axis.b.jog-enable
+    23  float IN              0  axis.b.jog-scale
+    23  bit   IN          FALSE  axis.b.jog-vel-mode
+    23  bit   OUT         FALSE  axis.b.kb-jog-active
+    23  float OUT             0  axis.b.pos-cmd
+    23  float OUT             0  axis.b.teleop-pos-cmd
+    23  bit   OUT         FALSE  axis.b.teleop-tp-enable
+    23  float OUT             0  axis.b.teleop-vel-cmd
+    23  float OUT             0  axis.b.teleop-vel-lim
+    23  bit   OUT         FALSE  axis.b.wheel-jog-active
+    23  float OUT             0  axis.c.eoffset
+    23  bit   IN          FALSE  axis.c.eoffset-clear
+    23  s32   IN              0  axis.c.eoffset-counts
+    23  bit   IN          FALSE  axis.c.eoffset-enable
+    23  float OUT             0  axis.c.eoffset-request
+    23  float IN              0  axis.c.eoffset-scale
+    23  float IN              1  axis.c.jog-accel-fraction
+    23  s32   IN              0  axis.c.jog-counts
+    23  bit   IN          FALSE  axis.c.jog-enable
+    23  float IN              0  axis.c.jog-scale
+    23  bit   IN          FALSE  axis.c.jog-vel-mode
+    23  bit   OUT         FALSE  axis.c.kb-jog-active
+    23  float OUT             0  axis.c.pos-cmd
+    23  float OUT             0  axis.c.teleop-pos-cmd
+    23  bit   OUT         FALSE  axis.c.teleop-tp-enable
+    23  float OUT             0  axis.c.teleop-vel-cmd
+    23  float OUT             0  axis.c.teleop-vel-lim
+    23  bit   OUT         FALSE  axis.c.wheel-jog-active
+    23  float OUT             0  axis.u.eoffset
+    23  bit   IN          FALSE  axis.u.eoffset-clear
+    23  s32   IN              0  axis.u.eoffset-counts
+    23  bit   IN          FALSE  axis.u.eoffset-enable
+    23  float OUT             0  axis.u.eoffset-request
+    23  float IN              0  axis.u.eoffset-scale
+    23  float IN              1  axis.u.jog-accel-fraction
+    23  s32   IN              0  axis.u.jog-counts
+    23  bit   IN          FALSE  axis.u.jog-enable
+    23  float IN              0  axis.u.jog-scale
+    23  bit   IN          FALSE  axis.u.jog-vel-mode
+    23  bit   OUT         FALSE  axis.u.kb-jog-active
+    23  float OUT             0  axis.u.pos-cmd
+    23  float OUT             0  axis.u.teleop-pos-cmd
+    23  bit   OUT         FALSE  axis.u.teleop-tp-enable
+    23  float OUT             0  axis.u.teleop-vel-cmd
+    23  float OUT             0  axis.u.teleop-vel-lim
+    23  bit   OUT         FALSE  axis.u.wheel-jog-active
+    23  float OUT             0  axis.v.eoffset
+    23  bit   IN          FALSE  axis.v.eoffset-clear
+    23  s32   IN              0  axis.v.eoffset-counts
+    23  bit   IN          FALSE  axis.v.eoffset-enable
+    23  float OUT             0  axis.v.eoffset-request
+    23  float IN              0  axis.v.eoffset-scale
+    23  float IN              1  axis.v.jog-accel-fraction
+    23  s32   IN              0  axis.v.jog-counts
+    23  bit   IN          FALSE  axis.v.jog-enable
+    23  float IN              0  axis.v.jog-scale
+    23  bit   IN          FALSE  axis.v.jog-vel-mode
+    23  bit   OUT         FALSE  axis.v.kb-jog-active
+    23  float OUT             0  axis.v.pos-cmd
+    23  float OUT             0  axis.v.teleop-pos-cmd
+    23  bit   OUT         FALSE  axis.v.teleop-tp-enable
+    23  float OUT             0  axis.v.teleop-vel-cmd
+    23  float OUT             0  axis.v.teleop-vel-lim
+    23  bit   OUT         FALSE  axis.v.wheel-jog-active
+    23  float OUT             0  axis.w.eoffset
+    23  bit   IN          FALSE  axis.w.eoffset-clear
+    23  s32   IN              0  axis.w.eoffset-counts
+    23  bit   IN          FALSE  axis.w.eoffset-enable
+    23  float OUT             0  axis.w.eoffset-request
+    23  float IN              0  axis.w.eoffset-scale
+    23  float IN              1  axis.w.jog-accel-fraction
+    23  s32   IN              0  axis.w.jog-counts
+    23  bit   IN          FALSE  axis.w.jog-enable
+    23  float IN              0  axis.w.jog-scale
+    23  bit   IN          FALSE  axis.w.jog-vel-mode
+    23  bit   OUT         FALSE  axis.w.kb-jog-active
+    23  float OUT             0  axis.w.pos-cmd
+    23  float OUT             0  axis.w.teleop-pos-cmd
+    23  bit   OUT         FALSE  axis.w.teleop-tp-enable
+    23  float OUT             0  axis.w.teleop-vel-cmd
+    23  float OUT             0  axis.w.teleop-vel-lim
+    23  bit   OUT         FALSE  axis.w.wheel-jog-active
+    23  float OUT             0  axis.x.eoffset
+    23  bit   IN          FALSE  axis.x.eoffset-clear
+    23  s32   IN              0  axis.x.eoffset-counts
+    23  bit   IN          FALSE  axis.x.eoffset-enable
+    23  float OUT             0  axis.x.eoffset-request
+    23  float IN              0  axis.x.eoffset-scale
+    23  float IN              1  axis.x.jog-accel-fraction
+    23  s32   IN              0  axis.x.jog-counts
+    23  bit   IN          FALSE  axis.x.jog-enable <== jog-x-enable
+    23  float IN              0  axis.x.jog-scale
+    23  bit   IN          FALSE  axis.x.jog-vel-mode
+    23  bit   OUT         FALSE  axis.x.kb-jog-active
+    23  float OUT             0  axis.x.pos-cmd
+    23  float OUT             0  axis.x.teleop-pos-cmd
+    23  bit   OUT         FALSE  axis.x.teleop-tp-enable
+    23  float OUT             0  axis.x.teleop-vel-cmd
+    23  float OUT             0  axis.x.teleop-vel-lim
+    23  bit   OUT         FALSE  axis.x.wheel-jog-active
+    23  float OUT             0  axis.y.eoffset
+    23  bit   IN          FALSE  axis.y.eoffset-clear
+    23  s32   IN              0  axis.y.eoffset-counts
+    23  bit   IN          FALSE  axis.y.eoffset-enable
+    23  float OUT             0  axis.y.eoffset-request
+    23  float IN              0  axis.y.eoffset-scale
+    23  float IN              1  axis.y.jog-accel-fraction
+    23  s32   IN              0  axis.y.jog-counts
+    23  bit   IN          FALSE  axis.y.jog-enable
+    23  float IN              0  axis.y.jog-scale
+    23  bit   IN          FALSE  axis.y.jog-vel-mode
+    23  bit   OUT         FALSE  axis.y.kb-jog-active
+    23  float OUT             0  axis.y.pos-cmd
+    23  float OUT             0  axis.y.teleop-pos-cmd
+    23  bit   OUT         FALSE  axis.y.teleop-tp-enable
+    23  float OUT             0  axis.y.teleop-vel-cmd
+    23  float OUT             0  axis.y.teleop-vel-lim
+    23  bit   OUT         FALSE  axis.y.wheel-jog-active
+    23  float OUT             0  axis.z.eoffset
+    23  bit   IN          FALSE  axis.z.eoffset-clear
+    23  s32   IN              0  axis.z.eoffset-counts
+    23  bit   IN          FALSE  axis.z.eoffset-enable
+    23  float OUT             0  axis.z.eoffset-request
+    23  float IN              0  axis.z.eoffset-scale
+    23  float IN              1  axis.z.jog-accel-fraction
+    23  s32   IN              0  axis.z.jog-counts
+    23  bit   IN          FALSE  axis.z.jog-enable
+    23  float IN              0  axis.z.jog-scale
+    23  bit   IN          FALSE  axis.z.jog-vel-mode
+    23  bit   OUT         FALSE  axis.z.kb-jog-active
+    23  float OUT             0  axis.z.pos-cmd
+    23  float OUT             0  axis.z.teleop-pos-cmd
+    23  bit   OUT         FALSE  axis.z.teleop-tp-enable
+    23  float OUT             0  axis.z.teleop-vel-cmd
+    23  float OUT             0  axis.z.teleop-vel-lim
+    23  bit   OUT         FALSE  axis.z.wheel-jog-active
+    46  bit   OUT         FALSE  axisui.abort
+    46  bit   OUT          TRUE  axisui.error
+    46  bit   OUT         FALSE  axisui.jog.a
+    46  bit   OUT         FALSE  axisui.jog.b
+    46  bit   OUT         FALSE  axisui.jog.c
+    46  float OUT             0  axisui.jog.increment
+    46  bit   OUT         FALSE  axisui.jog.u
+    46  bit   OUT         FALSE  axisui.jog.v
+    46  bit   OUT         FALSE  axisui.jog.w
+    46  bit   OUT          TRUE  axisui.jog.x
+    46  bit   OUT         FALSE  axisui.jog.y
+    46  bit   OUT         FALSE  axisui.jog.z
+    46  bit   IN          FALSE  axisui.notifications-clear
+    46  bit   IN          FALSE  axisui.notifications-clear-error
+    46  bit   IN          FALSE  axisui.notifications-clear-info
+    46  bit   IN          FALSE  axisui.resume-inhibit
+    30  float IN            100  hm2_7i97.0.dpll.01.timer-us
+    30  float IN            100  hm2_7i97.0.dpll.02.timer-us
+    30  float IN            100  hm2_7i97.0.dpll.03.timer-us
+    30  float IN            100  hm2_7i97.0.dpll.04.timer-us
+    30  float IN              1  hm2_7i97.0.dpll.base-freq-khz
+    30  u32   OUT    0x0000002A  hm2_7i97.0.dpll.ddsize
+    30  float OUT      3.136636  hm2_7i97.0.dpll.phase-error-us
+    30  u32   IN     0x00400000  hm2_7i97.0.dpll.plimit
+    30  u32   OUT    0x00000013  hm2_7i97.0.dpll.prescale
+    30  u32   IN     0x000007D0  hm2_7i97.0.dpll.time-const
+    30  s32   OUT             0  hm2_7i97.0.encoder.00.count
+    30  s32   OUT             0  hm2_7i97.0.encoder.00.count-latched
+    30  bit   I/O         FALSE  hm2_7i97.0.encoder.00.index-enable <=> joint-0-index-enable
+    30  bit   OUT         FALSE  hm2_7i97.0.encoder.00.input-a
+    30  bit   OUT         FALSE  hm2_7i97.0.encoder.00.input-b
+    30  bit   OUT          TRUE  hm2_7i97.0.encoder.00.input-index
+    30  float OUT             0  hm2_7i97.0.encoder.00.position ==> joint-0-pos-fb
+    30  float OUT             0  hm2_7i97.0.encoder.00.position-latched
+    30  bit   OUT         FALSE  hm2_7i97.0.encoder.00.quad-error
+    30  bit   IN          FALSE  hm2_7i97.0.encoder.00.quad-error-enable
+    30  s32   OUT             0  hm2_7i97.0.encoder.00.rawcounts
+    30  s32   OUT             0  hm2_7i97.0.encoder.00.rawlatch
+    30  bit   IN          FALSE  hm2_7i97.0.encoder.00.reset
+    30  float OUT             0  hm2_7i97.0.encoder.00.velocity
+    30  float OUT             0  hm2_7i97.0.encoder.00.velocity-rpm
+    30  s32   OUT             0  hm2_7i97.0.encoder.01.count
+    30  s32   OUT             0  hm2_7i97.0.encoder.01.count-latched
+    30  bit   I/O         FALSE  hm2_7i97.0.encoder.01.index-enable
+    30  bit   OUT          TRUE  hm2_7i97.0.encoder.01.input-a
+    30  bit   OUT          TRUE  hm2_7i97.0.encoder.01.input-b
+    30  bit   OUT          TRUE  hm2_7i97.0.encoder.01.input-index
+    30  float OUT             0  hm2_7i97.0.encoder.01.position
+    30  float OUT             0  hm2_7i97.0.encoder.01.position-latched
+    30  bit   OUT         FALSE  hm2_7i97.0.encoder.01.quad-error
+    30  bit   IN          FALSE  hm2_7i97.0.encoder.01.quad-error-enable
+    30  s32   OUT             0  hm2_7i97.0.encoder.01.rawcounts
+    30  s32   OUT             0  hm2_7i97.0.encoder.01.rawlatch
+    30  bit   IN          FALSE  hm2_7i97.0.encoder.01.reset
+    30  float OUT             0  hm2_7i97.0.encoder.01.velocity
+    30  float OUT             0  hm2_7i97.0.encoder.01.velocity-rpm
+    30  s32   OUT             0  hm2_7i97.0.encoder.02.count
+    30  s32   OUT             0  hm2_7i97.0.encoder.02.count-latched
+    30  bit   I/O         FALSE  hm2_7i97.0.encoder.02.index-enable
+    30  bit   OUT          TRUE  hm2_7i97.0.encoder.02.input-a
+    30  bit   OUT         FALSE  hm2_7i97.0.encoder.02.input-b
+    30  bit   OUT          TRUE  hm2_7i97.0.encoder.02.input-index
+    30  float OUT             0  hm2_7i97.0.encoder.02.position
+    30  float OUT             0  hm2_7i97.0.encoder.02.position-latched
+    30  bit   OUT         FALSE  hm2_7i97.0.encoder.02.quad-error
+    30  bit   IN          FALSE  hm2_7i97.0.encoder.02.quad-error-enable
+    30  s32   OUT             1  hm2_7i97.0.encoder.02.rawcounts
+    30  s32   OUT             1  hm2_7i97.0.encoder.02.rawlatch
+    30  bit   IN          FALSE  hm2_7i97.0.encoder.02.reset
+    30  float OUT             0  hm2_7i97.0.encoder.02.velocity
+    30  float OUT             0  hm2_7i97.0.encoder.02.velocity-rpm
+    30  s32   OUT             0  hm2_7i97.0.encoder.03.count
+    30  s32   OUT             0  hm2_7i97.0.encoder.03.count-latched
+    30  bit   I/O         FALSE  hm2_7i97.0.encoder.03.index-enable
+    30  bit   OUT          TRUE  hm2_7i97.0.encoder.03.input-a
+    30  bit   OUT         FALSE  hm2_7i97.0.encoder.03.input-b
+    30  bit   OUT         FALSE  hm2_7i97.0.encoder.03.input-index
+    30  float OUT             0  hm2_7i97.0.encoder.03.position
+    30  float OUT             0  hm2_7i97.0.encoder.03.position-latched
+    30  bit   OUT         FALSE  hm2_7i97.0.encoder.03.quad-error
+    30  bit   IN          FALSE  hm2_7i97.0.encoder.03.quad-error-enable
+    30  s32   OUT             1  hm2_7i97.0.encoder.03.rawcounts
+    30  s32   OUT             1  hm2_7i97.0.encoder.03.rawlatch
+    30  bit   IN          FALSE  hm2_7i97.0.encoder.03.reset
+    30  float OUT             0  hm2_7i97.0.encoder.03.velocity
+    30  float OUT             0  hm2_7i97.0.encoder.03.velocity-rpm
+    30  s32   OUT             0  hm2_7i97.0.encoder.04.count
+    30  s32   OUT             0  hm2_7i97.0.encoder.04.count-latched
+    30  bit   I/O         FALSE  hm2_7i97.0.encoder.04.index-enable
+    30  bit   OUT          TRUE  hm2_7i97.0.encoder.04.input-a
+    30  bit   OUT         FALSE  hm2_7i97.0.encoder.04.input-b
+    30  bit   OUT          TRUE  hm2_7i97.0.encoder.04.input-index
+    30  float OUT             0  hm2_7i97.0.encoder.04.position
+    30  float OUT             0  hm2_7i97.0.encoder.04.position-latched
+    30  bit   OUT         FALSE  hm2_7i97.0.encoder.04.quad-error
+    30  bit   IN          FALSE  hm2_7i97.0.encoder.04.quad-error-enable
+    30  s32   OUT         65535  hm2_7i97.0.encoder.04.rawcounts
+    30  s32   OUT         65535  hm2_7i97.0.encoder.04.rawlatch
+    30  bit   IN          FALSE  hm2_7i97.0.encoder.04.reset
+    30  float OUT             0  hm2_7i97.0.encoder.04.velocity
+    30  float OUT             0  hm2_7i97.0.encoder.04.velocity-rpm
+    30  s32   OUT             0  hm2_7i97.0.encoder.05.count
+    30  s32   OUT             0  hm2_7i97.0.encoder.05.count-latched
+    30  bit   I/O         FALSE  hm2_7i97.0.encoder.05.index-enable
+    30  bit   OUT          TRUE  hm2_7i97.0.encoder.05.input-a
+    30  bit   OUT          TRUE  hm2_7i97.0.encoder.05.input-b
+    30  bit   OUT          TRUE  hm2_7i97.0.encoder.05.input-index
+    30  float OUT             0  hm2_7i97.0.encoder.05.position
+    30  float OUT             0  hm2_7i97.0.encoder.05.position-latched
+    30  bit   OUT         FALSE  hm2_7i97.0.encoder.05.quad-error
+    30  bit   IN          FALSE  hm2_7i97.0.encoder.05.quad-error-enable
+    30  s32   OUT             0  hm2_7i97.0.encoder.05.rawcounts
+    30  s32   OUT             0  hm2_7i97.0.encoder.05.rawlatch
+    30  bit   IN          FALSE  hm2_7i97.0.encoder.05.reset
+    30  float OUT             0  hm2_7i97.0.encoder.05.velocity
+    30  float OUT             0  hm2_7i97.0.encoder.05.velocity-rpm
+    30  bit   IN          FALSE  hm2_7i97.0.encoder.hires-timestamp
+    30  u32   IN     0x007A1200  hm2_7i97.0.encoder.muxed-sample-frequency
+    30  u32   IN     0x00000000  hm2_7i97.0.encoder.muxed-skew
+    30  s32   IN             -1  hm2_7i97.0.encoder.timer-number
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.000.in
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.000.in_not
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.001.in
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.001.in_not
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.002.in
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.002.in_not
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.003.in
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.003.in_not
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.004.in
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.004.in_not
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.005.in
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.005.in_not
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.006.in
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.006.in_not
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.007.in
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.007.in_not
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.008.in
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.008.in_not
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.009.in
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.009.in_not
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.010.in
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.010.in_not
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.011.in
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.011.in_not
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.012.in
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.012.in_not
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.013.in
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.013.in_not
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.014.in
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.014.in_not
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.015.in
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.015.in_not
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.016.in
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.016.in_not
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.017.in
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.017.in_not
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.018.in
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.018.in_not
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.019.in
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.019.in_not
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.020.in
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.020.in_not
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.021.in
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.021.in_not
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.022.in
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.022.in_not
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.023.in
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.023.in_not
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.024.in
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.024.in_not
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.025.in
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.025.in_not
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.026.in
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.026.in_not
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.027.in
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.027.in_not
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.028.in
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.028.in_not
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.029.in
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.029.in_not
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.030.in
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.030.in_not
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.031.in
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.031.in_not
+    30  bit   IN          FALSE  hm2_7i97.0.gpio.031.out
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.032.in
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.032.in_not
+    30  bit   IN          FALSE  hm2_7i97.0.gpio.032.out
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.033.in
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.033.in_not
+    30  bit   IN          FALSE  hm2_7i97.0.gpio.033.out
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.034.in
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.034.in_not
+    30  bit   IN          FALSE  hm2_7i97.0.gpio.034.out
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.035.in
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.035.in_not
+    30  bit   IN          FALSE  hm2_7i97.0.gpio.035.out
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.036.in
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.036.in_not
+    30  bit   IN          FALSE  hm2_7i97.0.gpio.036.out
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.037.in
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.037.in_not
+    30  bit   IN          FALSE  hm2_7i97.0.gpio.037.out
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.038.in
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.038.in_not
+    30  bit   IN          FALSE  hm2_7i97.0.gpio.038.out
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.039.in
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.039.in_not
+    30  bit   IN          FALSE  hm2_7i97.0.gpio.039.out
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.040.in
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.040.in_not
+    30  bit   IN          FALSE  hm2_7i97.0.gpio.040.out
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.041.in
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.041.in_not
+    30  bit   IN          FALSE  hm2_7i97.0.gpio.041.out
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.042.in
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.042.in_not
+    30  bit   IN          FALSE  hm2_7i97.0.gpio.042.out
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.043.in
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.043.in_not
+    30  bit   IN          FALSE  hm2_7i97.0.gpio.043.out
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.044.in
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.044.in_not
+    30  bit   IN          FALSE  hm2_7i97.0.gpio.044.out
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.045.in
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.045.in_not
+    30  bit   IN          FALSE  hm2_7i97.0.gpio.045.out
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.046.in
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.046.in_not
+    30  bit   IN          FALSE  hm2_7i97.0.gpio.046.out
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.047.in
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.047.in_not
+    30  bit   IN          FALSE  hm2_7i97.0.gpio.047.out
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.048.in
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.048.in_not
+    30  bit   IN          FALSE  hm2_7i97.0.gpio.048.out
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.049.in
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.049.in_not
+    30  bit   IN          FALSE  hm2_7i97.0.gpio.049.out
+    30  bit   OUT         FALSE  hm2_7i97.0.gpio.050.in
+    30  bit   OUT          TRUE  hm2_7i97.0.gpio.050.in_not
+    30  bit   IN          FALSE  hm2_7i97.0.gpio.050.out
+    30  s32   OUT             0  hm2_7i97.0.inmux.00.enc0-count
+    30  bit   IN          FALSE  hm2_7i97.0.inmux.00.enc0-reset
+    30  s32   OUT             0  hm2_7i97.0.inmux.00.enc1-count
+    30  bit   IN          FALSE  hm2_7i97.0.inmux.00.enc1-reset
+    30  s32   OUT             0  hm2_7i97.0.inmux.00.enc2-count
+    30  bit   IN          FALSE  hm2_7i97.0.inmux.00.enc2-reset
+    30  s32   OUT             0  hm2_7i97.0.inmux.00.enc3-count
+    30  bit   IN          FALSE  hm2_7i97.0.inmux.00.enc3-reset
+    30  bit   OUT         FALSE  hm2_7i97.0.inmux.00.input-00 ==> jog-x-enable
+    30  bit   OUT          TRUE  hm2_7i97.0.inmux.00.input-00-not
+    30  bit   IN          FALSE  hm2_7i97.0.inmux.00.input-00-slow
+    30  bit   OUT         FALSE  hm2_7i97.0.inmux.00.input-01
+    30  bit   OUT          TRUE  hm2_7i97.0.inmux.00.input-01-not
+    30  bit   IN          FALSE  hm2_7i97.0.inmux.00.input-01-slow
+    30  bit   OUT         FALSE  hm2_7i97.0.inmux.00.input-02
+    30  bit   OUT          TRUE  hm2_7i97.0.inmux.00.input-02-not
+    30  bit   IN          FALSE  hm2_7i97.0.inmux.00.input-02-slow
+    30  bit   OUT         FALSE  hm2_7i97.0.inmux.00.input-03
+    30  bit   OUT          TRUE  hm2_7i97.0.inmux.00.input-03-not
+    30  bit   IN          FALSE  hm2_7i97.0.inmux.00.input-03-slow
+    30  bit   OUT         FALSE  hm2_7i97.0.inmux.00.input-04
+    30  bit   OUT          TRUE  hm2_7i97.0.inmux.00.input-04-not
+    30  bit   IN          FALSE  hm2_7i97.0.inmux.00.input-04-slow
+    30  bit   OUT         FALSE  hm2_7i97.0.inmux.00.input-05
+    30  bit   OUT          TRUE  hm2_7i97.0.inmux.00.input-05-not
+    30  bit   IN          FALSE  hm2_7i97.0.inmux.00.input-05-slow
+    30  bit   OUT         FALSE  hm2_7i97.0.inmux.00.input-06
+    30  bit   OUT          TRUE  hm2_7i97.0.inmux.00.input-06-not
+    30  bit   IN          FALSE  hm2_7i97.0.inmux.00.input-06-slow
+    30  bit   OUT         FALSE  hm2_7i97.0.inmux.00.input-07
+    30  bit   OUT          TRUE  hm2_7i97.0.inmux.00.input-07-not
+    30  bit   IN          FALSE  hm2_7i97.0.inmux.00.input-07-slow
+    30  bit   OUT         FALSE  hm2_7i97.0.inmux.00.input-08
+    30  bit   OUT          TRUE  hm2_7i97.0.inmux.00.input-08-not
+    30  bit   IN          FALSE  hm2_7i97.0.inmux.00.input-08-slow
+    30  bit   OUT         FALSE  hm2_7i97.0.inmux.00.input-09
+    30  bit   OUT          TRUE  hm2_7i97.0.inmux.00.input-09-not
+    30  bit   IN          FALSE  hm2_7i97.0.inmux.00.input-09-slow
+    30  bit   OUT         FALSE  hm2_7i97.0.inmux.00.input-10
+    30  bit   OUT          TRUE  hm2_7i97.0.inmux.00.input-10-not
+    30  bit   IN          FALSE  hm2_7i97.0.inmux.00.input-10-slow
+    30  bit   OUT         FALSE  hm2_7i97.0.inmux.00.input-11
+    30  bit   OUT          TRUE  hm2_7i97.0.inmux.00.input-11-not
+    30  bit   IN          FALSE  hm2_7i97.0.inmux.00.input-11-slow
+    30  bit   OUT         FALSE  hm2_7i97.0.inmux.00.input-12
+    30  bit   OUT          TRUE  hm2_7i97.0.inmux.00.input-12-not
+    30  bit   IN          FALSE  hm2_7i97.0.inmux.00.input-12-slow
+    30  bit   OUT         FALSE  hm2_7i97.0.inmux.00.input-13
+    30  bit   OUT          TRUE  hm2_7i97.0.inmux.00.input-13-not
+    30  bit   IN          FALSE  hm2_7i97.0.inmux.00.input-13-slow
+    30  bit   OUT         FALSE  hm2_7i97.0.inmux.00.input-14
+    30  bit   OUT          TRUE  hm2_7i97.0.inmux.00.input-14-not
+    30  bit   IN          FALSE  hm2_7i97.0.inmux.00.input-14-slow
+    30  bit   OUT         FALSE  hm2_7i97.0.inmux.00.input-15
+    30  bit   OUT          TRUE  hm2_7i97.0.inmux.00.input-15-not
+    30  bit   IN          FALSE  hm2_7i97.0.inmux.00.input-15-slow
+    30  bit   OUT         FALSE  hm2_7i97.0.inmux.00.raw-input-00
+    30  bit   OUT          TRUE  hm2_7i97.0.inmux.00.raw-input-00-not
+    30  bit   OUT         FALSE  hm2_7i97.0.inmux.00.raw-input-01
+    30  bit   OUT          TRUE  hm2_7i97.0.inmux.00.raw-input-01-not
+    30  bit   OUT         FALSE  hm2_7i97.0.inmux.00.raw-input-02
+    30  bit   OUT          TRUE  hm2_7i97.0.inmux.00.raw-input-02-not
+    30  bit   OUT         FALSE  hm2_7i97.0.inmux.00.raw-input-03
+    30  bit   OUT          TRUE  hm2_7i97.0.inmux.00.raw-input-03-not
+    30  bit   OUT         FALSE  hm2_7i97.0.inmux.00.raw-input-04
+    30  bit   OUT          TRUE  hm2_7i97.0.inmux.00.raw-input-04-not
+    30  bit   OUT         FALSE  hm2_7i97.0.inmux.00.raw-input-05
+    30  bit   OUT          TRUE  hm2_7i97.0.inmux.00.raw-input-05-not
+    30  bit   OUT         FALSE  hm2_7i97.0.inmux.00.raw-input-06
+    30  bit   OUT          TRUE  hm2_7i97.0.inmux.00.raw-input-06-not
+    30  bit   OUT         FALSE  hm2_7i97.0.inmux.00.raw-input-07
+    30  bit   OUT          TRUE  hm2_7i97.0.inmux.00.raw-input-07-not
+    30  bit   OUT         FALSE  hm2_7i97.0.inmux.00.raw-input-08
+    30  bit   OUT          TRUE  hm2_7i97.0.inmux.00.raw-input-08-not
+    30  bit   OUT         FALSE  hm2_7i97.0.inmux.00.raw-input-09
+    30  bit   OUT          TRUE  hm2_7i97.0.inmux.00.raw-input-09-not
+    30  bit   OUT         FALSE  hm2_7i97.0.inmux.00.raw-input-10
+    30  bit   OUT          TRUE  hm2_7i97.0.inmux.00.raw-input-10-not
+    30  bit   OUT         FALSE  hm2_7i97.0.inmux.00.raw-input-11
+    30  bit   OUT          TRUE  hm2_7i97.0.inmux.00.raw-input-11-not
+    30  bit   OUT         FALSE  hm2_7i97.0.inmux.00.raw-input-12
+    30  bit   OUT          TRUE  hm2_7i97.0.inmux.00.raw-input-12-not
+    30  bit   OUT         FALSE  hm2_7i97.0.inmux.00.raw-input-13
+    30  bit   OUT          TRUE  hm2_7i97.0.inmux.00.raw-input-13-not
+    30  bit   OUT         FALSE  hm2_7i97.0.inmux.00.raw-input-14
+    30  bit   OUT          TRUE  hm2_7i97.0.inmux.00.raw-input-14-not
+    30  bit   OUT         FALSE  hm2_7i97.0.inmux.00.raw-input-15
+    30  bit   OUT          TRUE  hm2_7i97.0.inmux.00.raw-input-15-not
+    30  bit   IN          FALSE  hm2_7i97.0.led.CR01
+    30  bit   IN          FALSE  hm2_7i97.0.led.CR02
+    30  bit   IN          FALSE  hm2_7i97.0.led.CR03
+    30  bit   IN          FALSE  hm2_7i97.0.led.CR04
+    30  bit   OUT          TRUE  hm2_7i97.0.packet-error
+    30  bit   OUT          TRUE  hm2_7i97.0.packet-error-exceeded
+    30  s32   OUT            10  hm2_7i97.0.packet-error-level
+    30  u32   I/O    0x00000005  hm2_7i97.0.packet-error-total
+    30  bit   IN          FALSE  hm2_7i97.0.pwmgen.00.enable <== motion-enable
+    30  float IN              0  hm2_7i97.0.pwmgen.00.value
+    30  bit   IN          FALSE  hm2_7i97.0.pwmgen.01.enable
+    30  float IN              0  hm2_7i97.0.pwmgen.01.value
+    30  bit   IN          FALSE  hm2_7i97.0.pwmgen.02.enable
+    30  float IN              0  hm2_7i97.0.pwmgen.02.value
+    30  bit   IN          FALSE  hm2_7i97.0.pwmgen.03.enable
+    30  float IN              0  hm2_7i97.0.pwmgen.03.value
+    30  bit   IN          FALSE  hm2_7i97.0.pwmgen.04.enable
+    30  float IN              0  hm2_7i97.0.pwmgen.04.value
+    30  bit   IN          FALSE  hm2_7i97.0.pwmgen.05.enable
+    30  float IN              0  hm2_7i97.0.pwmgen.05.value
+    30  s32   OUT             0  hm2_7i97.0.read-request.time
+    30  s32   OUT           210  hm2_7i97.0.read.time
+    30  bit   IN          FALSE  hm2_7i97.0.ssr.00.invert-00
+    30  bit   IN          FALSE  hm2_7i97.0.ssr.00.invert-01
+    30  bit   IN          FALSE  hm2_7i97.0.ssr.00.invert-02
+    30  bit   IN          FALSE  hm2_7i97.0.ssr.00.invert-03
+    30  bit   IN          FALSE  hm2_7i97.0.ssr.00.invert-04
+    30  bit   IN          FALSE  hm2_7i97.0.ssr.00.invert-05
+    30  bit   IN          FALSE  hm2_7i97.0.ssr.00.out-00
+    30  bit   IN          FALSE  hm2_7i97.0.ssr.00.out-01
+    30  bit   IN          FALSE  hm2_7i97.0.ssr.00.out-02
+    30  bit   IN          FALSE  hm2_7i97.0.ssr.00.out-03
+    30  bit   IN          FALSE  hm2_7i97.0.ssr.00.out-04
+    30  bit   IN          FALSE  hm2_7i97.0.ssr.00.out-05
+    30  u32   IN     0x000F4240  hm2_7i97.0.ssr.00.rate
+    30  bit   I/O         FALSE  hm2_7i97.0.watchdog.has_bit
+    30  s32   OUT            84  hm2_7i97.0.write.time
+    44  float IN              0  ini.0.backlash
+    44  float IN          0.002  ini.0.ferror
+    44  float IN              0  ini.0.home
+    44  float IN              0  ini.0.home_offset
+    44  s32   IN            999  ini.0.home_sequence
+    44  float IN              1  ini.0.max_acceleration
+    44  float IN              1  ini.0.max_limit
+    44  float IN              1  ini.0.max_velocity
+    44  float IN          0.001  ini.0.min_ferror
+    44  float IN              0  ini.0.min_limit
+    44  float IN              0  ini.a.max_acceleration
+    44  float IN              0  ini.a.max_limit
+    44  float IN              0  ini.a.max_velocity
+    44  float IN              0  ini.a.min_limit
+    44  float IN              0  ini.b.max_acceleration
+    44  float IN              0  ini.b.max_limit
+    44  float IN              0  ini.b.max_velocity
+    44  float IN              0  ini.b.min_limit
+    44  float IN              0  ini.c.max_acceleration
+    44  float IN              0  ini.c.max_limit
+    44  float IN              0  ini.c.max_velocity
+    44  float IN              0  ini.c.min_limit
+    44  bit   IN           TRUE  ini.traj_arc_blend_enable
+    44  bit   IN          FALSE  ini.traj_arc_blend_fallback_enable
+    44  float IN              4  ini.traj_arc_blend_gap_cycles
+    44  s32   IN             50  ini.traj_arc_blend_optimization_depth
+    44  float IN            100  ini.traj_arc_blend_ramp_freq
+    44  float IN            0.1  ini.traj_arc_blend_tangent_kink_ratio
+    44  float IN          1e+99  ini.traj_default_acceleration
+    44  float IN              1  ini.traj_default_velocity
+    44  float IN          1e+99  ini.traj_max_acceleration
+    44  float IN              0  ini.traj_max_velocity
+    44  float IN              0  ini.u.max_acceleration
+    44  float IN              0  ini.u.max_limit
+    44  float IN              0  ini.u.max_velocity
+    44  float IN              0  ini.u.min_limit
+    44  float IN              0  ini.v.max_acceleration
+    44  float IN              0  ini.v.max_limit
+    44  float IN              0  ini.v.max_velocity
+    44  float IN              0  ini.v.min_limit
+    44  float IN              0  ini.w.max_acceleration
+    44  float IN              0  ini.w.max_limit
+    44  float IN              0  ini.w.max_velocity
+    44  float IN              0  ini.w.min_limit
+    44  float IN              1  ini.x.max_acceleration
+    44  float IN              1  ini.x.max_limit
+    44  float IN              1  ini.x.max_velocity
+    44  float IN              0  ini.x.min_limit
+    44  float IN              0  ini.y.max_acceleration
+    44  float IN              0  ini.y.max_limit
+    44  float IN              0  ini.y.max_velocity
+    44  float IN              0  ini.y.min_limit
+    44  float IN              0  ini.z.max_acceleration
+    44  float IN              0  ini.z.max_limit
+    44  float IN              0  ini.z.max_velocity
+    44  float IN              0  ini.z.min_limit
+     4  bit   OUT         FALSE  iocontrol.0.coolant-flood
+     4  bit   OUT         FALSE  iocontrol.0.coolant-mist
+     4  bit   OUT          TRUE  iocontrol.0.emc-abort
+     4  bit   IN          FALSE  iocontrol.0.emc-abort-ack
+     4  bit   IN          FALSE  iocontrol.0.emc-enable-in <== estop-loopback
+     4  s32   OUT             6  iocontrol.0.emc-reason
+     4  bit   OUT         FALSE  iocontrol.0.lube
+     4  bit   IN          FALSE  iocontrol.0.lube_level
+     4  bit   OUT         FALSE  iocontrol.0.start-change
+     4  bit   IN          FALSE  iocontrol.0.start-change-ack
+     4  s32   OUT             4  iocontrol.0.state
+     4  bit   OUT         FALSE  iocontrol.0.tool-change
+     4  bit   IN          FALSE  iocontrol.0.tool-changed
+     4  s32   OUT             0  iocontrol.0.tool-number
+     4  s32   OUT             0  iocontrol.0.tool-prep-index
+     4  s32   OUT             0  iocontrol.0.tool-prep-number
+     4  s32   OUT             0  iocontrol.0.tool-prep-pocket
+     4  bit   OUT         FALSE  iocontrol.0.tool-prepare
+     4  bit   IN          FALSE  iocontrol.0.tool-prepared
+     4  bit   IN          FALSE  iocontrol.0.toolchanger-clear-fault
+     4  bit   IN          FALSE  iocontrol.0.toolchanger-fault
+     4  bit   OUT         FALSE  iocontrol.0.toolchanger-fault-ack
+     4  bit   OUT         FALSE  iocontrol.0.toolchanger-faulted
+     4  s32   IN              0  iocontrol.0.toolchanger-reason
+     4  bit   OUT         FALSE  iocontrol.0.user-enable-out ==> estop-loopback
+     4  bit   OUT         FALSE  iocontrol.0.user-request-enable
+    23  float OUT             0  joint.0.acc-cmd
+    23  bit   OUT          TRUE  joint.0.active
+    23  bit   OUT         FALSE  joint.0.amp-enable-out ==> joint-0-enable
+    23  bit   IN          FALSE  joint.0.amp-fault-in
+    23  float OUT             0  joint.0.backlash-corr
+    23  float OUT             0  joint.0.backlash-filt
+    23  float OUT             0  joint.0.backlash-vel
+    23  float OUT             0  joint.0.coarse-pos-cmd
+    23  bit   OUT         FALSE  joint.0.error
+    23  float OUT             0  joint.0.f-error
+    23  float OUT         0.001  joint.0.f-error-lim
+    23  bit   OUT         FALSE  joint.0.f-errored
+    23  bit   OUT         FALSE  joint.0.faulted
+    23  float OUT             0  joint.0.free-pos-cmd
+    23  bit   OUT         FALSE  joint.0.free-tp-enable
+    23  float OUT             0  joint.0.free-vel-lim
+    23  s32   OUT             0  joint.0.home-state
+    23  bit   IN          FALSE  joint.0.home-sw-in
+    23  bit   OUT         FALSE  joint.0.homed
+    23  bit   OUT         FALSE  joint.0.homing
+    23  bit   OUT          TRUE  joint.0.in-position
+    23  bit   I/O         FALSE  joint.0.index-enable <=> joint-0-index-enable
+    23  float IN              1  joint.0.jog-accel-fraction
+    23  s32   IN              0  joint.0.jog-counts
+    23  bit   IN          FALSE  joint.0.jog-enable <== jog-x-enable
+    23  float IN              0  joint.0.jog-scale
+    23  bit   IN          FALSE  joint.0.jog-vel-mode
+    23  bit   OUT         FALSE  joint.0.kb-jog-active
+    23  float OUT             0  joint.0.motor-offset
+    23  float OUT             0  joint.0.motor-pos-cmd ==> joint-0-pos-cmd
+    23  float IN              0  joint.0.motor-pos-fb <== joint-0-pos-fb
+    23  bit   OUT         FALSE  joint.0.neg-hard-limit
+    23  bit   IN          FALSE  joint.0.neg-lim-sw-in
+    23  float OUT             0  joint.0.pos-cmd
+    23  float OUT             0  joint.0.pos-fb
+    23  bit   OUT         FALSE  joint.0.pos-hard-limit
+    23  bit   IN          FALSE  joint.0.pos-lim-sw-in
+    23  float OUT             0  joint.0.vel-cmd
+    23  bit   OUT         FALSE  joint.0.wheel-jog-active
+    23  s32   OUT           252  motion-command-handler.time
+    23  s32   OUT          3150  motion-controller.time
+    23  float IN              1  motion.adaptive-feed
+    23  float IN              0  motion.analog-in-00
+    23  float IN              0  motion.analog-in-01
+    23  float IN              0  motion.analog-in-02
+    23  float IN              0  motion.analog-in-03
+    23  float OUT             0  motion.analog-out-00
+    23  float OUT             0  motion.analog-out-01
+    23  float OUT             0  motion.analog-out-02
+    23  float OUT             0  motion.analog-out-03
+    23  bit   OUT         FALSE  motion.coord-error
+    23  bit   OUT         FALSE  motion.coord-mode
+    23  float OUT             0  motion.current-vel
+    23  bit   IN          FALSE  motion.digital-in-00
+    23  bit   IN          FALSE  motion.digital-in-01
+    23  bit   IN          FALSE  motion.digital-in-02
+    23  bit   IN          FALSE  motion.digital-in-03
+    23  bit   OUT         FALSE  motion.digital-out-00
+    23  bit   OUT         FALSE  motion.digital-out-01
+    23  bit   OUT         FALSE  motion.digital-out-02
+    23  bit   OUT         FALSE  motion.digital-out-03
+    23  float OUT             0  motion.distance-to-go
+    23  bit   IN           TRUE  motion.enable
+    23  bit   OUT         FALSE  motion.eoffset-active
+    23  bit   OUT         FALSE  motion.eoffset-limited
+    23  bit   IN          FALSE  motion.feed-hold
+    23  float OUT             0  motion.feed-inches-per-minute
+    23  float OUT             0  motion.feed-inches-per-second
+    23  bit   IN          FALSE  motion.feed-inhibit
+    23  float OUT             0  motion.feed-mm-per-minute
+    23  float OUT             0  motion.feed-mm-per-second
+    23  float OUT             0  motion.feed-upm
+    23  bit   IN          FALSE  motion.homing-inhibit
+    23  bit   OUT          TRUE  motion.in-position
+    23  bit   OUT         FALSE  motion.is-all-homed
+    23  bit   IN          FALSE  motion.jog-inhibit
+    23  bit   OUT         FALSE  motion.jog-is-active
+    23  bit   IN          FALSE  motion.jog-stop
+    23  bit   IN          FALSE  motion.jog-stop-immediate
+    23  bit   OUT         FALSE  motion.motion-enabled ==> motion-enable
+    23  s32   OUT             0  motion.motion-type
+    23  bit   OUT         FALSE  motion.on-soft-limit
+    23  bit   IN          FALSE  motion.probe-input
+    23  s32   OUT             0  motion.program-line
+    23  float OUT             0  motion.requested-vel
+    23  u32   OUT    0x0040055A  motion.servo.last-period
+    23  bit   OUT         FALSE  motion.teleop-mode
+    23  float OUT             0  motion.tooloffset.a
+    23  float OUT             0  motion.tooloffset.b
+    23  float OUT             0  motion.tooloffset.c
+    23  float OUT             0  motion.tooloffset.u
+    23  float OUT             0  motion.tooloffset.v
+    23  float OUT             0  motion.tooloffset.w
+    23  float OUT             0  motion.tooloffset.x
+    23  float OUT             0  motion.tooloffset.y
+    23  float OUT             0  motion.tooloffset.z
+    23  bit   OUT         FALSE  motion.tp-reverse
+    33  float IN              0  pid.x.Dgain
+    33  float IN              0  pid.x.FF0
+    33  float IN              0  pid.x.FF1
+    33  float IN              0  pid.x.FF2
+    33  float IN              0  pid.x.FF3
+    33  float IN              0  pid.x.Igain
+    33  float IN              1  pid.x.Pgain
+    33  float IN              0  pid.x.bias
+    33  float IN              0  pid.x.command <== joint-0-pos-cmd
+    33  float IN              0  pid.x.command-deriv
+    33  float IN              0  pid.x.deadband
+    33  s32   OUT           252  pid.x.do-pid-calcs.time
+    33  bit   IN          FALSE  pid.x.enable <== joint-0-enable
+    33  float OUT             0  pid.x.error
+    33  bit   IN           TRUE  pid.x.error-previous-target
+    33  float IN              0  pid.x.feedback <== joint-0-pos-fb
+    33  float IN              0  pid.x.feedback-deriv
+    33  bit   IN          FALSE  pid.x.index-enable <== joint-0-index-enable
+    33  float IN              0  pid.x.maxcmdD
+    33  float IN              0  pid.x.maxcmdDD
+    33  float IN              0  pid.x.maxcmdDDD
+    33  float IN              0  pid.x.maxerror
+    33  float IN              0  pid.x.maxerrorD
+    33  float IN              0  pid.x.maxerrorI
+    33  float IN              0  pid.x.maxoutput
+    33  float OUT             0  pid.x.output ==> joint.0.output
+    33  bit   OUT         FALSE  pid.x.saturated
+    33  s32   OUT             0  pid.x.saturated-count
+    33  float OUT             0  pid.x.saturated-s
+    33  u32   I/O    0x00000032  pid.x.tune-cycles
+    33  float I/O           0.5  pid.x.tune-effort
+    33  bit   IN          FALSE  pid.x.tune-mode
+    33  bit   I/O         FALSE  pid.x.tune-start
+    33  u32   I/O    0x00000000  pid.x.tune-type
+    24  s32   OUT          3948  servo-thread.time
+    23  bit   IN          FALSE  spindle.0.amp-fault-in
+    23  bit   IN           TRUE  spindle.0.at-speed
+    23  bit   OUT          TRUE  spindle.0.brake
+    23  bit   OUT         FALSE  spindle.0.forward
+    23  bit   I/O         FALSE  spindle.0.index-enable
+    23  bit   IN          FALSE  spindle.0.inhibit
+    23  bit   IN          FALSE  spindle.0.is-oriented
+    23  bit   OUT         FALSE  spindle.0.locked
+    23  bit   OUT         FALSE  spindle.0.on
+    23  bit   OUT         FALSE  spindle.0.orient
+    23  float OUT             0  spindle.0.orient-angle
+    23  s32   IN              0  spindle.0.orient-fault
+    23  s32   OUT             0  spindle.0.orient-mode
+    23  bit   OUT         FALSE  spindle.0.reverse
+    23  float IN              0  spindle.0.revs
+    23  float OUT             0  spindle.0.speed-cmd-rps
+    23  float IN              0  spindle.0.speed-in
+    23  float OUT             0  spindle.0.speed-out
+    23  float OUT             0  spindle.0.speed-out-abs
+    23  float OUT             0  spindle.0.speed-out-rps
+    23  float OUT             0  spindle.0.speed-out-rps-abs
+
+Pin Aliases:
+ Alias                                            Original Name
+
+Signals:
+Type          Value  Name     (linked to)
+bit           FALSE  estop-loopback
+                         ==> iocontrol.0.emc-enable-in
+                         <== iocontrol.0.user-enable-out
+bit           FALSE  jog-x-enable
+                         ==> axis.x.jog-enable
+                         <== hm2_7i97.0.inmux.00.input-00
+                         ==> joint.0.jog-enable
+bit           FALSE  joint-0-enable
+                         <== joint.0.amp-enable-out
+                         ==> pid.x.enable
+bit           FALSE  joint-0-index-enable
+                         <=> hm2_7i97.0.encoder.00.index-enable
+                         <=> joint.0.index-enable
+                         ==> pid.x.index-enable
+float             0  joint-0-pos-cmd
+                         <== joint.0.motor-pos-cmd
+                         ==> pid.x.command
+float             0  joint-0-pos-fb
+                         <== hm2_7i97.0.encoder.00.position
+                         ==> joint.0.motor-pos-fb
+                         ==> pid.x.feedback
+float             0  joint.0.output
+                         <== pid.x.output
+bit           FALSE  motion-enable
+                         ==> hm2_7i97.0.pwmgen.00.enable
+                         <== motion.motion-enabled
+
+Parameters:
+Owner   Type  Dir         Value  Name
+    30  bit   RW          FALSE  hm2_7i97.0.encoder.00.counter-mode
+    30  bit   RW           TRUE  hm2_7i97.0.encoder.00.filter
+    30  bit   RW          FALSE  hm2_7i97.0.encoder.00.index-invert
+    30  bit   RW          FALSE  hm2_7i97.0.encoder.00.index-mask
+    30  bit   RW          FALSE  hm2_7i97.0.encoder.00.index-mask-invert
+    30  float RW              1  hm2_7i97.0.encoder.00.scale
+    30  bit   RW          FALSE  hm2_7i97.0.encoder.00.sel0.invert_output
+    30  bit   RW          FALSE  hm2_7i97.0.encoder.00.sel0.is_opendrain
+    30  float RW            0.5  hm2_7i97.0.encoder.00.vel-timeout
+    30  bit   RW          FALSE  hm2_7i97.0.encoder.01.counter-mode
+    30  bit   RW           TRUE  hm2_7i97.0.encoder.01.filter
+    30  bit   RW          FALSE  hm2_7i97.0.encoder.01.index-invert
+    30  bit   RW          FALSE  hm2_7i97.0.encoder.01.index-mask
+    30  bit   RW          FALSE  hm2_7i97.0.encoder.01.index-mask-invert
+    30  float RW              1  hm2_7i97.0.encoder.01.scale
+    30  float RW            0.5  hm2_7i97.0.encoder.01.vel-timeout
+    30  bit   RW          FALSE  hm2_7i97.0.encoder.02.counter-mode
+    30  bit   RW           TRUE  hm2_7i97.0.encoder.02.filter
+    30  bit   RW          FALSE  hm2_7i97.0.encoder.02.index-invert
+    30  bit   RW          FALSE  hm2_7i97.0.encoder.02.index-mask
+    30  bit   RW          FALSE  hm2_7i97.0.encoder.02.index-mask-invert
+    30  float RW              1  hm2_7i97.0.encoder.02.scale
+    30  float RW            0.5  hm2_7i97.0.encoder.02.vel-timeout
+    30  bit   RW          FALSE  hm2_7i97.0.encoder.03.counter-mode
+    30  bit   RW           TRUE  hm2_7i97.0.encoder.03.filter
+    30  bit   RW          FALSE  hm2_7i97.0.encoder.03.index-invert
+    30  bit   RW          FALSE  hm2_7i97.0.encoder.03.index-mask
+    30  bit   RW          FALSE  hm2_7i97.0.encoder.03.index-mask-invert
+    30  float RW              1  hm2_7i97.0.encoder.03.scale
+    30  float RW            0.5  hm2_7i97.0.encoder.03.vel-timeout
+    30  bit   RW          FALSE  hm2_7i97.0.encoder.04.counter-mode
+    30  bit   RW           TRUE  hm2_7i97.0.encoder.04.filter
+    30  bit   RW          FALSE  hm2_7i97.0.encoder.04.index-invert
+    30  bit   RW          FALSE  hm2_7i97.0.encoder.04.index-mask
+    30  bit   RW          FALSE  hm2_7i97.0.encoder.04.index-mask-invert
+    30  float RW              1  hm2_7i97.0.encoder.04.scale
+    30  float RW            0.5  hm2_7i97.0.encoder.04.vel-timeout
+    30  bit   RW          FALSE  hm2_7i97.0.encoder.05.counter-mode
+    30  bit   RW           TRUE  hm2_7i97.0.encoder.05.filter
+    30  bit   RW          FALSE  hm2_7i97.0.encoder.05.index-invert
+    30  bit   RW          FALSE  hm2_7i97.0.encoder.05.index-mask
+    30  bit   RW          FALSE  hm2_7i97.0.encoder.05.index-mask-invert
+    30  float RW              1  hm2_7i97.0.encoder.05.scale
+    30  float RW            0.5  hm2_7i97.0.encoder.05.vel-timeout
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.019.invert_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.019.is_opendrain
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.020.invert_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.020.is_opendrain
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.021.invert_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.021.is_opendrain
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.022.invert_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.022.is_opendrain
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.023.invert_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.023.is_opendrain
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.024.invert_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.024.is_opendrain
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.025.invert_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.025.is_opendrain
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.026.invert_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.026.is_opendrain
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.027.invert_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.027.is_opendrain
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.028.invert_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.028.is_opendrain
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.029.invert_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.029.is_opendrain
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.031.invert_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.031.is_opendrain
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.031.is_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.032.invert_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.032.is_opendrain
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.032.is_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.033.invert_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.033.is_opendrain
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.033.is_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.034.invert_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.034.is_opendrain
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.034.is_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.035.invert_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.035.is_opendrain
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.035.is_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.036.invert_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.036.is_opendrain
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.036.is_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.037.invert_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.037.is_opendrain
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.037.is_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.038.invert_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.038.is_opendrain
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.038.is_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.039.invert_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.039.is_opendrain
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.039.is_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.040.invert_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.040.is_opendrain
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.040.is_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.041.invert_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.041.is_opendrain
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.041.is_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.042.invert_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.042.is_opendrain
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.042.is_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.043.invert_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.043.is_opendrain
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.043.is_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.044.invert_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.044.is_opendrain
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.044.is_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.045.invert_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.045.is_opendrain
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.045.is_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.046.invert_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.046.is_opendrain
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.046.is_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.047.invert_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.047.is_opendrain
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.047.is_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.048.invert_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.048.is_opendrain
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.048.is_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.049.invert_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.049.is_opendrain
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.049.is_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.050.invert_output
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.050.is_opendrain
+    30  bit   RW          FALSE  hm2_7i97.0.gpio.050.is_output
+    30  bit   RW          FALSE  hm2_7i97.0.inmux.00.enc0_4xmode
+    30  bit   RW          FALSE  hm2_7i97.0.inmux.00.enc1_4xmode
+    30  bit   RW          FALSE  hm2_7i97.0.inmux.00.enc2_4xmode
+    30  bit   RW          FALSE  hm2_7i97.0.inmux.00.enc3_4xmode
+    30  u32   RW     0x00000005  hm2_7i97.0.inmux.00.fast_scans
+    30  u32   RW     0x00004E20  hm2_7i97.0.inmux.00.scan_rate
+    30  u32   RO     0x00000010  hm2_7i97.0.inmux.00.scan_width
+    30  u32   RW     0x000001F4  hm2_7i97.0.inmux.00.slow_scans
+    30  bit   RW           TRUE  hm2_7i97.0.io_error
+    30  s32   RO              1  hm2_7i97.0.packet-error-decrement
+    30  s32   RW              2  hm2_7i97.0.packet-error-increment
+    30  s32   RW             10  hm2_7i97.0.packet-error-limit
+    30  s32   RW             80  hm2_7i97.0.packet-read-timeout
+    30  bit   RW          FALSE  hm2_7i97.0.pwmgen.00.enable.invert_output
+    30  bit   RW          FALSE  hm2_7i97.0.pwmgen.00.enable.is_opendrain
+    30  bit   RW          FALSE  hm2_7i97.0.pwmgen.00.offset-mode
+    30  bit   RW          FALSE  hm2_7i97.0.pwmgen.00.out0.invert_output
+    30  bit   RW          FALSE  hm2_7i97.0.pwmgen.00.out0.is_opendrain
+    30  s32   RW              1  hm2_7i97.0.pwmgen.00.output-type
+    30  float RW              1  hm2_7i97.0.pwmgen.00.scale
+    30  bit   RW          FALSE  hm2_7i97.0.pwmgen.01.offset-mode
+    30  bit   RW          FALSE  hm2_7i97.0.pwmgen.01.out0.invert_output
+    30  bit   RW          FALSE  hm2_7i97.0.pwmgen.01.out0.is_opendrain
+    30  s32   RW              1  hm2_7i97.0.pwmgen.01.output-type
+    30  float RW              1  hm2_7i97.0.pwmgen.01.scale
+    30  bit   RW           TRUE  hm2_7i97.0.pwmgen.02.offset-mode
+    30  bit   RW          FALSE  hm2_7i97.0.pwmgen.02.out0.invert_output
+    30  bit   RW          FALSE  hm2_7i97.0.pwmgen.02.out0.is_opendrain
+    30  s32   RW              1  hm2_7i97.0.pwmgen.02.output-type
+    30  float RW              1  hm2_7i97.0.pwmgen.02.scale
+    30  bit   RW          FALSE  hm2_7i97.0.pwmgen.03.offset-mode
+    30  bit   RW          FALSE  hm2_7i97.0.pwmgen.03.out0.invert_output
+    30  bit   RW          FALSE  hm2_7i97.0.pwmgen.03.out0.is_opendrain
+    30  s32   RW              1  hm2_7i97.0.pwmgen.03.output-type
+    30  float RW              1  hm2_7i97.0.pwmgen.03.scale
+    30  bit   RW          FALSE  hm2_7i97.0.pwmgen.04.enable.invert_output
+    30  bit   RW          FALSE  hm2_7i97.0.pwmgen.04.enable.is_opendrain
+    30  bit   RW          FALSE  hm2_7i97.0.pwmgen.04.offset-mode
+    30  bit   RW          FALSE  hm2_7i97.0.pwmgen.04.out0.invert_output
+    30  bit   RW          FALSE  hm2_7i97.0.pwmgen.04.out0.is_opendrain
+    30  s32   RW              1  hm2_7i97.0.pwmgen.04.output-type
+    30  float RW              1  hm2_7i97.0.pwmgen.04.scale
+    30  bit   RW          FALSE  hm2_7i97.0.pwmgen.05.enable.invert_output
+    30  bit   RW          FALSE  hm2_7i97.0.pwmgen.05.enable.is_opendrain
+    30  bit   RW          FALSE  hm2_7i97.0.pwmgen.05.offset-mode
+    30  bit   RW          FALSE  hm2_7i97.0.pwmgen.05.out0.invert_output
+    30  bit   RW          FALSE  hm2_7i97.0.pwmgen.05.out0.is_opendrain
+    30  s32   RW              1  hm2_7i97.0.pwmgen.05.output-type
+    30  float RW              1  hm2_7i97.0.pwmgen.05.scale
+    30  u32   RW     0x00004E20  hm2_7i97.0.pwmgen.pdm_frequency
+    30  u32   RW     0x00004E20  hm2_7i97.0.pwmgen.pwm_frequency
+    30  s32   RW              0  hm2_7i97.0.read-request.tmax
+    30  bit   RO          FALSE  hm2_7i97.0.read-request.tmax-increased
+    30  s32   RW        3431358  hm2_7i97.0.read.tmax
+    30  bit   RO          FALSE  hm2_7i97.0.read.tmax-increased
+    30  u32   RW     0x004C4B40  hm2_7i97.0.watchdog.timeout_ns
+    30  s32   RW          41454  hm2_7i97.0.write.tmax
+    30  bit   RO          FALSE  hm2_7i97.0.write.tmax-increased
+    23  s32   RW           8106  motion-command-handler.tmax
+    23  bit   RO          FALSE  motion-command-handler.tmax-increased
+    23  s32   RW          16884  motion-controller.tmax
+    23  bit   RO          FALSE  motion-controller.tmax-increased
+    23  bit   RO          FALSE  motion.debug-bit-0
+    23  bit   RO          FALSE  motion.debug-bit-1
+    23  float RO              0  motion.debug-float-0
+    23  float RO              0  motion.debug-float-1
+    23  float RO              0  motion.debug-float-2
+    23  float RO              1  motion.debug-float-3
+    23  s32   RO              0  motion.debug-s32-0
+    23  s32   RO              0  motion.debug-s32-1
+    33  s32   RW           2688  pid.x.do-pid-calcs.tmax
+    33  bit   RO          FALSE  pid.x.do-pid-calcs.tmax-increased
+    24  s32   RW        3474492  servo-thread.tmax
+    23  float RO              0  tc.0.acc
+    23  float RO              0  tc.0.pos
+    23  float RO              0  tc.0.vel
+    23  float RO              0  tc.1.acc
+    23  float RO              0  tc.1.pos
+    23  float RO              0  tc.1.vel
+    23  float RO              0  tc.2.acc
+    23  float RO              0  tc.2.pos
+    23  float RO              0  tc.2.vel
+    23  float RO              0  tc.3.acc
+    23  float RO              0  tc.3.pos
+    23  float RO              0  tc.3.vel
+    23  u32   RO     0x00000000  traj.active_tc
+    23  float RO              0  traj.pos_out
+    23  float RO              0  traj.vel_out
+
+Parameter Aliases:
+ Alias                                            Original Name
+ hm2_7i97.0.encoder.00.sel0.invert_output         hm2_7i97.0.gpio.018.invert_output
+ hm2_7i97.0.encoder.00.sel0.is_opendrain          hm2_7i97.0.gpio.018.is_opendrain
+ hm2_7i97.0.pwmgen.00.enable.invert_output        hm2_7i97.0.gpio.008.invert_output
+ hm2_7i97.0.pwmgen.00.enable.is_opendrain         hm2_7i97.0.gpio.008.is_opendrain
+ hm2_7i97.0.pwmgen.00.out0.invert_output          hm2_7i97.0.gpio.000.invert_output
+ hm2_7i97.0.pwmgen.00.out0.is_opendrain           hm2_7i97.0.gpio.000.is_opendrain
+ hm2_7i97.0.pwmgen.01.out0.invert_output          hm2_7i97.0.gpio.001.invert_output
+ hm2_7i97.0.pwmgen.01.out0.is_opendrain           hm2_7i97.0.gpio.001.is_opendrain
+ hm2_7i97.0.pwmgen.02.out0.invert_output          hm2_7i97.0.gpio.002.invert_output
+ hm2_7i97.0.pwmgen.02.out0.is_opendrain           hm2_7i97.0.gpio.002.is_opendrain
+ hm2_7i97.0.pwmgen.03.out0.invert_output          hm2_7i97.0.gpio.003.invert_output
+ hm2_7i97.0.pwmgen.03.out0.is_opendrain           hm2_7i97.0.gpio.003.is_opendrain
+ hm2_7i97.0.pwmgen.04.enable.invert_output        hm2_7i97.0.gpio.005.invert_output
+ hm2_7i97.0.pwmgen.04.enable.is_opendrain         hm2_7i97.0.gpio.005.is_opendrain
+ hm2_7i97.0.pwmgen.04.out0.invert_output          hm2_7i97.0.gpio.004.invert_output
+ hm2_7i97.0.pwmgen.04.out0.is_opendrain           hm2_7i97.0.gpio.004.is_opendrain
+ hm2_7i97.0.pwmgen.05.enable.invert_output        hm2_7i97.0.gpio.007.invert_output
+ hm2_7i97.0.pwmgen.05.enable.is_opendrain         hm2_7i97.0.gpio.007.is_opendrain
+ hm2_7i97.0.pwmgen.05.out0.invert_output          hm2_7i97.0.gpio.006.invert_output
+ hm2_7i97.0.pwmgen.05.out0.is_opendrain           hm2_7i97.0.gpio.006.is_opendrain
+
+Exported Functions:
+Owner   CodeAddr  Arg       FP   Users  Name
+ 00030  7fcb9d3fb908  556b259029e0  YES      1   hm2_7i97.0.read
+ 00030  7fcb9d3fb891  556b259029e0  YES      0   hm2_7i97.0.read-request
+ 00030  7fcb9d3fb749  556b259029e0  YES      1   hm2_7i97.0.write
+ 00023  7fcb9d5413ad  00000000  YES      1   motion-command-handler
+ 00023  7fcb9d5419a0  00000000  YES      1   motion-controller
+ 00033  7fcb9e613240  7fcb9d7e83c0  YES      1   pid.x.do-pid-calcs
+
+Realtime Threads:
+     Period  FP     Name               (     Time, Max-Time )
+    1000000  YES          servo-thread (     3948,  3474492 )
+                  1 hm2_7i97.0.read
+                  2 motion-command-handler
+                  3 motion-controller
+                  4 pid.x.do-pid-calcs
+                  5 hm2_7i97.0.write
+
