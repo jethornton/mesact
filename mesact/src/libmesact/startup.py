@@ -14,6 +14,12 @@ from libmesact import utilities
 
 def setup(parent):
 
+	# setup must have variables
+	# board names must be set before loading a config at startup
+	parent.board_0 = False
+	parent.board_1 = False
+	parent.board_2 = False
+
 	parent.platformLB.setText(sysconfig.get_platform())
 	parent.pythonLB.setText(python_version())
 	parent.pyqt5LB.setText(qVersion())
@@ -152,11 +158,5 @@ def setup(parent):
 		for i in range(3):
 			for j in range(6):
 				getattr(parent, f'c{i}{item}{j}').setValidator(only_numbers)
-
-	# setup must have variables
-	# board names
-	parent.board_0 = False
-	parent.board_1 = False
-	parent.board_2 = False
 
 
