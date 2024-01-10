@@ -288,7 +288,8 @@ def build_io(parent):
 	# build inputs from qpushbutton menus, check for debounce c0_input_0
 	hm2 = ''
 	eStops = []
-	board_names = {'7i92t': '7i92', '7i95t': '7i95'}
+	# Newer boards still use the old pin names except 7i96S
+	board_names = {'7i92t': '7i92', '7i95t': '7i95', '7i97t': '7i97'}
 	mb = parent.boardCB.currentData()
 	if mb in board_names:
 		mb = board_names[mb]
@@ -297,6 +298,15 @@ def build_io(parent):
 	daughter_1 = parent.daughterCB_1.currentData()
 
 	# build main board inputs if a combo card
+	joint = 0
+	ja_dict = {}
+	for i in range(3):
+		for j in range(6):
+			axis = getattr(parent, f'c{i}_axis_{j}').currentData()
+			if axis:
+				ja_dict[axis.lower()] = joint
+				joint += 1
+
 	contents.append('\n# Inputs\n')
 	if mb in combo_boards:
 		for i in range(32):
@@ -329,6 +339,11 @@ def build_io(parent):
 							contents.append('net home-all ' + f'joint.{i}.home-sw-in\n')
 				elif key[0:6] == 'E Stop':
 					eStops.append(hm2)
+				elif '+ Joint' in key: # Jog axis and joint enable
+					axis = key.split()[1].lower()
+					joint = ja_dict[axis]
+					contents.append(f'net jog-{axis}-enable axis.{axis}.jog-enable <= {hm2}\n')
+					contents.append(f'net jog-{axis}-enable joint.{joint}.jog-enable')
 
 	#Build E-Stop Chain
 	if len(eStops) > 0:
