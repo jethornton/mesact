@@ -125,7 +125,7 @@ class updateini:
 
 		mesa = [
 		['MESA', 'VERSION', f'{parent.version}'],
-		['MESA', 'BOARD', f'{parent.board}'],
+		['MESA', 'BOARD', f'{parent.hal_name}'],
 		['MESA', 'BOARD_NAME', f'{parent.boardCB.currentData()}'],
 		['MESA', 'FIRMWARE', f'{parent.firmwareCB.currentText()}'],
 		['MESA', 'CARD_0', f'{parent.daughterCB_0.currentData()}'],

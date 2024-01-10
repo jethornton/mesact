@@ -105,7 +105,7 @@ def build(parent):
 
 	halContents.append('\n# amp enable\n')
 	halContents.append(f'net motion-enable <= motion.motion-enabled\n')
-	if parent.hal.name == '7i97': # hm2_7i97.0.pwmgen.00.enable
+	if parent.hal_name == '7i97': # hm2_7i97.0.pwmgen.00.enable
 		halContents.append('net motion-enable hm2_[MESA](BOARD).0.pwmgen.00.enable\n')
 
 	if parent.boardCB.currentData() == '7i97':
@@ -114,9 +114,9 @@ def build(parent):
 	elif parent.boardCB.currentData() == '7i97t':
 		#print(parent.boardCB.currentData())
 		pwm_freq = 75000
-	if parent.hal.name == '7i97':
+	if parent.hal_name == '7i97':
 		halContents.append('\n# Global PWM setup\n')
-		halContents.append(f'setp hm2_[MESA](BOARD).0..pwmgen.pwm_frequency {pwm_freq}\n')
+		halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.pwm_frequency {pwm_freq}\n')
 
 	# Joints and Axes
 	joint = 0
@@ -173,10 +173,10 @@ def build(parent):
 						halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{joint}.step_type 0\n')
 						halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{joint}.control-type 1\n\n')
 
-					if parent.hal.name == '7i97':
-						if parent.boardCB.currentData() == '7i97t':
-							 halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.0{joint}.dither true')
+					if parent.hal_name == '7i97':
 						halContents.append('\n# PWM Generator setup\n')
+						if parent.boardCB.currentData() == '7i97t':
+							 halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.0{joint}.dither true\n')
 						halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.0{output}.output-type 1 #PWM pin0\n')
 						halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.0{output}.offset-mode 1 # offset mode so 50% = 0\n')
 						halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.0{output}.scale [JOINT_0]SCALE\n')
