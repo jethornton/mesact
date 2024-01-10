@@ -105,6 +105,8 @@ def build(parent):
 
 	halContents.append('\n# amp enable\n')
 	halContents.append(f'net motion-enable <= motion.motion-enabled\n')
+	if parent.board == '7i97': # hm2_7i97.0.pwmgen.00.enable
+		halContents.append('net motion-enable hm2_[MESA](BOARD).0.pwmgen.00.enable\n')
 
 	# Joints and Axes
 	joint = 0
@@ -141,8 +143,6 @@ def build(parent):
 						halContents.append(f'net joint-{joint}-index-enable <=> hm2_[MESA](BOARD).0.encoder.0{joint}.index-enable\n')
 					halContents.append(f'\nnet joint-{joint}-enable <= joint.{joint}.amp-enable-out\n')
 					halContents.append(f'net joint-{joint}-enable => {pid_list[joint]}.enable\n')
-					if board == '7i97':
-						halContents.append(f'net motion-enable => hm2_[MESA](BOARD).0.pwmgen.0{output}.enable')
 
 					if board in step_boards: # stepper c0_StepInvert_0
 						if getattr(parent, f'c{card}_StepInvert_{output}').isChecked():
@@ -163,11 +163,19 @@ def build(parent):
 						halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{joint}.step_type 0\n')
 						halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{joint}.control-type 1\n\n')
 
-					if board == '7i97':
-						halContents.append('# PWM Generator setup\n')
-						halContents.append(f'setp [MESA](BOARD).pwmgen.0{output}.output-type 1 #PWM pin0\n')
-						halContents.append(f'setp [MESA](BOARD).pwmgen.0{output}.offset-mode 1 # offset mode so 50% = 0\n')
-						halContents.append(f'setp [MESA](BOARD).pwmgen.0{output}0.scale [JOINT_0]OUTPUT_SCALE\n')
+					if parent.board == '7i97':
+						halContents.append('\n# PWM Generator setup\n')
+						halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.0{output}.output-type 1 #PWM pin0\n')
+						halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.0{output}.offset-mode 1 # offset mode so 50% = 0\n')
+						halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.0{output}.scale [JOINT_0]SCALE\n')
+
+						halContents.append('\n# ---Encoder feedback signals/setup---\n')
+						halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{output}.counter-mode 0\n')
+						halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{output}.filter 1\n')
+						halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{output}.index-invert 0\n')
+						halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{output}.index-mask 0\n')
+						halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{output}.index-mask-invert 0\n')
+						halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{output}.scale  [JOINT_0]ENCODER_SCALE\n')
 
 
 					halContents.append('\n# position command and feedback\n')
