@@ -102,7 +102,7 @@ def boardChanged(parent):
 			'\nIP Address\nW2 Down W3 Up for 10.10.10.10\n'
 			'\nDefault Firmware 7i76e_7i76x1D.bit\n'
 			)
-			parent.hal_name_info_pte.setPlainText(info)
+			parent.board_info_pte.setPlainText(info)
 
 			for item in db25:
 				parent.daughterCB_0.addItem(item[0], item[1])
@@ -217,7 +217,7 @@ def boardChanged(parent):
 			'Power off before moving jumpers\n'
 			'\nDefault firmware 7i92t_g540d.bin'
 			)
-			parent.hal_name_info_pte.setPlainText(info)
+			parent.board_info_pte.setPlainText(info)
 			for i in range(1, tabs + 1):
 				parent.c0_JointTW.setTabVisible(i, False)
 			parent.ipAddressCB.setEnabled(True)
@@ -267,7 +267,7 @@ def boardChanged(parent):
 			'\nIP Address Jumpers\nW15 Down W16 Up for 10.10.10.10\n'
 			'\nDefault firmware 7i95t_d.bin'
 			)
-			parent.hal_name_info_pte.setPlainText(info)
+			parent.board_info_pte.setPlainText(info)
 			for item in db25:
 				parent.daughterCB_0.addItem(item[0], item[1])
 			for i in range(6): # hide analog tabs
@@ -293,7 +293,7 @@ def boardChanged(parent):
 			'\nIP Address\nW5 Down W6 Up for 10.10.10.10\n'
 			'\nDefault Firmware 7i96d.bit\n'
 			)
-			parent.hal_name_info_pte.setPlainText(info)
+			parent.board_info_pte.setPlainText(info)
 			for item in db25:
 				parent.daughterCB_0.addItem(item[0], item[1])
 			for i in range(6): # hide analog and encoder tabs
@@ -314,7 +314,7 @@ def boardChanged(parent):
 			'\nIP Address\nW4 Down W5 Up for 10.10.10.10\n'
 			'\nDefault Firmware 7i96s_d.bit\n'
 			)
-			parent.hal_name_info_pte.setPlainText(info)
+			parent.board_info_pte.setPlainText(info)
 			for item in db25:
 				parent.daughterCB_0.addItem(item[0], item[1])
 			for j in range(11):
