@@ -800,7 +800,7 @@ from board</string>
                 </widget>
                </item>
                <item row="2" column="0">
-                <widget class="QPushButton" name="pushButton_2">
+                <widget class="QPushButton" name="create_pin_pb">
                  <property name="text">
                   <string>Create Pin File</string>
                  </property>
@@ -43707,7 +43707,7 @@ auto enp2s0
   <tabstop>encoders_cb</tabstop>
   <tabstop>firmware_info_pte</tabstop>
   <tabstop>pushButton</tabstop>
-  <tabstop>pushButton_2</tabstop>
+  <tabstop>create_pin_pb</tabstop>
   <tabstop>firmwarePTE</tabstop>
   <tabstop>copyPB</tabstop>
   <tabstop>guiCB</tabstop>

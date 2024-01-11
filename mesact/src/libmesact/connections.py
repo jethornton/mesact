@@ -46,11 +46,6 @@ def connect(parent):
 	parent.find_ip_board_pb.clicked.connect(partial(flash.find_ip_board, parent))
 	parent.verify_board_pb.clicked.connect(partial(flash.verify_board, parent))
 
-	#parent.backupCB.clicked.connect(partial(utilities.backup, parent))
-
-	# Firmware Tab
-	parent.firmwareCB.currentIndexChanged.connect(partial(flash.firmware_changed, parent))
-
 	parent.default_imperial_pb.clicked.connect(partial(samples.default_imperial, parent))
 	parent.default_metric_pb.clicked.connect(partial(samples.default_metric, parent))
 	parent.set_7i96s_x_pb.clicked.connect(partial(samples.set_7i96s_x, parent))
@@ -59,6 +54,18 @@ def connect(parent):
 	parent.set_7i95t_xyz_pb.clicked.connect(partial(samples.set_7i95t_xyz, parent))
 	parent.set_7i92t_p2_7i76_pb.clicked.connect(partial(samples.set_7i92t_p2_7i76, parent))
 	parent.set_7i92t_p2_7i77_pb.clicked.connect(partial(samples.set_7i92t_p2_7i77, parent))
+
+	#parent.backupCB.clicked.connect(partial(utilities.backup, parent))
+
+	# Firmware Tab
+	parent.firmwareCB.currentIndexChanged.connect(partial(firmware.firmwareChanged, parent))
+	parent.readhmidPB.clicked.connect(partial(flash.readhmid, parent))
+	parent.readpdPB.clicked.connect(partial(flash.readpd, parent))
+	parent.flashPB.clicked.connect(partial(flash.flashCard, parent))
+	parent.reloadPB.clicked.connect(partial(flash.reloadCard, parent))
+	parent.verifyPB.clicked.connect(partial(flash.verifyFirmware, parent))
+	parent.copyPB.clicked.connect(partial(flash.copyOutput, parent))
+	parent.create_pin_pb.clicked.connect(partial(firmware.create_pin, parent))
 
 	# Settings Tab
 	parent.minLinJogVelDSB.valueChanged.connect(partial(utilities.unitsChanged, parent))
@@ -78,14 +85,6 @@ def connect(parent):
 	#parent.foamRB.buttonClicked.connect(partial(utilities.axisDisplayChanged, parent))
 	'''
 
-	# Firmware Tab
-	parent.firmwareCB.currentIndexChanged.connect(partial(firmware.firmwareChanged, parent))
-	parent.readhmidPB.clicked.connect(partial(flash.readhmid, parent))
-	parent.readpdPB.clicked.connect(partial(flash.readpd, parent))
-	parent.flashPB.clicked.connect(partial(flash.flashCard, parent))
-	parent.reloadPB.clicked.connect(partial(flash.reloadCard, parent))
-	parent.verifyPB.clicked.connect(partial(flash.verifyFirmware, parent))
-	parent.copyPB.clicked.connect(partial(flash.copyOutput, parent))
 
 	# Info Tab
 

@@ -162,3 +162,8 @@ def firmwareChanged(parent):
 			parent.firmware_info_pte.clear()
 			parent.firmware_info_pte.setPlainText(f'No description file found\n')
 
+def create_pin(parent):
+	print('here')
+
+
+
