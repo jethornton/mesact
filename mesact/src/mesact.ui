@@ -387,7 +387,7 @@
             </widget>
            </item>
            <item row="4" column="2">
-            <widget class="QPushButton" name="checkBoardPB">
+            <widget class="QPushButton" name="verify_board_pb">
              <property name="enabled">
               <bool>true</bool>
              </property>
@@ -43692,7 +43692,7 @@ auto enp2s0
   <tabstop>set_7i92t_p2_7i76_pb</tabstop>
   <tabstop>set_7i92t_p2_7i77_pb</tabstop>
   <tabstop>find_ip_board_pb</tabstop>
-  <tabstop>checkBoardPB</tabstop>
+  <tabstop>verify_board_pb</tabstop>
   <tabstop>verifyPTE</tabstop>
   <tabstop>firmwareCB</tabstop>
   <tabstop>flashPB</tabstop>

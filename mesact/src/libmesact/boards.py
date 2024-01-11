@@ -23,7 +23,7 @@ def boardChanged(parent):
 		parent.board_0 = parent.boardCB.currentData()
 		name = parent.boardCB.currentText()
 		if parent.mesaflash:
-			parent.checkBoardPB.setEnabled(True)
+			parent.verify_board_pb.setEnabled(True)
 		# set all tabs visible then hide as needed
 		for i in range(10):
 			parent.c0_JointTW.setTabVisible(i, True)
@@ -386,7 +386,7 @@ def boardChanged(parent):
 		parent.spindleGB.setEnabled(False)
 		# if no board is selected turn off mesaflash tools
 		parent.firmwareGB.setEnabled(False)
-		parent.checkBoardPB.setEnabled(False)
+		parent.verify_board_pb.setEnabled(False)
 		parent.read_hmid_gb.setEnabled(False)
 		parent.firmware_info_pte.clear()
 		parent.firmwareCB.clear()

@@ -44,7 +44,7 @@ def connect(parent):
 	for i in range(2):
 		getattr(parent, f'daughterCB_{i}').currentIndexChanged.connect(partial(daughters.changed, parent))
 	parent.find_ip_board_pb.clicked.connect(partial(flash.find_ip_board, parent))
-	parent.checkBoardPB.clicked.connect(partial(flash.checkCard, parent))
+	parent.verify_board_pb.clicked.connect(partial(flash.verify_board, parent))
 
 	#parent.backupCB.clicked.connect(partial(utilities.backup, parent))
 

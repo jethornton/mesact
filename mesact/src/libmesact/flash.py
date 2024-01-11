@@ -6,6 +6,28 @@ from PyQt5.QtWidgets import QDialogButtonBox
 
 from libmesact import dialogs
 
+'''
+subprocess.check_output Run command with arguments and return its output
+
+subprocess.run Run the command described by args. Wait for command to complete,
+then return a CompletedProcess instance.
+
+class subprocess.CompletedProcess
+	The return value from run(), representing a process that has finished.
+	args
+		The arguments used to launch the process. This may be a list or a string.
+	returncode
+		Exit status of the child process. Typically, an exit status of 0 indicates that it ran successfully.
+		A negative value -N indicates that the child was terminated by signal N (POSIX only).
+	stdout
+		Captured stdout from the child process. A bytes sequence, or a string if run() was called with an encoding, errors, or text=True. None if stdout was not captured.
+		If you ran the process with stderr=subprocess.STDOUT, stdout and stderr will be combined in this attribute, and stderr will be None.
+	stderr
+		Captured stderr from the child process. A bytes sequence, or a string if run() was called with an encoding, errors, or text=True. None if stderr was not captured.
+	check_returncode()
+		If returncode is non-zero, raise a CalledProcessError.
+'''
+
 def check_emc():
 	if "0x48414c32" in subprocess.getoutput('ipcs'):
 		return True
@@ -72,16 +94,17 @@ def verify_ip_board(parent): # make me toss up the error message and return Fals
 		return
 	if check_ip(parent):
 		address = parent.ipAddressCB.currentText()
-		if os.system(f'ping -c 1 {address}') != 0:
+		cmd = ['ping', '-c', '1', address]
+		output = subprocess.run(cmd, capture_output=True, text=True)
+		if output.returncode != 0:
 			msg = (f'No Board found at {address}')
 			dialogs.errorMsgOk(msg, 'Error')
 			return
 		cmd = ['mesaflash', '--device', 'ether', '--addr', address]
-		p = Popen(cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
-		prompt = p.communicate()
+		output = subprocess.run(cmd, capture_output=True, text=True)
 		selected_board = parent.boardCB.currentText().upper()
-		if prompt[0].split()[0] == 'ETH':
-			connected_board = prompt[0].split()[2]
+		if output.stdout.split()[0] == 'ETH':
+			connected_board = output.stdout.split()[2]
 		else:
 			msg = (f'Device found at {address}\nis not a Mesa Board')
 			dialogs.errorMsgOk(msg, 'Error')
@@ -94,16 +117,7 @@ def verify_ip_board(parent): # make me toss up the error message and return Fals
 			dialogs.errorMsgOk(msg, 'Error')
 			return False
 
-def connected_ip_board(parent):
-	address = parent.ipAddressCB.currentText()
-	cmd = ['mesaflash', '--device', 'ether', '--addr', address]
-	p = Popen(cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
-	prompt = p.communicate()
-	board = parent.boardCB.currentText().upper()
-	print(prompt[0].split()[2])
-
-
-def checkCard(parent):
+def verify_board(parent): # needs to use Popen for password
 	board = parent.boardCB.currentData()
 	cmd = []
 	prompt = None
