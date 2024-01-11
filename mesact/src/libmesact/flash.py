@@ -185,6 +185,7 @@ def readhmid(parent):
 		parent.firmwarePTE.clear()
 		parent.firmwarePTE.setPlainText('Reading HMID')
 		getResults(parent, prompt, p.returncode, 'firmwarePTE', 'Read HMID')
+		parent.create_pin_pb.setEnabled(True)
 
 def readpd(parent):
 	parent.firmwareTW.setCurrentIndex(1)
