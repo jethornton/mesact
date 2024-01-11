@@ -54,6 +54,8 @@ def noFirmware(parent, board):
 			parent.no_check_firmware_cb.setChecked(True)
 
 def firmwareChanged(parent):
+	parent.create_pin_pb.setEnabled(False)
+
 	if parent.firmwareCB.currentData():
 		parent.stepgens_cb.clear()
 		parent.pwmgens_cb.clear()
@@ -151,6 +153,7 @@ def firmwareChanged(parent):
 
 		else: # no pin file
 			parent.firmware_options_lb.setText('No Pin file found!')
+			parent.firmware_info_pte.appendPlainText('No Pin file found')
 
 		descfile = os.path.join(path + '.txt')
 		if os.path.exists(descfile):
@@ -159,8 +162,7 @@ def firmwareChanged(parent):
 			parent.firmware_info_pte.clear()
 			parent.firmware_info_pte.setPlainText(data)
 		else:
-			parent.firmware_info_pte.clear()
-			parent.firmware_info_pte.setPlainText(f'No description file found\n')
+			parent.firmware_info_pte.appendPlainText(f'No description file found\n')
 
 def create_pin(parent):
 	print('here')
