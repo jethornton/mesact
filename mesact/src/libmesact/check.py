@@ -155,9 +155,10 @@ def checkit(parent):
 		if parent.mainTW.isTabVisible(card_indexes[f'card_index_{i}']):
 			for j in range(6): # Check for joint errors
 				if getattr(parent, f'c{i}_axis_{j}').currentData(): # the axis has a letter
-					if getattr(parent, f'c{i}_scale_{j}').text() == '':
-						tabError = True
-						configErrors.append(f'\tDrive {j} Scale must not be blank')
+					if getattr(parent, f'c{i}_scale_{j}').isEnabled():
+						if getattr(parent, f'c{i}_scale_{j}').text() == '':
+							tabError = True
+							configErrors.append(f'\tDrive {j} Scale must not be blank')
 					if getattr(parent, f'c{i}_min_limit_{j}').text() == '':
 						tabError = True
 						configErrors.append(f'\tDrive {j} Min Limit must not be blank')
