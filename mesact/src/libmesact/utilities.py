@@ -144,7 +144,12 @@ def copyValues(parent):
 	'_maxOutput_',
 	'_maxError_',
 	'_min_ferror_',
-	'_max_ferror_'
+	'_max_ferror_',
+	'_home_',
+	'_homeOffset_',
+	'_homeSearchVel_',
+	'_homeLatchVel_',
+	'_homeFinalVelocity_'
 	]
 
 	button = parent.sender().objectName()
