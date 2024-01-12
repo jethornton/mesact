@@ -27,7 +27,7 @@ def build(parent):
 	else:
 		board = parent.boardCB.currentData()
 	'''
-	iniContents.append(f'BOARD = {parent.board}\n')
+	iniContents.append(f'BOARD = {parent.hal_name}\n')
 	iniContents.append(f'BOARD_NAME = {parent.boardCB.currentData()}\n')
 	iniContents.append(f'FIRMWARE = {parent.firmwareCB.currentData()}\n')
 	if parent.daughterCB_0.currentData() != None:
