@@ -19,6 +19,7 @@ from libmesact import pcinfo
 from libmesact import settings
 from libmesact import mdi
 from libmesact import samples
+from libmesact import hal
 
 def connect(parent):
 	# Menu Items
@@ -159,6 +160,12 @@ def connect(parent):
 
 	# Options Tab - Display Tab
 	parent.no_check_firmware_cb.clicked.connect(partial(settings.update_settings, parent))
+
+	# Options Tab - HAL Tab
+	parent.customhalCB.stateChanged.connect(partial(hal.custom_hal, parent))
+	parent.postguiCB.stateChanged.connect(partial(hal.postgui_hal, parent))
+	parent.shutdownCB.stateChanged.connect(partial(hal.shutdown_hal, parent))
+
 
 	# Options Tab - MDI Tab
 	mdi.cleanup_mdi_commands(parent)

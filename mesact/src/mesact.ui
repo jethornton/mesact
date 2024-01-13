@@ -42001,52 +42001,102 @@ by a unit (cm, mm, um, inch, in or mil)</string>
            <attribute name="title">
             <string>HAL</string>
            </attribute>
-           <widget class="QGroupBox" name="groupBox_6">
-            <property name="geometry">
-             <rect>
-              <x>9</x>
-              <y>9</y>
-              <width>180</width>
-              <height>170</height>
-             </rect>
-            </property>
-            <property name="title">
-             <string>HAL Options</string>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_51">
-             <property name="topMargin">
-              <number>15</number>
-             </property>
-             <item row="4" column="0">
-              <widget class="QCheckBox" name="haluiCB">
-               <property name="text">
-                <string>Halui User Interface</string>
-               </property>
+           <layout class="QVBoxLayout" name="verticalLayout_38">
+            <item>
+             <widget class="QTabWidget" name="hal_tw">
+              <property name="currentIndex">
+               <number>0</number>
+              </property>
+              <widget class="QWidget" name="tab_85">
+               <attribute name="title">
+                <string>Options</string>
+               </attribute>
+               <widget class="QCheckBox" name="haluiCB">
+                <property name="geometry">
+                 <rect>
+                  <x>20</x>
+                  <y>120</y>
+                  <width>156</width>
+                  <height>25</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>Halui User Interface</string>
+                </property>
+               </widget>
+               <widget class="QCheckBox" name="shutdownCB">
+                <property name="geometry">
+                 <rect>
+                  <x>20</x>
+                  <y>89</y>
+                  <width>156</width>
+                  <height>25</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>Shutdown HAL File</string>
+                </property>
+               </widget>
+               <widget class="QCheckBox" name="customhalCB">
+                <property name="geometry">
+                 <rect>
+                  <x>20</x>
+                  <y>27</y>
+                  <width>156</width>
+                  <height>25</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>Custom HAL File</string>
+                </property>
+               </widget>
+               <widget class="QCheckBox" name="postguiCB">
+                <property name="geometry">
+                 <rect>
+                  <x>20</x>
+                  <y>58</y>
+                  <width>156</width>
+                  <height>25</height>
+                 </rect>
+                </property>
+                <property name="text">
+                 <string>Post GUI HAL File</string>
+                </property>
+               </widget>
               </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QCheckBox" name="customhalCB">
-               <property name="text">
-                <string>Custom HAL File</string>
-               </property>
+              <widget class="QWidget" name="tab_23">
+               <attribute name="title">
+                <string>Custom</string>
+               </attribute>
+               <layout class="QVBoxLayout" name="verticalLayout_31">
+                <item>
+                 <widget class="QPlainTextEdit" name="custom_hal_pte"/>
+                </item>
+               </layout>
               </widget>
-             </item>
-             <item row="3" column="0">
-              <widget class="QCheckBox" name="shutdownCB">
-               <property name="text">
-                <string>Shutdown HAL File</string>
-               </property>
+              <widget class="QWidget" name="tab_24">
+               <attribute name="title">
+                <string>Post GUI</string>
+               </attribute>
+               <layout class="QVBoxLayout" name="verticalLayout_32">
+                <item>
+                 <widget class="QPlainTextEdit" name="postgui_hal_pte"/>
+                </item>
+               </layout>
               </widget>
-             </item>
-             <item row="2" column="0">
-              <widget class="QCheckBox" name="postguiCB">
-               <property name="text">
-                <string>Post GUI HAL File</string>
-               </property>
+              <widget class="QWidget" name="tab_25">
+               <attribute name="title">
+                <string>Shutdown</string>
+               </attribute>
+               <layout class="QVBoxLayout" name="verticalLayout_33">
+                <item>
+                 <widget class="QPlainTextEdit" name="shutdown_hal_pte"/>
+                </item>
+               </layout>
               </widget>
-             </item>
-            </layout>
-           </widget>
+             </widget>
+            </item>
+           </layout>
           </widget>
           <widget class="QWidget" name="tab_157">
            <attribute name="title">
@@ -42354,8 +42404,8 @@ to File Open in Axis</string>
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>36</width>
-                    <height>18</height>
+                    <width>706</width>
+                    <height>290</height>
                    </rect>
                   </property>
                   <layout class="QGridLayout" name="mdiCommandsListGL"/>
@@ -44154,10 +44204,6 @@ auto enp2s0
   <tabstop>introGraphicLE</tabstop>
   <tabstop>splashScreenSB</tabstop>
   <tabstop>no_check_firmware_cb</tabstop>
-  <tabstop>customhalCB</tabstop>
-  <tabstop>postguiCB</tabstop>
-  <tabstop>shutdownCB</tabstop>
-  <tabstop>haluiCB</tabstop>
   <tabstop>numDioSB</tabstop>
   <tabstop>numAioSB</tabstop>
   <tabstop>numSpindlesSB</tabstop>

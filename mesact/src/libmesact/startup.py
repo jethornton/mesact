@@ -40,6 +40,10 @@ def setup(parent):
 	parent.mainTW.setTabVisible(4, False)
 	parent.mainTW.setTabVisible(5, False)
 
+	parent.hal_tw.setTabVisible(1, False)
+	parent.hal_tw.setTabVisible(2, False)
+	parent.hal_tw.setTabVisible(3, False)
+
 	libpath = os.path.join(os.path.expanduser('~'), '.local/lib/libmesact/boards')
 	if not os.path.exists(libpath):
 		os.makedirs(libpath)
