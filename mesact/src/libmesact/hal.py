@@ -5,7 +5,6 @@ from PyQt5.Qt import Qt
 def custom_hal(parent, state):
 	#CheckState Unchecked Checked
 	if state == Qt.CheckState.Checked:
-		print('checked')
 		parent.hal_tw.setTabVisible(1, True)
 		txt = '# Put HAL commands in this file that you want to run before the GUI loads\n'
 		parent.custom_hal_pte.setPlainText(txt)
