@@ -281,6 +281,7 @@ def build_io(parent):
 	contents.append(datetime.now().strftime('%b %d %Y %H:%M:%S') + '\n')
 	contents.append('# If you make changes to this file DO NOT use the Configuration Tool\n')
 
+	'''
 	mother_boards = ['5i25', '7i80db', '7i80hd', '7i92', '7i93', '7i98']
 	daughter_boards = ['7i76', '7i77', '7i78']
 	combo_boards = ['7i76e', '7i95', '7i96', '7i96s', '7i97']
@@ -306,48 +307,101 @@ def build_io(parent):
 			if axis:
 				ja_dict[axis.lower()] = joint
 				joint += 1
+	'''
 
+	# build inputs from qpushbutton menus, check for debounce c0_input_0
+	hm2 = ''
+	eStops = []
 	contents.append('\n# Inputs\n')
-	if mb in combo_boards:
-		for i in range(32):
-			key = getattr(parent, f'c0_input_{i}').text()
-			if mb == '7i96':
-				invert = '_not' if getattr(parent, f'c0_input_invert_{i}').isChecked() else ''
+
+	'''
+	P2
+	hm2_5i25.0.7i77.0.3.input-00
+	hm2_5i25.0.7i77.0.3.input-00-not
+
+	P3
+	hm2_5i25.0.7i77.0.0.input-00
+	hm2_5i25.0.7i77.0.0.input-00-not
+
+	P1
+	hm2_7i92.0.7i76.0.2.input-00
+	hm2_7i92.0.7i76.0.2.input-00-not
+
+	P2
+	hm2_7i92.0.7i76.0.0.input-00
+	hm2_7i92.0.7i76.0.0.input-00-not
+
+	P1
+	hm2_7i92.0.7i77.0.3.input-00
+	hm2_7i92.0.7i77.0.3.input-00-not
+
+	P2
+	hm2_7i92.0.7i77.0.0.input-00
+	hm2_7i92.0.7i77.0.0.input-00-not
+
+	'''
+
+	port_0 = {'7i76': 2, '7i77': 3}
+	port_1 = {'7i76': 0, '7i77': 0}
+
+	for i in range(3): # see if tab is visible
+		# i == 0 main board, i == 1 daughter card P2, i == 2 daughter card P3 possibly
+		if parent.mainTW.isTabVisible(i + 3):
+			board = getattr(parent, f'c{i}_JointTW').tabText(0)
+			if i == 1:
+				port = port_0[board]
+			elif i == 2:
+				port = port_1[board]
 			else:
-				invert = '-not' if getattr(parent, f'c0_input_invert_{i}').isChecked() else ''
-			slow = '-slow' if getattr(parent, f'c0_input_debounce_{i}').isChecked() else ''
+				port = 0
+			for j in range(32):
+				key = getattr(parent, f'c{i}_input_{j}').text()
+				if key != 'Select':
+					if board == '7i96':
+						invert = '_not' if getattr(parent, f'c{i}_input_invert_{j}').isChecked() else ''
+					else:
+						invert = '-not' if getattr(parent, f'c{i}_input_invert_{j}').isChecked() else ''
+					slow = '-slow' if getattr(parent, f'c{i}_input_debounce_{j}').isChecked() else ''
 
-			if mb == '7i76e':
-				hm2 =  f'hm2_7i76e.0.7i76.0.0.input-{i:02}{invert}'
-			if mb == '7i95':
-				hm2 =  f'hm2_7i95.0.inmux.00.input-{i:02}{invert}'
-			if mb == '7i96':
-				hm2 =  f'hm2_7i96.0.gpio.{i:03}.in{invert}'
-			if mb == '7i96s':
-				hm2 = f'hm2_7i96s.0.inm.00.input-{i:02}{invert}'
-			if mb == '7i97':
-				hm2 =  f'hm2_7i97.0.inmux.00.input-{i:02}{invert}'
+					if board == '7i76':
+						hm2 =  f'hm2_{parent.boardCB.currentData()}.0.7i76.0.{port}.input-{j:02}{invert}'
+					if board == '7i77':
+						hm2 =  f'hm2_{parent.boardCB.currentData()}.0.7i77.0.{port}.input-{j:02}{invert}'
+					if board == '7i76E':
+						hm2 =  f'hm2_7i76e.0.7i76.0.0.input-{j:02}{invert}'
+					if board == '7i95':
+						hm2 =  f'hm2_7i95.0.inmux.00.input-{j:02}{invert}'
+					if board == '7i95T':
+						hm2 =  f'hm2_7i95.0.inmux.00.input-{j:02}{invert}'
+					if board == '7i96':
+						hm2 =  f'hm2_7i96.0.gpio.{j:03}.in{invert}'
+					if board == '7i96S':
+						hm2 = f'hm2_7i96s.0.inm.00.input-{j:02}{invert}'
+					if board == '7i97':
+						hm2 =  f'hm2_7i97.0.inmux.00.input-{j:02}{invert}'
+					if board == '7i97T':
+						hm2 =  f'hm2_7i97.0.inmux.00.input-{j:02}{invert}'
 
-			if INPUTS.get(key, False): # return False if key is not in dictionary
-				contents.append(f'{INPUTS[key]} {hm2}\n')
-			else: # handle special cases
-				if key == 'Home All':
-					contents.append('\n# Home All Joints\n')
-					contents.append('net home-all ' + f'{hm2}\n')
-					for i in range(6):
-						if getattr(parent, 'axisCB_' + str(i)).currentData():
-							contents.append('net home-all ' + f'joint.{i}.home-sw-in\n')
-				elif key[0:6] == 'E Stop':
-					eStops.append(hm2)
-				elif '+ Joint' in key: # Jog axis and joint enable
-					axis = key.split()[1].lower()
-					joint = ja_dict[axis]
-					contents.append(f'net jog-{axis}-enable axis.{axis}.jog-enable <= {hm2}\n')
-					contents.append(f'net jog-{axis}-enable joint.{joint}.jog-enable')
+					if INPUTS.get(key, False): # return False if key is not in dictionary
+						contents.append(f'{INPUTS[key]} {hm2}\n')
+					else: # handle special cases
+						if key == 'Home All':
+							contents.append('\n# Home All Joints\n')
+							contents.append('net home-all ' + f'{hm2}\n')
+							for i in range(6):
+								if getattr(parent, 'axisCB_' + str(i)).currentData():
+									contents.append('net home-all ' + f'joint.{j}.home-sw-in\n')
+						elif key[0:6] == 'E Stop':
+							eStops.append(hm2)
+						elif '+ Joint' in key: # Jog axis and joint enable
+							axis = key.split()[1].lower()
+							joint = ja_dict[axis]
+							contents.append(f'net jog-{axis}-enable axis.{axis}.jog-enable <= {hm2}\n')
+							contents.append(f'net jog-{axis}-enable joint.{joint}.jog-enable')
 
 	#Build E-Stop Chain
 	if len(eStops) > 0:
-		contents.append('# E-Stop Chain\n')
+		contents.append('\n# E-Stop Chain\n')
 		contents.append(f'loadrt estop_latch count={len(eStops)}\n')
 		for i in range(len(eStops)):
 			contents.append(f'addf estop-latch.{i} servo-thread\n')
@@ -362,6 +416,7 @@ def build_io(parent):
 			contents.append(f'net estop-reset => estop-latch.{i}.reset\n')
 			contents.append(f'net remote-estop{i} estop-latch.{i}.fault-in <= {eStops[i]}\n')
 
+	'''
 	port_0_channels = {'7i76': '0', '7i77': '0'}
 	if daughter_0 in port_0_channels:
 		io_port = port_0_channels[daughter_0]
@@ -431,6 +486,7 @@ def build_io(parent):
 					contents.append(OUTPUTS[key] + f'hm2_{mb}.0.{daughter_1}.0.0.output-{i:02}\n')
 				else:
 					contents.append(OUTPUTS[key] + f'hm2_{mb}.0.{daughter_1}.00.output-{i:02}\n')
+	'''
 
 	try:
 		with open(filePath, 'w') as f:
