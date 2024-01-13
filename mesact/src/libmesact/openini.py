@@ -7,7 +7,7 @@ from PyQt5.QtWidgets import (QFileDialog, QLabel, QLineEdit, QSpinBox,
 from libmesact import utilities
 from libmesact import dialogs
 from libmesact import mdi
-
+from libmesact import hal
 
 class loadini:
 	def __init__(self):
@@ -399,7 +399,7 @@ class loadini:
 
 		parent.status_lb.setText('Opened')
 		parent.actionBuild.setText('Build Config')
-
+		hal.open_hal(parent, os.path.split(iniFile)[0])
 
 	def update(self, parent, section, key, obj):
 		booleanDict = {'true': True, 'yes': True, '1': True,

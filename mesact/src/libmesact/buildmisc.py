@@ -17,47 +17,30 @@ def build(parent):
 
 	if parent.customhalCB.isChecked():
 		customFilePath = os.path.join(parent.configPath, 'custom.hal')
-		customContents = []
-		customContents = ['# Place any HAL commands in this file that you want to run before the GUI.\n']
-		customContents.append('# This file will not be written over by the configuration tool.\n')
 		try: # if this file exists don't write over it
-			with open(customFilePath, 'x') as customFile:
-				customFile.writelines(customContents)
+			with open(customFilePath, 'w') as customFile:
+				customFile.writelines(parent.custom_hal_pte.toPlainText())
 			parent.info_pte.appendPlainText(f'Building {customFilePath}')
-		except FileExistsError:
-			pass
 		except OSError:
 			parent.info_pte.appendPlainText(f'OS error\n {traceback.print_exc()}')
 
 	if parent.postguiCB.isChecked():
 		# create the postgui.hal file if not there
 		postguiFilePath = os.path.join(parent.configPath, 'postgui.hal')
-		postguiContents = []
-		postguiContents = ['# Place any HAL commands in this file that you want to run AFTER the GUI finishes loading.\n']
-		postguiContents.append('# GUI HAL pins are not visible until after the GUI loads.\n')
-		postguiContents.append('# This file will not be written over by the configuration tool.\n')
 		try: # if this file exists don't write over it
-			with open(postguiFilePath, 'x') as postguiFile:
+			with open(postguiFilePath, 'w') as postguiFile:
 				postguiFile.writelines(postguiContents)
 			parent.info_pte.appendPlainText(f'Building {postguiFilePath}')
-		except FileExistsError:
-			pass
 		except OSError:
 			parent.info_pte.appendPlainText(f'OS error\n {traceback.print_exc()}')
 
 	if parent.shutdownCB.isChecked():
 		# create the shutdown.hal file if not there
 		shutdownFilePath = os.path.join(parent.configPath, 'shutdown.hal')
-		shutdownContents = []
-		shutdownContents = ['# Place any HAL commands in this file that you want to run AFTER the GUI shuts down.\n']
-		shutdownContents.append('# this may make it possible to set outputs when LinuxCNC is exited normally.\n')
-		shutdownContents.append('# This file will not be written over by the configuration tool.\n')
 		try: # if this file exists don't write over it
-			with open(shutdownFilePath, 'x') as shutdownFile:
+			with open(shutdownFilePath, 'w') as shutdownFile:
 				shutdownFile.writelines(shutdownContents)
 			parent.info_pte.appendPlainText(f'Building {shutdownFilePath}')
-		except FileExistsError:
-			pass
 		except OSError:
 			parent.info_pte.appendPlainText(f'OS error\n {traceback.print_exc()}')
 
