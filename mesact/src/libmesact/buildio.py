@@ -281,40 +281,15 @@ def build_io(parent):
 	contents.append(datetime.now().strftime('%b %d %Y %H:%M:%S') + '\n')
 	contents.append('# If you make changes to this file DO NOT use the Configuration Tool\n')
 
-	'''
-	mother_boards = ['5i25', '7i80db', '7i80hd', '7i92', '7i93', '7i98']
-	daughter_boards = ['7i76', '7i77', '7i78']
-	combo_boards = ['7i76e', '7i95', '7i96', '7i96s', '7i97']
-
-	# build inputs from qpushbutton menus, check for debounce c0_input_0
-	hm2 = ''
-	eStops = []
-	# Newer boards still use the old pin names except 7i96S
-	board_names = {'7i92t': '7i92', '7i95t': '7i95', '7i97t': '7i97'}
-	mb = parent.boardCB.currentData()
-	if mb in board_names:
-		mb = board_names[mb]
-
-	daughter_0 = parent.daughterCB_0.currentData()
-	daughter_1 = parent.daughterCB_1.currentData()
-
-	# build main board inputs if a combo card
-	joint = 0
-	ja_dict = {}
-	for i in range(3):
-		for j in range(6):
-			axis = getattr(parent, f'c{i}_axis_{j}').currentData()
-			if axis:
-				ja_dict[axis.lower()] = joint
-				joint += 1
-	'''
-
 	# build inputs from qpushbutton menus, check for debounce c0_input_0
 	hm2 = ''
 	eStops = []
 	contents.append('\n# Inputs\n')
 
 	'''
+	hm2_7i76e.0.gpio.000.in
+	hm2_7i76e.0.gpio.000.in_not
+
 	P2
 	hm2_5i25.0.7i77.0.3.input-00
 	hm2_5i25.0.7i77.0.3.input-00-not
@@ -339,25 +314,26 @@ def build_io(parent):
 	hm2_7i92.0.7i77.0.0.input-00
 	hm2_7i92.0.7i77.0.0.input-00-not
 
+	hm2_7i95.0.inmux.00.input-00
+	hm2_7i95.0.inmux.00.input-00-not
+	hm2_7i95.0.inmux.00.input-00-slow
 	'''
 
-	port_0 = {'7i76': 2, '7i77': 3}
-	port_1 = {'7i76': 0, '7i77': 0}
+	ports = {'7i76': 2, '7i77': 3}
+	underscore_not = ['7i76E', '7i96']
 
 	for i in range(3): # see if tab is visible
 		# i == 0 main board, i == 1 daughter card P2, i == 2 daughter card P3 possibly
 		if parent.mainTW.isTabVisible(i + 3):
 			board = getattr(parent, f'c{i}_JointTW').tabText(0)
-			if i == 1:
-				port = port_0[board]
-			elif i == 2:
-				port = port_1[board]
-			else:
+			if i == 1: # 7i92 P1 or 5/6i25 P2 so second port
+				port = ports[board]
+			else: # everything else is port 0
 				port = 0
 			for j in range(32):
 				key = getattr(parent, f'c{i}_input_{j}').text()
 				if key != 'Select':
-					if board == '7i96':
+					if board in underscore_not:
 						invert = '_not' if getattr(parent, f'c{i}_input_invert_{j}').isChecked() else ''
 					else:
 						invert = '-not' if getattr(parent, f'c{i}_input_invert_{j}').isChecked() else ''
@@ -368,7 +344,7 @@ def build_io(parent):
 					if board == '7i77':
 						hm2 =  f'hm2_{parent.boardCB.currentData()}.0.7i77.0.{port}.input-{j:02}{invert}'
 					if board == '7i76E':
-						hm2 =  f'hm2_7i76e.0.7i76.0.0.input-{j:02}{invert}'
+						hm2 =  f'hm2_7i76e.0.gpio.{j:03}.in{invert}'
 					if board == '7i95':
 						hm2 =  f'hm2_7i95.0.inmux.00.input-{j:02}{invert}'
 					if board == '7i95T':
@@ -417,83 +393,86 @@ def build_io(parent):
 			contents.append(f'net remote-estop{i} estop-latch.{i}.fault-in <= {eStops[i]}\n')
 
 	'''
-	port_0_channels = {'7i76': '0', '7i77': '0'}
-	if daughter_0 in port_0_channels:
-		io_port = port_0_channels[daughter_0]
-	else:
-		io_port = '0'
+	hm2_7i96s.0.ssr.00.invert-00
+	hm2_7i96s.0.ssr.00.invert-01
+	hm2_7i96s.0.ssr.00.invert-02
+	hm2_7i96s.0.ssr.00.invert-03
+	hm2_7i96s.0.ssr.00.out-00
+	hm2_7i96s.0.ssr.00.out-01
+	hm2_7i96s.0.ssr.00.out-02
+	hm2_7i96s.0.ssr.00.out-03
+	hm2_7i96s.0.outm.00.out-04
+	hm2_7i96s.0.outm.00.out-05
+	hm2_7i96s.0.outm.00.invert-04
+	hm2_7i96s.0.outm.00.invert-05
 
-	if daughter_0: # daughter card on first port
-		for i in range(32):
-			key = getattr(parent, f'c1_input_{i}').text()
-			invert = '-not' if getattr(parent, f'c1_input_invert_{i}').isChecked() else ''
-			slow = '-slow' if getattr(parent, f'c1_input_debounce_{i}').isChecked() else ''
-			if INPUTS.get(key, False): # return False if key is not in dictionary
-				hm2 = f'hm2_{mb}.0.{daughter_0}.0.{io_port}.input-{i:02}{invert}'
-				contents.append(f'{INPUTS[key]} {hm2}\n')
+	7i95 and 7i95T
+	hm2_7i95.0.ssr.00.out-00
+	hm2_7i95.0.ssr.00.invert-00
 
-	port_1_channels = {'7i76': '2', '7i77': '3'} # CHECKME <<<
-	if daughter_1: # daughter card on second port
-		#ss_io_port = parent.port_1_channels_lb[0]
-		for i in range(32):
-			key = getattr(parent, f'c2_input_{i}').text()
-			invert = '-not' if getattr(parent, f'c2_input_invert_{i}').isChecked() else ''
-			slow = '-slow' if getattr(parent, f'c2_input_debounce_{i}').isChecked() else ''
-			if INPUTS.get(key, False): # return False if key is not in dictionary
-				hm2 = f'hm2_{mb}.0.{daughter_1}.0.0.input-{i:02}{invert}'
-				contents.append(f'{INPUTS[key]} {hm2}\n')
+	7i97 and 7i97T
+	hm2_7i97.0.ssr.00.invert-00
+	hm2_7i97.0.ssr.00.out-00
+	'''
 
 	# build outputs
 	contents.append('\n# Outputs\n')
-	if mb in combo_boards: # build mother board outputs
-		for i in range(16):
-			key = getattr(parent, f'c0_output_{i}').text()
-			if OUTPUTS.get(key, False): # return False if key is not in dictionary
-				if mb == '7i76e':
-					contents.append(OUTPUTS[key] + f'hm2_7i76e.0.7i76.0.0.output-{i:02}\n')
-				if mb == '7i95': # hm2_7i95.0.ssr.00.out-00
-					contents.append(OUTPUTS[key] + f'hm2_7i95.0.ssr.00.out-{i:02}\n')
-				if mb == '7i96':
-					contents.append(OUTPUTS[key] + f'hm2_7i96.0.ssr.00.out-{i:02}\n')
-				if mb == '7i96s':
-					if i in range(4):
-						contents.append(OUTPUTS[key] + f'hm2_7i96s.0.ssr.00.out-{i:02}\n')
-						if getattr(parent, f'c0_output_invert_{i}').isChecked():
-							contents.append(f'setp hm2_7i96s.0.ssr.00.invert-{i:02} True\n')
-					if i in range(4,6):
-						contents.append(OUTPUTS[key] + f'hm2_7i96s.0.outm.00.out-{i:02}\n')
-						if getattr(parent, f'c0_output_invert_{i}').isChecked():
-							contents.append(f'setp hm2_7i96s.0.outm.00.invert-{i:02} True\n')
-				if mb == '7i97':
-					contents.append(OUTPUTS[key] + f'hm2_7i97.0.ssr.00.out-{i:02}\n')
+	for i in range(3): # see if tab is visible
+		# i == 0 main board, i == 1 daughter card P2, i == 2 daughter card P3 possibly
+		if parent.mainTW.isTabVisible(i + 3):
+			board = getattr(parent, f'c{i}_JointTW').tabText(0)
+			if i == 1: # 7i92 P1 or 5/6i25 P2 so second port
+				port = ports[board]
+			else: # everything else is port 0
+				port = 0
+			for j in range(16):
+				key = getattr(parent, f'c{i}_output_{j}').text()
+				if key != 'Select':
+					if board in underscore_not:
+						invert = '_not' if getattr(parent, f'c{i}_output_invert_{j}').isChecked() else ''
+					else:
+						invert = '-not' if getattr(parent, f'c{i}_output_invert_{j}').isChecked() else ''
 
-	if daughter_0: # build daughter card outputs for first port
-		#ss_io_port = parent.port_0_channels_lb.text()[0]
-		for i in range(16):
-			key = getattr(parent, f'c1_output_{i}').text()
-			if OUTPUTS.get(key, False): # return False if key is not in dictionary
-				if daughter_0 == '7i77':
-					contents.append(OUTPUTS[key] + f'hm2_{mb}.0.{daughter_0}.0.0.output-{i:02}\n')
-				else:
-					contents.append(OUTPUTS[key] + f'hm2_{mb}.0.{daughter_0}.0{ss_io_port}.output-{i:02}\n')
-
-	if daughter_1: # build daughter card outputs for second port
-		#ss_io_port = parent.port_1_channels_lb.text()[0]
-		for i in range(16):
-			key = getattr(parent, f'c2_output_{i}').text()
-			if OUTPUTS.get(key, False): # return False if key is not in dictionary
-				if daughter_1 == '7i77':
-					contents.append(OUTPUTS[key] + f'hm2_{mb}.0.{daughter_1}.0.0.output-{i:02}\n')
-				else:
-					contents.append(OUTPUTS[key] + f'hm2_{mb}.0.{daughter_1}.00.output-{i:02}\n')
-	'''
+					if board == '7i76':
+						hm2 =  f'hm2_{parent.boardCB.currentData()}.0.7i76.0.{port}.output-{j:02}{invert}'
+					if board == '7i77':
+						hm2 =  f'hm2_{parent.boardCB.currentData()}.0.7i77.0.{port}.output-{j:02}{invert}'
+					if board == '7i76E':
+						hm2 =  f'hm2_7i76e.0.gpio.{j + 31:03}.out{invert}'
+					if board == '7i95':
+						hm2 =  f'hm2_7i95.0.ssr.00.output-{j:02}{invert}'
+					if board == '7i95T':
+						hm2 =  f'hm2_7i95.0.ssr.00.out-{j:02}'
+						if getattr(parent, f'c0_output_invert_{j}').isChecked():
+							hm2 =  f'hm2_7i95.0.ssr.00.invert-{j:02}'
+					if board == '7i96':
+						hm2 =  f'hm2_7i96.0.gpio.{j:03}.out{invert}'
+					if board == '7i96S':
+						if j in range(4):
+							hm2 =  f'hm2_7i96s.0.ssr.00.out-{j:02}\n'
+							if getattr(parent, f'c0_output_invert_{j}').isChecked():
+								hm2 =  f'setp hm2_7i96s.0.ssr.00.invert-{j:02} True\n'
+						if j in range(4,6):
+							hm2 =  f'hm2_7i96s.0.outm.00.out-{j:02}\n'
+							if getattr(parent, f'c0_output_invert_{j}').isChecked():
+								hm2 =  f'setp hm2_7i96s.0.outm.00.invert-{j:02} True\n'
+					if board == '7i97':
+						hm2 =  f'hm2_7i97.0.inmux.00.input-{j:02}{invert}'
+					if board == '7i97T':
+						if getattr(parent, f'c0_output_invert_{j}').isChecked():
+							hm2 =  f'hm2_7i97.0.ssr.00.invert-{j:02}'
+						else:
+							hm2 =  f'hm2_7i97.0.ssr.00.out-{j:02}'
+					if board == '7i97':
+						contents.append(OUTPUTS[key] + f'hm2_7i97.0.ssr.00.out-{i:02}\n')
+					if OUTPUTS.get(key, False): # return False if key is not in dictionary
+						contents.append(f'{OUTPUTS[key]} {hm2}\n')
 
 	try:
 		with open(filePath, 'w') as f:
 			f.writelines(contents)
 	except OSError:
 		parent.info_pte.appendPlainText(f'OS error\n {traceback.print_exc()}')
-
 
 def build_ss(parent):
 	filePath = os.path.join(parent.configPath, 'sserial.hal')
