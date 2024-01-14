@@ -111,6 +111,10 @@ def boardChanged(parent):
 				getattr(parent, f'c0_input_{j}').setEnabled(True)
 				getattr(parent, f'c0_input_invert_{j}').setEnabled(True)
 				getattr(parent, f'c0_input_debounce_{j}').setEnabled(False)
+			for j in range(16):
+				getattr(parent, f'c0_output_{j}').setEnabled(True)
+				getattr(parent, f'c0_output_invert_{j}').setEnabled(True)
+
 			for i in range(6): # hide analog and encoder tabs
 				getattr(parent, f'c0_settings_{i}').setTabVisible(3, False)
 				getattr(parent, f'c0_settings_{i}').setTabVisible(4, False)
@@ -262,6 +266,21 @@ def boardChanged(parent):
 			parent.ipAddressCB.setEnabled(True)
 			parent.daughterLB_0.setText('P1')
 			parent.mainTW.setTabText(4, 'P1')
+			for j in range(24):
+				getattr(parent, f'c0_input_{j}').setEnabled(True)
+				getattr(parent, f'c0_input_invert_{j}').setEnabled(True)
+				getattr(parent, f'c0_input_debounce_{j}').setEnabled(True)
+			for j in range(24,32):
+				getattr(parent, f'c0_input_{j}').setEnabled(False)
+				getattr(parent, f'c0_input_invert_{j}').setEnabled(False)
+				getattr(parent, f'c0_input_debounce_{j}').setEnabled(False)
+			for j in range(6):
+				getattr(parent, f'c0_output_{j}').setEnabled(True)
+				getattr(parent, f'c0_output_invert_{j}').setEnabled(True)
+			for j in range(6,16):
+				getattr(parent, f'c0_output_{j}').setEnabled(False)
+				getattr(parent, f'c0_output_invert_{j}').setEnabled(False)
+
 			info = ('The 7i95T requires LinuxCNC version 2.10 to run\n'
 			'\nTo Flash the 7i95T Mesaflash version 3.4.7\nor newer must be installed\n'
 			'\nIP Address Jumpers\nW15 Down W16 Up for 10.10.10.10\n'
@@ -356,6 +375,21 @@ def boardChanged(parent):
 			parent.ipAddressCB.setEnabled(True)
 			parent.daughterLB_0.setText('P1')
 			parent.mainTW.setTabText(4, 'P1')
+			for j in range(16):
+				getattr(parent, f'c0_input_{j}').setEnabled(True)
+				getattr(parent, f'c0_input_invert_{j}').setEnabled(True)
+				getattr(parent, f'c0_input_debounce_{j}').setEnabled(False)
+			for j in range(16,32):
+				getattr(parent, f'c0_input_{j}').setEnabled(False)
+				getattr(parent, f'c0_input_invert_{j}').setEnabled(False)
+				getattr(parent, f'c0_input_debounce_{j}').setEnabled(False)
+			for j in range(6):
+				getattr(parent, f'c0_output_{j}').setEnabled(True)
+				getattr(parent, f'c0_output_invert_{j}').setEnabled(True)
+			for j in range(6,16):
+				getattr(parent, f'c0_output_{j}').setEnabled(False)
+				getattr(parent, f'c0_output_invert_{j}').setEnabled(False)
+
 			for item in db25:
 				parent.daughterCB_0.addItem(item[0], item[1])
 			for i in range(6): # hide stepper tab
