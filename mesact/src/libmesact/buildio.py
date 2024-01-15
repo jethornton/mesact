@@ -326,7 +326,7 @@ def build_io(parent):
 		# i == 0 main board, i == 1 daughter card P2, i == 2 daughter card P3 possibly
 		if parent.mainTW.isTabVisible(i + 3):
 			board = getattr(parent, f'c{i}_JointTW').tabText(0)
-			if i == 1: # 7i92 P1 or 5/6i25 P2 so second port
+			if i == 1 and board in ports: # 7i92 P1 or 5/6i25 P2 so second port
 				port = ports[board]
 			else: # everything else is port 0
 				port = 0
@@ -421,7 +421,7 @@ def build_io(parent):
 		# i == 0 main board, i == 1 daughter card P2, i == 2 daughter card P3 possibly
 		if parent.mainTW.isTabVisible(i + 3):
 			board = getattr(parent, f'c{i}_JointTW').tabText(0)
-			if i == 1: # 7i92 P1 or 5/6i25 P2 so second port
+			if i == 1 and board in ports: # 7i92 P1 or 5/6i25 P2 so second port
 				port = ports[board]
 			else: # everything else is port 0
 				port = 0
