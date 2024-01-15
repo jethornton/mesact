@@ -340,9 +340,9 @@ def build_io(parent):
 					slow = '-slow' if getattr(parent, f'c{i}_input_debounce_{j}').isChecked() else ''
 
 					if board == '7i76':
-						hm2 =  f'hm2_{parent.boardCB.currentData()}.0.7i76.0.{port}.input-{j:02}{invert}'
+						hm2 =  f'hm2_{parent.hal_name}.0.7i76.0.{port}.input-{j:02}{invert}'
 					if board == '7i77':
-						hm2 =  f'hm2_{parent.boardCB.currentData()}.0.7i77.0.{port}.input-{j:02}{invert}'
+						hm2 =  f'hm2_{parent.hal_name}.0.7i77.0.{port}.input-{j:02}{invert}'
 					if board == '7i76E':
 						hm2 =  f'hm2_7i76e.0.gpio.{j:03}.in{invert}'
 					if board == '7i95':
@@ -434,9 +434,9 @@ def build_io(parent):
 						invert = '-not' if getattr(parent, f'c{i}_output_invert_{j}').isChecked() else ''
 
 					if board == '7i76':
-						hm2 =  f'hm2_{parent.boardCB.currentData()}.0.7i76.0.{port}.output-{j:02}{invert}'
+						hm2 =  f'hm2_{parent.hal_name}.0.7i76.0.{port}.output-{j:02}{invert}'
 					if board == '7i77':
-						hm2 =  f'hm2_{parent.boardCB.currentData()}.0.7i77.0.{port}.output-{j:02}{invert}'
+						hm2 =  f'hm2_{parent.hal_name}.0.7i77.0.{port}.output-{j:02}{invert}'
 					if board == '7i76E':
 						hm2 =  f'hm2_7i76e.0.gpio.{j + 31:03}.out{invert}'
 					if board == '7i95':
