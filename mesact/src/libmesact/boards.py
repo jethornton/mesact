@@ -56,6 +56,7 @@ def boardChanged(parent):
 
 		if board == '5i24': # PCI IDC50
 			parent.hal_name = '5i24'
+			parent.mesaflash_name = '5i24'
 			parent.boardType = 'pci'
 			parent.c0_JointTW.setTabText(0, name)
 			for i in range(1, tabs + 1):
@@ -71,6 +72,7 @@ def boardChanged(parent):
 		elif board == '5i25': # PCI DB25F IDC26
 			# port 0 is P3 port 1 is P2
 			parent.hal_name = '5i25'
+			parent.mesaflash_name = '5i25'
 			parent.boardType = 'pci'
 			parent.c0_JointTW.setTabText(0, name)
 			for i in range(1, tabs + 1):
@@ -87,6 +89,7 @@ def boardChanged(parent):
 
 		elif board == '7i76e': # ETH 5 Axis Step/Direction
 			parent.hal_name = '7i76e'
+			parent.mesaflash_name = '7i76e'
 			# 5 step/dir 32 inputs 16 outputs 1 spindle 1 encoder
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
@@ -121,6 +124,7 @@ def boardChanged(parent):
 
 		elif board == '7i80db-16': # ETH DB25F
 			parent.hal_name = '7i80db-16'
+			parent.mesaflash_name = '7i80db-16' # CHECKME FIXME
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
 			for i in range(1, tabs + 1):
@@ -136,6 +140,7 @@ def boardChanged(parent):
 
 		elif board == '7i80db-25': # ETH DB25F
 			parent.hal_name = '7i80db-25'
+			parent.mesaflash_name = '7i80db-25'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
 			for i in range(1, tabs + 1):
@@ -151,6 +156,7 @@ def boardChanged(parent):
 
 		elif board == '7i80hd-16': # ETH IDC50
 			parent.hal_name = '7i80hd-16'
+			parent.mesaflash_name = '7i80hd-16'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
 			for i in range(1, tabs + 1):
@@ -166,6 +172,7 @@ def boardChanged(parent):
 
 		elif board == '7i80hd-25': # ETH IDC50
 			parent.hal_name = '7i80hd-25'
+			parent.mesaflash_name = '7i80hd-25'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
 			for i in range(1, tabs + 1):
@@ -181,6 +188,7 @@ def boardChanged(parent):
 
 		elif board == '7i80hd-ts': # ETH IDC50
 			parent.hal_name = '7i80hd-ts'
+			parent.mesaflash_name = '7i80hd-ts'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
 			for i in range(1, tabs + 1):
@@ -196,6 +204,7 @@ def boardChanged(parent):
 
 		elif board == '7i92': # ETH DB25F IDC26
 			parent.hal_name = '7i92'
+			parent.mesaflash_name = '7i92'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
 			for i in range(1, tabs + 1):
@@ -211,6 +220,7 @@ def boardChanged(parent):
 
 		elif board == '7i92t': # ETH DB25F IDC26
 			parent.hal_name = '7i92'
+			parent.mesaflash_name = '7i92t'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
 			info = ('Connector 5v Power\n'
@@ -233,6 +243,7 @@ def boardChanged(parent):
 
 		elif board == '7i93': # ETH IDC50
 			parent.hal_name = '7i93'
+			parent.mesaflash_name = '7i93'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
 			for i in range(1, tabs + 1):
@@ -248,6 +259,7 @@ def boardChanged(parent):
 
 		elif board == '7i95': # ETH 6 Axis Step/Direction
 			parent.hal_name = '7i95'
+			parent.mesaflash_name = '7i95'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
 			parent.ipAddressCB.setEnabled(True)
@@ -261,6 +273,7 @@ def boardChanged(parent):
 
 		elif board == '7i95t': # ETH 6 Axis Step/Direction
 			parent.hal_name = '7i95'
+			parent.mesaflash_name = '7i95t'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
 			parent.ipAddressCB.setEnabled(True)
@@ -301,6 +314,7 @@ def boardChanged(parent):
 
 		elif board == '7i96': # ETH 5 Axis Step/Direction
 			parent.hal_name = '7i96'
+			parent.mesaflash_name = '7i96'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
 			parent.c0_JointTW.setTabVisible(6, False)
@@ -321,6 +335,7 @@ def boardChanged(parent):
 
 		elif board == '7i96s': # ETH 5 Axis Step/Direction
 			parent.hal_name = '7i96s'
+			parent.mesaflash_name = '7i96s'
 			parent.boardType = 'eth'
 			# 5 step/dir 11 inputs 6 outputs 1 spindle 1 encoder
 			parent.c0_JointTW.setTabText(0, name)
@@ -358,6 +373,7 @@ def boardChanged(parent):
 
 		elif board == '7i97': # ETH 6 Axis Analog
 			parent.hal_name = '7i97'
+			parent.mesaflash_name = '7i97'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
 			parent.ipAddressCB.setEnabled(True)
@@ -370,6 +386,7 @@ def boardChanged(parent):
 
 		elif board == '7i97t': # ETH 6 Axis Analog
 			parent.hal_name = '7i97'
+			parent.mesaflash_name = '7i97t'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
 			parent.ipAddressCB.setEnabled(True)
@@ -397,6 +414,7 @@ def boardChanged(parent):
 
 		elif board == '7i98': # ETH IDC26
 			parent.hal_name = '7i98'
+			parent.mesaflash_name = '7i98'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, name)
 			for i in range(1, tabs + 1):
@@ -412,6 +430,7 @@ def boardChanged(parent):
 
 	else: # no board is selected
 		parent.hal_name = ''
+		parent.mesaflash_name = ''
 		parent.boardType = False
 		parent.c0_JointTW.setTabText(0, 'Board')
 		parent.mainTW.setTabVisible(3, False)
