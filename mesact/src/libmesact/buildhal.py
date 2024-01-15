@@ -204,18 +204,22 @@ def build(parent):
 
 					halContents.append(f'\nnet joint.{joint}.output <= {pid_list[joint]}.output\n')
 					if board == '7i77': # analog daughter card
-						halContents.append(f'net joint.{joint}.output => hm2_[MESA](BOARD).0.{card}.0.{analog_port[card]}.analogout{joint}\n')
+						halContents.append(f'net joint.{joint}.output => hm2_[MESA](BOARD).0.{board}.0.{analog_port[card]}.analogout{joint}\n')
 					elif board in step_boards: # stepper
 						halContents.append(f'net joint.{joint}.output => hm2_[MESA](BOARD).0.stepgen.0{joint}.velocity-cmd\n')
-
+					# hm2_7i92.0.7i77.0.1.analogout0
 					if board == '7i77': # analog daughter card setp   hm2_5i25.0.7i77.0.1.analogout0-scalemax  [JOINT_0]OUTPUT_SCALE
+
 						halContents.append(f'\n# Joint {joint} Analog setup\n')
-						halContents.append(f'setp hm2_[MESA](BOARD).0.{analog_port[card]}.analogout{joint}-scalemax')
+						halContents.append(f'setp hm2_[MESA](BOARD).0.{board}.0.{analog_port[card]}.analogout{joint}-scalemax')
 						halContents.append(f' [JOINT_{joint}](ANALOG_SCALE_MAX)\n')
-						halContents.append(f'setp hm2_[MESA](BOARD).0.{analog_port[card]}.analogout{joint}-minlim')
+						halContents.append(f'setp hm2_[MESA](BOARD).0.{board}.0.{analog_port[card]}.analogout{joint}-minlim')
 						halContents.append(f' [JOINT_{joint}](ANALOG_MIN_LIMIT)\n')
-						halContents.append(f'setp hm2_[MESA](BOARD).0.{analog_port[card]}.analogout{joint}-maxlim')
+						halContents.append(f'setp hm2_[MESA](BOARD).0.{board}.0.{analog_port[card]}.analogout{joint}-maxlim')
 						halContents.append(f' [JOINT_{joint}](ANALOG_MAX_LIMIT)\n\n')
+						# hm2_7i92.0.7i77.0.1.analogout0-maxlim
+						# hm2_7i92.0.7i77.0.1.analogout0-minlim
+						# hm2_7i92.0.7i77.0.1.analogout0-scalemax
 
 					if board in analog_boards: # analog
 						if getattr(parent, f'c{card}_encoderScale_{joint}').text():
