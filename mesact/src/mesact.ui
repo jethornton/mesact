@@ -1558,7 +1558,7 @@ to the clipboard</string>
                     </widget>
                    </item>
                    <item row="2" column="1">
-                    <widget class="QLineEdit" name="stepper_teeth_le">
+                    <widget class="QLineEdit" name="lin_stepper_teeth_le">
                      <property name="toolTip">
                       <string>Leave blank for direct drive</string>
                      </property>
@@ -1574,7 +1574,7 @@ to the clipboard</string>
                     </widget>
                    </item>
                    <item row="4" column="1">
-                    <widget class="QLineEdit" name="leadscrew_pitch_le">
+                    <widget class="QLineEdit" name="lin_leadscrew_pitch_le">
                      <property name="toolTip">
                       <string>Rotations per user Unit</string>
                      </property>
@@ -1593,7 +1593,7 @@ to the clipboard</string>
                     </widget>
                    </item>
                    <item row="1" column="1">
-                    <widget class="QLineEdit" name="microsteps_le">
+                    <widget class="QLineEdit" name="lin_microsteps_le">
                      <property name="text">
                       <string/>
                      </property>
@@ -1627,17 +1627,17 @@ to the clipboard</string>
                     </widget>
                    </item>
                    <item row="6" column="0">
-                    <widget class="QPushButton" name="calc_scale_pb">
+                    <widget class="QPushButton" name="calc_linear_scale_pb">
                      <property name="text">
                       <string>Calculate Scale</string>
                      </property>
                     </widget>
                    </item>
                    <item row="7" column="1">
-                    <widget class="QComboBox" name="scale_joint_cb"/>
+                    <widget class="QComboBox" name="lin_scale_joint_cb"/>
                    </item>
                    <item row="3" column="1">
-                    <widget class="QLineEdit" name="leadscrew_teeth_le">
+                    <widget class="QLineEdit" name="lin_leadscrew_teeth_le">
                      <property name="toolTip">
                       <string>Leave blank for direct drive</string>
                      </property>
@@ -1663,7 +1663,7 @@ to the clipboard</string>
                     </spacer>
                    </item>
                    <item row="0" column="1">
-                    <widget class="QLineEdit" name="steps_rev_le">
+                    <widget class="QLineEdit" name="lin_steps_rev_le">
                      <property name="toolTip">
                       <string>Whole Steps per Rotation</string>
                      </property>
@@ -1682,7 +1682,7 @@ to the clipboard</string>
                     </widget>
                    </item>
                    <item row="7" column="0">
-                    <widget class="QPushButton" name="copy_scale_pb">
+                    <widget class="QPushButton" name="copy_linear_scale_pb">
                      <property name="enabled">
                       <bool>false</bool>
                      </property>
@@ -1713,7 +1713,7 @@ to the clipboard</string>
                     </widget>
                    </item>
                    <item row="6" column="1">
-                    <widget class="QLineEdit" name="scale_le">
+                    <widget class="QLineEdit" name="lin_scale_le">
                      <property name="alignment">
                       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                      </property>
@@ -1747,7 +1747,7 @@ Leadscrew Pitch is turns per user unit. Example 6 turns per inch or .25 turns pe
                   </attribute>
                   <layout class="QGridLayout" name="gridLayout_324">
                    <item row="0" column="1">
-                    <widget class="QLineEdit" name="lin_steps_rev_le">
+                    <widget class="QLineEdit" name="angular_steps_rev_le">
                      <property name="toolTip">
                       <string>Whole Steps per Rotation</string>
                      </property>
@@ -1766,7 +1766,7 @@ Leadscrew Pitch is turns per user unit. Example 6 turns per inch or .25 turns pe
                     </widget>
                    </item>
                    <item row="4" column="0">
-                    <widget class="QPushButton" name="angular_scale_pb">
+                    <widget class="QPushButton" name="calc_angular_scale_pb">
                      <property name="text">
                       <string>Calculate Scale</string>
                      </property>
@@ -1780,10 +1780,10 @@ Leadscrew Pitch is turns per user unit. Example 6 turns per inch or .25 turns pe
                     </widget>
                    </item>
                    <item row="5" column="1">
-                    <widget class="QComboBox" name="copy_angluar_scale_cb"/>
+                    <widget class="QComboBox" name="angluar_scale_joint_cb"/>
                    </item>
                    <item row="1" column="1">
-                    <widget class="QLineEdit" name="lin_microsteps_le">
+                    <widget class="QLineEdit" name="angular_microsteps_le">
                      <property name="text">
                       <string/>
                      </property>
@@ -1796,9 +1796,9 @@ Leadscrew Pitch is turns per user unit. Example 6 turns per inch or .25 turns pe
                     </widget>
                    </item>
                    <item row="2" column="1">
-                    <widget class="QLineEdit" name="lin_rotations_le">
+                    <widget class="QLineEdit" name="angular_rotations_le">
                      <property name="toolTip">
-                      <string>Leave blank for direct drive</string>
+                      <string>1 to 1 for Direct Drive</string>
                      </property>
                      <property name="text">
                       <string/>
@@ -43778,15 +43778,15 @@ auto enp2s0
   <tabstop>trajMaxLinVelDSB</tabstop>
   <tabstop>board_info_pte</tabstop>
   <tabstop>tabWidget_228</tabstop>
-  <tabstop>steps_rev_le</tabstop>
-  <tabstop>microsteps_le</tabstop>
-  <tabstop>stepper_teeth_le</tabstop>
-  <tabstop>leadscrew_teeth_le</tabstop>
-  <tabstop>leadscrew_pitch_le</tabstop>
-  <tabstop>calc_scale_pb</tabstop>
-  <tabstop>scale_le</tabstop>
-  <tabstop>copy_scale_pb</tabstop>
-  <tabstop>scale_joint_cb</tabstop>
+  <tabstop>lin_steps_rev_le</tabstop>
+  <tabstop>lin_microsteps_le</tabstop>
+  <tabstop>lin_stepper_teeth_le</tabstop>
+  <tabstop>lin_leadscrew_teeth_le</tabstop>
+  <tabstop>lin_leadscrew_pitch_le</tabstop>
+  <tabstop>calc_linear_scale_pb</tabstop>
+  <tabstop>lin_scale_le</tabstop>
+  <tabstop>copy_linear_scale_pb</tabstop>
+  <tabstop>lin_scale_joint_cb</tabstop>
   <tabstop>c0_axis_0</tabstop>
   <tabstop>c0_scale_0</tabstop>
   <tabstop>c0_min_limit_0</tabstop>
@@ -45407,13 +45407,13 @@ auto enp2s0
   <tabstop>plainTextEdit_3</tabstop>
   <tabstop>c1_JointTW</tabstop>
   <tabstop>c1_ff0_0</tabstop>
-  <tabstop>lin_steps_rev_le</tabstop>
-  <tabstop>lin_microsteps_le</tabstop>
-  <tabstop>lin_rotations_le</tabstop>
-  <tabstop>angular_scale_pb</tabstop>
+  <tabstop>angular_steps_rev_le</tabstop>
+  <tabstop>angular_microsteps_le</tabstop>
+  <tabstop>angular_rotations_le</tabstop>
+  <tabstop>calc_angular_scale_pb</tabstop>
   <tabstop>angular_scale_le</tabstop>
   <tabstop>copy_angluar_scale_pb</tabstop>
-  <tabstop>copy_angluar_scale_cb</tabstop>
+  <tabstop>angluar_scale_joint_cb</tabstop>
   <tabstop>c1_min_limit_1</tabstop>
  </tabstops>
  <resources/>

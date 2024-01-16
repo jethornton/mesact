@@ -90,9 +90,9 @@ def connect(parent):
 	# Info Tab
 
 	# Axes Tab
-	parent.calc_scale_pb.clicked.connect(partial(utilities.calc_scale, parent))
-	parent.copy_scale_pb.clicked.connect(partial(axes.copy_scale, parent))
-	parent.angular_scale_pb.clicked.connect(partial(utilities.calc_angular_scale, parent))
+	parent.calc_linear_scale_pb.clicked.connect(partial(utilities.calc_scale, parent))
+	parent.copy_linear_scale_pb.clicked.connect(partial(axes.copy_scale, parent))
+	parent.calc_angular_scale_pb.clicked.connect(partial(utilities.calc_angular_scale, parent))
 	parent.copy_angluar_scale_pb.clicked.connect(partial(axes.copy_angular_scale, parent))
 	# for now just do one card
 	#j = 0

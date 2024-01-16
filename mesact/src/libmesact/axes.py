@@ -5,9 +5,9 @@ from libmesact import utilities
 from libmesact import dialogs
 
 def copy_scale(parent):
-	if parent.scale_joint_cb.currentData():
-		if len(parent.scale_le.text()) > 0:
-			getattr(parent, f'{parent.scale_joint_cb.currentData()}').setText(parent.scale_le.text())
+	if parent.lin_scale_joint_cb.currentData():
+		if len(parent.lin_scale_le.text()) > 0:
+			getattr(parent, f'{parent.lin_scale_joint_cb.currentData()}').setText(parent.lin_scale_le.text())
 		else:
 			msg = ('Scale must not be blank')
 			dialogs.errorMsgOk(msg, 'Error')
@@ -16,9 +16,9 @@ def copy_scale(parent):
 		dialogs.errorMsgOk(msg, 'Error')
 
 def copy_angular_scale(parent):
-	if parent.copy_angluar_scale_cb.currentData():
+	if parent.angluar_scale_joint_cb.currentData():
 		if len(parent.angular_scale_le.text()) > 0:
-			getattr(parent, f'{parent.copy_angluar_scale_cb.currentData()}').setText(parent.angular_scale_le.text())
+			getattr(parent, f'{parent.angluar_scale_joint_cb.currentData()}').setText(parent.angular_scale_le.text())
 		else:
 			msg = ('Scale must not be blank')
 			dialogs.errorMsgOk(msg, 'Error')
@@ -40,21 +40,21 @@ def axisChanged(parent):
 			parent.minAngJogVelDSB.setEnabled(False)
 			parent.defAngJogVelDSB.setEnabled(False)
 			parent.maxAngJogVelDSB.setEnabled(False)
+
 		elif axis in angular_axes:
 			getattr(parent, f'{connector}axisType_{joint}').setText('ANGULAR')
 			parent.minAngJogVelDSB.setEnabled(True)
 			parent.defAngJogVelDSB.setEnabled(True)
 			parent.maxAngJogVelDSB.setEnabled(True)
+			parent.angluar_scale_joint_cb.clear()
+			parent.angluar_scale_joint_cb.addItem('Select', False)
+
 		else:
 			getattr(parent, f'{connector}axisType_{joint}').setText('')
 			parent.minAngJogVelDSB.setEnabled(False)
 			parent.defAngJogVelDSB.setEnabled(False)
 			parent.maxAngJogVelDSB.setEnabled(False)
 
-		parent.scale_joint_cb.clear()
-		parent.scale_joint_cb.addItem('Select', False)
-		parent.copy_angluar_scale_cb.clear()
-		parent.copy_angluar_scale_cb.addItem('Select', False)
 	else:
 		getattr(parent, f'{connector}axisType_{joint}').setText('')
 
@@ -65,21 +65,37 @@ def axisChanged(parent):
 			axis_letter = getattr(parent, f'c{i}_axis_{j}').currentText()
 			if axis_letter != 'Select':
 				coordList.append(axis_letter)
-				if axis_letter in linear_axes:
-					parent.scale_joint_cb.addItem(f'Axis {axis_letter} Joint {j} ', f'c{i}_scale_{j}')
-				elif axis_letter in angular_axes:
-					parent.copy_angluar_scale_cb.addItem(f'Axis {axis_letter} Joint {j} ', f'c{i}_scale_{j}')
 			parent.coordinatesLB.setText(''.join(coordList))
 	if coordList:
-		parent.copy_scale_pb.setEnabled(True)
+		parent.copy_linear_scale_pb.setEnabled(True)
 		parent.copy_angluar_scale_pb.setEnabled(True)
 	else:
-		parent.copy_scale_pb.setEnabled(False)
+		parent.copy_linear_scale_pb.setEnabled(False)
 		parent.copy_angluar_scale_pb.setEnabled(False)
-		parent.scale_joint_cb.clear()
-		parent.copy_angluar_scale_cb.clear()
+		parent.lin_scale_joint_cb.clear()
+		parent.angluar_scale_joint_cb.clear()
 
-
+	# setup scale axes and joints
+	if set(linear_axes)&set(coordList):
+		parent.lin_scale_joint_cb.clear()
+		parent.lin_scale_joint_cb.addItem('Select', False)
+		for i in range(3):
+			for j in range(6):
+				axis_letter = getattr(parent, f'c{i}_axis_{j}').currentText()
+				if axis_letter in linear_axes:
+					parent.lin_scale_joint_cb.addItem(f'Axis {axis_letter} Joint {j} ', f'c{i}_scale_{j}')
+	else:
+		parent.lin_scale_joint_cb.clear()
+	if set(angular_axes)&set(coordList):
+		parent.angluar_scale_joint_cb.clear()
+		parent.angluar_scale_joint_cb.addItem('Select', False)
+		for i in range(3):
+			for j in range(6):
+				axis_letter = getattr(parent, f'c{i}_axis_{j}').currentText()
+				if axis_letter in angular_axes:
+					parent.angluar_scale_joint_cb.addItem(f'Axis {axis_letter} Joint {j} ', f'c{i}_scale_{j}')
+	else:
+		parent.angluar_scale_joint_cb.clear()
 
 def updateAxisInfo(parent):
 	card = parent.sender().objectName()[:2]

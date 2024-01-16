@@ -149,11 +149,12 @@ def setup(parent):
 	#self.lineEdit.setValidator(validator)
 
 	#only_numbers.setNumberOptions(QLocale.RejectGroupSeparator)
-	parent.steps_rev_le.setValidator(only_int)
-	parent.microsteps_le.setValidator(only_int)
-	parent.stepper_teeth_le.setValidator(only_int)
-	parent.leadscrew_teeth_le.setValidator(only_int)
-	parent.leadscrew_pitch_le.setValidator(only_numbers)
+	parent.lin_steps_rev_le.setValidator(only_int)
+	parent.lin_microsteps_le.setValidator(only_int)
+	parent.lin_stepper_teeth_le.setValidator(only_int)
+	parent.lin_leadscrew_teeth_le.setValidator(only_int)
+	parent.lin_leadscrew_pitch_le.setValidator(only_numbers)
+	parent.angular_steps_rev_le.setValidator(only_int)
 
 	# c0_scale_0 c0_min_limit_0 c0_max_limit_0 c0_max_vel_0 c0_max_accel_0
 	float_list = ['_scale_', '_min_limit_', '_max_limit_', '_max_vel_',

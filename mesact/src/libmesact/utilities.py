@@ -2,8 +2,8 @@ import os, subprocess
 import urllib.request
 from datetime import datetime
 
-from PyQt5.QtWidgets import (QApplication, QInputDialog, QLineEdit, QComboBox,
-	QDoubleSpinBox, QCheckBox)
+from PyQt5.QtWidgets import QApplication, QInputDialog, QLineEdit, QComboBox
+from PyQt5.QtWidgets import QDoubleSpinBox, QCheckBox
 
 from libmesact import dialogs
 
@@ -210,26 +210,26 @@ def calc_angular_scale(parent):
 		dialogs.errorMsgOk(msg, 'Error')
 		return
 
-	if len(parent.lin_rotations_le.text()) > 0: # required entry
-		if is_number(parent.lin_rotations_le.text()):
-			gear_ratio = int(float(parent.lin_rotations_le.text())) if parent.lin_rotations_le.text() != '' else False
+	if len(parent.angular_rotations_le.text()) > 0: # required entry
+		if is_number(parent.angular_rotations_le.text()):
+			gear_ratio = int(float(parent.angular_rotations_le.text())) if parent.angular_rotations_le.text() != '' else False
 		else:
-			msg = (f'{parent.lin_rotations_le.text()} is not a valid number\n'
-			f'for {parent.lin_rotations_le.property("name")}')
+			msg = (f'{parent.angular_rotations_le.text()} is not a valid number\n'
+			f'for {parent.angular_rotations_le.property("name")}')
 			dialogs.errorMsgOk(msg, 'Error')
 			return
 	else:
-		msg = (f'{parent.lin_rotations_le.property("name")} must be not be blank')
+		msg = (f'{parent.angular_rotations_le.property("name")} must be not be blank')
 		dialogs.errorMsgOk(msg, 'Error')
 		return
 
 
-	if len(parent.lin_microsteps_le.text()) > 0:
-		if is_number(parent.lin_microsteps_le.text()):
-			micro_steps = int(float(parent.lin_microsteps_le.text()))
+	if len(parent.angular_microsteps_le.text()) > 0:
+		if is_number(parent.angular_microsteps_le.text()):
+			micro_steps = int(float(parent.angular_microsteps_le.text()))
 		else:
-			msg = (f'{parent.lin_microsteps_le.text()} is not a valid number\n'
-			f'for {parent.lin_microsteps_le.property("name")}')
+			msg = (f'{parent.angular_microsteps_le.text()} is not a valid number\n'
+			f'for {parent.angular_microsteps_le.property("name")}')
 			dialogs.errorMsgOk(msg, 'Error')
 			return
 	else:
@@ -244,59 +244,59 @@ def calc_angular_scale(parent):
 def calc_scale(parent):
 	# scale = steps/rev * microsteps * (leadscrew teeth / motor teeth) * leadscrew revs/ unit
 	if len(parent.lin_steps_rev_le.text()) > 0: # required entry
-		if is_number(parent.steps_rev_le.text()):
-			steps_rev = int(float(parent.steps_rev_le.text())) if parent.steps_rev_le.text() != '' else False
+		if is_number(parent.lin_steps_rev_le.text()):
+			steps_rev = int(float(parent.lin_steps_rev_le.text())) if parent.lin_steps_rev_le.text() != '' else False
 		else:
-			msg = (f'{parent.steps_rev_le.text()} is not a valid number\n'
-			f'for {parent.steps_rev_le.property("name")}')
+			msg = (f'{parent.lin_steps_rev_le.text()} is not a valid number\n'
+			f'for {parent.lin_steps_rev_le.property("name")}')
 			dialogs.errorMsgOk(msg, 'Error')
 			return
 	else:
-		msg = (f'{parent.steps_rev_le.property("name")} must be not be blank')
+		msg = (f'{parent.lin_steps_rev_le.property("name")} must be not be blank')
 		dialogs.errorMsgOk(msg, 'Error')
 		return
 
-	if len(parent.leadscrew_pitch_le.text()) > 0: # required entry
-		if is_number(parent.leadscrew_pitch_le.text()):
-			leadscrew_pitch = float(parent.leadscrew_pitch_le.text())
+	if len(parent.lin_leadscrew_pitch_le.text()) > 0: # required entry
+		if is_number(parent.lin_leadscrew_pitch_le.text()):
+			leadscrew_pitch = float(parent.lin_leadscrew_pitch_le.text())
 		else:
-			msg = (f'{parent.leadscrew_pitch_le.text()} is not a valid number\n'
-			f'for {parent.leadscrew_pitch_le.property("name")}')
+			msg = (f'{parent.lin_leadscrew_pitch_le.text()} is not a valid number\n'
+			f'for {parent.lin_leadscrew_pitch_le.property("name")}')
 			dialogs.errorMsgOk(msg, 'Error')
 			return
 	else:
-		msg = (f'{parent.leadscrew_pitch_le.property("name")} must be not be blank')
+		msg = (f'{parent.lin_leadscrew_pitch_le.property("name")} must be not be blank')
 		dialogs.errorMsgOk(msg, 'Error')
 		return
 
-	if len(parent.microsteps_le.text()) > 0:
-		if is_number(parent.microsteps_le.text()):
-			micro_steps = int(float(parent.microsteps_le.text()))
+	if len(parent.lin_microsteps_le.text()) > 0:
+		if is_number(parent.lin_microsteps_le.text()):
+			micro_steps = int(float(parent.lin_microsteps_le.text()))
 		else:
-			msg = (f'{parent.microsteps_le.text()} is not a valid number\n'
-			f'for {parent.microsteps_le.property("name")}')
+			msg = (f'{parent.lin_microsteps_le.text()} is not a valid number\n'
+			f'for {parent.lin_microsteps_le.property("name")}')
 			dialogs.errorMsgOk(msg, 'Error')
 			return
 	else:
 		micro_steps = False
 
-	if len(parent.stepper_teeth_le.text()) > 0:
-		if is_number(parent.stepper_teeth_le.text()):
-			stepper_teeth = int(float(parent.stepper_teeth_le.text()))
+	if len(parent.lin_stepper_teeth_le.text()) > 0:
+		if is_number(parent.lin_stepper_teeth_le.text()):
+			stepper_teeth = int(float(parent.lin_stepper_teeth_le.text()))
 		else:
-			msg = (f'{parent.stepper_teeth_le.text()} is not a valid number\n'
-			f'for {parent.stepper_teeth_le.property("name")}')
+			msg = (f'{parent.lin_stepper_teeth_le.text()} is not a valid number\n'
+			f'for {parent.lin_stepper_teeth_le.property("name")}')
 			dialogs.errorMsgOk(msg, 'Error')
 			return
 	else:
 		stepper_teeth = False
 
-	if len(parent.leadscrew_teeth_le.text()) > 0:
-		if is_number(parent.leadscrew_teeth_le.text()):
-			leadscrew_teeth = int(float(parent.leadscrew_teeth_le.text()))
+	if len(parent.lin_leadscrew_teeth_le.text()) > 0:
+		if is_number(parent.lin_leadscrew_teeth_le.text()):
+			leadscrew_teeth = int(float(parent.lin_leadscrew_teeth_le.text()))
 		else:
-			msg = (f'{parent.leadscrew_teeth_le.text()} is not a valid number\n'
-			f'for {parent.leadscrew_teeth_le.property("name")}')
+			msg = (f'{parent.lin_leadscrew_teeth_le.text()} is not a valid number\n'
+			f'for {parent.lin_leadscrew_teeth_le.property("name")}')
 			dialogs.errorMsgOk(msg, 'Error')
 			return
 	else:
@@ -306,8 +306,8 @@ def calc_scale(parent):
 		steps_rev = steps_rev * micro_steps
 
 	if leadscrew_teeth and stepper_teeth:
-		parent.scale_le.setText(f'{round(steps_rev * (leadscrew_teeth/stepper_teeth) * leadscrew_pitch, 4):g}')
+		parent.lin_scale_le.setText(f'{round(steps_rev * (leadscrew_teeth/stepper_teeth) * leadscrew_pitch, 4):g}')
 	else:
-		parent.scale_le.setText(f'{round(steps_rev * leadscrew_pitch, 4):g}')
+		parent.lin_scale_le.setText(f'{round(steps_rev * leadscrew_pitch, 4):g}')
 
 
