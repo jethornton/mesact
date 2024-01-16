@@ -1,3 +1,9 @@
+mesact (2.1.1) unstable; urgency=medium
+
+  * Fix I/O and other minor bugs
+
+ -- John Thornton <dev@gnipsel.com>  Tue, 16 Jan 2024 17:44:16 -0600
+
 mesact (2.1.0) unstable; urgency=medium
 
   * Allow using any drive outputs
