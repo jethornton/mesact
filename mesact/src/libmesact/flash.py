@@ -121,7 +121,7 @@ def verify_board(parent): # needs to use Popen for password
 	board_name = parent.boardCB.currentText()
 	cmd = []
 	prompt = None
-	if not board:
+	if not board_name:
 		dialogs.errorMsgOk('A board must be selected', 'Error')
 		return
 	prompt = None
