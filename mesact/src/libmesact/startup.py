@@ -26,12 +26,12 @@ def setup(parent):
 
 	combos.build(parent)
 	# disable some boards until programmed
-	parent.boardCB.model().item(1).setEnabled(False) # 5i24/6i24
-	parent.boardCB.model().item(6).setEnabled(False) # 7i80db16
-	parent.boardCB.model().item(7).setEnabled(False) # 7i80db25
-	parent.boardCB.model().item(8).setEnabled(False) # 7i80hd16
-	parent.boardCB.model().item(9).setEnabled(False) # 7i80hd25
-	parent.boardCB.model().item(10).setEnabled(False) # 7i80hdts
+	#parent.boardCB.model().item(1).setEnabled(False) # 5i24/6i24
+	#parent.boardCB.model().item(6).setEnabled(False) # 7i80db16
+	#parent.boardCB.model().item(7).setEnabled(False) # 7i80db25
+	#parent.boardCB.model().item(8).setEnabled(False) # 7i80hd16
+	#parent.boardCB.model().item(9).setEnabled(False) # 7i80hd25
+	#parent.boardCB.model().item(10).setEnabled(False) # 7i80hdts
 
 	menus.build(parent)
 

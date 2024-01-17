@@ -60,13 +60,20 @@ def boardChanged(parent):
 			parent.c0_JointTW.setTabText(0, name)
 			for i in range(1, tabs + 1):
 				parent.c0_JointTW.setTabVisible(i, False)
-			parent.daughterLB_0.setText('P2')
-			parent.daughterLB_1.setText('P3')
-			parent.mainTW.setTabText(4, 'P2')
-			parent.mainTW.setTabText(5, 'P3')
-			for item in idc50:
-				parent.daughterCB_0.addItem(item[0], item[1])
-				parent.daughterCB_1.addItem(item[0], item[1])
+			#parent.daughterLB_0.setText('P2')
+			#parent.daughterLB_1.setText('P3')
+			#parent.mainTW.setTabText(4, 'P2')
+			#parent.mainTW.setTabText(5, 'P3')
+			#for item in idc50:
+			#	parent.daughterCB_0.addItem(item[0], item[1])
+			#	parent.daughterCB_1.addItem(item[0], item[1])
+
+			info = (f'Support for the {name}\n'
+			'is limited to flashing only\n'
+			'at this time'
+			)
+			parent.board_info_pte.setPlainText(info)
+
 
 		elif board == '5i25': # PCI DB25F IDC26
 			# port 0 is P3 port 1 is P2
@@ -147,13 +154,18 @@ def boardChanged(parent):
 			for i in range(1, tabs + 1):
 				parent.c0_JointTW.setTabVisible(i, False)
 			parent.ipAddressCB.setEnabled(True)
-			parent.daughterLB_0.setText('J2')
-			parent.daughterLB_1.setText('J3')
-			parent.mainTW.setTabText(4, 'J2')
-			parent.mainTW.setTabText(5, 'J3')
-			for item in db25:
-				parent.daughterCB_0.addItem(item[0], item[1])
-				parent.daughterCB_1.addItem(item[0], item[1])
+			#parent.daughterLB_0.setText('J2')
+			#parent.daughterLB_1.setText('J3')
+			#parent.mainTW.setTabText(4, 'J2')
+			#parent.mainTW.setTabText(5, 'J3')
+			#for item in db25:
+			#	parent.daughterCB_0.addItem(item[0], item[1])
+			#	parent.daughterCB_1.addItem(item[0], item[1])
+			info = (f'Support for the {name}\n'
+			'is limited to flashing only\n'
+			'at this time'
+			)
+			parent.board_info_pte.setPlainText(info)
 
 		elif board == '7i80db-25': # ETH DB25F
 			parent.hal_name = '7i80db-25'
@@ -163,13 +175,18 @@ def boardChanged(parent):
 			for i in range(1, tabs + 1):
 				parent.c0_JointTW.setTabVisible(i, False)
 			parent.ipAddressCB.setEnabled(True)
-			parent.daughterLB_0.setText('J2')
-			parent.daughterLB_1.setText('J3')
-			parent.mainTW.setTabText(4, 'J2')
-			parent.mainTW.setTabText(5, 'J3')
-			for item in db25:
-				parent.daughterCB_0.addItem(item[0], item[1])
-				parent.daughterCB_1.addItem(item[0], item[1])
+			#parent.daughterLB_0.setText('J2')
+			#parent.daughterLB_1.setText('J3')
+			#parent.mainTW.setTabText(4, 'J2')
+			#parent.mainTW.setTabText(5, 'J3')
+			#for item in db25:
+			#	parent.daughterCB_0.addItem(item[0], item[1])
+			#	parent.daughterCB_1.addItem(item[0], item[1])
+			info = (f'Support for the {name}\n'
+			'is limited to flashing only\n'
+			'at this time'
+			)
+			parent.board_info_pte.setPlainText(info)
 
 		elif board == '7i80hd-16': # ETH IDC50
 			parent.hal_name = '7i80hd-16'
@@ -179,13 +196,18 @@ def boardChanged(parent):
 			for i in range(1, tabs + 1):
 				parent.c0_JointTW.setTabVisible(i, False)
 			parent.ipAddressCB.setEnabled(True)
-			parent.daughterLB_0.setText('P1')
-			parent.daughterLB_1.setText('P2')
-			parent.mainTW.setTabText(4, 'P1')
-			parent.mainTW.setTabText(5, 'P2')
-			for item in idc50:
-				parent.daughterCB_0.addItem(item[0], item[1])
-				parent.daughterCB_1.addItem(item[0], item[1])
+			#parent.daughterLB_0.setText('P1')
+			#parent.daughterLB_1.setText('P2')
+			#parent.mainTW.setTabText(4, 'P1')
+			#parent.mainTW.setTabText(5, 'P2')
+			#for item in idc50:
+			#	parent.daughterCB_0.addItem(item[0], item[1])
+			#	parent.daughterCB_1.addItem(item[0], item[1])
+			info = (f'Support for the {name}\n'
+			'is limited to flashing only\n'
+			'at this time'
+			)
+			parent.board_info_pte.setPlainText(info)
 
 		elif board == '7i80hd-25': # ETH IDC50
 			parent.hal_name = '7i80hd-25'
@@ -195,13 +217,18 @@ def boardChanged(parent):
 			for i in range(1, tabs + 1):
 				parent.c0_JointTW.setTabVisible(i, False)
 			parent.ipAddressCB.setEnabled(True)
-			parent.daughterLB_0.setText('P1')
-			parent.daughterLB_1.setText('P2')
-			parent.mainTW.setTabText(4, 'P1')
-			parent.mainTW.setTabText(5, 'P2')
-			for item in idc50:
-				parent.daughterCB_0.addItem(item[0], item[1])
-				parent.daughterCB_1.addItem(item[0], item[1])
+			#parent.daughterLB_0.setText('P1')
+			#parent.daughterLB_1.setText('P2')
+			#parent.mainTW.setTabText(4, 'P1')
+			#parent.mainTW.setTabText(5, 'P2')
+			#for item in idc50:
+			#	parent.daughterCB_0.addItem(item[0], item[1])
+			#	parent.daughterCB_1.addItem(item[0], item[1])
+			info = (f'Support for the {name}\n'
+			'is limited to flashing only\n'
+			'at this time'
+			)
+			parent.board_info_pte.setPlainText(info)
 
 		elif board == '7i80hd-ts': # ETH IDC50
 			parent.hal_name = '7i80hd-ts'
@@ -211,13 +238,18 @@ def boardChanged(parent):
 			for i in range(1, tabs + 1):
 				parent.c0_JointTW.setTabVisible(i, False)
 			parent.ipAddressCB.setEnabled(True)
-			parent.daughterLB_0.setText('P1')
-			parent.daughterLB_1.setText('P2')
-			parent.mainTW.setTabText(4, 'P1')
-			parent.mainTW.setTabText(5, 'P2')
-			for item in idc50:
-				parent.daughterCB_0.addItem(item[0], item[1])
-				parent.daughterCB_1.addItem(item[0], item[1])
+			#parent.daughterLB_0.setText('P1')
+			#parent.daughterLB_1.setText('P2')
+			#parent.mainTW.setTabText(4, 'P1')
+			#parent.mainTW.setTabText(5, 'P2')
+			#for item in idc50:
+			#	parent.daughterCB_0.addItem(item[0], item[1])
+			#	parent.daughterCB_1.addItem(item[0], item[1])
+			info = (f'Support for the {name}\n'
+			'is limited to flashing only\n'
+			'at this time'
+			)
+			parent.board_info_pte.setPlainText(info)
 
 		elif board == '7i92': # ETH DB25F IDC26
 			parent.hal_name = '7i92'
