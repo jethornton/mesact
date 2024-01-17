@@ -92,6 +92,11 @@ def boardChanged(parent):
 			for item in db25:
 				parent.daughterCB_0.addItem(item[0], item[1])
 				parent.daughterCB_1.addItem(item[0], item[1])
+			info = ('Connector 5v Power\n'
+			'W1 Up for P2\n'
+			'W2 Up for P3\n'
+			)
+			parent.board_info_pte.setPlainText(info)
 
 		elif board == '5i25t': # PCI DB25F IDC26
 			# port 0 is P3 port 1 is P2
