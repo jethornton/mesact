@@ -31,9 +31,9 @@ def build(parent):
 	if parent.boardType == 'eth':
 		halContents.append('board_ip=[HM2](ADDRESS) ')
 
-	encoders = parent.encoders_cb.currentData()
-	pwmgens = parent.pwmgens_cb.currentData()
-	stepgens = parent.stepgens_cb.currentData()
+	encoders = parent.encoders_cb.currentData() or False
+	pwmgens = parent.pwmgens_cb.currentData() or False
+	stepgens = parent.stepgens_cb.currentData() or False
 	halContents.append('config="')
 	if encoders > 0:
 		halContents.append(f'num_encoders={encoders} ')
