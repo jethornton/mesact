@@ -76,29 +76,25 @@ def axisChanged(parent):
 		parent.angluar_scale_joint_cb.clear()
 
 	# setup scale axes and joints
-	# FIXME combine these two functions somehow maybe
 	if set(linear_axes)&set(coordList):
 		parent.lin_scale_joint_cb.clear()
 		parent.lin_scale_joint_cb.addItem('Select', False)
-		for i in range(3):
-			board = getattr(parent, f'c{i}_JointTW').tabText(0)
-			for j in range(6):
-				axis_letter = getattr(parent, f'c{i}_axis_{j}').currentText()
-				if axis_letter in linear_axes:
-					parent.lin_scale_joint_cb.addItem(f'{board}, {axis_letter} Axis, Drive {j}', f'c{i}_scale_{j}')
 	else:
 		parent.lin_scale_joint_cb.clear()
 	if set(angular_axes)&set(coordList):
 		parent.angluar_scale_joint_cb.clear()
 		parent.angluar_scale_joint_cb.addItem('Select', False)
-		for i in range(3):
-			board = getattr(parent, f'c{i}_JointTW').tabText(0)
-			for j in range(6):
-				axis_letter = getattr(parent, f'c{i}_axis_{j}').currentText()
-				if axis_letter in angular_axes:
-					parent.angluar_scale_joint_cb.addItem(f'{board}, {axis_letter} Axis, Drive {j}', f'c{i}_scale_{j}')
 	else:
 		parent.angluar_scale_joint_cb.clear()
+
+	for i in range(3):
+		board = getattr(parent, f'c{i}_JointTW').tabText(0)
+		for j in range(6):
+			axis_letter = getattr(parent, f'c{i}_axis_{j}').currentText()
+			if axis_letter in linear_axes:
+				parent.lin_scale_joint_cb.addItem(f'{board}, {axis_letter} Axis, Drive {j}', f'c{i}_scale_{j}')
+			if axis_letter in angular_axes:
+				parent.angluar_scale_joint_cb.addItem(f'{board}, {axis_letter} Axis, Drive {j}', f'c{i}_scale_{j}')
 
 def updateAxisInfo(parent):
 	card = parent.sender().objectName()[:2]
