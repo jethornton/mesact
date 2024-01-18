@@ -88,7 +88,7 @@ def axisChanged(parent):
 		parent.angluar_scale_joint_cb.clear()
 
 	for i in range(3):
-		board = getattr(parent, f'c{i}_JointTW').tabText(0)
+		board = parent.mainTW.tabText(i + 3)
 		for j in range(6):
 			axis_letter = getattr(parent, f'c{i}_axis_{j}').currentText()
 			if axis_letter in linear_axes:
