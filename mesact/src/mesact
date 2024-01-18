@@ -89,11 +89,13 @@ class MainWindow(QMainWindow):
 			frame_summary.filename = os.path.relpath(filename)
 
 		# rebuild the traceback and build the error message
-		msg = f'Mesact Version: {VERSION} Build Date: {BUILD_DATE}\n'
+		msg = f'Mesact Version: {VERSION} Build Date: {BUILD_DATE}\n\n'
 		msg += ''.join(traceback.format_list(StackSummary.from_list(summary)))
-		msg += f'{exc_type.__name__}\n'
+		msg += f'\n{exc_type.__name__}\n'
 		msg += f'{exc_value}\n'
-		msg += 'Please file an issue at\n'
+		msg += '\nFirst download the deb and reinstall\n'
+		msg += 'to be sure you have the latest build date\n'
+		msg += '\nThen please file an issue at\n'
 		msg += 'https://github.com/jethornton/mesact/issues'
 		print(msg)
 		dialogs.errorMsgOk(msg, 'PROGRAM ERROR' )
