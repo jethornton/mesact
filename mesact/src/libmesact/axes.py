@@ -12,7 +12,7 @@ def copy_scale(parent):
 			msg = ('Scale must not be blank')
 			dialogs.errorMsgOk(msg, 'Error')
 	else:
-		msg = ('Select a Joint to copy to')
+		msg = ('Select a Destination to copy to')
 		dialogs.errorMsgOk(msg, 'Error')
 
 def copy_angular_scale(parent):
@@ -23,7 +23,7 @@ def copy_angular_scale(parent):
 			msg = ('Scale must not be blank')
 			dialogs.errorMsgOk(msg, 'Error')
 	else:
-		msg = ('Select a Joint to copy to')
+		msg = ('Select a Destination to copy to')
 		dialogs.errorMsgOk(msg, 'Error')
 
 
