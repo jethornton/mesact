@@ -147,13 +147,16 @@
            <string>Info</string>
           </property>
           <layout class="QGridLayout" name="gridLayout_2">
-           <item row="9" column="0">
-            <widget class="QLabel" name="label_1480">
+           <item row="7" column="1">
+            <widget class="QLabel" name="os_code_name_lb">
+             <property name="frameShape">
+              <enum>QFrame::Box</enum>
+             </property>
              <property name="text">
-              <string>PyQt5</string>
+              <string/>
              </property>
              <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              <set>Qt::AlignCenter</set>
              </property>
             </widget>
            </item>
@@ -167,8 +170,8 @@
              </property>
             </widget>
            </item>
-           <item row="1" column="1">
-            <widget class="QLabel" name="emcVersionLB">
+           <item row="3" column="1">
+            <widget class="QLabel" name="mesaflashVersionLB">
              <property name="frameShape">
               <enum>QFrame::Box</enum>
              </property>
@@ -193,21 +196,8 @@
              </property>
             </widget>
            </item>
-           <item row="8" column="1">
-            <widget class="QLabel" name="pythonLB">
-             <property name="frameShape">
-              <enum>QFrame::Box</enum>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="5" column="1">
-            <widget class="QLabel" name="sizeLB">
+           <item row="4" column="1">
+            <widget class="QLabel" name="coordinatesLB">
              <property name="frameShape">
               <enum>QFrame::Box</enum>
              </property>
@@ -229,18 +219,48 @@
              </property>
             </widget>
            </item>
-           <item row="8" column="0">
-            <widget class="QLabel" name="label_1481">
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_693">
              <property name="text">
-              <string>Python</string>
+              <string>Status:</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
              </property>
             </widget>
            </item>
-           <item row="9" column="1">
-            <widget class="QLabel" name="pyqt5LB">
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_1307">
+             <property name="text">
+              <string>LinuxCNC:</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="0">
+            <widget class="QLabel" name="label_4">
+             <property name="text">
+              <string>Screen Size</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="label_1308">
+             <property name="text">
+              <string>Mesaflash:</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="1">
+            <widget class="QLabel" name="pythonLB">
              <property name="frameShape">
               <enum>QFrame::Box</enum>
              </property>
@@ -265,72 +285,6 @@
              </property>
             </widget>
            </item>
-           <item row="5" column="0">
-            <widget class="QLabel" name="label_4">
-             <property name="text">
-              <string>Screen Size</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <widget class="QLabel" name="label_1307">
-             <property name="text">
-              <string>LinuxCNC:</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="0">
-            <widget class="QLabel" name="label_1308">
-             <property name="text">
-              <string>Mesaflash:</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_693">
-             <property name="text">
-              <string>Status:</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="1">
-            <widget class="QLabel" name="coordinatesLB">
-             <property name="frameShape">
-              <enum>QFrame::Box</enum>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="1">
-            <widget class="QLabel" name="mesaflashVersionLB">
-             <property name="frameShape">
-              <enum>QFrame::Box</enum>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
            <item row="7" column="0">
             <widget class="QLabel" name="os_name_lb">
              <property name="text">
@@ -341,8 +295,77 @@
              </property>
             </widget>
            </item>
-           <item row="7" column="1">
-            <widget class="QLabel" name="os_code_name_lb">
+           <item row="5" column="1">
+            <widget class="QLabel" name="sizeLB">
+             <property name="frameShape">
+              <enum>QFrame::Box</enum>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLabel" name="emcVersionLB">
+             <property name="frameShape">
+              <enum>QFrame::Box</enum>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="1">
+            <widget class="QLabel" name="pyqt5LB">
+             <property name="frameShape">
+              <enum>QFrame::Box</enum>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="0">
+            <widget class="QLabel" name="label_1480">
+             <property name="text">
+              <string>PyQt5</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="0">
+            <widget class="QLabel" name="label_1481">
+             <property name="text">
+              <string>Python</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="0">
+            <widget class="QLabel" name="label_756">
+             <property name="text">
+              <string>JET GUI</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="1">
+            <widget class="QLabel" name="jet_gui_lb">
              <property name="frameShape">
               <enum>QFrame::Box</enum>
              </property>
@@ -1206,100 +1229,6 @@ to the clipboard</string>
           </layout>
          </widget>
         </item>
-        <item row="0" column="0" rowspan="3">
-         <widget class="QGroupBox" name="gridGroupBox_5">
-          <property name="styleSheet">
-           <string notr="true"/>
-          </property>
-          <property name="title">
-           <string>Display</string>
-          </property>
-          <layout class="QGridLayout" name="gridLayout_47">
-           <property name="leftMargin">
-            <number>9</number>
-           </property>
-           <property name="topMargin">
-            <number>15</number>
-           </property>
-           <property name="rightMargin">
-            <number>9</number>
-           </property>
-           <property name="bottomMargin">
-            <number>9</number>
-           </property>
-           <item row="2" column="0">
-            <widget class="QLabel" name="label_41">
-             <property name="text">
-              <string>Position Offset</string>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="0">
-            <widget class="QLabel" name="label_42">
-             <property name="text">
-              <string>Position Feedback</string>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="0">
-            <widget class="QLabel" name="label_9">
-             <property name="text">
-              <string>Maximum Feed Override</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QComboBox" name="guiCB"/>
-           </item>
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_40">
-             <property name="text">
-              <string>GUI</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="1">
-            <widget class="QComboBox" name="positionOffsetCB"/>
-           </item>
-           <item row="3" column="1">
-            <widget class="QComboBox" name="positionFeedbackCB"/>
-           </item>
-           <item row="4" column="1">
-            <widget class="QDoubleSpinBox" name="maxFeedOverrideSB">
-             <property name="decimals">
-              <number>1</number>
-             </property>
-             <property name="maximum">
-              <double>2.000000000000000</double>
-             </property>
-             <property name="singleStep">
-              <double>0.100000000000000</double>
-             </property>
-             <property name="value">
-              <double>1.200000000000000</double>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="2">
-            <widget class="QLabel" name="label_179">
-             <property name="text">
-              <string>1.0 = 100%</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <widget class="QLabel" name="label_3">
-             <property name="text">
-              <string>Linear Units</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="1">
-            <widget class="QComboBox" name="linearUnitsCB"/>
-           </item>
-          </layout>
-         </widget>
-        </item>
         <item row="3" column="0" colspan="2">
          <widget class="QGroupBox" name="groupBox_61">
           <property name="title">
@@ -1579,6 +1508,159 @@ to the clipboard</string>
              </property>
              <property name="singleStep">
               <double>0.100000000000000</double>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="0" column="0" rowspan="3">
+         <widget class="QGroupBox" name="gridGroupBox_5">
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="title">
+           <string>Display</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_47">
+           <property name="leftMargin">
+            <number>9</number>
+           </property>
+           <property name="topMargin">
+            <number>15</number>
+           </property>
+           <property name="rightMargin">
+            <number>9</number>
+           </property>
+           <property name="bottomMargin">
+            <number>9</number>
+           </property>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_41">
+             <property name="text">
+              <string>Position Offset</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="label_42">
+             <property name="text">
+              <string>Position Feedback</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="label_9">
+             <property name="text">
+              <string>Maximum Feed Override</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QComboBox" name="guiCB"/>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_40">
+             <property name="text">
+              <string>GUI</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QComboBox" name="positionOffsetCB"/>
+           </item>
+           <item row="3" column="1">
+            <widget class="QComboBox" name="positionFeedbackCB"/>
+           </item>
+           <item row="4" column="1">
+            <widget class="QDoubleSpinBox" name="maxFeedOverrideSB">
+             <property name="decimals">
+              <number>1</number>
+             </property>
+             <property name="maximum">
+              <double>2.000000000000000</double>
+             </property>
+             <property name="singleStep">
+              <double>0.100000000000000</double>
+             </property>
+             <property name="value">
+              <double>1.200000000000000</double>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="2">
+            <widget class="QLabel" name="label_179">
+             <property name="text">
+              <string>1.0 = 100%</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_3">
+             <property name="text">
+              <string>Linear Units</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QComboBox" name="linearUnitsCB"/>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="3" column="2" colspan="2">
+         <widget class="QGroupBox" name="jet_gui_gb">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="title">
+           <string>JET GUI Options</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_51">
+           <item row="3" column="1">
+            <widget class="QLineEdit" name="jet_qss_le"/>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="jet_gui_le"/>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_761">
+             <property name="text">
+              <string>GUI Template</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="1">
+            <spacer name="verticalSpacer_77">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="label_760">
+             <property name="text">
+              <string>Custom QSS File</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0" colspan="2">
+            <widget class="QCheckBox" name="keyboard_qss_cb">
+             <property name="text">
+              <string>Keyboard input QSS</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0" colspan="2">
+            <widget class="QCheckBox" name="touch_qss_cb">
+             <property name="text">
+              <string>Touch Screen Input QSS</string>
              </property>
             </widget>
            </item>

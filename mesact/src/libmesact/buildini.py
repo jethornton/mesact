@@ -5,7 +5,6 @@ from PyQt5.QtWidgets import QSpinBox
 
 from libmesact import mdi
 
-
 def build(parent):
 	buildErrors = []
 	iniFilePath = os.path.join(parent.configPath, parent.configNameUnderscored + '.ini')
@@ -14,7 +13,6 @@ def build(parent):
 	iniContents = ['# This file was created with the Mesa Configuration Tool on ']
 	iniContents.append(datetime.now().strftime('%b %d %Y %H:%M:%S') + '\n')
 	iniContents.append('# Changes to most things are ok and will be read by the Configuration Tool\n')
-
 
 	# build the [MESA] section
 	iniContents.append('\n[MESA]\n')
@@ -59,6 +57,13 @@ def build(parent):
 	else:
 		iniContents.append(f'DISPLAY = {parent.guiCB.currentData()}\n')
 	iniContents.append(f'DISPLAY = {parent.guiCB.itemData(parent.guiCB.currentIndex())}\n')
+	if parent.keyboard_qss_cb.isChecked():
+		iniContents.append(f'INPUT = keyboard\n')
+	elif parent.touch_qss_cb.isChecked():
+		iniContents.append(f'INPUT = touch\n')
+	elif len(parent.custom_qss_le.text()) > 0:
+		iniContents.append(f'QSS = {parent.custom_qss_le.text()}\n')
+
 	if parent.editorCB.currentData():
 		iniContents.append(f'EDITOR = {parent.editorCB.currentData()}\n')
 	iniContents.append(f'PROGRAM_PREFIX = {os.path.expanduser("~/linuxcnc/nc_files")}\n')

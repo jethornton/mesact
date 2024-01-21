@@ -20,6 +20,7 @@ from libmesact import settings
 from libmesact import mdi
 from libmesact import samples
 from libmesact import hal
+from libmesact import gui
 
 def connect(parent):
 	# Menu Items
@@ -69,6 +70,7 @@ def connect(parent):
 	parent.create_pin_pb.clicked.connect(partial(firmware.create_pin, parent))
 
 	# Settings Tab
+	parent.guiCB.currentIndexChanged.connect(partial(gui.gui_changed, parent))
 	parent.minLinJogVelDSB.valueChanged.connect(partial(utilities.unitsChanged, parent))
 	parent.defLinJogVelDSB.valueChanged.connect(partial(utilities.unitsChanged, parent))
 	parent.maxLinJogVelDSB.valueChanged.connect(partial(utilities.unitsChanged, parent))
@@ -79,6 +81,8 @@ def connect(parent):
 	parent.axisButtonGroup.buttonClicked.connect(partial(utilities.axisDisplayChanged, parent))
 	parent.linearUnitsCB.currentIndexChanged.connect(partial(utilities.unitsChanged, parent))
 	parent.trajMaxLinVelDSB.valueChanged.connect(partial(utilities.maxVelChanged, parent))
+	parent.keyboard_qss_cb.stateChanged.connect(partial(gui.qss_changed, parent))
+	parent.touch_qss_cb.stateChanged.connect(partial(gui.qss_changed, parent))
 
 	'''
 	#parent.frontToolLatheRB.buttonClicked.connect(partial(utilities.axisDisplayChanged, parent))

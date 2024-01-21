@@ -24,6 +24,19 @@ def setup(parent):
 	parent.pythonLB.setText(python_version())
 	parent.pyqt5LB.setText(qVersion())
 
+	try: # need to set this before building combos
+		jet = subprocess.check_output(['apt-cache', 'policy', 'jet'], text=True)
+		if len(jet) > 0:
+			version = jet.split()[2]
+			parent.jet_gui_lb.setText(f'{version}')
+			parent.jet_gui = True
+		else:
+			parent.jet_gui_lb.setText('Not Installed')
+			parent.jet_gui = False
+	except:
+		#jet = None
+		pass
+
 	combos.build(parent)
 	# disable some boards until programmed
 	#parent.boardCB.model().item(1).setEnabled(False) # 5i24/6i24

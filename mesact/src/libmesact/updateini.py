@@ -173,6 +173,14 @@ class updateini:
 		else:
 			display.append(['DISPLAY', 'DISPLAY', f'{parent.guiCB.currentData()}'])
 
+		if parent.keyboard_qss_cb.isChecked():
+			display.append(['DISPLAY', 'INPUT', 'keyboard\n'])
+		elif parent.touch_qss_cb.isChecked():
+			display.append(['DISPLAY', 'INPUT', 'touch\n'])
+		elif len(parent.custom_qss_le.text()) > 0:
+			display.append(['DISPLAY', 'QSS', f'{parent.custom_qss_le.text()}\n'])
+
+
 		if parent.editorCB.currentData(): # if an editor is not selected delete it
 			display.append(['DISPLAY', 'EDITOR', f'{parent.editorCB.currentData()}'])
 		else:
