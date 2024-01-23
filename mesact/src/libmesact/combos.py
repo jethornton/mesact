@@ -121,6 +121,17 @@ def build(parent):
 	else:
 		parent.editorCB.addItem('No Editors Found', False)
 
+	screen_size = [
+	['Select', False],
+	['Minimized', 'minimized'],
+	['Normal', 'normal'],
+	['Maximized', 'maximized'],
+	['Full', 'full']
+	]
+
+	for item in screen_size:
+		parent.jet_size_cb.addItem(item[0], item[1])
+
 	# Joint Tabs
 	axes = [
 		['Select', False],
