@@ -1620,8 +1620,12 @@ to the clipboard</string>
            <item row="3" column="1">
             <widget class="QLineEdit" name="custom_qss_le"/>
            </item>
-           <item row="0" column="1">
-            <widget class="QLineEdit" name="jet_gui_le"/>
+           <item row="1" column="0" colspan="2">
+            <widget class="QCheckBox" name="keyboard_qss_cb">
+             <property name="text">
+              <string>Keyboard input QSS</string>
+             </property>
+            </widget>
            </item>
            <item row="0" column="0">
             <widget class="QLabel" name="label_761">
@@ -1630,7 +1634,7 @@ to the clipboard</string>
              </property>
             </widget>
            </item>
-           <item row="4" column="1">
+           <item row="5" column="1">
             <spacer name="verticalSpacer_77">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
@@ -1650,19 +1654,25 @@ to the clipboard</string>
              </property>
             </widget>
            </item>
-           <item row="1" column="0" colspan="2">
-            <widget class="QCheckBox" name="keyboard_qss_cb">
-             <property name="text">
-              <string>Keyboard input QSS</string>
-             </property>
-            </widget>
-           </item>
            <item row="2" column="0" colspan="2">
             <widget class="QCheckBox" name="touch_qss_cb">
              <property name="text">
               <string>Touch Screen Input QSS</string>
              </property>
             </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="jet_gui_le"/>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="label_762">
+             <property name="text">
+              <string>Screen Size</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="1">
+            <widget class="QComboBox" name="jet_size_cb"/>
            </item>
           </layout>
          </widget>
@@ -42577,8 +42587,8 @@ to File Open in Axis</string>
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>706</width>
-                    <height>290</height>
+                    <width>98</width>
+                    <height>28</height>
                    </rect>
                   </property>
                   <layout class="QGridLayout" name="mdiCommandsListGL"/>
