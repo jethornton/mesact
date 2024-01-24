@@ -35,14 +35,20 @@ def open_hal(parent, directory):
 	if os.path.isfile(custom_hal):
 		with open(custom_hal,'r') as f:
 			parent.custom_hal_pte.setPlainText(f.read())
+		if not parent.customhalCB.isChecked():
+			parent.customhalCB.setChecked(True)
 	postgui_hal = os.path.join(directory, 'postgui.hal')
 	if os.path.isfile(postgui_hal):
 		with open(postgui_hal,'r') as f:
 			parent.postgui_hal_pte.setPlainText(f.read())
+		if not parent.postguiCB.isChecked():
+			parent.postguiCB.setChecked(True)
 	shutdown_hal = os.path.join(directory, 'shutdown.hal')
 	if os.path.isfile(shutdown_hal):
 		with open(shutdown_hal,'r') as f:
 			parent.shutdown_hal_pte.setPlainText(f.read())
+		if not parent.shutdownCB.isChecked():
+			parent.shutdownCB.setChecked(True)
 
 
 
