@@ -85,16 +85,16 @@ INPUTS = {
 	'Joint 2 Minus Home':'net minus-home-joint-2 joint.2.neg-lim-sw-in\n'
 		'net minus-home-joint-2 joint.2.home-sw-in <=',
 	'Joint 2 Plus Minus Home':'net plus-minus-home-joint-2 joint.2.pos-lim-sw-in\n'
-		'net plus-minus-home-joint-0 joint.2.neg-lim-sw-in\n'
-		'net plus-minus-home-joint-0 joint.2.home-sw-in <=',
+		'net plus-minus-home-joint-2 joint.2.neg-lim-sw-in\n'
+		'net plus-minus-home-joint-2 joint.2.home-sw-in <=',
 
 	'Joint 3 Plus Home':'net plus-home-joint-3 joint.3.pos-lim-sw-in\n'
 		'net plus-home-joint-3 joint.3.home-sw-in <=',
 	'Joint 3 Minus Home':'net minus-home-joint-3 joint.3.neg-lim-sw-in\n'
 		'net minus-home-joint-3 joint.3.home-sw-in <=',
 	'Joint 3 Plus Minus Home':'net plus-minus-home-joint-3 joint.3.pos-lim-sw-in\n'
-		'net plus-minus-home-joint-0 joint.3.neg-lim-sw-in\n'
-		'net plus-minus-home-joint-0 joint.3.home-sw-in <=',
+		'net plus-minus-home-joint-3 joint.3.neg-lim-sw-in\n'
+		'net plus-minus-home-joint-3 joint.3.home-sw-in <=',
 
 	'Joint 4 Plus Home':'net plus-home-joint-4 joint.4.pos-lim-sw-in\n'
 		'net plus-home-joint-4 joint.4.home-sw-in <=',
@@ -117,8 +117,8 @@ INPUTS = {
 	'Joint 6 Minus Home':'net minus-home-joint-6 joint.6.neg-lim-sw-in\n'
 		'net minus-home-joint-6 joint.6.home-sw-in <=',
 	'Joint 6 Plus Minus Home':'net plus-minus-home-joint-6 joint.6.pos-lim-sw-in\n'
-		'net plus-minus-home-joint-0 joint.6.neg-lim-sw-in\n'
-		'net plus-minus-home-joint-0 joint.6.home-sw-in <=',
+		'net plus-minus-home-joint-6 joint.6.neg-lim-sw-in\n'
+		'net plus-minus-home-joint-6 joint.6.home-sw-in <=',
 
 	'Joint 7 Plus Home':'net plus-home-joint-7 joint.7.pos-lim-sw-in\n'
 		'net plus-home-joint-7 joint.7.home-sw-in <=',
