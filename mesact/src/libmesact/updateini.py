@@ -554,6 +554,10 @@ class updateini:
 					self.update_key('INPUTS', f'INPUT_{i}_{j}', getattr(parent, f'c{i}_input_{j}').text())
 					self.update_key('INPUTS', f'INPUT_INVERT_{i}_{j}', getattr(parent, f'c{i}_input_invert_{j}').isChecked())
 					self.update_key('INPUTS', f'INPUT_SLOW_{i}_{j}', getattr(parent, f'c{i}_input_debounce_{j}').isChecked())
+				else:
+					self.delete_key('INPUTS', f'INPUT_{i}_{j}')
+					self.delete_key('INPUTS', f'INPUT_INVERT_{i}_{j}')
+					self.delete_key('INPUTS', f'INPUT_SLOW_{i}_{j}')
 
 		# update the [OUTPUTS] section
 		for i in range(3):
@@ -561,6 +565,9 @@ class updateini:
 				if getattr(parent, f'c{i}_output_{j}').text() != 'Select':
 					self.update_key('OUTPUTS', f'OUTPUT_{i}_{j}', getattr(parent, f'c{i}_output_{j}').text())
 					self.update_key('OUTPUTS', f'OUTPUT_INVERT_{i}_{j}', getattr(parent, f'c{i}_output_invert_{j}').isChecked())
+				else:
+					self.delete_key('OUTPUTS', f'OUTPUT_{i}_{j}')
+					self.delete_key('OUTPUTS', f'OUTPUT_INVERT_{i}_{j}')
 
 		# update the [OPTIONS] section
 		options = [
