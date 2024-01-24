@@ -319,6 +319,15 @@ def build_io(parent):
 	hm2_7i95.0.inmux.00.input-00-slow
 	'''
 
+	joint = 0
+	ja_dict = {}
+	for i in range(3):
+		for j in range(6):
+			axis = getattr(parent, f'c{i}_axis_{j}').currentData()
+			if axis:
+				ja_dict[axis.lower()] = joint
+				joint += 1
+
 	ports = {'7i76': 2, '7i77': 3}
 	underscore_not = ['7i76E', '7i96']
 
@@ -371,9 +380,10 @@ def build_io(parent):
 							eStops.append(hm2)
 						elif '+ Joint' in key: # Jog axis and joint enable
 							axis = key.split()[1].lower()
-							joint = ja_dict[axis]
-							contents.append(f'net jog-{axis}-enable axis.{axis}.jog-enable <= {hm2}\n')
-							contents.append(f'net jog-{axis}-enable joint.{joint}.jog-enable')
+							if axis in ja_dict:
+								joint = ja_dict[axis]
+								contents.append(f'net jog-{axis}-enable axis.{axis}.jog-enable <= {hm2}\n')
+								contents.append(f'net jog-{axis}-enable joint.{joint}.jog-enable')
 
 	#Build E-Stop Chain
 	if len(eStops) > 0:
