@@ -72,7 +72,7 @@ def setup(parent):
 		if parent.settings.value('STARTUP/config', False, type=bool):
 			config_file = parent.settings.value('STARTUP/config')
 			if os.path.isfile(config_file):
-				parent.loadini.loadini(parent, config_file)
+				parent.loadini.load_ini(parent, config_file)
 
 	parent.configNameLE.setFocus()
 

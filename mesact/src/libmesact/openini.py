@@ -27,19 +27,20 @@ class loadini:
 			fileName = QFileDialog.getOpenFileName(parent,
 			caption="Select Configuration INI File", directory=configsDir,
 			filter='*.ini', options=QFileDialog.DontUseNativeDialog,)
-			self.iniFile = fileName[0]
-			base = os.path.basename(self.iniFile)
+			iniFile = fileName[0]
+			base = os.path.basename(iniFile)
 			configName = os.path.splitext(base)[0]
 		else: # we passed a file name
 			configName = configName.replace(' ','_').lower()
 			configsDir = os.path.expanduser('~/linuxcnc/configs')
-			self.iniFile = os.path.join(configsDir, configName, configName + '.ini')
+			iniFile = os.path.join(configsDir, configName, configName + '.ini')
+
 			if not os.path.isfile(iniFile):
-				msg = f'File {self.iniFile} not found'
+				msg = f'File {iniFile} not found'
 				dialogs.errorMsgOk(msg, 'Not Found')
 				return
-		if self.iniFile:
-			with open(self.iniFile) as f:
+		if iniFile:
+			with open(iniFile) as f:
 				line = f.readline()
 				if 'PNCconf' in line:
 					msg = (f'The ini file is created with PNCconf!\n'
@@ -47,7 +48,7 @@ class loadini:
 						'the all the files in the directory will be DELETED\n'
 						'Save a Backup and try and open the ini?')
 					if dialogs.errorMsgCancelOk(msg, 'PNCconf File'):
-						path, filename = os.path.split(self.iniFile)
+						path, filename = os.path.split(iniFile)
 						utilities.backupFiles(parent, path)
 						utilities.cleanDir(parent, path)
 						self.iniUnknown = True
@@ -60,21 +61,21 @@ class loadini:
 						'the all the files in the directory will be DELETED\n'
 						'Save a Backup and try and open the ini?')
 					if dialogs.errorMsgCancelOk(msg, 'Unknown File'):
-						path, filename = os.path.split(self.iniFile)
+						path, filename = os.path.split(iniFile)
 						utilities.backupFiles(parent, path)
 						utilities.cleanDir(parent, path)
 						self.iniUnknown = True
 					else:
 						return
 
-			parent.info_pte.appendPlainText(f'Loading {self.iniFile}')
-			self.loadini(parent, self.iniFile)
+			parent.info_pte.appendPlainText(f'Loading {iniFile}')
+			self.load_ini(parent, iniFile)
 			self.loadReadMe(parent, configName)
 		else:
 			parent.info_pte.appendPlainText('Open File Cancled')
 			iniFile = ''
 
-	def loadini(self, parent, iniFile):
+	def load_ini(self, parent, iniFile):
 		utilities.new_config(parent)
 		parent.loading = True
 		iniDict = {}
@@ -320,6 +321,9 @@ class loadini:
 
 				for item in outputs:
 					self.update(parent, item[0], item[1], item[2])
+
+		# check for custom, postgui and shutdown hal files
+		
 
 		options = [
 		['[OPTIONS]', 'LOAD_CONFIG', 'load_config_cb'],
