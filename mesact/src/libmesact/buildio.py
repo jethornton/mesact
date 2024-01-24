@@ -383,7 +383,7 @@ def build_io(parent):
 							if axis in ja_dict:
 								joint = ja_dict[axis]
 								contents.append(f'net jog-{axis}-enable axis.{axis}.jog-enable <= {hm2}\n')
-								contents.append(f'net jog-{axis}-enable joint.{joint}.jog-enable')
+								contents.append(f'net jog-{axis}-enable joint.{joint}.jog-enable\n')
 
 	#Build E-Stop Chain
 	if len(eStops) > 0:
