@@ -237,12 +237,16 @@ def checkit(parent):
 	# check I/O for errors
 	# get the joints
 	joints = 0
+	axes_list = list(parent.coordinatesLB.text())
+	axes_set = set('ABCUVWXYZ')
+
 	for i in range(3):
 		for j in range(6):
 			if getattr(parent, f'c{i}_axis_{j}').currentData():
 				joints += 1
-				#print(f'Joint: {joints}')
-	for i in range(3):
+
+	# Inputs
+	for i in range(3): # check for Joint n more than configured
 		for j in range(32):
 			selection = getattr(parent, f'c{i}_input_{j}').text()
 			if selection.startswith('Joint'):
@@ -250,13 +254,32 @@ def checkit(parent):
 					tabError = True
 					configErrors.append(f'\t{selection} is more than the number of joints')
 
-	for i in range(3):
+			if axes_set & set(selection.split()):
+				if not set(selection.split()) & set(axes_list): # check for axis not configured
+					tabError = True
+					configErrors.append(f'\t{selection} axis is not configured')
+
+	if tabError:
+		configErrors.insert(nextHeader, f'{tab} Inputs Tab:')
+		nextHeader = len(configErrors)
+		tabError = False
+	# end of Inputs Tab
+
+	# Outputs
+	for i in range(3): # check for Joint n more than configured
 		for j in range(16):
 			selection = getattr(parent, f'c{i}_output_{j}').text()
 			if selection.startswith('Joint'):
 				if int(selection.split()[1]) > joints:
 					tabError = True
 					configErrors.append(f'\t{selection} is more than the number of joints')
+
+	if tabError:
+		configErrors.insert(nextHeader, f'{tab} Outputs Tab:')
+		nextHeader = len(configErrors)
+		tabError = False
+	# end of Outputs Tab
+
 
 	'''
 	if parent.mainTW.isTabVisible(card_0_index):
