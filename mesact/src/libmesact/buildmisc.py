@@ -29,7 +29,7 @@ def build(parent):
 		postguiFilePath = os.path.join(parent.configPath, 'postgui.hal')
 		try: # if this file exists don't write over it
 			with open(postguiFilePath, 'w') as postguiFile:
-				postguiFile.writelines(postguiContents)
+				postguiFile.writelines(parent.postgui_hal_pte.toPlainText())
 			parent.info_pte.appendPlainText(f'Building {postguiFilePath}')
 		except OSError:
 			parent.info_pte.appendPlainText(f'OS error\n {traceback.print_exc()}')
@@ -39,7 +39,7 @@ def build(parent):
 		shutdownFilePath = os.path.join(parent.configPath, 'shutdown.hal')
 		try: # if this file exists don't write over it
 			with open(shutdownFilePath, 'w') as shutdownFile:
-				shutdownFile.writelines(shutdownContents)
+				shutdownFile.writelines(parent.shutdown_hal_pte.toPlainText())
 			parent.info_pte.appendPlainText(f'Building {shutdownFilePath}')
 		except OSError:
 			parent.info_pte.appendPlainText(f'OS error\n {traceback.print_exc()}')
