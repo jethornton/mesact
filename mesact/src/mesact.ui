@@ -42253,7 +42253,14 @@ by a unit (cm, mm, um, inch, in or mil)</string>
                </attribute>
                <layout class="QVBoxLayout" name="verticalLayout_31">
                 <item>
-                 <widget class="QPlainTextEdit" name="custom_hal_pte"/>
+                 <widget class="QPlainTextEdit" name="custom_hal_pte">
+                  <property name="font">
+                   <font>
+                    <family>FreeMono</family>
+                    <pointsize>12</pointsize>
+                   </font>
+                  </property>
+                 </widget>
                 </item>
                </layout>
               </widget>
@@ -42263,7 +42270,14 @@ by a unit (cm, mm, um, inch, in or mil)</string>
                </attribute>
                <layout class="QVBoxLayout" name="verticalLayout_32">
                 <item>
-                 <widget class="QPlainTextEdit" name="postgui_hal_pte"/>
+                 <widget class="QPlainTextEdit" name="postgui_hal_pte">
+                  <property name="font">
+                   <font>
+                    <family>FreeMono</family>
+                    <pointsize>12</pointsize>
+                   </font>
+                  </property>
+                 </widget>
                 </item>
                </layout>
               </widget>
@@ -42273,7 +42287,14 @@ by a unit (cm, mm, um, inch, in or mil)</string>
                </attribute>
                <layout class="QVBoxLayout" name="verticalLayout_33">
                 <item>
-                 <widget class="QPlainTextEdit" name="shutdown_hal_pte"/>
+                 <widget class="QPlainTextEdit" name="shutdown_hal_pte">
+                  <property name="font">
+                   <font>
+                    <family>FreeMono</family>
+                    <pointsize>12</pointsize>
+                   </font>
+                  </property>
+                 </widget>
                 </item>
                </layout>
               </widget>
