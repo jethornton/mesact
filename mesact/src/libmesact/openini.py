@@ -145,16 +145,20 @@ class loadini:
 		if '[DISPLAY]' in self.sections: # allow custom gui
 			start = self.sections['[DISPLAY]'][0]
 			end = self.sections['[DISPLAY]'][1]
-			#index = self.content.index('DISPLAY', start, end)
 			for item in self.content[start:end]:
-				if item.startswith('DISPLAY'):
-					key, value = item.split('=')
-					#print(parent.guiCB.findData(value.strip()))
-					index = parent.guiCB.findData(value.strip())
+				item = item.strip() # remove newline
+				key, value = item.replace(' ', '').split('=') # remove spaces and split
+				if key == 'DISPLAY':
+					index = parent.guiCB.findData(value)
 					if index > 0:
 						parent.guiCB.setCurrentIndex(index)
 					else:
-						parent.guiCB.setItemText(0, value.strip())
+						parent.guiCB.setItemText(0, value)
+				if key == 'INPUT':
+					if value == 'keyboard':
+						parent.keyboard_qss_cb.setChecked(True)
+					elif value == 'touch':
+						parent.touch_qss_cb.setChecked(True)
 
 		display = [
 		['[DISPLAY]', 'EDITOR', 'editorCB'],
@@ -171,6 +175,9 @@ class loadini:
 		['[DISPLAY]', 'LATHE', 'frontToolLatheRB'],
 		['[DISPLAY]', 'BACK_TOOL_LATHE', 'backToolLatheRB'],
 		['[DISPLAY]', 'FOAM', 'foamRB'],
+		['[DISPLAY]', 'GUI', 'jet_gui_le'],
+		['[DISPLAY]', 'QSS', 'custom_qss_le'],
+		['[DISPLAY]', 'SIZE', 'jet_size_cb'],
 		]
 
 		for item in display:

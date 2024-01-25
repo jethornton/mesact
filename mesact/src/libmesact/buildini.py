@@ -59,6 +59,8 @@ def build(parent):
 	#iniContents.append(f'DISPLAY = {parent.guiCB.itemData(parent.guiCB.currentIndex())}\n')
 
 	# JET GUI
+	if len(parent.jet_gui_le.text()) > 0:
+		iniContents.append(f'DISPLAY = {parent.jet_gui_le.text()}')
 	if parent.keyboard_qss_cb.isChecked():
 		iniContents.append(f'INPUT = keyboard\n')
 	elif parent.touch_qss_cb.isChecked():

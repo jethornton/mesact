@@ -174,15 +174,25 @@ class updateini:
 			display.append(['DISPLAY', 'DISPLAY', f'{parent.guiCB.currentData()}'])
 
 		# JET GUI
+		if len(parent.jet_gui_le.text()) > 0:
+			display.append(['DISPLAY', 'GUI', f'{parent.jet_gui_le.text()}'])
+
 		if parent.keyboard_qss_cb.isChecked():
 			display.append(['DISPLAY', 'INPUT', 'keyboard'])
 		elif parent.touch_qss_cb.isChecked():
 			display.append(['DISPLAY', 'INPUT', 'touch'])
-		elif len(parent.custom_qss_le.text()) > 0:
+		else:
+			self.delete_key('DISPLAY', 'INPUT')
+
+		if len(parent.custom_qss_le.text()) > 0:
 			display.append(['DISPLAY', 'QSS', f'{parent.custom_qss_le.text()}'])
+		else:
+			self.delete_key('DISPLAY', 'QSS')
 
 		if parent.jet_size_cb.currentData():
 			display.append(['DISPLAY', 'SIZE',  f'{parent.jet_size_cb.currentData()}'])
+		else:
+			self.delete_key('DISPLAY', 'SIZE')
 
 		if parent.editorCB.currentData(): # if an editor is not selected delete it
 			display.append(['DISPLAY', 'EDITOR', f'{parent.editorCB.currentData()}'])
