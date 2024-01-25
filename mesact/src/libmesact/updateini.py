@@ -483,7 +483,7 @@ class updateini:
 
 			self.update_key(f'SPINDLE_0', 'TYPE', parent.spindleTypeCB.currentData())
 			#self.update_key(f'SPINDLE_0', 'SPINDLE_PWM_TYPE', parent.spindleTypeCB.currentData())
-			self.update_key(f'SPINDLE_0', 'SPINDLE_PWM_FREQUENCY', parent.pwmFrequencySB.value())
+			self.update_key(f'SPINDLE_0', 'PWM_FREQUENCY', parent.pwmFrequencySB.value())
 			self.update_key(f'SPINDLE_0', 'P', parent.p_s.value())
 			self.update_key(f'SPINDLE_0', 'I', parent.i_s.value())
 			self.update_key(f'SPINDLE_0', 'D', parent.d_s.value())

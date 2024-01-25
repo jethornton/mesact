@@ -277,7 +277,7 @@ class loadini:
 
 		spindle = [
 		['[SPINDLE_0]', 'TYPE', 'spindleTypeCB'],
-		['[SPINDLE_0]', 'ENCODER_SCALE', 'spindleEncoderScale'],
+		['[SPINDLE_0]', 'SCALE', 'spindleEncoderScale'],
 		['[SPINDLE_0]', 'SCALE', 'spindleStepScale'],
 		['[SPINDLE_0]', 'PWM_FREQUENCY', 'pwmFrequencySB'],
 		['[SPINDLE_0]', 'MIN_FORWARD_VELOCITY', 'spindleMinRpmFwd'],
