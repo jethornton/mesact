@@ -362,7 +362,7 @@ def boardChanged(parent):
 			if parent.mesaflash:
 				if parent.mesaflash_version < (3, 4, 7):
 					parent.firmwareGB.setEnabled(False)
-					parent.checkBoardPB.setEnabled(False)
+					parent.verify_board_pb.setEnabled(False)
 					parent.read_hmid_gb.setEnabled(False)
 					parent.firmware_info_pte.setPlainText('The 7i95T requires Mesaflash 3.4.7 or newer')
 

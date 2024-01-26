@@ -121,7 +121,7 @@ def setup(parent):
 			parent.mesaflash = True
 	except FileNotFoundError as error:
 		parent.firmwareGB.setEnabled(False)
-		parent.checkBoardPB.setEnabled(False)
+		parent.verify_board_pb.setEnabled(False)
 		parent.mesaflashVersionLB.setText('Not Installed')
 		parent.mesaflash = False
 		parent.mesaflash_version = ()
