@@ -7,6 +7,11 @@ def gui_changed(parent):
 			parent.jet_gui_gb.setEnabled(True)
 		else:
 			parent.jet_gui_gb.setEnabled(False)
+			parent.keyboard_qss_cb.setChecked(False)
+			parent.touch_qss_cb.setChecked(False)
+			parent.jet_gui_le.setText('')
+			parent.custom_qss_le.setText('')
+			parent.jet_size_cb.setCurrentIndex(0)
 	else:
 		parent.jet_gui_gb.setEnabled(False)
 
