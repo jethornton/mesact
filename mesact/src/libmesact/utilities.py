@@ -22,7 +22,7 @@ def is_int(n):
 		return False
 
 def check_emc():
-	if "0x48414c32" in subprocess.getoutput('ipcs'):
+	if 'linuxcnc' in subprocess.check_output(['pgrep', '-l', 'linuxcnc'], text=True):
 		return True
 	else:
 		return False

@@ -5,6 +5,7 @@ from PyQt5.QtWidgets import QApplication, QInputDialog, QLineEdit, qApp
 from PyQt5.QtWidgets import QDialogButtonBox
 
 from libmesact import dialogs
+from libmesact import utilities
 
 '''
 subprocess.check_output Run command with arguments and return its output
@@ -27,12 +28,6 @@ class subprocess.CompletedProcess
 	check_returncode()
 		If returncode is non-zero, raise a CalledProcessError.
 '''
-
-def check_emc():
-	if "0x48414c32" in subprocess.getoutput('ipcs'):
-		return True
-	else:
-		return False
 
 def firmware_changed(parent):
 	if parent.firmwareCB.currentData():
@@ -66,7 +61,7 @@ def getResults(parent, prompt, result, viewport, task=None):
 	getattr(parent, viewport).appendPlainText(f'{output}\n')
 
 def find_ip_board(parent):
-	if check_emc():
+	if utilities.check_emc():
 		dialogs.errorMsgOk(f'LinuxCNC must NOT be running\n to search for a board', 'Error')
 		return
 	addresses = ['10.10.10.10', '192.168.1.121']
@@ -89,7 +84,7 @@ def find_ip_board(parent):
 
 def verify_ip_board(parent): # make me toss up the error message and return False
 	board_name = parent.boardCB.currentText()
-	if check_emc():
+	if utilities.check_emc():
 		dialogs.errorMsgOk(f'LinuxCNC must NOT be running\n to read the {board_name}', 'Error')
 		return
 	if check_ip(parent):
@@ -125,7 +120,7 @@ def verify_board(parent): # needs to use Popen for password
 		dialogs.errorMsgOk('A board must be selected', 'Error')
 		return
 	prompt = None
-	if check_emc():
+	if utilities.check_emc():
 		dialogs.errorMsgOk(f'LinuxCNC must NOT be running\n to read the {board_name}', 'Error')
 		return
 
@@ -153,7 +148,7 @@ def readhmid(parent):
 	board_name = parent.boardCB.currentText()
 	cmd = []
 	prompt = None
-	if check_emc():
+	if utilities.check_emc():
 		dialogs.errorMsgOk(f'LinuxCNC must NOT be running\n to read the {board_name}', 'Error')
 		return
 	if parent.boardType == 'eth':
@@ -194,7 +189,7 @@ def readpd(parent):
 	board_name = parent.boardCB.currentText()
 	cmd = []
 	prompt = None
-	if check_emc():
+	if utilities.check_emc():
 		dialogs.errorMsgOk(f'LinuxCNC must NOT be running\n to read the {board_name}', 'Error')
 		return
 	if parent.boardType == 'eth':
@@ -221,7 +216,7 @@ def flashCard(parent):
 	board_name = parent.boardCB.currentText()
 	cmd = []
 	prompt = None
-	if check_emc():
+	if utilities.check_emc():
 		dialogs.errorMsgOk(f'LinuxCNC must NOT be running\n to flash the {board_name}', 'Error')
 		return
 	if parent.firmwareCB.currentData():
@@ -263,7 +258,7 @@ def reloadCard(parent):
 	board_name = parent.boardCB.currentText()
 	cmd = []
 	prompt = None
-	if check_emc():
+	if utilities.check_emc():
 		dialogs.errorMsgOk(f'LinuxCNC must NOT be running\n to reload the {board_name}', 'Error')
 		return
 	if parent.boardType == 'eth':
@@ -296,7 +291,7 @@ def verifyFirmware(parent):
 	board_name = parent.boardCB.currentText()
 	cmd = []
 	prompt = None
-	if check_emc():
+	if utilities.check_emc():
 		dialogs.errorMsgOk(f'LinuxCNC must NOT be running\n to verify the {board_name}', 'Error')
 		return
 	if parent.firmwareCB.currentData():
