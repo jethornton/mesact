@@ -22,7 +22,8 @@ def is_int(n):
 		return False
 
 def check_emc():
-	if 'linuxcnc' in subprocess.check_output(['pgrep', '-l', 'linuxcnc'], text=True):
+	cp = subprocess.run(['pgrep', '-l', 'linuxcnc'], text=True, capture_output=True)
+	if 'linuxcnc' in cp.stdout:
 		return True
 	else:
 		return False
