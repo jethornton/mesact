@@ -93,10 +93,10 @@ def setup(parent):
 	try: # don't crash if your not running debian
 		emc = subprocess.check_output(['apt-cache', 'policy', 'linuxcnc-uspace'], encoding='UTF-8')
 	except:
-		emc = None
+		emc = False
 		pass
 
-	if emc:
+	if emc.count('\n') > 1:
 		# get second line
 		line = emc.split('\n')[1]
 		version = line.split()[1]
@@ -106,11 +106,14 @@ def setup(parent):
 			version = '.'.join(version.split('.', 3)[:3])
 		if '~' in version:
 			version = version.split('~')[0]
-		if 'none' in version:
-			parent.emcVersionLB.setText('Not Installed')
-		else:
+		# make damn sure version is valid
+		if all(c in "0123456789." for c in version) and version.count('.') > 1:
 			parent.emcVersionLB.setText(version)
 			parent.emc_version = tuple(int(i) for i in version.split('.'))
+		else:
+			parent.emcVersionLB.setText('Version Error')
+	else:
+		parent.emcVersionLB.setText('Not Installed')
 
 	try:
 		mf = subprocess.check_output('mesaflash', encoding='UTF-8')
