@@ -117,6 +117,7 @@ def boardChanged(parent):
 				parent.daughterCB_1.addItem(item[0], item[1])
 
 		elif board == '7i76e': # ETH 5 Axis Step/Direction
+			parent.board_0 = '7i76e'
 			parent.hal_name = '7i76e'
 			parent.mesaflash_name = '7i76e'
 			# 5 step/dir 32 inputs 16 outputs 1 spindle 1 encoder
@@ -312,6 +313,7 @@ def boardChanged(parent):
 				parent.daughterCB_1.addItem(item[0], item[1])
 
 		elif board == '7i95': # ETH 6 Axis Step/Direction
+			parent.board_0 = '7i95'
 			parent.hal_name = '7i95'
 			parent.mesaflash_name = '7i95'
 			parent.boardType = 'eth'
@@ -326,6 +328,7 @@ def boardChanged(parent):
 				getattr(parent, f'c0_settings_{i}').setTabVisible(4, False)
 
 		elif board == '7i95t': # ETH 6 Axis Step/Direction
+			parent.board_0 = '7i95'
 			parent.hal_name = '7i95'
 			parent.mesaflash_name = '7i95t'
 			parent.boardType = 'eth'
@@ -367,6 +370,7 @@ def boardChanged(parent):
 					parent.firmware_info_pte.setPlainText('The 7i95T requires Mesaflash 3.4.7 or newer')
 
 		elif board == '7i96': # ETH 5 Axis Step/Direction
+			parent.board_0 = '7i96'
 			parent.hal_name = '7i96'
 			parent.mesaflash_name = '7i96'
 			parent.boardType = 'eth'
@@ -388,6 +392,7 @@ def boardChanged(parent):
 				getattr(parent, f'c0_settings_{i}').setTabVisible(4, False)
 
 		elif board == '7i96s': # ETH 5 Axis Step/Direction
+			parent.board_0 = '7i96s'
 			parent.hal_name = '7i96s'
 			parent.mesaflash_name = '7i96s'
 			parent.boardType = 'eth'
@@ -426,6 +431,7 @@ def boardChanged(parent):
 				parent.spindleTypeCB.model().item(i).setEnabled(False)
 
 		elif board == '7i97': # ETH 6 Axis Analog
+			parent.board_0 = '7i97'
 			parent.hal_name = '7i97'
 			parent.mesaflash_name = '7i97'
 			parent.boardType = 'eth'
@@ -439,6 +445,7 @@ def boardChanged(parent):
 				getattr(parent, f'c0_settings_{i}').setTabVisible(2, False)
 
 		elif board == '7i97t': # ETH 6 Axis Analog
+			parent.board_0 = '7i97t'
 			parent.hal_name = '7i97'
 			parent.mesaflash_name = '7i97t'
 			parent.boardType = 'eth'
