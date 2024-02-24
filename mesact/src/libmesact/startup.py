@@ -90,6 +90,7 @@ def setup(parent):
 
 	# get emc version if installed
 	parent.emcVersionLB.clear()
+	parent.emc_version = (0, 0, 0)
 	try: # don't crash if your not running debian
 		emc = subprocess.check_output(['apt-cache', 'policy', 'linuxcnc-uspace'], encoding='UTF-8')
 	except:
