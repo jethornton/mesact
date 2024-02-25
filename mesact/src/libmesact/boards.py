@@ -52,6 +52,7 @@ def boardChanged(parent):
 		parent.encoders_cb.addItem('n/a', 0)
 		parent.port_0_channels_lb.clear()
 		parent.port_1_channels_lb.clear()
+		parent.find_ip_board_pb.setEnabled(True)
 
 		if board == '5i24': # PCI IDC50
 			parent.hal_name = '5i24'
@@ -73,6 +74,7 @@ def boardChanged(parent):
 			'at this time'
 			)
 			parent.board_info_pte.setPlainText(info)
+			parent.find_ip_board_pb.setEnabled(False)
 
 
 		elif board == '5i25': # PCI DB25F IDC26
@@ -97,6 +99,7 @@ def boardChanged(parent):
 			'W2 Up for P3\n'
 			)
 			parent.board_info_pte.setPlainText(info)
+			parent.find_ip_board_pb.setEnabled(False)
 
 		elif board == '5i25t': # PCI DB25F IDC26
 			# port 0 is P3 port 1 is P2
@@ -115,6 +118,7 @@ def boardChanged(parent):
 			for item in db25:
 				parent.daughterCB_0.addItem(item[0], item[1])
 				parent.daughterCB_1.addItem(item[0], item[1])
+			parent.find_ip_board_pb.setEnabled(False)
 
 		elif board == '7i76e': # ETH 5 Axis Step/Direction
 			parent.board_0 = '7i76e'
@@ -504,4 +508,5 @@ def boardChanged(parent):
 		parent.read_hmid_gb.setEnabled(False)
 		parent.firmware_info_pte.clear()
 		parent.firmwareCB.clear()
+		parent.find_ip_board_pb.setEnabled(True)
 
