@@ -1,4 +1,4 @@
-docs
+docs/build
 debian/mesact
 debian/.debhelper
 debian/debhelper-build-stamp
