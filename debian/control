@@ -11,14 +11,9 @@ Rules-Requires-Root: no
 Package: mesact
 Priority: optional
 Architecture: any
-Depends:  ${misc:Depends},
-          python3 (>=3.6),
-          python3-pyqt5 (>=5.15.0),
-          python3-packaging,
-          python3-requests,
-          zip
-Suggests: linuxcnc-uspace,
-          mesaflash
+Depends: ${misc:Depends}, python3 (>=3.6), python3-pyqt5 (>=5.15.0),
+ python3-packaging, python3-requests, zip
+Suggests: linuxcnc-uspace, mesaflash
 Description: Mesa Configuration Tools for LinuxCNC
  This software can create configuration files used by LinuxCNC to
  control 5i25/6i25, 7i76e, 7i80, 7i92, 7i95, 7i95T, 7i96, 7i96S, 7i97 and 7i98
