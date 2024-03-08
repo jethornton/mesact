@@ -450,7 +450,7 @@ def build_io(parent):
 					if board == '7i76E':
 						hm2 =  f'hm2_7i76e.0.gpio.{j + 31:03}.out{invert}'
 					if board == '7i95':
-						hm2 =  f'hm2_7i95.0.ssr.00.output-{j:02}{invert}'
+						hm2 =  f'hm2_7i95.0.ssr.00.out-{j:02}{invert}'
 					if board == '7i95T':
 						hm2 =  f'hm2_7i95.0.ssr.00.out-{j:02}'
 						if getattr(parent, f'c0_output_invert_{j}').isChecked():
