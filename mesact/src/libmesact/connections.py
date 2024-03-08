@@ -104,6 +104,10 @@ def connect(parent):
 		for i in range(5):
 			getattr(parent, f'c{j}_copy_values_{i}').clicked.connect(partial(utilities.copyValues, parent))
 
+	for i in range(3): # connect velocity/second
+		for j in range(6):
+			getattr(parent, f'c{i}_max_vel_{j}').textChanged.connect(partial(axes.updateVelInfo, parent))
+
 	for i in range(6):
 		for j in range(3): # <-- change when more cards are added
 			getattr(parent, f'c{j}_axis_{i}').currentIndexChanged.connect(partial(axes.axisChanged, parent))

@@ -2070,16 +2070,6 @@ Leadscrew Pitch is turns per user unit. Example 6 turns per inch or .25 turns pe
                <string>Axis</string>
               </property>
               <layout class="QGridLayout" name="gridLayout_4">
-               <item row="0" column="4">
-                <widget class="QLabel" name="label_14">
-                 <property name="text">
-                  <string>Max Limit</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
                <item row="1" column="3">
                 <widget class="QLineEdit" name="c0_min_limit_0">
                  <property name="toolTip">
@@ -2090,20 +2080,37 @@ Leadscrew Pitch is turns per user unit. Example 6 turns per inch or .25 turns pe
                  </property>
                 </widget>
                </item>
-               <item row="1" column="4">
-                <widget class="QLineEdit" name="c0_max_limit_0">
-                 <property name="toolTip">
-                  <string>Maximum Travel Limit</string>
+               <item row="0" column="1">
+                <widget class="QLabel" name="label_12">
+                 <property name="text">
+                  <string>Type</string>
                  </property>
                  <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  <set>Qt::AlignCenter</set>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="3">
-                <widget class="QLabel" name="label_13">
+               <item row="0" column="4">
+                <widget class="QLabel" name="label_14">
                  <property name="text">
-                  <string>Min Limit</string>
+                  <string>Max Limit</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QComboBox" name="c0_axis_0">
+                 <property name="toolTip">
+                  <string>Axis Letter</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QLabel" name="label_8">
+                 <property name="text">
+                  <string>Scale</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
@@ -2120,10 +2127,10 @@ Leadscrew Pitch is turns per user unit. Example 6 turns per inch or .25 turns pe
                  </property>
                 </widget>
                </item>
-               <item row="0" column="5">
-                <widget class="QLabel" name="label_15">
+               <item row="0" column="7">
+                <widget class="QLabel" name="label_16">
                  <property name="text">
-                  <string>Max Vel</string>
+                  <string>Max Accel</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
@@ -2149,16 +2156,6 @@ Leadscrew Pitch is turns per user unit. Example 6 turns per inch or .25 turns pe
                  </property>
                 </widget>
                </item>
-               <item row="0" column="6">
-                <widget class="QLabel" name="label_16">
-                 <property name="text">
-                  <string>Max Accel</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
                <item row="1" column="5">
                 <widget class="QLineEdit" name="c0_max_vel_0">
                  <property name="toolTip">
@@ -2169,30 +2166,13 @@ Leadscrew Pitch is turns per user unit. Example 6 turns per inch or .25 turns pe
                  </property>
                 </widget>
                </item>
-               <item row="0" column="1">
-                <widget class="QLabel" name="label_12">
-                 <property name="text">
-                  <string>Type</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="6">
+               <item row="1" column="7">
                 <widget class="QLineEdit" name="c0_max_accel_0">
                  <property name="toolTip">
                   <string>Maximum Acceleration in Units per Second per Second</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="0">
-                <widget class="QComboBox" name="c0_axis_0">
-                 <property name="toolTip">
-                  <string>Axis Letter</string>
                  </property>
                 </widget>
                </item>
@@ -2203,10 +2183,57 @@ Leadscrew Pitch is turns per user unit. Example 6 turns per inch or .25 turns pe
                  </property>
                 </widget>
                </item>
-               <item row="0" column="2">
-                <widget class="QLabel" name="label_8">
+               <item row="1" column="4">
+                <widget class="QLineEdit" name="c0_max_limit_0">
+                 <property name="toolTip">
+                  <string>Maximum Travel Limit</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="3">
+                <widget class="QLabel" name="label_13">
                  <property name="text">
-                  <string>Scale</string>
+                  <string>Min Limit</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="6">
+                <widget class="QLabel" name="c0_max_vel_min_suffix_0">
+                 <property name="text">
+                  <string>N/A</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="5">
+                <widget class="QLabel" name="c0_max_vel_min_0">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="6">
+                <widget class="QLabel" name="c0_max_vel_suffix_0">
+                 <property name="text">
+                  <string>N/A</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="5">
+                <widget class="QLabel" name="label_15">
+                 <property name="text">
+                  <string>Max Vel</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
@@ -2632,13 +2659,6 @@ joint to the next joint</string>
                    <string>Following Error</string>
                   </property>
                   <layout class="QGridLayout" name="gridLayout_176">
-                   <item row="0" column="0">
-                    <widget class="QLabel" name="label_1044">
-                     <property name="text">
-                      <string>Min</string>
-                     </property>
-                    </widget>
-                   </item>
                    <item row="0" column="1">
                     <widget class="QLineEdit" name="c0_min_ferror_0">
                      <property name="minimumSize">
@@ -2652,10 +2672,10 @@ joint to the next joint</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="0" column="2">
-                    <widget class="QLabel" name="label_1045">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_1044">
                      <property name="text">
-                      <string>Max</string>
+                      <string>Min</string>
                      </property>
                     </widget>
                    </item>
@@ -2682,6 +2702,13 @@ joint to the next joint</string>
                      </property>
                      <property name="text">
                       <string>Default Values</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2">
+                    <widget class="QLabel" name="label_1045">
+                     <property name="text">
+                      <string>Max</string>
                      </property>
                     </widget>
                    </item>
@@ -3525,10 +3552,71 @@ Leave blank to home the joint manually.</string>
                <string>Axis</string>
               </property>
               <layout class="QGridLayout" name="gridLayout_20">
+               <item row="1" column="3">
+                <widget class="QLineEdit" name="c0_min_limit_1">
+                 <property name="toolTip">
+                  <string>Mininum Travel Limit</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="5">
+                <widget class="QLineEdit" name="c0_max_vel_1">
+                 <property name="toolTip">
+                  <string>Maximum Velocity in Units per Second</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QComboBox" name="c0_axis_1">
+                 <property name="toolTip">
+                  <string>Axis Letter</string>
+                 </property>
+                </widget>
+               </item>
                <item row="0" column="0">
                 <widget class="QLabel" name="label_29">
                  <property name="text">
                   <string>Axis</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="6">
+                <widget class="QLabel" name="c0_max_vel_suffix_1">
+                 <property name="text">
+                  <string>N/A</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="2">
+                <widget class="QLineEdit" name="c0_scale_1">
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="7">
+                <widget class="QLabel" name="label_31">
+                 <property name="text">
+                  <string>Max Accel</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QLabel" name="label_156">
+                 <property name="text">
+                  <string>Scale</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
@@ -3545,10 +3633,10 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="6">
-                <widget class="QLabel" name="label_31">
+               <item row="0" column="1">
+                <widget class="QLabel" name="label_32">
                  <property name="text">
-                  <string>Max Accel</string>
+                  <string>Type</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
@@ -3565,26 +3653,6 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="1">
-                <widget class="QLabel" name="label_32">
-                 <property name="text">
-                  <string>Type</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="5">
-                <widget class="QLineEdit" name="c0_max_vel_1">
-                 <property name="toolTip">
-                  <string>Maximum Velocity in Units per Second</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
                <item row="1" column="4">
                 <widget class="QLineEdit" name="c0_max_limit_1">
                  <property name="toolTip">
@@ -3595,17 +3663,7 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="5">
-                <widget class="QLabel" name="label_30">
-                 <property name="text">
-                  <string>Max Vel</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="6">
+               <item row="1" column="7">
                 <widget class="QLineEdit" name="c0_max_accel_1">
                  <property name="toolTip">
                   <string>Maximum Acceleration in Units per Second per Second</string>
@@ -3634,35 +3692,31 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="0">
-                <widget class="QComboBox" name="c0_axis_1">
-                 <property name="toolTip">
-                  <string>Axis Letter</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="3">
-                <widget class="QLineEdit" name="c0_min_limit_1">
-                 <property name="toolTip">
-                  <string>Mininum Travel Limit</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="2">
-                <widget class="QLabel" name="label_156">
+               <item row="0" column="5">
+                <widget class="QLabel" name="label_30">
                  <property name="text">
-                  <string>Scale</string>
+                  <string>Max Vel</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="2">
-                <widget class="QLineEdit" name="c0_scale_1">
+               <item row="2" column="6">
+                <widget class="QLabel" name="c0_max_vel_min_suffix_1">
+                 <property name="text">
+                  <string>N/A</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="5">
+                <widget class="QLabel" name="c0_max_vel_min_1">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
@@ -4974,23 +5028,13 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="6">
-                <widget class="QLabel" name="label_60">
-                 <property name="text">
-                  <string>Max Accel</string>
+               <item row="1" column="7">
+                <widget class="QLineEdit" name="c0_max_accel_2">
+                 <property name="toolTip">
+                  <string>Maximum Acceleration in Units per Second per Second</string>
                  </property>
                  <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="0">
-                <widget class="QLabel" name="label_58">
-                 <property name="text">
-                  <string>Axis</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
@@ -5004,23 +5048,6 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="3">
-                <widget class="QLabel" name="label_57">
-                 <property name="text">
-                  <string>Min Limit</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="0">
-                <widget class="QComboBox" name="c0_axis_2">
-                 <property name="toolTip">
-                  <string>Axis Letter</string>
-                 </property>
-                </widget>
-               </item>
                <item row="0" column="4">
                 <widget class="QLabel" name="label_56">
                  <property name="text">
@@ -5028,16 +5055,6 @@ Leave blank to home the joint manually.</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="3">
-                <widget class="QLineEdit" name="c0_min_limit_2">
-                 <property name="toolTip">
-                  <string>Mininum Travel Limit</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
@@ -5060,13 +5077,54 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="6">
-                <widget class="QLineEdit" name="c0_max_accel_2">
-                 <property name="toolTip">
-                  <string>Maximum Acceleration in Units per Second per Second</string>
+               <item row="0" column="5">
+                <widget class="QLabel" name="label_59">
+                 <property name="text">
+                  <string>Max Vel</string>
                  </property>
                  <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="2">
+                <widget class="QLineEdit" name="c0_scale_2">
+                 <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="6">
+                <widget class="QLabel" name="c0_max_vel_suffix_2">
+                 <property name="text">
+                  <string>N/A</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_58">
+                 <property name="text">
+                  <string>Axis</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="7">
+                <widget class="QLabel" name="label_60">
+                 <property name="text">
+                  <string>Max Accel</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QComboBox" name="c0_axis_2">
+                 <property name="toolTip">
+                  <string>Axis Letter</string>
                  </property>
                 </widget>
                </item>
@@ -5074,16 +5132,6 @@ Leave blank to home the joint manually.</string>
                 <widget class="QLabel" name="label_61">
                  <property name="text">
                   <string>Type</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="5">
-                <widget class="QLabel" name="label_59">
-                 <property name="text">
-                  <string>Max Vel</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
@@ -5100,8 +5148,41 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="2">
-                <widget class="QLineEdit" name="c0_scale_2">
+               <item row="0" column="3">
+                <widget class="QLabel" name="label_57">
+                 <property name="text">
+                  <string>Min Limit</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="3">
+                <widget class="QLineEdit" name="c0_min_limit_2">
+                 <property name="toolTip">
+                  <string>Mininum Travel Limit</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="6">
+                <widget class="QLabel" name="c0_max_vel_min_suffix_2">
+                 <property name="text">
+                  <string>N/A</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="5">
+                <widget class="QLabel" name="c0_max_vel_min_2">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
@@ -6403,39 +6484,10 @@ Leave blank to home the joint manually.</string>
                <string>Axis</string>
               </property>
               <layout class="QGridLayout" name="gridLayout_42">
-               <item row="0" column="0">
-                <widget class="QLabel" name="label_73">
+               <item row="0" column="2">
+                <widget class="QLabel" name="label_158">
                  <property name="text">
-                  <string>Axis</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="1">
-                <widget class="QLabel" name="c0_axisType_3">
-                 <property name="minimumSize">
-                  <size>
-                   <width>100</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="frameShape">
-                  <enum>QFrame::Box</enum>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="4">
-                <widget class="QLabel" name="label_71">
-                 <property name="text">
-                  <string>Max Limit</string>
+                  <string>Scale</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
@@ -6469,26 +6521,6 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="6">
-                <widget class="QLabel" name="label_75">
-                 <property name="text">
-                  <string>Max Accel</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="4">
-                <widget class="QLineEdit" name="c0_max_limit_3">
-                 <property name="toolTip">
-                  <string>Maximum Travel Limit</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
                <item row="1" column="3">
                 <widget class="QLineEdit" name="c0_min_limit_3">
                  <property name="toolTip">
@@ -6496,16 +6528,6 @@ Leave blank to home the joint manually.</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="1">
-                <widget class="QLabel" name="label_76">
-                 <property name="text">
-                  <string>Type</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
                  </property>
                 </widget>
                </item>
@@ -6519,7 +6541,7 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="6">
+               <item row="1" column="7">
                 <widget class="QLineEdit" name="c0_max_accel_3">
                  <property name="toolTip">
                   <string>Maximum Acceleration in Units per Second per Second</string>
@@ -6529,10 +6551,66 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="2">
-                <widget class="QLabel" name="label_158">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_73">
                  <property name="text">
-                  <string>Scale</string>
+                  <string>Axis</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="6">
+                <widget class="QLabel" name="c0_max_vel_suffix_3">
+                 <property name="text">
+                  <string>N/A</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QLabel" name="c0_axisType_3">
+                 <property name="minimumSize">
+                  <size>
+                   <width>100</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="7">
+                <widget class="QLabel" name="label_75">
+                 <property name="text">
+                  <string>Max Accel</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="4">
+                <widget class="QLabel" name="label_71">
+                 <property name="text">
+                  <string>Max Limit</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="label_76">
+                 <property name="text">
+                  <string>Type</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
@@ -6541,6 +6619,36 @@ Leave blank to home the joint manually.</string>
                </item>
                <item row="1" column="2">
                 <widget class="QLineEdit" name="c0_scale_3">
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="4">
+                <widget class="QLineEdit" name="c0_max_limit_3">
+                 <property name="toolTip">
+                  <string>Maximum Travel Limit</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="6">
+                <widget class="QLabel" name="c0_max_vel_min_suffix_3">
+                 <property name="text">
+                  <string>N/A</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="5">
+                <widget class="QLabel" name="c0_max_vel_min_3">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
@@ -7842,16 +7950,6 @@ Leave blank to home the joint manually.</string>
                <string>Axis</string>
               </property>
               <layout class="QGridLayout" name="gridLayout_56">
-               <item row="1" column="5">
-                <widget class="QLineEdit" name="c0_max_vel_4">
-                 <property name="toolTip">
-                  <string>Maximum Velocity in Units per Second</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
                <item row="1" column="4">
                 <widget class="QLineEdit" name="c0_max_limit_4">
                  <property name="toolTip">
@@ -7859,23 +7957,6 @@ Leave blank to home the joint manually.</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="0">
-                <widget class="QComboBox" name="c0_axis_4">
-                 <property name="toolTip">
-                  <string>Axis Letter</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="0">
-                <widget class="QLabel" name="label_129">
-                 <property name="text">
-                  <string>Axis</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
                  </property>
                 </widget>
                </item>
@@ -7889,6 +7970,26 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
+               <item row="0" column="3">
+                <widget class="QLabel" name="label_128">
+                 <property name="text">
+                  <string>Min Limit</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="5">
+                <widget class="QLineEdit" name="c0_max_vel_4">
+                 <property name="toolTip">
+                  <string>Maximum Velocity in Units per Second</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
                <item row="1" column="2">
                 <widget class="QLineEdit" name="c0_scale_4">
                  <property name="alignment">
@@ -7896,30 +7997,10 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="5">
-                <widget class="QLabel" name="label_130">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_129">
                  <property name="text">
-                  <string>Max Vel</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="6">
-                <widget class="QLineEdit" name="c0_max_accel_4">
-                 <property name="toolTip">
-                  <string>Maximum Acceleration in Units per Second per Second</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="1">
-                <widget class="QLabel" name="label_132">
-                 <property name="text">
-                  <string>Type</string>
+                  <string>Axis</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
@@ -7955,6 +8036,60 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
+               <item row="0" column="5">
+                <widget class="QLabel" name="label_130">
+                 <property name="text">
+                  <string>Max Vel</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="label_132">
+                 <property name="text">
+                  <string>Type</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QComboBox" name="c0_axis_4">
+                 <property name="toolTip">
+                  <string>Axis Letter</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="7">
+                <widget class="QLineEdit" name="c0_max_accel_4">
+                 <property name="toolTip">
+                  <string>Maximum Acceleration in Units per Second per Second</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="7">
+                <widget class="QLabel" name="label_131">
+                 <property name="text">
+                  <string>Max Accel</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="6">
+                <widget class="QLabel" name="c0_max_vel_suffix_4">
+                 <property name="text">
+                  <string>N/A</string>
+                 </property>
+                </widget>
+               </item>
                <item row="0" column="4">
                 <widget class="QLabel" name="label_127">
                  <property name="text">
@@ -7965,23 +8100,23 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="6">
-                <widget class="QLabel" name="label_131">
+               <item row="2" column="6">
+                <widget class="QLabel" name="c0_max_vel_min_suffix_4">
                  <property name="text">
-                  <string>Max Accel</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
+                  <string>N/A</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="3">
-                <widget class="QLabel" name="label_128">
+               <item row="2" column="5">
+                <widget class="QLabel" name="c0_max_vel_min_4">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
                  <property name="text">
-                  <string>Min Limit</string>
+                  <string/>
                  </property>
                  <property name="alignment">
-                  <set>Qt::AlignCenter</set>
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
@@ -9274,43 +9409,30 @@ Leave blank to home the joint manually.</string>
                <string>Axis</string>
               </property>
               <layout class="QGridLayout" name="gridLayout_65">
-               <item row="0" column="1">
-                <widget class="QLabel" name="label_155">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_152">
                  <property name="text">
-                  <string>Type</string>
+                  <string>Axis</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="4">
-                <widget class="QLineEdit" name="c0_max_limit_5">
-                 <property name="toolTip">
-                  <string>Maximum Travel Limit</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="4">
-                <widget class="QLabel" name="label_150">
+               <item row="0" column="5">
+                <widget class="QLabel" name="label_153">
                  <property name="text">
-                  <string>Max Limit</string>
+                  <string>Max Vel</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="6">
-                <widget class="QLineEdit" name="c0_max_accel_5">
+               <item row="1" column="0">
+                <widget class="QComboBox" name="c0_axis_5">
                  <property name="toolTip">
-                  <string>Maximum Acceleration in Units per Second per Second</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  <string>Axis Letter</string>
                  </property>
                 </widget>
                </item>
@@ -9321,23 +9443,6 @@ Leave blank to home the joint manually.</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="5">
-                <widget class="QLineEdit" name="c0_max_vel_5">
-                 <property name="toolTip">
-                  <string>Maximum Velocity in Units per Second</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="0">
-                <widget class="QComboBox" name="c0_axis_5">
-                 <property name="toolTip">
-                  <string>Axis Letter</string>
                  </property>
                 </widget>
                </item>
@@ -9360,6 +9465,46 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="label_155">
+                 <property name="text">
+                  <string>Type</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="4">
+                <widget class="QLabel" name="label_150">
+                 <property name="text">
+                  <string>Max Limit</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="7">
+                <widget class="QLineEdit" name="c0_max_accel_5">
+                 <property name="toolTip">
+                  <string>Maximum Acceleration in Units per Second per Second</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="5">
+                <widget class="QLineEdit" name="c0_max_vel_5">
+                 <property name="toolTip">
+                  <string>Maximum Velocity in Units per Second</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
                <item row="0" column="3">
                 <widget class="QLabel" name="label_151">
                  <property name="text">
@@ -9370,33 +9515,17 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="5">
-                <widget class="QLabel" name="label_153">
+               <item row="1" column="6">
+                <widget class="QLabel" name="c0_max_vel_suffix_5">
                  <property name="text">
-                  <string>Max Vel</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
+                  <string>N/A</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="0">
-                <widget class="QLabel" name="label_152">
-                 <property name="text">
-                  <string>Axis</string>
-                 </property>
+               <item row="1" column="2">
+                <widget class="QLineEdit" name="c0_scale_5">
                  <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="6">
-                <widget class="QLabel" name="label_154">
-                 <property name="text">
-                  <string>Max Accel</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
@@ -9410,8 +9539,41 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="2">
-                <widget class="QLineEdit" name="c0_scale_5">
+               <item row="0" column="7">
+                <widget class="QLabel" name="label_154">
+                 <property name="text">
+                  <string>Max Accel</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="4">
+                <widget class="QLineEdit" name="c0_max_limit_5">
+                 <property name="toolTip">
+                  <string>Maximum Travel Limit</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="6">
+                <widget class="QLabel" name="c0_max_vel_min_suffix_5">
+                 <property name="text">
+                  <string>N/A</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="5">
+                <widget class="QLabel" name="c0_max_vel_min_5">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
@@ -12217,26 +12379,6 @@ Leave blank to home the joint manually.</string>
                <string>Axis</string>
               </property>
               <layout class="QGridLayout" name="gridLayout_10">
-               <item row="0" column="4">
-                <widget class="QLabel" name="label_161">
-                 <property name="text">
-                  <string>Max Limit</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="3">
-                <widget class="QLineEdit" name="c1_min_limit_0">
-                 <property name="toolTip">
-                  <string>Mininum Travel Limit</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
                <item row="1" column="4">
                 <widget class="QLineEdit" name="c1_max_limit_0">
                  <property name="toolTip">
@@ -12244,36 +12386,6 @@ Leave blank to home the joint manually.</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="3">
-                <widget class="QLabel" name="label_162">
-                 <property name="text">
-                  <string>Min Limit</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="0">
-                <widget class="QLabel" name="label_163">
-                 <property name="text">
-                  <string>Axis</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="5">
-                <widget class="QLabel" name="label_164">
-                 <property name="text">
-                  <string>Max Vel</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
                  </property>
                 </widget>
                </item>
@@ -12296,7 +12408,17 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="6">
+               <item row="1" column="5">
+                <widget class="QLineEdit" name="c1_max_vel_0">
+                 <property name="toolTip">
+                  <string>Maximum Velocity in Units per Second</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="7">
                 <widget class="QLabel" name="label_165">
                  <property name="text">
                   <string>Max Accel</string>
@@ -12306,13 +12428,57 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="5">
-                <widget class="QLineEdit" name="c1_max_vel_0">
+               <item row="1" column="7">
+                <widget class="QLineEdit" name="c1_max_accel_0">
                  <property name="toolTip">
-                  <string>Maximum Velocity in Units per Second</string>
+                  <string>Maximum Acceleration in Units per Second per Second</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QLabel" name="label_167">
+                 <property name="text">
+                  <string>Scale</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="3">
+                <widget class="QLineEdit" name="c1_min_limit_0">
+                 <property name="toolTip">
+                  <string>Mininum Travel Limit</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="6">
+                <widget class="QLabel" name="c1_max_vel_suffix_0">
+                 <property name="text">
+                  <string>N/A</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="5">
+                <widget class="QLabel" name="label_164">
+                 <property name="text">
+                  <string>Max Vel</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QComboBox" name="c1_axis_0">
+                 <property name="toolTip">
+                  <string>Axis Letter</string>
                  </property>
                 </widget>
                </item>
@@ -12326,20 +12492,13 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="6">
-                <widget class="QLineEdit" name="c1_max_accel_0">
-                 <property name="toolTip">
-                  <string>Maximum Acceleration in Units per Second per Second</string>
+               <item row="0" column="3">
+                <widget class="QLabel" name="label_162">
+                 <property name="text">
+                  <string>Min Limit</string>
                  </property>
                  <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="0">
-                <widget class="QComboBox" name="c1_axis_0">
-                 <property name="toolTip">
-                  <string>Axis Letter</string>
+                  <set>Qt::AlignCenter</set>
                  </property>
                 </widget>
                </item>
@@ -12350,13 +12509,43 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="2">
-                <widget class="QLabel" name="label_167">
+               <item row="0" column="4">
+                <widget class="QLabel" name="label_161">
                  <property name="text">
-                  <string>Scale</string>
+                  <string>Max Limit</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_163">
+                 <property name="text">
+                  <string>Axis</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="6">
+                <widget class="QLabel" name="c1_max_vel_min_suffix_0">
+                 <property name="text">
+                  <string>N/A</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="5">
+                <widget class="QLabel" name="c1_max_vel_min_0">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
@@ -13668,16 +13857,6 @@ Leave blank to home the joint manually.</string>
                <string>Axis</string>
               </property>
               <layout class="QGridLayout" name="gridLayout_74">
-               <item row="0" column="4">
-                <widget class="QLabel" name="label_216">
-                 <property name="text">
-                  <string>Max Limit</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
                <item row="1" column="3">
                 <widget class="QLineEdit" name="c1_min_limit_1">
                  <property name="toolTip">
@@ -13688,40 +13867,34 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="4">
-                <widget class="QLineEdit" name="c1_max_limit_1">
-                 <property name="toolTip">
-                  <string>Maximum Travel Limit</string>
+               <item row="0" column="5">
+                <widget class="QLabel" name="label_219">
+                 <property name="text">
+                  <string>Max Vel</string>
                  </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="2">
+                <widget class="QLineEdit" name="c1_scale_1">
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="3">
-                <widget class="QLabel" name="label_217">
-                 <property name="text">
-                  <string>Min Limit</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
+               <item row="1" column="0">
+                <widget class="QComboBox" name="c1_axis_1">
+                 <property name="toolTip">
+                  <string>Axis Letter</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="0">
-                <widget class="QLabel" name="label_218">
+               <item row="0" column="2">
+                <widget class="QLabel" name="label_222">
                  <property name="text">
-                  <string>Axis</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="5">
-                <widget class="QLabel" name="label_219">
-                 <property name="text">
-                  <string>Max Vel</string>
+                  <string>Scale</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
@@ -13747,23 +13920,23 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="6">
-                <widget class="QLabel" name="label_220">
+               <item row="0" column="4">
+                <widget class="QLabel" name="label_216">
                  <property name="text">
-                  <string>Max Accel</string>
+                  <string>Max Limit</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="5">
-                <widget class="QLineEdit" name="c1_max_vel_1">
-                 <property name="toolTip">
-                  <string>Maximum Velocity in Units per Second</string>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_218">
+                 <property name="text">
+                  <string>Axis</string>
                  </property>
                  <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  <set>Qt::AlignCenter</set>
                  </property>
                 </widget>
                </item>
@@ -13777,7 +13950,37 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="6">
+               <item row="1" column="4">
+                <widget class="QLineEdit" name="c1_max_limit_1">
+                 <property name="toolTip">
+                  <string>Maximum Travel Limit</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="5">
+                <widget class="QLineEdit" name="c1_max_vel_1">
+                 <property name="toolTip">
+                  <string>Maximum Velocity in Units per Second</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="7">
+                <widget class="QLabel" name="label_220">
+                 <property name="text">
+                  <string>Max Accel</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="7">
                 <widget class="QLineEdit" name="c1_max_accel_1">
                  <property name="toolTip">
                   <string>Maximum Acceleration in Units per Second per Second</string>
@@ -13787,27 +13990,40 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="0">
-                <widget class="QComboBox" name="c1_axis_1">
-                 <property name="toolTip">
-                  <string>Axis Letter</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="2">
-                <widget class="QLineEdit" name="c1_scale_1">
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="2">
-                <widget class="QLabel" name="label_222">
+               <item row="1" column="6">
+                <widget class="QLabel" name="c1_max_vel_suffix_1">
                  <property name="text">
-                  <string>Scale</string>
+                  <string>N/A</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="3">
+                <widget class="QLabel" name="label_217">
+                 <property name="text">
+                  <string>Min Limit</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="6">
+                <widget class="QLabel" name="c1_max_vel_min_suffix_1">
+                 <property name="text">
+                  <string>N/A</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="5">
+                <widget class="QLabel" name="c1_max_vel_min_1">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
@@ -15119,80 +15335,13 @@ Leave blank to home the joint manually.</string>
                <string>Axis</string>
               </property>
               <layout class="QGridLayout" name="gridLayout_83">
-               <item row="1" column="4">
-                <widget class="QLineEdit" name="c1_max_limit_2">
-                 <property name="toolTip">
-                  <string>Maximum Travel Limit</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="6">
+               <item row="1" column="7">
                 <widget class="QLineEdit" name="c1_max_accel_2">
                  <property name="toolTip">
                   <string>Maximum Acceleration in Units per Second per Second</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="5">
-                <widget class="QLabel" name="label_319">
-                 <property name="text">
-                  <string>Max Vel</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="5">
-                <widget class="QLineEdit" name="c1_max_vel_2">
-                 <property name="toolTip">
-                  <string>Maximum Velocity in Units per Second</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="3">
-                <widget class="QLabel" name="label_317">
-                 <property name="text">
-                  <string>Min Limit</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="1">
-                <widget class="QLabel" name="label_321">
-                 <property name="text">
-                  <string>Type</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="2">
-                <widget class="QLineEdit" name="c1_scale_2">
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="0">
-                <widget class="QLabel" name="label_318">
-                 <property name="text">
-                  <string>Axis</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
                  </property>
                 </widget>
                </item>
@@ -15215,10 +15364,74 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="2">
-                <widget class="QLabel" name="label_322">
+               <item row="0" column="7">
+                <widget class="QLabel" name="label_320">
                  <property name="text">
-                  <string>Scale</string>
+                  <string>Max Accel</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_318">
+                 <property name="text">
+                  <string>Axis</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="2">
+                <widget class="QLineEdit" name="c1_scale_2">
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="4">
+                <widget class="QLineEdit" name="c1_max_limit_2">
+                 <property name="toolTip">
+                  <string>Maximum Travel Limit</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="3">
+                <widget class="QLineEdit" name="c1_min_limit_2">
+                 <property name="toolTip">
+                  <string>Mininum Travel Limit</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="label_321">
+                 <property name="text">
+                  <string>Type</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QComboBox" name="c1_axis_2">
+                 <property name="toolTip">
+                  <string>Axis Letter</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="5">
+                <widget class="QLabel" name="label_319">
+                 <property name="text">
+                  <string>Max Vel</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
@@ -15235,30 +15448,60 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="0">
-                <widget class="QComboBox" name="c1_axis_2">
-                 <property name="toolTip">
-                  <string>Axis Letter</string>
+               <item row="1" column="6">
+                <widget class="QLabel" name="c1_max_vel_suffix_2">
+                 <property name="text">
+                  <string>N/A</string>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="3">
-                <widget class="QLineEdit" name="c1_min_limit_2">
+               <item row="0" column="2">
+                <widget class="QLabel" name="label_322">
+                 <property name="text">
+                  <string>Scale</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="3">
+                <widget class="QLabel" name="label_317">
+                 <property name="text">
+                  <string>Min Limit</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="5">
+                <widget class="QLineEdit" name="c1_max_vel_2">
                  <property name="toolTip">
-                  <string>Mininum Travel Limit</string>
+                  <string>Maximum Velocity in Units per Second</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="6">
-                <widget class="QLabel" name="label_320">
+               <item row="2" column="6">
+                <widget class="QLabel" name="c1_max_vel_min_suffix_2">
                  <property name="text">
-                  <string>Max Accel</string>
+                  <string>N/A</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="5">
+                <widget class="QLabel" name="c1_max_vel_min_2">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string/>
                  </property>
                  <property name="alignment">
-                  <set>Qt::AlignCenter</set>
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
@@ -16570,16 +16813,6 @@ Leave blank to home the joint manually.</string>
                <string>Axis</string>
               </property>
               <layout class="QGridLayout" name="gridLayout_92">
-               <item row="0" column="4">
-                <widget class="QLabel" name="label_353">
-                 <property name="text">
-                  <string>Max Limit</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
                <item row="1" column="3">
                 <widget class="QLineEdit" name="c1_min_limit_3">
                  <property name="toolTip">
@@ -16590,40 +16823,30 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="4">
-                <widget class="QLineEdit" name="c1_max_limit_3">
-                 <property name="toolTip">
-                  <string>Maximum Travel Limit</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="3">
-                <widget class="QLabel" name="label_354">
+               <item row="0" column="4">
+                <widget class="QLabel" name="label_353">
                  <property name="text">
-                  <string>Min Limit</string>
+                  <string>Max Limit</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="0">
-                <widget class="QLabel" name="label_355">
+               <item row="0" column="7">
+                <widget class="QLabel" name="label_357">
                  <property name="text">
-                  <string>Axis</string>
+                  <string>Max Accel</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="5">
-                <widget class="QLabel" name="label_356">
+               <item row="0" column="2">
+                <widget class="QLabel" name="label_360">
                  <property name="text">
-                  <string>Max Vel</string>
+                  <string>Scale</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
@@ -16649,20 +16872,74 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="6">
-                <widget class="QLabel" name="label_357">
+               <item row="1" column="5">
+                <widget class="QLineEdit" name="c1_max_vel_3">
+                 <property name="toolTip">
+                  <string>Maximum Velocity in Units per Second</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="2">
+                <widget class="QLineEdit" name="c1_scale_3">
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="4">
+                <widget class="QLineEdit" name="c1_max_limit_3">
+                 <property name="toolTip">
+                  <string>Maximum Travel Limit</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QComboBox" name="c1_axis_3">
+                 <property name="toolTip">
+                  <string>Axis Letter</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_355">
                  <property name="text">
-                  <string>Max Accel</string>
+                  <string>Axis</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="5">
-                <widget class="QLineEdit" name="c1_max_vel_3">
+               <item row="0" column="5">
+                <widget class="QLabel" name="label_356">
+                 <property name="text">
+                  <string>Max Vel</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="3">
+                <widget class="QLabel" name="label_354">
+                 <property name="text">
+                  <string>Min Limit</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="7">
+                <widget class="QLineEdit" name="c1_max_accel_3">
                  <property name="toolTip">
-                  <string>Maximum Velocity in Units per Second</string>
+                  <string>Maximum Acceleration in Units per Second per Second</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -16680,36 +16957,29 @@ Leave blank to home the joint manually.</string>
                 </widget>
                </item>
                <item row="1" column="6">
-                <widget class="QLineEdit" name="c1_max_accel_3">
-                 <property name="toolTip">
-                  <string>Maximum Acceleration in Units per Second per Second</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="0">
-                <widget class="QComboBox" name="c1_axis_3">
-                 <property name="toolTip">
-                  <string>Axis Letter</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="2">
-                <widget class="QLineEdit" name="c1_scale_3">
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="2">
-                <widget class="QLabel" name="label_360">
+                <widget class="QLabel" name="c1_max_vel_suffix_3">
                  <property name="text">
-                  <string>Scale</string>
+                  <string>N/A</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="6">
+                <widget class="QLabel" name="c1_max_vel_min_suffix_3">
+                 <property name="text">
+                  <string>N/A</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="5">
+                <widget class="QLabel" name="c1_max_vel_min_3">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string/>
                  </property>
                  <property name="alignment">
-                  <set>Qt::AlignCenter</set>
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
@@ -18021,10 +18291,10 @@ Leave blank to home the joint manually.</string>
                <string>Axis</string>
               </property>
               <layout class="QGridLayout" name="gridLayout_101">
-               <item row="0" column="4">
-                <widget class="QLabel" name="label_391">
+               <item row="0" column="3">
+                <widget class="QLabel" name="label_392">
                  <property name="text">
-                  <string>Max Limit</string>
+                  <string>Min Limit</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
@@ -18041,6 +18311,23 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="label_396">
+                 <property name="text">
+                  <string>Type</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="2">
+                <widget class="QLineEdit" name="c1_scale_4">
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
                <item row="1" column="4">
                 <widget class="QLineEdit" name="c1_max_limit_4">
                  <property name="toolTip">
@@ -18048,36 +18335,6 @@ Leave blank to home the joint manually.</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="3">
-                <widget class="QLabel" name="label_392">
-                 <property name="text">
-                  <string>Min Limit</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="0">
-                <widget class="QLabel" name="label_393">
-                 <property name="text">
-                  <string>Axis</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="5">
-                <widget class="QLabel" name="label_394">
-                 <property name="text">
-                  <string>Max Vel</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
                  </property>
                 </widget>
                </item>
@@ -18100,16 +18357,6 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="6">
-                <widget class="QLabel" name="label_395">
-                 <property name="text">
-                  <string>Max Accel</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
                <item row="1" column="5">
                 <widget class="QLineEdit" name="c1_max_vel_4">
                  <property name="toolTip">
@@ -18120,37 +18367,23 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="1">
-                <widget class="QLabel" name="label_396">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_393">
                  <property name="text">
-                  <string>Type</string>
+                  <string>Axis</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="6">
-                <widget class="QLineEdit" name="c1_max_accel_4">
-                 <property name="toolTip">
-                  <string>Maximum Acceleration in Units per Second per Second</string>
+               <item row="0" column="7">
+                <widget class="QLabel" name="label_395">
+                 <property name="text">
+                  <string>Max Accel</string>
                  </property>
                  <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="0">
-                <widget class="QComboBox" name="c1_axis_4">
-                 <property name="toolTip">
-                  <string>Axis Letter</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="2">
-                <widget class="QLineEdit" name="c1_scale_4">
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  <set>Qt::AlignCenter</set>
                  </property>
                 </widget>
                </item>
@@ -18161,6 +18394,70 @@ Leave blank to home the joint manually.</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="7">
+                <widget class="QLineEdit" name="c1_max_accel_4">
+                 <property name="toolTip">
+                  <string>Maximum Acceleration in Units per Second per Second</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="6">
+                <widget class="QLabel" name="c1_max_vel_suffix_4">
+                 <property name="text">
+                  <string>N/A</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="4">
+                <widget class="QLabel" name="label_391">
+                 <property name="text">
+                  <string>Max Limit</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="5">
+                <widget class="QLabel" name="label_394">
+                 <property name="text">
+                  <string>Max Vel</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QComboBox" name="c1_axis_4">
+                 <property name="toolTip">
+                  <string>Axis Letter</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="6">
+                <widget class="QLabel" name="c1_max_vel_min_suffix_4">
+                 <property name="text">
+                  <string>N/A</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="5">
+                <widget class="QLabel" name="c1_max_vel_min_4">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
@@ -19482,30 +19779,20 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="3">
-                <widget class="QLabel" name="label_429">
-                 <property name="text">
-                  <string>Min Limit</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="2">
-                <widget class="QLabel" name="label_434">
-                 <property name="text">
-                  <string>Scale</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
                <item row="0" column="5">
                 <widget class="QLabel" name="label_431">
                  <property name="text">
                   <string>Max Vel</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="label_433">
+                 <property name="text">
+                  <string>Type</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
@@ -19522,6 +19809,77 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
+               <item row="1" column="7">
+                <widget class="QLineEdit" name="c1_max_accel_5">
+                 <property name="toolTip">
+                  <string>Maximum Acceleration in Units per Second per Second</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="7">
+                <widget class="QLabel" name="label_432">
+                 <property name="text">
+                  <string>Max Accel</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="2">
+                <widget class="QLineEdit" name="c1_scale_5">
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="6">
+                <widget class="QLabel" name="c1_max_vel_suffix_5">
+                 <property name="text">
+                  <string>N/A</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QLabel" name="label_434">
+                 <property name="text">
+                  <string>Scale</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="5">
+                <widget class="QLineEdit" name="c1_max_vel_5">
+                 <property name="toolTip">
+                  <string>Maximum Velocity in Units per Second</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="3">
+                <widget class="QLabel" name="label_429">
+                 <property name="text">
+                  <string>Min Limit</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QComboBox" name="c1_axis_5">
+                 <property name="toolTip">
+                  <string>Axis Letter</string>
+                 </property>
+                </widget>
+               </item>
                <item row="0" column="0">
                 <widget class="QLabel" name="label_430">
                  <property name="text">
@@ -19529,6 +19887,16 @@ Leave blank to home the joint manually.</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="4">
+                <widget class="QLineEdit" name="c1_max_limit_5">
+                 <property name="toolTip">
+                  <string>Maximum Travel Limit</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
@@ -19551,64 +19919,20 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="6">
-                <widget class="QLineEdit" name="c1_max_accel_5">
-                 <property name="toolTip">
-                  <string>Maximum Acceleration in Units per Second per Second</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="5">
-                <widget class="QLineEdit" name="c1_max_vel_5">
-                 <property name="toolTip">
-                  <string>Maximum Velocity in Units per Second</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="6">
-                <widget class="QLabel" name="label_432">
+               <item row="2" column="6">
+                <widget class="QLabel" name="c1_max_vel_min_suffix_5">
                  <property name="text">
-                  <string>Max Accel</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
+                  <string>N/A</string>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="0">
-                <widget class="QComboBox" name="c1_axis_5">
-                 <property name="toolTip">
-                  <string>Axis Letter</string>
+               <item row="2" column="5">
+                <widget class="QLabel" name="c1_max_vel_min_5">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
                  </property>
-                </widget>
-               </item>
-               <item row="0" column="1">
-                <widget class="QLabel" name="label_433">
                  <property name="text">
-                  <string>Type</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="2">
-                <widget class="QLineEdit" name="c1_scale_5">
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="4">
-                <widget class="QLineEdit" name="c1_max_limit_5">
-                 <property name="toolTip">
-                  <string>Maximum Travel Limit</string>
+                  <string/>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -22427,39 +22751,20 @@ Leave blank to home the joint manually.</string>
                <string>Axis</string>
               </property>
               <layout class="QGridLayout" name="gridLayout_144">
-               <item row="0" column="4">
-                <widget class="QLabel" name="label_465">
+               <item row="0" column="5">
+                <widget class="QLabel" name="label_468">
                  <property name="text">
-                  <string>Max Limit</string>
+                  <string>Max Vel</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="3">
-                <widget class="QLineEdit" name="c2_min_limit_0">
-                 <property name="toolTip">
-                  <string>Mininum Travel Limit</string>
-                 </property>
-                 <property name="statusTip">
-                  <string/>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="4">
-                <widget class="QLineEdit" name="c2_max_limit_0">
-                 <property name="toolTip">
-                  <string>Maximum Travel Limit</string>
-                 </property>
-                 <property name="statusTip">
-                  <string/>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               <item row="1" column="6">
+                <widget class="QLabel" name="c2_max_vel_suffix_0">
+                 <property name="text">
+                  <string>N/A</string>
                  </property>
                 </widget>
                </item>
@@ -22473,20 +22778,50 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="0">
-                <widget class="QLabel" name="label_467">
+               <item row="1" column="7">
+                <widget class="QLineEdit" name="c2_max_accel_0">
+                 <property name="toolTip">
+                  <string>Maximum Acceleration in Units per Second per Second</string>
+                 </property>
+                 <property name="statusTip">
+                  <string/>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="4">
+                <widget class="QLabel" name="label_465">
                  <property name="text">
-                  <string>Axis</string>
+                  <string>Max Limit</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="5">
-                <widget class="QLabel" name="label_468">
+               <item row="0" column="7">
+                <widget class="QLabel" name="label_469">
                  <property name="text">
-                  <string>Max Vel</string>
+                  <string>Max Accel</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QComboBox" name="c2_axis_0">
+                 <property name="toolTip">
+                  <string>Axis Letter</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QLabel" name="label_471">
+                 <property name="text">
+                  <string>Scale</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
@@ -22512,13 +22847,56 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="6">
-                <widget class="QLabel" name="label_469">
+               <item row="1" column="2">
+                <widget class="QLineEdit" name="c2_scale_0">
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="4">
+                <widget class="QLineEdit" name="c2_max_limit_0">
+                 <property name="toolTip">
+                  <string>Maximum Travel Limit</string>
+                 </property>
+                 <property name="statusTip">
+                  <string/>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_467">
                  <property name="text">
-                  <string>Max Accel</string>
+                  <string>Axis</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="label_470">
+                 <property name="text">
+                  <string>Type</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="3">
+                <widget class="QLineEdit" name="c2_min_limit_0">
+                 <property name="toolTip">
+                  <string>Mininum Travel Limit</string>
+                 </property>
+                 <property name="statusTip">
+                  <string/>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
@@ -22535,50 +22913,23 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="1">
-                <widget class="QLabel" name="label_470">
+               <item row="2" column="6">
+                <widget class="QLabel" name="c2_max_vel_min_suffix_0">
                  <property name="text">
-                  <string>Type</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
+                  <string>N/A</string>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="6">
-                <widget class="QLineEdit" name="c2_max_accel_0">
-                 <property name="toolTip">
-                  <string>Maximum Acceleration in Units per Second per Second</string>
+               <item row="2" column="5">
+                <widget class="QLabel" name="c2_max_vel_min_0">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
                  </property>
-                 <property name="statusTip">
+                 <property name="text">
                   <string/>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="0">
-                <widget class="QComboBox" name="c2_axis_0">
-                 <property name="toolTip">
-                  <string>Axis Letter</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="2">
-                <widget class="QLineEdit" name="c2_scale_0">
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="2">
-                <widget class="QLabel" name="label_471">
-                 <property name="text">
-                  <string>Scale</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
                  </property>
                 </widget>
                </item>
@@ -23890,10 +24241,71 @@ Leave blank to home the joint manually.</string>
                <string>Axis</string>
               </property>
               <layout class="QGridLayout" name="gridLayout_155">
-               <item row="0" column="4">
-                <widget class="QLabel" name="label_502">
+               <item row="0" column="7">
+                <widget class="QLabel" name="label_506">
                  <property name="text">
-                  <string>Max Limit</string>
+                  <string>Max Accel</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="7">
+                <widget class="QLineEdit" name="c2_max_accel_1">
+                 <property name="toolTip">
+                  <string>Maximum Acceleration in Units per Second per Second</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QLabel" name="label_508">
+                 <property name="text">
+                  <string>Scale</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="5">
+                <widget class="QLabel" name="label_505">
+                 <property name="text">
+                  <string>Max Vel</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QComboBox" name="c2_axis_1">
+                 <property name="toolTip">
+                  <string>Axis Letter</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="2">
+                <widget class="QLineEdit" name="c2_scale_1">
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="6">
+                <widget class="QLabel" name="c2_max_vel_suffix_1">
+                 <property name="text">
+                  <string>N/A</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="3">
+                <widget class="QLabel" name="label_503">
+                 <property name="text">
+                  <string>Min Limit</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
@@ -23910,6 +24322,16 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
+               <item row="0" column="4">
+                <widget class="QLabel" name="label_502">
+                 <property name="text">
+                  <string>Max Limit</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
                <item row="1" column="4">
                 <widget class="QLineEdit" name="c2_max_limit_1">
                  <property name="toolTip">
@@ -23920,10 +24342,10 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="3">
-                <widget class="QLabel" name="label_503">
+               <item row="0" column="1">
+                <widget class="QLabel" name="label_507">
                  <property name="text">
-                  <string>Min Limit</string>
+                  <string>Type</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
@@ -23934,16 +24356,6 @@ Leave blank to home the joint manually.</string>
                 <widget class="QLabel" name="label_504">
                  <property name="text">
                   <string>Axis</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="5">
-                <widget class="QLabel" name="label_505">
-                 <property name="text">
-                  <string>Max Vel</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
@@ -23969,16 +24381,6 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="6">
-                <widget class="QLabel" name="label_506">
-                 <property name="text">
-                  <string>Max Accel</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
                <item row="1" column="5">
                 <widget class="QLineEdit" name="c2_max_vel_1">
                  <property name="toolTip">
@@ -23989,47 +24391,23 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="1">
-                <widget class="QLabel" name="label_507">
+               <item row="2" column="6">
+                <widget class="QLabel" name="c2_max_vel_min_suffix_1">
                  <property name="text">
-                  <string>Type</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
+                  <string>N/A</string>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="6">
-                <widget class="QLineEdit" name="c2_max_accel_1">
-                 <property name="toolTip">
-                  <string>Maximum Acceleration in Units per Second per Second</string>
+               <item row="2" column="5">
+                <widget class="QLabel" name="c2_max_vel_min_1">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string/>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="0">
-                <widget class="QComboBox" name="c2_axis_1">
-                 <property name="toolTip">
-                  <string>Axis Letter</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="2">
-                <widget class="QLineEdit" name="c2_scale_1">
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="2">
-                <widget class="QLabel" name="label_508">
-                 <property name="text">
-                  <string>Scale</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
                  </property>
                 </widget>
                </item>
@@ -25341,23 +25719,23 @@ Leave blank to home the joint manually.</string>
                <string>Axis</string>
               </property>
               <layout class="QGridLayout" name="gridLayout_166">
-               <item row="0" column="4">
-                <widget class="QLabel" name="label_539">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_541">
                  <property name="text">
-                  <string>Max Limit</string>
+                  <string>Axis</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="3">
-                <widget class="QLineEdit" name="c2_min_limit_2">
-                 <property name="toolTip">
-                  <string>Mininum Travel Limit</string>
+               <item row="0" column="1">
+                <widget class="QLabel" name="label_544">
+                 <property name="text">
+                  <string>Type</string>
                  </property>
                  <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  <set>Qt::AlignCenter</set>
                  </property>
                 </widget>
                </item>
@@ -25371,33 +25749,27 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="3">
-                <widget class="QLabel" name="label_540">
+               <item row="0" column="4">
+                <widget class="QLabel" name="label_539">
                  <property name="text">
-                  <string>Min Limit</string>
+                  <string>Max Limit</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="0">
-                <widget class="QLabel" name="label_541">
-                 <property name="text">
-                  <string>Axis</string>
-                 </property>
+               <item row="1" column="2">
+                <widget class="QLineEdit" name="c2_scale_2">
                  <property name="alignment">
-                  <set>Qt::AlignCenter</set>
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="5">
-                <widget class="QLabel" name="label_542">
+               <item row="1" column="6">
+                <widget class="QLabel" name="c2_max_vel_suffix_2">
                  <property name="text">
-                  <string>Max Vel</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
+                  <string>N/A</string>
                  </property>
                 </widget>
                </item>
@@ -25420,10 +25792,30 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="6">
+               <item row="0" column="5">
+                <widget class="QLabel" name="label_542">
+                 <property name="text">
+                  <string>Max Vel</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="7">
                 <widget class="QLabel" name="label_543">
                  <property name="text">
                   <string>Max Accel</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="3">
+                <widget class="QLabel" name="label_540">
+                 <property name="text">
+                  <string>Min Limit</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
@@ -25440,35 +25832,21 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="1">
-                <widget class="QLabel" name="label_544">
-                 <property name="text">
-                  <string>Type</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="6">
-                <widget class="QLineEdit" name="c2_max_accel_2">
+               <item row="1" column="3">
+                <widget class="QLineEdit" name="c2_min_limit_2">
                  <property name="toolTip">
-                  <string>Maximum Acceleration in Units per Second per Second</string>
+                  <string>Mininum Travel Limit</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="0">
-                <widget class="QComboBox" name="c2_axis_2">
+               <item row="1" column="7">
+                <widget class="QLineEdit" name="c2_max_accel_2">
                  <property name="toolTip">
-                  <string>Axis Letter</string>
+                  <string>Maximum Acceleration in Units per Second per Second</string>
                  </property>
-                </widget>
-               </item>
-               <item row="1" column="2">
-                <widget class="QLineEdit" name="c2_scale_2">
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
@@ -25481,6 +25859,33 @@ Leave blank to home the joint manually.</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QComboBox" name="c2_axis_2">
+                 <property name="toolTip">
+                  <string>Axis Letter</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="6">
+                <widget class="QLabel" name="c2_max_vel_min_suffix_2">
+                 <property name="text">
+                  <string>N/A</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="5">
+                <widget class="QLabel" name="c2_max_vel_min_2">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
@@ -26802,11 +27207,38 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="3">
-                <widget class="QLineEdit" name="c2_min_limit_3">
-                 <property name="toolTip">
-                  <string>Mininum Travel Limit</string>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_578">
+                 <property name="text">
+                  <string>Axis</string>
                  </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="7">
+                <widget class="QLabel" name="label_580">
+                 <property name="text">
+                  <string>Max Accel</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="7">
+                <widget class="QLineEdit" name="c2_max_accel_3">
+                 <property name="toolTip">
+                  <string>Maximum Acceleration in Units per Second per Second</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="2">
+                <widget class="QLineEdit" name="c2_scale_3">
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
@@ -26822,20 +27254,27 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="3">
-                <widget class="QLabel" name="label_577">
-                 <property name="text">
-                  <string>Min Limit</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
+               <item row="1" column="0">
+                <widget class="QComboBox" name="c2_axis_3">
+                 <property name="toolTip">
+                  <string>Axis Letter</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="0">
-                <widget class="QLabel" name="label_578">
+               <item row="1" column="3">
+                <widget class="QLineEdit" name="c2_min_limit_3">
+                 <property name="toolTip">
+                  <string>Mininum Travel Limit</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="label_581">
                  <property name="text">
-                  <string>Axis</string>
+                  <string>Type</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
@@ -26846,6 +27285,26 @@ Leave blank to home the joint manually.</string>
                 <widget class="QLabel" name="label_579">
                  <property name="text">
                   <string>Max Vel</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="3">
+                <widget class="QLabel" name="label_577">
+                 <property name="text">
+                  <string>Min Limit</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QLabel" name="label_582">
+                 <property name="text">
+                  <string>Scale</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
@@ -26871,16 +27330,6 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="6">
-                <widget class="QLabel" name="label_580">
-                 <property name="text">
-                  <string>Max Accel</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
                <item row="1" column="5">
                 <widget class="QLineEdit" name="c2_max_vel_3">
                  <property name="toolTip">
@@ -26891,47 +27340,30 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="1">
-                <widget class="QLabel" name="label_581">
-                 <property name="text">
-                  <string>Type</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
                <item row="1" column="6">
-                <widget class="QLineEdit" name="c2_max_accel_3">
-                 <property name="toolTip">
-                  <string>Maximum Acceleration in Units per Second per Second</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="0">
-                <widget class="QComboBox" name="c2_axis_3">
-                 <property name="toolTip">
-                  <string>Axis Letter</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="2">
-                <widget class="QLineEdit" name="c2_scale_3">
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="2">
-                <widget class="QLabel" name="label_582">
+                <widget class="QLabel" name="c2_max_vel_suffix_3">
                  <property name="text">
-                  <string>Scale</string>
+                  <string>N/A</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="6">
+                <widget class="QLabel" name="c2_max_vel_min_suffix_3">
+                 <property name="text">
+                  <string>N/A</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="5">
+                <widget class="QLabel" name="c2_max_vel_min_3">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string/>
                  </property>
                  <property name="alignment">
-                  <set>Qt::AlignCenter</set>
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
@@ -28243,10 +28675,74 @@ Leave blank to home the joint manually.</string>
                <string>Axis</string>
               </property>
               <layout class="QGridLayout" name="gridLayout_209">
+               <item row="0" column="2">
+                <widget class="QLabel" name="label_619">
+                 <property name="text">
+                  <string>Scale</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="7">
+                <widget class="QLineEdit" name="c2_max_accel_4">
+                 <property name="toolTip">
+                  <string>Maximum Acceleration in Units per Second per Second</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
                <item row="0" column="4">
                 <widget class="QLabel" name="label_613">
                  <property name="text">
                   <string>Max Limit</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="3">
+                <widget class="QLabel" name="label_614">
+                 <property name="text">
+                  <string>Min Limit</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QComboBox" name="c2_axis_4">
+                 <property name="toolTip">
+                  <string>Axis Letter</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="5">
+                <widget class="QLabel" name="label_616">
+                 <property name="text">
+                  <string>Max Vel</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="2">
+                <widget class="QLineEdit" name="c2_scale_4">
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="label_618">
+                 <property name="text">
+                  <string>Type</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
@@ -28273,30 +28769,10 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="3">
-                <widget class="QLabel" name="label_614">
-                 <property name="text">
-                  <string>Min Limit</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
                <item row="0" column="0">
                 <widget class="QLabel" name="label_615">
                  <property name="text">
                   <string>Axis</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="5">
-                <widget class="QLabel" name="label_616">
-                 <property name="text">
-                  <string>Max Vel</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
@@ -28322,16 +28798,6 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="6">
-                <widget class="QLabel" name="label_617">
-                 <property name="text">
-                  <string>Max Accel</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
                <item row="1" column="5">
                 <widget class="QLineEdit" name="c2_max_vel_4">
                  <property name="toolTip">
@@ -28342,10 +28808,10 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="1">
-                <widget class="QLabel" name="label_618">
+               <item row="0" column="7">
+                <widget class="QLabel" name="label_617">
                  <property name="text">
-                  <string>Type</string>
+                  <string>Max Accel</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
@@ -28353,36 +28819,29 @@ Leave blank to home the joint manually.</string>
                 </widget>
                </item>
                <item row="1" column="6">
-                <widget class="QLineEdit" name="c2_max_accel_4">
-                 <property name="toolTip">
-                  <string>Maximum Acceleration in Units per Second per Second</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="0">
-                <widget class="QComboBox" name="c2_axis_4">
-                 <property name="toolTip">
-                  <string>Axis Letter</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="2">
-                <widget class="QLineEdit" name="c2_scale_4">
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="2">
-                <widget class="QLabel" name="label_619">
+                <widget class="QLabel" name="c2_max_vel_suffix_4">
                  <property name="text">
-                  <string>Scale</string>
+                  <string>N/A</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="6">
+                <widget class="QLabel" name="c2_max_vel_min_suffix_4">
+                 <property name="text">
+                  <string>N/A</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="5">
+                <widget class="QLabel" name="c2_max_vel_min_4">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string/>
                  </property>
                  <property name="alignment">
-                  <set>Qt::AlignCenter</set>
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
@@ -29694,6 +30153,16 @@ Leave blank to home the joint manually.</string>
                <string>Axis</string>
               </property>
               <layout class="QGridLayout" name="gridLayout_222">
+               <item row="0" column="2">
+                <widget class="QLabel" name="label_656">
+                 <property name="text">
+                  <string>Scale</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
                <item row="0" column="4">
                 <widget class="QLabel" name="label_650">
                  <property name="text">
@@ -29714,26 +30183,6 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="4">
-                <widget class="QLineEdit" name="c2_max_limit_5">
-                 <property name="toolTip">
-                  <string>Maximum Travel Limit</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="3">
-                <widget class="QLabel" name="label_651">
-                 <property name="text">
-                  <string>Min Limit</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
                <item row="0" column="0">
                 <widget class="QLabel" name="label_652">
                  <property name="text">
@@ -29744,13 +30193,13 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="5">
-                <widget class="QLabel" name="label_653">
-                 <property name="text">
-                  <string>Max Vel</string>
+               <item row="1" column="4">
+                <widget class="QLineEdit" name="c2_max_limit_5">
+                 <property name="toolTip">
+                  <string>Maximum Travel Limit</string>
                  </property>
                  <property name="alignment">
-                  <set>Qt::AlignCenter</set>
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
@@ -29773,7 +30222,24 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="6">
+               <item row="1" column="5">
+                <widget class="QLineEdit" name="c2_max_vel_5">
+                 <property name="toolTip">
+                  <string>Maximum Velocity in Units per Second</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="2">
+                <widget class="QLineEdit" name="c2_scale_5">
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="7">
                 <widget class="QLabel" name="label_654">
                  <property name="text">
                   <string>Max Accel</string>
@@ -29783,13 +30249,47 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="5">
-                <widget class="QLineEdit" name="c2_max_vel_5">
+               <item row="1" column="7">
+                <widget class="QLineEdit" name="c2_max_accel_5">
                  <property name="toolTip">
-                  <string>Maximum Velocity in Units per Second</string>
+                  <string>Maximum Acceleration in Units per Second per Second</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="3">
+                <widget class="QLabel" name="label_651">
+                 <property name="text">
+                  <string>Min Limit</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QComboBox" name="c2_axis_5">
+                 <property name="toolTip">
+                  <string>Axis Letter</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="6">
+                <widget class="QLabel" name="c2_max_vel_suffix_5">
+                 <property name="text">
+                  <string>N/A</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="5">
+                <widget class="QLabel" name="label_653">
+                 <property name="text">
+                  <string>Max Vel</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
                  </property>
                 </widget>
                </item>
@@ -29803,37 +30303,23 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="6">
-                <widget class="QLineEdit" name="c2_max_accel_5">
-                 <property name="toolTip">
-                  <string>Maximum Acceleration in Units per Second per Second</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="0">
-                <widget class="QComboBox" name="c2_axis_5">
-                 <property name="toolTip">
-                  <string>Axis Letter</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="2">
-                <widget class="QLineEdit" name="c2_scale_5">
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="2">
-                <widget class="QLabel" name="label_656">
+               <item row="2" column="6">
+                <widget class="QLabel" name="c2_max_vel_min_suffix_5">
                  <property name="text">
-                  <string>Scale</string>
+                  <string>N/A</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="5">
+                <widget class="QLabel" name="c2_max_vel_min_5">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string/>
                  </property>
                  <property name="alignment">
-                  <set>Qt::AlignCenter</set>
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
@@ -42608,8 +43094,8 @@ to File Open in Axis</string>
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>98</width>
-                    <height>28</height>
+                    <width>36</width>
+                    <height>18</height>
                    </rect>
                   </property>
                   <layout class="QGridLayout" name="mdiCommandsListGL"/>

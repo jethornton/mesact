@@ -48,40 +48,44 @@ def getPassword(parent):
 
 def unitsChanged(parent):
 	if not parent.linearUnitsCB.currentData():
-		unitsSecond = ''
-		unitsMinute = ''
 		for i in range(3):
 			getattr(parent, f'unitsLB_{i}').setText('Select Units\nSettings Tab')
-		for i in range(6):
-			for j in range(3): # <-- change when more cards are added
-				getattr(parent, f'c{j}_max_vel_{i}').setPlaceholderText('')
-				getattr(parent, f'c{j}_max_accel_{i}').setPlaceholderText('')
-		return
+		parent.units_second = 'N/A'
+		parent.units_second2 = 'N/A'
+		parent.units_minute = 'N/A'
 	if parent.linearUnitsCB.currentData() == 'mm':
-		units_second = 'mm/sec'
-		units_second2 = 'mm/sec^2'
-		units_minute = 'mm/min'
+		parent.units_second = 'mm/s'
+		parent.units_second2 = 'mm/s^2'
+		parent.units_minute = 'mm/m'
 	elif parent.linearUnitsCB.currentData() == 'inch':
-		units_second = 'inch/sec'
-		units_second2 = 'inch/sec^2'
-		units_minute = 'inch/min'
+		parent.units_second = 'in/s'
+		parent.units_second2 = 'i/s^2'
+		parent.units_minute = 'in/m'
+
+	for i in range(3): # cards
+		for j in range(6): # drives
+			getattr(parent, f'c{i}_max_vel_suffix_{j}').setText(parent.units_second)
+			getattr(parent, f'c{i}_max_vel_min_suffix_{j}').setText(parent.units_minute)
+
+	# c0_max_vel_suffix_0
+	parent.c0_max_vel_min_suffix_0.setText(parent.units_minute)
 	for i in range(6):
 		for j in range(3): # <-- change when more cards are added
-			getattr(parent, f'c{j}_max_vel_{i}').setPlaceholderText(units_second)
-			getattr(parent, f'c{j}_max_accel_{i}').setPlaceholderText(units_second2)
+			getattr(parent, f'c{j}_max_vel_{i}').setPlaceholderText(parent.units_second)
+			getattr(parent, f'c{j}_max_accel_{i}').setPlaceholderText(parent.units_second2)
 	for i in range(3):
-		getattr(parent, f'unitsLB_{i}').setText(f'Vel & Acc\n{units_second}')
-	parent.max_lin_vel_lb.setText(f'{units_second}')
-	#parent.trajMaxLinVelDSB.setSuffix(f' {units_second}')
-	parent.min_lin_jog_lb.setText(f'{units_second}')
-	parent.default_lin_jog_lb.setText(f'{units_second}')
-	parent.max_lin_jog_lb.setText(f'{units_second}')
-	#parent.minLinJogVelDSB.setSuffix(f' {units_second}')
-	#parent.defLinJogVelDSB.setSuffix(f' {units_second}')
-	#parent.maxLinJogVelDSB.setSuffix(f' {units_second}')
-	parent.minLinearVelLB.setText(f'{parent.minLinJogVelDSB.value() * 60:.1f} {units_minute}')
-	parent.defLinearVelLB.setText(f'{parent.defLinJogVelDSB.value() * 60:.1f} {units_minute}')
-	parent.maxLinearVelLB.setText(f'{parent.maxLinJogVelDSB.value() * 60:.1f} {units_minute}')
+		getattr(parent, f'unitsLB_{i}').setText(f'Vel & Acc\n{parent.units_second}')
+	parent.max_lin_vel_lb.setText(f'{parent.units_second}')
+	#parent.trajMaxLinVelDSB.setSuffix(f' {parent.units_second}')
+	parent.min_lin_jog_lb.setText(f'{parent.units_second}')
+	parent.default_lin_jog_lb.setText(f'{parent.units_second}')
+	parent.max_lin_jog_lb.setText(f'{parent.units_second}')
+	#parent.minLinJogVelDSB.setSuffix(f' {parent.units_second}')
+	#parent.defLinJogVelDSB.setSuffix(f' {parent.units_second}')
+	#parent.maxLinJogVelDSB.setSuffix(f' {parent.units_second}')
+	parent.minLinearVelLB.setText(f'{parent.minLinJogVelDSB.value() * 60:.1f} {parent.units_minute}')
+	parent.defLinearVelLB.setText(f'{parent.defLinJogVelDSB.value() * 60:.1f} {parent.units_minute}')
+	parent.maxLinearVelLB.setText(f'{parent.maxLinJogVelDSB.value() * 60:.1f} {parent.units_minute}')
 	if set('ABC')&set(parent.coordinatesLB.text()): # angular axis
 		parent.minAngularVelLB.setText(f'{parent.minAngJogVelDSB.value() * 60:.1f} deg/min')
 		parent.defAngularVelLB.setText(f'{parent.defAngJogVelDSB.value() * 60:.1f} deg/min')

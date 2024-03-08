@@ -26,6 +26,14 @@ def copy_angular_scale(parent):
 		msg = ('Select a Destination to copy to')
 		dialogs.errorMsgOk(msg, 'Error')
 
+def updateVelInfo(parent):
+	if not utilities.is_number(parent.sender().text()):
+		return
+
+	sender = parent.sender().objectName()[0:-2]
+	drive = parent.sender().objectName()[-1]
+	value = float(parent.sender().text()) * 60
+	getattr(parent, f'{sender}_min_{drive}').setText(f'{value:.2f}')
 
 def axisChanged(parent):
 	connector = parent.sender().objectName()[:3]
