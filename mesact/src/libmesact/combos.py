@@ -74,8 +74,8 @@ def build(parent):
 	for item in gui:
 		parent.guiCB.addItem(item[0], item[1])
 	parent.guiCB.setEditable(True)
-	if parent.jet_gui:
-		parent.guiCB.addItem('JET GUI', 'jet')
+	if parent.flex_gui:
+		parent.guiCB.addItem('Flex GUI', 'flexgui')
 
 	linearUnits = [
 		['Select', False],

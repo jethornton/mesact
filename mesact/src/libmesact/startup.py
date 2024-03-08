@@ -25,16 +25,16 @@ def setup(parent):
 	parent.pyqt5LB.setText(qVersion())
 
 	try: # need to set this before building combos
-		jet = subprocess.check_output(['apt-cache', 'policy', 'jet'], text=True)
-		if len(jet) > 0:
-			version = jet.split()[2]
-			parent.jet_gui_lb.setText(f'{version}')
-			parent.jet_gui = True
+		flex = subprocess.check_output(['apt-cache', 'policy', 'flexgui'], text=True)
+		if len(flex) > 0:
+			version = flex.split()[2]
+			parent.flex_gui_lb.setText(f'{version}')
+			parent.flex_gui = True
 		else:
-			parent.jet_gui_lb.setText('Not Installed')
-			parent.jet_gui = False
+			parent.flex_gui_lb.setText('Not Installed')
+			parent.flex_gui = False
 	except:
-		#jet = None
+		#flex = None
 		pass
 
 	combos.build(parent)

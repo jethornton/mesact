@@ -357,7 +357,7 @@
            <item row="10" column="0">
             <widget class="QLabel" name="label_756">
              <property name="text">
-              <string>JET GUI</string>
+              <string>Flex GUI</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -365,7 +365,7 @@
             </widget>
            </item>
            <item row="10" column="1">
-            <widget class="QLabel" name="jet_gui_lb">
+            <widget class="QLabel" name="flex_gui_lb">
              <property name="frameShape">
               <enum>QFrame::Box</enum>
              </property>
@@ -1609,12 +1609,12 @@ to the clipboard</string>
          </widget>
         </item>
         <item row="3" column="2" colspan="2">
-         <widget class="QGroupBox" name="jet_gui_gb">
+         <widget class="QGroupBox" name="flex_gui_gb">
           <property name="enabled">
            <bool>false</bool>
           </property>
           <property name="title">
-           <string>JET GUI Options</string>
+           <string>Flex GUI Options</string>
           </property>
           <layout class="QGridLayout" name="gridLayout_51">
            <item row="3" column="1">
