@@ -130,7 +130,7 @@ def build(parent):
 	]
 
 	for item in screen_size:
-		parent.jet_size_cb.addItem(item[0], item[1])
+		parent.flex_size_cb.addItem(item[0], item[1])
 
 	# Joint Tabs
 	axes = [
