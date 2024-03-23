@@ -27,6 +27,11 @@ class subprocess.CompletedProcess
 		Captured stderr from the child process. A bytes sequence, or a string if run() was called with an encoding, errors, or text=True. None if stderr was not captured.
 	check_returncode()
 		If returncode is non-zero, raise a CalledProcessError.
+
+50 pin firmware
+<pcw-home> sv=servo st=stepper rm=resolvermod im=index-mask ss=smart-serial
+ssi=ssi biss-biss fa=fanux-abs pkt=packet-uart sdi=step/dir-index
+pl=plasma = encoder-input has 3 'A' inputs 
 '''
 
 def firmware_changed(parent):
