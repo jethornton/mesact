@@ -60,7 +60,7 @@ def build(parent):
 
 	# Flex GUI
 	if len(parent.flex_gui_le.text()) > 0:
-		iniContents.append(f'DISPLAY = {parent.flex_gui_le.text()}')
+		iniContents.append(f'GUI = {parent.flex_gui_le.text()}\n')
 	if parent.keyboard_qss_cb.isChecked():
 		iniContents.append(f'INPUT = keyboard\n')
 	elif parent.touch_qss_cb.isChecked():

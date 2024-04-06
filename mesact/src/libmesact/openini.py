@@ -175,9 +175,9 @@ class loadini:
 		['[DISPLAY]', 'LATHE', 'frontToolLatheRB'],
 		['[DISPLAY]', 'BACK_TOOL_LATHE', 'backToolLatheRB'],
 		['[DISPLAY]', 'FOAM', 'foamRB'],
-		['[DISPLAY]', 'GUI', 'jet_gui_le'],
+		['[DISPLAY]', 'GUI', 'flex_gui_le'],
 		['[DISPLAY]', 'QSS', 'custom_qss_le'],
-		['[DISPLAY]', 'SIZE', 'jet_size_cb'],
+		['[DISPLAY]', 'SIZE', 'flex_size_cb'],
 		]
 
 		for item in display:

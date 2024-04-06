@@ -173,8 +173,8 @@ class updateini:
 		else:
 			display.append(['DISPLAY', 'DISPLAY', f'{parent.guiCB.currentData()}'])
 
-		# JET GUI
-		if len(parent.jet_gui_le.text()) > 0:
+		# Flex GUI
+		if len(parent.flex_gui_le.text()) > 0:
 			display.append(['DISPLAY', 'GUI', f'{parent.jet_gui_le.text()}'])
 
 		if parent.keyboard_qss_cb.isChecked():
@@ -189,7 +189,7 @@ class updateini:
 		else:
 			self.delete_key('DISPLAY', 'QSS')
 
-		if parent.jet_size_cb.currentData():
+		if parent.flex_size_cb.currentData():
 			display.append(['DISPLAY', 'SIZE',  f'{parent.jet_size_cb.currentData()}'])
 		else:
 			self.delete_key('DISPLAY', 'SIZE')
