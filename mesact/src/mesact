@@ -16,6 +16,7 @@ sudo apt install zip
 VERSION = '2.1.3'
 BUILD_DATE = '4/6/2024'
 
+import distro
 from traceback import StackSummary
 from functools import partial
 
@@ -105,11 +106,17 @@ class MainWindow(QMainWindow):
 
 app = QApplication(sys.argv)
 # check python version
+os = distro.id()
 qt_version = qVersion().split('.')
 if (sys.version_info.major, sys.version_info.minor) < (3, 6):
 	msg = (f'Python 3.6 or newer is required.\nYour Python is {python_version()}')
 	dialogs.errorMsgOk(msg, 'Version Error')
 	sys.exit()
+elif os != 'debian':
+	msg = (f'Debian is required to run\nthe Mesa Configuration Tool)
+	dialogs.errorMsgOk(msg, 'OS Error')
+	sys.exit()
+
 elif (int(qt_version[0]), int(qt_version[1])) < (5, 15):
 	msg = (f'PyQt5 5.15 or newer is required.\nYour PyQt5 is {qVersion()}\n'
 	'Try updating python3-pyqt5')
