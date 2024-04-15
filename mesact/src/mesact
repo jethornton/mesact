@@ -106,14 +106,14 @@ class MainWindow(QMainWindow):
 
 app = QApplication(sys.argv)
 # check python version
-os = distro.id()
+os_id = distro.id()
 qt_version = qVersion().split('.')
 if (sys.version_info.major, sys.version_info.minor) < (3, 6):
 	msg = (f'Python 3.6 or newer is required.\nYour Python is {python_version()}')
 	dialogs.errorMsgOk(msg, 'Version Error')
 	sys.exit()
-elif os != 'debian':
-	msg = (f'Debian is required to run\nthe Mesa Configuration Tool)
+elif os_id != 'debian':
+	msg = ('Debian is required to run\nthe Mesa Configuration Tool')
 	dialogs.errorMsgOk(msg, 'OS Error')
 	sys.exit()
 
