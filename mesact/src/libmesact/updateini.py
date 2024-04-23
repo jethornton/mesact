@@ -175,7 +175,7 @@ class updateini:
 
 		# Flex GUI
 		if len(parent.flex_gui_le.text()) > 0:
-			display.append(['DISPLAY', 'GUI', f'{parent.jet_gui_le.text()}'])
+			display.append(['DISPLAY', 'GUI', f'{parent.flex_gui_le.text()}'])
 
 		if parent.keyboard_qss_cb.isChecked():
 			display.append(['DISPLAY', 'INPUT', 'keyboard'])
@@ -190,7 +190,7 @@ class updateini:
 			self.delete_key('DISPLAY', 'QSS')
 
 		if parent.flex_size_cb.currentData():
-			display.append(['DISPLAY', 'SIZE',  f'{parent.jet_size_cb.currentData()}'])
+			display.append(['DISPLAY', 'SIZE',  f'{parent.flex_size_cb.currentData()}'])
 		else:
 			self.delete_key('DISPLAY', 'SIZE')
 
