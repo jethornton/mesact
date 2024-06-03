@@ -53,6 +53,7 @@ def boardChanged(parent):
 		parent.port_0_channels_lb.clear()
 		parent.port_1_channels_lb.clear()
 		parent.find_ip_board_pb.setEnabled(True)
+		parent.board_info_pte..clear()
 
 		if board == '5i24': # PCI IDC50
 			parent.hal_name = '5i24'
@@ -355,7 +356,7 @@ def boardChanged(parent):
 				getattr(parent, f'c0_output_{j}').setEnabled(False)
 				getattr(parent, f'c0_output_invert_{j}').setEnabled(False)
 
-			info = ('The 7i95T requires LinuxCNC version 2.10 to run\n'
+			info = ('The 7i95T requires LinuxCNC version 2.10 or newer to run\n'
 			'\nTo Flash the 7i95T Mesaflash version 3.4.7\nor newer must be installed\n'
 			'\nIP Address Jumpers\nW15 Down W16 Up for 10.10.10.10\n'
 			'\nDefault firmware 7i95t_d.bin'
@@ -471,11 +472,16 @@ def boardChanged(parent):
 			for j in range(6,16):
 				getattr(parent, f'c0_output_{j}').setEnabled(False)
 				getattr(parent, f'c0_output_invert_{j}').setEnabled(False)
-
 			for item in db25:
 				parent.daughterCB_0.addItem(item[0], item[1])
 			for i in range(6): # hide stepper tab
 				getattr(parent, f'c0_settings_{i}').setTabVisible(2, False)
+			info = ('The 7i97T requires LinuxCNC version 2.10 or newer to run\n'
+			'\nTo Flash the 7i95T Mesaflash version 3.5.3\nor newer must be installed\n'
+			'\nIP Address Jumpers\nW11 Down W12 Up for 10.10.10.10\n'
+			'\nDefault firmware 7i97t_d.bin'
+			)
+			parent.board_info_pte.setPlainText(info)
 
 		elif board == '7i98': # ETH IDC26
 			parent.hal_name = '7i98'
