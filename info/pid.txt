@@ -1,0 +1,29 @@
+Basically the issue is that the in driver position mode control loop is not as
+robust with regard to servo thread jitter as a tunable PID loop (the in driver
+position loop is the same for the Mesa hardware stepgens and LinuxCNCs software
+stepgens and both have the same issue)
+
+Also the PID loops tunability allows correction of minor errors caused by the
+delay between the stepgen position read and velocity update write so allows a
+reduction in the stepgens following error. 
+
+The PID output is a velocity command to the stepgens
+rate register.
+
+This output is basically the current joint velocity
+(Via the PIDs FF1 term) with a correction (the PIDs P term)
+based on the difference between the commanded position
+and the stepgens actual position.
+
+The net result is that the stepgen's position is forced to trace the
+commanded position to a small fraction of a step 
+
+Mesa hardware step generators at every servo thread invocation, the step
+generator hardware is given a new velocity. Without feedback from the PID
+controller the hardware position would slowly drift because of clock speed and
+timing differences between LinuxCNC and the step generator hardware.
+
+The PID controller gets feedback from the actual (fractional) step position and
+corrects for these small differences. It can also be used to correct for
+read/update delays (by setting FF2 to the time from position read to velocity
+write) 
