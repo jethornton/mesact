@@ -72,6 +72,14 @@ def build(parent):
 		pid_string += f'pid.s,'
 	halContents.append(f'\nloadrt pid names={pid_string[:-1]}\n')
 
+	print(board)
+	if board in step_boards:
+		halContents.append('\n# PID Information\n')
+		halContents.append('# Mesa hardware step generators at every servo thread invocation, the step\n')
+		halContents.append('# generator hardware is given a new velocity. Without feedback from the PID\n')
+		halContents.append('# controller the hardware position would slowly drift because of clock speed and\n')
+		halContents.append('# timing differences between LinuxCNC and the step generator hardware.\n')
+
 	halContents.append('\n# THREADS\n')
 	halContents.append(f'addf hm2_[MESA](BOARD).0.read servo-thread\n')
 	halContents.append('addf motion-command-handler servo-thread\n')
