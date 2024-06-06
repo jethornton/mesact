@@ -53,7 +53,7 @@ def boardChanged(parent):
 		parent.port_0_channels_lb.clear()
 		parent.port_1_channels_lb.clear()
 		parent.find_ip_board_pb.setEnabled(True)
-		parent.board_info_pte..clear()
+		parent.board_info_pte.clear()
 
 		if board == '5i24': # PCI IDC50
 			parent.hal_name = '5i24'
