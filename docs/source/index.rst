@@ -13,6 +13,7 @@ The Mesa Configuration Tool creates LinuxCNC configuration files for
    install
    basic
    machine
+   firmware
    info
    display
    axes
