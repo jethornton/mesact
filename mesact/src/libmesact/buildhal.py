@@ -72,13 +72,17 @@ def build(parent):
 		pid_string += f'pid.s,'
 	halContents.append(f'\nloadrt pid names={pid_string[:-1]}\n')
 
-	print(board)
-	if board in step_boards:
-		halContents.append('\n# PID Information\n')
+	step_boards  = ['7i76', '7i76e', '7i95', '7i95t', '7i96', '7i96s']
+	analog_boards = ['7i77', '7i97', '7i97t']
+
+	if parent.boardCB.currentData() in step_boards:
+		halContents.append('\n# PID Information for Stepper Boards\n')
 		halContents.append('# Mesa hardware step generators at every servo thread invocation, the step\n')
 		halContents.append('# generator hardware is given a new velocity. Without feedback from the PID\n')
 		halContents.append('# controller the hardware position would slowly drift because of clock speed and\n')
 		halContents.append('# timing differences between LinuxCNC and the step generator hardware.\n')
+		halContents.append('# The PID controller gets feedback from the actual (fractional) step position and\n')
+		halContents.append('# corrects for these small differences.\n')
 
 	halContents.append('\n# THREADS\n')
 	halContents.append(f'addf hm2_[MESA](BOARD).0.read servo-thread\n')
@@ -90,8 +94,6 @@ def build(parent):
 		halContents.append(f'addf {pid}.do-pid-calcs servo-thread\n')
 	halContents.append(f'addf hm2_[MESA](BOARD).0.write servo-thread\n')
 
-	step_boards  = ['7i76', '7i76e', '7i95', '7i95t', '7i96', '7i96s']
-	analog_boards = ['7i77', '7i97', '7i97t']
 
 	if len(set(board_list) & set(step_boards)) > 0:
 		halContents.append('\n# DPLL TIMER\n')
