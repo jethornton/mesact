@@ -19,9 +19,9 @@ Select the one that suits your OS.
 Or use wget from a terminal
 ::
 
-	wget https://github.com/jethornton/mesact/releases/download/2.1.3/mesact_2.1.3_amd64.deb
-	wget https://github.com/jethornton/mesact/releases/download/2.1.3/mesact_2.1.3_armhf.deb
-	wget https://github.com/jethornton/mesact/releases/download/2.1.3/mesact_2.1.3_arm64.deb
+	wget https://github.com/jethornton/mesact/releases/download/2.1.4/mesact_2.1.4_amd64.deb
+	wget https://github.com/jethornton/mesact/releases/download/2.1.4/mesact_2.1.4_armhf.deb
+	wget https://github.com/jethornton/mesact/releases/download/2.1.4/mesact_2.1.4_arm64.deb
 
 
 If you get `bash: wget: command not found` you can install it from a terminal with
