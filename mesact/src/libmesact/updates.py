@@ -33,7 +33,7 @@ def checkUpdates(parent):
 	if version.parse(repoVersion) > version.parse(parent.version):
 		parent.info_pte.appendPlainText(f'A newer version {repoVersion} is available for download')
 	elif version.parse(repoVersion) == version.parse(parent.version):
-		parent.info_pte.appendPlainText(f'The Repo version {repoVersion} is the same as this version')
+		parent.info_pte.appendPlainText(f'This version {repoVersion} is the latest avaliable')
 
 def downloadAmd64Deb(parent):
 	directory = str(QFileDialog.getExistingDirectory(parent, "Select Directory"))
