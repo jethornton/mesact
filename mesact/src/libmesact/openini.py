@@ -87,21 +87,22 @@ class loadini:
 			end = self.sections['[MESA]'][1]
 			for line in self.content[start:end]:
 				if line.startswith('VERSION'):
-					key, value = line.split('=')
-					ini_version = tuple(map(int,value.strip().split('.')))
-					tool_version = tuple(map(int, parent.version.split('.')))
-					if ini_version < tool_version:
-						msg = (f'The ini file version is {value.strip()}\n'
-							f'The Configuration Tool version is {parent.version}\n'
-							'The ini file will be saved to a zip file then deleted\n'
-							'Save a Backup and try and open the ini?')
-						if dialogs.errorMsgCancelOk(msg, 'Version Difference'):
-							path, filename = os.path.split(iniFile)
-							utilities.backupFiles(parent, path)
-							#utilities.cleanDir(parent, path)
-							utilities.file_delete(parent, iniFile)
-						else:
-							return
+					if '=' in line:
+						key, value = line.split('=')
+						ini_version = tuple(map(int,value.strip().split('.')))
+						tool_version = tuple(map(int, parent.version.split('.')))
+						if ini_version < tool_version:
+							msg = (f'The ini file version is {value.strip()}\n'
+								f'The Configuration Tool version is {parent.version}\n'
+								'The ini file will be saved to a zip file then deleted\n'
+								'Save a Backup and try and open the ini?')
+							if dialogs.errorMsgCancelOk(msg, 'Version Difference'):
+								path, filename = os.path.split(iniFile)
+								utilities.backupFiles(parent, path)
+								#utilities.cleanDir(parent, path)
+								utilities.file_delete(parent, iniFile)
+							else:
+								return
 
 		# pncconf try and figure out what card and address
 		if '[HMOT]' in self.sections:
@@ -109,12 +110,13 @@ class loadini:
 			end = self.sections['[HMOT]'][1]
 			for item in self.content[start:end]:
 				if item.startswith('CARD0'):
-					key, value = item.split('=')
-					start = value.find('_') + 1
-					end = value.find('.')
-					data = value[start:end]
-					if parent.boardCB.findData(data) >= 0:
-						parent.boardCB.setCurrentIndex(parent.boardCB.findData(data))
+					if '=' in item:
+						key, value = item.split('=')
+						start = value.find('_') + 1
+						end = value.find('.')
+						data = value[start:end]
+						if parent.boardCB.findData(data) >= 0:
+							parent.boardCB.setCurrentIndex(parent.boardCB.findData(data))
 
 		mesa = []
 		mesa.append(['[MESA]', 'BOARD_NAME', 'boardCB'])
@@ -147,18 +149,19 @@ class loadini:
 			end = self.sections['[DISPLAY]'][1]
 			for item in self.content[start:end]:
 				item = item.strip() # remove newline
-				key, value = item.replace(' ', '').split('=') # remove spaces and split
-				if key == 'DISPLAY':
-					index = parent.guiCB.findData(value)
-					if index > 0:
-						parent.guiCB.setCurrentIndex(index)
-					else:
-						parent.guiCB.setItemText(0, value)
-				if key == 'INPUT':
-					if value == 'keyboard':
-						parent.keyboard_qss_cb.setChecked(True)
-					elif value == 'touch':
-						parent.touch_qss_cb.setChecked(True)
+				if '=' in item:
+					key, value = item.replace(' ', '').split('=') # remove spaces and split
+					if key == 'DISPLAY':
+						index = parent.guiCB.findData(value)
+						if index > 0:
+							parent.guiCB.setCurrentIndex(index)
+						else:
+							parent.guiCB.setItemText(0, value)
+					if key == 'INPUT':
+						if value == 'keyboard':
+							parent.keyboard_qss_cb.setChecked(True)
+						elif value == 'touch':
+							parent.touch_qss_cb.setChecked(True)
 
 		display = [
 		['[DISPLAY]', 'EDITOR', 'editorCB'],
@@ -213,9 +216,10 @@ class loadini:
 			mdi.cleanup_mdi_commands(parent)
 			for item in self.content[start:end]:
 				if item != '\n' and item.startswith('MDI_COMMAND'):
-					item = item.split('=')
-					item = item[1].strip()
-					mdicmd.append(item)
+					if '=' in item:
+						item = item.split('=')
+						item = item[1].strip()
+						mdicmd.append(item)
 			for i, item in enumerate(mdicmd):
 				mdi.set_mdi_command(parent, i, item)
 
@@ -228,9 +232,11 @@ class loadini:
 				end = section[1][1]
 				for i in range(start, end):
 					if self.content[i].startswith('CARD'):
-						card = self.content[i].split('=')[1].strip()
+						if '=' in item:
+							card = self.content[i].split('=')[1].strip()
 					elif self.content[i].startswith('TAB'):
-						tab = self.content[i].split('=')[1].strip()
+						if '=' in item:
+							tab = self.content[i].split('=')[1].strip()
 				joint = [
 				[f'[JOINT_{joint}]', 'AXIS', f'c{card}_axis_{tab}'],
 				[f'[JOINT_{joint}]', 'DRIVE', f'c{card}_drive_{tab}'],
@@ -378,14 +384,15 @@ class loadini:
 			for i, j in enumerate(range(start, end)):
 				line = self.content[j].strip()
 				if len(line.strip()) > 0 and '=' in line:
-					line = self.content[j].split('=')
-					key = line[0].strip()
-					value = line[1].strip()
-					if key == 'SS_CARD':
-						self.update(parent, '[SSERIAL]', 'SS_CARD', 'ssCardCB')
-					elif key.startswith('ss'):
-						if value != 'Select':
-							self.update(parent, '[SSERIAL]', key, key)
+					if '=' in item:
+						line = self.content[j].split('=')
+						key = line[0].strip()
+						value = line[1].strip()
+						if key == 'SS_CARD':
+							self.update(parent, '[SSERIAL]', 'SS_CARD', 'ssCardCB')
+						elif key.startswith('ss'):
+							if value != 'Select':
+								self.update(parent, '[SSERIAL]', key, key)
 
 		''' FIXME use settings
 		# update the mesact.conf file
@@ -419,32 +426,33 @@ class loadini:
 			start = self.sections[section][0]
 			end = self.sections[section][1]
 			for item in self.content[start:end]:
-				if item.split('=')[0].strip() == key:
-					value = item.split('=')[1].strip()
-					if isinstance(getattr(parent, obj), QComboBox):
-						index = 0
-						if getattr(parent, obj).findData(value) >= 0:
-							index = getattr(parent, obj).findData(value)
-						elif getattr(parent, obj).findText(value) >= 0:
-							index = getattr(parent, obj).findText(value)
-						if index >= 0:
-							getattr(parent, obj).setCurrentIndex(index)
-					elif isinstance(getattr(parent, obj), QLabel):
-						getattr(parent, obj).setText(value)
-					elif isinstance(getattr(parent, obj), QLineEdit):
-						getattr(parent, obj).setText(value)
-					elif isinstance(getattr(parent, obj), QSpinBox):
-						getattr(parent, obj).setValue(abs(int(value.split('.')[0])))
-					elif isinstance(getattr(parent, obj), QDoubleSpinBox):
-						getattr(parent, obj).setValue(float(value))
-					elif isinstance(getattr(parent, obj), QCheckBox):
-						getattr(parent, obj).setChecked(booleanDict[value.lower()])
-					elif isinstance(getattr(parent, obj), QRadioButton):
-						getattr(parent, obj).setChecked(booleanDict[value.lower()])
-					elif isinstance(getattr(parent, obj), QGroupBox):
-						getattr(parent, obj).setChecked(booleanDict[value.lower()])
-					elif isinstance(getattr(parent, obj), QPushButton):
-						getattr(parent, obj).setText(value)
+				if '=' in item:
+					if item.split('=')[0].strip() == key:
+						value = item.split('=')[1].strip()
+						if isinstance(getattr(parent, obj), QComboBox):
+							index = 0
+							if getattr(parent, obj).findData(value) >= 0:
+								index = getattr(parent, obj).findData(value)
+							elif getattr(parent, obj).findText(value) >= 0:
+								index = getattr(parent, obj).findText(value)
+							if index >= 0:
+								getattr(parent, obj).setCurrentIndex(index)
+						elif isinstance(getattr(parent, obj), QLabel):
+							getattr(parent, obj).setText(value)
+						elif isinstance(getattr(parent, obj), QLineEdit):
+							getattr(parent, obj).setText(value)
+						elif isinstance(getattr(parent, obj), QSpinBox):
+							getattr(parent, obj).setValue(abs(int(value.split('.')[0])))
+						elif isinstance(getattr(parent, obj), QDoubleSpinBox):
+							getattr(parent, obj).setValue(float(value))
+						elif isinstance(getattr(parent, obj), QCheckBox):
+							getattr(parent, obj).setChecked(booleanDict[value.lower()])
+						elif isinstance(getattr(parent, obj), QRadioButton):
+							getattr(parent, obj).setChecked(booleanDict[value.lower()])
+						elif isinstance(getattr(parent, obj), QGroupBox):
+							getattr(parent, obj).setChecked(booleanDict[value.lower()])
+						elif isinstance(getattr(parent, obj), QPushButton):
+							getattr(parent, obj).setText(value)
 
 	def get_sections(self):
 		self.sections = {}
