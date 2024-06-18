@@ -1,0 +1,59 @@
+Problem has been resolved. Here are the parts from the INI and HAL:
+
+#### INI
+[SPINDLE_0]
+TYPE = pwm
+PWM_TYPE = 1
+PWM_FREQUENCY = 5000
+SCALE = 24000
+
+
+
+#### HAL
+# hostmot2 driver
+loadrt hostmot2
+
+loadrt [HM2](DRIVER) board_ip=[HM2](IPADDRESS)
+setp hm2_[MESA](BOARD).0.watchdog.timeout_ns 5000000
+
+# THREADS
+addf hm2_[MESA](BOARD).0.read servo-thread
+addf motion-command-handler servo-thread
+addf motion-controller servo-thread
+addf pid.0.do-pid-calcs servo-thread
+addf pid.1.do-pid-calcs servo-thread
+addf pid.2.do-pid-calcs servo-thread
+addf pid.s.do-pid-calcs servo-thread
+addf hm2_[MESA](BOARD).0.write servo-thread
+# Spindle Connections
+net spindle-vel-cmd <= spindle.0.speed-out
+net spindle-vel-cmd => pid.s.command
+net spindle-pid-out <= pid.s.output
+net spindle-pid-out => hm2_[MESA](BOARD).0.pwmgen.00.value
+
+########################......
+
+#Spindel
+
+# Spindle PWM Setup
+setp hm2_[MESA](BOARD).0.pwmgen.00.output-type [SPINDLE_0](PWM_TYPE)
+setp hm2_[MESA](BOARD).0.pwmgen.pwm_frequency [SPINDLE_0](PWM_FREQUENCY)
+setp hm2_[MESA](BOARD).0.pwmgen.00.scale [SPINDLE_0](SCALE)
+
+# Spindle Feedback
+setp spindle.0.at-speed true
+
+# Spindle Command Pins
+net spindle-on <= spindle.0.on
+net spindle-on => pid.s.enable
+net spindle-on => hm2_7i95.0.ssr.00.out-00
+net spindle-cw <= spindle.0.forward
+net spindle-ccw <= spindle.0.reverse
+net spindle-brake <= spindle.0.brake
+
+# Spindle Enable
+net spindle-on <= spindle.0.on
+net spindle-on => hm2_[MESA](BOARD).0.pwmgen.00.enable
+
+# standard components
+loadrt pid names=pid.0,pid.1,pid.2,pid.s 
