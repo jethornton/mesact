@@ -100,17 +100,17 @@ def setup(parent):
 	if emc.count('\n') > 1:
 		# get second line
 		line = emc.split('\n')[1]
-		version = line.split()[1]
-
-		if ':' in version:
-			version = version.split(':')[1]
-			version = '.'.join(version.split('.', 3)[:3])
-		if '~' in version:
-			version = version.split('~')[0]
-		# make damn sure version is valid
-		if all(c in "0123456789." for c in version) and version.count('.') > 1:
-			parent.emcVersionLB.setText(version)
-			parent.emc_version = tuple(int(i) for i in version.split('.'))
+		if ' ' in line:
+			version = line.split()[1]
+			if ':' in version:
+				version = version.split(':')[1]
+				version = '.'.join(version.split('.', 3)[:3])
+			if '~' in version:
+				version = version.split('~')[0]
+			# make damn sure version is valid
+			if all(c in "0123456789." for c in version) and version.count('.') > 1:
+				parent.emcVersionLB.setText(version)
+				parent.emc_version = tuple(int(i) for i in version.split('.'))
 		else:
 			parent.emcVersionLB.setText('Version Error')
 	else:
