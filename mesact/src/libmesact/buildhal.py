@@ -111,6 +111,10 @@ def build(parent):
 		if encoders > 0:
 			halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.timer-number 1\n')
 			
+		Get encoders working, scaled right and in the right directions
+		Get drive enables controlled by linuxcnc
+		Set per axis following error limits wide enough to allow tuning (say 1 inch or 20 mm)
+		Verify feedback direction (expect runaways) you may have to change the sign of the analog outputs
 	'''
 
 	halContents.append('\n# amp enable\n')
