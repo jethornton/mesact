@@ -40,6 +40,8 @@ def boardChanged(parent):
 				getattr(parent, f'c{i}_settings_{j}').setTabVisible(2, True)
 				getattr(parent, f'c{i}_settings_{j}').setTabVisible(3, True)
 				getattr(parent, f'c{i}_settings_{j}').setTabVisible(4, True)
+				getattr(parent, f'c{i}_pidDefault_{i}').setVisible(True)
+
 		for i in range(1, 7):
 			parent.spindleTypeCB.model().item(i).setEnabled(False)
 		parent.firmware_options_lb.setText('No Firmware Selected!')
@@ -446,8 +448,9 @@ def boardChanged(parent):
 			parent.mainTW.setTabText(4, 'P1')
 			for item in db25:
 				parent.daughterCB_0.addItem(item[0], item[1])
-			for i in range(6): # hide stepper tab
+			for i in range(6): # hide stepper tab and stepper default pid button
 				getattr(parent, f'c0_settings_{i}').setTabVisible(2, False)
+				getattr(parent, f'c0_pidDefault_{i}').setVisible(False)
 
 		elif board == '7i97t': # ETH 6 Axis Analog
 			parent.board_0 = '7i97t'
@@ -476,10 +479,18 @@ def boardChanged(parent):
 				parent.daughterCB_0.addItem(item[0], item[1])
 			for i in range(6): # hide stepper tab
 				getattr(parent, f'c0_settings_{i}').setTabVisible(2, False)
+				getattr(parent, f'c0_pidDefault_{i}').setVisible(False)
+
 			info = ('The 7i97T requires LinuxCNC version 2.10 or newer to run\n'
 			'\nTo Flash the 7i95T Mesaflash version 3.5.3\nor newer must be installed\n'
 			'\nIP Address Jumpers\nW11 Down W12 Up for 10.10.10.10\n'
-			'\nDefault firmware 7i97t_d.bin'
+			'\nDefault firmware 7i97t_d.bin\n'
+			'\nIMPORTANT! Verify the following before running\n'
+			'\nVerify encoders working, scaled right and in the right direction\n'
+			'\nVerify drive enables are controlled by linuxcnc\n'
+			'\nSet per axis following error limits wide enough to allow tuning (say 1 inch or 25 mm)\n'
+			'\nExpect runaways you may have to change the sign of the analog outputs\n'
+
 			)
 			parent.board_info_pte.setPlainText(info)
 
