@@ -221,7 +221,8 @@ def calc_angular_scale(parent):
 
 	if len(parent.angular_rotations_le.text()) > 0: # required entry
 		if is_number(parent.angular_rotations_le.text()):
-			gear_ratio = int(float(parent.angular_rotations_le.text())) if parent.angular_rotations_le.text() != '' else False
+			gear_ratio = float(parent.angular_rotations_le.text()) if parent.angular_rotations_le.text() != '' else False
+			print(gear_ratio)
 		else:
 			msg = (f'{parent.angular_rotations_le.text()} is not a valid number\n'
 			f'for {parent.angular_rotations_le.property("name")}')
@@ -231,7 +232,6 @@ def calc_angular_scale(parent):
 		msg = (f'{parent.angular_rotations_le.property("name")} must be not be blank')
 		dialogs.errorMsgOk(msg, 'Error')
 		return
-
 
 	if len(parent.angular_microsteps_le.text()) > 0:
 		if is_number(parent.angular_microsteps_le.text()):
@@ -248,7 +248,6 @@ def calc_angular_scale(parent):
 		steps_rev = steps_rev * micro_steps
 
 	parent.angular_scale_le.setText(f'{(steps_rev * gear_ratio) / 360:.2f}')
-
 
 def calc_scale(parent):
 	# scale = steps/rev * microsteps * (leadscrew teeth / motor teeth) * leadscrew revs/ unit
