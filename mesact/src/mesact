@@ -14,7 +14,7 @@ sudo apt install zip
 '''
 
 VERSION = '2.1.4'
-BUILD_DATE = '6/28/2024'
+BUILD_DATE = '7/9/2024'
 
 import distro
 from traceback import StackSummary
