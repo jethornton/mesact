@@ -1557,7 +1557,11 @@ to the clipboard</string>
             </widget>
            </item>
            <item row="0" column="1">
-            <widget class="QComboBox" name="guiCB"/>
+            <widget class="QComboBox" name="guiCB">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;For GUI's not listed type in the name&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
            </item>
            <item row="0" column="0">
             <widget class="QLabel" name="label_40">
@@ -1726,7 +1730,7 @@ to the clipboard</string>
                   </size>
                  </property>
                  <property name="currentIndex">
-                  <number>0</number>
+                  <number>2</number>
                  </property>
                  <widget class="QWidget" name="tabWidget_228Page1">
                   <attribute name="title">
@@ -43094,8 +43098,8 @@ to File Open in Axis</string>
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>36</width>
-                    <height>18</height>
+                    <width>98</width>
+                    <height>28</height>
                    </rect>
                   </property>
                   <layout class="QGridLayout" name="mdiCommandsListGL"/>
