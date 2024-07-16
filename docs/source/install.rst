@@ -16,19 +16,6 @@ Latest Version of the Mesa Configuration Tool is in the
 
 Select the one that suits your OS.
 
-Or use wget from a terminal
-::
-
-	wget https://github.com/jethornton/mesact/releases/download/2.1.4/mesact_2.1.4_amd64.deb
-	wget https://github.com/jethornton/mesact/releases/download/2.1.4/mesact_2.1.4_armhf.deb
-	wget https://github.com/jethornton/mesact/releases/download/2.1.4/mesact_2.1.4_arm64.deb
-
-
-If you get `bash: wget: command not found` you can install it from a terminal with
-::
-
-	sudo apt install wget
-
 Open the File Manager and right click on the file and open with Gdebi then install.
 
 If you don't have Gdebi installed you can install it from a terminal
