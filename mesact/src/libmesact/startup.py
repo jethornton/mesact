@@ -92,27 +92,29 @@ def setup(parent):
 	parent.emcVersionLB.clear()
 	parent.emc_version = (0, 0, 0)
 	try: # don't crash if your not running debian
-		emc = subprocess.check_output(['apt-cache', 'policy', 'linuxcnc-uspace'], encoding='UTF-8')
+		emc = subprocess.check_output(['apt-cache', 'policy', 'linuxcnc-uspace'], text=True)
 	except:
 		emc = False
 		pass
 
-	if emc.count('\n') > 1:
-		# get second line
-		line = emc.split('\n')[1]
-		if ' ' in line:
-			version = line.split()[1]
-			if ':' in version:
-				version = version.split(':')[1]
-				version = '.'.join(version.split('.', 3)[:3])
-			if '~' in version:
-				version = version.split('~')[0]
-			# make damn sure version is valid
-			if all(c in "0123456789." for c in version) and version.count('.') > 1:
-				parent.emcVersionLB.setText(version)
-				parent.emc_version = tuple(int(i) for i in version.split('.'))
-		else:
-			parent.emcVersionLB.setText('Version Error')
+	if emc:
+		for line in emc.split('\n'):
+			if 'installed' in line.lower():
+				version = line.split() # remove leading space
+				if len(version) == 2: # split out the version number
+					version = version[1]
+				if ':' in version: # strip the 1 from version
+					version = version.split(':')[1]
+					version = '.'.join(version.split('.', 3)[:3])
+				if '~' in version:
+					version = version.split('~')[0]
+				# make damn sure version is valid
+				if all(c in "0123456789." for c in version) and version.count('.') > 1:
+					parent.emcVersionLB.setText(version)
+					parent.emc_version = tuple(int(i) for i in version.split('.'))
+				else:
+					parent.emcVersionLB.setText('Version Error')
+				break
 	else:
 		parent.emcVersionLB.setText('Not Installed')
 
