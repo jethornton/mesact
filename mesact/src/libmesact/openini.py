@@ -225,19 +225,21 @@ class loadini:
 
 		for section in self.sections.items():
 			if section[0].startswith('[JOINT'):
-				joint = section[0][-2]
+				joint = section[0][-2].strip()
 				card = 0
 				tab = 0
 				start = section[1][0]
 				end = section[1][1]
 				for i in range(start, end):
-					if self.content[i].startswith('CARD'):
+					item = self.content[i].strip()
+					if item.startswith('CARD'):
 						if '=' in item:
-							card = self.content[i].split('=')[1].strip()
-					elif self.content[i].startswith('TAB'):
+							card = item.split('=')[1].strip()
+					elif item.startswith('TAB'):
 						if '=' in item:
-							tab = self.content[i].split('=')[1].strip()
-				joint = [
+							tab = item.split('=')[1].strip()
+				print(joint, card, tab)
+				joint_list = [
 				[f'[JOINT_{joint}]', 'AXIS', f'c{card}_axis_{tab}'],
 				[f'[JOINT_{joint}]', 'DRIVE', f'c{card}_drive_{tab}'],
 				[f'[JOINT_{joint}]', 'STEP_INVERT', f'c{card}_StepInvert_{tab}'],
@@ -278,7 +280,7 @@ class loadini:
 				[f'[JOINT_{joint}]', 'ANALOG_MAX_LIMIT', f'c{card}_analogMaxLimit_{tab}'],
 				]
 
-				for item in joint:
+				for item in joint_list:
 					self.update(parent, item[0], item[1], item[2])
 
 		spindle = [
