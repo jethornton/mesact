@@ -6,11 +6,15 @@ from libmesact import spindle
 def default_metric(parent):
 	utilities.new_config(parent)
 	parent.linearUnitsCB.setCurrentIndex(parent.linearUnitsCB.findData('mm'))
+	parent.defLinJogVelDSB.setValue(1.5)
+	parent.maxLinJogVelDSB.setValue(25.0)
 	default(parent)
 
 def default_imperial(parent):
 	utilities.new_config(parent)
 	parent.linearUnitsCB.setCurrentIndex(parent.linearUnitsCB.findData('inch'))
+	parent.defLinJogVelDSB.setValue(0.5)
+	parent.maxLinJogVelDSB.setValue(1.0)
 	default(parent)
 
 def default(parent):
@@ -18,8 +22,6 @@ def default(parent):
 	parent.positionOffsetCB.setCurrentIndex(parent.positionOffsetCB.findData('RELATIVE'))
 	parent.positionFeedbackCB.setCurrentIndex(parent.positionFeedbackCB.findData('COMMANDED'))
 	parent.maxFeedOverrideSB.setValue(1.2)
-	parent.defLinJogVelDSB.setValue(0.5)
-	parent.maxLinJogVelDSB.setValue(1.0)
 	parent.set_7i96s_x_pb.setEnabled(True)
 	parent.set_7i96s_xyz_pb.setEnabled(True)
 	parent.set_7i95t_x_pb.setEnabled(True)
