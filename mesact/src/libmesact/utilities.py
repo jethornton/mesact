@@ -177,6 +177,14 @@ def copyValues(parent):
 
 def new_config(parent):
 	for child in parent.findChildren(QLineEdit):
+		if child.text():
+			msg = ('Erase all entries and start new?')
+			result = dialogs.errorMsgYesNo(msg, 'Data found')
+			if result:
+				break
+			elif not result:
+				return
+	for child in parent.findChildren(QLineEdit):
 		child.clear()
 	for child in parent.findChildren(QComboBox):
 		child.setCurrentIndex(0)
