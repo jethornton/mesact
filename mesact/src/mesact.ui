@@ -100,15 +100,21 @@
              <property name="enabled">
               <bool>true</bool>
              </property>
+             <property name="toolTip">
+              <string>Creates a New Blank Configuration</string>
+             </property>
              <property name="text">
-              <string>Default Metric</string>
+              <string>New Metric Config</string>
              </property>
             </widget>
            </item>
            <item row="0" column="0">
             <widget class="QPushButton" name="default_imperial_pb">
+             <property name="toolTip">
+              <string>Creates a New Blank Configuration</string>
+             </property>
              <property name="text">
-              <string>Default Imperial</string>
+              <string>New Imperial Config</string>
              </property>
             </widget>
            </item>
