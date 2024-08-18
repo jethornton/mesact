@@ -13,7 +13,7 @@ sudo apt install python3-packaging
 sudo apt install zip
 '''
 
-VERSION = '2.1.5'
+VERSION = '2.1.6'
 BUILD_DATE = '8/18/2024'
 
 import distro
