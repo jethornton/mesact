@@ -1,0 +1,62 @@
+[SPINDLE_0]
+P = 0.0
+I = 0.0
+D = 0.0
+FF0 = 1.0
+FF1 = 0.0
+FF2 = 0.0
+BIAS = 0.0
+DEADBAND = 0.0
+MAX_OUTPUT = 2000.0
+OUTPUT_SCALE = 2000
+OUTPUT_MIN_LIMIT = -2000
+OUTPUT_MAX_LIMIT = 2000
+
+#*******************
+#  SPINDLE
+#*******************
+
+setp   pid.s.Pgain     [SPINDLE_0]P
+setp   pid.s.Igain     [SPINDLE_0]I
+setp   pid.s.Dgain     [SPINDLE_0]D
+setp   pid.s.bias      [SPINDLE_0]BIAS
+setp   pid.s.FF0       [SPINDLE_0]FF0
+setp   pid.s.FF1       [SPINDLE_0]FF1
+setp   pid.s.FF2       [SPINDLE_0]FF2
+setp   pid.s.deadband  [SPINDLE_0]DEADBAND
+setp   pid.s.maxoutput [SPINDLE_0]MAX_OUTPUT
+setp   pid.s.error-previous-target true
+
+net spindle-index-enable  =>  pid.s.index-enable
+net spindle-enable        =>  pid.s.enable
+net spindle-vel-cmd-rpm     => pid.s.command
+net spindle-vel-fb-rpm      => pid.s.feedback
+net spindle-output        <=  pid.s.output
+
+# ---PWM Generator signals/setup---
+
+setp   hm2_7i92.0.7i77.0.1.analogout3-scalemax  [SPINDLE_0]OUTPUT_SCALE
+setp   hm2_7i92.0.7i77.0.1.analogout3-minlim    [SPINDLE_0]OUTPUT_MIN_LIMIT
+setp   hm2_7i92.0.7i77.0.1.analogout3-maxlim    [SPINDLE_0]OUTPUT_MAX_LIMIT
+
+net spindle-output      => hm2_7i92.0.7i77.0.1.analogout3
+
+# ---setup spindle control signals---
+
+net spindle-vel-cmd-rps        <=  spindle.0.speed-out-rps
+net spindle-vel-cmd-rps-abs    <=  spindle.0.speed-out-rps-abs
+net spindle-vel-cmd-rpm        <=  spindle.0.speed-out
+net spindle-vel-cmd-rpm-abs    <=  spindle.0.speed-out-abs
+net spindle-enable             <=  spindle.0.on
+net spindle-cw                 <=  spindle.0.forward
+net spindle-ccw                <=  spindle.0.reverse
+net spindle-brake              <=  spindle.0.brake
+net spindle-revs               =>  spindle.0.revs
+net spindle-at-speed           =>  spindle.0.at-speed
+net spindle-vel-fb-rps         =>  spindle.0.speed-in
+net spindle-index-enable      <=>  spindle.0.index-enable
+
+# ---Setup spindle at speed signals---
+
+sets spindle-at-speed true
+
