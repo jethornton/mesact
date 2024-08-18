@@ -219,12 +219,16 @@ def build(parent):
 					halContents.append(f'net joint-{joint}-pos-fb => joint.{joint}.motor-pos-fb\n')
 					halContents.append(f'net joint-{joint}-pos-fb => {pid_list[joint]}.feedback\n')
 
-					halContents.append(f'\nnet joint.{joint}.output <= {pid_list[joint]}.output\n')
+					halContents.append('\n# PID Output\n')
+					halContents.append(f'net joint.{joint}.output <= {pid_list[joint]}.output\n')
 					if board == '7i77': # analog daughter card
 						halContents.append(f'net joint.{joint}.output => hm2_[MESA](BOARD).0.{board}.0.{analog_port[card]}.analogout{joint}\n')
 					elif board in step_boards: # stepper
 						halContents.append(f'net joint.{joint}.output => hm2_[MESA](BOARD).0.stepgen.0{joint}.velocity-cmd\n')
 					# hm2_7i92.0.7i77.0.1.analogout0
+					elif parent.hal_name == '7i97': # covers both 7i97 and 7i97T
+						halContents.append(f'net joint.{joint}.output => hm2_[MESA](BOARD).0.pwmgen.0{output}.value\n')
+
 					if board == '7i77': # analog daughter card setp   hm2_5i25.0.7i77.0.1.analogout0-scalemax  [JOINT_0]OUTPUT_SCALE
 
 						halContents.append(f'\n# Joint {joint} Analog setup\n')
