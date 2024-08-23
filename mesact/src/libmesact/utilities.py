@@ -176,16 +176,6 @@ def copyValues(parent):
 	getattr(parent, f'{card}_JointTW').setCurrentIndex(next_tab)
 
 def new_config(parent):
-	if parent.sender() == None:
-		return
-	for child in parent.findChildren(QLineEdit):
-		if child.text():
-			msg = ('Erase all entries and start new?')
-			result = dialogs.errorMsgYesNo(msg, 'Data found')
-			if result:
-				break
-			elif not result:
-				return
 	for child in parent.findChildren(QLineEdit):
 		child.clear()
 	for child in parent.findChildren(QComboBox):
