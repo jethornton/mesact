@@ -166,10 +166,13 @@ def build(parent):
 					halContents.append(f'\n# joint-{joint} enable chain\n')
 					halContents.append(f'net joint-{joint}-index-enable <=> {pid_list[joint]}.index-enable\n')
 					halContents.append(f'net joint-{joint}-index-enable <=> joint.{joint}.index-enable\n')
+
 					if board in analog_boards: # analog
 						halContents.append(f'net joint-{joint}-index-enable <=> hm2_[MESA](BOARD).0.encoder.0{joint}.index-enable\n')
+
 					halContents.append(f'\nnet joint-{joint}-enable <= joint.{joint}.amp-enable-out\n')
 					halContents.append(f'net joint-{joint}-enable => {pid_list[joint]}.enable\n')
+					halContents.append(f'net joint-{joint}-enable => hm2_[MESA](BOARD).0.pwmgen.0{joint}.enable\n')
 
 					if board in step_boards: # stepper c0_StepInvert_0
 						if getattr(parent, f'c{card}_StepInvert_{output}').isChecked():
