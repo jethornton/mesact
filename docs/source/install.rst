@@ -18,6 +18,9 @@ Select the one that suits your OS.
 
 Open the File Manager and right click on the file and open with Gdebi then install.
 
+.. Warning:: The graphical Gdebi does not work on the LinuxCNC chosen desktop so
+   you have to use the terminal to install a deb file.
+
 If you don't have Gdebi installed you can install it from a terminal
 ::
 
