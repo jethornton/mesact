@@ -238,7 +238,6 @@ class loadini:
 					elif item.startswith('TAB'):
 						if '=' in item:
 							tab = item.split('=')[1].strip()
-				print(joint, card, tab)
 				joint_list = [
 				[f'[JOINT_{joint}]', 'AXIS', f'c{card}_axis_{tab}'],
 				[f'[JOINT_{joint}]', 'DRIVE', f'c{card}_drive_{tab}'],
