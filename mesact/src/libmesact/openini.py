@@ -383,17 +383,16 @@ class loadini:
 			start = self.sections['[SSERIAL]'][0]
 			end = self.sections['[SSERIAL]'][1]
 			for i, j in enumerate(range(start, end)):
-				line = self.content[j].strip()
-				if len(line.strip()) > 0 and '=' in line:
-					if '=' in item:
-						line = self.content[j].split('=')
-						key = line[0].strip()
-						value = line[1].strip()
-						if key == 'SS_CARD':
-							self.update(parent, '[SSERIAL]', 'SS_CARD', 'ssCardCB')
-						elif key.startswith('ss'):
-							if value != 'Select':
-								self.update(parent, '[SSERIAL]', key, key)
+				item = self.content[j].strip()
+				if len(item) > 0 and '=' in item:
+					line = item.split('=')
+					key = line[0].strip()
+					value = line[1].strip()
+					if key == 'SS_CARD':
+						self.update(parent, '[SSERIAL]', key, 'ssCardCB')
+					elif key.startswith('ss'):
+						if value != 'Select':
+							self.update(parent, '[SSERIAL]', key, key)
 
 		''' FIXME use settings
 		# update the mesact.conf file
