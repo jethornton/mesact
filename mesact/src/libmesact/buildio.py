@@ -492,6 +492,8 @@ def build_ss(parent):
 		ssCard = parent.ssCardCB.currentText()
 		if parent.boardCB.currentData() == '7i92t':
 			mb = '7i92'
+		elif  parent.boardCB.currentData() == '7i97t':
+			mb = '7i97'
 		else:
 			mb = parent.boardCB.currentData()
 		parent.info_pte.appendPlainText(f'Building {filePath}')
@@ -536,10 +538,9 @@ def build_ss(parent):
 			for i in range(inputs):
 				if getattr(parent, f'ss{ssCard}in_' + str(i)).text() != 'Select':
 					key = getattr(parent, f'ss{ssCard}in_' + str(i)).text()
-					contents.append(f'{INPUTS[key]} hm2_{mb}.0.{ssCard}.0.0.input-{i:02}\n')
+					contents.append(f'net {ssCard}-in-{i} {INPUTS[key]} hm2_{mb}.0.{ssCard}.0.0.input-{i:02}\n')
 			for i in range(outputs):
 				if getattr(parent, f'ss{ssCard}out_' + str(i)).text() != 'Select':
-
 					key = getattr(parent, f'ss{ssCard}out_' + str(i)).text()
 					if OUTPUTS.get(key, False): # return False if key is not in dictionary
 						contents.append(f'{OUTPUTS[key]} hm2_{mb}.0.{ssCard}.0.0.output-{i:02}\n')
