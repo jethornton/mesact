@@ -184,27 +184,27 @@ INPUTS = {
 {'Spindle':['Spindle Amp Fault', 'Spindle Inhibit', 'Spindle Oriented', 'Spindle Orient Fault']},
 
 OUTPUTS = {
-'Motion Enable': 'net motion-enable => ',
-'Coolant Flood': 'net flood-output iocontrol.0.coolant-flood => ',
-'Coolant Mist': 'net mist-output iocontrol.0.coolant-mist => ',
-'Spindle On': 'net spindle-on => ',
-'Spindle CW': 'net spindle-cw spindle.0.forward => ',
-'Spindle CCW': 'net spindle-ccw spindle.0.reverse => ',
-'Spindle Brake': 'net spindle-brake spindle.0.brake => ',
-'E-Stop Out': 'net estop-loopback => ',
-'Digital Out 0': 'net digital-out-0 motion.digital-out-00 => ',
-'Digital Out 1': 'net digital-out-1 motion.digital-out-01 => ',
-'Digital Out 2': 'net digital-out-2 motion.digital-out-02 => ',
-'Digital Out 3': 'net digital-out-3 motion.digital-out-03 => ',
-'Joint 0 Amp Enable': 'net joint-0-enable joint.0.amp-enable-out => ',
-'Joint 1 Amp Enable': 'net joint-1-enable joint.1.amp-enable-out => ',
-'Joint 2 Amp Enable': 'net joint-2-enable joint.2.amp-enable-out => ',
-'Joint 3 Amp Enable': 'net joint-3-enable joint.3.amp-enable-out => ',
-'Joint 4 Amp Enable': 'net joint-4-enable joint.4.amp-enable-out => ',
-'Joint 5 Amp Enable': 'net joint-5-enable joint.5.amp-enable-out => ',
-'Joint 6 Amp Enable': 'net joint-6-enable joint.6.amp-enable-out => ',
-'Joint 7 Amp Enable': 'net joint-7-enable joint.7.amp-enable-out => ',
-'Joint 8 Amp Enable': 'net joint-8-enable joint.8.amp-enable-out => ',
+'Motion Enable': 'net motion-enable =>',
+'Coolant Flood': 'net flood-output iocontrol.0.coolant-flood =>',
+'Coolant Mist': 'net mist-output iocontrol.0.coolant-mist =>',
+'Spindle On': 'net spindle-on =>',
+'Spindle CW': 'net spindle-cw spindle.0.forward =>',
+'Spindle CCW': 'net spindle-ccw spindle.0.reverse =>',
+'Spindle Brake': 'net spindle-brake spindle.0.brake =>',
+'E-Stop Out': 'net estop-loopback =>',
+'Digital Out 0': 'net digital-out-0 motion.digital-out-00 =>',
+'Digital Out 1': 'net digital-out-1 motion.digital-out-01 =>',
+'Digital Out 2': 'net digital-out-2 motion.digital-out-02 =>',
+'Digital Out 3': 'net digital-out-3 motion.digital-out-03 =>',
+'Joint 0 Amp Enable': 'net joint-0-enable joint.0.amp-enable-out =>',
+'Joint 1 Amp Enable': 'net joint-1-enable joint.1.amp-enable-out =>',
+'Joint 2 Amp Enable': 'net joint-2-enable joint.2.amp-enable-out =>',
+'Joint 3 Amp Enable': 'net joint-3-enable joint.3.amp-enable-out =>',
+'Joint 4 Amp Enable': 'net joint-4-enable joint.4.amp-enable-out =>',
+'Joint 5 Amp Enable': 'net joint-5-enable joint.5.amp-enable-out =>',
+'Joint 6 Amp Enable': 'net joint-6-enable joint.6.amp-enable-out =>',
+'Joint 7 Amp Enable': 'net joint-7-enable joint.7.amp-enable-out =>',
+'Joint 8 Amp Enable': 'net joint-8-enable joint.8.amp-enable-out =>',
 }
 
 
@@ -445,19 +445,19 @@ def build_io(parent):
 
 					if board == '7i76':
 						hm2 =  f'hm2_{parent.hal_name}.0.7i76.0.{port}.output-{j:02}{invert}'
-					if board == '7i77':
+					elif board == '7i77':
 						hm2 =  f'hm2_{parent.hal_name}.0.7i77.0.{port}.output-{j:02}{invert}'
-					if board == '7i76E':
+					elif board == '7i76E':
 						hm2 =  f'hm2_7i76e.0.gpio.{j + 31:03}.out{invert}'
-					if board == '7i95':
+					elif board == '7i95':
 						hm2 =  f'hm2_7i95.0.ssr.00.out-{j:02}{invert}'
-					if board == '7i95T':
+					elif board == '7i95T':
 						hm2 =  f'hm2_7i95.0.ssr.00.out-{j:02}'
 						if getattr(parent, f'c0_output_invert_{j}').isChecked():
 							hm2 =  f'hm2_7i95.0.ssr.00.invert-{j:02}'
-					if board == '7i96':
+					elif board == '7i96':
 						hm2 =  f'hm2_7i96.0.gpio.{j:03}.out{invert}'
-					if board == '7i96S':
+					elif board == '7i96S':
 						if j in range(4):
 							hm2 =  f'hm2_7i96s.0.ssr.00.out-{j:02}\n'
 							if getattr(parent, f'c0_output_invert_{j}').isChecked():
@@ -466,15 +466,13 @@ def build_io(parent):
 							hm2 =  f'hm2_7i96s.0.outm.00.out-{j:02}\n'
 							if getattr(parent, f'c0_output_invert_{j}').isChecked():
 								hm2 =  f'setp hm2_7i96s.0.outm.00.invert-{j:02} True\n'
-					if board == '7i97':
+					elif board == '7i97':
 						hm2 =  f'hm2_7i97.0.inmux.00.input-{j:02}{invert}'
-					if board == '7i97T':
+					elif board == '7i97T':
 						if getattr(parent, f'c0_output_invert_{j}').isChecked():
 							hm2 =  f'hm2_7i97.0.ssr.00.invert-{j:02}'
 						else:
 							hm2 =  f'hm2_7i97.0.ssr.00.out-{j:02}'
-					if board == '7i97':
-						contents.append(OUTPUTS[key] + f'hm2_7i97.0.ssr.00.out-{i:02}\n')
 					if OUTPUTS.get(key, False): # return False if key is not in dictionary
 						contents.append(f'{OUTPUTS[key]} {hm2}\n')
 
@@ -546,22 +544,26 @@ def build_ss(parent):
 						contents.append(f'{OUTPUTS[key]} hm2_{mb}.0.{ssCard}.0.0.output-{i:02}\n')
 
 		elif ssCard == '7i73':
-			for i in range(16):
+			for i in range(8):
 				if getattr(parent, 'ss7i73key_' + str(i)).text() != 'Select':
-					keyPin = getattr(parent, 'ss7i73key_' + str(i)).text()
-					contents.append(f'net ss7i73key_{i} hm2_{mb}.0.7i73.0.0.input-{i:02} <= {keyPin}\n')
+					key = getattr(parent, 'ss7i73key_' + str(i)).text()
+					contents.append(f'net ss7i73key_{i} {OUTPUTS[key]} hm2_{mb}.0.7i73.0.0.input-{i:02}\n')
+			for i in range(8, 16):
+				if getattr(parent, 'ss7i73key_' + str(i)).text() != 'Select':
+					key = getattr(parent, 'ss7i73key_' + str(i)).text()
+					contents.append(f'net ss7i73key_{i} {INPUTS[key]} hm2_{mb}.0.7i73.0.0.input-{i:02}\n')
 			for i in range(12):
 				if getattr(parent, 'ss7i73lcd_' + str(i)).text() != 'Select':
-					lcdPin = getattr(parent, 'ss7i73lcd_' + str(i)).text()
-					contents.append(f'net ss7i73lcd_{i} hm2_{mb}.0.7i73.0.0.output-{i:02} => {lcdPin}\n')
+					key = getattr(parent, 'ss7i73lcd_' + str(i)).text()
+					contents.append(f'net ss7i73lcd_{i} {OUTPUTS[key]} hm2_{mb}.0.7i73.0.0.output-{i:02}\n')
 			for i in range(16):
 				if getattr(parent, 'ss7i73in_' + str(i)).text() != 'Select':
-					inPin = getattr(parent, 'ss7i73in_' + str(i)).text()
-					contents.append(f'net ss7i73in_{i} hm2_{mb}.0.7i73.0.0.input-{i:02} <= {inPin}\n')
+					key = getattr(parent, 'ss7i73in_' + str(i)).text()
+					contents.append(f'net ss7i73in_{i} {INPUTS[key]} hm2_{mb}.0.7i73.0.0.input-{i:02}\n')
 			for i in range(2):
 				if getattr(parent, 'ss7i73out_' + str(i)).text() != 'Select':
-					outPin = getattr(parent, 'ss7i73out_' + str(i)).text()
-					contents.append(f'net ss7i73out_{i} hm2_{mb}.0.7i84.0.0.output-{i:02} => {outPin}\n')
+					key = getattr(parent, 'ss7i73out_' + str(i)).text()
+					contents.append(f'net ss7i73out_{i} {OUTPUTS[key]} hm2_{mb}.0.7i84.0.0.output-{i:02}\n')
 
 		try:
 			with open(filePath, 'w') as f:
