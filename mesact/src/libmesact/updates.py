@@ -1,7 +1,5 @@
 import os, requests, subprocess, tarfile
 
-from packaging import version
-
 from PyQt5.QtWidgets import QApplication, QFileDialog, QComboBox
 
 from libmesact import documents
@@ -30,9 +28,9 @@ def checkUpdates(parent):
 	response = requests.get(f"https://api.github.com/repos/jethornton/mesact/releases/latest")
 	repoVersion = response.json()["name"]
 	parent.mainTW.setCurrentIndex(11)
-	if version.parse(repoVersion) > version.parse(parent.version):
+	if tuple(repoVersion.split('.')) > tuple(parent.version.split('.')):
 		parent.info_pte.appendPlainText(f'A newer version {repoVersion} is available for download')
-	elif version.parse(repoVersion) == version.parse(parent.version):
+	elif tuple(repoVersion.split('.')) == tuple(parent.version.split('.')):
 		parent.info_pte.appendPlainText(f'This version {repoVersion} is the latest avaliable')
 
 def downloadAmd64Deb(parent):
