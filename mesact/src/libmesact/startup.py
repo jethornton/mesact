@@ -125,6 +125,7 @@ def setup(parent):
 			parent.mesaflash_version = tuple(int(i) for i in version.split('.'))
 			parent.mesaflashVersionLB.setText(version)
 			parent.mesaflash = True
+			parent.flashed = False
 	except FileNotFoundError as error:
 		parent.firmwareGB.setEnabled(False)
 		parent.verify_board_pb.setEnabled(False)

@@ -254,6 +254,7 @@ def flashCard(parent):
 		if prompt:
 			getResults(parent, prompt, p.returncode, 'results_pte', 'Flash')
 			parent.firmwareTW.setCurrentIndex(2)
+			parent.flashed = True
 
 	else:
 		dialogs.errorMsgOk('A firmware must be selected', 'Error!')
@@ -290,6 +291,7 @@ def reloadCard(parent):
 	if prompt:
 		getResults(parent, prompt, p.returncode, 'firmware_info_pte', 'Reload Firmware')
 		parent.firmware_info_pte.appendPlainText('Wait 30 seconds before Verifying')
+		parent.flashed = False
 
 def verifyFirmware(parent):
 	parent.firmware_info_pte.clear()
@@ -300,6 +302,11 @@ def verifyFirmware(parent):
 		dialogs.errorMsgOk(f'LinuxCNC must NOT be running\n to verify the {board_name}', 'Error')
 		return
 	if parent.firmwareCB.currentData():
+		if parent.flashed:
+			msg = (f'The {board_name} needs to be reloaded\n'
+				'before verifying the firmware.\n')
+			dialogs.infoMsgOk(msg, 'Error')
+			return
 		firmware = os.path.join(parent.lib_path, parent.firmwareCB.currentData())
 		if parent.boardType == 'eth':
 			if verify_ip_board(parent):
