@@ -74,7 +74,7 @@ def build(parent):
 
 	step_boards  = ['7i76', '7i76e', '7i95', '7i95t', '7i96', '7i96s']
 	analog_boards = ['7i77', '7i97', '7i97t']
-	pwmgen_boards = ['7i96s', '7i97', '7i97t']
+	pwmgen_boards = ['7i97', '7i97t']
 
 	if parent.boardCB.currentData() in step_boards:
 		halContents.append('\n# PID Information for Stepper Boards\n')
@@ -139,7 +139,9 @@ def build(parent):
 	# Joints and Axes
 	joint = 0
 	# analog ports are for 7i77 daughter cards only 7i97 is different
-	analog_port = {1: 4, 2:1} # analog port dictonary usage analog_port[card]
+	# FIXME this is not correct for a 7i96s + 7i77
+	analog_port = {'5i25': {1: 4, 2: 1}, '7i92': {1: 4, 2: 1}, '7i96s': {1: 1}}
+	#analog_port = {1: 4, 2:1} # analog port dictonary usage analog_port[card]
 	for card in range(3):
 		board = getattr(parent, f'board_{card}')
 		if board:
@@ -226,26 +228,28 @@ def build(parent):
 
 					halContents.append('\n# PID Output\n')
 					halContents.append(f'net joint.{joint}.output <= {pid_list[joint]}.output\n')
-					if board == '7i77': # analog daughter card
-						halContents.append(f'net joint.{joint}.output => hm2_[MESA](BOARD).0.{board}.0.{analog_port[card]}.analogout{joint}\n')
-					elif board in step_boards: # stepper
+					if board in step_boards: # stepper
 						halContents.append(f'net joint.{joint}.output => hm2_[MESA](BOARD).0.stepgen.0{joint}.velocity-cmd\n')
 					# hm2_7i92.0.7i77.0.1.analogout0
 					elif parent.hal_name == '7i97': # covers both 7i97 and 7i97T
 						halContents.append(f'net joint.{joint}.output => hm2_[MESA](BOARD).0.pwmgen.0{output}.value\n')
 
 					if board == '7i77': # analog daughter card setp   hm2_5i25.0.7i77.0.1.analogout0-scalemax  [JOINT_0]OUTPUT_SCALE
+						port = analog_port[parent.hal_name][card]
 
+						halContents.append(f'net joint.{joint}.output => hm2_[MESA](BOARD).0.{board}.0.{port}.analogout{joint}\n')
 						halContents.append(f'\n# Joint {joint} Analog setup\n')
-						halContents.append(f'setp hm2_[MESA](BOARD).0.{board}.0.{analog_port[card]}.analogout{joint}-scalemax')
+						halContents.append(f'setp hm2_[MESA](BOARD).0.{board}.0.{port}.analogout{joint}-scalemax')
 						halContents.append(f' [JOINT_{joint}](ANALOG_SCALE_MAX)\n')
-						halContents.append(f'setp hm2_[MESA](BOARD).0.{board}.0.{analog_port[card]}.analogout{joint}-minlim')
+						halContents.append(f'setp hm2_[MESA](BOARD).0.{board}.0.{port}.analogout{joint}-minlim')
 						halContents.append(f' [JOINT_{joint}](ANALOG_MIN_LIMIT)\n')
-						halContents.append(f'setp hm2_[MESA](BOARD).0.{board}.0.{analog_port[card]}.analogout{joint}-maxlim')
+						halContents.append(f'setp hm2_[MESA](BOARD).0.{board}.0.{port}.analogout{joint}-maxlim')
 						halContents.append(f' [JOINT_{joint}](ANALOG_MAX_LIMIT)\n\n')
 						# hm2_7i92.0.7i77.0.1.analogout0-maxlim
 						# hm2_7i92.0.7i77.0.1.analogout0-minlim
 						# hm2_7i92.0.7i77.0.1.analogout0-scalemax
+						print(f'card {card} analog_port {port}')
+						print(f'board name {parent.hal_name}')
 
 					if board in analog_boards: # analog
 						if getattr(parent, f'c{card}_encoderScale_{joint}').text():
