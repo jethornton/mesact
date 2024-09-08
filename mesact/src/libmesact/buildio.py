@@ -459,6 +459,13 @@ def build_io(parent):
 				port = ports[board]
 			else: # everything else is port 0
 				port = 0
+
+			if parent.hal_name == '7i96s': # check for daughter card
+				if parent.daughterCB_0.currentData() == '7i76':
+					port = 1
+				elif parent.daughterCB_0.currentData() == '7i77':
+					port = 0
+
 			for j in range(16):
 				key = getattr(parent, f'c{i}_output_{j}').text()
 				if key != 'Select':
