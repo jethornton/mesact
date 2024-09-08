@@ -317,6 +317,18 @@ def build_io(parent):
 	hm2_7i95.0.inmux.00.input-00
 	hm2_7i95.0.inmux.00.input-00-not
 	hm2_7i95.0.inmux.00.input-00-slow
+
+	P1
+	hm2_7i96s.0.7i76.0.1.input-00 through 31
+	hm2_7i96s.0.7i76.0.1.input-00-not
+
+	hm2_7i96s.0.7i76.0.1.output-00 through 15
+
+	hm2_7i96s.0.7i77.0.0.input-00 through 31
+	hm2_7i96s.0.7i77.0.0.input-00-not
+
+	hm2_7i96s.0.7i77.0.0.output-00 through 15
+
 	'''
 
 	joint = 0
@@ -330,15 +342,27 @@ def build_io(parent):
 
 	ports = {'7i76': 2, '7i77': 3}
 	underscore_not = ['7i76E', '7i96']
+	#print(f'Main Board: {parent.boardCB.currentText()} {parent.boardCB.currentData()}')
+	#print(f'Daughter 0: {parent.daughterCB_0.currentText()}, {parent.daughterCB_0.currentData()}')
+	#print(f'Daughter 1: {parent.daughterCB_1.currentText()}, {parent.daughterCB_1.currentData()}')
+	#print(f'parent.hal_name {parent.hal_name}')
 
 	for i in range(3): # see if tab is visible
 		# i == 0 main board, i == 1 daughter card P2, i == 2 daughter card P3 possibly
 		if parent.mainTW.isTabVisible(i + 3):
 			board = getattr(parent, f'c{i}_JointTW').tabText(0)
+			#print(f'board: {board}')
 			if i == 1 and board in ports: # 7i92 P1 or 5/6i25 P2 so second port
 				port = ports[board]
 			else: # everything else is port 0
 				port = 0
+
+			if parent.hal_name == '7i96s': # check for daughter card
+				if parent.daughterCB_0.currentData() == '7i76':
+					port = 1
+				elif parent.daughterCB_0.currentData() == '7i77':
+					port = 0
+
 			for j in range(32):
 				key = getattr(parent, f'c{i}_input_{j}').text()
 				if key != 'Select':
