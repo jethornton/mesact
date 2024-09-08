@@ -68,24 +68,6 @@ def setup(parent):
 	except:
 		pass
 
-	if parent.settings.contains('STARTUP/config'):
-		if parent.settings.value('STARTUP/config', False, type=bool):
-			config_file = parent.settings.value('STARTUP/config')
-			if os.path.isfile(config_file):
-				parent.loadini.load_ini(parent, config_file)
-
-	parent.configNameLE.setFocus()
-
-	exitAction = QAction(QIcon.fromTheme('application-exit'), 'Exit', parent)
-	exitAction.setStatusTip('Exit application')
-	exitAction.triggered.connect(parent.close)
-	parent.menuFile.addAction(exitAction)
-
-	docsAction = QAction(QIcon.fromTheme('document-open'), 'Mesa Manuals', parent)
-	docsAction.setStatusTip('Download Mesa Documents')
-	docsAction.triggered.connect(partial(updates.downloadDocs, parent))
-	parent.menuDownloads.addAction(docsAction)
-
 	# Firmware tab
 
 	# get emc version if installed
@@ -142,6 +124,25 @@ def setup(parent):
 	except:
 		parent.os_name_lb.setText('OS Unknown')
 		parent.os_code_name_lb.setText('No Codename')
+
+	if parent.settings.contains('STARTUP/config'):
+		if parent.settings.value('STARTUP/config', False, type=bool):
+			config_file = parent.settings.value('STARTUP/config')
+			if os.path.isfile(config_file):
+				parent.loadini.load_ini(parent, config_file)
+
+	parent.configNameLE.setFocus()
+
+	exitAction = QAction(QIcon.fromTheme('application-exit'), 'Exit', parent)
+	exitAction.setStatusTip('Exit application')
+	exitAction.triggered.connect(parent.close)
+	parent.menuFile.addAction(exitAction)
+
+	docsAction = QAction(QIcon.fromTheme('document-open'), 'Mesa Manuals', parent)
+	docsAction.setStatusTip('Download Mesa Documents')
+	docsAction.triggered.connect(partial(updates.downloadDocs, parent))
+	parent.menuDownloads.addAction(docsAction)
+
 
 	# Change Events
 	for child in parent.findChildren(QPlainTextEdit):
