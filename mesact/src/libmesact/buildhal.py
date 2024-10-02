@@ -123,9 +123,6 @@ def build(parent):
 	if board_list[2] == '7i77':
 		halContents.append(f'net motion-enable => hm2_[MESA](BOARD).0.7i77.0.1.analogena\n')
 
-	if parent.hal_name == '7i97': # hm2_7i97.0.pwmgen.00.enable
-		halContents.append('net motion-enable hm2_[MESA](BOARD).0.pwmgen.00.enable\n')
-
 	if parent.boardCB.currentData() == '7i97':
 		#print(parent.boardCB.currentData())
 		pwm_freq = 48000
