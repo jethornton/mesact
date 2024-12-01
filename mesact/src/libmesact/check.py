@@ -92,7 +92,7 @@ def checkit(parent):
 	for i in range(3):
 		card_indexes[f'card_index_{i}'] = parent.mainTW.indexOf(parent.mainTW.findChild(QWidget, f'card_{i}'))
 
-
+	# FIXME this does not give the correct tab name
 	if parent.boardCB.currentData() in axis_boards:
 		board = parent.boardCB.currentData()
 		tab = parent.mainTW.tabText(card_indexes['card_index_0'])
@@ -151,8 +151,8 @@ def checkit(parent):
 							return
 
 	for i in range(3):
-		#print(card_indexes[f'card_index_{i}'])
 		if parent.mainTW.isTabVisible(card_indexes[f'card_index_{i}']):
+			tab = parent.mainTW.tabText(card_indexes[f'card_index_{i}'])
 			for j in range(6): # Check for joint errors
 				if getattr(parent, f'c{i}_axis_{j}').currentData(): # the axis has a letter
 					if getattr(parent, f'c{i}_scale_{j}').isEnabled():
@@ -233,6 +233,13 @@ def checkit(parent):
 						if getattr(parent, f'c{i}_analogScaleMax_{j}').text() == '':
 							tabError = True
 							configErrors.append(f'\tDrive {j} Analog Scale Max must not be blank')
+
+		if tabError:
+			configErrors.insert(nextHeader, f'{tab} Tab:')
+			nextHeader = len(configErrors)
+			tabError = False
+		# end of joint Tab
+
 
 	# check I/O for errors
 	# get the joints
