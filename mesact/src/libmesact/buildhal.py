@@ -72,7 +72,7 @@ def build(parent):
 		pid_string += f'pid.s,'
 	halContents.append(f'\nloadrt pid names={pid_string[:-1]}\n')
 
-	step_boards  = ['7i76', '7i76e', '7i95', '7i95t', '7i96', '7i96s']
+	step_boards  = ['7i76', '7i76e', '7i78', '7i95', '7i95t', '7i96', '7i96s']
 	analog_boards = ['7i77', '7i97', '7i97t']
 	pwmgen_boards = ['7i97', '7i97t']
 
