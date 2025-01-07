@@ -313,9 +313,22 @@ def calc_scale(parent):
 	if micro_steps: # get steps per rev
 		steps_rev = steps_rev * micro_steps
 
-	if leadscrew_teeth and stepper_teeth:
-		parent.lin_scale_le.setText(f'{round(steps_rev * (leadscrew_teeth/stepper_teeth) * leadscrew_pitch, 4):g}')
+	if parent.linearUnitsCB.currentData():
+		if parent.linearUnitsCB.currentData() == 'inch':
+			if leadscrew_teeth and stepper_teeth:
+				parent.lin_scale_le.setText(f'{round(steps_rev * (leadscrew_teeth/stepper_teeth) * leadscrew_pitch, 4):g}')
+			else:
+				parent.lin_scale_le.setText(f'{round(steps_rev * leadscrew_pitch, 4):g}')
+
+		if parent.linearUnitsCB.currentData() == 'mm':
+			if leadscrew_teeth and stepper_teeth:
+				parent.lin_scale_le.setText(f'{round(steps_rev * (leadscrew_teeth/stepper_teeth) / leadscrew_pitch, 4):g}')
+			else:
+				parent.lin_scale_le.setText(f'{round(steps_rev / leadscrew_pitch, 4):g}')
 	else:
-		parent.lin_scale_le.setText(f'{round(steps_rev * leadscrew_pitch, 4):g}')
+		msg = ('Linear Units on the Settings tab must be selected to\n'
+		'calculate scale')
+		dialogs.errorMsgOk(msg, 'Error')
+
 
 
