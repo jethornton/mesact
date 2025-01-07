@@ -16,7 +16,7 @@ sudo apt install zip
 VERSION = '2.1.7'
 BUILD_DATE = '10/02/2024'
 
-import distro
+#import distro
 from traceback import StackSummary
 from functools import partial
 
@@ -106,19 +106,14 @@ class MainWindow(QMainWindow):
 
 app = QApplication(sys.argv)
 # check python version
-os_id = distro.id()
-allowed_os = ['debian', 'ubuntu', 'linuxmint']
+#os_id = distro.id()
+#allowed_os = ['debian', 'ubuntu', 'linuxmint']
 qt_version = qVersion().split('.')
 if (sys.version_info.major, sys.version_info.minor) < (3, 6):
 	msg = (f'Python 3.6 or newer is required.\nYour Python is {python_version()}')
 	dialogs.errorMsgOk(msg, 'Version Error')
 	sys.exit()
-elif os_id not in allowed_os:
-	msg = ('Debian is required to run\n'
-	'the Mesa Configuration Tool\n'
-	f'Python reports your OS is {os_id}')
-	dialogs.errorMsgOk(msg, 'OS Error')
-	sys.exit()
+
 
 elif (int(qt_version[0]), int(qt_version[1])) < (5, 15):
 	msg = (f'PyQt5 5.15 or newer is required.\nYour PyQt5 is {qVersion()}\n'
@@ -130,4 +125,12 @@ else:
 	ex = MainWindow()
 sys.exit(app.exec_())
 
+'''
+elif os_id not in allowed_os:
+	msg = ('Debian is required to run\n'
+	'the Mesa Configuration Tool\n'
+	f'Python reports your OS is {os_id}')
+	dialogs.errorMsgOk(msg, 'OS Error')
+	sys.exit()
+'''
 
