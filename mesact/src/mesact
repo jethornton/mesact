@@ -107,7 +107,7 @@ class MainWindow(QMainWindow):
 app = QApplication(sys.argv)
 # check python version
 os_id = distro.id()
-print(os_id)
+#print(os_id) note maybe a better way in startup.py 118
 allowed_os = ['debian', 'ubuntu', 'linuxmint']
 qt_version = qVersion().split('.')
 if (sys.version_info.major, sys.version_info.minor) < (3, 6):
