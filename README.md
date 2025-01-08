@@ -2,7 +2,9 @@ Mesa Configuration Tool II
 
 The Mesa Configuration Tool works with most Debian and Debian based Operating
 Systems that meet the Python and PyQt5 minimum versions including the Raspberry
-Pi with the exception of Raspbian 10.
+Pi with the exception of Raspbian 10. If you use a special version like from
+Rod W on the forum you may encounter problems because he does not provide a
+standard Python liberary kit.
 
 Requirements:
 Debian 11 OS or newer (might work on Ubuntu but not supported)
