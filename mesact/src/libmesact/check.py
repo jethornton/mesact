@@ -39,6 +39,15 @@ def checkit(parent):
 	if parent.guiCB.currentText() == 'Select': # allow custom gui
 		tabError = True
 		configErrors.append('\tA GUI must be selected')
+	elif parent.guiCB.currentText() == 'Gmoccapy': # Warn user about issues
+		if parent.emc_version > (2, 9, 2):
+			msg = ('Gmoccapy has removed auto G43\n'
+			'since version 2.10.0 due to programming issues.\n'
+			f"You're running LinxuCNC version {parent.emc_version}\n"
+			'To retain this function see the Gmoccapy section of the forum\n'
+			'https://forum.linuxcnc.org/gmoccapy/55011-lcnc-2-10-ask-for-automatic-g43-in-pncconf#318781')
+			dialogs.errorMsgOk(msg, 'Warning')
+
 	if not parent.linearUnitsCB.currentData():
 		tabError = True
 		configErrors.append('\tLinear Units must be selected')
