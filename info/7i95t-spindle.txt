@@ -25,6 +25,7 @@ addf pid.1.do-pid-calcs servo-thread
 addf pid.2.do-pid-calcs servo-thread
 addf pid.s.do-pid-calcs servo-thread
 addf hm2_[MESA](BOARD).0.write servo-thread
+
 # Spindle Connections
 net spindle-vel-cmd <= spindle.0.speed-out
 net spindle-vel-cmd => pid.s.command
@@ -33,7 +34,7 @@ net spindle-pid-out => hm2_[MESA](BOARD).0.pwmgen.00.value
 
 ########################......
 
-#Spindel
+#Spindle
 
 # Spindle PWM Setup
 setp hm2_[MESA](BOARD).0.pwmgen.00.output-type [SPINDLE_0](PWM_TYPE)
