@@ -376,10 +376,10 @@ def checkit(parent):
 	if parent.spindleTypeCB.currentData() == 'pwm':
 		if parent.spindleMaxRpmFwd.value() == 0:
 			tabError = True
-			configErrors.append(f'\tPWM Maximum RPM can not be 0')
+			configErrors.append(f'\tSpindle Settings Maximum Fwd can not be 0')
 		if parent.maxOutput_s.value() == 0:
 			tabError = True
-			configErrors.append(f'\tPWM Max Output can not be 0')
+			configErrors.append(f'\tPID Settings Max Output can not be 0')
 
 	if tabError:
 		configErrors.insert(nextHeader, 'Spindle Tab:')
