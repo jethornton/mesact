@@ -57,6 +57,7 @@ def firmwareChanged(parent):
 	parent.create_pin_pb.setEnabled(False)
 
 	if parent.firmwareCB.currentData():
+		firmware_name = os.path.basename(parent.firmwareCB.currentData())
 		parent.stepgens_cb.clear()
 		parent.pwmgens_cb.clear()
 		parent.encoders_cb.clear()
@@ -163,6 +164,20 @@ def firmwareChanged(parent):
 			parent.firmware_info_pte.setPlainText(data)
 		else:
 			parent.firmware_info_pte.appendPlainText(f'No description file found\n')
+
+		# special handling of some firmware
+		if parent.boardCB.currentData() == '7i95t':
+			if firmware_name == '7i95t_1pwmd.bin':
+				parent.spindleGB.setEnabled(True)
+				parent.spindleTypeCB.model().item(1).setEnabled(True)
+				for i in range(2, 7):
+					parent.spindleTypeCB.model().item(i).setEnabled(False)
+			else:
+				parent.spindleGB.setEnabled(False)
+				parent.spindleTypeCB.setCurrentIndex(0)
+				for i in range(7):
+					parent.spindleTypeCB.model().item(i).setEnabled(False)
+
 
 def create_pin(parent):
 	print('here')
