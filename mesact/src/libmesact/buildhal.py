@@ -6,8 +6,6 @@ def build(parent):
 	for card in range(3):
 		board_list.append(getattr(parent, f'board_{card}'))
 
-	print(board_list)
-
 	halFilePath = os.path.join(parent.configPath, 'main' + '.hal')
 	parent.info_pte.appendPlainText(f'Building {halFilePath}')
 
@@ -122,8 +120,14 @@ def build(parent):
 
 	halContents.append('\n# amp enable\n')
 	halContents.append(f'net motion-enable <= motion.motion-enabled\n')
-	if board_list[2] == '7i77':
+	if board_list[1] == '7i77':
+		halContents.append(f'net motion-enable => hm2_[MESA](BOARD).0.7i77.0.4.analogena\n')
+		# ENA5 is seperate and can be used as a spindle
+		halContents.append(f'net motion-enable => hm2_[MESA](BOARD).0.7i77.0.4.spinena\n')
+	elif board_list[2] == '7i77':
 		halContents.append(f'net motion-enable => hm2_[MESA](BOARD).0.7i77.0.1.analogena\n')
+		# ENA5 is seperate and can be used as a spindle
+		halContents.append(f'net motion-enable => hm2_[MESA](BOARD).0.7i77.0.1.spinena\n')
 
 	if parent.boardCB.currentData() == '7i97':
 		pwm_freq = 48000
