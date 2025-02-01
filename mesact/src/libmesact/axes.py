@@ -7,7 +7,6 @@ from libmesact import dialogs
 def copy_scale(parent):
 	if parent.lin_scale_joint_cb.currentData():
 		if len(parent.lin_scale_le.text()) > 0:
-			print(getattr(parent, f'{parent.lin_scale_joint_cb.currentData()}').objectName())
 			getattr(parent, f'{parent.lin_scale_joint_cb.currentData()}').setText(parent.lin_scale_le.text())
 		else:
 			msg = ('Scale must not be blank')
@@ -86,8 +85,6 @@ def axisChanged(parent):
 		parent.angluar_scale_joint_cb.clear()
 
 	# setup scale axes and joints
-	#print(f'linear_axes {linear_axes}')
-	#print(f'coordList {coordList}')
 	if set(linear_axes)&set(coordList):
 		parent.lin_scale_joint_cb.clear()
 		parent.lin_scale_joint_cb.addItem('Select', False)
@@ -100,15 +97,16 @@ def axisChanged(parent):
 		parent.angluar_scale_joint_cb.clear()
 
 	for i in range(3):
-		board = parent.mainTW.tabText(i + 3)
-		#print(f'board {board}')
 		for j in range(6):
+			board = getattr(parent, f'c{i}_JointTW').tabText(0)
 			axis_letter = getattr(parent, f'c{i}_axis_{j}').currentText()
 			if axis_letter in linear_axes:
-				parent.lin_scale_joint_cb.addItem(f'{board}, {axis_letter} Axis, Drive {j}', f'c{i}_scale_{j}')
+				if board in ['7i77']:
+					parent.lin_scale_joint_cb.addItem(f'{board}, {axis_letter} Axis, Drive {j}', f'c{i}_encoderScale_{j}')
+				else:
+					parent.lin_scale_joint_cb.addItem(f'{board}, {axis_letter} Axis, Drive {j}', f'c{i}_scale_{j}')
 			if axis_letter in angular_axes:
 				parent.angluar_scale_joint_cb.addItem(f'{board}, {axis_letter} Axis, Drive {j}', f'c{i}_scale_{j}')
-	# c0_encoderScale_0
 
 def updateAxisInfo(parent):
 	card = parent.sender().objectName()[:2]
