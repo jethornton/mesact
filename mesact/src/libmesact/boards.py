@@ -42,6 +42,11 @@ def boardChanged(parent):
 				getattr(parent, f'c{i}_settings_{j}').setTabVisible(4, True)
 				getattr(parent, f'c{i}_pidDefault_{i}').setVisible(True)
 
+		# clear all axis entries
+		for i in range(3): # each board tab
+			for j in range(6): # each axis
+				getattr(parent, f'c{i}_axis_{j}').setCurrentIndex(0)
+
 		for i in range(1, 7):
 			parent.spindleTypeCB.model().item(i).setEnabled(False)
 		parent.firmware_options_lb.setText('No Firmware Selected!')

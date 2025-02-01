@@ -3,14 +3,11 @@ def changed(parent):
 	port = int(parent.sender().objectName()[-1])
 	daughter_tab = port + 1
 	board = parent.sender().currentData()
-	setattr(parent, f'board_{daughter_tab}', board)
 	if parent.sender().currentData(): # daughter card selected
-		#print(f'board_{daughter_tab}')
+		setattr(parent, f'board_{daughter_tab}', board)
 		main_tw_tab = int(parent.sender().objectName()[-1]) + 4
-		# daughterLB_0
 		card = parent.sender().objectName()[-1]
 		connector = getattr(parent, f'daughterLB_{card}').text()
-		# connector = int(parent.sender().objectName()[-1]) + 1
 		getattr(parent, f'c{int(card) + 1 }_JointTW').setTabText(0, parent.sender().currentText())
 		cards = {
 			'7i76':{'axis':5, 'stepgen':5, 'analog':0, 'encoder':0, 'spinenc':1, 'spinana':1, 'inputs':32, 'outputs':16},
@@ -79,4 +76,5 @@ def changed(parent):
 
 	else:
 		parent.mainTW.setTabVisible(4 + int(parent.sender().objectName()[-1]), False)
+		setattr(parent, f'board_{daughter_tab}', False)
 

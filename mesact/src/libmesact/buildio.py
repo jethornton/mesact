@@ -342,16 +342,11 @@ def build_io(parent):
 
 	ports = {'7i76': 2, '7i77': 3}
 	underscore_not = ['7i76E', '7i96']
-	#print(f'Main Board: {parent.boardCB.currentText()} {parent.boardCB.currentData()}')
-	#print(f'Daughter 0: {parent.daughterCB_0.currentText()}, {parent.daughterCB_0.currentData()}')
-	#print(f'Daughter 1: {parent.daughterCB_1.currentText()}, {parent.daughterCB_1.currentData()}')
-	#print(f'parent.hal_name {parent.hal_name}')
 
 	for i in range(3): # see if tab is visible
 		# i == 0 main board, i == 1 daughter card P2, i == 2 daughter card P3 possibly
 		if parent.mainTW.isTabVisible(i + 3):
 			board = getattr(parent, f'c{i}_JointTW').tabText(0)
-			#print(f'board: {board}')
 			if i == 1 and board in ports: # 7i92 P1 or 5/6i25 P2 so second port
 				port = ports[board]
 			else: # everything else is port 0
