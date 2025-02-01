@@ -9,7 +9,6 @@ from libmesact import utilities
 
 def openDoc(parent):
 	if parent.installed:
-		print('installed')
 		doc = os.path.join(parent.docs_path, 'mesact.pdf.gz')
 	else:
 		doc = os.path.join(parent.docs_path, 'mesact.pdf')

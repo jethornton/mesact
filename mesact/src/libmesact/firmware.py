@@ -180,7 +180,7 @@ def firmwareChanged(parent):
 
 
 def create_pin(parent):
-	print('here')
+	pass
 
 
 

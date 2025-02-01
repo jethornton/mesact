@@ -117,7 +117,6 @@ def setup(parent):
 
 	try:
 		os_name = subprocess.check_output(['lsb_release', '-is'], encoding='UTF-8').split()
-		#print(os_name[0].lower())
 		os_version = subprocess.check_output(['lsb_release', '-rs'], encoding='UTF-8').split()
 		parent.os_name_lb.setText(f'{os_name[0]} {os_version[0]}')
 		code_name = subprocess.check_output(['lsb_release', '-cs'], encoding='UTF-8').split()

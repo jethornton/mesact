@@ -6,6 +6,8 @@ def build(parent):
 	for card in range(3):
 		board_list.append(getattr(parent, f'board_{card}'))
 
+	print(board_list)
+
 	halFilePath = os.path.join(parent.configPath, 'main' + '.hal')
 	parent.info_pte.appendPlainText(f'Building {halFilePath}')
 
@@ -124,10 +126,8 @@ def build(parent):
 		halContents.append(f'net motion-enable => hm2_[MESA](BOARD).0.7i77.0.1.analogena\n')
 
 	if parent.boardCB.currentData() == '7i97':
-		#print(parent.boardCB.currentData())
 		pwm_freq = 48000
 	elif parent.boardCB.currentData() == '7i97t':
-		#print(parent.boardCB.currentData())
 		pwm_freq = 75000
 	if parent.hal_name == '7i97':
 		halContents.append('\n# Global PWM setup\n')
@@ -242,11 +242,6 @@ def build(parent):
 						halContents.append(f' [JOINT_{joint}](ANALOG_MIN_LIMIT)\n')
 						halContents.append(f'setp hm2_[MESA](BOARD).0.{board}.0.{port}.analogout{joint}-maxlim')
 						halContents.append(f' [JOINT_{joint}](ANALOG_MAX_LIMIT)\n\n')
-						# hm2_7i92.0.7i77.0.1.analogout0-maxlim
-						# hm2_7i92.0.7i77.0.1.analogout0-minlim
-						# hm2_7i92.0.7i77.0.1.analogout0-scalemax
-						print(f'card {card} analog_port {port}')
-						print(f'board name {parent.hal_name}')
 
 					if board in analog_boards: # analog
 						if getattr(parent, f'c{card}_encoderScale_{joint}').text():
