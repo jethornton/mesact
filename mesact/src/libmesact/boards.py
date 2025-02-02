@@ -145,7 +145,7 @@ def boardChanged(parent):
 			)
 			parent.board_info_pte.setPlainText(info)
 
-			for item in idc50:
+			for item in db25:
 				parent.daughterCB_0.addItem(item[0], item[1])
 			for j in range(23):
 				getattr(parent, f'c0_input_{j}').setEnabled(True)
