@@ -128,6 +128,37 @@ def boardChanged(parent):
 				parent.daughterCB_1.addItem(item[0], item[1])
 			parent.find_ip_board_pb.setEnabled(False)
 
+		elif board == '7c80': # SPI 6 Axis Step/Direction
+			parent.board_0 = '7c80'
+			parent.hal_name = '7c80'
+			parent.mesaflash_name = '7c80'
+			# 6 step/dir 23 inputs 8 outputs 1 spindle 1 encoder
+			parent.boardType = 'other'
+			parent.c0_JointTW.setTabText(0, name)
+			parent.c0_JointTW.setTabVisible(6, False)
+			parent.ipAddressCB.setEnabled(False)
+			parent.daughterLB_0.setText('P1')
+			parent.mainTW.setTabText(4, 'P1')
+			info = ('7c80 uses SPI for communication, requires LinuxCNC v2.9.4+ (hm2_spix, since it is required for the Pi5)\n'
+			'\n'
+			'\nDefault Firmware 7c80d.bit\n'
+			)
+			parent.board_info_pte.setPlainText(info)
+
+			for item in idc50:
+				parent.daughterCB_0.addItem(item[0], item[1])
+			for j in range(23):
+				getattr(parent, f'c0_input_{j}').setEnabled(True)
+				getattr(parent, f'c0_input_invert_{j}').setEnabled(True)
+				getattr(parent, f'c0_input_debounce_{j}').setEnabled(False)
+			for j in range(8):
+				getattr(parent, f'c0_output_{j}').setEnabled(True)
+				getattr(parent, f'c0_output_invert_{j}').setEnabled(True)
+
+			for i in range(6): # hide analog and encoder tabs
+				getattr(parent, f'c0_settings_{i}').setTabVisible(3, False)
+				getattr(parent, f'c0_settings_{i}').setTabVisible(4, False)
+
 		elif board == '7i76e': # ETH 5 Axis Step/Direction
 			parent.board_0 = '7i76e'
 			parent.hal_name = '7i76e'
