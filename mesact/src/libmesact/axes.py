@@ -138,6 +138,7 @@ def updateAxisInfo(parent):
 		getattr(parent, f'{card}_stepRateJoint_' + joint).setText(f'{abs(stepRate):.0f} Hz')
 
 def pidSetDefault(parent):
+	print(parent.sender().objectName())
 	connector = parent.sender().objectName()[:2]
 	joint = parent.sender().objectName()[-1]
 	if not parent.linearUnitsCB.currentData():

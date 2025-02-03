@@ -27,6 +27,13 @@ def changed(parent):
 		inputs = cards[board]['inputs']
 		outputs = cards[board]['outputs']
 
+		if board == '7i77': # show/hide spindle checkbox on drive 5
+			getattr(parent, f'c{daughter_tab}_spindle_cb').setVisible(True)
+		else:
+			getattr(parent, f'c{daughter_tab}_spindle_cb').setVisible(False)
+
+		# c1_spindle_cb c2_spindle_cb
+
 		for i in range(1,7): # show/hide axis tabs
 			if i <= axis:
 				getattr(parent, f'c{daughter_tab}_JointTW').setTabVisible(i, True)

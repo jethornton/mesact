@@ -42,7 +42,7 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>5</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -19949,6 +19949,13 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
+               <item row="2" column="0">
+                <widget class="QCheckBox" name="c1_spindle_cb">
+                 <property name="text">
+                  <string>Spindle</string>
+                 </property>
+                </widget>
+               </item>
               </layout>
              </widget>
             </item>
@@ -22717,7 +22724,7 @@ Leave blank to home the joint manually.</string>
         <item>
          <widget class="QTabWidget" name="c2_JointTW">
           <property name="currentIndex">
-           <number>0</number>
+           <number>6</number>
           </property>
           <widget class="QWidget" name="tab_86">
            <attribute name="title">
@@ -30333,6 +30340,13 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
+               <item row="2" column="0">
+                <widget class="QCheckBox" name="c2_spindle_cb">
+                 <property name="text">
+                  <string>Spindle</string>
+                 </property>
+                </widget>
+               </item>
               </layout>
              </widget>
             </item>
@@ -30347,7 +30361,7 @@ Leave blank to home the joint manually.</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_223">
                 <item row="1" column="1">
-                 <widget class="QGroupBox" name="groupBox_97">
+                 <widget class="QGroupBox" name="c2_options_gb">
                   <property name="title">
                    <string>Options</string>
                   </property>
@@ -30367,7 +30381,7 @@ Leave blank to home the joint manually.</string>
                  </widget>
                 </item>
                 <item row="0" column="1" colspan="2">
-                 <widget class="QGroupBox" name="groupBox_96">
+                 <widget class="QGroupBox" name="c2_following_error_gb">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -31365,7 +31379,7 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                    <item row="1" column="0">
-                    <widget class="QLabel" name="label_681">
+                    <widget class="QLabel" name="c2_max_limit_lb">
                      <property name="text">
                       <string>Analog Max Limit</string>
                      </property>
@@ -31382,7 +31396,7 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                    <item row="0" column="0">
-                    <widget class="QLabel" name="label_682">
+                    <widget class="QLabel" name="c2_min_limit_lb">
                      <property name="text">
                       <string>Analog Min Limit</string>
                      </property>
@@ -31399,7 +31413,7 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                    <item row="2" column="0">
-                    <widget class="QLabel" name="label_683">
+                    <widget class="QLabel" name="c2_scale_max_lb">
                      <property name="text">
                       <string>Analog Scale Max</string>
                      </property>
@@ -31421,7 +31435,7 @@ Leave blank to home the joint manually.</string>
                   </layout>
                  </widget>
                 </item>
-                <item row="0" column="1">
+                <item row="0" column="2">
                  <spacer name="horizontalSpacer_78">
                   <property name="orientation">
                    <enum>Qt::Horizontal</enum>
@@ -31433,6 +31447,13 @@ Leave blank to home the joint manually.</string>
                    </size>
                   </property>
                  </spacer>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QLabel" name="c2_spindle_lb">
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
                 </item>
                 <item row="1" column="0">
                  <spacer name="verticalSpacer_65">
@@ -31513,15 +31534,15 @@ Leave blank to home the joint manually.</string>
                 <string>Info</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_232">
-                <item row="1" column="0">
-                 <spacer name="verticalSpacer_36">
+                <item row="0" column="1">
+                 <spacer name="horizontalSpacer_36">
                   <property name="orientation">
-                   <enum>Qt::Vertical</enum>
+                   <enum>Qt::Horizontal</enum>
                   </property>
                   <property name="sizeHint" stdset="0">
                    <size>
-                    <width>20</width>
-                    <height>40</height>
+                    <width>40</width>
+                    <height>20</height>
                    </size>
                   </property>
                  </spacer>
@@ -31604,18 +31625,15 @@ Leave blank to home the joint manually.</string>
                   </layout>
                  </widget>
                 </item>
-                <item row="0" column="1">
-                 <spacer name="horizontalSpacer_36">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="label_763">
+                  <property name="text">
+                   <string>For a spindle
+Analog Min Limit is Minimum RPM
+Analog Max Limit is Maximum Forward RPM
+Analog Scale Max is Maximun RPM</string>
                   </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>40</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
+                 </widget>
                 </item>
                </layout>
               </widget>

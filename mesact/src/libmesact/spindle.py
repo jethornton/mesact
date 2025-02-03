@@ -88,4 +88,49 @@ def spindleSettingsChanged(parent):
 	else:
 		parent.spindleMaxRpss.setText('')
 
+def spindle_cb_changed(parent):
+	axis_items = ['_axis_5', '_scale_5', '_min_limit_5', '_max_limit_5',
+	'_max_vel_5', '_max_accel_5', '_options_gb', '_following_error_gb',
+	'_analogDefault_5']
+	card = parent.sender().objectName()[1]
+
+	if parent.sender().isChecked():
+		state = False
+		getattr(parent, f'c{card}_axisType_5').setText('Spindle')
+		getattr(parent, f'c{card}_settings_5').setTabText(3, 'Spindle')
+		getattr(parent, f'c{card}_min_limit_lb').setText('Min RPM Limit')
+		getattr(parent, f'c{card}_max_limit_lb').setText('Max RPM Limit')
+		getattr(parent, f'c{card}_scale_max_lb').setText('Scale Max')
+		spindle_instructions = ('''
+		If spindle RPM is 0 to 6000 (0v to +10v
+		Min RPM Limit = 0
+		Max RPM Limit = 6000
+		Scale Max = 6000
+		
+		If you have a bipolar spindle speed control (-10v to +10v)
+		Min RPM Limit = -6000
+		Max RPM Limit = 6000
+		Scale Max = 6000
+		''')
+		getattr(parent, f'c{card}_spindle_lb').setText(spindle_instructions)
+
+	else:
+		state = True
+		getattr(parent, f'c{card}_axisType_5').clear()
+		getattr(parent, f'c{card}_settings_5').setTabText(3, 'Analog')
+		getattr(parent, f'c{card}_min_limit_lb').setText('Analog Min Limit')
+		getattr(parent, f'c{card}_max_limit_lb').setText('Analog Max Limit')
+		getattr(parent, f'c{card}_scale_max_lb').setText('Analog Scale Max')
+	for item in axis_items: # disable/enable axis items
+		getattr(parent, f'c{card}{item}').setEnabled(state)
+
+
+	'''
+	c2_settings_5 hide 1 2 5
+	c2_min_limit_lb
+	c2_max_limit_lb
+	c2_scale_max_lb
+	'''
+
+
 
