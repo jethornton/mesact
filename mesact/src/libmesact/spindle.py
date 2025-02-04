@@ -1,21 +1,35 @@
 from libmesact import dialogs
 
 def spindle_pid_default(parent):
-	if parent.spindleMaxRpmFwd.value() <= parent.spindleMinRpmFwd.value():
-		msg = ('Spindle Maximum RPM must be higher\n'
-		'than Spindle Minimum RPM')
-		dialogs.errorMsgOk(msg, 'Configuration Error!')
-		return
-	getattr(parent, 'p_s').setValue(0)
-	getattr(parent, 'i_s').setValue(0)
-	getattr(parent, 'd_s').setValue(0)
-	getattr(parent, 'ff0_s').setValue(1)
-	getattr(parent, 'ff1_s').setValue(0)
-	getattr(parent, 'ff2_s').setValue(0)
-	getattr(parent, 'bias_s').setValue(0)
-	getattr(parent, 'maxOutput_s').setValue(parent.spindleMaxRpmFwd.value())
-	getattr(parent, 'maxError_s').setValue(0)
-	getattr(parent, 'deadband_s').setValue(0)
+	spindle = parent.sender().objectName()
+	if spindle[-1] == 's':
+		if parent.spindleMaxRpmFwd.value() <= parent.spindleMinRpmFwd.value():
+			msg = ('Spindle Maximum RPM must be higher\n'
+			'than Spindle Minimum RPM')
+			dialogs.errorMsgOk(msg, 'Configuration Error!')
+		getattr(parent, 'p_s').setValue(0)
+		getattr(parent, 'i_s').setValue(0)
+		getattr(parent, 'd_s').setValue(0)
+		getattr(parent, 'ff0_s').setValue(1)
+		getattr(parent, 'ff1_s').setValue(0)
+		getattr(parent, 'ff2_s').setValue(0)
+		getattr(parent, 'bias_s').setValue(0)
+		getattr(parent, 'maxOutput_s').setValue(parent.spindleMaxRpmFwd.value())
+		getattr(parent, 'maxError_s').setValue(0)
+		getattr(parent, 'deadband_s').setValue(0)
+
+	elif spindle[-1] == '5': # 7i77 spindle on drive 5
+		card = spindle[:3]
+		drive = spindle[-1]
+
+		getattr(parent, f'{card}p_{drive}').setText('0')
+		getattr(parent, f'{card}i_{drive}').setText('0')
+		getattr(parent, f'{card}d_{drive}').setText('0')
+		getattr(parent, f'{card}ff0_{drive}').setText('1')
+		getattr(parent, f'{card}ff1_{drive}').setText('0')
+		getattr(parent, f'{card}ff2_{drive}').setText('0')
+		getattr(parent, f'{card}bias_{drive}').setText('0')
+		getattr(parent, f'{card}deadband_{drive}').setText('0')
 
 # need to put spindle feedback in boards and daughters
 def spindle_type_changed(parent):
@@ -88,19 +102,22 @@ def spindleSettingsChanged(parent):
 	else:
 		parent.spindleMaxRpss.setText('')
 
-def spindle_cb_changed(parent):
+def spindle_cb_changed(parent): # 7i77 spindle
 	axis_items = ['_axis_5', '_scale_5', '_min_limit_5', '_max_limit_5',
 	'_max_vel_5', '_max_accel_5', '_options_gb', '_following_error_gb',
 	'_analogDefault_5']
 	card = parent.sender().objectName()[1]
 
 	if parent.sender().isChecked():
-		state = False
 		getattr(parent, f'c{card}_axisType_5').setText('Spindle')
 		getattr(parent, f'c{card}_settings_5').setTabText(3, 'Spindle')
 		getattr(parent, f'c{card}_min_limit_lb').setText('Min RPM Limit')
 		getattr(parent, f'c{card}_max_limit_lb').setText('Max RPM Limit')
 		getattr(parent, f'c{card}_scale_max_lb').setText('Scale Max')
+		for item in axis_items: # disable axis items
+			getattr(parent, f'c{card}{item}').setEnabled(False)
+		getattr(parent,f'c{card}_pid_default_5').setVisible(True)
+
 		spindle_instructions = ('''
 		If spindle RPM is 0 to 6000 (0v to +10v
 		Min RPM Limit = 0
@@ -115,22 +132,19 @@ def spindle_cb_changed(parent):
 		getattr(parent, f'c{card}_spindle_lb').setText(spindle_instructions)
 
 	else:
-		state = True
 		getattr(parent, f'c{card}_axisType_5').clear()
 		getattr(parent, f'c{card}_settings_5').setTabText(3, 'Analog')
 		getattr(parent, f'c{card}_min_limit_lb').setText('Analog Min Limit')
 		getattr(parent, f'c{card}_max_limit_lb').setText('Analog Max Limit')
 		getattr(parent, f'c{card}_scale_max_lb').setText('Analog Scale Max')
-	for item in axis_items: # disable/enable axis items
-		getattr(parent, f'c{card}{item}').setEnabled(state)
+		for item in axis_items: # enable axis items
+			getattr(parent, f'c{card}{item}').setEnabled(False)
+		getattr(parent,f'c{card}_pid_default_5').setVisible(True)
+		getattr(parent, f'c{card}_spindle_lb').setText('')
 
 
-	'''
-	c2_settings_5 hide 1 2 5
-	c2_min_limit_lb
-	c2_max_limit_lb
-	c2_scale_max_lb
-	'''
+
+
 
 
 

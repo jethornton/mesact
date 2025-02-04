@@ -315,6 +315,32 @@ class loadini:
 		for item in spindle:
 			self.update(parent, item[0], item[1], item[2])
 
+		# 7i77 spindle on drive 5
+		if '[SPINDLE_7I77]' in self.sections:
+			start = self.sections['[SPINDLE_7I77]'][0]
+			end = self.sections['[SPINDLE_7I77]'][1]
+			for item in self.content[start:end]:
+				if item.strip().startswith('CARD') and '=' in item:
+					card = item.split('=')[1].strip()
+					getattr(parent, f'c{card}_spindle_cb').setChecked(True)
+
+					spindle_7i77 = [
+					['[SPINDLE_7I77]', 'P', f'c{card}_p_5'],
+					['[SPINDLE_7I77]', 'I', f'c{card}_i_5'],
+					['[SPINDLE_7I77]', 'D', f'c{card}_d_5'],
+					['[SPINDLE_7I77]', 'FF0', f'c{card}_ff0_5'],
+					['[SPINDLE_7I77]', 'FF1', f'c{card}_ff1_5'],
+					['[SPINDLE_7I77]', 'FF2', f'c{card}_ff2_5'],
+					['[SPINDLE_7I77]', 'BIAS', f'c{card}_bias_5'],
+					['[SPINDLE_7I77]', 'DEADBAND', f'c{card}_deadband_5'],
+					['[SPINDLE_7I77]', 'MIN_RPM', f'c{card}_analogMinLimit_5'],
+					['[SPINDLE_7I77]', 'MAX_RPM', f'c{card}_analogMaxLimit_5'],
+					['[SPINDLE_7I77]', 'SCALE_MAX', f'c{card}_analogScaleMax_5'],
+					]
+
+					for item in spindle_7i77:
+						self.update(parent, item[0], item[1], item[2])
+
 		for i in range(4):
 			for j in range(32):
 				inputs = [

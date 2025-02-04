@@ -300,6 +300,23 @@ def build(parent):
 			iniContents.append(f'MAX_ACCEL_RPM = {parent.spindleMaxAccel.value()}\n')
 			iniContents.append(f'MAX_ACCEL_RPS = {parent.spindleMaxRpss.text()}\n')
 
+	# 7i77 spindle c2_spindle_cb
+	for i in range(1,3):
+		if getattr(parent, f'c{i}_spindle_cb').isChecked():
+			iniContents.append('\n[SPINDLE_7I77]\n')
+			iniContents.append(f'CARD = {i}\n')
+			iniContents.append(f'P = {getattr(parent, f"c{i}_p_5").text()}\n')
+			iniContents.append(f'I = {getattr(parent, f"c{i}_i_5").text()}\n')
+			iniContents.append(f'D = {getattr(parent, f"c{i}_d_5").text()}\n')
+			iniContents.append(f'FF0 = {getattr(parent, f"c{i}_ff0_5").text()}\n')
+			iniContents.append(f'FF1 = {getattr(parent, f"c{i}_ff1_5").text()}\n')
+			iniContents.append(f'FF2 = {getattr(parent, f"c{i}_ff2_5").text()}\n')
+			iniContents.append(f'BIAS = {getattr(parent, f"c{i}_bias_5").text()}\n')
+			iniContents.append(f'DEADBAND = {getattr(parent, f"c{i}_deadband_5").text()}\n')
+			iniContents.append(f'MIN_RPM = {getattr(parent, f"c{i}_analogMinLimit_5").text()}\n')
+			iniContents.append(f'MAX_RPM = {getattr(parent, f"c{i}_analogMaxLimit_5").text()}\n')
+			iniContents.append(f'SCALE_MAX = {getattr(parent, f"c{i}_analogScaleMax_5").text()}\n')
+
 	# build the [INPUTS] section from pushbuttons
 	iniContents.append('\n[INPUTS]\n')
 	iniContents.append('# DO NOT change the inputs they are used by the configuration tool\n')

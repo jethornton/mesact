@@ -128,7 +128,7 @@ def connect(parent):
 	# Spindle Tab
 	parent.output_type = '' # hostmot2 output-type
 	parent.spindleTypeCB.currentIndexChanged.connect(partial(spindle.spindle_type_changed, parent))
-	parent.pidDefault_s.clicked.connect(partial(spindle.spindle_pid_default, parent))
+	parent.pid_default_s.clicked.connect(partial(spindle.spindle_pid_default, parent))
 	parent.spindleMinRpmFwd.valueChanged.connect(partial(spindle.spindleSettingsChanged, parent))
 	parent.spindleMinRpmRev.valueChanged.connect(partial(spindle.spindleSettingsChanged, parent))
 	parent.spindleMaxRpmFwd.valueChanged.connect(partial(spindle.spindleSettingsChanged, parent))

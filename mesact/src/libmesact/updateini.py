@@ -468,6 +468,30 @@ class updateini:
 						self.delete_key(f'JOINT_{n}', 'HOME_IS_SHARED')
 					n += 1 # add a joint
 
+		# 7i77 spindle
+		for i in range(1,3):
+			if getattr(parent, f'c{i}_spindle_cb').isChecked():
+				if '[SPINDLE_7I77]' not in self.sections:
+					last_joint = None
+					for key, value in self.sections.items():
+						if key.startswith('[JOINT'):
+							last_joint = key
+					index = self.sections[last_joint][1]
+					self.content.insert(index, '\n[SPINDLE_7I77]\n')
+					self.get_sections() # update section start/end
+				self.update_key(f'SPINDLE_7I77', 'CARD', f'{i}')
+				self.update_key(f'SPINDLE_7I77', 'P', getattr(parent, f'c{i}_p_5').text())
+				self.update_key(f'SPINDLE_7I77', 'I', getattr(parent, f'c{i}_i_5').text())
+				self.update_key(f'SPINDLE_7I77', 'D', getattr(parent, f'c{i}_d_5').text())
+				self.update_key(f'SPINDLE_7I77', 'FF0', getattr(parent, f'c{i}_ff0_5').text())
+				self.update_key(f'SPINDLE_7I77', 'FF1', getattr(parent, f'c{i}_ff1_5').text())
+				self.update_key(f'SPINDLE_7I77', 'FF2', getattr(parent, f'c{i}_ff2_5').text())
+				self.update_key(f'SPINDLE_7I77', 'BIAS', getattr(parent, f'c{i}_bias_5').text())
+				self.update_key(f'SPINDLE_7I77', 'DEADBAND', getattr(parent, f'c{i}_deadband_5').text())
+				self.update_key(f'SPINDLE_7I77', 'MIN_RPM', getattr(parent, f'c{i}_analogMinLimit_5').text())
+				self.update_key(f'SPINDLE_7I77', 'MAX_RPM', getattr(parent, f'c{i}_analogMaxLimit_5').text())
+				self.update_key(f'SPINDLE_7I77', 'SCALE_MAX', getattr(parent, f'c{i}_analogScaleMax_5').text())
+
 		# update the [SPINDLE_0] section
 		if parent.spindleTypeCB.currentData() == 'pwm':
 			# If SPINDLE_0 section does not exist insert it after the last joint

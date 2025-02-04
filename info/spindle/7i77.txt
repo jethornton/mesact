@@ -20,3 +20,14 @@ you probably want:
 setp hm2_5i25.0.7i77.0.1.analogout5-maxlim 6000
 setp hm2_5i25.0.7i77.0.1.analogout5-minlim -6000
 setp hm2_5i25.0.7i77.0.1.analogout5-scalemax 6000 
+
+By default, pncconf creates a closed loop spindle control (with PID component
+wired to close the loop) but with PID terms set so the actual control is open
+loop (FF0=1, all other terms 0) This set of PID terms simply copies the input
+commanded spindle speed to the PID output. To change this to closed loop you
+add some (non Zero) P and I term.
+
+hm2_7i92.0.7i77.0.1.analogout5-maxlim
+hm2_7i92.0.7i77.0.1.analogout5-minlim
+hm2_7i92.0.7i77.0.1.analogout5-scalemax
+
