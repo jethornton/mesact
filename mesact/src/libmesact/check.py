@@ -147,17 +147,19 @@ def checkit(parent):
 	for i in range(3):
 		for j in range(6):
 			if not getattr(parent,f'c{i}_axis_{j}').currentData():
-				for item in joint_items:
-					if getattr(parent, f'c{i}{item}{j}').text():
-						msg = (f'Joint{j} has data but no Axis Letter\n'
-							'Delete that data?')
-						if dialogs.errorMsgYesNo(msg, 'Error'):
-							for item in joint_items:
-								getattr(parent, f'c{i}{item}{j}').setText('')
-						else: # change to offending tab
-							parent.mainTW.setCurrentIndex(i + 3)
-							getattr(parent, f'c{i}_JointTW').setCurrentIndex(j + 1)
-							return
+				if i in range(1,3) and j == 5:
+					if not getattr(parent, f'c{i}_spindle_cb').isChecked():
+						for item in joint_items:
+							if getattr(parent, f'c{i}{item}{j}').text():
+								msg = (f'Joint{j} has data but no Axis Letter\n'
+									'Delete that data?')
+								if dialogs.errorMsgYesNo(msg, 'Error'):
+									for item in joint_items:
+										getattr(parent, f'c{i}{item}{j}').setText('')
+								else: # change to offending tab
+									parent.mainTW.setCurrentIndex(i + 3)
+									getattr(parent, f'c{i}_JointTW').setCurrentIndex(j + 1)
+									return
 
 	for i in range(3):
 		if parent.mainTW.isTabVisible(card_indexes[f'card_index_{i}']):
@@ -242,6 +244,51 @@ def checkit(parent):
 						if getattr(parent, f'c{i}_analogScaleMax_{j}').text() == '':
 							tabError = True
 							configErrors.append(f'\tDrive {j} Analog Scale Max must not be blank')
+
+	# 7i77 drive 5 spindle checks
+	for i in range(1,3):
+		if getattr(parent, f'c{i}_spindle_cb').isChecked():
+			if getattr(parent, f'c{i}_p_5').text() == '':
+				tabError = True
+				configErrors.append(f'\tDrive 5 PID P must not be blank')
+			if getattr(parent, f'c{i}_i_5').text() == '':
+				tabError = True
+				configErrors.append(f'\tDrive 5 PID I must not be blank')
+			if getattr(parent, f'c{i}_d_5').text() == '':
+				tabError = True
+				configErrors.append(f'\tDrive 5 PID D must not be blank')
+			if getattr(parent, f'c{i}_ff0_5').text() == '':
+				tabError = True
+				configErrors.append(f'\tDrive 5 PID FF0 must not be blank')
+			if getattr(parent, f'c{i}_ff1_5').text() == '':
+				tabError = True
+				configErrors.append(f'\tDrive 5 PIF FF1 must not be blank')
+			if getattr(parent, f'c{i}_ff2_5').text() == '':
+				tabError = True
+				configErrors.append(f'\tDrive 5 PID FF2 must not be blank')
+			if getattr(parent, f'c{i}_deadband_5').text() == '':
+				tabError = True
+				configErrors.append(f'\tDrive 5 PID Deadband must not be blank')
+			if getattr(parent, f'c{i}_bias_5').text() == '':
+				tabError = True
+				configErrors.append(f'\tDrive 5 PID Bias must not be blank')
+			if getattr(parent, f'c{i}_analogMinLimit_5').text() == '':
+				tabError = True
+				configErrors.append(f'\tDrive 5 Spindle Tab Min RPM Limit must not be blank')
+			if getattr(parent, f'c{i}_analogMinLimit_5').text() == '':
+				tabError = True
+				configErrors.append(f'\tDrive 5 Spindle Tab Max RPM Limit must not be blank')
+			if getattr(parent, f'c{i}_analogScaleMax_5').text() == '':
+				tabError = True
+				configErrors.append(f'\tDrive 5 Spindle Tab Scale Max must not be blank')
+
+
+
+
+			#if getattr(parent, f'c{i}_maxOutput_5').text() == '':
+			#	tabError = True
+			#	configErrors.append(f'\tDrive 5 PID Max Output must not be blank')
+
 
 		if tabError:
 			configErrors.insert(nextHeader, f'{tab} Tab:')

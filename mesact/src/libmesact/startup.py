@@ -11,6 +11,7 @@ from libmesact import combos
 from libmesact import menus
 from libmesact import updates
 from libmesact import utilities
+from libmesact import spindle
 
 def setup(parent):
 
@@ -19,6 +20,22 @@ def setup(parent):
 	parent.board_0 = False
 	parent.board_1 = False
 	parent.board_2 = False
+
+
+	# 7i77 spindle setup
+	# hide 7i77 spindle checkbox
+	parent.c1_spindle_cb.setVisible(False)
+	parent.c2_spindle_cb.setVisible(False)
+	# connect spindle checkbox state changed
+	parent.c1_spindle_cb.toggled.connect(partial(spindle.spindle_cb_changed, parent))
+	parent.c2_spindle_cb.toggled.connect(partial(spindle.spindle_cb_changed, parent))
+
+	# hide 7i77 pid default button
+	parent.c1_pid_default_5.setVisible(False)
+	parent.c2_pid_default_5.setVisible(False)
+	# connect spindle default pid
+	parent.c1_pid_default_5.clicked.connect(partial(spindle.spindle_pid_default, parent))
+	parent.c2_pid_default_5.clicked.connect(partial(spindle.spindle_pid_default, parent))
 
 	parent.platformLB.setText(sysconfig.get_platform())
 	parent.pythonLB.setText(python_version())

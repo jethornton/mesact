@@ -1,0 +1,33 @@
+setp hm2_5i25.0.7i77.0.1.analogout5-scalemax 3000
+setp hm2_5i25.0.7i77.0.1.analogout5-maxlim 3000
+setp hm2_5i25.0.7i77.0.1.analogout5-minlim 0
+
+(if 3000 is the RPM at +10V) 
+
+net spindle-enable hm2_7i92.0.7i77.0.1.spinena <= spindle.0.on
+
+Typically you need to set three parameters to get the scaling and bounding right
+assuming you are using analog out 5 and max spindle RPM is 6000, something like this:
+
+setp hm2_5i25.0.7i77.0.1.analogout5-maxlim 6000
+setp hm2_5i25.0.7i77.0.1.analogout5-minlim 0
+setp hm2_5i25.0.7i77.0.1.analogout5-scalemax 6000
+
+
+If you have a bipolar spindle speed control (-10V to +10V)
+you probably want:
+
+setp hm2_5i25.0.7i77.0.1.analogout5-maxlim 6000
+setp hm2_5i25.0.7i77.0.1.analogout5-minlim -6000
+setp hm2_5i25.0.7i77.0.1.analogout5-scalemax 6000 
+
+By default, pncconf creates a closed loop spindle control (with PID component
+wired to close the loop) but with PID terms set so the actual control is open
+loop (FF0=1, all other terms 0) This set of PID terms simply copies the input
+commanded spindle speed to the PID output. To change this to closed loop you
+add some (non Zero) P and I term.
+
+hm2_7i92.0.7i77.0.1.analogout5-maxlim
+hm2_7i92.0.7i77.0.1.analogout5-minlim
+hm2_7i92.0.7i77.0.1.analogout5-scalemax
+

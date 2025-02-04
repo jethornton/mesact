@@ -70,6 +70,9 @@ def build(parent):
 			pid_count += 1
 	if parent.spindleTypeCB.currentData() == 'pwm':
 		pid_string += f'pid.s,'
+	for i in range(1,3):
+		if getattr(parent, f'c{i}_spindle_cb').isChecked():
+			pid_string += f'pid.s,'
 	halContents.append(f'\nloadrt pid names={pid_string[:-1]}\n')
 
 	step_boards  = ['7i76', '7i76e', '7i78', '7i95', '7i95t', '7i96', '7i96s']
@@ -123,11 +126,13 @@ def build(parent):
 	if board_list[1] == '7i77':
 		halContents.append(f'net motion-enable => hm2_[MESA](BOARD).0.7i77.0.4.analogena\n')
 		# ENA5 is seperate and can be used as a spindle
-		halContents.append(f'net motion-enable => hm2_[MESA](BOARD).0.7i77.0.4.spinena\n')
+		if not parent.c1_spindle_cb.isChecked():
+			halContents.append(f'net motion-enable => hm2_[MESA](BOARD).0.7i77.0.4.spinena\n')
 	elif board_list[2] == '7i77':
 		halContents.append(f'net motion-enable => hm2_[MESA](BOARD).0.7i77.0.1.analogena\n')
 		# ENA5 is seperate and can be used as a spindle
-		halContents.append(f'net motion-enable => hm2_[MESA](BOARD).0.7i77.0.1.spinena\n')
+		if not parent.c2_spindle_cb.isChecked():
+			halContents.append(f'net motion-enable => hm2_[MESA](BOARD).0.7i77.0.1.spinena\n')
 
 	if parent.boardCB.currentData() == '7i97':
 		pwm_freq = 48000
@@ -283,7 +288,6 @@ def build(parent):
 		halContents.append('net spindle-on => pid.s.enable\n')
 		halContents.append(f'net spindle-on => hm2_[MESA](BOARD).0.pwmgen.00.enable\n')
 
-
 		halContents.append('\n# Spindle Connections\n')
 		halContents.append('net spindle-vel-cmd <= spindle.0.speed-out-abs\n')
 		halContents.append('net spindle-vel-cmd => pid.s.command\n')
@@ -293,6 +297,40 @@ def build(parent):
 		# for encoder feedback spindle at speed should use encoder speed
 		halContents.append('\n# Spindle Feedback\n')
 		halContents.append('setp spindle.0.at-speed true\n')
+
+	# 7i77 spindle
+	for i in range(1,3):
+		if getattr(parent, f'c{i}_spindle_cb').isChecked():
+			halContents.append('\n# 7i77 Spindle PID Setup\n')
+			halContents.append(f'net spindle-enable <= spindle.0.on\n')
+			if i == 1:
+				halContents.append(f'net spindle-enable => hm2_[MESA](BOARD).0.7i77.0.4.spinena\n')
+			elif i == 2:
+				halContents.append(f'net spindle-enable => hm2_[MESA](BOARD).0.7i77.0.1.spinena\n')
+
+			#halContents.append('net spindle-enable => hm2_[MESA](BOARD).0.pwmgen.00.value\n')
+
+
+			# net spindle-enable hm2_7i92.0.7i77.0.1.spinena <= spindle.0.on
+
+			halContents.append('\n# 7i77 Spindle PID Setup\n')
+			halContents.append(f'setp pid.s.Pgain [SPINDLE_7I77](P)\n')
+			halContents.append(f'setp pid.s.Igain [SPINDLE_7I77](I)\n')
+			halContents.append(f'setp pid.s.Dgain [SPINDLE_7I77](D)\n')
+			halContents.append(f'setp pid.s.bias [SPINDLE_7I77](BIAS)\n')
+			halContents.append(f'setp pid.s.FF0 [SPINDLE_7I77](FF0)\n')
+			halContents.append(f'setp pid.s.FF1 [SPINDLE_7I77](FF1)\n')
+			halContents.append(f'setp pid.s.FF2 [SPINDLE_7I77](FF2)\n')
+			halContents.append(f'setp pid.s.deadband [SPINDLE_7I77](DEADBAND)\n')
+			#halContents.append(f'setp pid.s.maxoutput [SPINDLE_7I77](MAX_OUTPUT)\n')
+			halContents.append(f'setp pid.s.error-previous-target true\n')
+
+			halContents.append('\n# 7i77 Spindle Connections\n')
+			halContents.append('net spindle-vel-cmd <= spindle.0.speed-out-abs\n')
+			halContents.append('net spindle-vel-cmd => pid.s.command\n')
+			halContents.append('net spindle-pid-out <= pid.s.output\n')
+			halContents.append('net spindle-pid-out => spindle.0.speed-in\n')
+
 
 	# E Stop
 	externalEstop = False

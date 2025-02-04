@@ -42,7 +42,7 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>5</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -12345,7 +12345,7 @@ Leave blank to home the joint manually.</string>
         <item>
          <widget class="QTabWidget" name="c1_JointTW">
           <property name="currentIndex">
-           <number>0</number>
+           <number>6</number>
           </property>
           <widget class="QWidget" name="tab_52">
            <attribute name="title">
@@ -19949,6 +19949,13 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
+               <item row="2" column="0">
+                <widget class="QCheckBox" name="c1_spindle_cb">
+                 <property name="text">
+                  <string>Spindle</string>
+                 </property>
+                </widget>
+               </item>
               </layout>
              </widget>
             </item>
@@ -19963,7 +19970,7 @@ Leave blank to home the joint manually.</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_112">
                 <item row="0" column="1" colspan="2">
-                 <widget class="QGroupBox" name="groupBox_83">
+                 <widget class="QGroupBox" name="c1_following_error_gb">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -20031,7 +20038,7 @@ Leave blank to home the joint manually.</string>
                  </widget>
                 </item>
                 <item row="1" column="1">
-                 <widget class="QGroupBox" name="groupBox_51">
+                 <widget class="QGroupBox" name="c1_options_gb">
                   <property name="title">
                    <string>Options</string>
                   </property>
@@ -20397,6 +20404,13 @@ Leave blank to home the joint manually.</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="4" column="3">
+                    <widget class="QPushButton" name="c1_pid_default_5">
+                     <property name="text">
+                      <string>Spindle Default</string>
                      </property>
                     </widget>
                    </item>
@@ -20918,19 +20932,6 @@ Leave blank to home the joint manually.</string>
                   </layout>
                  </widget>
                 </item>
-                <item row="2" column="0">
-                 <spacer name="verticalSpacer_23">
-                  <property name="orientation">
-                   <enum>Qt::Vertical</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>20</width>
-                    <height>40</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
                 <item row="0" column="1">
                  <spacer name="horizontalSpacer_59">
                   <property name="orientation">
@@ -20944,6 +20945,19 @@ Leave blank to home the joint manually.</string>
                   </property>
                  </spacer>
                 </item>
+                <item row="2" column="0">
+                 <spacer name="verticalSpacer_23">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
                </layout>
               </widget>
               <widget class="QWidget" name="tab_141">
@@ -20951,80 +20965,7 @@ Leave blank to home the joint manually.</string>
                 <string>Analog</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_248">
-                <item row="0" column="0">
-                 <widget class="QGroupBox" name="c1_analogGB_5">
-                  <property name="title">
-                   <string>Analog Output</string>
-                  </property>
-                  <layout class="QGridLayout" name="gridLayout_140">
-                   <item row="2" column="1">
-                    <widget class="QLineEdit" name="c1_analogScaleMax_5">
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="0">
-                    <widget class="QLabel" name="label_459">
-                     <property name="text">
-                      <string>Analog Max Limit</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="1">
-                    <widget class="QLineEdit" name="c1_analogMaxLimit_5">
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="0">
-                    <widget class="QLabel" name="label_460">
-                     <property name="text">
-                      <string>Analog Min Limit</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="1">
-                    <widget class="QLineEdit" name="c1_analogMinLimit_5">
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="2" column="0">
-                    <widget class="QLabel" name="label_461">
-                     <property name="text">
-                      <string>Analog Scale Max</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="3" column="0">
-                    <widget class="QPushButton" name="c1_analogDefault_5">
-                     <property name="minimumSize">
-                      <size>
-                       <width>0</width>
-                       <height>25</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>Default Values</string>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </widget>
-                </item>
-                <item row="0" column="1">
+                <item row="0" column="2">
                  <spacer name="horizontalSpacer_60">
                   <property name="orientation">
                    <enum>Qt::Horizontal</enum>
@@ -21049,6 +20990,86 @@ Leave blank to home the joint manually.</string>
                    </size>
                   </property>
                  </spacer>
+                </item>
+                <item row="0" column="0">
+                 <widget class="QGroupBox" name="c1_analogGB_5">
+                  <property name="title">
+                   <string>Analog Output</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_140">
+                   <item row="2" column="1">
+                    <widget class="QLineEdit" name="c1_analogScaleMax_5">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="c1_max_limit_lb">
+                     <property name="text">
+                      <string>Analog Max Limit</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="1">
+                    <widget class="QLineEdit" name="c1_analogMaxLimit_5">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="c1_min_limit_lb">
+                     <property name="text">
+                      <string>Analog Min Limit</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QLineEdit" name="c1_analogMinLimit_5">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="0">
+                    <widget class="QLabel" name="c1_scale_max_lb">
+                     <property name="text">
+                      <string>Analog Scale Max</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="0">
+                    <widget class="QPushButton" name="c1_analogDefault_5">
+                     <property name="minimumSize">
+                      <size>
+                       <width>0</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>Default Values</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QLabel" name="c1_spindle_lb">
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
                 </item>
                </layout>
               </widget>
@@ -22717,7 +22738,7 @@ Leave blank to home the joint manually.</string>
         <item>
          <widget class="QTabWidget" name="c2_JointTW">
           <property name="currentIndex">
-           <number>0</number>
+           <number>6</number>
           </property>
           <widget class="QWidget" name="tab_86">
            <attribute name="title">
@@ -30333,6 +30354,13 @@ Leave blank to home the joint manually.</string>
                  </property>
                 </widget>
                </item>
+               <item row="2" column="0">
+                <widget class="QCheckBox" name="c2_spindle_cb">
+                 <property name="text">
+                  <string>Spindle</string>
+                 </property>
+                </widget>
+               </item>
               </layout>
              </widget>
             </item>
@@ -30347,7 +30375,7 @@ Leave blank to home the joint manually.</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_223">
                 <item row="1" column="1">
-                 <widget class="QGroupBox" name="groupBox_97">
+                 <widget class="QGroupBox" name="c2_options_gb">
                   <property name="title">
                    <string>Options</string>
                   </property>
@@ -30367,7 +30395,7 @@ Leave blank to home the joint manually.</string>
                  </widget>
                 </item>
                 <item row="0" column="1" colspan="2">
-                 <widget class="QGroupBox" name="groupBox_96">
+                 <widget class="QGroupBox" name="c2_following_error_gb">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
@@ -30794,6 +30822,13 @@ Leave blank to home the joint manually.</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="4" column="3">
+                    <widget class="QPushButton" name="c2_pid_default_5">
+                     <property name="text">
+                      <string>Spindle Default</string>
                      </property>
                     </widget>
                    </item>
@@ -31365,7 +31400,7 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                    <item row="1" column="0">
-                    <widget class="QLabel" name="label_681">
+                    <widget class="QLabel" name="c2_max_limit_lb">
                      <property name="text">
                       <string>Analog Max Limit</string>
                      </property>
@@ -31382,7 +31417,7 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                    <item row="0" column="0">
-                    <widget class="QLabel" name="label_682">
+                    <widget class="QLabel" name="c2_min_limit_lb">
                      <property name="text">
                       <string>Analog Min Limit</string>
                      </property>
@@ -31399,7 +31434,7 @@ Leave blank to home the joint manually.</string>
                     </widget>
                    </item>
                    <item row="2" column="0">
-                    <widget class="QLabel" name="label_683">
+                    <widget class="QLabel" name="c2_scale_max_lb">
                      <property name="text">
                       <string>Analog Scale Max</string>
                      </property>
@@ -31422,17 +31457,11 @@ Leave blank to home the joint manually.</string>
                  </widget>
                 </item>
                 <item row="0" column="1">
-                 <spacer name="horizontalSpacer_78">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
+                 <widget class="QLabel" name="c2_spindle_lb">
+                  <property name="text">
+                   <string/>
                   </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>40</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
+                 </widget>
                 </item>
                 <item row="1" column="0">
                  <spacer name="verticalSpacer_65">
@@ -31443,6 +31472,19 @@ Leave blank to home the joint manually.</string>
                    <size>
                     <width>20</width>
                     <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="0" column="2">
+                 <spacer name="horizontalSpacer_78">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
                    </size>
                   </property>
                  </spacer>
@@ -31513,15 +31555,15 @@ Leave blank to home the joint manually.</string>
                 <string>Info</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_232">
-                <item row="1" column="0">
-                 <spacer name="verticalSpacer_36">
+                <item row="0" column="1">
+                 <spacer name="horizontalSpacer_36">
                   <property name="orientation">
-                   <enum>Qt::Vertical</enum>
+                   <enum>Qt::Horizontal</enum>
                   </property>
                   <property name="sizeHint" stdset="0">
                    <size>
-                    <width>20</width>
-                    <height>40</height>
+                    <width>40</width>
+                    <height>20</height>
                    </size>
                   </property>
                  </spacer>
@@ -31604,18 +31646,15 @@ Leave blank to home the joint manually.</string>
                   </layout>
                  </widget>
                 </item>
-                <item row="0" column="1">
-                 <spacer name="horizontalSpacer_36">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="label_763">
+                  <property name="text">
+                   <string>For a spindle
+Analog Min Limit is Minimum RPM
+Analog Max Limit is Maximum Forward RPM
+Analog Scale Max is Maximun RPM</string>
                   </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>40</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
+                 </widget>
                 </item>
                </layout>
               </widget>
@@ -33268,7 +33307,7 @@ Leave blank to home the joint manually.</string>
                 </widget>
                </item>
                <item row="11" column="3">
-                <widget class="QPushButton" name="pidDefault_s">
+                <widget class="QPushButton" name="pid_default_s">
                  <property name="text">
                   <string>Default Values</string>
                  </property>
@@ -43104,8 +43143,8 @@ to File Open in Axis</string>
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>98</width>
-                    <height>28</height>
+                    <width>50</width>
+                    <height>18</height>
                    </rect>
                   </property>
                   <layout class="QGridLayout" name="mdiCommandsListGL"/>
@@ -44894,7 +44933,7 @@ auto enp2s0
   <tabstop>bias_s</tabstop>
   <tabstop>maxOutput_s</tabstop>
   <tabstop>maxError_s</tabstop>
-  <tabstop>pidDefault_s</tabstop>
+  <tabstop>pid_default_s</tabstop>
   <tabstop>ssCardCB</tabstop>
   <tabstop>tabWidget_27</tabstop>
   <tabstop>manualToolChangeCB</tabstop>
