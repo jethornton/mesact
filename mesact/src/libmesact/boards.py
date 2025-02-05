@@ -159,6 +159,31 @@ def boardChanged(parent):
 				getattr(parent, f'c0_settings_{i}').setTabVisible(3, False)
 				getattr(parent, f'c0_settings_{i}').setTabVisible(4, False)
 
+		elif board == '7c81': # SPI 6 Axis Step/Direction
+			parent.board_0 = '7c81'
+			parent.hal_name = '7c81'
+			parent.mesaflash_name = '7c81'
+			# 6 step/dir 23 inputs 8 outputs 1 spindle 1 encoder
+			parent.boardType = 'other'
+			parent.c0_JointTW.setTabText(0, name)
+			parent.c0_JointTW.setTabVisible(6, False)
+			parent.ipAddressCB.setEnabled(False)
+			parent.daughterLB_0.setText('P1')
+			parent.daughterLB_0.setText('P2')
+			parent.daughterLB_0.setText('P7')
+			parent.mainTW.setTabText(4, 'P1')
+			parent.mainTW.setTabText(4, 'P2')
+			parent.mainTW.setTabText(4, 'P7')
+			info = ('7c81 uses SPI for communication, requires LinuxCNC v2.9.4+ (hm2_spix, since it is required for the Pi5)\n'
+			'\n'
+			)
+			parent.board_info_pte.setPlainText(info)
+
+			for item in db25:
+				parent.daughterCB_0.addItem(item[0], item[1])
+				parent.daughterCB_1.addItem(item[0], item[1])
+				parent.daughterCB_2.addItem(item[0], item[1])
+
 		elif board == '7i76e': # ETH 5 Axis Step/Direction
 			parent.board_0 = '7i76e'
 			parent.hal_name = '7i76e'
