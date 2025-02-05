@@ -42,7 +42,7 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>5</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -12345,7 +12345,7 @@ Leave blank to home the joint manually.</string>
         <item>
          <widget class="QTabWidget" name="c1_JointTW">
           <property name="currentIndex">
-           <number>6</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="tab_52">
            <attribute name="title">
@@ -22738,7 +22738,7 @@ Leave blank to home the joint manually.</string>
         <item>
          <widget class="QTabWidget" name="c2_JointTW">
           <property name="currentIndex">
-           <number>6</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="tab_86">
            <attribute name="title">
@@ -30367,7 +30367,7 @@ Leave blank to home the joint manually.</string>
             <item>
              <widget class="QTabWidget" name="c2_settings_5">
               <property name="currentIndex">
-               <number>0</number>
+               <number>3</number>
               </property>
               <widget class="QWidget" name="tab_113">
                <attribute name="title">
