@@ -135,7 +135,6 @@ def boardChanged(parent):
 			# 6 step/dir 23 inputs 8 outputs 1 spindle 1 encoder
 			parent.boardType = 'other'
 			parent.c0_JointTW.setTabText(0, name)
-			parent.c0_JointTW.setTabVisible(6, False)
 			parent.ipAddressCB.setEnabled(False)
 			parent.daughterLB_0.setText('P1')
 			parent.mainTW.setTabText(4, 'P1')
@@ -166,7 +165,6 @@ def boardChanged(parent):
 			# 6 step/dir 23 inputs 8 outputs 1 spindle 1 encoder
 			parent.boardType = 'other'
 			parent.c0_JointTW.setTabText(0, name)
-			parent.c0_JointTW.setTabVisible(6, False)
 			parent.ipAddressCB.setEnabled(False)
 			parent.daughterLB_0.setText('P1')
 			parent.daughterLB_0.setText('P2')
