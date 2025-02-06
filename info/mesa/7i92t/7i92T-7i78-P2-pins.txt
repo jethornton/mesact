@@ -501,9 +501,9 @@ Parameter Aliases:
 
 Exported Functions:
 Owner   CodeAddr  Arg       FP   Users  Name
- 00007  7f29ad031908  564ba9c5bf80  YES      0   hm2_7i92.0.read
- 00007  7f29ad031891  564ba9c5bf80  YES      0   hm2_7i92.0.read-request
- 00007  7f29ad031749  564ba9c5bf80  YES      0   hm2_7i92.0.write
+ 00007  7fef3530a908  55e563865fb0  YES      0   hm2_7i92.0.read
+ 00007  7fef3530a891  55e563865fb0  YES      0   hm2_7i92.0.read-request
+ 00007  7fef3530a749  55e563865fb0  YES      0   hm2_7i92.0.write
 
 Realtime Threads:
      Period  FP     Name               (     Time, Max-Time )
