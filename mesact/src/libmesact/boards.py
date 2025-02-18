@@ -133,7 +133,7 @@ def boardChanged(parent):
 			parent.hal_name = '7c80'
 			parent.mesaflash_name = '7c80'
 			# 6 step/dir 23 inputs 8 outputs 1 spindle 1 encoder
-			parent.boardType = 'other'
+			parent.boardType = 'spi'
 			parent.c0_JointTW.setTabText(0, name)
 			parent.ipAddressCB.setEnabled(False)
 			parent.daughterLB_0.setText('P1')
@@ -163,7 +163,7 @@ def boardChanged(parent):
 			parent.hal_name = '7c81'
 			parent.mesaflash_name = '7c81'
 			# 6 step/dir 23 inputs 8 outputs 1 spindle 1 encoder
-			parent.boardType = 'other'
+			parent.boardType = 'spi'
 			parent.c0_JointTW.setTabText(0, name)
 			parent.ipAddressCB.setEnabled(False)
 			parent.daughterLB_0.setText('P1')

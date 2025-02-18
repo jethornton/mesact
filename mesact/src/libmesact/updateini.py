@@ -151,6 +151,8 @@ class updateini:
 			self.delete_key('HM2', 'ADDRESS')
 		if parent.boardType == 'pci':
 			hm2 = [['HM2', 'DRIVER', 'hm2_pci']]
+		if parent.boardType == 'spi':
+			hm2 = [['HM2', 'DRIVER', 'hm2_spix']]
 		#hm2.append(['HM2', 'STEPGENS', f'{parent.stepgens_cb.currentData()}'])
 		#hm2.append(['HM2', 'PWMGENS', f'{parent.pwmgens_cb.currentData()}'])
 		#hm2.append(['HM2', 'ENCODERS', f'{parent.encoders_cb.currentData()}'])
