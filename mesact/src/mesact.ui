@@ -2259,7 +2259,7 @@ Leadscrew Pitch is turns per user unit. Example 6 turns per inch or .25 turns pe
             <item>
              <widget class="QTabWidget" name="c0_settings_0">
               <property name="currentIndex">
-               <number>4</number>
+               <number>0</number>
               </property>
               <widget class="QWidget" name="tab_28">
                <attribute name="title">
