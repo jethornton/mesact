@@ -164,6 +164,42 @@ def boardChanged(parent):
 				getattr(parent, f'c0_settings_{i}').setTabVisible(3, False)
 				getattr(parent, f'c0_settings_{i}').setTabVisible(4, False)
 
+		elif board == '7i76eu': # ETH 5 Axis Step/Direction
+			parent.board_0 = '7i76eu'
+			parent.hal_name = '7i76eu'
+			parent.mesaflash_name = '7i76eu'
+			# 5 step/dir 32 inputs 16 outputs 1 spindle 1 encoder
+			parent.boardType = 'eth'
+			parent.c0_JointTW.setTabText(0, name)
+			parent.c0_JointTW.setTabVisible(6, False)
+			parent.ipAddressCB.setEnabled(True)
+			parent.daughterLB_0.setText('P1')
+			parent.daughterLB_1.setText('P2')
+			parent.mainTW.setTabText(4, 'P1')
+			parent.mainTW.setTabText(5, 'P2')
+			info = ('Connector 5v Power\n'
+			'W3 Up for P1\n'
+			'W15 Up for P2\n'
+			'\nIP Address\nW13 Down W14 Up for 10.10.10.10\n'
+			'\nDefault Firmware 7i76eu_7i76x1dpl.bit\n'
+			)
+			parent.board_info_pte.setPlainText(info)
+
+			for item in db25:
+				parent.daughterCB_0.addItem(item[0], item[1])
+				parent.daughterCB_1.addItem(item[0], item[1])
+			for j in range(32):
+				getattr(parent, f'c0_input_{j}').setEnabled(True)
+				getattr(parent, f'c0_input_invert_{j}').setEnabled(True)
+				getattr(parent, f'c0_input_debounce_{j}').setEnabled(False)
+			for j in range(16):
+				getattr(parent, f'c0_output_{j}').setEnabled(True)
+				getattr(parent, f'c0_output_invert_{j}').setEnabled(True)
+
+			for i in range(6): # hide analog and encoder tabs
+				getattr(parent, f'c0_settings_{i}').setTabVisible(3, False)
+				getattr(parent, f'c0_settings_{i}').setTabVisible(4, False)
+
 		elif board == '7i80db-16': # ETH DB25F
 			parent.hal_name = '7i80db-16'
 			parent.mesaflash_name = '7i80db-16' # CHECKME FIXME
