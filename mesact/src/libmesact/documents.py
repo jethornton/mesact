@@ -38,8 +38,8 @@ class dialog(QDialog):
 
 	def docs(self):
 		docs = [
-			{'Main Boards':['5i24', '5i25', '6i24', '6i25', '7i80DB', '7i80HD',
-				'7i90HD', '7i92', '7i92T', '7i93', '7i98']},
+			{'Main Boards':['5i24', '5i25', '5i25T', '6i24', '6i25', '7i80DB',
+				'7i80HD', '7i90HD', '7i92', '7i92T', '7i93', '7i98']},
 			{'Combo Boards':['7i76E', '7i76EU', '7i95', '7i95T', '7i96', '7i96S',
 				'7i97', '7i97T',]},
 			{'Daughter Boards':['7i33', '7i37', '7i44', '7i47', '7i48', '7i76',
@@ -59,6 +59,7 @@ class dialog(QDialog):
 		pdfs = {'':'',
 		'5i24':'parallel/5i24man.pdf',
 		'5i25':'parallel/5i25man.pdf',
+		'5i25T':'parallel/5i25tman.pdf',
 		'6i24':'parallel/6i24man.pdf',
 		'6i25':'parallel/6i25man.pdf',
 		'7i80DB':'parallel/7i80dbman.pdf',

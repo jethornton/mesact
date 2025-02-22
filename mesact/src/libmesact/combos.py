@@ -199,6 +199,18 @@ def build(parent):
 	for item in encoder:
 		parent.spindleFeedbackCB.addItem(item[0], item[1])
 
+	# Multi Function Outputs C0
+	# description, [sink, source]
+	output_types = [
+		['Sourcing', ['0', '1']],
+		['Sinking', ['1', '0']],
+		['Push Pull', ['1', '1']],
+		]
+
+	for i in range(16):
+		for item in output_types:
+			getattr(parent, f'c0_output_type_{i}').addItem(item[0], item[1])
+
 	# SS Card Tab
 	ssCards = [
 		['Select', False],

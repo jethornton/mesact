@@ -11934,16 +11934,6 @@ Leave blank to home the joint manually.</string>
                    <string>Outputs 0 - 7</string>
                   </property>
                   <layout class="QGridLayout" name="gridLayout_338">
-                   <item row="7" column="0">
-                    <widget class="QLabel" name="label_1124">
-                     <property name="text">
-                      <string>7</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
-                     </property>
-                    </widget>
-                   </item>
                    <item row="2" column="0">
                     <widget class="QLabel" name="label_1121">
                      <property name="text">
@@ -11954,23 +11944,48 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="5" column="0">
-                    <widget class="QLabel" name="label_1123">
+                   <item row="3" column="1">
+                    <widget class="QPushButton" name="c0_output_3">
                      <property name="text">
-                      <string>5</string>
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="7" column="0">
+                    <widget class="QLabel" name="label_1124">
+                     <property name="text">
+                      <string>7</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
                      </property>
                     </widget>
                    </item>
-                   <item row="0" column="0">
-                    <widget class="QLabel" name="label_1118">
+                   <item row="5" column="2">
+                    <widget class="QCheckBox" name="c0_output_invert_5">
                      <property name="text">
-                      <string>0</string>
+                      <string>Invert</string>
                      </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
+                    </widget>
+                   </item>
+                   <item row="2" column="2">
+                    <widget class="QCheckBox" name="c0_output_invert_2">
+                     <property name="text">
+                      <string>Invert</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="7" column="1">
+                    <widget class="QPushButton" name="c0_output_7">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2">
+                    <widget class="QCheckBox" name="c0_output_invert_0">
+                     <property name="text">
+                      <string>Invert</string>
                      </property>
                     </widget>
                    </item>
@@ -11984,37 +11999,41 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="4" column="0">
-                    <widget class="QLabel" name="label_1125">
-                     <property name="text">
-                      <string>4</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="1">
-                    <widget class="QPushButton" name="c0_output_0">
+                   <item row="6" column="1">
+                    <widget class="QPushButton" name="c0_output_6">
                      <property name="text">
                       <string>Select</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="0" column="2">
-                    <widget class="QCheckBox" name="c0_output_invert_0">
+                   <item row="3" column="2">
+                    <widget class="QCheckBox" name="c0_output_invert_3">
                      <property name="text">
                       <string>Invert</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="3" column="0">
-                    <widget class="QLabel" name="label_1120">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_1118">
                      <property name="text">
-                      <string>3</string>
+                      <string>0</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="2">
+                    <widget class="QCheckBox" name="c0_output_invert_1">
+                     <property name="text">
+                      <string>Invert</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="6" column="2">
+                    <widget class="QCheckBox" name="c0_output_invert_6">
+                     <property name="text">
+                      <string>Invert</string>
                      </property>
                     </widget>
                    </item>
@@ -12035,15 +12054,18 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="2" column="1">
-                    <widget class="QPushButton" name="c0_output_2">
+                   <item row="3" column="0">
+                    <widget class="QLabel" name="label_1120">
                      <property name="text">
-                      <string>Select</string>
+                      <string>3</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
                      </property>
                     </widget>
                    </item>
-                   <item row="3" column="1">
-                    <widget class="QPushButton" name="c0_output_3">
+                   <item row="5" column="1">
+                    <widget class="QPushButton" name="c0_output_5">
                      <property name="text">
                       <string>Select</string>
                      </property>
@@ -12056,43 +12078,18 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="5" column="1">
-                    <widget class="QPushButton" name="c0_output_5">
+                   <item row="5" column="0">
+                    <widget class="QLabel" name="label_1123">
                      <property name="text">
-                      <string>Select</string>
+                      <string>5</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
                      </property>
                     </widget>
                    </item>
-                   <item row="6" column="1">
-                    <widget class="QPushButton" name="c0_output_6">
-                     <property name="text">
-                      <string>Select</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="7" column="1">
-                    <widget class="QPushButton" name="c0_output_7">
-                     <property name="text">
-                      <string>Select</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="2">
-                    <widget class="QCheckBox" name="c0_output_invert_1">
-                     <property name="text">
-                      <string>Invert</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="2" column="2">
-                    <widget class="QCheckBox" name="c0_output_invert_2">
-                     <property name="text">
-                      <string>Invert</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="3" column="2">
-                    <widget class="QCheckBox" name="c0_output_invert_3">
+                   <item row="7" column="2">
+                    <widget class="QCheckBox" name="c0_output_invert_7">
                      <property name="text">
                       <string>Invert</string>
                      </property>
@@ -12105,26 +12102,53 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="5" column="2">
-                    <widget class="QCheckBox" name="c0_output_invert_5">
+                   <item row="4" column="0">
+                    <widget class="QLabel" name="label_1125">
                      <property name="text">
-                      <string>Invert</string>
+                      <string>4</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
                      </property>
                     </widget>
                    </item>
-                   <item row="6" column="2">
-                    <widget class="QCheckBox" name="c0_output_invert_6">
+                   <item row="0" column="1">
+                    <widget class="QPushButton" name="c0_output_0">
                      <property name="text">
-                      <string>Invert</string>
+                      <string>Select</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="7" column="2">
-                    <widget class="QCheckBox" name="c0_output_invert_7">
+                   <item row="2" column="1">
+                    <widget class="QPushButton" name="c0_output_2">
                      <property name="text">
-                      <string>Invert</string>
+                      <string>Select</string>
                      </property>
                     </widget>
+                   </item>
+                   <item row="0" column="3">
+                    <widget class="QComboBox" name="c0_output_type_0"/>
+                   </item>
+                   <item row="1" column="3">
+                    <widget class="QComboBox" name="c0_output_type_1"/>
+                   </item>
+                   <item row="2" column="3">
+                    <widget class="QComboBox" name="c0_output_type_2"/>
+                   </item>
+                   <item row="3" column="3">
+                    <widget class="QComboBox" name="c0_output_type_3"/>
+                   </item>
+                   <item row="4" column="3">
+                    <widget class="QComboBox" name="c0_output_type_4"/>
+                   </item>
+                   <item row="5" column="3">
+                    <widget class="QComboBox" name="c0_output_type_5"/>
+                   </item>
+                   <item row="6" column="3">
+                    <widget class="QComboBox" name="c0_output_type_6"/>
+                   </item>
+                   <item row="7" column="3">
+                    <widget class="QComboBox" name="c0_output_type_7"/>
                    </item>
                   </layout>
                  </widget>
@@ -12135,47 +12159,17 @@ Leave blank to home the joint manually.</string>
                    <string>Outputs 8 - 15</string>
                   </property>
                   <layout class="QGridLayout" name="gridLayout_339">
-                   <item row="0" column="0">
-                    <widget class="QLabel" name="label_1131">
-                     <property name="text">
-                      <string>8</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="1">
-                    <widget class="QPushButton" name="c0_output_8">
-                     <property name="text">
-                      <string>Select</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="2">
-                    <widget class="QCheckBox" name="c0_output_invert_8">
+                   <item row="4" column="2">
+                    <widget class="QCheckBox" name="c0_output_invert_12">
                      <property name="text">
                       <string>Invert</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="1" column="0">
-                    <widget class="QLabel" name="label_1126">
+                   <item row="1" column="1">
+                    <widget class="QPushButton" name="c0_output_9">
                      <property name="text">
-                      <string>9</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="2" column="0">
-                    <widget class="QLabel" name="label_1129">
-                     <property name="text">
-                      <string>10</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignCenter</set>
+                      <string>Select</string>
                      </property>
                     </widget>
                    </item>
@@ -12183,6 +12177,16 @@ Leave blank to home the joint manually.</string>
                     <widget class="QLabel" name="label_1132">
                      <property name="text">
                       <string>11</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="label_1126">
+                     <property name="text">
+                      <string>9</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
@@ -12209,10 +12213,38 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="6" column="0">
-                    <widget class="QLabel" name="label_1130">
+                   <item row="2" column="2">
+                    <widget class="QCheckBox" name="c0_output_invert_10">
                      <property name="text">
-                      <string>14</string>
+                      <string>Invert</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="7" column="2">
+                    <widget class="QCheckBox" name="c0_output_invert_15">
+                     <property name="text">
+                      <string>Invert</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QPushButton" name="c0_output_8">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="5" column="1">
+                    <widget class="QPushButton" name="c0_output_13">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_1131">
+                     <property name="text">
+                      <string>8</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
@@ -12229,38 +12261,20 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="1" column="1">
-                    <widget class="QPushButton" name="c0_output_9">
+                   <item row="2" column="0">
+                    <widget class="QLabel" name="label_1129">
                      <property name="text">
-                      <string>Select</string>
+                      <string>10</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
                      </property>
                     </widget>
                    </item>
-                   <item row="2" column="1">
-                    <widget class="QPushButton" name="c0_output_10">
+                   <item row="1" column="2">
+                    <widget class="QCheckBox" name="c0_output_invert_9">
                      <property name="text">
-                      <string>Select</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="3" column="1">
-                    <widget class="QPushButton" name="c0_output_11">
-                     <property name="text">
-                      <string>Select</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="4" column="1">
-                    <widget class="QPushButton" name="c0_output_12">
-                     <property name="text">
-                      <string>Select</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="5" column="1">
-                    <widget class="QPushButton" name="c0_output_13">
-                     <property name="text">
-                      <string>Select</string>
+                      <string>Invert</string>
                      </property>
                     </widget>
                    </item>
@@ -12278,29 +12292,39 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="1" column="2">
-                    <widget class="QCheckBox" name="c0_output_invert_9">
+                   <item row="4" column="1">
+                    <widget class="QPushButton" name="c0_output_12">
                      <property name="text">
-                      <string>Invert</string>
+                      <string>Select</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="2" column="2">
-                    <widget class="QCheckBox" name="c0_output_invert_10">
+                   <item row="2" column="1">
+                    <widget class="QPushButton" name="c0_output_10">
                      <property name="text">
-                      <string>Invert</string>
+                      <string>Select</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="3" column="2">
-                    <widget class="QCheckBox" name="c0_output_invert_11">
+                   <item row="6" column="0">
+                    <widget class="QLabel" name="label_1130">
                      <property name="text">
-                      <string>Invert</string>
+                      <string>14</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
                      </property>
                     </widget>
                    </item>
-                   <item row="4" column="2">
-                    <widget class="QCheckBox" name="c0_output_invert_12">
+                   <item row="3" column="1">
+                    <widget class="QPushButton" name="c0_output_11">
+                     <property name="text">
+                      <string>Select</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="6" column="2">
+                    <widget class="QCheckBox" name="c0_output_invert_14">
                      <property name="text">
                       <string>Invert</string>
                      </property>
@@ -12313,19 +12337,43 @@ Leave blank to home the joint manually.</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="6" column="2">
-                    <widget class="QCheckBox" name="c0_output_invert_14">
+                   <item row="0" column="2">
+                    <widget class="QCheckBox" name="c0_output_invert_8">
                      <property name="text">
                       <string>Invert</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="7" column="2">
-                    <widget class="QCheckBox" name="c0_output_invert_15">
+                   <item row="3" column="2">
+                    <widget class="QCheckBox" name="c0_output_invert_11">
                      <property name="text">
                       <string>Invert</string>
                      </property>
                     </widget>
+                   </item>
+                   <item row="0" column="3">
+                    <widget class="QComboBox" name="c0_output_type_8"/>
+                   </item>
+                   <item row="1" column="3">
+                    <widget class="QComboBox" name="c0_output_type_9"/>
+                   </item>
+                   <item row="2" column="3">
+                    <widget class="QComboBox" name="c0_output_type_10"/>
+                   </item>
+                   <item row="3" column="3">
+                    <widget class="QComboBox" name="c0_output_type_11"/>
+                   </item>
+                   <item row="4" column="3">
+                    <widget class="QComboBox" name="c0_output_type_12"/>
+                   </item>
+                   <item row="5" column="3">
+                    <widget class="QComboBox" name="c0_output_type_13"/>
+                   </item>
+                   <item row="6" column="3">
+                    <widget class="QComboBox" name="c0_output_type_14"/>
+                   </item>
+                   <item row="7" column="3">
+                    <widget class="QComboBox" name="c0_output_type_15"/>
                    </item>
                   </layout>
                  </widget>
@@ -43146,7 +43194,7 @@ to File Open in Axis</string>
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>50</width>
+                    <width>36</width>
                     <height>18</height>
                    </rect>
                   </property>

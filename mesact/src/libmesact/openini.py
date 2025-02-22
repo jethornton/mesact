@@ -362,6 +362,22 @@ class loadini:
 				for item in outputs:
 					self.update(parent, item[0], item[1], item[2])
 
+		# update output type if in configuration
+		if '[OUTPUTS]' in self.sections:
+			start = self.sections['[OUTPUTS]'][0]
+			end = self.sections['[OUTPUTS]'][1]
+			for item in self.content[start:end]:
+				if item.strip().startswith('OUTPUT_SINK') and '=' in item:
+					sink = item.split('=')[1].strip()
+				if item.strip().startswith('OUTPUT_SOURCE') and '=' in item:
+					source = item.split('=')[1].strip()
+			if len(sink) == 16 and len(source) == 16:
+				for i in range(16):
+					if sink[i] == '1' and source[i] == '0': # sink
+						getattr(parent, f'c0_output_type_{i}').setCurrentIndex(1)
+					elif sink[i] == '1' and source[i] == '1': # push pull
+						getattr(parent, f'c0_output_type_{i}').setCurrentIndex(2)
+
 		# check for custom, postgui and shutdown hal files
 		
 

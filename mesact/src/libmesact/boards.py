@@ -50,6 +50,10 @@ def boardChanged(parent):
 		for i in range(1, 7):
 			parent.spindleTypeCB.model().item(i).setEnabled(False)
 		parent.firmware_options_lb.setText('No Firmware Selected!')
+
+		for i in range(16):
+			getattr(parent, f'c0_output_type_{i}').setVisible(False)
+
 		# Configure Options
 		parent.stepgens_cb.clear()
 		parent.stepgens_cb.addItem('n/a', 0)
@@ -128,6 +132,13 @@ def boardChanged(parent):
 				parent.daughterCB_1.addItem(item[0], item[1])
 			parent.find_ip_board_pb.setEnabled(False)
 
+			info = ('Connector 5v Power\n'
+			'W1 Up for P1\n'
+			'W2 Up for P3\n'
+			'\nIf the PC will not boot up with the 5i25T installed\n'
+			'disable PCI #SERR generation in the BIOS setup')
+			parent.board_info_pte.setPlainText(info)
+
 		elif board == '7i76e': # ETH 5 Axis Step/Direction
 			parent.board_0 = '7i76e'
 			parent.hal_name = '7i76e'
@@ -166,7 +177,7 @@ def boardChanged(parent):
 
 		elif board == '7i76eu': # ETH 5 Axis Step/Direction
 			parent.board_0 = '7i76eu'
-			parent.hal_name = '7i76eu'
+			parent.hal_name = '7i76e'
 			parent.mesaflash_name = '7i76eu'
 			# 5 step/dir 32 inputs 16 outputs 1 spindle 1 encoder
 			parent.boardType = 'eth'
@@ -199,6 +210,11 @@ def boardChanged(parent):
 			for i in range(6): # hide analog and encoder tabs
 				getattr(parent, f'c0_settings_{i}').setTabVisible(3, False)
 				getattr(parent, f'c0_settings_{i}').setTabVisible(4, False)
+
+			# show output type combo boxes
+			for i in range(16):
+				getattr(parent, f'c0_output_type_{i}').setVisible(True)
+
 
 		elif board == '7i80db-16': # ETH DB25F
 			parent.hal_name = '7i80db-16'

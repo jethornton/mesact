@@ -594,6 +594,17 @@ class updateini:
 					self.delete_key('INPUTS', f'INPUT_SLOW_{i}_{j}')
 
 		# update the [OUTPUTS] section
+		print(parent.boardCB.currentText())
+
+		if parent.boardCB.currentText() == '7i76EU':
+			sink = ''
+			source = ''
+			for i in range(16):
+				sink += getattr(parent, f'c0_output_type_{i}').currentData()[0]
+				source += getattr(parent, f'c0_output_type_{i}').currentData()[1]
+			self.update_key('OUTPUTS', 'OUTPUT_SINK', sink)
+			self.update_key('OUTPUTS', 'OUTPUT_SOURCE', source)
+
 		for i in range(3):
 			for j in range(16):
 				if getattr(parent, f'c{i}_output_{j}').text() != 'Select':
