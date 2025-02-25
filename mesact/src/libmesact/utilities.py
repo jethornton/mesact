@@ -222,7 +222,6 @@ def calc_angular_scale(parent):
 	if len(parent.angular_rotations_le.text()) > 0: # required entry
 		if is_number(parent.angular_rotations_le.text()):
 			gear_ratio = float(parent.angular_rotations_le.text()) if parent.angular_rotations_le.text() != '' else False
-			print(gear_ratio)
 		else:
 			msg = (f'{parent.angular_rotations_le.text()} is not a valid number\n'
 			f'for {parent.angular_rotations_le.property("name")}')

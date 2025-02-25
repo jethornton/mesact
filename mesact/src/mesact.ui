@@ -33202,16 +33202,29 @@ Analog Scale Max is Maximun RPM</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_27">
         <item>
-         <widget class="QTabWidget" name="tabWidget">
+         <widget class="QTabWidget" name="spindleTW">
           <property name="currentIndex">
            <number>0</number>
           </property>
-          <widget class="QWidget" name="tab_190">
+          <widget class="QWidget" name="tab_193">
            <attribute name="title">
             <string>Settings</string>
            </attribute>
-           <layout class="QGridLayout" name="gridLayout_273">
-            <item row="0" column="1">
+           <layout class="QGridLayout" name="gridLayout_336">
+            <item row="0" column="0" colspan="2">
+             <widget class="QLabel" name="label_461">
+              <property name="text">
+               <string>Some boards have special spindle settings and a tab for those boards will show up when a board with special spindle settings is selected</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignHCenter|Qt::AlignTop</set>
+              </property>
+              <property name="wordWrap">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="2" rowspan="2">
              <widget class="QGroupBox" name="spindle_feedback_gb">
               <property name="enabled">
                <bool>false</bool>
@@ -33250,7 +33263,17 @@ Analog Scale Max is Maximun RPM</string>
               </layout>
              </widget>
             </item>
-            <item row="1" column="1" rowspan="2">
+            <item row="1" column="0">
+             <widget class="QLabel" name="label_691">
+              <property name="text">
+               <string>Spindle</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QComboBox" name="spindleTypeCB"/>
+            </item>
+            <item row="2" column="0" colspan="2">
              <widget class="QGroupBox" name="spindle_pid_gb">
               <property name="enabled">
                <bool>false</bool>
@@ -33484,6 +33507,110 @@ Analog Scale Max is Maximun RPM</string>
               </layout>
              </widget>
             </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tab_188">
+           <attribute name="title">
+            <string>7i76EU</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_334">
+            <item row="0" column="0">
+             <widget class="QGroupBox" name="groupBox_6">
+              <property name="title">
+               <string>Spindle Settings</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_335">
+               <item row="3" column="0">
+                <widget class="QLabel" name="label_459">
+                 <property name="text">
+                  <string>Minimum RPM</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QCheckBox" name="spindleEnaInvert7i76eu">
+                 <property name="text">
+                  <string>Invert Enable Pin</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QCheckBox" name="spindleDirInvert7i76eu">
+                 <property name="text">
+                  <string>Invert Direction Pin</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QLineEdit" name="spindleMinRPM7i76eu">
+                 <property name="text">
+                  <string>0</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="0">
+                <widget class="QLabel" name="label_460">
+                 <property name="text">
+                  <string>Maximum RPM</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="1">
+                <widget class="QLineEdit" name="spindleMaxRPM7i76eu">
+                 <property name="text">
+                  <string>100</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QComboBox" name="spindleMode7i76eu"/>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="label_681">
+                 <property name="text">
+                  <string>Output Type</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item row="0" column="2">
+             <widget class="QPlainTextEdit" name="plainTextEdit_4">
+              <property name="plainText">
+               <string>TB4
+PIN SIGNAL
+1 SPINDLE-
+2 SPINDLE OUT
+3 SPINDLE+
+4 NC
+5 SPINDLE ENA- / FWD-
+6 SPINDLE ENA+ / FWD+
+7 SPINDLE DIR- / REV-
+8 SPINDLE DIR+ / REV+
+
+The 7I76EU provides one analog output for spindle control. The analog output is a isolated potentiometer replacement type device. This means the controlled device must supply the analog reference voltage (usually +10V). It functions like a potentiometer with SPINDLE+ being the top (maximum speed) end of the potentiometer, SPINDLEOUT being the wiper and SPINDLE- being the bottom (0 speed) end.</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="tab_194">
+           <attribute name="title">
+            <string>7i96S</string>
+           </attribute>
+          </widget>
+          <widget class="QWidget" name="tab_190">
+           <attribute name="title">
+            <string>Settings</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_273">
             <item row="0" column="0" rowspan="2">
              <widget class="QGroupBox" name="spindleGB">
               <property name="enabled">
@@ -33496,7 +33623,47 @@ Analog Scale Max is Maximun RPM</string>
                <property name="topMargin">
                 <number>15</number>
                </property>
-               <item row="1" column="1">
+               <item row="4" column="1">
+                <widget class="QSpinBox" name="spindleMaxRpmFwd">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                 <property name="maximum">
+                  <number>50000</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QSpinBox" name="spindleMinRpmRev">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                 <property name="maximum">
+                  <number>50000</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="1">
+                <widget class="QSpinBox" name="spindleMaxRpmRev">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                 <property name="maximum">
+                  <number>50000</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="2">
+                <widget class="QLabel" name="label_1438">
+                 <property name="text">
+                  <string>RPS</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
                 <widget class="QSpinBox" name="pwmFrequencySB">
                  <property name="enabled">
                   <bool>false</bool>
@@ -33512,102 +33679,21 @@ Analog Scale Max is Maximun RPM</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="1">
-                <widget class="QComboBox" name="spindleTypeCB"/>
-               </item>
                <item row="4" column="0">
-                <widget class="QLabel" name="label_694">
-                 <property name="text">
-                  <string>Minimum Rev</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="1">
-                <widget class="QSpinBox" name="spindleMinRpmFwd">
-                 <property name="enabled">
-                  <bool>false</bool>
-                 </property>
-                 <property name="maximum">
-                  <number>50000</number>
-                 </property>
-                </widget>
-               </item>
-               <item row="7" column="1">
-                <widget class="QLabel" name="label_1439">
-                 <property name="text">
-                  <string>RPM/S/S</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="0">
-                <widget class="QLabel" name="label_691">
-                 <property name="text">
-                  <string>Spindle</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="8" column="2">
-                <widget class="QLabel" name="spindleMaxRpss">
-                 <property name="frameShape">
-                  <enum>QFrame::Box</enum>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                </widget>
-               </item>
-               <item row="7" column="2">
-                <widget class="QLabel" name="label_1440">
-                 <property name="text">
-                  <string>RPS/S/S</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="2">
-                <widget class="QLabel" name="label_1438">
-                 <property name="text">
-                  <string>RPS</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="5" column="2">
-                <widget class="QLabel" name="spindleMaxRpsFwd">
-                 <property name="frameShape">
-                  <enum>QFrame::Box</enum>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="0">
-                <widget class="QLabel" name="label_726">
-                 <property name="text">
-                  <string>Minimum Fwd</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="5" column="0">
                 <widget class="QLabel" name="label_725">
                  <property name="text">
                   <string>Maximum Fwd</string>
                  </property>
                 </widget>
                </item>
-               <item row="2" column="1">
-                <widget class="QLabel" name="label_724">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_722">
                  <property name="text">
-                  <string>RPM</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
+                  <string>PWM Frequency</string>
                  </property>
                 </widget>
                </item>
-               <item row="8" column="1">
+               <item row="7" column="1">
                 <widget class="QSpinBox" name="spindleMaxAccel">
                  <property name="enabled">
                   <bool>false</bool>
@@ -33620,17 +33706,24 @@ Analog Scale Max is Maximun RPM</string>
                  </property>
                 </widget>
                </item>
-               <item row="5" column="1">
-                <widget class="QSpinBox" name="spindleMaxRpmFwd">
-                 <property name="enabled">
-                  <bool>false</bool>
-                 </property>
-                 <property name="maximum">
-                  <number>50000</number>
+               <item row="3" column="0">
+                <widget class="QLabel" name="label_694">
+                 <property name="text">
+                  <string>Minimum Rev</string>
                  </property>
                 </widget>
                </item>
-               <item row="3" column="2">
+               <item row="1" column="1">
+                <widget class="QLabel" name="label_724">
+                 <property name="text">
+                  <string>RPM</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="2">
                 <widget class="QLabel" name="spindleMinRpsFwd">
                  <property name="frameShape">
                   <enum>QFrame::Box</enum>
@@ -33640,29 +33733,15 @@ Analog Scale Max is Maximun RPM</string>
                  </property>
                 </widget>
                </item>
-               <item row="8" column="0">
-                <widget class="QLabel" name="label_1437">
+               <item row="6" column="1">
+                <widget class="QLabel" name="label_1439">
                  <property name="text">
-                  <string>Max Acceleration</string>
+                  <string>RPM/S/S</string>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="0">
-                <widget class="QLabel" name="label_722">
-                 <property name="text">
-                  <string>PWM Frequency</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="6" column="0">
-                <widget class="QLabel" name="label_695">
-                 <property name="text">
-                  <string>Maximum Rev</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="4" column="1">
-                <widget class="QSpinBox" name="spindleMinRpmRev">
+               <item row="2" column="1">
+                <widget class="QSpinBox" name="spindleMinRpmFwd">
                  <property name="enabled">
                   <bool>false</bool>
                  </property>
@@ -33671,8 +33750,22 @@ Analog Scale Max is Maximun RPM</string>
                  </property>
                 </widget>
                </item>
-               <item row="4" column="2">
-                <widget class="QLabel" name="spindleMinRpsRev">
+               <item row="2" column="0">
+                <widget class="QLabel" name="label_726">
+                 <property name="text">
+                  <string>Minimum Fwd</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="0">
+                <widget class="QLabel" name="label_695">
+                 <property name="text">
+                  <string>Maximum Rev</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="2">
+                <widget class="QLabel" name="spindleMaxRpsRev">
                  <property name="frameShape">
                   <enum>QFrame::Box</enum>
                  </property>
@@ -33681,18 +33774,42 @@ Analog Scale Max is Maximun RPM</string>
                  </property>
                 </widget>
                </item>
-               <item row="6" column="1">
-                <widget class="QSpinBox" name="spindleMaxRpmRev">
-                 <property name="enabled">
-                  <bool>false</bool>
+               <item row="7" column="0">
+                <widget class="QLabel" name="label_1437">
+                 <property name="text">
+                  <string>Max Acceleration</string>
                  </property>
-                 <property name="maximum">
-                  <number>50000</number>
+                </widget>
+               </item>
+               <item row="7" column="2">
+                <widget class="QLabel" name="spindleMaxRpss">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="2">
+                <widget class="QLabel" name="spindleMaxRpsFwd">
+                 <property name="frameShape">
+                  <enum>QFrame::Box</enum>
+                 </property>
+                 <property name="text">
+                  <string/>
                  </property>
                 </widget>
                </item>
                <item row="6" column="2">
-                <widget class="QLabel" name="spindleMaxRpsRev">
+                <widget class="QLabel" name="label_1440">
+                 <property name="text">
+                  <string>RPS/S/S</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="2">
+                <widget class="QLabel" name="spindleMinRpsRev">
                  <property name="frameShape">
                   <enum>QFrame::Box</enum>
                  </property>
@@ -44964,27 +45081,13 @@ auto enp2s0
   <tabstop>c0_output_invert_14</tabstop>
   <tabstop>c0_output_15</tabstop>
   <tabstop>c0_output_invert_15</tabstop>
-  <tabstop>tabWidget</tabstop>
-  <tabstop>spindleTypeCB</tabstop>
+  <tabstop>spindleTW</tabstop>
   <tabstop>pwmFrequencySB</tabstop>
   <tabstop>spindleMinRpmFwd</tabstop>
   <tabstop>spindleMinRpmRev</tabstop>
   <tabstop>spindleMaxRpmFwd</tabstop>
   <tabstop>spindleMaxRpmRev</tabstop>
   <tabstop>spindleMaxAccel</tabstop>
-  <tabstop>spindleFeedbackCB</tabstop>
-  <tabstop>spindleEncoderScale</tabstop>
-  <tabstop>p_s</tabstop>
-  <tabstop>i_s</tabstop>
-  <tabstop>d_s</tabstop>
-  <tabstop>ff0_s</tabstop>
-  <tabstop>ff1_s</tabstop>
-  <tabstop>ff2_s</tabstop>
-  <tabstop>deadband_s</tabstop>
-  <tabstop>bias_s</tabstop>
-  <tabstop>maxOutput_s</tabstop>
-  <tabstop>maxError_s</tabstop>
-  <tabstop>pid_default_s</tabstop>
   <tabstop>ssCardCB</tabstop>
   <tabstop>tabWidget_27</tabstop>
   <tabstop>manualToolChangeCB</tabstop>

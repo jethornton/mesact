@@ -47,12 +47,21 @@ def boardChanged(parent):
 			for j in range(6): # each axis
 				getattr(parent, f'c{i}_axis_{j}').setCurrentIndex(0)
 
-		for i in range(1, 7):
-			parent.spindleTypeCB.model().item(i).setEnabled(False)
 		parent.firmware_options_lb.setText('No Firmware Selected!')
 
 		for i in range(16):
 			getattr(parent, f'c0_output_type_{i}').setVisible(False)
+
+		# Spindle
+		parent.spindleTW.setTabVisible(1, False)
+		parent.spindleTW.setTabVisible(2, False)
+		parent.spindleTW.setTabVisible(3, False)
+
+		# have spindle stuff on seperate tabs and delete this
+		parent.spindleGB.setEnabled(False)
+		parent.spindleTypeCB.setEnabled(False)
+		for i in range(0, 7):
+			parent.spindleTypeCB.model().item(i).setEnabled(False)
 
 		# Configure Options
 		parent.stepgens_cb.clear()
@@ -188,11 +197,16 @@ def boardChanged(parent):
 			parent.daughterLB_1.setText('P2')
 			parent.mainTW.setTabText(4, 'P1')
 			parent.mainTW.setTabText(5, 'P2')
+			#parent.spindleGB.setEnabled(True)
+			parent.spindleTW.setTabVisible(1, True)
 			info = ('Connector 5v Power\n'
 			'W3 Up for P1\n'
 			'W15 Up for P2\n'
 			'\nIP Address\nW13 Down W14 Up for 10.10.10.10\n'
 			'\nDefault Firmware 7i76eu_7i76x1dpl.bit\n'
+			'\nOutputs can be Source, Sink or Push Pull\n'
+			'Outputs do not require flyback diodes\n'
+			'\nTB4 Spindle pins can be ENA & DIR or FWD & REV\n'
 			)
 			parent.board_info_pte.setPlainText(info)
 
@@ -215,6 +229,8 @@ def boardChanged(parent):
 			for i in range(16):
 				getattr(parent, f'c0_output_type_{i}').setVisible(True)
 
+			# select spindle tab
+			parent.spindleTW.setCurrentIndex(1)
 
 		elif board == '7i80db-16': # ETH DB25F
 			parent.hal_name = '7i80db-16'
@@ -567,7 +583,7 @@ def boardChanged(parent):
 				parent.daughterCB_0.addItem(item[0], item[1])
 				parent.daughterCB_1.addItem(item[0], item[1])
 
-	else: # no board is selected
+	else: # no board is selected or just started up
 		parent.hal_name = ''
 		parent.mesaflash_name = ''
 		parent.boardType = False
@@ -575,6 +591,11 @@ def boardChanged(parent):
 		parent.mainTW.setTabVisible(3, False)
 		parent.daughterCB_0.clear()
 		parent.daughterCB_1.clear()
+
+		# Spindle
+		parent.spindleTW.setTabVisible(1, False)
+		parent.spindleTW.setTabVisible(2, False)
+		parent.spindleTW.setTabVisible(3, False)
 		parent.spindleGB.setEnabled(False)
 		# if no board is selected turn off mesaflash tools
 		parent.firmwareGB.setEnabled(False)

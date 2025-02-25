@@ -1,0 +1,16 @@
+To set up really basic operation (ignoring the ini file values and the PID), at the minimum,
+you need to setup and connect PWMGen 00:
+
+setp hm2_7i96s.0.pwmgen.00.scale 24000
+setp hm2_7i96s.0.pwmgen.00.pwm_frequency 5000
+setp hm2_7i96s.0.pwmgen.00.output_type 1
+
+net spindle-vel-cmd-rpm-abs hm2_7i96s.0.pwmgen.00.value
+net spindle-on spindle.0.on
+net spindle-on hm2_7i96s.0.pwmgen.00.enable
+
+You probably also need to connect the signal "spindle-on"
+to a 7I96S isolated output:
+
+net spindle-on hm2_7i96s.0.outm.00.out-04
+

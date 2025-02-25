@@ -191,6 +191,14 @@ def build(parent):
 	for item in spindle:
 		parent.spindleTypeCB.addItem(item[0], item[1])
 
+	spindle_types = [
+	['ENA & DIR', '0'],
+	['FWD & REV', '1'],
+	]
+
+	for item in spindle_types:
+		parent.spindleMode7i76eu.addItem(item[0], item[1])
+
 	encoder = [
 		['Select', False],
 		['Encoder', 'encoder'],
