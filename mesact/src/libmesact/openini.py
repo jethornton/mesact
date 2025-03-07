@@ -367,6 +367,8 @@ class loadini:
 		if '[OUTPUTS]' in self.sections:
 			start = self.sections['[OUTPUTS]'][0]
 			end = self.sections['[OUTPUTS]'][1]
+			sink = ''
+			source = ''
 			for item in self.content[start:end]:
 				if item.strip().startswith('OUTPUT_SINK') and '=' in item:
 					sink = item.split('=')[1].strip()
