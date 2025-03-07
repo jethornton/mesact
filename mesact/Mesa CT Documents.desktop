@@ -1,0 +1,14 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Mesa CT Documents
+Exec=open /usr/share/doc/mesact/mesact.pdf.gz
+Icon=linuxcncicon
+Categories=Development;Engineering;X-CNC;
+Terminal=false
+StartupNotify=true
+GenericName=Mesa CT Documents
+
+Comment=Mesa CT Documents
+
+Name[en_US]=Mesa CT Documents.desktop
