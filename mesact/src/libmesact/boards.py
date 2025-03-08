@@ -268,6 +268,9 @@ def boardChanged(parent):
 			# show output type combo boxes
 			for i in range(16):
 				getattr(parent, f'c0_output_type_{i}').setVisible(True)
+			
+			# select spindle tab
+			parent.spindleTW.setCurrentIndex(1)
 
 		elif board == '7i80db-16': # ETH DB25F
 			parent.hal_name = '7i80db-16'
