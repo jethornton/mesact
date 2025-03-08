@@ -127,6 +127,12 @@ def boardChanged(parent):
 				parent.daughterCB_0.addItem(item[0], item[1])
 				parent.daughterCB_1.addItem(item[0], item[1])
 			parent.find_ip_board_pb.setEnabled(False)
+			info = ('Connector 5v Power\n'
+			'W1 Up for P1\n'
+			'W2 Up for P3\n'
+			'\nIf the PC will not boot up with the 5i25T installed\n'
+			'disable PCI #SERR generation in the BIOS setup')
+			parent.board_info_pte.setPlainText(info)
 
 		elif board == '7c80': # SPI 6 Axis Step/Direction
 			parent.board_0 = '7c80'
