@@ -237,11 +237,16 @@ def boardChanged(parent):
 			parent.daughterLB_1.setText('P2')
 			parent.mainTW.setTabText(4, 'P1')
 			parent.mainTW.setTabText(5, 'P2')
+			#parent.spindleGB.setEnabled(True)
+			parent.spindleTW.setTabVisible(1, True)
 			info = ('Connector 5v Power\n'
 			'W3 Up for P1\n'
 			'W15 Up for P2\n'
 			'\nIP Address\nW13 Down W14 Up for 10.10.10.10\n'
 			'\nDefault Firmware 7i76eu_7i76x1dpl.bit\n'
+			'\nOutputs can be Source, Sink or Push Pull\n'
+			'Outputs do not require flyback diodes\n'
+			'\nTB4 Spindle pins can be ENA & DIR or FWD & REV\n'
 			)
 			parent.board_info_pte.setPlainText(info)
 
