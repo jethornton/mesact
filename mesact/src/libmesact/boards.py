@@ -47,6 +47,8 @@ def boardChanged(parent):
 			for j in range(6): # each axis
 				getattr(parent, f'c{i}_axis_{j}').setCurrentIndex(0)
 
+		parent.ipAddressCB.setCurrentIndex(0) # set ip address to Select
+
 		parent.firmware_options_lb.setText('No Firmware Selected!')
 
 		for i in range(16):
