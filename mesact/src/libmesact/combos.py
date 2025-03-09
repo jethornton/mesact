@@ -12,6 +12,7 @@ def build(parent):
 	['7c80', '7c80'],
 	['7c81', '7c81'],
 	['7i76E', '7i76e'],
+	['7i76EU', '7i76eu'],
 	['7i80DB-16', '7i80db-16'],
 	['7i80DB-25', '7i80db-25'],
 	['7i80HD-16', '7i80hd-16'],
@@ -192,6 +193,14 @@ def build(parent):
 	for item in spindle:
 		parent.spindleTypeCB.addItem(item[0], item[1])
 
+	spindle_types = [
+	['ENA & DIR', '0'],
+	['FWD & REV', '1'],
+	]
+
+	for item in spindle_types:
+		parent.spindleMode7i76eu.addItem(item[0], item[1])
+
 	encoder = [
 		['Select', False],
 		['Encoder', 'encoder'],
@@ -199,6 +208,18 @@ def build(parent):
 
 	for item in encoder:
 		parent.spindleFeedbackCB.addItem(item[0], item[1])
+
+	# Multi Function Outputs C0
+	# description, [sink, source]
+	output_types = [
+		['Sourcing', ['0', '1']],
+		['Sinking', ['1', '0']],
+		['Push Pull', ['1', '1']],
+		]
+
+	for i in range(16):
+		for item in output_types:
+			getattr(parent, f'c0_output_type_{i}').addItem(item[0], item[1])
 
 	# SS Card Tab
 	ssCards = [

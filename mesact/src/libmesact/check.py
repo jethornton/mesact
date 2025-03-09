@@ -89,7 +89,7 @@ def checkit(parent):
 
 	# check for no Axis
 	board = None
-	axis_boards = ['7i76', '7i76e', '7i77', '7i78', '7i85', '7i85s', '7i95',
+	axis_boards = ['7i76', '7i76e', '7i76eu', '7i77', '7i78', '7i85', '7i85s', '7i95',
 	'7i95t', '7i96', '7i96s', '7i97', '7i97t']
 
 	# find the card index by tab name

@@ -1,4 +1,5 @@
 7i76E potentiometer enable direction encoder
+7i76EU potentiometer enable direction encoder
 7i76 potentiometer enable direction encoder
 7i77 axis analog enable
 7i96 encoder

@@ -282,38 +282,39 @@ class loadini:
 				for item in joint_list:
 					self.update(parent, item[0], item[1], item[2])
 
-		spindle = [
-		['[SPINDLE_0]', 'TYPE', 'spindleTypeCB'],
-		['[SPINDLE_0]', 'SCALE', 'spindleEncoderScale'],
-		['[SPINDLE_0]', 'SCALE', 'spindleStepScale'],
-		['[SPINDLE_0]', 'PWM_FREQUENCY', 'pwmFrequencySB'],
-		['[SPINDLE_0]', 'MIN_FORWARD_VELOCITY', 'spindleMinRpmFwd'],
-		['[SPINDLE_0]', 'MAX_FORWARD_VELOCITY', 'spindleMaxRpmFwd'],
-		['[SPINDLE_0]', 'MIN_REVERSE_VELOCITY', 'spindleMinRpmRev'],
-		['[SPINDLE_0]', 'MAX_REVERSE_VELOCITY', 'spindleMaxRpmRev'],
-		['[SPINDLE_0]', 'DEADBAND', 'deadband_s'],
-		['[SPINDLE_0]', 'FEEDBACK', 'spindleFeedbackCB'],
-		['[SPINDLE_0]', 'P', 'p_s'],
-		['[SPINDLE_0]', 'I', 'i_s'],
-		['[SPINDLE_0]', 'D', 'd_s'],
-		['[SPINDLE_0]', 'FF0', 'ff0_s'],
-		['[SPINDLE_0]', 'FF1', 'ff1_s'],
-		['[SPINDLE_0]', 'FF2', 'ff2_s'],
-		['[SPINDLE_0]', 'BIAS', 'bias_s'],
-		['[SPINDLE_0]', 'MAX_ERROR', 'maxError_s'],
-		['[SPINDLE_0]', 'MAX_OUTPUT', 'maxOutput_s'],
-		['[SPINDLE_0]', 'DRIVE', 'spindleDriveCB'],
-		['[SPINDLE_0]', 'STEPLEN', 'spindleStepTime'],
-		['[SPINDLE_0]', 'STEPSPACE', 'spindleStepSpace'],
-		['[SPINDLE_0]', 'DIRSETUP', 'spindleDirSetup'],
-		['[SPINDLE_0]', 'DIRHOLD', 'spindleDirHold'],
-		['[SPINDLE_0]', 'STEP_INVERT', 'spindleStepInvert'],
-		['[SPINDLE_0]', 'DIR_INVERT', 'spindleDirInvert'],
-		['[SPINDLE_0]', 'MAX_ACCEL_RPM', 'spindleMaxAccel'],
-		]
+		if '[SPINDLE_0]' in self.sections:
+			spindle = [
+			['[SPINDLE_0]', 'TYPE', 'spindleTypeCB'],
+			['[SPINDLE_0]', 'SCALE', 'spindleEncoderScale'],
+			['[SPINDLE_0]', 'SCALE', 'spindleStepScale'],
+			['[SPINDLE_0]', 'PWM_FREQUENCY', 'pwmFrequencySB'],
+			['[SPINDLE_0]', 'MIN_FORWARD_VELOCITY', 'spindleMinRpmFwd'],
+			['[SPINDLE_0]', 'MAX_FORWARD_VELOCITY', 'spindleMaxRpmFwd'],
+			['[SPINDLE_0]', 'MIN_REVERSE_VELOCITY', 'spindleMinRpmRev'],
+			['[SPINDLE_0]', 'MAX_REVERSE_VELOCITY', 'spindleMaxRpmRev'],
+			['[SPINDLE_0]', 'DEADBAND', 'deadband_s'],
+			['[SPINDLE_0]', 'FEEDBACK', 'spindleFeedbackCB'],
+			['[SPINDLE_0]', 'P', 'p_s'],
+			['[SPINDLE_0]', 'I', 'i_s'],
+			['[SPINDLE_0]', 'D', 'd_s'],
+			['[SPINDLE_0]', 'FF0', 'ff0_s'],
+			['[SPINDLE_0]', 'FF1', 'ff1_s'],
+			['[SPINDLE_0]', 'FF2', 'ff2_s'],
+			['[SPINDLE_0]', 'BIAS', 'bias_s'],
+			['[SPINDLE_0]', 'MAX_ERROR', 'maxError_s'],
+			['[SPINDLE_0]', 'MAX_OUTPUT', 'maxOutput_s'],
+			['[SPINDLE_0]', 'DRIVE', 'spindleDriveCB'],
+			['[SPINDLE_0]', 'STEPLEN', 'spindleStepTime'],
+			['[SPINDLE_0]', 'STEPSPACE', 'spindleStepSpace'],
+			['[SPINDLE_0]', 'DIRSETUP', 'spindleDirSetup'],
+			['[SPINDLE_0]', 'DIRHOLD', 'spindleDirHold'],
+			['[SPINDLE_0]', 'STEP_INVERT', 'spindleStepInvert'],
+			['[SPINDLE_0]', 'DIR_INVERT', 'spindleDirInvert'],
+			['[SPINDLE_0]', 'MAX_ACCEL_RPM', 'spindleMaxAccel'],
+			]
 
-		for item in spindle:
-			self.update(parent, item[0], item[1], item[2])
+			for item in spindle:
+				self.update(parent, item[0], item[1], item[2])
 
 		# 7i77 spindle on drive 5
 		if '[SPINDLE_7I77]' in self.sections:
@@ -361,6 +362,24 @@ class loadini:
 
 				for item in outputs:
 					self.update(parent, item[0], item[1], item[2])
+
+		# update output type if in configuration
+		if '[OUTPUTS]' in self.sections:
+			start = self.sections['[OUTPUTS]'][0]
+			end = self.sections['[OUTPUTS]'][1]
+			sink = ''
+			source = ''
+			for item in self.content[start:end]:
+				if item.strip().startswith('OUTPUT_SINK') and '=' in item:
+					sink = item.split('=')[1].strip()
+				if item.strip().startswith('OUTPUT_SOURCE') and '=' in item:
+					source = item.split('=')[1].strip()
+			if len(sink) == 16 and len(source) == 16:
+				for i in range(16):
+					if sink[i] == '1' and source[i] == '0': # sink
+						getattr(parent, f'c0_output_type_{i}').setCurrentIndex(1)
+					elif sink[i] == '1' and source[i] == '1': # push pull
+						getattr(parent, f'c0_output_type_{i}').setCurrentIndex(2)
 
 		# check for custom, postgui and shutdown hal files
 		

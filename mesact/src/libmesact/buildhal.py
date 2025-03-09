@@ -298,6 +298,34 @@ def build(parent):
 		halContents.append('\n# Spindle Feedback\n')
 		halContents.append('setp spindle.0.at-speed true\n')
 
+	# 7i76EU spindle
+	if parent.boardCB.currentText() == '7i76EU':
+		halContents.append('\n# 7i76EU Spindle Setup\n')
+		halContents.append(f'setp hm2_7i76e.0.7i76.0.0.spindir-invert {parent.spindleDirInvert7i76eu.isChecked()}\n')
+		halContents.append(f'setp hm2_7i76e.0.7i76.0.0.spinena-invert {parent.spindleEnaInvert7i76eu.isChecked()}\n')
+		halContents.append(f'setp hm2_7i76e.0.7i76.0.0.spinmode {parent.spindleMode7i76eu.currentData()}\n')
+		halContents.append(f'setp hm2_7i76e.0.7i76.0.0.spinout-minlim {parent.spindleMinRPM7i76eu.text()}\n')
+		halContents.append(f'setp hm2_7i76e.0.7i76.0.0.spinout-maxlim {parent.spindleMaxRPM7i76eu.text()}\n')
+		halContents.append(f'setp hm2_7i76e.0.7i76.0.0.spinout-scalemax {parent.spindleMaxRPM7i76eu.text()}\n')
+
+	''' 7i76EU
+
+
+
+	Pins
+	7  bit   IN          FALSE  hm2_7i76e.0.7i76.0.0.spindir
+	7  bit   IN          FALSE  hm2_7i76e.0.7i76.0.0.spinena
+	7  float IN              0  hm2_7i76e.0.7i76.0.0.spinout
+
+	Parameters
+	7  bit   RW          FALSE  hm2_7i76e.0.7i76.0.0.spindir-invert spindleDirInvert7i76eu
+	7  bit   RW          FALSE  hm2_7i76e.0.7i76.0.0.spinena-invert spindleEnaInvert7i76eu
+	7  u32   RW     0x00000000  hm2_7i76e.0.7i76.0.0.spinmode spindleMode7i76eu
+	7  float RW            100  hm2_7i76e.0.7i76.0.0.spinout-maxlim spindleMaxRPM7i76eu
+	7  float RW              0  hm2_7i76e.0.7i76.0.0.spinout-minlim spindleMinRPM7i76eu
+	7  float RW            100  hm2_7i76e.0.7i76.0.0.spinout-scalemax spindleMaxRPM7i76eu
+	'''
+
 	# 7i77 spindle
 	for i in range(1,3):
 		if getattr(parent, f'c{i}_spindle_cb').isChecked():

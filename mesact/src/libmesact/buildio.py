@@ -446,6 +446,15 @@ def build_io(parent):
 
 	# build outputs
 	contents.append('\n# Outputs\n')
+	if parent.board_0 == '7i76eu': # set output types
+		sink = ''
+		source = ''
+		for i in range(16):
+			sink += getattr(parent, f'c0_output_type_{i}').currentData()[0]
+			source += getattr(parent, f'c0_output_type_{i}').currentData()[1]
+		contents.append(f'setp hm2_7i76e.0.7i76.0.0.output_sink {hex(int(sink,2))}\n')
+		contents.append(f'setp hm2_7i76e.0.7i76.0.0.output_source {hex(int(source,2))}\n\n')
+
 	for i in range(3): # see if tab is visible
 		# i == 0 main board, i == 1 daughter card P2, i == 2 daughter card P3 possibly
 		if parent.mainTW.isTabVisible(i + 3):
@@ -473,7 +482,7 @@ def build_io(parent):
 						hm2 =  f'hm2_{parent.hal_name}.0.7i76.0.{port}.output-{j:02}{invert}'
 					elif board == '7i77':
 						hm2 =  f'hm2_{parent.hal_name}.0.7i77.0.{port}.output-{j:02}{invert}'
-					elif board == '7i76E':
+					elif board == '7i76E' or board == '7i76EU':
 						hm2 =  f'hm2_7i76e.0.gpio.{j + 31:03}.out{invert}'
 					elif board == '7i95':
 						hm2 =  f'hm2_7i95.0.ssr.00.out-{j:02}{invert}'

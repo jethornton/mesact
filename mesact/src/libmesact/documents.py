@@ -38,9 +38,10 @@ class dialog(QDialog):
 
 	def docs(self):
 		docs = [
-			{'Main Boards':['5i24', '5i25', '6i24', '6i25', '7i80DB', '7i80HD',
-				'7i90HD', '7i92', '7i92T', '7i93', '7i98']},
-			{'Combo Boards':['7i76E', '7i95', '7i95T', '7i96', '7i96S', '7i97', '7i97T',]},
+			{'Main Boards':['5i24', '5i25', '5i25T', '6i24', '6i25', '7i80DB',
+				'7i80HD', '7i90HD', '7i92', '7i92T', '7i93', '7i98']},
+			{'Combo Boards':['7i76E', '7i76EU', '7i95', '7i95T', '7i96', '7i96S',
+				'7i97', '7i97T',]},
 			{'Daughter Boards':['7i33', '7i37', '7i44', '7i47', '7i48', '7i76',
 				'7i77', '7i78', '7i85', '7i85S', '7i88', '7i89', ]},
 			{'Smart Serial Boards':['7i64', '7i69', '7i70', '7i71', '7i72', '7i73',
@@ -58,6 +59,7 @@ class dialog(QDialog):
 		pdfs = {'':'',
 		'5i24':'parallel/5i24man.pdf',
 		'5i25':'parallel/5i25man.pdf',
+		'5i25T':'parallel/5i25tman.pdf',
 		'6i24':'parallel/6i24man.pdf',
 		'6i25':'parallel/6i25man.pdf',
 		'7i80DB':'parallel/7i80dbman.pdf',
@@ -68,6 +70,7 @@ class dialog(QDialog):
 		'7i93':'parallel/7i93man.pdf',
 		'7i98':'parallel/7i98man.pdf',
 		'7i76E':'parallel/7i76eman.pdf',
+		'7i76EU':'parallel/7i76euman.pdf',
 		'7i95':'parallel/7i95man.pdf',
 		'7i95T':'parallel/7i95tman.pdf',
 		'7i96':'parallel/7i96man.pdf',

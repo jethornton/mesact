@@ -1,0 +1,75 @@
+
+5i25/6i25 P3 7i76
+Pins
+bit   IN          FALSE  hm2_5i25.0.7i76.0.0.spindir
+bit   IN          FALSE  hm2_5i25.0.7i76.0.0.spinena
+float IN              0  hm2_5i25.0.7i76.0.0.spinout
+
+Parameters
+bit   RW          FALSE  hm2_5i25.0.7i76.0.0.spindir-invert
+bit   RW          FALSE  hm2_5i25.0.7i76.0.0.spinena-invert
+float RW            100  hm2_5i25.0.7i76.0.0.spinout-maxlim
+float RW              0  hm2_5i25.0.7i76.0.0.spinout-minlim
+float RW            100  hm2_5i25.0.7i76.0.0.spinout-scalemax
+
+5i25/6i25 P3 7i77 uses analog out 5 for spindle
+Pins
+float IN              0  hm2_5i25.0.7i77.0.1.analogout5
+bit   IN          FALSE  hm2_5i25.0.7i77.0.1.spinena
+
+Parameters
+float RW             10  hm2_5i25.0.7i77.0.1.analogout5-maxlim
+float RW            -10  hm2_5i25.0.7i77.0.1.analogout5-minlim
+float RW             10  hm2_5i25.0.7i77.0.1.analogout5-scalemax
+bit   RW          FALSE  hm2_5i25.0.7i77.0.1.spinena-invert
+
+7i76EU
+Pins
+bit   IN          FALSE  hm2_7i76e.0.7i76.0.0.spindir
+bit   IN          FALSE  hm2_7i76e.0.7i76.0.0.spinena
+float IN              0  hm2_7i76e.0.7i76.0.0.spinout
+
+Paremeters
+bit   RW          FALSE  hm2_7i76e.0.7i76.0.0.spindir-invert
+bit   RW          FALSE  hm2_7i76e.0.7i76.0.0.spinena-invert
+u32   RW     0x00000000  hm2_7i76e.0.7i76.0.0.spinmode
+float RW            100  hm2_7i76e.0.7i76.0.0.spinout-maxlim
+float RW              0  hm2_7i76e.0.7i76.0.0.spinout-minlim
+float RW            100  hm2_7i76e.0.7i76.0.0.spinout-scalemax
+
+7i92T P2 7i76
+Pins
+bit   IN          FALSE  hm2_7i92.0.7i76.0.0.spindir
+bit   IN          FALSE  hm2_7i92.0.7i76.0.0.spinena
+float IN              0  hm2_7i92.0.7i76.0.0.spinout
+
+Parameters
+bit   RW          FALSE  hm2_7i92.0.7i76.0.0.spindir-invert
+bit   RW          FALSE  hm2_7i92.0.7i76.0.0.spinena-invert
+float RW            100  hm2_7i92.0.7i76.0.0.spinout-maxlim
+float RW              0  hm2_7i92.0.7i76.0.0.spinout-minlim
+float RW            100  hm2_7i92.0.7i76.0.0.spinout-scalemax
+
+7i92T P2 7i77 uses analog out 5 for spindle
+Pins
+float IN              0  hm2_7i92.0.7i77.0.1.analogout5
+bit   IN          FALSE  hm2_7i92.0.7i77.0.1.spinena
+
+Parameters
+float RW             10  hm2_7i92.0.7i77.0.1.analogout5-maxlim
+float RW            -10  hm2_7i92.0.7i77.0.1.analogout5-minlim
+float RW             10  hm2_7i92.0.7i77.0.1.analogout5-scalemax
+bit   RW          FALSE  hm2_7i92.0.7i77.0.1.spinena-invert
+
+7i96S
+Pins
+bit   IN          FALSE  hm2_7i96s.0.pwmgen.00.enable
+float IN              0  hm2_7i96s.0.pwmgen.00.value
+
+Parameters
+bit   RW          FALSE  hm2_7i96s.0.pwmgen.00.offset-mode
+s32   RW              1  hm2_7i96s.0.pwmgen.00.output-type
+float RW              1  hm2_7i96s.0.pwmgen.00.scale
+u32   RW     0x00004E20  hm2_7i96s.0.pwmgen.pdm_frequency
+u32   RW     0x00004E20  hm2_7i96s.0.pwmgen.pwm_frequency
+

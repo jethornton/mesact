@@ -334,6 +334,15 @@ def build(parent):
 	# build the [OUTPUTS] section from pushbuttons
 	iniContents.append('\n[OUTPUTS]\n')
 	iniContents.append('# DO NOT change the outputs they are used by the configuration tool\n')
+	sink = ''
+	source = ''
+	if parent.boardCB.currentText() == '7i76EU':
+		for i in range(16):
+			sink += getattr(parent, f'c0_output_type_{i}').currentData()[0]
+			source += getattr(parent, f'c0_output_type_{i}').currentData()[1]
+		iniContents.append(f'OUTPUT_SINK = {sink}\n')
+		iniContents.append(f'OUTPUT_SOURCE = {source}\n')
+
 	for i in range(3):
 		if parent.mainTW.isTabVisible(i + 3): # if the board tab is visible
 			index = getattr(parent, f'c{i}_JointTW').indexOf(getattr(parent, f'c{i}_outputs'))
