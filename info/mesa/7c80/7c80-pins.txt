@@ -1,0 +1,58 @@
+halcmd loadrt hm2_spix
+hm2/hm2_7c80.0: Low Level init 0.15
+hm2/hm2_7c80.0: Smart Serial Firmware Version 43
+hm2/hm2_7c80.0: 54 I/O Pins used:
+hm2/hm2_7c80.0:     IO Pin 000 (TB07-02/TB07-03): StepGen #0, pin Step (Output)
+hm2/hm2_7c80.0:     IO Pin 001 (TB07-04/TB07-05): StepGen #0, pin Direction (Output)
+hm2/hm2_7c80.0:     IO Pin 002 (TB08-02/TB08-03): StepGen #1, pin Step (Output)
+hm2/hm2_7c80.0:     IO Pin 003 (TB08-04/TB08-05): StepGen #1, pin Direction (Output)
+hm2/hm2_7c80.0:     IO Pin 004 (TB09-02/TB09-03): StepGen #2, pin Step (Output)
+hm2/hm2_7c80.0:     IO Pin 005 (TB09-04/TB09-05): StepGen #2, pin Direction (Output)
+hm2/hm2_7c80.0:     IO Pin 006 (TB10-02/TB10-03): StepGen #3, pin Step (Output)
+hm2/hm2_7c80.0:     IO Pin 007 (TB10-04/TB10-05): StepGen #3, pin Direction (Output)
+hm2/hm2_7c80.0:     IO Pin 008 (TB11-02/TB11-03): StepGen #4, pin Step (Output)
+hm2/hm2_7c80.0:     IO Pin 009 (TB11-04/TB11-05): StepGen #4, pin Direction (Output)
+hm2/hm2_7c80.0:     IO Pin 010 (TB12-02/TB12-03): StepGen #5, pin Step (Output)
+hm2/hm2_7c80.0:     IO Pin 011 (TB12-04/TB12-05): StepGen #5, pin Direction (Output)
+hm2/hm2_7c80.0:     IO Pin 012 (TB03-03/TB04-04): IOPort
+hm2/hm2_7c80.0:     IO Pin 013 (TB03-05/TB04-06): IOPort
+hm2/hm2_7c80.0:     IO Pin 014 (TB03-05/TB03-06): IOPort
+hm2/hm2_7c80.0:     IO Pin 015 (TB04-01/TB04-02): Encoder #0, pin A (Input)
+hm2/hm2_7c80.0:     IO Pin 016 (TB04-04/TB04-05): Encoder #0, pin B (Input)
+hm2/hm2_7c80.0:     IO Pin 017 (TB04-07/TB04-08): Encoder #0, pin Index (Input)
+hm2/hm2_7c80.0:     IO Pin 018 (TB05-02): PWMGen #0, pin Out0 (PWM or Up) (Output)
+hm2/hm2_7c80.0:     IO Pin 019 (TB05-02): PWMGen #0, pin Not-Enable (Output)
+hm2/hm2_7c80.0:     IO Pin 020 (TB05-05/TB05-06): IOPort
+hm2/hm2_7c80.0:     IO Pin 021 (TB05-07/TB05-08): IOPort
+hm2/hm2_7c80.0:     IO Pin 022 (Internal InMux0): InMux Input Mux #0, pin addr0 (Output)
+hm2/hm2_7c80.0:     IO Pin 023 (Internal InMux1): InMux Input Mux #0, pin addr1 (Output)
+hm2/hm2_7c80.0:     IO Pin 024 (Internal InMux2): InMux Input Mux #0, pin addr2 (Output)
+hm2/hm2_7c80.0:     IO Pin 025 (Internal InMux3): InMux Input Mux #0, pin addr3 (Output)
+hm2/hm2_7c80.0:     IO Pin 026 (Internal InMux4): InMux Input Mux #0, pin addr4 (Output)
+hm2/hm2_7c80.0:     IO Pin 027 (Internal InMuxData): InMux Input Mux #0, pin muxdata (Input)
+hm2/hm2_7c80.0:     IO Pin 028 (TB13-01/TB13-02): SSR #0, pin Out-00 (Output)
+hm2/hm2_7c80.0:     IO Pin 029 (TB13-03/TB13-04): SSR #0, pin Out-01 (Output)
+hm2/hm2_7c80.0:     IO Pin 030 (TB13-05/TB13-06): SSR #0, pin Out-02 (Output)
+hm2/hm2_7c80.0:     IO Pin 031 (TB13-07/TB13-08): SSR #0, pin Out-03 (Output)
+hm2/hm2_7c80.0:     IO Pin 032 (TB14-01/TB14-02): SSR #0, pin Out-04 (Output)
+hm2/hm2_7c80.0:     IO Pin 033 (TB14-03/TB14-04): SSR #0, pin Out-05 (Output)
+hm2/hm2_7c80.0:     IO Pin 034 (TB14-05/TB14-06): SSR #0, pin Out-06 (Output)
+hm2/hm2_7c80.0:     IO Pin 035 (TB14-07/TB14-08): SSR #0, pin Out-07 (Output)
+hm2/hm2_7c80.0:     IO Pin 036 (Internal SSR): SSR #0, pin AC Ref (internal) (Output)
+hm2/hm2_7c80.0:     IO Pin 037 (P1-01/DB25-01): IOPort
+hm2/hm2_7c80.0:     IO Pin 038 (P1-02/DB25-14): IOPort
+hm2/hm2_7c80.0:     IO Pin 039 (P1-03/DB25-02): IOPort
+hm2/hm2_7c80.0:     IO Pin 040 (P1-04/DB25-15): IOPort
+hm2/hm2_7c80.0:     IO Pin 041 (P1-05/DB25-03): IOPort
+hm2/hm2_7c80.0:     IO Pin 042 (P1-06/DB25-16): IOPort
+hm2/hm2_7c80.0:     IO Pin 043 (P1-07/DB25-04): IOPort
+hm2/hm2_7c80.0:     IO Pin 044 (P1-08/DB25-17): IOPort
+hm2/hm2_7c80.0:     IO Pin 045 (P1-09/DB25-05): IOPort
+hm2/hm2_7c80.0:     IO Pin 046 (P1-11/DB25-06): IOPort
+hm2/hm2_7c80.0:     IO Pin 047 (P1-13/DB25-07): IOPort
+hm2/hm2_7c80.0:     IO Pin 048 (P1-15/DB25-08): IOPort
+hm2/hm2_7c80.0:     IO Pin 049 (P1-17/DB25-09): IOPort
+hm2/hm2_7c80.0:     IO Pin 050 (P1-19/DB25-10): IOPort
+hm2/hm2_7c80.0:     IO Pin 051 (P1-21/DB25-11): IOPort
+hm2/hm2_7c80.0:     IO Pin 052 (P1-23/DB25-12): IOPort
+hm2/hm2_7c80.0:     IO Pin 053 (P1-25/DB25-13): IOPort

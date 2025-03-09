@@ -45,6 +45,8 @@ def build(parent):
 		iniContents.append(f'ADDRESS = {parent.ipAddressCB.currentText()}\n')
 	elif parent.boardType == 'pci':
 		iniContents.append('DRIVER = hm2_pci\n')
+	elif parent.boardType == 'spi':
+		iniContents.append('DRIVER = hm2_spix\n')
 
 	#iniContents.append(f'STEPGENS = {parent.stepgens_cb.currentData()}\n')
 	#iniContents.append(f'PWMGENS = {parent.pwmgens_cb.currentData()}\n')

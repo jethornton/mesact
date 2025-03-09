@@ -140,6 +140,66 @@ def boardChanged(parent):
 				parent.daughterCB_0.addItem(item[0], item[1])
 				parent.daughterCB_1.addItem(item[0], item[1])
 			parent.find_ip_board_pb.setEnabled(False)
+			info = ('Connector 5v Power\n'
+			'W1 Up for P1\n'
+			'W2 Up for P3\n'
+			'\nIf the PC will not boot up with the 5i25T installed\n'
+			'disable PCI #SERR generation in the BIOS setup')
+			parent.board_info_pte.setPlainText(info)
+
+		elif board == '7c80': # SPI 6 Axis Step/Direction
+			parent.board_0 = '7c80'
+			parent.hal_name = '7c80'
+			parent.mesaflash_name = '7c80'
+			# 6 step/dir 23 inputs 8 outputs 1 spindle 1 encoder
+			parent.boardType = 'spi'
+			parent.c0_JointTW.setTabText(0, name)
+			parent.ipAddressCB.setEnabled(False)
+			parent.daughterLB_0.setText('P1')
+			parent.mainTW.setTabText(4, 'P1')
+			info = ('7c80 uses SPI for communication, requires LinuxCNC v2.9.4+ (hm2_spix, since it is required for the Pi5)\n'
+			'\n'
+			'\nDefault Firmware 7c80d.bit\n'
+			)
+			parent.board_info_pte.setPlainText(info)
+
+			for item in db25:
+				parent.daughterCB_0.addItem(item[0], item[1])
+			for j in range(23):
+				getattr(parent, f'c0_input_{j}').setEnabled(True)
+				getattr(parent, f'c0_input_invert_{j}').setEnabled(True)
+				getattr(parent, f'c0_input_debounce_{j}').setEnabled(False)
+			for j in range(8):
+				getattr(parent, f'c0_output_{j}').setEnabled(True)
+				getattr(parent, f'c0_output_invert_{j}').setEnabled(True)
+
+			for i in range(6): # hide analog and encoder tabs
+				getattr(parent, f'c0_settings_{i}').setTabVisible(3, False)
+				getattr(parent, f'c0_settings_{i}').setTabVisible(4, False)
+
+		elif board == '7c81': # SPI 6 Axis Step/Direction
+			parent.board_0 = '7c81'
+			parent.hal_name = '7c81'
+			parent.mesaflash_name = '7c81'
+			# 6 step/dir 23 inputs 8 outputs 1 spindle 1 encoder
+			parent.boardType = 'spi'
+			parent.c0_JointTW.setTabText(0, name)
+			parent.ipAddressCB.setEnabled(False)
+			parent.daughterLB_0.setText('P1')
+			parent.daughterLB_0.setText('P2')
+			parent.daughterLB_0.setText('P7')
+			parent.mainTW.setTabText(4, 'P1')
+			parent.mainTW.setTabText(4, 'P2')
+			parent.mainTW.setTabText(4, 'P7')
+			info = ('7c81 uses SPI for communication, requires LinuxCNC v2.9.4+ (hm2_spix, since it is required for the Pi5)\n'
+			'\n'
+			)
+			parent.board_info_pte.setPlainText(info)
+
+			for item in db25:
+				parent.daughterCB_0.addItem(item[0], item[1])
+				parent.daughterCB_1.addItem(item[0], item[1])
+				parent.daughterCB_2.addItem(item[0], item[1])
 
 			info = ('Connector 5v Power\n'
 			'W1 Up for P1\n'
@@ -228,7 +288,6 @@ def boardChanged(parent):
 			# show output type combo boxes
 			for i in range(16):
 				getattr(parent, f'c0_output_type_{i}').setVisible(True)
-
 			# select spindle tab
 			parent.spindleTW.setCurrentIndex(1)
 

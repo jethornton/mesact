@@ -6,6 +6,9 @@ setp hm2_5i25.0.stepgen.timer-number 1
 5i25 7i77
 setp    hm2_5i25.0.watchdog.timeout_ns 5000000
 
+7c80
+setp hm2_7c80.0.watchdog.timeout_ns 5000000
+
 7i76e
 setp hm2_7i76e.0.watchdog.timeout_ns 5000000
 setp hm2_7i76e.0.dpll.01.timer-us -50

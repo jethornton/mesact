@@ -16,6 +16,7 @@ Installation Instructions are [here](https://gnipsel.com/linuxcnc/mesact/index.h
 To run from a terminal you need to install some depenencies:\
 sudo apt install python3-pyqt5\
 sudo apt install python3-distro\
+sudo apt install python3-requests\
 sudo apt install zip
 
 Then in the /mesact/src directory open a terminal and run with ./mesact
