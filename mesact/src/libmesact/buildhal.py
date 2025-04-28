@@ -1,6 +1,8 @@
 import os, traceback
 from datetime import datetime
 
+from libmesact import dialogs
+
 def build(parent):
 	board_list = []
 	for card in range(3):
@@ -241,7 +243,14 @@ def build(parent):
 						halContents.append(f'net joint.{joint}.output => hm2_[MESA](BOARD).0.pwmgen.0{output}.value\n')
 
 					if board == '7i77': # analog daughter card setp   hm2_5i25.0.7i77.0.1.analogout0-scalemax  [JOINT_0]OUTPUT_SCALE
-						port = analog_port[parent.hal_name][card]
+						if parent.hal_name in analog_port:
+							port = analog_port[parent.hal_name][card]
+						else:
+							msg = (f'The {parent.hal_name} was not\n'
+							'found for a 7i77 daughter card.\n'
+							'The analog port will be set to 1')
+							dialogs.errorMsgOk(msg, 'Unknown Combination')
+							port = 1
 
 						halContents.append(f'net joint.{joint}.output => hm2_[MESA](BOARD).0.{board}.0.{port}.analogout{joint}\n')
 						halContents.append(f'\n# Joint {joint} Analog setup\n')
