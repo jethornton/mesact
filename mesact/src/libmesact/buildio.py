@@ -414,7 +414,7 @@ def build_io(parent):
 		contents.append('net estop-loopin iocontrol.0.user-enable-out => estop-latch.0.ok-in\n')
 		for i in range(len(eStops) - 1):
 			contents.append(f'net estop-{i}-out estop-latch.{i}.ok-out => estop-latch.{i+1}.ok-in\n')
-		contents.append(f'net estop-loopout estop-latch.{len(eStops)-1}.ok-out => iocontrol.0.emc-enable-in\n')
+		contents.append(f'net estop-loopback estop-latch.{len(eStops)-1}.ok-out => iocontrol.0.emc-enable-in\n')
 		contents.append('\n# E-Stop Reset\n')
 		contents.append(f'net estop-reset iocontrol.0.user-request-enable\n')
 		for i in range(len(eStops)):
