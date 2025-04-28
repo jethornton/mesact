@@ -75,8 +75,6 @@ class updateini:
 								if line.strip() == old_axis:
 									self.content[index] = f'{new_axis}\n'
 									self.get_sections()
-									for line in self.content:
-										parent.info_pte.appendPlainText(line.strip())
 
 		# test for joints and axes removed
 		elif len(tool_joints) < len(ini_joints):
@@ -92,9 +90,6 @@ class updateini:
 						end = self.sections[axis][1] + 1
 						del self.content[start:end]
 						self.get_sections()
-
-			for line in self.content:
-				parent.info_pte.appendPlainText(line.strip())
 
 		# test for joints and axes added
 		# gantry adds and extra [AXIS_ ]
