@@ -227,7 +227,7 @@ class updateini:
 			display.append(['DISPLAY', 'LATHE', '1'])
 		else:
 			self.delete_key('DISPLAY', 'LATHE')
-		if parent.frontToolLatheRB.isChecked():
+		if parent.backToolLatheRB.isChecked():
 			display.append(['DISPLAY', 'BACK_TOOL_LATHE', '1'])
 		else:
 			self.delete_key('DISPLAY', 'BACK_TOOL_LATHE')
