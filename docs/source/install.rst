@@ -4,8 +4,8 @@ Installing
 
 Mesa Configuration Tool
 
-.. Note:: Tested on Debian 10, 11, 12, 13 and Linux Mint 20.2 but it should work on
-	other Debian type OS's.
+.. Note:: Tested on Debian 10, 11, 12, 13 and Linux Mint 20.2 but it should work
+   on other Debian type OS's.
 
 .. Note:: Requires Python 3.6 or newer to work.
 
@@ -122,4 +122,32 @@ To check for newer versions Help > Check for Updates
 To upgrade the mesact Configuration Tool delete the .deb file and download
 a fresh copy then right click on the .deb file and open with Gdebi and
 select `Reinstall Package`
+
+Install Problems
+----------------
+
+If you get the following while trying to install MesaCT most likely your
+/etc/apt/sources.list file is missing a deb link.
+::
+
+	mesact: Depends: python3-distro but it is not installable
+	E: Unable to correct problem to correct problems, you have held broken packages.
+
+If you check the contents of /etc/apt/sources.list you should have something
+similer to the following and perhaps more entries.
+::
+
+	cat /etc/apt/sources.list
+	deb http://deb.debian.org/debian/ bookworm non-free-firmware main
+	deb-src http://deb.debian.org/debian/ bookworm non-free-firmware main
+
+	deb http://security.debian.org/debian-security/ bookworm-security main non-free-firmware
+	deb-src http://security.debian.org/debian-security/ bookworm-security main non-free-firmware
+
+You can also check the sources.list via the Synaptic Package Manager in the
+Settings > Repositories
+
+.. image:: images/repositories-01.png
+    :align: center
+
 
