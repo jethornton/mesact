@@ -264,7 +264,7 @@ def build(parent):
 		iniContents.append('\n[SPINDLE_0]\n')
 		iniContents.append(f'TYPE = {parent.spindleTypeCB.currentData()}\n')
 		if parent.spindleTypeCB.currentData() == 'pwm':
-			iniContents.append(f'PWM_TYPE = 1\n') ###### FIXME 
+			iniContents.append(f'PWM_TYPE = 1\n')
 			iniContents.append(f'PWM_FREQUENCY = {parent.pwmFrequencySB.value()}\n')
 			iniContents.append(f'P = {parent.p_s.value():.1f}\n')
 			iniContents.append(f'I = {parent.i_s.value():.1f}\n')

@@ -502,7 +502,7 @@ class updateini:
 				self.content.insert(index, '\n')
 				self.get_sections() # update section start/end
 
-			self.update_key(f'SPINDLE_0', 'TYPE', parent.spindleTypeCB.currentData())
+			self.update_key(f'SPINDLE_0', 'PWM_TYPE', parent.spindleTypeCB.currentData())
 			#self.update_key(f'SPINDLE_0', 'SPINDLE_PWM_TYPE', parent.spindleTypeCB.currentData())
 			self.update_key(f'SPINDLE_0', 'PWM_FREQUENCY', parent.pwmFrequencySB.value())
 			self.update_key(f'SPINDLE_0', 'P', parent.p_s.value())
