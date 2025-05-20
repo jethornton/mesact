@@ -488,28 +488,39 @@ def build_io(parent):
 						hm2 =  f'hm2_7i95.0.ssr.00.out-{j:02}{invert}'
 					elif board == '7i95T':
 						hm2 =  f'hm2_7i95.0.ssr.00.out-{j:02}'
-						if getattr(parent, f'c0_output_invert_{j}').isChecked():
-							hm2 =  f'hm2_7i95.0.ssr.00.invert-{j:02}'
 					elif board == '7i96':
-						hm2 =  f'hm2_7i96.0.gpio.{j:03}.out{invert}'
+						hm2 =  f'hm2_7i96.0.ssr.00.out-{j:02}'
 					elif board == '7i96S':
 						if j in range(4):
-							hm2 =  f'hm2_7i96s.0.ssr.00.out-{j:02}\n'
-							if getattr(parent, f'c0_output_invert_{j}').isChecked():
-								hm2 =  f'setp hm2_7i96s.0.ssr.00.invert-{j:02} True\n'
+							hm2 =  f'hm2_7i96s.0.ssr.00.out-{j:02}'
 						if j in range(4,6):
-							hm2 =  f'hm2_7i96s.0.outm.00.out-{j:02}\n'
-							if getattr(parent, f'c0_output_invert_{j}').isChecked():
-								hm2 =  f'setp hm2_7i96s.0.outm.00.invert-{j:02} True\n'
+							hm2 =  f'hm2_7i96s.0.outm.00.out-{j:02}'
 					elif board == '7i97':
-						hm2 =  f'hm2_7i97.0.inmux.00.input-{j:02}{invert}'
+						hm2 =  f'hm2_7i97.0.ssr.00.out-{j:02}'
 					elif board == '7i97T':
-						if getattr(parent, f'c0_output_invert_{j}').isChecked():
-							hm2 =  f'hm2_7i97.0.ssr.00.invert-{j:02}'
-						else:
-							hm2 =  f'hm2_7i97.0.ssr.00.out-{j:02}'
+						hm2 =  f'hm2_7i97.0.ssr.00.out-{j:02}'
 					if OUTPUTS.get(key, False): # return False if key is not in dictionary
 						contents.append(f'{OUTPUTS[key]} {hm2}\n')
+					if board == '7i95T':
+						if getattr(parent, f'c0_output_invert_{j}').isChecked():
+							contents.append(f'hm2_7i95.0.ssr.00.invert-{j:02}\n')
+					elif board == '7i96':
+						if getattr(parent, f'c0_output_invert_{j}').isChecked():
+							contents.append(f'setp hm2_7i96.0.ssr.00.invert-{j:02} True\n')
+					elif board == '7i96S':
+						if j in range(4):
+							if getattr(parent, f'c0_output_invert_{j}').isChecked():
+								contents.append(f'setp hm2_7i96s.0.ssr.00.invert-{j:02} True\n')
+						if j in range(4,6):
+							if getattr(parent, f'c0_output_invert_{j}').isChecked():
+								contents.append(f'setp hm2_7i96s.0.outm.00.invert-{j:02} True\n')
+					elif board == '7i97':
+						if getattr(parent, f'c0_output_invert_{j}').isChecked():
+							contents.append(f'hm2_7i97.0.ssr.00.invert-{j:02}\n')
+					elif board == '7i97T':
+						if getattr(parent, f'c0_output_invert_{j}').isChecked():
+							contents.append(f'hm2_7i97.0.ssr.00.invert-{j:02}\n')
+
 
 	try:
 		with open(filePath, 'w') as f:
