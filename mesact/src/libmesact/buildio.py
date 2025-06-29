@@ -488,8 +488,11 @@ def build_io(parent):
 						hm2 =  f'hm2_{parent.hal_name}.0.7i76.0.{port}.output-{j:02}{invert}'
 					elif board == '7i77':
 						hm2 =  f'hm2_{parent.hal_name}.0.7i77.0.{port}.output-{j:02}{invert}'
-					elif board == '7i76E' or board == '7i76EU':
+					elif board == '7i76E':
 						hm2 =  f'hm2_7i76e.0.gpio.{j + 31:03}.out{invert}'
+					elif board == '7i76EU':
+						hm2 =  f'hm2_7i76e.0.7i76.0.0.output-{j:02}'
+						# hm2_7i76e.0.7i76.0.0.output-00
 					elif board == '7i95':
 						hm2 =  f'hm2_7i95.0.ssr.00.out-{j:02}{invert}'
 					elif board == '7i95T':
@@ -507,9 +510,13 @@ def build_io(parent):
 						hm2 =  f'hm2_7i97.0.ssr.00.out-{j:02}'
 					if OUTPUTS.get(key, False): # return False if key is not in dictionary
 						contents.append(f'{OUTPUTS[key]} {hm2}\n')
-					if board == '7i95T':
+
+					if board == '7i76EU':
 						if getattr(parent, f'c0_output_invert_{j}').isChecked():
-							contents.append(f'hm2_7i95.0.ssr.00.invert-{j:02}\n')
+							contents.append(f'setp hm2_7i95.0.ssr.00.invert-{j:02} True\n')
+					elif board == '7i95T':
+						if getattr(parent, f'c0_output_invert_{j}').isChecked():
+							contents.append(f'setp hm2_7i76e.0.7i76.0.0.output-{j:02}-invert True\n')
 					elif board == '7i96':
 						if getattr(parent, f'c0_output_invert_{j}').isChecked():
 							contents.append(f'setp hm2_7i96.0.ssr.00.invert-{j:02} True\n')
@@ -522,10 +529,10 @@ def build_io(parent):
 								contents.append(f'setp hm2_7i96s.0.outm.00.invert-{j:02} True\n')
 					elif board == '7i97':
 						if getattr(parent, f'c0_output_invert_{j}').isChecked():
-							contents.append(f'hm2_7i97.0.ssr.00.invert-{j:02}\n')
+							contents.append(f'setp hm2_7i97.0.ssr.00.invert-{j:02} True\n')
 					elif board == '7i97T':
 						if getattr(parent, f'c0_output_invert_{j}').isChecked():
-							contents.append(f'hm2_7i97.0.ssr.00.invert-{j:02}\n')
+							contents.append(f'setp hm2_7i97.0.ssr.00.invert-{j:02} True\n')
 
 
 	try:
