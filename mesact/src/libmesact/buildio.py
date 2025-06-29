@@ -346,6 +346,7 @@ def build_io(parent):
 	for i in range(3): # see if tab is visible
 		# i == 0 main board, i == 1 daughter card P2, i == 2 daughter card P3 possibly
 		if parent.mainTW.isTabVisible(i + 3):
+			# board is 7i76EU
 			board = getattr(parent, f'c{i}_JointTW').tabText(0)
 			if i == 1 and board in ports: # 7i92 P1 or 5/6i25 P2 so second port
 				port = ports[board]
@@ -369,21 +370,25 @@ def build_io(parent):
 
 					if board == '7i76':
 						hm2 =  f'hm2_{parent.hal_name}.0.7i76.0.{port}.input-{j:02}{invert}'
-					if board == '7i77':
+					elif board == '7i77':
 						hm2 =  f'hm2_{parent.hal_name}.0.7i77.0.{port}.input-{j:02}{invert}'
-					if board == '7i76E':
+					elif board == '7i76E':
 						hm2 =  f'hm2_7i76e.0.gpio.{j:03}.in{invert}'
-					if board == '7i95':
+					elif board == '7i76EU':
+						# hm2_7i76e.0.7i76.0.0.input-00
+						# hm2_7i76e.0.7i76.0.0.input-00-not
+						hm2 =  f'hm2_7i76e.0.7i76.0.0.input-{j:02}{invert}'
+					elif board == '7i95':
 						hm2 =  f'hm2_7i95.0.inmux.00.input-{j:02}{invert}'
-					if board == '7i95T':
+					elif board == '7i95T':
 						hm2 =  f'hm2_7i95.0.inmux.00.input-{j:02}{invert}'
-					if board == '7i96':
+					elif board == '7i96':
 						hm2 =  f'hm2_7i96.0.gpio.{j:03}.in{invert}'
-					if board == '7i96S':
+					elif board == '7i96S':
 						hm2 = f'hm2_7i96s.0.inm.00.input-{j:02}{invert}'
-					if board == '7i97':
+					elif board == '7i97':
 						hm2 =  f'hm2_7i97.0.inmux.00.input-{j:02}{invert}'
-					if board == '7i97T':
+					elif board == '7i97T':
 						hm2 =  f'hm2_7i97.0.inmux.00.input-{j:02}{invert}'
 
 					if INPUTS.get(key, False): # return False if key is not in dictionary
