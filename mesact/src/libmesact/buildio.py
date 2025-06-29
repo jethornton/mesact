@@ -449,11 +449,12 @@ def build_io(parent):
 	if parent.board_0 == '7i76eu': # set output types
 		sink = ''
 		source = ''
-		for i in range(16):
+		for i in reversed(range(16)):
 			sink += getattr(parent, f'c0_output_type_{i}').currentData()[0]
 			source += getattr(parent, f'c0_output_type_{i}').currentData()[1]
-		contents.append(f'setp hm2_7i76e.0.7i76.0.0.output_sink {hex(int(sink,2))}\n')
-		contents.append(f'setp hm2_7i76e.0.7i76.0.0.output_source {hex(int(source,2))}\n\n')
+
+		contents.append(f'setp hm2_7i76e.0.7i76.0.0.output_sink {f"0x{int(sink, 2):0>4X}"}\n')
+		contents.append(f'setp hm2_7i76e.0.7i76.0.0.output_source {f"0x{int(source, 2):0>4X}"}\n\n')
 
 	for i in range(3): # see if tab is visible
 		# i == 0 main board, i == 1 daughter card P2, i == 2 daughter card P3 possibly

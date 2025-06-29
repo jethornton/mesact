@@ -2,12 +2,14 @@
 
 The 7I76EU (and 7I76U) have 3 new parameters and the 7I84U has 2 new parameters
 
-The main 2 added parameters are 7i76.[port].[chan].output_source and 7i76.[port].[chan].output_sink. or
-7i84.[port].[chan].output_source and 7I84.[port].[chan].output_sink. These are 16 bit masks
-that control the field output mode. Each xxxx.output_source  bit controls the source attribute
-of the corresponding output bit and each xxxx.output_sink bit controls the sink attribute. The
-default setting is for all source mode (xxxx.output_source = 65535 or 0xFFFF, xxxx.output_sink
-= 0 or 0x0000) which means a 7I76EU, 7I76U or 7I84U behave like a 7I76E,7I76 or 7I84.
+The main 2 added parameters are 7i76.[port].[chan].output_source and
+7i76.[port].[chan].output_sink. or 7i84.[port].[chan].output_source and
+7I84.[port].[chan].output_sink. These are 16 bit masks that control the field
+output mode. Each xxxx.output_source  bit controls the source attribute of the
+corresponding output bit and each xxxx.output_sink bit controls the sink
+attribute. The default setting is for all source mode
+(xxxx.output_source = 65535 or 0xFFFF, xxxx.output_sink = 0 or 0x0000) which
+means a 7I76EU, 7I76U or 7I84U behave like a 7I76E,7I76 or 7I84.
 
 So for example:
 
@@ -31,7 +33,7 @@ Note that each of the 16 output bits can be individually setup for
 sourcing, sinking, or push-pull mode.
 
 The 7I76EU and 7I76U also have a spinmode parameter to set the spindle output
-bit mode when this is 0 (default) the isolated spindle output bits are ENA and DIR as before.
-If the spindle mode bit is set to 1 , the isolated spindle output bits now function
-as FWD and REV.
+bit mode when this is 0 (default) the isolated spindle output bits are ENA and
+DIR as before. If the spindle mode bit is set to 1 , the isolated spindle
+output bits now function as FWD and REV.
 
