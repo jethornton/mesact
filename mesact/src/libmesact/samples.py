@@ -34,9 +34,6 @@ def set_7i96s_x(parent):
 	parent.ipAddressCB.setCurrentIndex(parent.ipAddressCB.findData('10.10.10.10'))
 	set_joints(parent, 0, ['X'])
 	parent.c0_homeSequence_0.setText('0')
-	parent.spindleTypeCB.setCurrentIndex(parent.spindleTypeCB.findData('pwm'))
-	parent.spindleMaxRpmFwd.setValue(1000)
-	spindle.spindle_pid_default(parent)
 
 def set_7i96s_xyz(parent):
 	parent.boardCB.setCurrentIndex(parent.boardCB.findData('7i96s'))
