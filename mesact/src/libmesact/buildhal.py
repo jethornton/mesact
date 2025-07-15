@@ -368,7 +368,6 @@ def build(parent):
 			halContents.append('net spindle-pid-out <= pid.s.output\n')
 			halContents.append('net spindle-pid-out => spindle.0.speed-in\n')
 
-
 	# E Stop
 	externalEstop = False
 	for i in range(3): # test for an external e stop input
@@ -383,16 +382,14 @@ def build(parent):
 
 	# Manual Tool Change
 	if parent.manualToolChangeCB.isChecked():
-		halContents.append('\n#  Manual Tool Change Dialog\n')
-
+		halContents.append('\n# Manual Tool Change Dialog\n')
 		halContents.append('loadusr -W hal_manualtoolchange\n')
-		halContents.append('net tool-change-request    =>  hal_manualtoolchange.change\n')
-		halContents.append('net tool-change-confirmed  <=  hal_manualtoolchange.changed\n')
-		halContents.append('net tool-number            =>  hal_manualtoolchange.number\n')
+		halContents.append('net tool-number hal_manualtoolchange.number <= iocontrol.0.tool-prep-number\n')
+		halContents.append('net tool-change-request hal_manualtoolchange.change <= iocontrol.0.tool-change\n')
+		halContents.append('net tool-change-confirmed iocontrol.0.tool-changed => hal_manualtoolchange.changed\n')
 
-		halContents.append('\n# create signals for tool loading loopback\n')
+		halContents.append('\n# tool prep loopback\n')
 		halContents.append('net tool-prep-loop iocontrol.0.tool-prepare => iocontrol.0.tool-prepared\n')
-		halContents.append('net tool-change-loop iocontrol.0.tool-change => iocontrol.0.tool-changed\n')
 
 	# ClassicLadder
 	if parent.ladderGB.isChecked():
