@@ -3,6 +3,7 @@ from PyQt5.QtWidgets import QWidget
 
 from libmesact import mdi
 from libmesact import dialogs
+from libmesact import utilities
 
 def checkit(parent):
 	configErrors = []
@@ -213,12 +214,22 @@ def checkit(parent):
 						if getattr(parent, f'c{i}_maxError_{j}').text() == '':
 							tabError = True
 							configErrors.append(f'\tDrive {j} PID Max Error must not be blank')
-					if getattr(parent, f'c{i}_min_ferror_{j}').text() == '':
+
+					if '-' in getattr(parent, f'c{i}_min_ferror_{j}').text():
 						tabError = True
-						configErrors.append(f'\tDrive {j} Min Following Error must not be blank')
-					if getattr(parent, f'c{i}_max_ferror_{j}').text() == '':
+						configErrors.append(f'\tDrive {j} Min Following Error must not be negative')
+					else:
+						if not utilities.is_number(getattr(parent, f'c{i}_min_ferror_{j}').text()):
+							tabError = True
+							configErrors.append(f'\tDrive {j} Min Following Error does not evaluate to a number')
+
+					if '-' in getattr(parent, f'c{i}_max_ferror_{j}').text():
 						tabError = True
-						configErrors.append(f'\tDrive {j} Max Following Error must not be blank')
+						configErrors.append(f'\tDrive {j} Max Following Error must not be negative')
+					else:
+						if not utilities.is_number(getattr(parent, f'c{i}_max_ferror_{j}').text()):
+							tabError = True
+							configErrors.append(f'\tDrive {j} Max Following Error does not evaluate to a number')
 
 					if getattr(parent, f'c{i}_settings_{j}').isTabVisible(2): # Stepgen Tab
 						if getattr(parent, f'c{i}_StepTime_{j}').text() == '':
