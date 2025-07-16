@@ -15,7 +15,7 @@ sudo apt install zip
 '''
 
 VERSION = '2.1.7'
-BUILD_DATE = '5/18/2025'
+BUILD_DATE = '7/16/2025'
 
 from traceback import StackSummary
 from functools import partial
