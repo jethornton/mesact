@@ -103,7 +103,7 @@ def build(parent):
 
 	if len(set(board_list) & set(step_boards)) > 0:
 		halContents.append('\n# DPLL TIMER\n')
-		halContents.append(f'setp hm2_[MESA](BOARD).0.dpll.01.timer-us -50\n')
+		halContents.append(f'setp hm2_[MESA](BOARD).0.dpll.01.timer-us -200\n')
 		halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.timer-number 1\n')
 
 
