@@ -1,3 +1,9 @@
+mesact (2.1.8) unstable; urgency=medium
+
+  * Improve spindle code for 7i76E, 7i76EU and 7i96S
+
+ -- John Thornton <dev@gnipsel.com>  Wed, 30 Jul 2025 10:57:14 -0500
+
 mesact (2.1.7) unstable; urgency=medium
 
   * Fix 7i96S with daugher card
