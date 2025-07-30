@@ -616,7 +616,7 @@ class updateini:
 					self.delete_key('INPUTS', f'INPUT_SLOW_{i}_{j}')
 
 		# update the [OUTPUTS] section
-		if parent.boardCB.currentText() == '7i76EU':
+		if parent.board == '7i76EU':
 			sink = ''
 			source = ''
 			for i in range(16):
