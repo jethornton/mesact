@@ -1,17 +1,11 @@
 import os, subprocess, sysconfig
 from platform import python_version
-from functools import partial
 
 from PyQt5.QtCore import qVersion, QRegExp, QLocale
-from PyQt5.QtGui import  QIcon, QIntValidator, QDoubleValidator, QRegExpValidator
-from PyQt5.QtWidgets import QAction, QCheckBox, QLineEdit, QPlainTextEdit
-from PyQt5.QtWidgets import QComboBox, QSpinBox, QDoubleSpinBox, QCheckBox
+from PyQt5.QtGui import QIntValidator, QDoubleValidator, QRegExpValidator
 
 from libmesact import combos
 from libmesact import menus
-from libmesact import updates
-from libmesact import utilities
-from libmesact import spindle
 
 def setup(parent):
 
@@ -21,21 +15,28 @@ def setup(parent):
 	parent.board_1 = False
 	parent.board_2 = False
 
+	# spindle limits
+	parent.spindle_fwd_min_rpm.setEnabled(False)
+	parent.spindle_fwd_max_rpm.setEnabled(False)
+	parent.spindle_rev_min_rpm.setEnabled(False)
+	parent.spindle_rev_max_rpm.setEnabled(False)
+
+	# spindle feedback
+	parent.spindle_feedback_gb.setEnabled(False)
+	parent.spindle_feedback_gb.setVisible(False)
+
+	# spindle pid
+	parent.spindle_pid_gb.setEnabled(False)
+	parent.spindle_pid_gb.setVisible(False)
 
 	# 7i77 spindle setup
 	# hide 7i77 spindle checkbox
 	parent.c1_spindle_cb.setVisible(False)
 	parent.c2_spindle_cb.setVisible(False)
-	# connect spindle checkbox state changed
-	parent.c1_spindle_cb.toggled.connect(partial(spindle.spindle_cb_changed, parent))
-	parent.c2_spindle_cb.toggled.connect(partial(spindle.spindle_cb_changed, parent))
 
 	# hide 7i77 pid default button
 	parent.c1_pid_default_5.setVisible(False)
 	parent.c2_pid_default_5.setVisible(False)
-	# connect spindle default pid
-	parent.c1_pid_default_5.clicked.connect(partial(spindle.spindle_pid_default, parent))
-	parent.c2_pid_default_5.clicked.connect(partial(spindle.spindle_pid_default, parent))
 
 	parent.platformLB.setText(sysconfig.get_platform())
 	parent.pythonLB.setText(python_version())
@@ -117,6 +118,11 @@ def setup(parent):
 	else:
 		parent.emcVersionLB.setText('Not Installed')
 
+	# set version specific items
+	if parent.emc_version <= (2, 9, 0): # disable spindle_limits_gb
+		parent.spindle_limits_gb.setEnabled(False)
+		parent.spindle_limits_lb.setText('Spindle Limits require LinuxCNC 2.9.1 or later')
+
 	try:
 		mf = subprocess.check_output('mesaflash', encoding='UTF-8')
 		if len(mf) > 0:
@@ -149,31 +155,6 @@ def setup(parent):
 				parent.loadini.load_ini(parent, config_file)
 
 	parent.configNameLE.setFocus()
-
-	exitAction = QAction(QIcon.fromTheme('application-exit'), 'Exit', parent)
-	exitAction.setStatusTip('Exit application')
-	exitAction.triggered.connect(parent.close)
-	parent.menuFile.addAction(exitAction)
-
-	docsAction = QAction(QIcon.fromTheme('document-open'), 'Mesa Manuals', parent)
-	docsAction.setStatusTip('Download Mesa Documents')
-	docsAction.triggered.connect(partial(updates.downloadDocs, parent))
-	parent.menuDownloads.addAction(docsAction)
-
-
-	# Change Events
-	for child in parent.findChildren(QPlainTextEdit):
-		child.textChanged.connect(partial(utilities.changed, parent))
-	for child in parent.findChildren(QLineEdit):
-		child.textChanged.connect(partial(utilities.changed, parent))
-	for child in parent.findChildren(QComboBox):
-		child.currentIndexChanged.connect(partial(utilities.changed, parent))
-	for child in parent.findChildren(QSpinBox):
-		child.valueChanged.connect(partial(utilities.changed, parent))
-	for child in parent.findChildren(QDoubleSpinBox):
-		child.valueChanged.connect(partial(utilities.changed, parent))
-	for child in parent.findChildren(QCheckBox):
-		child.stateChanged.connect(partial(utilities.changed, parent))
 
 	# allow only integers
 	only_int = QIntValidator()

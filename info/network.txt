@@ -1,0 +1,4 @@
+Network latency issue, to check:
+sudo chrt 99 ping -i .001 -q -c 60000 192.168.1.121
+or
+sudo chrt 99 ping -i .001 -q -c 60000 10.10.10.10

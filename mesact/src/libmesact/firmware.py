@@ -39,6 +39,7 @@ def noFirmware(parent, board):
 	parent.firmwarePTE.setPlainText(msg)
 	parent.firmwareGB.setEnabled(False)
 	parent.read_hmid_gb.setEnabled(False)
+	parent.firmwareCB.addItem('N/A', False)
 
 	if parent.settings.value('NAGS/firmware', None, type=bool):
 		msg = (f'No Firmware was found for the {board}.\n'
@@ -165,7 +166,8 @@ def firmwareChanged(parent):
 		else:
 			parent.firmware_info_pte.appendPlainText(f'No description file found\n')
 
-		# special handling of some firmware
+		# special handling of some firmware FIXME not using spindleTypeCB any more
+		'''
 		if parent.boardCB.currentData() == '7i95t':
 			if firmware_name == '7i95t_1pwmd.bin':
 				parent.spindleGB.setEnabled(True)
@@ -177,7 +179,7 @@ def firmwareChanged(parent):
 				parent.spindleTypeCB.setCurrentIndex(0)
 				for i in range(7):
 					parent.spindleTypeCB.model().item(i).setEnabled(False)
-
+		'''
 
 def create_pin(parent):
 	pass

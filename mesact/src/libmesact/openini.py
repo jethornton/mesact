@@ -283,15 +283,16 @@ class loadini:
 					self.update(parent, item[0], item[1], item[2])
 
 		if '[SPINDLE_0]' in self.sections:
+			parent.spindle_enable_cb.setChecked(True)
+			parent.spindle_enable_cb.setEnabled(True)
 			spindle = [
-			['[SPINDLE_0]', 'TYPE', 'spindleTypeCB'],
 			['[SPINDLE_0]', 'SCALE', 'spindleEncoderScale'],
 			['[SPINDLE_0]', 'SCALE', 'spindleStepScale'],
 			['[SPINDLE_0]', 'PWM_FREQUENCY', 'pwmFrequencySB'],
-			['[SPINDLE_0]', 'MIN_FORWARD_VELOCITY', 'spindleMinRpmFwd'],
-			['[SPINDLE_0]', 'MAX_FORWARD_VELOCITY', 'spindleMaxRpmFwd'],
-			['[SPINDLE_0]', 'MIN_REVERSE_VELOCITY', 'spindleMinRpmRev'],
-			['[SPINDLE_0]', 'MAX_REVERSE_VELOCITY', 'spindleMaxRpmRev'],
+			['[SPINDLE_0]', 'MIN_FORWARD_VELOCITY', 'spindle_fwd_min_rpm'],
+			['[SPINDLE_0]', 'MAX_FORWARD_VELOCITY', 'spindle_fwd_max_rpm'],
+			['[SPINDLE_0]', 'MIN_REVERSE_VELOCITY', 'spindle_rev_min_rpm'],
+			['[SPINDLE_0]', 'MAX_REVERSE_VELOCITY', 'spindle_rev_max_rpm'],
 			['[SPINDLE_0]', 'DEADBAND', 'deadband_s'],
 			['[SPINDLE_0]', 'FEEDBACK', 'spindleFeedbackCB'],
 			['[SPINDLE_0]', 'P', 'p_s'],
@@ -302,7 +303,6 @@ class loadini:
 			['[SPINDLE_0]', 'FF2', 'ff2_s'],
 			['[SPINDLE_0]', 'BIAS', 'bias_s'],
 			['[SPINDLE_0]', 'MAX_ERROR', 'maxError_s'],
-			['[SPINDLE_0]', 'MAX_OUTPUT', 'maxOutput_s'],
 			['[SPINDLE_0]', 'DRIVE', 'spindleDriveCB'],
 			['[SPINDLE_0]', 'STEPLEN', 'spindleStepTime'],
 			['[SPINDLE_0]', 'STEPSPACE', 'spindleStepSpace'],
@@ -312,6 +312,17 @@ class loadini:
 			['[SPINDLE_0]', 'DIR_INVERT', 'spindleDirInvert'],
 			['[SPINDLE_0]', 'MAX_ACCEL_RPM', 'spindleMaxAccel'],
 			]
+
+			board_name = parent.boardCB.currentText()
+
+			if board_name == '7i76E':
+				spindle.append(['[SPINDLE_0]', 'MAX_OUTPUT', 'max_rpm_7i76e_sb'])
+				spindle.append(['[SPINDLE_0]', 'SCALE_MAX', 'max_scale_7i76e_sb'])
+			elif board_name == '7i76EU':
+				spindle.append(['[SPINDLE_0]', 'MAX_OUTPUT', 'max_rpm_7i76eu_sb'])
+				spindle.append(['[SPINDLE_0]', 'SCALE_MAX', 'max_scale_7i76eu_sb'])
+			elif board_name == '7i96S':
+				spindle.append(['[SPINDLE_0]', 'MAX_OUTPUT', 'max_rpm_7i96s_sb'])
 
 			for item in spindle:
 				self.update(parent, item[0], item[1], item[2])

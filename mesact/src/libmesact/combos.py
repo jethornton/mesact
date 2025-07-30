@@ -179,6 +179,8 @@ def build(parent):
 			for item in drives:
 				getattr(parent, f'c{i}_drive_{j}').addItem(item[0], item[1])
 
+	# FIXME remove this section
+	'''
 	# Spindle Tab
 	spindle = [
 	['Select', False],
@@ -193,16 +195,19 @@ def build(parent):
 	for item in spindle:
 		parent.spindleTypeCB.addItem(item[0], item[1])
 
+	'''
+
+	# 7i76EU spindle types
 	spindle_types = [
 	['ENA & DIR', '0'],
 	['FWD & REV', '1'],
 	]
 
 	for item in spindle_types:
-		parent.spindleMode7i76eu.addItem(item[0], item[1])
+		parent.spindle_mode_7i76eu.addItem(item[0], item[1])
 
 	encoder = [
-		['Select', False],
+		['None', False],
 		['Encoder', 'encoder'],
 		]
 

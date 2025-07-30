@@ -1,3 +1,5 @@
+from PyQt5.Qt import QWidget
+
 from libmesact import firmware
 
 def boardChanged(parent):
@@ -20,7 +22,8 @@ def boardChanged(parent):
 
 	if parent.boardCB.currentData():
 		board = parent.boardCB.currentData() # selected board
-		name = parent.boardCB.currentText()
+		parent.board_name = parent.boardCB.currentText()
+		#print(f'board {board} parent.board_name {parent.board_name}')
 		if parent.mesaflash:
 			parent.verify_board_pb.setEnabled(True)
 		# set all tabs visible then hide as needed
@@ -34,7 +37,7 @@ def boardChanged(parent):
 		parent.daughterLB_1.clear()
 		parent.ipAddressCB.setEnabled(False)
 		parent.mainTW.setTabVisible(3, True)
-		parent.mainTW.setTabText(3, name)
+		parent.mainTW.setTabText(3, parent.board_name)
 		for i in range(3): # show output tabs
 			for j in range(6):
 				getattr(parent, f'c{i}_settings_{j}').setTabVisible(2, True)
@@ -54,16 +57,18 @@ def boardChanged(parent):
 		for i in range(16):
 			getattr(parent, f'c0_output_type_{i}').setVisible(False)
 
-		# Spindle
-		parent.spindleTW.setTabVisible(1, False)
-		parent.spindleTW.setTabVisible(2, False)
-		parent.spindleTW.setTabVisible(3, False)
+		# Hide all Spindle Tabs
+		for i in range(6):
+			parent.spindleTW.setTabVisible(i, False)
+		# disable spindle tabs
+		parent.spindleTW.setEnabled(False)
+
+		# disable spindle_enable_cb
+		parent.spindle_enable_cb.setEnabled(False)
+		parent.spindle_enable_cb.setChecked(False)
 
 		# have spindle stuff on seperate tabs and delete this
 		parent.spindleGB.setEnabled(False)
-		parent.spindleTypeCB.setEnabled(False)
-		for i in range(0, 7):
-			parent.spindleTypeCB.model().item(i).setEnabled(False)
 
 		# Configure Options
 		parent.stepgens_cb.clear()
@@ -81,7 +86,7 @@ def boardChanged(parent):
 			parent.hal_name = '5i24'
 			parent.mesaflash_name = '5i24'
 			parent.boardType = 'pci'
-			parent.c0_JointTW.setTabText(0, name)
+			parent.c0_JointTW.setTabText(0, parent.board_name)
 			for i in range(1, tabs + 1):
 				parent.c0_JointTW.setTabVisible(i, False)
 			#parent.daughterLB_0.setText('P2')
@@ -92,7 +97,7 @@ def boardChanged(parent):
 			#	parent.daughterCB_0.addItem(item[0], item[1])
 			#	parent.daughterCB_1.addItem(item[0], item[1])
 
-			info = (f'Support for the {name}\n'
+			info = (f'Support for the {parent.board_name}\n'
 			'is limited to flashing only\n'
 			'at this time'
 			)
@@ -105,7 +110,7 @@ def boardChanged(parent):
 			parent.hal_name = '5i25'
 			parent.mesaflash_name = '5i25'
 			parent.boardType = 'pci'
-			parent.c0_JointTW.setTabText(0, name)
+			parent.c0_JointTW.setTabText(0, parent.board_name)
 			for i in range(1, tabs + 1):
 				parent.c0_JointTW.setTabVisible(i, False)
 			parent.daughterLB_0.setText('P2')
@@ -129,7 +134,7 @@ def boardChanged(parent):
 			parent.hal_name = '5i25'
 			parent.mesaflash_name = '5i25t'
 			parent.boardType = 'pci'
-			parent.c0_JointTW.setTabText(0, name)
+			parent.c0_JointTW.setTabText(0, parent.board_name)
 			for i in range(1, tabs + 1):
 				parent.c0_JointTW.setTabVisible(i, False)
 			parent.daughterLB_0.setText('P2')
@@ -155,12 +160,12 @@ def boardChanged(parent):
 			parent.mesaflash_name = '7c80'
 			# 6 step/dir 23 inputs 8 outputs 1 spindle 1 encoder
 			parent.boardType = 'spi'
-			parent.c0_JointTW.setTabText(0, name)
+			parent.c0_JointTW.setTabText(0, parent.board_name)
 			parent.ipAddressCB.setEnabled(False)
 			parent.daughterLB_0.setText('P1')
 			parent.mainTW.setTabText(4, 'P1')
-			info = ('7c80 uses SPI for communication, requires LinuxCNC v2.9.4+ (hm2_spix, since it is required for the Pi5)\n'
-			'\n'
+			info = ('7c80 uses SPI for communication, requires LinuxCNC v2.9.4+\n'
+			'(hm2_spix, since it is required for the Pi5)'
 			'\nDefault Firmware 7c80d.bit\n'
 			)
 			parent.board_info_pte.setPlainText(info)
@@ -185,7 +190,7 @@ def boardChanged(parent):
 			parent.mesaflash_name = '7c81'
 			# 6 step/dir 23 inputs 8 outputs 1 spindle 1 encoder
 			parent.boardType = 'spi'
-			parent.c0_JointTW.setTabText(0, name)
+			parent.c0_JointTW.setTabText(0, parent.board_name)
 			parent.ipAddressCB.setEnabled(False)
 			parent.daughterLB_0.setText('P1')
 			parent.daughterLB_0.setText('P2')
@@ -193,8 +198,8 @@ def boardChanged(parent):
 			parent.mainTW.setTabText(4, 'P1')
 			parent.mainTW.setTabText(4, 'P2')
 			parent.mainTW.setTabText(4, 'P7')
-			info = ('7c81 uses SPI for communication, requires LinuxCNC v2.9.4+ (hm2_spix, since it is required for the Pi5)\n'
-			'\n'
+			info = ('7c81 uses SPI for communication, requires LinuxCNC v2.9.4+\n'
+			'(hm2_spix, since it is required for the Pi5)'
 			)
 			parent.board_info_pte.setPlainText(info)
 
@@ -211,12 +216,12 @@ def boardChanged(parent):
 			parent.board_info_pte.setPlainText(info)
 
 		elif board == '7i76e': # ETH 5 Axis Step/Direction
+			# 5 step/dir 32 inputs 16 outputs 1 potentiometer spindle 1 encoder
 			parent.board_0 = '7i76e'
 			parent.hal_name = '7i76e'
 			parent.mesaflash_name = '7i76e'
-			# 5 step/dir 32 inputs 16 outputs 1 spindle 1 encoder
 			parent.boardType = 'eth'
-			parent.c0_JointTW.setTabText(0, name)
+			parent.c0_JointTW.setTabText(0, parent.board_name)
 			parent.c0_JointTW.setTabVisible(6, False)
 			parent.ipAddressCB.setEnabled(True)
 			parent.daughterLB_0.setText('P1')
@@ -246,13 +251,26 @@ def boardChanged(parent):
 				getattr(parent, f'c0_settings_{i}').setTabVisible(3, False)
 				getattr(parent, f'c0_settings_{i}').setTabVisible(4, False)
 
+			# set spindle enable cb enabled
+			parent.spindle_enable_cb.setEnabled(True)
+
+			# set the spindle settings tab visible
+			parent.spindleTW.setTabVisible(0, True)
+			parent.spindle_feedback_gb.setVisible(True)
+			parent.spindle_pid_gb.setVisible(True)
+
+			# set spindle tab visible
+			page = parent.spindleTW.findChild(QWidget, 'spindle_7i76e')
+			index = parent.spindleTW.indexOf(page)
+			parent.spindleTW.setTabVisible(index, True)
+
 		elif board == '7i76eu': # ETH 5 Axis Step/Direction
+			# 5 step/dir 32 inputs 16 outputs 1 potentiometer spindle 1 encoder
 			parent.board_0 = '7i76eu'
 			parent.hal_name = '7i76e'
 			parent.mesaflash_name = '7i76eu'
-			# 5 step/dir 32 inputs 16 outputs 1 spindle 1 encoder
 			parent.boardType = 'eth'
-			parent.c0_JointTW.setTabText(0, name)
+			parent.c0_JointTW.setTabText(0, parent.board_name)
 			parent.c0_JointTW.setTabVisible(6, False)
 			parent.ipAddressCB.setEnabled(True)
 			parent.daughterLB_0.setText('P1')
@@ -260,7 +278,6 @@ def boardChanged(parent):
 			parent.mainTW.setTabText(4, 'P1')
 			parent.mainTW.setTabText(5, 'P2')
 			#parent.spindleGB.setEnabled(True)
-			parent.spindleTW.setTabVisible(1, True)
 			info = ('Connector 5v Power\n'
 			'W3 Up for P1\n'
 			'W15 Up for P2\n'
@@ -290,14 +307,25 @@ def boardChanged(parent):
 			# show output type combo boxes
 			for i in range(16):
 				getattr(parent, f'c0_output_type_{i}').setVisible(True)
-			# select spindle tab
-			parent.spindleTW.setCurrentIndex(1)
+
+			# set spindle enable cb enabled
+			parent.spindle_enable_cb.setEnabled(True)
+
+			# set the spindle settings tab visible
+			parent.spindleTW.setTabVisible(0, True)
+			parent.spindle_feedback_gb.setVisible(True)
+			parent.spindle_pid_gb.setVisible(True)
+
+			# set spindle page visible
+			page = parent.spindleTW.findChild(QWidget, 'spindle_7i76eu')
+			index = parent.spindleTW.indexOf(page)
+			parent.spindleTW.setTabVisible(index, True)
 
 		elif board == '7i80db-16': # ETH DB25F
 			parent.hal_name = '7i80db-16'
 			parent.mesaflash_name = '7i80db-16' # CHECKME FIXME
 			parent.boardType = 'eth'
-			parent.c0_JointTW.setTabText(0, name)
+			parent.c0_JointTW.setTabText(0, parent.board_name)
 			for i in range(1, tabs + 1):
 				parent.c0_JointTW.setTabVisible(i, False)
 			parent.ipAddressCB.setEnabled(True)
@@ -308,7 +336,7 @@ def boardChanged(parent):
 			#for item in db25:
 			#	parent.daughterCB_0.addItem(item[0], item[1])
 			#	parent.daughterCB_1.addItem(item[0], item[1])
-			info = (f'Support for the {name}\n'
+			info = (f'Support for the {parent.board_name}\n'
 			'is limited to flashing only\n'
 			'at this time'
 			)
@@ -318,7 +346,7 @@ def boardChanged(parent):
 			parent.hal_name = '7i80db-25'
 			parent.mesaflash_name = '7i80db-25'
 			parent.boardType = 'eth'
-			parent.c0_JointTW.setTabText(0, name)
+			parent.c0_JointTW.setTabText(0, parent.board_name)
 			for i in range(1, tabs + 1):
 				parent.c0_JointTW.setTabVisible(i, False)
 			parent.ipAddressCB.setEnabled(True)
@@ -329,7 +357,7 @@ def boardChanged(parent):
 			#for item in db25:
 			#	parent.daughterCB_0.addItem(item[0], item[1])
 			#	parent.daughterCB_1.addItem(item[0], item[1])
-			info = (f'Support for the {name}\n'
+			info = (f'Support for the {parent.board_name}\n'
 			'is limited to flashing only\n'
 			'at this time'
 			)
@@ -339,7 +367,7 @@ def boardChanged(parent):
 			parent.hal_name = '7i80hd-16'
 			parent.mesaflash_name = '7i80hd-16'
 			parent.boardType = 'eth'
-			parent.c0_JointTW.setTabText(0, name)
+			parent.c0_JointTW.setTabText(0, parent.board_name)
 			for i in range(1, tabs + 1):
 				parent.c0_JointTW.setTabVisible(i, False)
 			parent.ipAddressCB.setEnabled(True)
@@ -350,7 +378,7 @@ def boardChanged(parent):
 			#for item in idc50:
 			#	parent.daughterCB_0.addItem(item[0], item[1])
 			#	parent.daughterCB_1.addItem(item[0], item[1])
-			info = (f'Support for the {name}\n'
+			info = (f'Support for the {parent.board_name}\n'
 			'is limited to flashing only\n'
 			'at this time'
 			)
@@ -360,7 +388,7 @@ def boardChanged(parent):
 			parent.hal_name = '7i80hd-25'
 			parent.mesaflash_name = '7i80hd-25'
 			parent.boardType = 'eth'
-			parent.c0_JointTW.setTabText(0, name)
+			parent.c0_JointTW.setTabText(0, parent.board_name)
 			for i in range(1, tabs + 1):
 				parent.c0_JointTW.setTabVisible(i, False)
 			parent.ipAddressCB.setEnabled(True)
@@ -371,7 +399,7 @@ def boardChanged(parent):
 			#for item in idc50:
 			#	parent.daughterCB_0.addItem(item[0], item[1])
 			#	parent.daughterCB_1.addItem(item[0], item[1])
-			info = (f'Support for the {name}\n'
+			info = (f'Support for the {parent.board_name}\n'
 			'is limited to flashing only\n'
 			'at this time'
 			)
@@ -381,7 +409,7 @@ def boardChanged(parent):
 			parent.hal_name = '7i80hd-ts'
 			parent.mesaflash_name = '7i80hd-ts'
 			parent.boardType = 'eth'
-			parent.c0_JointTW.setTabText(0, name)
+			parent.c0_JointTW.setTabText(0, parent.board_name)
 			for i in range(1, tabs + 1):
 				parent.c0_JointTW.setTabVisible(i, False)
 			parent.ipAddressCB.setEnabled(True)
@@ -392,7 +420,7 @@ def boardChanged(parent):
 			#for item in idc50:
 			#	parent.daughterCB_0.addItem(item[0], item[1])
 			#	parent.daughterCB_1.addItem(item[0], item[1])
-			info = (f'Support for the {name}\n'
+			info = (f'Support for the {parent.board_name}\n'
 			'is limited to flashing only\n'
 			'at this time'
 			)
@@ -402,7 +430,7 @@ def boardChanged(parent):
 			parent.hal_name = '7i92'
 			parent.mesaflash_name = '7i92'
 			parent.boardType = 'eth'
-			parent.c0_JointTW.setTabText(0, name)
+			parent.c0_JointTW.setTabText(0, parent.board_name)
 			for i in range(1, tabs + 1):
 				parent.c0_JointTW.setTabVisible(i, False)
 			parent.ipAddressCB.setEnabled(True)
@@ -418,7 +446,7 @@ def boardChanged(parent):
 			parent.hal_name = '7i92'
 			parent.mesaflash_name = '7i92t'
 			parent.boardType = 'eth'
-			parent.c0_JointTW.setTabText(0, name)
+			parent.c0_JointTW.setTabText(0, parent.board_name)
 			info = ('Connector 5v Power\n'
 			'W3 Up for P1\n'
 			'W4 Up for P2\n'
@@ -441,7 +469,7 @@ def boardChanged(parent):
 			parent.hal_name = '7i93'
 			parent.mesaflash_name = '7i93'
 			parent.boardType = 'eth'
-			parent.c0_JointTW.setTabText(0, name)
+			parent.c0_JointTW.setTabText(0, parent.board_name)
 			for i in range(1, tabs + 1):
 				parent.c0_JointTW.setTabVisible(i, False)
 			parent.ipAddressCB.setEnabled(True)
@@ -458,7 +486,7 @@ def boardChanged(parent):
 			parent.hal_name = '7i95'
 			parent.mesaflash_name = '7i95'
 			parent.boardType = 'eth'
-			parent.c0_JointTW.setTabText(0, name)
+			parent.c0_JointTW.setTabText(0, parent.board_name)
 			parent.ipAddressCB.setEnabled(True)
 			parent.daughterLB_0.setText('P1')
 			parent.mainTW.setTabText(4, 'P1')
@@ -473,7 +501,7 @@ def boardChanged(parent):
 			parent.hal_name = '7i95'
 			parent.mesaflash_name = '7i95t'
 			parent.boardType = 'eth'
-			parent.c0_JointTW.setTabText(0, name)
+			parent.c0_JointTW.setTabText(0, parent.board_name)
 			parent.ipAddressCB.setEnabled(True)
 			parent.daughterLB_0.setText('P1')
 			parent.mainTW.setTabText(4, 'P1')
@@ -515,7 +543,7 @@ def boardChanged(parent):
 			parent.hal_name = '7i96'
 			parent.mesaflash_name = '7i96'
 			parent.boardType = 'eth'
-			parent.c0_JointTW.setTabText(0, name)
+			parent.c0_JointTW.setTabText(0, parent.board_name)
 			parent.c0_JointTW.setTabVisible(6, False)
 			parent.ipAddressCB.setEnabled(True)
 			parent.daughterLB_0.setText('P1')
@@ -533,12 +561,12 @@ def boardChanged(parent):
 				getattr(parent, f'c0_settings_{i}').setTabVisible(4, False)
 
 		elif board == '7i96s': # ETH 5 Axis Step/Direction
+			# 5 step/dir 11 inputs 6 outputs 1 potentiometer spindle 1 encoder
 			parent.board_0 = '7i96s'
 			parent.hal_name = '7i96s'
 			parent.mesaflash_name = '7i96s'
 			parent.boardType = 'eth'
-			# 5 step/dir 11 inputs 6 outputs 1 spindle 1 encoder
-			parent.c0_JointTW.setTabText(0, name)
+			parent.c0_JointTW.setTabText(0, parent.board_name)
 			parent.c0_JointTW.setTabVisible(6, False)
 			parent.ipAddressCB.setEnabled(True)
 			parent.daughterLB_0.setText('P1')
@@ -566,17 +594,26 @@ def boardChanged(parent):
 				getattr(parent, f'c0_settings_{i}').setTabVisible(3, False)
 				getattr(parent, f'c0_settings_{i}').setTabVisible(4, False)
 			parent.pwmFrequencySB.setValue(15000)
-			parent.spindleGB.setEnabled(True)
-			parent.spindleTypeCB.model().item(1).setEnabled(True)
-			for i in range(2, 7):
-				parent.spindleTypeCB.model().item(i).setEnabled(False)
+
+			# set spindle enable cb enabled
+			parent.spindle_enable_cb.setEnabled(True)
+
+			# set the spindle settings tab visible
+			parent.spindleTW.setTabVisible(0, True)
+			parent.spindle_feedback_gb.setVisible(True)
+			parent.spindle_pid_gb.setVisible(True)
+
+			# set spindle page visible
+			page = parent.spindleTW.findChild(QWidget, 'spindle_7i96s')
+			index = parent.spindleTW.indexOf(page)
+			parent.spindleTW.setTabVisible(index, True)
 
 		elif board == '7i97': # ETH 6 Axis Analog
 			parent.board_0 = '7i97'
 			parent.hal_name = '7i97'
 			parent.mesaflash_name = '7i97'
 			parent.boardType = 'eth'
-			parent.c0_JointTW.setTabText(0, name)
+			parent.c0_JointTW.setTabText(0, parent.board_name)
 			parent.ipAddressCB.setEnabled(True)
 			parent.daughterLB_0.setText('P1')
 			parent.mainTW.setTabText(4, 'P1')
@@ -591,7 +628,7 @@ def boardChanged(parent):
 			parent.hal_name = '7i97'
 			parent.mesaflash_name = '7i97t'
 			parent.boardType = 'eth'
-			parent.c0_JointTW.setTabText(0, name)
+			parent.c0_JointTW.setTabText(0, parent.board_name)
 			parent.ipAddressCB.setEnabled(True)
 			parent.daughterLB_0.setText('P1')
 			parent.mainTW.setTabText(4, 'P1')
@@ -631,8 +668,9 @@ def boardChanged(parent):
 		elif board == '7i98': # ETH IDC26
 			parent.hal_name = '7i98'
 			parent.mesaflash_name = '7i98'
+			parent.board_name = '7i98'
 			parent.boardType = 'eth'
-			parent.c0_JointTW.setTabText(0, name)
+			parent.c0_JointTW.setTabText(0, parent.board_name)
 			for i in range(1, tabs + 1):
 				parent.c0_JointTW.setTabVisible(i, False)
 			parent.ipAddressCB.setEnabled(True)
@@ -647,17 +685,22 @@ def boardChanged(parent):
 	else: # no board is selected or just started up
 		parent.hal_name = ''
 		parent.mesaflash_name = ''
+		parent.board_name = ''
 		parent.boardType = False
 		parent.c0_JointTW.setTabText(0, 'Board')
 		parent.mainTW.setTabVisible(3, False)
 		parent.daughterCB_0.clear()
 		parent.daughterCB_1.clear()
 
-		# Spindle
-		parent.spindleTW.setTabVisible(1, False)
-		parent.spindleTW.setTabVisible(2, False)
-		parent.spindleTW.setTabVisible(3, False)
+		# Hide all Spindle Tabs
+		for i in range(6):
+			parent.spindleTW.setTabVisible(i, False)
 		parent.spindleGB.setEnabled(False)
+		parent.spindle_enable_cb.setEnabled(False)
+		parent.spindle_enable_cb.setChecked(False)
+		parent.spindle_feedback_gb.setVisible(False)
+		parent.spindle_pid_gb.setVisible(False)
+
 		# if no board is selected turn off mesaflash tools
 		parent.firmwareGB.setEnabled(False)
 		parent.verify_board_pb.setEnabled(False)

@@ -1,59 +1,19 @@
-7i76E potentiometer enable direction encoder
-7i76EU potentiometer enable direction encoder
-7i76 potentiometer enable direction encoder
-7i77 axis analog enable
-7i96 encoder
-7i96S potentiometer encoder
 
+scale max sets the 0 to full rpm scale
+min/max limit just limit the output
 
-Combo Boards
-7i76E pot encoder
-7i95
-7i95T
-7i96 encoder
-7i96S pot encoder
-7i97
+<JT-Cave> pcw--home, 7i76e(u) should hm2_7i76e.0.7i76.0.0.spinout-minlim be set
+to 0 and the ini MIN_FORWARD_VELOCITY be set to some minimum rpm so the scaling
+is correct?
 
-Daughter Boards
-7i92t 7i76 P2
-Pins
-hm2_7i92.0.7i76.0.0.spindir
-hm2_7i92.0.7i76.0.0.spinena
-hm2_7i92.0.7i76.0.0.spinout
+<JT-Cave> for  example if your spindle is 1000 max but unhappy below 250 and you
+have 0-10v spindle would the scaling be off if you set the hardware limit to 250?
 
-Parameters
-hm2_7i92.0.7i76.0.0.spindir-invert
-hm2_7i92.0.7i76.0.0.spinena-invert
-hm2_7i92.0.7i76.0.0.spinout-maxlim
-hm2_7i92.0.7i76.0.0.spinout-minlim
-hm2_7i92.0.7i76.0.0.spinout-scalemax
+<JT-Cave> ie s500 should be 5v
 
-7i92t 7i77 P2
-Pins
-hm2_7i92.0.7i77.0.1.spinena
+<pcw--home> Yes, that's commonly done with high speed spindles, It does not
+affect the scaling (the scalemax parameter sets the scaling)
 
-Parameters
-
-7i92t 7i78 P2
-Pins
-
-Parameters
-
-	['5i24/6i24', '5i24'],
-	['5i25/6i25', '5i25'],
-	['', '7i76e'],
-	['7i80DB-16', '7i80db-16'],
-	['7i80DB-25', '7i80db-25'],
-	['7i80HD-16', '7i80hd-16'],
-	['7i80HD-25', '7i80hd-25'],
-	['7i80HD-TS', '7i80hd-ts'],
-	['7i92', '7i92'],
-	['7i92T', '7i92t'],
-	['7i93', '7i93'],
-	['', '7i95'],
-	['', '7i95t'],
-	['', '7i96'],
-	['', '7i96s'],
-	['', '7i97'],
-	['7i98', '7i98'],
-
+<pcw--home> sometimes maxlim is set also (say you have a 0..10V VFD control but
+a 12V power supply)
+<JT-Shop> thanks

@@ -356,13 +356,75 @@ def checkit(parent):
 
 
 	# check the Spindle Tab for errors
-	if parent.spindleTypeCB.currentData() == 'pwm':
-		if parent.spindleMaxRpmFwd.value() == 0:
+	if parent.spindle_enable_cb.isChecked():
+
+		if parent.ff0_s.value() == 0.0:
 			tabError = True
-			configErrors.append(f'\tSpindle Settings Maximum Fwd can not be 0')
-		if parent.maxOutput_s.value() == 0:
-			tabError = True
-			configErrors.append(f'\tPID Settings Max Output can not be 0')
+			configErrors.append('PID FF0 should be set at 1.0, FF0 set at 0 will not turn on the spindle')
+
+		'''
+		if parent.emc_version >= (2, 9, 1):
+			min_fwd = parent.spindle_fwd_min_rpm.value()
+			max_fwd = parent.spindle_fwd_max_rpm.value()
+			min_rev = parent.spindle_rev_min_rpm.value()
+			max_rev = parent.spindle_rev_max_rpm.value()
+
+			if parent.board_name == '7i76E':
+				if min_fwd != parent.min_rpm_7i76e_sb.value():
+					tabError = True
+					configErrors.append(f'Software Minimum Limit {min_fwd} is different than Hardware Minimum Limit {parent.min_rpm_7i76e_sb.value()}')
+				if max_fwd != parent.max_rpm_7i76e_sb.value():
+					tabError = True
+					configErrors.append(f'Software Maximum Limit {max_fwd} is different than Hardware Maximum Limit {parent.max_rpm_7i76e_sb.value()}')
+			elif parent.board_name == '7i76EU':
+				if min_fwd != parent.min_rpm_7i76eu_sb.value():
+					tabError = True
+					configErrors.append(f'Software Minimum Limit {min_fwd} is different than Hardware Minimum Limit {parent.min_rpm_7i76eu_sb.value()}')
+				if max_fwd != parent.max_rpm_7i76eu_sb.value():
+					tabError = True
+					configErrors.append(f'Software Maximum Limit {max_fwd} is different than Hardware Maximum Limit {parent.max_rpm_7i76eu_sb.value()}')
+		
+
+			#print(f'max_fwd {max_fwd}')
+			#print(f'max_rev {max_rev}')
+			#print(f'parent.max_rpm_7i76e_sb.value() {parent.max_rpm_7i76e_sb.value()}')
+			#print(f'parent.max_rpm_7i76eu_sb.value() {parent.max_rpm_7i76eu_sb.value()}')
+			#print(f'parent.max_rpm_7i96s_sb.value() {parent.max_rpm_7i96s_sb.value()}')
+			# FIXME this needs some thought
+			 FIXME
+
+				iniContents.append(f'MAX_OUTPUT = {parent.max_rpm_7i76e_sb.value()}\n')
+				min_rpm_7i76e_sb
+				max_rpm_7i76e_sb
+			elif parent.board_name == '7i76EU':
+				iniContents.append(f'MAX_OUTPUT = {parent.max_rpm_7i76eu_sb.value()}\n')
+			elif parent.board_name == '7i96S':
+				iniContents.append(f'MAX_OUTPUT = {parent.max_rpm_7i96s_sb.value()}\n')
+
+
+			board = parent.boardCB.currentData()
+			if board == '7i76e':
+				if max_fwd > parent.max_rpm_7i76e_sb.value():
+					tabError = True
+					configErrors.append(f'\tMaximum Forward RPM must be less than or equal to Maximum RPM')
+				if max_rev > parent.max_rpm_7i76e_sb.value():
+					tabError = True
+					configErrors.append(f'\tMaximum Reverse RPM must be less than or equal to Maximum RPM')
+			elif board == '7i76eu':
+				if max_fwd > parent.max_rpm_7i76eu_sb.value():
+					tabError = True
+					configErrors.append(f'\tMaximum Forward RPM must be less than or equal to Maximum RPM')
+				if max_rev > parent.max_rpm_7i76eu_sb.value():
+					tabError = True
+					configErrors.append(f'\tMaximum Reverse RPM must be less than or equal to Maximum RPM')
+			elif board == '7i96s':
+				if max_fwd > parent.max_rpm_7i96s_sb.value():
+					tabError = True
+					configErrors.append(f'\tMaximum Forward RPM must be less than or equal to Maximum RPM')
+				if max_rev > parent.max_rpm_7i96s_sb.value():
+					tabError = True
+					configErrors.append(f'\tMaximum Reverse RPM must be less than or equal to Maximum RPM')
+		'''
 
 	if tabError:
 		configErrors.insert(nextHeader, 'Spindle Tab:')

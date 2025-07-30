@@ -34,6 +34,8 @@ def set_7i96s_x(parent):
 	parent.ipAddressCB.setCurrentIndex(parent.ipAddressCB.findData('10.10.10.10'))
 	set_joints(parent, 0, ['X'])
 	parent.c0_homeSequence_0.setText('0')
+	parent.spindle_enable_cb.setChecked(True)
+	spindle.spindle_pid_default(parent)
 
 def set_7i96s_xyz(parent):
 	parent.boardCB.setCurrentIndex(parent.boardCB.findData('7i96s'))
@@ -42,6 +44,8 @@ def set_7i96s_xyz(parent):
 	parent.c0_homeSequence_0.setText('2')
 	parent.c0_homeSequence_1.setText('1')
 	parent.c0_homeSequence_2.setText('0')
+	parent.spindle_enable_cb.setChecked(True)
+	spindle.spindle_pid_default(parent)
 
 def set_7i96s_xyyz(parent):
 	parent.boardCB.setCurrentIndex(parent.boardCB.findData('7i96s'))

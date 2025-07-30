@@ -513,10 +513,10 @@ def build_io(parent):
 
 					if board == '7i76EU':
 						if getattr(parent, f'c0_output_invert_{j}').isChecked():
-							contents.append(f'setp hm2_7i95.0.ssr.00.invert-{j:02} True\n')
+							contents.append(f'setp hm2_7i76e.0.7i76.0.0.output-{j:02}-invert True\n')
 					elif board == '7i95T':
 						if getattr(parent, f'c0_output_invert_{j}').isChecked():
-							contents.append(f'setp hm2_7i76e.0.7i76.0.0.output-{j:02}-invert True\n')
+							contents.append(f'setp hm2_7i95.0.7i76.0.0.output-{j:02}-invert True\n')
 					elif board == '7i96':
 						if getattr(parent, f'c0_output_invert_{j}').isChecked():
 							contents.append(f'setp hm2_7i96.0.ssr.00.invert-{j:02} True\n')

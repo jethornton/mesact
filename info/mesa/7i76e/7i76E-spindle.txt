@@ -1,0 +1,15 @@
+     7  bit   RW          FALSE  hm2_7i76e.0.7i76.0.0.spindir-invert
+     7  bit   RW          FALSE  hm2_7i76e.0.7i76.0.0.spinena-invert
+     7  float RW            100  hm2_7i76e.0.7i76.0.0.spinout-maxlim
+     7  float RW              0  hm2_7i76e.0.7i76.0.0.spinout-minlim
+     7  float RW            100  hm2_7i76e.0.7i76.0.0.spinout-scalemax
+
+     7  bit   IN          FALSE  hm2_7i76e.0.7i76.0.0.spindir
+     7  bit   IN          FALSE  hm2_7i76e.0.7i76.0.0.spinena
+     7  float IN              0  hm2_7i76e.0.7i76.0.0.spinout
+
+min_rpm_7i76e_sb
+max_rpm_7i76e_sb
+invert_dir_7i76e_cb
+invert_ena_7i76e_cb
+

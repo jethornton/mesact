@@ -1,5 +1,9 @@
 from functools import partial
 
+from PyQt5.QtWidgets import QAction, QPlainTextEdit, QLineEdit, QCheckBox
+from PyQt5.QtWidgets import QComboBox, QSpinBox, QDoubleSpinBox
+from PyQt5.QtGui import QIcon
+
 from libmesact import utilities
 from libmesact import check
 from libmesact import buildconfig
@@ -38,6 +42,17 @@ def connect(parent):
 	parent.actionAboutMesaCT.triggered.connect(partial(dialogs.aboutDialog, parent))
 	#parent.actionBoardImages.triggered.connect(partial(updates.boardImages, parent))
 	parent.timer.timeout.connect(partial(downloads.clearProgressBar, parent))
+
+	exitAction = QAction(QIcon.fromTheme('application-exit'), 'Exit', parent)
+	exitAction.setStatusTip('Exit application')
+	exitAction.triggered.connect(parent.close)
+	parent.menuFile.addAction(exitAction)
+
+	docsAction = QAction(QIcon.fromTheme('document-open'), 'Mesa Manuals', parent)
+	docsAction.setStatusTip('Download Mesa Documents')
+	docsAction.triggered.connect(partial(updates.downloadDocs, parent))
+	parent.menuDownloads.addAction(docsAction)
+
 
 	# Machine Tab
 	parent.configNameLE.textChanged[str].connect(partial(machine.configNameChanged, parent))
@@ -126,8 +141,30 @@ def connect(parent):
 			getattr(parent, f'c{i}_input_debounce_{j}').stateChanged.connect(partial(utilities.inputChanged, parent))
 
 	# Spindle Tab
+
+	# spindle enable
+	parent.spindle_enable_cb.toggled.connect(partial(spindle.spindle_enable, parent))
+
+	# spindle limits
+	parent.spindle_min_fwd_enable_cb.toggled.connect(partial(spindle.spindle_limits, parent, 'min_fwd'))
+	parent.spindle_max_fwd_enable_cb.toggled.connect(partial(spindle.spindle_limits, parent, 'max_fwd'))
+	parent.spindle_min_rev_enable_cb.toggled.connect(partial(spindle.spindle_limits, parent, 'min_rev'))
+	parent.spindle_max_rev_enable_cb.toggled.connect(partial(spindle.spindle_limits, parent, 'max_rev'))
+
+	# spindle feedback
+	parent.spindleFeedbackCB.currentIndexChanged.connect(partial(spindle.spindle_feedback, parent))
+
+	# 7i77 spindle setup
+	# connect spindle checkbox state changed
+	parent.c1_spindle_cb.toggled.connect(partial(spindle.spindle_cb_changed, parent))
+	parent.c2_spindle_cb.toggled.connect(partial(spindle.spindle_cb_changed, parent))
+
+	# connect 7i77 spindle default pid
+	parent.c1_pid_default_5.clicked.connect(partial(spindle.spindle_pid_default, parent))
+	parent.c2_pid_default_5.clicked.connect(partial(spindle.spindle_pid_default, parent))
+
+
 	parent.output_type = '' # hostmot2 output-type
-	parent.spindleTypeCB.currentIndexChanged.connect(partial(spindle.spindle_type_changed, parent))
 	parent.pid_default_s.clicked.connect(partial(spindle.spindle_pid_default, parent))
 	parent.spindleMinRpmFwd.valueChanged.connect(partial(spindle.spindleSettingsChanged, parent))
 	parent.spindleMinRpmRev.valueChanged.connect(partial(spindle.spindleSettingsChanged, parent))
@@ -184,4 +221,18 @@ def connect(parent):
 	#parent.load_config_cb.toggled.connect(partial(settings.update_settings, parent))
 	#parent.checkMesaflashCB.clicked.connect(partial(settings.update_value, parent))
 	#parent.newUserCB.clicked.connect(partial(settings.update_value, parent))
+
+	# Change Events
+	for child in parent.findChildren(QPlainTextEdit):
+		child.textChanged.connect(partial(utilities.changed, parent))
+	for child in parent.findChildren(QLineEdit):
+		child.textChanged.connect(partial(utilities.changed, parent))
+	for child in parent.findChildren(QComboBox):
+		child.currentIndexChanged.connect(partial(utilities.changed, parent))
+	for child in parent.findChildren(QSpinBox):
+		child.valueChanged.connect(partial(utilities.changed, parent))
+	for child in parent.findChildren(QDoubleSpinBox):
+		child.valueChanged.connect(partial(utilities.changed, parent))
+	for child in parent.findChildren(QCheckBox):
+		child.stateChanged.connect(partial(utilities.changed, parent))
 

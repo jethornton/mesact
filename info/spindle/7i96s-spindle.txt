@@ -6,11 +6,17 @@ setp hm2_7i96s.0.pwmgen.00.pwm_frequency 5000
 setp hm2_7i96s.0.pwmgen.00.output_type 1
 
 net spindle-vel-cmd-rpm-abs hm2_7i96s.0.pwmgen.00.value
-net spindle-on spindle.0.on
-net spindle-on hm2_7i96s.0.pwmgen.00.enable
+net spindle-on spindle.0.on => hm2_7i96s.0.pwmgen.00.enable
+
 
 You probably also need to connect the signal "spindle-on"
 to a 7I96S isolated output:
 
 net spindle-on hm2_7i96s.0.outm.00.out-04
 
+
+<JT-Cave> pcw--home, when would pid.s.maxoutput [SPINDLE_0]MAX_OUTPUT be different than hm2_7i96s.0.pwmgen.00.scale  [SPINDLE_0]OUTPUT_SCALE
+<pcw--home> It might be lower if you wanted to bound the analog output value to less than full scale, for example you have a 0..10V Spindle control but the power source is 12V so full scale PWM is 12V so for an imaginary 10K RPM  spindle you would set the PWM scale to 12K but the PID max output to 10K (so you never get more than 10V out)
+<pcw--home> But this is such an uncommon thing, it doesn't seem like it needs to be set in a configurator
+<pcw--home> Too many options can make things look harder for beginners, and it can always be fixed later in the ini file
+<JT-Cave> thanks, I'm trying to figure out the simple way for the beginner to setup the 7i96s spindle

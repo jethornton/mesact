@@ -489,8 +489,8 @@ class updateini:
 				self.update_key(f'SPINDLE_7I77', 'MAX_RPM', getattr(parent, f'c{i}_analogMaxLimit_5').text())
 				self.update_key(f'SPINDLE_7I77', 'SCALE_MAX', getattr(parent, f'c{i}_analogScaleMax_5').text())
 
-		# update the [SPINDLE_0] section
-		if parent.spindleTypeCB.currentData() == 'pwm':
+		# update the [SPINDLE_0] section FIXME not using spindleTypeCB any more
+		if parent.spindle_enable_cb.isChecked():
 			# If SPINDLE_0 section does not exist insert it after the last joint
 			if '[SPINDLE_0]' not in self.sections:
 				last_joint = None
@@ -502,9 +502,6 @@ class updateini:
 				self.content.insert(index, '\n')
 				self.get_sections() # update section start/end
 
-			self.update_key(f'SPINDLE_0', 'PWM_TYPE', parent.spindleTypeCB.currentData())
-			#self.update_key(f'SPINDLE_0', 'SPINDLE_PWM_TYPE', parent.spindleTypeCB.currentData())
-			self.update_key(f'SPINDLE_0', 'PWM_FREQUENCY', parent.pwmFrequencySB.value())
 			self.update_key(f'SPINDLE_0', 'P', parent.p_s.value())
 			self.update_key(f'SPINDLE_0', 'I', parent.i_s.value())
 			self.update_key(f'SPINDLE_0', 'D', parent.d_s.value())
@@ -512,7 +509,34 @@ class updateini:
 			self.update_key(f'SPINDLE_0', 'FF1', parent.ff1_s.value())
 			self.update_key(f'SPINDLE_0', 'FF2', parent.ff2_s.value())
 			self.update_key(f'SPINDLE_0', 'BIAS', parent.bias_s.value())
-			self.update_key(f'SPINDLE_0', 'DEADBAND', parent.deadband_s.value())
+			self.update_key(f'SPINDLE_0', 'DEADBAND', parent.bias_s.value())
+
+			if parent.board_name == '7i76E':
+				self.update_key(f'SPINDLE_0', 'MAX_OUTPUT', parent.max_rpm_7i76e_sb.value())
+				self.update_key(f'SPINDLE_0', 'SCALE_MAX', parent.max_scale_7i76e_sb.value())
+			elif parent.board_name == '7i76EU':
+				self.update_key(f'SPINDLE_0', 'MAX_OUTPUT', parent.max_rpm_7i76eu_sb.value())
+				self.update_key(f'SPINDLE_0', 'SCALE_MAX', parent.max_scale_7i76eu_sb.value())
+			elif parent.board_name == '7i96S':
+				self.update_key(f'SPINDLE_0', 'MAX_OUTPUT', parent.max_rpm_7i96s_sb.value())
+
+			if parent.emc_version >= (2, 9, 1):
+				if parent.spindle_min_fwd_enable_cb.isChecked():
+					self.update_key(f'SPINDLE_0', 'MIN_FORWARD_VELOCITY', parent.spindle_fwd_min_rpm.value())
+				if parent.spindle_max_fwd_enable_cb.isChecked():
+					self.update_key(f'SPINDLE_0', 'MAX_FORWARD_VELOCITY', parent.spindle_fwd_max_rpm.value())
+				if parent.spindle_min_rev_enable_cb.isChecked():
+					self.update_key(f'SPINDLE_0', 'MIN_REVERSE_VELOCITY', parent.spindle_rev_min_rpm.value())
+				if parent.spindle_max_rev_enable_cb.isChecked():
+					self.update_key(f'SPINDLE_0', 'MAX_REVERSE_VELOCITY', parent.spindle_rev_max_rpm.value())
+
+		else: # delete the spindle section
+			self.delete_section('[SPINDLE_0]')
+
+		'''
+			self.update_key(f'SPINDLE_0', 'PWM_TYPE', parent.spindleTypeCB.currentData())
+			self.update_key(f'SPINDLE_0', 'SPINDLE_PWM_TYPE', parent.spindleTypeCB.currentData())
+			self.update_key(f'SPINDLE_0', 'PWM_FREQUENCY', parent.pwmFrequencySB.value())
 			self.update_key(f'SPINDLE_0', 'MAX_ERROR', parent.maxError_s.value())
 			self.update_key(f'SPINDLE_0', 'MAX_OUTPUT', parent.maxOutput_s.value())
 			self.update_key(f'SPINDLE_0', 'OUTPUT_TYPE', parent.maxOutput_s.value())
@@ -522,6 +546,7 @@ class updateini:
 			self.update_key(f'SPINDLE_0', 'MAX_REVERSE_VELOCITY', parent.spindleMaxRpmRev.value())
 
 			self.update_key(f'SPINDLE_0', 'SCALE', parent.spindleEncoderScale.value())
+		'''
 
 		'''
 

@@ -26,8 +26,9 @@ def build(parent):
 		board = parent.boardCB.currentData()
 	'''
 	iniContents.append(f'BOARD = {parent.hal_name}\n')
-	iniContents.append(f'BOARD_NAME = {parent.boardCB.currentData()}\n')
-	iniContents.append(f'FIRMWARE = {parent.firmwareCB.currentData()}\n')
+	iniContents.append(f'BOARD_NAME = {parent.boardCB.currentText()}\n')
+	if parent.firmwareCB.currentData():
+		iniContents.append(f'FIRMWARE = {parent.firmwareCB.currentData()}\n')
 	if parent.daughterCB_0.currentData() != None:
 		iniContents.append(f'CARD_0 = {parent.daughterCB_0.currentData()}\n')
 	if parent.daughterCB_1.currentData() != None:
@@ -260,32 +261,88 @@ def build(parent):
 				joint += 1
 
 	# build the [SPINDLE] section if enabled
-	if parent.spindleTypeCB.currentData():
+	'''
+	pwm_7i96s_sb
+	max_rpm_7i96s_sb
+	Note
+	These settings are for the motion controller component. Control screens can
+	limit these settings further.
+
+	MAX_FORWARD_VELOCITY = 20000 The maximum spindle speed (in rpm) for the
+	specified spindle. Optional. This will also set MAX_REVERSE_VELOCITY to the
+	negative value unless overridden.
+
+	MIN_FORWARD_VELOCITY = 3000 The minimum spindle speed (in rpm) for the
+	specified spindle. Optional. Many spindles have a minimum speed below which
+	they should not be run. Any spindle speed command below this limit will be
+	/increased/ to this limit.
+
+	MAX_REVERSE_VELOCITY = 20000 This setting will default to MAX_FORWARD_VELOCITY
+	if omitted. It can be used in cases where the spindle speed is limited in
+	reverse. Set to zero for spindles which must not be run in reverse. In this
+	context "max" refers to the absolute magnitude of the spindle speed.
+
+	MIN_REVERSE_VELOCITY = 3000` This setting is equivalent to
+	MIN_FORWARD_VELOCITY but for reverse spindle rotation. It will default to the
+	MIN_FORWARD_VELOCITY if omitted.
+
+	spindle_fwd_min_rpm
+	spindle_fwd_max_rpm
+	spindle_rev_min_rpm
+	spindle_rev_max_rpm
+
+	'''
+	if parent.spindle_enable_cb.isChecked():
 		iniContents.append('\n[SPINDLE_0]\n')
-		iniContents.append(f'TYPE = {parent.spindleTypeCB.currentData()}\n')
+		if parent.boardCB.currentData() == '7i96s':
+			iniContents.append(f'PWM_TYPE = 1\n')
+			iniContents.append(f'PWM_FREQUENCY = 20000\n')
+
+		iniContents.append(f'P = {parent.p_s.value():.1f}\n')
+		iniContents.append(f'I = {parent.i_s.value():.1f}\n')
+		iniContents.append(f'D = {parent.d_s.value():.1f}\n')
+		iniContents.append(f'FF0 = {parent.ff0_s.value():.1f}\n')
+		iniContents.append(f'FF1 = {parent.ff1_s.value():.1f}\n')
+		iniContents.append(f'FF2 = {parent.ff2_s.value():.1f}\n')
+		iniContents.append(f'BIAS = {parent.bias_s.value():.1f}\n')
+		iniContents.append(f'DEADBAND = {parent.deadband_s.value():.1f}\n')
+
+		if parent.board_name == '7i76E':
+			iniContents.append(f'MAX_OUTPUT = {parent.max_rpm_7i76e_sb.value()}\n')
+			iniContents.append(f'SCALE_MAX = {parent.max_scale_7i76e_sb.value()}\n')
+		elif parent.board_name == '7i76EU':
+			iniContents.append(f'MAX_OUTPUT = {parent.max_rpm_7i76eu_sb.value()}\n')
+			iniContents.append(f'SCALE_MAX = {parent.max_scale_7i76eu_sb.value()}\n')
+		elif parent.board_name == '7i96S':
+			iniContents.append(f'MAX_OUTPUT = {parent.max_rpm_7i96s_sb.value()}\n')
+
+		if parent.emc_version >= (2, 9, 1):
+			if parent.spindle_min_fwd_enable_cb.isChecked():
+				iniContents.append(f'MIN_FORWARD_VELOCITY = {parent.spindle_fwd_min_rpm.value()}\n')
+			if parent.spindle_max_fwd_enable_cb.isChecked():
+				iniContents.append(f'MAX_FORWARD_VELOCITY = {parent.spindle_fwd_max_rpm.value()}\n')
+			if parent.spindle_min_rev_enable_cb.isChecked():
+					iniContents.append(f'MIN_REVERSE_VELOCITY = {parent.spindle_rev_min_rpm.value()}\n')
+			if parent.spindle_max_rev_enable_cb.isChecked():
+					iniContents.append(f'MAX_REVERSE_VELOCITY = {parent.spindle_rev_max_rpm.value()}\n')
+
+		'''
 		if parent.spindleTypeCB.currentData() == 'pwm':
 			iniContents.append(f'PWM_TYPE = 1\n')
 			iniContents.append(f'PWM_FREQUENCY = {parent.pwmFrequencySB.value()}\n')
-			iniContents.append(f'P = {parent.p_s.value():.1f}\n')
-			iniContents.append(f'I = {parent.i_s.value():.1f}\n')
-			iniContents.append(f'D = {parent.d_s.value():.1f}\n')
-			iniContents.append(f'FF0 = {parent.ff0_s.value():.1f}\n')
-			iniContents.append(f'FF1 = {parent.ff1_s.value():.1f}\n')
-			iniContents.append(f'FF2 = {parent.ff2_s.value():.1f}\n')
-			iniContents.append(f'BIAS = {parent.bias_s.value():.1f}\n')
-			iniContents.append(f'DEADBAND = {parent.deadband_s.value():.1f}\n')
 			iniContents.append(f'MAX_ERROR = {parent.maxError_s.value():.1f}\n')
-			iniContents.append(f'MAX_OUTPUT = {parent.maxOutput_s.value()}\n')
 
 			iniContents.append(f'MIN_FORWARD_VELOCITY = {parent.spindleMinRpmFwd.value()}\n')
 			iniContents.append(f'MAX_FORWARD_VELOCITY = {parent.spindleMaxRpmFwd.value()}\n')
 			iniContents.append(f'MIN_REVERSE_VELOCITY = {parent.spindleMinRpmRev.value()}\n')
 			iniContents.append(f'MAX_REVERSE_VELOCITY = {parent.spindleMaxRpmRev.value()}\n')
+		'''
 
 		if parent.spindleFeedbackCB.currentData() == 'encoder':
 			iniContents.append(f'FEEDBACK = {parent.spindleFeedbackCB.currentData()}\n')
 			iniContents.append(f'SCALE = {parent.spindleEncoderScale.value():.1f}\n')
 
+		'''
 		if parent.spindleTypeCB.currentData()[:7] == 'stepgen':
 			iniContents.append(f'DRIVE = {parent.spindleDriveCB.currentText()}\n')
 			iniContents.append(f'SCALE = {parent.spindleStepScale.text()}\n')
@@ -301,6 +358,7 @@ def build(parent):
 			iniContents.append(f'MAX_RPS = {parent.spindleMaxRps.text()}\n')
 			iniContents.append(f'MAX_ACCEL_RPM = {parent.spindleMaxAccel.value()}\n')
 			iniContents.append(f'MAX_ACCEL_RPS = {parent.spindleMaxRpss.text()}\n')
+		'''
 
 	# 7i77 spindle c2_spindle_cb
 	for i in range(1,3):
