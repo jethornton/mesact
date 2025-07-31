@@ -531,7 +531,8 @@ class updateini:
 					self.update_key(f'SPINDLE_0', 'MAX_REVERSE_VELOCITY', parent.spindle_rev_max_rpm.value())
 
 		else: # delete the spindle section
-			self.delete_section('[SPINDLE_0]')
+			if '[SPINDLE_0]' in self.sections:
+				self.delete_section('[SPINDLE_0]')
 
 		'''
 			self.update_key(f'SPINDLE_0', 'PWM_TYPE', parent.spindleTypeCB.currentData())
@@ -616,7 +617,7 @@ class updateini:
 					self.delete_key('INPUTS', f'INPUT_SLOW_{i}_{j}')
 
 		# update the [OUTPUTS] section
-		if parent.board == '7i76EU':
+		if parent.board_name == '7i76EU':
 			sink = ''
 			source = ''
 			for i in range(16):
