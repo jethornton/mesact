@@ -33224,7 +33224,7 @@ Analog Scale Max is Maximun RPM</string>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="0">
+               <item row="1" column="0" alignment="Qt::AlignRight">
                 <widget class="QCheckBox" name="spindle_min_fwd_enable_cb">
                  <property name="text">
                   <string>&gt;</string>
@@ -33238,14 +33238,14 @@ Analog Scale Max is Maximun RPM</string>
                  </property>
                 </widget>
                </item>
-               <item row="5" column="0">
+               <item row="5" column="0" alignment="Qt::AlignRight">
                 <widget class="QCheckBox" name="spindle_min_rev_enable_cb">
                  <property name="text">
                   <string>&gt;</string>
                  </property>
                 </widget>
                </item>
-               <item row="3" column="0">
+               <item row="3" column="0" alignment="Qt::AlignRight">
                 <widget class="QCheckBox" name="spindle_max_fwd_enable_cb">
                  <property name="text">
                   <string>&gt;</string>
@@ -33266,7 +33266,7 @@ Analog Scale Max is Maximun RPM</string>
                  </property>
                 </widget>
                </item>
-               <item row="6" column="0">
+               <item row="6" column="0" alignment="Qt::AlignRight">
                 <widget class="QCheckBox" name="spindle_max_rev_enable_cb">
                  <property name="text">
                   <string>&gt;</string>
@@ -33308,6 +33308,9 @@ Analog Scale Max is Maximun RPM</string>
                 <widget class="QLabel" name="label_682">
                  <property name="text">
                   <string>Check the ones you want added to the INI file</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
                  </property>
                 </widget>
                </item>
@@ -33362,12 +33365,158 @@ Analog Scale Max is Maximun RPM</string>
             </item>
            </layout>
           </widget>
+          <widget class="QWidget" name="spindle_7i76">
+           <attribute name="title">
+            <string>7i76</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_335">
+            <item row="0" column="0">
+             <widget class="QLabel" name="label_776">
+              <property name="text">
+               <string>Minimum RPM</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QSpinBox" name="min_rpm_7i76_sb">
+              <property name="maximum">
+               <number>50000</number>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="label_775">
+              <property name="text">
+               <string>Maximum RPM</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QSpinBox" name="max_rpm_7i76_sb">
+              <property name="maximum">
+               <number>50000</number>
+              </property>
+              <property name="value">
+               <number>100</number>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="label_774">
+              <property name="text">
+               <string>Scale Maximum</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QSpinBox" name="max_scale_7i76_sb">
+              <property name="maximum">
+               <number>50000</number>
+              </property>
+              <property name="value">
+               <number>100</number>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="QCheckBox" name="spindle_dir_invert_7i76">
+              <property name="text">
+               <string>Invert Direction</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1">
+             <widget class="QCheckBox" name="spindle_ena_invert_7i76">
+              <property name="text">
+               <string>Invert Enable</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="0" colspan="2">
+             <widget class="QTabWidget" name="tabWidget_4">
+              <property name="currentIndex">
+               <number>0</number>
+              </property>
+              <widget class="QWidget" name="tab_195">
+               <attribute name="title">
+                <string>Info</string>
+               </attribute>
+               <layout class="QVBoxLayout" name="verticalLayout_58">
+                <item>
+                 <widget class="QPlainTextEdit" name="plainTextEdit_10">
+                  <property name="plainText">
+                   <string>The 7I76 provides one analog output for spindle control. The analog output is a isolated potentiometer replacement type device. This means the controlled device must supply the analog reference voltage (usually +10V). It functions like a potentiometer with SPINDLE+ being the top (maximum speed) end of the potentiometer, SPINDLEOUT being the wiper and SPINDLE- being the bottom (0 speed) end.</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="tab_196">
+               <attribute name="title">
+                <string>Settings</string>
+               </attribute>
+               <layout class="QVBoxLayout" name="verticalLayout_59">
+                <item>
+                 <widget class="QPlainTextEdit" name="plainTextEdit_11">
+                  <property name="plainText">
+                   <string>Minimum RPM is the slowest RPM the spindle can run.
+Maximum RPM is the fastest RPM the spindle can run.
+Scale Maximum is the maximum RPM.
+Maximum RPM and Scale Maximum are usually the same.
+</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="tab_197">
+               <attribute name="title">
+                <string>Pins</string>
+               </attribute>
+               <layout class="QVBoxLayout" name="verticalLayout_60">
+                <item>
+                 <widget class="QPlainTextEdit" name="plainTextEdit_12">
+                  <property name="plainText">
+                   <string>TB4
+PIN SIGNAL
+1 SPINDLE-
+2 SPINDLE OUT
+3 SPINDLE+
+4 NC
+5 SPINDLE ENA-
+6 SPINDLE ENA+
+7 SPINDLE DIR-
+8 SPINDLE DIR+
+</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </widget>
+            </item>
+           </layout>
+          </widget>
           <widget class="QWidget" name="spindle_7i76e">
            <attribute name="title">
             <string>7i76E</string>
            </attribute>
            <layout class="QGridLayout" name="gridLayout_348">
-            <item row="4" column="0" colspan="2">
+            <item row="0" column="0">
+             <widget class="QLabel" name="label_767">
+              <property name="text">
+               <string>Minimum RPM</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="label_766">
+              <property name="text">
+               <string>Maximum RPM</string>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="0" colspan="2">
              <widget class="QLabel" name="label_769">
               <property name="text">
                <string>Hardware RPM limits are enforced by the 7i76E</string>
@@ -33377,42 +33526,10 @@ Analog Scale Max is Maximun RPM</string>
               </property>
              </widget>
             </item>
-            <item row="3" column="0">
-             <widget class="QCheckBox" name="invert_dir_7i76e_cb">
+            <item row="2" column="0">
+             <widget class="QLabel" name="label_772">
               <property name="text">
-               <string>Invert Direction</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="1">
-             <widget class="QSpinBox" name="min_rpm_7i76e_sb">
-              <property name="maximum">
-               <number>50000</number>
-              </property>
-             </widget>
-            </item>
-            <item row="5" column="0" colspan="2">
-             <widget class="QPlainTextEdit" name="plainTextEdit_7">
-              <property name="plainText">
-               <string>TB4
-PIN SIGNAL
-1 SPINDLE-
-2 SPINDLE OUT
-3 SPINDLE+
-4 NC
-5 SPINDLE ENA- / FWD-
-6 SPINDLE ENA+ / FWD+
-7 SPINDLE DIR- / REV-
-8 SPINDLE DIR+ / REV+
-
-The 7I76E provides one analog output for spindle control. The analog output is a isolated potentiometer replacement type device. This means the controlled device must supply the analog reference voltage (usually +10V). It functions like a potentiometer with SPINDLE+ being the top (maximum speed) end of the potentiometer, SPINDLEOUT being the wiper and SPINDLE- being the bottom (0 speed) end.</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="0">
-             <widget class="QLabel" name="label_767">
-              <property name="text">
-               <string>Minimum RPM</string>
+               <string>Scale Maximum</string>
               </property>
              </widget>
             </item>
@@ -33420,6 +33537,13 @@ The 7I76E provides one analog output for spindle control. The analog output is a
              <widget class="QCheckBox" name="invert_ena_7i76e_cb">
               <property name="text">
                <string>Invert Enable</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QSpinBox" name="min_rpm_7i76e_sb">
+              <property name="maximum">
+               <number>50000</number>
               </property>
              </widget>
             </item>
@@ -33433,20 +33557,6 @@ The 7I76E provides one analog output for spindle control. The analog output is a
               </property>
              </widget>
             </item>
-            <item row="1" column="0">
-             <widget class="QLabel" name="label_766">
-              <property name="text">
-               <string>Maximum RPM</string>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="0">
-             <widget class="QLabel" name="label_772">
-              <property name="text">
-               <string>Scale Maximum</string>
-              </property>
-             </widget>
-            </item>
             <item row="2" column="1">
              <widget class="QSpinBox" name="max_scale_7i76e_sb">
               <property name="maximum">
@@ -33455,6 +33565,76 @@ The 7I76E provides one analog output for spindle control. The analog output is a
               <property name="value">
                <number>100</number>
               </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="QCheckBox" name="invert_dir_7i76e_cb">
+              <property name="text">
+               <string>Invert Direction</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="0" colspan="2">
+             <widget class="QTabWidget" name="tabWidget_5">
+              <property name="currentIndex">
+               <number>0</number>
+              </property>
+              <widget class="QWidget" name="tab_198">
+               <attribute name="title">
+                <string>Info</string>
+               </attribute>
+               <layout class="QVBoxLayout" name="verticalLayout_61">
+                <item>
+                 <widget class="QPlainTextEdit" name="plainTextEdit_7">
+                  <property name="plainText">
+                   <string>The 7I76E provides one analog output for spindle control. The analog output is a isolated potentiometer replacement type device. This means the controlled device must supply the analog reference voltage (usually +10V). It functions like a potentiometer with SPINDLE+ being the top (maximum speed) end of the potentiometer, SPINDLEOUT being the wiper and SPINDLE- being the bottom (0 speed) end.</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="tab_200">
+               <attribute name="title">
+                <string>Settings</string>
+               </attribute>
+               <layout class="QVBoxLayout" name="verticalLayout_63">
+                <item>
+                 <widget class="QPlainTextEdit" name="plainTextEdit_14">
+                  <property name="plainText">
+                   <string>Minimum RPM is the slowest RPM the spindle can run.
+Maximum RPM is the fastest RPM the spindle can run.
+Scale Maximum is the maximum RPM.
+Maximum RPM and Scale Maximum are usually the same.
+</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="tab_199">
+               <attribute name="title">
+                <string>Pins</string>
+               </attribute>
+               <layout class="QVBoxLayout" name="verticalLayout_62">
+                <item>
+                 <widget class="QPlainTextEdit" name="plainTextEdit_13">
+                  <property name="plainText">
+                   <string>TB4
+PIN SIGNAL
+1 SPINDLE-
+2 SPINDLE OUT
+3 SPINDLE+
+4 NC
+5 SPINDLE ENA-
+6 SPINDLE ENA+
+7 SPINDLE DIR-
+8 SPINDLE DIR+
+</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
              </widget>
             </item>
            </layout>
@@ -33556,7 +33736,7 @@ The 7I76E provides one analog output for spindle control. The analog output is a
             <item row="5" column="0" colspan="2">
              <widget class="QTabWidget" name="tabWidget">
               <property name="currentIndex">
-               <number>0</number>
+               <number>1</number>
               </property>
               <widget class="QWidget" name="tab_188">
                <attribute name="title">
@@ -43652,7 +43832,7 @@ to File Open in Axis</string>
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>36</width>
+                    <width>50</width>
                     <height>18</height>
                    </rect>
                   </property>
