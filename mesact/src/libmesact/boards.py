@@ -693,7 +693,7 @@ def boardChanged(parent):
 		parent.daughterCB_1.clear()
 
 		# Hide all Spindle Tabs
-		for i in range(6):
+		for i in range(parent.spindleTW.count()):
 			parent.spindleTW.setTabVisible(i, False)
 		parent.spindleGB.setEnabled(False)
 		parent.spindle_enable_cb.setEnabled(False)
