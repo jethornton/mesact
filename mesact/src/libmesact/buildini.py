@@ -294,7 +294,7 @@ def build(parent):
 	'''
 	if parent.spindle_enable_cb.isChecked():
 		iniContents.append('\n[SPINDLE_0]\n')
-		if parent.board == '7i96S':
+		if parent.board_name == '7i96S':
 			iniContents.append(f'PWM_TYPE = 1\n')
 			iniContents.append(f'PWM_FREQUENCY = 20000\n')
 
