@@ -206,7 +206,7 @@ def boardChanged(parent):
 			for item in db25:
 				parent.daughterCB_0.addItem(item[0], item[1])
 				parent.daughterCB_1.addItem(item[0], item[1])
-				parent.daughterCB_2.addItem(item[0], item[1])
+				#parent.daughterCB_2.addItem(item[0], item[1])
 
 			info = ('Connector 5v Power\n'
 			'W1 Up for P1\n'
