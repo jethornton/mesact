@@ -338,7 +338,7 @@ def build(parent):
 				halContents.append(f'setp hm2_5i25.0.7i76.0.0.spinout-minlim {parent.min_rpm_7i76_sb.value()}\n')
 			halContents.append(f'setp hm2_5i25.0.7i76.0.0.spinout-maxlim [SPINDLE_0](MAX_OUTPUT)\n')
 			halContents.append('setp hm2_5i25.0.7i76.0.0.spinout-scalemax [SPINDLE_0](SCALE_MAX)\n')
-			halContents.append('net spindle-reverse hm2_5i25.0.7i76.0.{port}.spindir <= spindle.0.reverse\n')
+			halContents.append(f'net spindle-reverse hm2_5i25.0.7i76.0.{port}.spindir <= spindle.0.reverse\n')
 
 		elif parent.hal_name == '7i92':
 			port = parent.connector_7i76_cb.currentData()
@@ -351,7 +351,7 @@ def build(parent):
 				halContents.append(f'setp hm2_7i92.0.7i76.0.0.spinout-minlim {parent.min_rpm_7i76_sb.value()}\n')
 			halContents.append(f'setp hm2_7i92.0.7i76.0.0.spinout-maxlim [SPINDLE_0](MAX_OUTPUT)\n')
 			halContents.append('setp hm2_7i92.0.7i76.0.0.spinout-scalemax [SPINDLE_0](SCALE_MAX)\n')
-			halContents.append('net spindle-reverse hm2_7i92.0.7i76.0.{port}.spindir <= spindle.0.reverse\n')
+			halContents.append(f'net spindle-reverse hm2_7i92.0.7i76.0.{port}.spindir <= spindle.0.reverse\n')
 
 		elif parent.board_name == '7i76E':
 			# Pins
