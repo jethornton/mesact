@@ -12,3 +12,39 @@
 <Tom_rpi5> same section
 <Tom_L> mesaflash would use the SPI_ADDR
 <Tom_L> rather /dev/spidev0.0
+
+
+07:34 AM Tom_rpi5: [HOSTMOT2]
+07:34 AM Tom_rpi5: ## for spi on rpi5:
+07:34 AM Tom_rpi5: DRIVER=hm2_spix
+07:34 AM Tom_rpi5: BOARD=7i90
+07:34 AM Tom_rpi5: SPICLK_RATE=25000
+07:34 AM Tom_rpi5: SPICLK_RATE_RD=25000
+07:35 AM Tom_rpi5: loadrt [HOSTMOT2](DRIVER) config=[HOSTMOT2](CONFIG) spiclk_rate=[HOSTMOT2](SPICLK_RATE) spiclk_rate_rd=[HOSTMOT2](SPICLK_RATE_RD)
+07:35 AM Tom_L: first is ini, last line is hal
+07:37 AM Tom_rpi5: missed one in the ini:
+07:37 AM Tom_rpi5: SPI_ADDR = /dev/spidev0.0
+07:37 AM Tom_rpi5: same section
+07:38 AM Tom_L: mesaflash would use the SPI_ADDR
+07:39 AM Tom_L: rather /dev/spidev0.0
+07:41 AM JT-Cave: ok and I'm done with mesact for the day
+07:42 AM Tom_rpi5: sudo mesaflash --device 7i90HD --spi --addr /dev/spidev0.0 --readhmid
+07:43 AM JT-Cave: would the 7c80 and 7c81 be the same as the 7i90HD?
+07:43 AM Tom_L: you want a build for it?
+07:43 AM Tom_L: yessir
+07:43 AM JT-Cave: yup, I fixed a few things for the 7i76 spindle
+07:43 AM Tom_L: the address comes from the rpi
+07:44 AM JT-Cave: is there a way to get the address with a terminal command?
+07:44 AM Tom_L: stole the kbd from the dev machine...
+07:44 AM JT-Cave: shower time
+07:44 AM Tom_L: rdtsc may have showed that in the logs here yesterday
+07:45 AM Tom_L: i'll see if i can find out later on
+07:47 AM Tom_L: PR #155 mesact debs
+07:52 AM Tom_rpi5: ls -l /dev/spi*
+07:52 AM Tom_rpi5: crw-rw---- 1 root spi 153, 0 Aug 1 07:32 /dev/spidev0.0
+07:52 AM Tom_rpi5: crw-rw---- 1 root spi 153, 1 Aug 1 07:32 /dev/spidev10.0
+07:53 AM Tom_rpi5: or the short version:
+07:53 AM Tom_rpi5: ls /dev/spi*
+07:54 AM Tom_rpi5: /dev/spidev0.0 /dev/spidev10.0
+07:56 AM Tom_L: on rpi5 you will always want the 0.0 one
+07:57 AM Tom_L: they would have to jumper the cs pin otherwise 
