@@ -1,0 +1,14 @@
+
+<Tom_rpi5> [HOSTMOT2]
+<Tom_rpi5> ## for spi on rpi5:
+<Tom_rpi5> DRIVER=hm2_spix
+<Tom_rpi5> BOARD=7i90
+<Tom_rpi5> SPICLK_RATE=25000
+<Tom_rpi5> SPICLK_RATE_RD=25000
+<Tom_rpi5> loadrt [HOSTMOT2](DRIVER) config=[HOSTMOT2](CONFIG) spiclk_rate=[HOSTMOT2](SPICLK_RATE) spiclk_rate_rd=[HOSTMOT2](SPICLK_RATE_RD)
+<Tom_L> first is ini, last line is hal
+<Tom_rpi5> missed one in the ini: 
+<Tom_rpi5> SPI_ADDR = /dev/spidev0.0
+<Tom_rpi5> same section
+<Tom_L> mesaflash would use the SPI_ADDR
+<Tom_L> rather /dev/spidev0.0
