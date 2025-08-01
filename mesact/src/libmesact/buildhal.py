@@ -424,6 +424,12 @@ def build(parent):
 		halContents.append('\n# Spindle Enable\n')
 		halContents.append('net spindle-enable <= spindle.0.on\n')
 		halContents.append('net spindle-enable => pid.s.enable\n')
+		if parent.hal_name == '5i25':
+			if parent.connector_7i76_cb.currentData():
+				halContents.append(f'net spindle-enable hm2_[MESA](BOARD).0.7i76.0.0.spinena\n')
+		elif parent.hal_name == '7i92':
+			if parent.connector_7i76_cb.currentData():
+				halContents.append(f'net spindle-enable hm2_[MESA](BOARD).0.7i76.0.0.spinena\n')
 		if parent.board_name == '7i76E':
 			halContents.append(f'net spindle-enable hm2_7i76e.0.7i76.0.0.spinena\n')
 		elif parent.board_name == '7i76EU':
