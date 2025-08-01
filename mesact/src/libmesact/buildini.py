@@ -311,11 +311,13 @@ def build(parent):
 			if parent.connector_7i76_cb.currentData():
 				iniContents.append(f'MAX_OUTPUT = {parent.max_rpm_7i76_sb.value()}\n')
 				iniContents.append(f'SCALE_MAX = {parent.max_scale_7i76_sb.value()}\n')
+				iniContents.append(f'CONNECTOR = {parent.connector_7i76_cb.currentText()}\n')
 
 		elif parent.hal_name == '7i92':
 			if parent.connector_7i76_cb.currentData():
 				iniContents.append(f'MAX_OUTPUT = {parent.max_rpm_7i76_sb.value()}\n')
 				iniContents.append(f'SCALE_MAX = {parent.max_scale_7i76_sb.value()}\n')
+				iniContents.append(f'CONNECTOR = {parent.connector_7i76_cb.currentText()}\n')
 
 		elif parent.board_name == '7i76E':
 			iniContents.append(f'MAX_OUTPUT = {parent.max_rpm_7i76e_sb.value()}\n')

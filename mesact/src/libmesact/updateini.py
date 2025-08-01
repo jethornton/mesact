@@ -515,11 +515,13 @@ class updateini:
 				if parent.connector_7i76_cb.currentData():
 					self.update_key(f'SPINDLE_0', 'MAX_OUTPUT', parent.max_rpm_7i76_sb.value())
 					self.update_key(f'SPINDLE_0', 'SCALE_MAX', parent.max_scale_7i76_sb.value())
+					self.update_key(f'SPINDLE_0', 'CONNECTOR', parent.connector_7i76_cb.currentText())
 
 			elif parent.hal_name == '7i92':
 				if parent.connector_7i76_cb.currentData():
 					self.update_key(f'SPINDLE_0', 'MAX_OUTPUT', parent.max_rpm_7i76_sb.value())
 					self.update_key(f'SPINDLE_0', 'SCALE_MAX', parent.max_scale_7i76_sb.value())
+					self.update_key(f'SPINDLE_0', 'CONNECTOR', parent.connector_7i76_cb.currentText())
 
 			elif parent.board_name == '7i76E':
 				self.update_key(f'SPINDLE_0', 'MAX_OUTPUT', parent.max_rpm_7i76e_sb.value())

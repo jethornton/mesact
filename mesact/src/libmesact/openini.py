@@ -311,9 +311,11 @@ class loadini:
 			['[SPINDLE_0]', 'STEP_INVERT', 'spindleStepInvert'],
 			['[SPINDLE_0]', 'DIR_INVERT', 'spindleDirInvert'],
 			['[SPINDLE_0]', 'MAX_ACCEL_RPM', 'spindleMaxAccel'],
+			['[SPINDLE_0]', 'CONNECTOR', 'connector_7i76_cb'],
 			]
 
 			board_name = parent.boardCB.currentText()
+			# self.update_key(f'SPINDLE_0', 'CONNECTOR', parent.connector_7i76_cb.currentText())
 
 			if board_name == '7i76E':
 				spindle.append(['[SPINDLE_0]', 'MAX_OUTPUT', 'max_rpm_7i76e_sb'])
