@@ -1,9 +1,13 @@
 
-def changed(parent):
-	port = int(parent.sender().objectName()[-1])
-	daughter_tab = port + 1
-	board = parent.sender().currentData()
+from PyQt5.Qt import QWidget
+
+def changed(parent): # this can only change after selecting a main board
 	if parent.sender().currentData(): # daughter card selected
+		port = int(parent.sender().objectName()[-1])
+		daughter_tab = port + 1
+		board = parent.sender().currentData()
+		#print(f'port {port} board {board} daughter_tab {daughter_tab}')
+
 		setattr(parent, f'board_{daughter_tab}', board)
 		main_tw_tab = int(parent.sender().objectName()[-1]) + 4
 		card = parent.sender().objectName()[-1]
@@ -26,6 +30,21 @@ def changed(parent):
 		spinana = cards[board]['spinana']
 		inputs = cards[board]['inputs']
 		outputs = cards[board]['outputs']
+
+		if board == '7i76': # show spindle tab
+			# set spindle enable cb enabled
+			parent.spindle_enable_cb.setEnabled(True)
+			# set the spindle settings tab visible
+			parent.spindleTW.setTabVisible(0, True)
+			parent.spindle_feedback_gb.setVisible(True)
+			parent.spindle_pid_gb.setVisible(True)
+			# set spindle tab visible
+			page = parent.spindleTW.findChild(QWidget, 'spindle_7i76')
+			index = parent.spindleTW.indexOf(page)
+			parent.spindleTW.setTabVisible(index, True)
+
+		else:
+			pass
 
 		if board == '7i77': # show/hide spindle checkbox on drive 5
 			getattr(parent, f'c{daughter_tab}_spindle_cb').setVisible(True)
@@ -80,8 +99,4 @@ def changed(parent):
 			else:
 				getattr(parent, f'c{daughter_tab}_output_{i}').setEnabled(False)
 				getattr(parent, f'c{daughter_tab}_output_invert_{i}').setEnabled(False)
-
-	else:
-		parent.mainTW.setTabVisible(4 + int(parent.sender().objectName()[-1]), False)
-		setattr(parent, f'board_{daughter_tab}', False)
 

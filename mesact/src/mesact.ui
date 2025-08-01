@@ -1700,7 +1700,7 @@ to the clipboard</string>
         <item>
          <widget class="QTabWidget" name="c0_JointTW">
           <property name="currentIndex">
-           <number>1</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="tab_27">
            <attribute name="title">
@@ -33370,28 +33370,35 @@ Analog Scale Max is Maximun RPM</string>
             <string>7i76</string>
            </attribute>
            <layout class="QGridLayout" name="gridLayout_335">
-            <item row="0" column="0">
+            <item row="3" column="0">
+             <widget class="QLabel" name="label_774">
+              <property name="text">
+               <string>Scale Maximum</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
              <widget class="QLabel" name="label_776">
               <property name="text">
                <string>Minimum RPM</string>
               </property>
              </widget>
             </item>
-            <item row="0" column="1">
-             <widget class="QSpinBox" name="min_rpm_7i76_sb">
-              <property name="maximum">
-               <number>50000</number>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="0">
+            <item row="2" column="0">
              <widget class="QLabel" name="label_775">
               <property name="text">
                <string>Maximum RPM</string>
               </property>
              </widget>
             </item>
-            <item row="1" column="1">
+            <item row="4" column="1">
+             <widget class="QCheckBox" name="spindle_ena_invert_7i76_cb">
+              <property name="text">
+               <string>Invert Enable</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
              <widget class="QSpinBox" name="max_rpm_7i76_sb">
               <property name="maximum">
                <number>50000</number>
@@ -33401,14 +33408,7 @@ Analog Scale Max is Maximun RPM</string>
               </property>
              </widget>
             </item>
-            <item row="2" column="0">
-             <widget class="QLabel" name="label_774">
-              <property name="text">
-               <string>Scale Maximum</string>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="1">
+            <item row="3" column="1">
              <widget class="QSpinBox" name="max_scale_7i76_sb">
               <property name="maximum">
                <number>50000</number>
@@ -33418,21 +33418,14 @@ Analog Scale Max is Maximun RPM</string>
               </property>
              </widget>
             </item>
-            <item row="3" column="0">
-             <widget class="QCheckBox" name="spindle_dir_invert_7i76">
+            <item row="4" column="0">
+             <widget class="QCheckBox" name="spindle_dir_invert_7i76_cb">
               <property name="text">
                <string>Invert Direction</string>
               </property>
              </widget>
             </item>
-            <item row="3" column="1">
-             <widget class="QCheckBox" name="spindle_ena_invert_7i76">
-              <property name="text">
-               <string>Invert Enable</string>
-              </property>
-             </widget>
-            </item>
-            <item row="4" column="0" colspan="2">
+            <item row="5" column="0" colspan="2">
              <widget class="QTabWidget" name="tabWidget_4">
               <property name="currentIndex">
                <number>0</number>
@@ -33495,6 +33488,23 @@ PIN SIGNAL
               </widget>
              </widget>
             </item>
+            <item row="1" column="1">
+             <widget class="QSpinBox" name="min_rpm_7i76_sb">
+              <property name="maximum">
+               <number>50000</number>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QComboBox" name="connector_7i76_cb"/>
+            </item>
+            <item row="0" column="0">
+             <widget class="QLabel" name="label_777">
+              <property name="text">
+               <string>Connector</string>
+              </property>
+             </widget>
+            </item>
            </layout>
           </widget>
           <widget class="QWidget" name="spindle_7i76e">
@@ -33534,7 +33544,7 @@ PIN SIGNAL
              </widget>
             </item>
             <item row="3" column="1">
-             <widget class="QCheckBox" name="invert_ena_7i76e_cb">
+             <widget class="QCheckBox" name="spindle_ena_invert_7i76e_cb">
               <property name="text">
                <string>Invert Enable</string>
               </property>
@@ -33568,7 +33578,7 @@ PIN SIGNAL
              </widget>
             </item>
             <item row="3" column="0">
-             <widget class="QCheckBox" name="invert_dir_7i76e_cb">
+             <widget class="QCheckBox" name="spindle_dir_invert_7i76e_cb">
               <property name="text">
                <string>Invert Direction</string>
               </property>
@@ -33720,14 +33730,14 @@ PIN SIGNAL
              </widget>
             </item>
             <item row="4" column="0">
-             <widget class="QCheckBox" name="spindle_dir_invert_7i76eu">
+             <widget class="QCheckBox" name="spindle_dir_invert_7i76eu_cb">
               <property name="text">
                <string>Invert Direction</string>
               </property>
              </widget>
             </item>
             <item row="4" column="1">
-             <widget class="QCheckBox" name="spindle_ena_invert_7i76eu">
+             <widget class="QCheckBox" name="spindle_ena_invert_7i76eu_cb">
               <property name="text">
                <string>Invert Enable</string>
               </property>

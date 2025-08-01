@@ -362,6 +362,11 @@ def checkit(parent):
 			tabError = True
 			configErrors.append('PID FF0 should be set at 1.0, FF0 set at 0 will not turn on the spindle')
 
+		if parent.hal_name == '5i25' or parent.hal_name == '7i92': # check for port selected
+			if not parent.connector_7i76_cb.currentData():
+				tabError = True
+				configErrors.append('The Connector must be selected on the 7i76 tab.')
+
 		'''
 		if parent.emc_version >= (2, 9, 1):
 			min_fwd = parent.spindle_fwd_min_rpm.value()

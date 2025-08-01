@@ -307,7 +307,17 @@ def build(parent):
 		iniContents.append(f'BIAS = {parent.bias_s.value():.1f}\n')
 		iniContents.append(f'DEADBAND = {parent.deadband_s.value():.1f}\n')
 
-		if parent.board_name == '7i76E':
+		if parent.hal_name == '5i25': 
+			if parent.connector_7i76_cb.currentData():
+				iniContents.append(f'MAX_OUTPUT = {parent.max_rpm_7i76_sb.value()}\n')
+				iniContents.append(f'SCALE_MAX = {parent.max_scale_7i76_sb.value()}\n')
+
+		elif parent.hal_name == '7i92':
+			if parent.connector_7i76_cb.currentData():
+				iniContents.append(f'MAX_OUTPUT = {parent.max_rpm_7i76_sb.value()}\n')
+				iniContents.append(f'SCALE_MAX = {parent.max_scale_7i76_sb.value()}\n')
+
+		elif parent.board_name == '7i76E':
 			iniContents.append(f'MAX_OUTPUT = {parent.max_rpm_7i76e_sb.value()}\n')
 			iniContents.append(f'SCALE_MAX = {parent.max_scale_7i76e_sb.value()}\n')
 		elif parent.board_name == '7i76EU':

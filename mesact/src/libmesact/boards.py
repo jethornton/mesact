@@ -12,6 +12,7 @@ def boardChanged(parent):
 	['7i85', '7i85'],
 	['7i85S', '7i85s']
 	]
+
 	idc50 = [
 	['Select', None],
 	['7i33TA', '7i33ta'],
@@ -19,6 +20,19 @@ def boardChanged(parent):
 	['7i47', '7i47'],
 	['7i47S', '7i47s']
 	]
+
+	ports_5i25_7i76 = [
+	['Select', None],
+	['P2', '2'],
+	['P3', '0'],
+	]
+
+	ports_7i92_7i76 = [
+	['Select', None],
+	['P1', '2'],
+	['P2', '0'],
+	]
+
 
 	if parent.boardCB.currentData():
 		board = parent.boardCB.currentData() # selected board
@@ -119,6 +133,8 @@ def boardChanged(parent):
 			parent.ss_port_1_lb.setText('P3')
 			#parent.mainTW.setTabText(4, 'P2')
 			#parent.mainTW.setTabText(5, 'P3')
+			for item in ports_5i25_7i76:
+				parent.connector_7i76_cb.addItem(item[0], item[1])
 			for item in db25:
 				parent.daughterCB_0.addItem(item[0], item[1])
 				parent.daughterCB_1.addItem(item[0], item[1])
@@ -143,6 +159,8 @@ def boardChanged(parent):
 			parent.ss_port_1_lb.setText('P3')
 			#parent.mainTW.setTabText(4, 'P2')
 			#parent.mainTW.setTabText(5, 'P3')
+			for item in ports_5i25_7i76:
+				parent.connector_7i76_cb.addItem(item[0], item[1])
 			for item in db25:
 				parent.daughterCB_0.addItem(item[0], item[1])
 				parent.daughterCB_1.addItem(item[0], item[1])
@@ -438,6 +456,8 @@ def boardChanged(parent):
 			parent.daughterLB_1.setText('P2')
 			parent.mainTW.setTabText(4, 'P1')
 			parent.mainTW.setTabText(5, 'P2')
+			for item in ports_7i92_7i76:
+				parent.connector_7i76_cb.addItem(item[0], item[1])
 			for item in db25:
 				parent.daughterCB_0.addItem(item[0], item[1])
 				parent.daughterCB_1.addItem(item[0], item[1])
@@ -461,6 +481,8 @@ def boardChanged(parent):
 			parent.ipAddressCB.setEnabled(True)
 			parent.daughterLB_0.setText('P1')
 			parent.daughterLB_1.setText('P2')
+			for item in ports_7i92_7i76:
+				parent.connector_7i76_cb.addItem(item[0], item[1])
 			for item in db25:
 				parent.daughterCB_0.addItem(item[0], item[1])
 				parent.daughterCB_1.addItem(item[0], item[1])

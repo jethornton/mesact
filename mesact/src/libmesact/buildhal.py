@@ -287,7 +287,73 @@ def build(parent):
 		halContents.append(f'setp pid.s.maxoutput [SPINDLE_0](MAX_OUTPUT)\n')
 		halContents.append(f'setp pid.s.error-previous-target true\n')
 
-		if parent.board_name == '7i76E':
+		'''
+		7  bit   IN          FALSE  hm2_5i25.0.7i76.0.0.spindir
+		7  bit   IN          FALSE  hm2_5i25.0.7i76.0.0.spinena
+		7  float IN              0  hm2_5i25.0.7i76.0.0.spinout
+
+		7  bit   RW          FALSE  hm2_5i25.0.7i76.0.0.spindir-invert
+		7  bit   RW          FALSE  hm2_5i25.0.7i76.0.0.spinena-invert
+		7  float RW            100  hm2_5i25.0.7i76.0.0.spinout-maxlim
+		7  float RW              0  hm2_5i25.0.7i76.0.0.spinout-minlim
+		7  float RW            100  hm2_5i25.0.7i76.0.0.spinout-scalemax
+
+		7  bit   IN          FALSE  hm2_7i92.0.7i76.0.0.spindir
+		7  bit   IN          FALSE  hm2_7i92.0.7i76.0.0.spinena
+		7  float IN              0  hm2_7i92.0.7i76.0.0.spinout
+
+		7  bit   RW          FALSE  hm2_7i92.0.7i76.0.0.spindir-invert
+		7  bit   RW          FALSE  hm2_7i92.0.7i76.0.0.spinena-invert
+		7  float RW            100  hm2_7i92.0.7i76.0.0.spinout-maxlim
+		7  float RW              0  hm2_7i92.0.7i76.0.0.spinout-minlim
+		7  float RW            100  hm2_7i92.0.7i76.0.0.spinout-scalemax
+
+     7  bit   IN          FALSE  hm2_7i92.0.7i76.0.2.spindir
+     7  bit   IN          FALSE  hm2_7i92.0.7i76.0.2.spinena
+     7  float IN              0  hm2_7i92.0.7i76.0.2.spinout
+
+     7  bit   RW          FALSE  hm2_7i92.0.7i76.0.2.spindir-invert
+     7  bit   RW          FALSE  hm2_7i92.0.7i76.0.2.spinena-invert
+     7  float RW            100  hm2_7i92.0.7i76.0.2.spinout-maxlim
+     7  float RW              0  hm2_7i92.0.7i76.0.2.spinout-minlim
+     7  float RW            100  hm2_7i92.0.7i76.0.2.spinout-scalemax
+
+		7i76
+		min_rpm_7i76_sb
+		max_rpm_7i76_sb
+		max_scale_7i76_sb
+		spindle_dir_invert_7i76_cb
+		spindle_ena_invert_7i76_cb
+
+		'''
+
+		if parent.hal_name == '5i25':
+			port = parent.connector_7i76_cb.currentData()
+			halContents.append('\n# Spindle 7i76 Setup\n')
+			if parent.spindle_dir_invert_7i76_cb.isChecked():
+				halContents.append(f'setp hm2_5i25.0.7i76.0.{port}.spindir-invert true\n')
+			if parent.spindle_ena_invert_7i76_cb.isChecked():
+				halContents.append(f'setp hm2_5i25.0.7i76.0.{port}.spinena-invert true\n')
+			if parent.min_rpm_7i76_sb.value() > 0:
+				halContents.append(f'setp hm2_5i25.0.7i76.0.0.spinout-minlim {parent.min_rpm_7i76_sb.value()}\n')
+			halContents.append(f'setp hm2_5i25.0.7i76.0.0.spinout-maxlim [SPINDLE_0](MAX_OUTPUT)\n')
+			halContents.append('setp hm2_5i25.0.7i76.0.0.spinout-scalemax [SPINDLE_0](SCALE_MAX)\n')
+			halContents.append('net spindle-reverse hm2_5i25.0.7i76.0.{port}.spindir <= spindle.0.reverse\n')
+
+		elif parent.hal_name == '7i92':
+			port = parent.connector_7i76_cb.currentData()
+			halContents.append('\n# Spindle 7i76 Setup\n')
+			if parent.spindle_dir_invert_7i76_cb.isChecked():
+				halContents.append(f'setp hm2_7i92.0.7i76.0.{port}.spindir-invert true\n')
+			if parent.spindle_ena_invert_7i76_cb.isChecked():
+				halContents.append(f'setp hm2_7i92.0.7i76.0.{port}.spinena-invert true\n')
+			if parent.min_rpm_7i76_sb.value() > 0:
+				halContents.append(f'setp hm2_7i92.0.7i76.0.0.spinout-minlim {parent.min_rpm_7i76_sb.value()}\n')
+			halContents.append(f'setp hm2_7i92.0.7i76.0.0.spinout-maxlim [SPINDLE_0](MAX_OUTPUT)\n')
+			halContents.append('setp hm2_7i92.0.7i76.0.0.spinout-scalemax [SPINDLE_0](SCALE_MAX)\n')
+			halContents.append('net spindle-reverse hm2_7i92.0.7i76.0.{port}.spindir <= spindle.0.reverse\n')
+
+		elif parent.board_name == '7i76E':
 			# Pins
 			# float RW            100  hm2_7i76e.0.7i76.0.0.spinout-maxlim
 			# float RW              0  hm2_7i76e.0.7i76.0.0.spinout-minlim
@@ -301,9 +367,9 @@ def build(parent):
 			# float RW            100  hm2_7i76e.0.7i76.0.0.spinout-scalemax
 
 			halContents.append('\n# Spindle 7i76E Setup\n')
-			if parent.invert_dir_7i76e_cb.isChecked():
+			if parent.spindle_dir_invert_7i76e_cb.isChecked():
 				halContents.append(f'setp hm2_7i76e.0.7i76.0.0.spindir-invert true\n')
-			if parent.invert_ena_7i76e_cb.isChecked():
+			if parent.spindle_ena_invert_7i76e_cb.isChecked():
 				halContents.append(f'setp hm2_7i76e.0.7i76.0.0.spinena-invert true\n')
 			if parent.min_rpm_7i76e_sb.value() > 0:
 				halContents.append(f'setp hm2_7i76e.0.7i76.0.0.spinout-minlim {parent.min_rpm_7i76e_sb.value()}\n')
@@ -313,10 +379,10 @@ def build(parent):
 
 		elif parent.board_name == '7i76EU':
 			halContents.append('\n# 7i76EU Spindle Setup\n')
-			if parent.spindle_dir_invert_7i76eu.isChecked():
-				halContents.append(f'setp hm2_7i76e.0.7i76.0.0.spindir-invert {parent.spindle_dir_invert_7i76eu.isChecked()}\n')
-			if parent.spindle_ena_invert_7i76eu.isChecked():
-				halContents.append(f'setp hm2_7i76e.0.7i76.0.0.spinena-invert {parent.spindle_ena_invert_7i76eu.isChecked()}\n')
+			if parent.spindle_dir_invert_7i76eu_cb.isChecked():
+				halContents.append(f'setp hm2_7i76e.0.7i76.0.0.spindir-invert true\n')
+			if parent.spindle_ena_invert_7i76eu_cb.isChecked():
+				halContents.append(f'setp hm2_7i76e.0.7i76.0.0.spinena-invert true\n')
 			halContents.append(f'setp hm2_7i76e.0.7i76.0.0.spinmode {parent.spindle_mode_7i76eu.currentData()}\n')
 			if parent.min_rpm_7i76eu_sb.value() > 0:
 				halContents.append(f'setp hm2_7i76e.0.7i76.0.0.spinout-minlim {parent.min_rpm_7i76eu_sb.value()}\n')
@@ -330,7 +396,7 @@ def build(parent):
 			# spindle_mode_7i76eu
 			# min_rpm_7i76eu_sb
 			# max_rpm_7i76eu_sb
-			# spindle_dir_invert_7i76eu
+			# spindle_dir_invert_7i76eu_cb
 			# spindle_ena_invert_7i76eu
 
 			# Pins

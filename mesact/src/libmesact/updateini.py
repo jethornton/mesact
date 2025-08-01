@@ -511,12 +511,24 @@ class updateini:
 			self.update_key(f'SPINDLE_0', 'BIAS', parent.bias_s.value())
 			self.update_key(f'SPINDLE_0', 'DEADBAND', parent.bias_s.value())
 
-			if parent.board_name == '7i76E':
+			if parent.hal_name == '5i25': 
+				if parent.connector_7i76_cb.currentData():
+					self.update_key(f'SPINDLE_0', 'MAX_OUTPUT', parent.max_rpm_7i76_sb.value())
+					self.update_key(f'SPINDLE_0', 'SCALE_MAX', parent.max_scale_7i76_sb.value())
+
+			elif parent.hal_name == '7i92':
+				if parent.connector_7i76_cb.currentData():
+					self.update_key(f'SPINDLE_0', 'MAX_OUTPUT', parent.max_rpm_7i76_sb.value())
+					self.update_key(f'SPINDLE_0', 'SCALE_MAX', parent.max_scale_7i76_sb.value())
+
+			elif parent.board_name == '7i76E':
 				self.update_key(f'SPINDLE_0', 'MAX_OUTPUT', parent.max_rpm_7i76e_sb.value())
 				self.update_key(f'SPINDLE_0', 'SCALE_MAX', parent.max_scale_7i76e_sb.value())
+
 			elif parent.board_name == '7i76EU':
 				self.update_key(f'SPINDLE_0', 'MAX_OUTPUT', parent.max_rpm_7i76eu_sb.value())
 				self.update_key(f'SPINDLE_0', 'SCALE_MAX', parent.max_scale_7i76eu_sb.value())
+
 			elif parent.board_name == '7i96S':
 				self.update_key(f'SPINDLE_0', 'MAX_OUTPUT', parent.max_rpm_7i96s_sb.value())
 
