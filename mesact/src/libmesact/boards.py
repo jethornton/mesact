@@ -226,13 +226,6 @@ def boardChanged(parent):
 				parent.daughterCB_1.addItem(item[0], item[1])
 				#parent.daughterCB_2.addItem(item[0], item[1])
 
-			info = ('Connector 5v Power\n'
-			'W1 Up for P1\n'
-			'W2 Up for P3\n'
-			'\nIf the PC will not boot up with the 5i25T installed\n'
-			'disable PCI #SERR generation in the BIOS setup')
-			parent.board_info_pte.setPlainText(info)
-
 		elif board == '7i76e': # ETH 5 Axis Step/Direction
 			# 5 step/dir 32 inputs 16 outputs 1 potentiometer spindle 1 encoder
 			parent.board_0 = '7i76e'
