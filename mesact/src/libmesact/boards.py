@@ -182,11 +182,10 @@ def boardChanged(parent):
 			parent.ipAddressCB.setEnabled(False)
 			parent.daughterLB_0.setText('P1')
 			parent.mainTW.setTabText(4, 'P1')
-			info = ('7c81 uses SPI for communications.\n'
+			info = ('7c80 uses SPI for communications.\n'
 				'The Rpi 5 requires hm2_spix which is available\nin LinuxCNC version 2.9.4 or newer\n'
-				'The Rpi 4 will work with hm2_spi which is in\nolder versions of LinuxCNC\n'
-				'\nDefault Firmware 7c80d.bit\n'
-			)
+				'The Rpi 4 will work with hm2_spix or hm2_spi\nwhich is in older versions of LinuxCNC\n'
+				'\nDefault Firmware 7c80d.bit\n')
 			parent.board_info_pte.setPlainText(info)
 
 			for item in db25:
@@ -219,7 +218,7 @@ def boardChanged(parent):
 			parent.mainTW.setTabText(4, 'P7')
 			info = ('7c81 uses SPI for communications.\n'
 				'The Rpi 5 requires hm2_spix which is available in\nLinuxCNC version 2.9.4 or newer\n'
-				'The Rpi 4 will work with hm2_spi which is in\nolder versions of LinuxCNC')
+				'The Rpi 4 will work with hm2_spix or hm2_spi\nwhich is in older versions of LinuxCNC')
 			parent.board_info_pte.setPlainText(info)
 
 			for item in db25:
