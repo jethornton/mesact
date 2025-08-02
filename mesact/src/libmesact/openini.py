@@ -75,7 +75,7 @@ class loadini:
 			parent.info_pte.appendPlainText('Open File Cancled')
 			iniFile = ''
 
-	def load_ini(self, parent, iniFile):
+	def load_ini(self, parent, iniFile, sender=None):
 		utilities.new_config(parent)
 		parent.loading = True
 		iniDict = {}
@@ -92,17 +92,32 @@ class loadini:
 						ini_version = tuple(map(int,value.strip().split('.')))
 						tool_version = tuple(map(int, parent.version.split('.')))
 						if ini_version < tool_version:
-							msg = (f'The ini file version is {value.strip()}\n'
-								f'The Configuration Tool version is {parent.version}\n'
-								'The ini file will be saved to a zip file then deleted\n'
-								'Save a Backup and try and open the ini?')
-							if dialogs.errorMsgCancelOk(msg, 'Version Difference'):
-								path, filename = os.path.split(iniFile)
-								utilities.backupFiles(parent, path)
-								#utilities.cleanDir(parent, path)
-								utilities.file_delete(parent, iniFile)
+							if sender == 'auto_load':
+								msg = (f'The Auto Load ini file version is {value.strip()}\n'
+									f'The Configuration Tool version is {parent.version}\n'
+									'Open, save the ini file to a zip file and try and open the ini\n'
+									'Abort, delete the auto load entry from the configuration.\n'
+									'Cancel, do not try and load the ini file')
+								result = dialogs.msg_open_abort_cancel(msg, 'Auto Load Version Difference')
+								if result == 'Open':
+									path, filename = os.path.split(iniFile)
+									utilities.backupFiles(parent, path)
+								elif result == 'Abort':
+									parent.settings.remove('STARTUP/config')
+									return
+								else:
+									return
 							else:
-								return
+								msg = (f'The ini file version is {value.strip()}\n'
+									f'The Configuration Tool version is {parent.version}\n'
+									'Open, save the ini file to a zip file and try and open the ini\n'
+									'Cancel, do not try and load the ini file')
+								result =  dialogs.msg_open_cancel(msg, 'Version Difference')
+								if result == 'Open':
+									path, filename = os.path.split(iniFile)
+									utilities.backupFiles(parent, path)
+								else:
+									return
 
 		# pncconf try and figure out what card and address
 		if '[HMOT]' in self.sections:
