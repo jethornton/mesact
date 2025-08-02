@@ -38,9 +38,9 @@ class dialog(QDialog):
 
 	def docs(self):
 		docs = [
-			{'Main Boards':['5i24', '5i25', '5i25T', '6i24', '6i25', '7i80DB',
+			{'Main Boards':['5i24', '5i25', '5i25T', '6i24', '6i25', '7c81', '7i80DB',
 				'7i80HD', '7i90HD', '7i92', '7i92T', '7i93', '7i98']},
-			{'Combo Boards':['7c80', '7c81', '7i76E', '7i76EU', '7i95', '7i95T',
+			{'Combo Boards':['7c80', '7i76E', '7i76EU', '7i95', '7i95T',
 			'7i96', '7i96S', '7i97', '7i97T',]},
 			{'Daughter Boards':['7i33', '7i37', '7i44', '7i47', '7i48', '7i76',
 				'7i77', '7i78', '7i85', '7i85S', '7i88', '7i89', ]},
