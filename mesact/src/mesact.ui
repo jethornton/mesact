@@ -398,61 +398,6 @@
            <string>Mesa Setup</string>
           </property>
           <layout class="QGridLayout" name="gridLayout">
-           <item row="2" column="1">
-            <widget class="QLabel" name="label_27">
-             <property name="text">
-              <string>IP Address</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="2">
-            <widget class="QComboBox" name="ipAddressCB">
-             <property name="enabled">
-              <bool>false</bool>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="2">
-            <widget class="QPushButton" name="verify_board_pb">
-             <property name="enabled">
-              <bool>true</bool>
-             </property>
-             <property name="toolTip">
-              <string>Check if selected board is found</string>
-             </property>
-             <property name="text">
-              <string>Verify Board</string>
-             </property>
-            </widget>
-           </item>
-           <item row="5" column="1" colspan="2">
-            <widget class="QPlainTextEdit" name="verifyPTE">
-             <property name="font">
-              <font>
-               <family>BPG Courier S GPL&amp;GNU</family>
-               <pointsize>10</pointsize>
-               <weight>75</weight>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="tabChangesFocus">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QLabel" name="label_815">
-             <property name="text">
-              <string>Board</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-             </property>
-            </widget>
-           </item>
            <item row="3" column="1" colspan="2">
             <widget class="QGroupBox" name="groupBox_3">
              <property name="title">
@@ -541,6 +486,61 @@
                </widget>
               </item>
              </layout>
+            </widget>
+           </item>
+           <item row="2" column="2">
+            <widget class="QComboBox" name="address_cb">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLabel" name="label_815">
+             <property name="text">
+              <string>Board</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLabel" name="address_lb">
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="2">
+            <widget class="QPushButton" name="verify_board_pb">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="toolTip">
+              <string>Check if selected board is found</string>
+             </property>
+             <property name="text">
+              <string>Verify Board</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1" colspan="2">
+            <widget class="QPlainTextEdit" name="verifyPTE">
+             <property name="font">
+              <font>
+               <family>BPG Courier S GPL&amp;GNU</family>
+               <pointsize>10</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="tabChangesFocus">
+              <bool>true</bool>
+             </property>
             </widget>
            </item>
            <item row="0" column="2">
@@ -43842,8 +43842,8 @@ to File Open in Axis</string>
                    <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>50</width>
-                    <height>18</height>
+                    <width>98</width>
+                    <height>28</height>
                    </rect>
                   </property>
                   <layout class="QGridLayout" name="mdiCommandsListGL"/>
@@ -45168,7 +45168,7 @@ auto enp2s0
   <tabstop>load_config_cb</tabstop>
   <tabstop>backupCB</tabstop>
   <tabstop>boardCB</tabstop>
-  <tabstop>ipAddressCB</tabstop>
+  <tabstop>address_cb</tabstop>
   <tabstop>daughterCB_0</tabstop>
   <tabstop>daughterCB_1</tabstop>
   <tabstop>default_imperial_pb</tabstop>

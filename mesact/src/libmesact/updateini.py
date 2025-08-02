@@ -140,7 +140,7 @@ class updateini:
 		if parent.boardType == 'eth':
 			hm2 = [
 			['HM2', 'DRIVER', 'hm2_eth'],
-			['HM2', 'ADDRESS', f'{parent.ipAddressCB.currentText()}']
+			['HM2', 'ADDRESS', f'{parent.address_cb.currentText()}']
 			]
 		else:
 			self.delete_key('HM2', 'ADDRESS')

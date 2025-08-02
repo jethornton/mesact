@@ -1,6 +1,7 @@
 from PyQt5.Qt import QWidget
 
 from libmesact import firmware
+from libmesact import combos
 
 def boardChanged(parent):
 	# daughter cards
@@ -49,7 +50,7 @@ def boardChanged(parent):
 		parent.daughterCB_1.clear()
 		parent.daughterLB_0.clear()
 		parent.daughterLB_1.clear()
-		parent.ipAddressCB.setEnabled(False)
+		parent.address_cb.setEnabled(False)
 		parent.mainTW.setTabVisible(3, True)
 		parent.mainTW.setTabText(3, parent.board_name)
 		for i in range(3): # show output tabs
@@ -64,7 +65,8 @@ def boardChanged(parent):
 			for j in range(6): # each axis
 				getattr(parent, f'c{i}_axis_{j}').setCurrentIndex(0)
 
-		parent.ipAddressCB.setCurrentIndex(0) # set ip address to Select
+		parent.address_cb.setCurrentIndex(0) # set ip address to Select
+		parent.address_lb.setText('')
 
 		parent.firmware_options_lb.setText('No Firmware Selected!')
 
@@ -179,7 +181,9 @@ def boardChanged(parent):
 			# 6 step/dir 23 inputs 8 outputs 1 spindle 1 encoder
 			parent.boardType = 'spi'
 			parent.c0_JointTW.setTabText(0, parent.board_name)
-			parent.ipAddressCB.setEnabled(False)
+			combos.spi_address(parent)
+			parent.address_cb.setEnabled(True)
+			parent.address_lb.setText('SPI Address')
 			parent.daughterLB_0.setText('P1')
 			parent.mainTW.setTabText(4, 'P1')
 			info = ('7c80 uses SPI for communications.\n'
@@ -209,7 +213,8 @@ def boardChanged(parent):
 			# 6 step/dir 23 inputs 8 outputs 1 spindle 1 encoder
 			parent.boardType = 'spi'
 			parent.c0_JointTW.setTabText(0, parent.board_name)
-			parent.ipAddressCB.setEnabled(False)
+			parent.address_cb.setEnabled(True)
+			parent.address_lb.setText('SPI Address')
 			parent.daughterLB_0.setText('P1')
 			parent.daughterLB_0.setText('P2')
 			parent.daughterLB_0.setText('P7')
@@ -234,7 +239,9 @@ def boardChanged(parent):
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, parent.board_name)
 			parent.c0_JointTW.setTabVisible(6, False)
-			parent.ipAddressCB.setEnabled(True)
+			parent.address_lb.setText('IP Address')
+			parent.address_cb.setEnabled(True)
+			combos.ip_address(parent)
 			parent.daughterLB_0.setText('P1')
 			parent.daughterLB_1.setText('P2')
 			parent.mainTW.setTabText(4, 'P1')
@@ -283,7 +290,9 @@ def boardChanged(parent):
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, parent.board_name)
 			parent.c0_JointTW.setTabVisible(6, False)
-			parent.ipAddressCB.setEnabled(True)
+			parent.address_lb.setText('IP Address')
+			combos.ip_address(parent)
+			parent.address_cb.setEnabled(True)
 			parent.daughterLB_0.setText('P1')
 			parent.daughterLB_1.setText('P2')
 			parent.mainTW.setTabText(4, 'P1')
@@ -339,7 +348,7 @@ def boardChanged(parent):
 			parent.c0_JointTW.setTabText(0, parent.board_name)
 			for i in range(1, tabs + 1):
 				parent.c0_JointTW.setTabVisible(i, False)
-			parent.ipAddressCB.setEnabled(True)
+			parent.address_cb.setEnabled(True)
 			#parent.daughterLB_0.setText('J2')
 			#parent.daughterLB_1.setText('J3')
 			#parent.mainTW.setTabText(4, 'J2')
@@ -360,7 +369,7 @@ def boardChanged(parent):
 			parent.c0_JointTW.setTabText(0, parent.board_name)
 			for i in range(1, tabs + 1):
 				parent.c0_JointTW.setTabVisible(i, False)
-			parent.ipAddressCB.setEnabled(True)
+			parent.address_cb.setEnabled(True)
 			#parent.daughterLB_0.setText('J2')
 			#parent.daughterLB_1.setText('J3')
 			#parent.mainTW.setTabText(4, 'J2')
@@ -381,7 +390,7 @@ def boardChanged(parent):
 			parent.c0_JointTW.setTabText(0, parent.board_name)
 			for i in range(1, tabs + 1):
 				parent.c0_JointTW.setTabVisible(i, False)
-			parent.ipAddressCB.setEnabled(True)
+			parent.address_cb.setEnabled(True)
 			#parent.daughterLB_0.setText('P1')
 			#parent.daughterLB_1.setText('P2')
 			#parent.mainTW.setTabText(4, 'P1')
@@ -402,7 +411,7 @@ def boardChanged(parent):
 			parent.c0_JointTW.setTabText(0, parent.board_name)
 			for i in range(1, tabs + 1):
 				parent.c0_JointTW.setTabVisible(i, False)
-			parent.ipAddressCB.setEnabled(True)
+			parent.address_cb.setEnabled(True)
 			#parent.daughterLB_0.setText('P1')
 			#parent.daughterLB_1.setText('P2')
 			#parent.mainTW.setTabText(4, 'P1')
@@ -423,7 +432,7 @@ def boardChanged(parent):
 			parent.c0_JointTW.setTabText(0, parent.board_name)
 			for i in range(1, tabs + 1):
 				parent.c0_JointTW.setTabVisible(i, False)
-			parent.ipAddressCB.setEnabled(True)
+			parent.address_cb.setEnabled(True)
 			#parent.daughterLB_0.setText('P1')
 			#parent.daughterLB_1.setText('P2')
 			#parent.mainTW.setTabText(4, 'P1')
@@ -444,7 +453,9 @@ def boardChanged(parent):
 			parent.c0_JointTW.setTabText(0, parent.board_name)
 			for i in range(1, tabs + 1):
 				parent.c0_JointTW.setTabVisible(i, False)
-			parent.ipAddressCB.setEnabled(True)
+			parent.address_lb.setText('IP Address')
+			combos.ip_address(parent)
+			parent.address_cb.setEnabled(True)
 			parent.daughterLB_0.setText('P1')
 			parent.daughterLB_1.setText('P2')
 			parent.mainTW.setTabText(4, 'P1')
@@ -471,7 +482,9 @@ def boardChanged(parent):
 			parent.board_info_pte.setPlainText(info)
 			for i in range(1, tabs + 1):
 				parent.c0_JointTW.setTabVisible(i, False)
-			parent.ipAddressCB.setEnabled(True)
+			parent.address_lb.setText('IP Address')
+			combos.ip_address(parent)
+			parent.address_cb.setEnabled(True)
 			parent.daughterLB_0.setText('P1')
 			parent.daughterLB_1.setText('P2')
 			for item in ports_7i92_7i76:
@@ -487,7 +500,9 @@ def boardChanged(parent):
 			parent.c0_JointTW.setTabText(0, parent.board_name)
 			for i in range(1, tabs + 1):
 				parent.c0_JointTW.setTabVisible(i, False)
-			parent.ipAddressCB.setEnabled(True)
+			parent.address_lb.setText('IP Address')
+			combos.ip_address(parent)
+			parent.address_cb.setEnabled(True)
 			parent.daughterLB_0.setText('P1')
 			parent.daughterLB_1.setText('P2')
 			parent.mainTW.setTabText(4, 'P1')
@@ -502,7 +517,9 @@ def boardChanged(parent):
 			parent.mesaflash_name = '7i95'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, parent.board_name)
-			parent.ipAddressCB.setEnabled(True)
+			parent.address_lb.setText('IP Address')
+			combos.ip_address(parent)
+			parent.address_cb.setEnabled(True)
 			parent.daughterLB_0.setText('P1')
 			parent.mainTW.setTabText(4, 'P1')
 			for item in db25:
@@ -517,7 +534,9 @@ def boardChanged(parent):
 			parent.mesaflash_name = '7i95t'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, parent.board_name)
-			parent.ipAddressCB.setEnabled(True)
+			parent.address_lb.setText('IP Address')
+			combos.ip_address(parent)
+			parent.address_cb.setEnabled(True)
 			parent.daughterLB_0.setText('P1')
 			parent.mainTW.setTabText(4, 'P1')
 			for j in range(24):
@@ -560,7 +579,9 @@ def boardChanged(parent):
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, parent.board_name)
 			parent.c0_JointTW.setTabVisible(6, False)
-			parent.ipAddressCB.setEnabled(True)
+			parent.address_lb.setText('IP Address')
+			combos.ip_address(parent)
+			parent.address_cb.setEnabled(True)
 			parent.daughterLB_0.setText('P1')
 			parent.mainTW.setTabText(4, 'P1')
 			info = ('Connector 5v Power\n'
@@ -583,7 +604,9 @@ def boardChanged(parent):
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, parent.board_name)
 			parent.c0_JointTW.setTabVisible(6, False)
-			parent.ipAddressCB.setEnabled(True)
+			parent.address_lb.setText('IP Address')
+			combos.ip_address(parent)
+			parent.address_cb.setEnabled(True)
 			parent.daughterLB_0.setText('P1')
 			parent.mainTW.setTabText(4, 'P1')
 			info = ('Connector 5v Power\n'
@@ -629,7 +652,9 @@ def boardChanged(parent):
 			parent.mesaflash_name = '7i97'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, parent.board_name)
-			parent.ipAddressCB.setEnabled(True)
+			parent.address_lb.setText('IP Address')
+			combos.ip_address(parent)
+			parent.address_cb.setEnabled(True)
 			parent.daughterLB_0.setText('P1')
 			parent.mainTW.setTabText(4, 'P1')
 			for item in db25:
@@ -644,7 +669,9 @@ def boardChanged(parent):
 			parent.mesaflash_name = '7i97t'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, parent.board_name)
-			parent.ipAddressCB.setEnabled(True)
+			parent.address_lb.setText('IP Address')
+			combos.ip_address(parent)
+			parent.address_cb.setEnabled(True)
 			parent.daughterLB_0.setText('P1')
 			parent.mainTW.setTabText(4, 'P1')
 			for j in range(16):
@@ -688,7 +715,9 @@ def boardChanged(parent):
 			parent.c0_JointTW.setTabText(0, parent.board_name)
 			for i in range(1, tabs + 1):
 				parent.c0_JointTW.setTabVisible(i, False)
-			parent.ipAddressCB.setEnabled(True)
+			parent.address_lb.setText('IP Address')
+			combos.ip_address(parent)
+			parent.address_cb.setEnabled(True)
 			parent.daughterLB_0.setText('P1')
 			parent.daughterLB_1.setText('P2')
 			parent.mainTW.setTabText(4, 'P1')
@@ -702,6 +731,9 @@ def boardChanged(parent):
 		parent.mesaflash_name = ''
 		parent.board_name = ''
 		parent.boardType = False
+		parent.address_lb.setText('')
+		parent.address_cb.setEnabled(False)
+		parent.address_cb.clear()
 		parent.c0_JointTW.setTabText(0, 'Board')
 		parent.mainTW.setTabVisible(3, False)
 		parent.daughterCB_0.clear()

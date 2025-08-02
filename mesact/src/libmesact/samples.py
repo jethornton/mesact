@@ -31,7 +31,7 @@ def default(parent):
 
 def set_7i96s_x(parent):
 	parent.boardCB.setCurrentIndex(parent.boardCB.findData('7i96s'))
-	parent.ipAddressCB.setCurrentIndex(parent.ipAddressCB.findData('10.10.10.10'))
+	parent.address_cb.setCurrentIndex(parent.address_cb.findData('10.10.10.10'))
 	set_joints(parent, 0, ['X'])
 	parent.c0_homeSequence_0.setText('0')
 	parent.spindle_enable_cb.setChecked(True)
@@ -39,7 +39,7 @@ def set_7i96s_x(parent):
 
 def set_7i96s_xyz(parent):
 	parent.boardCB.setCurrentIndex(parent.boardCB.findData('7i96s'))
-	parent.ipAddressCB.setCurrentIndex(parent.ipAddressCB.findData('10.10.10.10'))
+	parent.address_cb.setCurrentIndex(parent.address_cb.findData('10.10.10.10'))
 	set_joints(parent, 0, ['X', 'Y', 'Z'])
 	parent.c0_homeSequence_0.setText('2')
 	parent.c0_homeSequence_1.setText('1')
@@ -49,7 +49,7 @@ def set_7i96s_xyz(parent):
 
 def set_7i96s_xyyz(parent):
 	parent.boardCB.setCurrentIndex(parent.boardCB.findData('7i96s'))
-	parent.ipAddressCB.setCurrentIndex(parent.ipAddressCB.findData('10.10.10.10'))
+	parent.address_cb.setCurrentIndex(parent.address_cb.findData('10.10.10.10'))
 	set_joints(parent, 0, ['X', 'Y', 'Y', 'Z'])
 	parent.c0_homeSequence_0.setText('2')
 	parent.c0_homeSequence_1.setText('1')
@@ -58,18 +58,18 @@ def set_7i96s_xyyz(parent):
 
 def set_7i95t_x(parent):
 	parent.boardCB.setCurrentIndex(parent.boardCB.findData('7i95t'))
-	parent.ipAddressCB.setCurrentIndex(parent.ipAddressCB.findData('10.10.10.10'))
+	parent.address_cb.setCurrentIndex(parent.address_cb.findData('10.10.10.10'))
 	set_joints(parent, 0, ['X'])
 	parent.c0_homeSequence_0.setText('0')
 
 def set_7i95t_xyz(parent):
 	parent.boardCB.setCurrentIndex(parent.boardCB.findData('7i95t'))
-	parent.ipAddressCB.setCurrentIndex(parent.ipAddressCB.findData('10.10.10.10'))
+	parent.address_cb.setCurrentIndex(parent.address_cb.findData('10.10.10.10'))
 	set_joints(parent, 0, ['X', 'Y', 'Z'])
 
 def set_7i92t_p1_7i76(parent):
 	parent.boardCB.setCurrentIndex(parent.boardCB.findData('7i92t'))
-	parent.ipAddressCB.setCurrentIndex(parent.ipAddressCB.findData('10.10.10.10'))
+	parent.address_cb.setCurrentIndex(parent.address_cb.findData('10.10.10.10'))
 	parent.daughterCB_0.setCurrentIndex(parent.daughterCB_0.findData('7i76'))
 	set_joints(parent, 1, ['X', 'Y', 'Z'])
 	parent.c1_homeSequence_0.setText('2')
@@ -78,7 +78,7 @@ def set_7i92t_p1_7i76(parent):
 
 def set_7i92t_p2_7i76(parent):
 	parent.boardCB.setCurrentIndex(parent.boardCB.findData('7i92t'))
-	parent.ipAddressCB.setCurrentIndex(parent.ipAddressCB.findData('10.10.10.10'))
+	parent.address_cb.setCurrentIndex(parent.address_cb.findData('10.10.10.10'))
 	parent.daughterCB_1.setCurrentIndex(parent.daughterCB_1.findData('7i76'))
 	set_joints(parent, 2, ['X', 'Y', 'Z'])
 	parent.c2_homeSequence_0.setText('2')
@@ -87,7 +87,7 @@ def set_7i92t_p2_7i76(parent):
 
 def set_7i92t_p1_7i77(parent):
 	parent.boardCB.setCurrentIndex(parent.boardCB.findData('7i92t'))
-	parent.ipAddressCB.setCurrentIndex(parent.ipAddressCB.findData('10.10.10.10'))
+	parent.address_cb.setCurrentIndex(parent.address_cb.findData('10.10.10.10'))
 	parent.daughterCB_0.setCurrentIndex(parent.daughterCB_0.findData('7i77'))
 	set_joints(parent, 1, ['X', 'Y', 'Z'])
 	parent.c1_homeSequence_0.setText('2')
@@ -96,7 +96,7 @@ def set_7i92t_p1_7i77(parent):
 
 def set_7i92t_p2_7i77(parent):
 	parent.boardCB.setCurrentIndex(parent.boardCB.findData('7i92t'))
-	parent.ipAddressCB.setCurrentIndex(parent.ipAddressCB.findData('10.10.10.10'))
+	parent.address_cb.setCurrentIndex(parent.address_cb.findData('10.10.10.10'))
 	parent.daughterCB_1.setCurrentIndex(parent.daughterCB_1.findData('7i77'))
 	set_joints(parent, 2, ['X', 'Y', 'Z'])
 	parent.c2_homeSequence_0.setText('2')

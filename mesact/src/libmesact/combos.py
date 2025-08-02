@@ -33,16 +33,6 @@ def build(parent):
 	for item in boards:
 		parent.boardCB.addItem(item[0], item[1])
 
-	ipAddress = [
-	['Select', False],
-	['10.10.10.10', '10.10.10.10'],
-	['192.168.1.121', '192.168.1.121']
-	]
-
-	for item in ipAddress:
-		parent.ipAddressCB.addItem(item[0], item[1])
-	parent.ipAddressCB.setEditable(True)
-
 	# Firmware Tab
 	db25_daughters = [
 	['Select', False],
@@ -286,4 +276,27 @@ def build(parent):
 	for item in debug:
 		parent.debugCB.addItem(item[0], item[1])
 
+def ip_address(parent):
+	ip_address = [
+	['Select', False],
+	['10.10.10.10', '10.10.10.10'],
+	['192.168.1.121', '192.168.1.121']
+	]
+	parent.address_cb.clear()
+	for item in ip_address:
+		parent.address_cb.addItem(item[0], item[1])
+	parent.address_cb.setEditable(True)
 
+def spi_address(parent):
+	spi_address = [
+	['Select', False],
+	['/dev/spidev0.0', '/dev/spidev0.0']]
+	parent.address_cb.clear()
+	for item in spi_address:
+		parent.address_cb.addItem(item[0], item[1])
+
+
+	parent.address_cb.setEditable(True)
+
+	pass
+	# address_cb

@@ -41,10 +41,10 @@ def firmware_changed(parent):
 		parent.flashPB.setEnabled(False)
 
 def check_ip(parent):
-	if not parent.ipAddressCB.currentData():
+	if not parent.address_cb.currentData():
 		dialogs.errorMsgOk('An IP address must be selected', 'Error!')
 		parent.mainTW.setCurrentIndex(0)
-		parent.ipAddressCB.setFocus()
+		parent.address_cb.setFocus()
 		return False
 	return True
 
@@ -93,7 +93,7 @@ def verify_ip_board(parent): # make me toss up the error message and return Fals
 		dialogs.errorMsgOk(f'LinuxCNC must NOT be running\n to read the {board_name}', 'Error')
 		return
 	if check_ip(parent):
-		address = parent.ipAddressCB.currentText()
+		address = parent.address_cb.currentText()
 		cmd = ['ping', '-c', '1', address]
 		output = subprocess.run(cmd, capture_output=True, text=True)
 		if output.returncode != 0:
@@ -131,7 +131,7 @@ def verify_board(parent): # needs to use Popen for password
 
 	if parent.boardType == 'eth':
 		if verify_ip_board(parent):
-			ipAddress = parent.ipAddressCB.currentText()
+			ipAddress = parent.address_cb.currentText()
 			cmd = ['mesaflash', '--device', parent.mesaflash_name, '--addr', ipAddress]
 			p = Popen(cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
 			prompt = p.communicate()
@@ -158,7 +158,7 @@ def readhmid(parent):
 		return
 	if parent.boardType == 'eth':
 		if verify_ip_board(parent):
-			ipAddress = parent.ipAddressCB.currentText()
+			ipAddress = parent.address_cb.currentText()
 			cmd = ['mesaflash', '--device', parent.mesaflash_name, '--addr', ipAddress, '--readhmid']
 			if parent.hmid_terminals_1.currentData():
 				cmd.append('--dbname1')
@@ -199,7 +199,7 @@ def readpd(parent):
 		return
 	if parent.boardType == 'eth':
 		if verify_ip_board(parent):
-			ipAddress = parent.ipAddressCB.currentText()
+			ipAddress = parent.address_cb.currentText()
 			cmd = ['mesaflash', '--device', parent.mesaflash_name, '--addr', ipAddress, '--print-pd']
 			p = Popen(cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
 			prompt = p.communicate()
@@ -232,7 +232,7 @@ def flashCard(parent):
 				parent.firmware_info_pte.clear()
 				parent.firmware_info_pte.setPlainText(f'Flashing: {parent.firmwareCB.currentText()} to {board_name}')
 				qApp.processEvents()
-				ipAddress = parent.ipAddressCB.currentText()
+				ipAddress = parent.address_cb.currentText()
 				cmd = ['mesaflash', '--device', parent.mesaflash_name, '--addr', ipAddress, '--write', firmware]
 				p = Popen(cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
 				prompt = p.communicate()
@@ -272,7 +272,7 @@ def reloadCard(parent):
 			parent.firmware_info_pte.clear()
 			parent.firmware_info_pte.setPlainText('Reloading')
 			qApp.processEvents()
-			ipAddress = parent.ipAddressCB.currentText()
+			ipAddress = parent.address_cb.currentText()
 			cmd = ['mesaflash', '--device', parent.mesaflash_name, '--addr', ipAddress, '--reload']
 			p = Popen(cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
 			prompt = p.communicate()
@@ -312,7 +312,7 @@ def verifyFirmware(parent):
 			if verify_ip_board(parent):
 				parent.firmware_info_pte.setPlainText(f'Verifying {parent.firmwareCB.currentText()} on {board_name}')
 				qApp.processEvents()
-				ipAddress = parent.ipAddressCB.currentText()
+				ipAddress = parent.address_cb.currentText()
 				cmd = ['mesaflash', '--device', parent.mesaflash_name, '--addr', ipAddress, '--verify', firmware]
 				p = Popen(cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
 				prompt = p.communicate()

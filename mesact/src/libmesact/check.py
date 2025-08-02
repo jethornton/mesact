@@ -18,7 +18,7 @@ def checkit(parent):
 	if not parent.boardCB.currentData():
 		tabError = True
 		configErrors.append('\tA Board must be selected')
-	if parent.boardType == 'eth' and not parent.ipAddressCB.currentData():
+	if parent.boardType == 'eth' and not parent.address_cb.currentData():
 		tabError = True
 		configErrors.append('\tAn IP address must be selected, 10.10.10.10 is recommended')
 
