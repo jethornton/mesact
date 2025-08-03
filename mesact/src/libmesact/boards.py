@@ -51,6 +51,7 @@ def boardChanged(parent):
 		parent.daughterLB_0.clear()
 		parent.daughterLB_1.clear()
 		parent.address_cb.setEnabled(False)
+		parent.address_cb.clear()
 		parent.mainTW.setTabVisible(3, True)
 		parent.mainTW.setTabText(3, parent.board_name)
 		for i in range(3): # show output tabs
