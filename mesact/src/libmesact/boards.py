@@ -214,6 +214,7 @@ def boardChanged(parent):
 			# 6 step/dir 23 inputs 8 outputs 1 spindle 1 encoder
 			parent.boardType = 'spi'
 			parent.c0_JointTW.setTabText(0, parent.board_name)
+			combos.spi_address(parent)
 			parent.address_cb.setEnabled(True)
 			parent.address_lb.setText('SPI Address')
 			parent.daughterLB_0.setText('P1')
