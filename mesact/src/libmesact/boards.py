@@ -110,8 +110,6 @@ def boardChanged(parent):
 				parent.c0_JointTW.setTabVisible(i, False)
 			#parent.daughterLB_0.setText('P2')
 			#parent.daughterLB_1.setText('P3')
-			#parent.mainTW.setTabText(4, 'P2')
-			#parent.mainTW.setTabText(5, 'P3')
 			#for item in idc50:
 			#	parent.daughterCB_0.addItem(item[0], item[1])
 			#	parent.daughterCB_1.addItem(item[0], item[1])
@@ -138,8 +136,6 @@ def boardChanged(parent):
 			parent.daughterLB_1.setText('P3')
 			parent.ss_port_0_lb.setText('P2')
 			parent.ss_port_1_lb.setText('P3')
-			#parent.mainTW.setTabText(4, 'P2')
-			#parent.mainTW.setTabText(5, 'P3')
 			for item in ports_5i25_7i76:
 				parent.connector_7i76_cb.addItem(item[0], item[1])
 			for item in db25:
@@ -168,8 +164,6 @@ def boardChanged(parent):
 			parent.daughterLB_1.setText('P3')
 			parent.ss_port_0_lb.setText('P2')
 			parent.ss_port_1_lb.setText('P3')
-			#parent.mainTW.setTabText(4, 'P2')
-			#parent.mainTW.setTabText(5, 'P3')
 			for item in ports_5i25_7i76:
 				parent.connector_7i76_cb.addItem(item[0], item[1])
 			for item in db25:
@@ -201,7 +195,6 @@ def boardChanged(parent):
 			parent.address_cb.setEnabled(True)
 			parent.address_lb.setText('SPI Address')
 			parent.daughterLB_0.setText('P1')
-			parent.mainTW.setTabText(4, 'P1')
 
 			if parent.mesaflash:
 				parent.read_hmid_gb.setEnabled(True)
@@ -238,9 +231,6 @@ def boardChanged(parent):
 			parent.address_lb.setText('SPI Address')
 			parent.daughterLB_0.setText('P1')
 			parent.daughterLB_1.setText('P2')
-			parent.mainTW.setTabText(4, 'P1')
-			parent.mainTW.setTabText(4, 'P2')
-			parent.mainTW.setTabText(4, 'P7')
 
 			if parent.mesaflash:
 				if parent.mesaflash_version >= (3, 4, 3):
@@ -271,8 +261,6 @@ def boardChanged(parent):
 			combos.ip_address(parent)
 			parent.daughterLB_0.setText('P1')
 			parent.daughterLB_1.setText('P2')
-			parent.mainTW.setTabText(4, 'P1')
-			parent.mainTW.setTabText(5, 'P2')
 
 			if parent.mesaflash:
 				parent.read_hmid_gb.setEnabled(True)
@@ -326,8 +314,6 @@ def boardChanged(parent):
 			parent.address_cb.setEnabled(True)
 			parent.daughterLB_0.setText('P1')
 			parent.daughterLB_1.setText('P2')
-			parent.mainTW.setTabText(4, 'P1')
-			parent.mainTW.setTabText(5, 'P2')
 
 			if parent.mesaflash:
 				if parent.mesaflash_version >= (3, 5, 3):
@@ -391,8 +377,6 @@ def boardChanged(parent):
 
 			#parent.daughterLB_0.setText('J2')
 			#parent.daughterLB_1.setText('J3')
-			#parent.mainTW.setTabText(4, 'J2')
-			#parent.mainTW.setTabText(5, 'J3')
 			#for item in db25:
 			#	parent.daughterCB_0.addItem(item[0], item[1])
 			#	parent.daughterCB_1.addItem(item[0], item[1])
@@ -418,8 +402,6 @@ def boardChanged(parent):
 			combos.ip_address(parent)
 			#parent.daughterLB_0.setText('J2')
 			#parent.daughterLB_1.setText('J3')
-			#parent.mainTW.setTabText(4, 'J2')
-			#parent.mainTW.setTabText(5, 'J3')
 			#for item in db25:
 			#	parent.daughterCB_0.addItem(item[0], item[1])
 			#	parent.daughterCB_1.addItem(item[0], item[1])
@@ -445,8 +427,6 @@ def boardChanged(parent):
 			combos.ip_address(parent)
 			#parent.daughterLB_0.setText('P1')
 			#parent.daughterLB_1.setText('P2')
-			#parent.mainTW.setTabText(4, 'P1')
-			#parent.mainTW.setTabText(5, 'P2')
 			#for item in idc50:
 			#	parent.daughterCB_0.addItem(item[0], item[1])
 			#	parent.daughterCB_1.addItem(item[0], item[1])
@@ -472,8 +452,6 @@ def boardChanged(parent):
 			combos.ip_address(parent)
 			#parent.daughterLB_0.setText('P1')
 			#parent.daughterLB_1.setText('P2')
-			#parent.mainTW.setTabText(4, 'P1')
-			#parent.mainTW.setTabText(5, 'P2')
 			#for item in idc50:
 			#	parent.daughterCB_0.addItem(item[0], item[1])
 			#	parent.daughterCB_1.addItem(item[0], item[1])
@@ -499,8 +477,6 @@ def boardChanged(parent):
 			combos.ip_address(parent)
 			#parent.daughterLB_0.setText('P1')
 			#parent.daughterLB_1.setText('P2')
-			#parent.mainTW.setTabText(4, 'P1')
-			#parent.mainTW.setTabText(5, 'P2')
 			#for item in idc50:
 			#	parent.daughterCB_0.addItem(item[0], item[1])
 			#	parent.daughterCB_1.addItem(item[0], item[1])
@@ -529,8 +505,6 @@ def boardChanged(parent):
 			parent.address_cb.setEnabled(True)
 			parent.daughterLB_0.setText('P1')
 			parent.daughterLB_1.setText('P2')
-			parent.mainTW.setTabText(4, 'P1')
-			parent.mainTW.setTabText(5, 'P2')
 			for item in ports_7i92_7i76:
 				parent.connector_7i76_cb.addItem(item[0], item[1])
 			for item in db25:
@@ -586,8 +560,6 @@ def boardChanged(parent):
 			parent.address_cb.setEnabled(True)
 			parent.daughterLB_0.setText('P1')
 			parent.daughterLB_1.setText('P2')
-			parent.mainTW.setTabText(4, 'P1')
-			parent.mainTW.setTabText(5, 'P2')
 			for item in idc50:
 				parent.daughterCB_0.addItem(item[0], item[1])
 				parent.daughterCB_1.addItem(item[0], item[1])
@@ -605,7 +577,6 @@ def boardChanged(parent):
 			combos.ip_address(parent)
 			parent.address_cb.setEnabled(True)
 			parent.daughterLB_0.setText('P1')
-			parent.mainTW.setTabText(4, 'P1')
 			for item in db25:
 				parent.daughterCB_0.addItem(item[0], item[1])
 			for i in range(6): # hide analog and encoder tabs
@@ -625,7 +596,7 @@ def boardChanged(parent):
 			combos.ip_address(parent)
 			parent.address_cb.setEnabled(True)
 			parent.daughterLB_0.setText('P1')
-			parent.mainTW.setTabText(4, 'P1')
+
 			for j in range(24):
 				getattr(parent, f'c0_input_{j}').setEnabled(True)
 				getattr(parent, f'c0_input_invert_{j}').setEnabled(True)
@@ -669,7 +640,6 @@ def boardChanged(parent):
 			combos.ip_address(parent)
 			parent.address_cb.setEnabled(True)
 			parent.daughterLB_0.setText('P1')
-			parent.mainTW.setTabText(4, 'P1')
 
 			if parent.mesaflash:
 				parent.read_hmid_gb.setEnabled(True)
@@ -698,7 +668,6 @@ def boardChanged(parent):
 			combos.ip_address(parent)
 			parent.address_cb.setEnabled(True)
 			parent.daughterLB_0.setText('P1')
-			parent.mainTW.setTabText(4, 'P1')
 
 			if parent.mesaflash:
 				if parent.mesaflash_version >= (3, 4, 7):
@@ -753,7 +722,7 @@ def boardChanged(parent):
 			combos.ip_address(parent)
 			parent.address_cb.setEnabled(True)
 			parent.daughterLB_0.setText('P1')
-			parent.mainTW.setTabText(4, 'P1')
+
 			for item in db25:
 				parent.daughterCB_0.addItem(item[0], item[1])
 			for i in range(6): # hide stepper tab and stepper default pid button
@@ -773,7 +742,7 @@ def boardChanged(parent):
 			combos.ip_address(parent)
 			parent.address_cb.setEnabled(True)
 			parent.daughterLB_0.setText('P1')
-			parent.mainTW.setTabText(4, 'P1')
+
 			for j in range(16):
 				getattr(parent, f'c0_input_{j}').setEnabled(True)
 				getattr(parent, f'c0_input_invert_{j}').setEnabled(True)
@@ -826,8 +795,7 @@ def boardChanged(parent):
 			parent.address_cb.setEnabled(True)
 			parent.daughterLB_0.setText('P1')
 			parent.daughterLB_1.setText('P2')
-			parent.mainTW.setTabText(4, 'P1')
-			parent.mainTW.setTabText(5, 'P2')
+
 			for item in db25:
 				parent.daughterCB_0.addItem(item[0], item[1])
 				parent.daughterCB_1.addItem(item[0], item[1])
