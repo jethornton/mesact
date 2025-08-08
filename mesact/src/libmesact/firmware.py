@@ -19,10 +19,8 @@ def load(parent):
 					parent.firmwareCB.addItem(os.path.basename(file), file)
 			parent.firmwarePTE.clear()
 			parent.firmwarePTE.appendPlainText(f'Firmware for {parent.boardCB.currentText()} Loaded')
-			# FIXME this needs to be if mesaflash version is high enough enable in boards.py
-			#if parent.mesaflash: # set mesaflash tools on if installed
-			#	parent.firmwareGB.setEnabled(True)
-			#	parent.read_hmid_gb.setEnabled(True)
+			if parent.read_hmid_gb.isEnabled(): # set mesaflash tools on if installed
+				parent.firmwareGB.setEnabled(True)
 		else:
 			noFirmware(parent, board)
 	else:
@@ -38,8 +36,7 @@ def noFirmware(parent, board):
 	f'https://github.com/jethornton/mesact_firmware/releases/download/1.0.0/{board}.tar.xz\n'
 	f'Extract the firmware to {os.path.expanduser("~")}/.local/lib/libmesact/{board}')
 	parent.firmwarePTE.setPlainText(msg)
-	# FIXME readhdmi and readpd don't need firmware
-	#parent.firmwareGB.setEnabled(False)
+	parent.firmwareGB.setEnabled(False)
 	parent.read_hmid_gb.setEnabled(False)
 	parent.firmwareCB.addItem('N/A', False)
 
