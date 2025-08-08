@@ -69,7 +69,9 @@ def boardChanged(parent):
 		parent.address_cb.setCurrentIndex(0) # set ip address to Select
 		parent.address_lb.setText('')
 
+		# mesaflash tab
 		parent.firmware_options_lb.setText('No Firmware Selected!')
+		parent.read_hmid_gb.setEnabled(False)
 
 		for i in range(16):
 			getattr(parent, f'c0_output_type_{i}').setVisible(False)
@@ -114,13 +116,15 @@ def boardChanged(parent):
 			#	parent.daughterCB_0.addItem(item[0], item[1])
 			#	parent.daughterCB_1.addItem(item[0], item[1])
 
+			if parent.mesaflash:
+				parent.read_hmid_gb.setEnabled(True)
+
 			info = (f'Support for the {parent.board_name}\n'
 			'is limited to flashing only\n'
 			'at this time'
 			)
 			parent.board_info_pte.setPlainText(info)
 			parent.find_ip_board_pb.setEnabled(False)
-
 
 		elif board == '5i25': # PCI DB25F IDC26
 			# port 0 is P3 port 1 is P2
@@ -141,6 +145,10 @@ def boardChanged(parent):
 			for item in db25:
 				parent.daughterCB_0.addItem(item[0], item[1])
 				parent.daughterCB_1.addItem(item[0], item[1])
+
+			if parent.mesaflash:
+				parent.read_hmid_gb.setEnabled(True)
+
 			info = ('Connector 5v Power\n'
 			'W1 Up for P2\n'
 			'W2 Up for P3\n'
@@ -168,6 +176,13 @@ def boardChanged(parent):
 				parent.daughterCB_0.addItem(item[0], item[1])
 				parent.daughterCB_1.addItem(item[0], item[1])
 			parent.find_ip_board_pb.setEnabled(False)
+
+			if parent.mesaflash:
+				if parent.mesaflash_version >= (3, 4, 8):
+					parent.read_hmid_gb.setEnabled(True)
+				else:
+					parent.firmware_info_pte.setPlainText('The 5i25T requires Mesaflash 3.4.8 or newer')
+
 			info = ('Connector 5v Power\n'
 			'W1 Up for P1\n'
 			'W2 Up for P3\n'
@@ -187,6 +202,10 @@ def boardChanged(parent):
 			parent.address_lb.setText('SPI Address')
 			parent.daughterLB_0.setText('P1')
 			parent.mainTW.setTabText(4, 'P1')
+
+			if parent.mesaflash:
+				parent.read_hmid_gb.setEnabled(True)
+
 			info = ('7c80 uses SPI for communications.\n'
 				'The Rpi 5 requires hm2_spix which is available\nin LinuxCNC version 2.9.4 or newer\n'
 				'The Rpi 4 will work with hm2_spix or hm2_spi\nwhich is in older versions of LinuxCNC\n'
@@ -223,6 +242,13 @@ def boardChanged(parent):
 			parent.mainTW.setTabText(4, 'P1')
 			parent.mainTW.setTabText(4, 'P2')
 			parent.mainTW.setTabText(4, 'P7')
+
+			if parent.mesaflash:
+				if parent.mesaflash_version >= (3, 4, 3):
+					parent.read_hmid_gb.setEnabled(True)
+				else:
+					parent.firmware_info_pte.setPlainText('The 7c81 requires Mesaflash 3.4.3 or newer')
+
 			info = ('7c81 uses SPI for communications.\n'
 				'The Rpi 5 requires hm2_spix which is available in\nLinuxCNC version 2.9.4 or newer\n'
 				'The Rpi 4 will work with hm2_spix or hm2_spi\nwhich is in older versions of LinuxCNC')
@@ -248,6 +274,10 @@ def boardChanged(parent):
 			parent.daughterLB_1.setText('P2')
 			parent.mainTW.setTabText(4, 'P1')
 			parent.mainTW.setTabText(5, 'P2')
+
+			if parent.mesaflash:
+				parent.read_hmid_gb.setEnabled(True)
+
 			info = ('Connector 5v Power\n'
 			'W7 Up for P1\n'
 			'W12 Up for P2\n'
@@ -299,7 +329,13 @@ def boardChanged(parent):
 			parent.daughterLB_1.setText('P2')
 			parent.mainTW.setTabText(4, 'P1')
 			parent.mainTW.setTabText(5, 'P2')
-			#parent.spindleGB.setEnabled(True)
+
+			if parent.mesaflash:
+				if parent.mesaflash_version >= (3, 5, 3):
+					parent.read_hmid_gb.setEnabled(True)
+				else:
+					parent.firmware_info_pte.setPlainText('The 7i76EU requires Mesaflash 3.5.3 or newer')
+
 			info = ('Connector 5v Power\n'
 			'W3 Up for P1\n'
 			'W15 Up for P2\n'
@@ -361,6 +397,10 @@ def boardChanged(parent):
 			#for item in db25:
 			#	parent.daughterCB_0.addItem(item[0], item[1])
 			#	parent.daughterCB_1.addItem(item[0], item[1])
+
+			if parent.mesaflash:
+				parent.read_hmid_gb.setEnabled(True)
+
 			info = (f'Support for the {parent.board_name}\n'
 			'is limited to flashing only\n'
 			'at this time'
@@ -384,6 +424,10 @@ def boardChanged(parent):
 			#for item in db25:
 			#	parent.daughterCB_0.addItem(item[0], item[1])
 			#	parent.daughterCB_1.addItem(item[0], item[1])
+
+			if parent.mesaflash:
+				parent.read_hmid_gb.setEnabled(True)
+
 			info = (f'Support for the {parent.board_name}\n'
 			'is limited to flashing only\n'
 			'at this time'
@@ -407,6 +451,10 @@ def boardChanged(parent):
 			#for item in idc50:
 			#	parent.daughterCB_0.addItem(item[0], item[1])
 			#	parent.daughterCB_1.addItem(item[0], item[1])
+
+			if parent.mesaflash:
+				parent.read_hmid_gb.setEnabled(True)
+
 			info = (f'Support for the {parent.board_name}\n'
 			'is limited to flashing only\n'
 			'at this time'
@@ -430,6 +478,10 @@ def boardChanged(parent):
 			#for item in idc50:
 			#	parent.daughterCB_0.addItem(item[0], item[1])
 			#	parent.daughterCB_1.addItem(item[0], item[1])
+
+			if parent.mesaflash:
+				parent.read_hmid_gb.setEnabled(True)
+
 			info = (f'Support for the {parent.board_name}\n'
 			'is limited to flashing only\n'
 			'at this time'
@@ -453,6 +505,13 @@ def boardChanged(parent):
 			#for item in idc50:
 			#	parent.daughterCB_0.addItem(item[0], item[1])
 			#	parent.daughterCB_1.addItem(item[0], item[1])
+
+			if parent.mesaflash:
+				if parent.mesaflash_version >= (3, 4, 8):
+					parent.read_hmid_gb.setEnabled(True)
+				else:
+					parent.firmware_info_pte.setPlainText('The 7i80HDT requires Mesaflash 3.4.8 or newer')
+
 			info = (f'Support for the {parent.board_name}\n'
 			'is limited to flashing only\n'
 			'at this time'
@@ -479,11 +538,21 @@ def boardChanged(parent):
 				parent.daughterCB_0.addItem(item[0], item[1])
 				parent.daughterCB_1.addItem(item[0], item[1])
 
+			if parent.mesaflash:
+				parent.read_hmid_gb.setEnabled(True)
+
 		elif board == '7i92t': # ETH DB25F IDC26
 			parent.hal_name = '7i92'
 			parent.mesaflash_name = '7i92t'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, parent.board_name)
+
+			if parent.mesaflash:
+				if parent.mesaflash_version >= (3, 4, 7):
+					parent.read_hmid_gb.setEnabled(True)
+				else:
+					parent.firmware_info_pte.setPlainText('The 7i92T requires Mesaflash 3.4.7 or newer')
+
 			info = ('Connector 5v Power\n'
 			'W3 Up for P1\n'
 			'W4 Up for P2\n'
@@ -524,6 +593,9 @@ def boardChanged(parent):
 				parent.daughterCB_0.addItem(item[0], item[1])
 				parent.daughterCB_1.addItem(item[0], item[1])
 
+			if parent.mesaflash:
+				parent.read_hmid_gb.setEnabled(True)
+
 		elif board == '7i95': # ETH 6 Axis Step/Direction
 			parent.board_0 = '7i95'
 			parent.hal_name = '7i95'
@@ -540,6 +612,9 @@ def boardChanged(parent):
 			for i in range(6): # hide analog and encoder tabs
 				getattr(parent, f'c0_settings_{i}').setTabVisible(3, False)
 				getattr(parent, f'c0_settings_{i}').setTabVisible(4, False)
+
+			if parent.mesaflash:
+				parent.read_hmid_gb.setEnabled(True)
 
 		elif board == '7i95t': # ETH 6 Axis Step/Direction
 			parent.board_0 = '7i95'
@@ -567,6 +642,12 @@ def boardChanged(parent):
 				getattr(parent, f'c0_output_{j}').setEnabled(False)
 				getattr(parent, f'c0_output_invert_{j}').setEnabled(False)
 
+			if parent.mesaflash:
+				if parent.mesaflash_version >= (3, 4, 7):
+					parent.read_hmid_gb.setEnabled(True)
+				else:
+					parent.firmware_info_pte.setPlainText('The 7i95T requires Mesaflash 3.4.7 or newer')
+
 			info = ('The 7i95T requires LinuxCNC version 2.10 or newer to run\n'
 			'\nTo Flash the 7i95T Mesaflash version 3.4.7\nor newer must be installed\n'
 			'\nIP Address Jumpers\nW15 Down W16 Up for 10.10.10.10\n'
@@ -577,13 +658,6 @@ def boardChanged(parent):
 				parent.daughterCB_0.addItem(item[0], item[1])
 			for i in range(6): # hide analog tabs
 				getattr(parent, f'c0_settings_{i}').setTabVisible(3, False)
-
-			if parent.mesaflash:
-				if parent.mesaflash_version < (3, 4, 7):
-					parent.firmwareGB.setEnabled(False)
-					parent.verify_board_pb.setEnabled(False)
-					parent.read_hmid_gb.setEnabled(False)
-					parent.firmware_info_pte.setPlainText('The 7i95T requires Mesaflash 3.4.7 or newer')
 
 		elif board == '7i96': # ETH 5 Axis Step/Direction
 			parent.board_0 = '7i96'
@@ -597,6 +671,10 @@ def boardChanged(parent):
 			parent.address_cb.setEnabled(True)
 			parent.daughterLB_0.setText('P1')
 			parent.mainTW.setTabText(4, 'P1')
+
+			if parent.mesaflash:
+				parent.read_hmid_gb.setEnabled(True)
+
 			info = ('Connector 5v Power\n'
 			'W8 Up for P1\n'
 			'\nIP Address\nW5 Down W6 Up for 10.10.10.10\n'
@@ -622,6 +700,13 @@ def boardChanged(parent):
 			parent.address_cb.setEnabled(True)
 			parent.daughterLB_0.setText('P1')
 			parent.mainTW.setTabText(4, 'P1')
+
+			if parent.mesaflash:
+				if parent.mesaflash_version >= (3, 4, 7):
+					parent.read_hmid_gb.setEnabled(True)
+				else:
+					parent.firmware_info_pte.setPlainText('The 7i96S requires Mesaflash 3.4.7 or newer')
+
 			info = ('Connector 5v Power\n'
 			'W6 Up for P1\n'
 			'\nIP Address\nW4 Down W5 Up for 10.10.10.10\n'
@@ -676,6 +761,9 @@ def boardChanged(parent):
 				getattr(parent, f'c0_settings_{i}').setTabVisible(2, False)
 				getattr(parent, f'c0_pidDefault_{i}').setVisible(False)
 
+			if parent.mesaflash:
+				parent.read_hmid_gb.setEnabled(True)
+
 		elif board == '7i97t': # ETH 6 Axis Analog
 			parent.board_0 = '7i97t'
 			parent.hal_name = '7i97'
@@ -707,8 +795,14 @@ def boardChanged(parent):
 				getattr(parent, f'c0_settings_{i}').setTabVisible(2, False)
 				getattr(parent, f'c0_pidDefault_{i}').setVisible(False)
 
+			if parent.mesaflash:
+				if parent.mesaflash_version >= (3, 5, 3):
+					parent.read_hmid_gb.setEnabled(True)
+				else:
+					parent.firmware_info_pte.setPlainText('The 7i96S requires Mesaflash 3.5.3 or newer')
+
 			info = ('The 7i97T requires LinuxCNC version 2.10 or newer to run\n'
-			'\nTo Flash the 7i95T Mesaflash version 3.5.3\nor newer must be installed\n'
+			'\nTo Flash the 7i97T Mesaflash version 3.5.3\nor newer must be installed\n'
 			'\nIP Address Jumpers\nW11 Down W12 Up for 10.10.10.10\n'
 			'\nDefault firmware 7i97t_d.bin\n'
 			'\nIMPORTANT! Verify the following before running\n'
@@ -739,6 +833,9 @@ def boardChanged(parent):
 				parent.daughterCB_0.addItem(item[0], item[1])
 				parent.daughterCB_1.addItem(item[0], item[1])
 
+			if parent.mesaflash:
+				parent.read_hmid_gb.setEnabled(True)
+
 	else: # no board is selected or just started up
 		parent.hal_name = ''
 		parent.mesaflash_name = ''
@@ -762,7 +859,7 @@ def boardChanged(parent):
 		parent.spindle_pid_gb.setVisible(False)
 
 		# if no board is selected turn off mesaflash tools
-		parent.firmwareGB.setEnabled(False)
+		parent.read_hmid_gb.setEnabled(False)
 		parent.verify_board_pb.setEnabled(False)
 		parent.read_hmid_gb.setEnabled(False)
 		parent.firmware_info_pte.clear()
