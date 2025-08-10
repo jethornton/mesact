@@ -177,7 +177,7 @@ def aboutDialog(parent):
 
 
 	copyrightLabel =  QLabel()
-	copyrightLabel.setText('Copyright © 1953-2023 John Thornton')
+	copyrightLabel.setText('Copyright © 1953-2025 John Thornton')
 	copyrightLabel.setAlignment(Qt.AlignCenter)
 	layout.addWidget(copyrightLabel)
 
