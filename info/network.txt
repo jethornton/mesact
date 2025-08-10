@@ -2,3 +2,10 @@ Network latency issue, to check:
 sudo chrt 99 ping -i .001 -q -c 60000 192.168.1.121
 or
 sudo chrt 99 ping -i .001 -q -c 60000 10.10.10.10
+
+<pcw---home> <JT-Shop>
+sudo chrt 99 ping -i .001 -q -c 60000 10.10.10.10
+can give you an idea of how bad your Ethernet latency is
+
+<pcw---home> If it's not for running a machine, you can tweak the read error threshold
+<pcw---home> setp hm2_somecard.0.packet-error-limit 100
