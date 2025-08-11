@@ -179,13 +179,6 @@ def read_hmid(parent):
 			return
 
 	elif parent.boardType == 'spi':
-		msg = ('The Read HMID Function\n'
-		'has not been programed yet for SPI\n'
-		'JT might need your help\n'
-		'getting this done')
-		dialogs.msg_ok(msg, 'title')
-
-	elif parent.boardType == 'spi':
 		# sudo mesaflash --device 7i81 --spi --addr /dev/spidev0.0 --readhmid
 		if not parent.password:
 			password = getPassword(parent)
@@ -201,7 +194,6 @@ def read_hmid(parent):
 			password = getPassword(parent)
 			parent.password = password
 		if parent.password != None:
-		
 			cmd = ['sudo', '-S', 'mesaflash', '--device', parent.mesaflash_name, '--readhmid']
 			p = Popen(cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
 			prompt = p.communicate(parent.password + '\n')
