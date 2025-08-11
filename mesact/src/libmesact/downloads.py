@@ -24,7 +24,7 @@ def downloadFirmware(parent):
 		# update firmware tab
 		firmware.load(parent)
 	else:
-		dialogs.infoMsgOk('Select a Board', 'Board')
+		dialogs.msg_ok('Select a Board', 'Board')
 
 def downloadAmd64Deb(parent):
 	directory = str(QFileDialog.getExistingDirectory(parent, "Select Directory"))
@@ -37,7 +37,7 @@ def downloadAmd64Deb(parent):
 		deburl = f'https://github.com/jethornton/mesact2/releases/download/{repoVersion}/mesact_{repoVersion}_amd64.deb'
 		download(parent, deburl, destination)
 		parent.statusbar.showMessage(f'Mesa Configuration Tool Version {repoVersion} Download Complete')
-		dialogs.infoMsgOk('Close the Configuration tool and reinstall', 'Download Complete')
+		dialogs.msg_ok('Close the Configuration tool and reinstall', 'Download Complete')
 	else:
 		parent.statusbar.showMessage('Download Cancled')
 
@@ -52,7 +52,7 @@ def downloadArmhDeb(parent):
 		deburl = f'https://github.com/jethornton/mesact/releases/download/{repoVersion}/mesact_{repoVersion}_armhf.deb'
 		download(parent, deburl, destination)
 		parent.statusbar.showMessage(f'Mesa Configuration Tool Version {repoVersion} Download Complete')
-		dialogs.infoMsgOk('Close the Configuration tool and reinstall', 'Download Complete')
+		dialogs.msg_ok('Close the Configuration tool and reinstall', 'Download Complete')
 	else:
 		parent.statusbar.showMessage('Download Cancled')
 
@@ -67,7 +67,7 @@ def downloadArm64Deb(parent):
 		deburl = f'https://github.com/jethornton/mesact/releases/download/{repoVersion}/mesact_{repoVersion}_arm64.deb'
 		download(parent, deburl, destination)
 		parent.statusbar.showMessage(f'Mesa Configuration Tool Version {repoVersion} Download Complete')
-		dialogs.infoMsgOk('Close the Configuration tool and reinstall', 'Download Complete')
+		dialogs.msg_ok('Close the Configuration tool and reinstall', 'Download Complete')
 	else:
 		parent.statusbar.showMessage('Download Cancled')
 

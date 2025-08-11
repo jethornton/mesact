@@ -47,7 +47,7 @@ class loadini:
 						'The files will be saved to a zip file then\n'
 						'the all the files in the directory will be DELETED\n'
 						'Save a Backup and try and open the ini?')
-					if dialogs.errorMsgCancelOk(msg, 'PNCconf File'):
+					if dialogs.msg_cancel_ok(msg, 'PNCconf File'):
 						path, filename = os.path.split(iniFile)
 						utilities.backupFiles(parent, path)
 						utilities.cleanDir(parent, path)
@@ -60,7 +60,7 @@ class loadini:
 						'The files will be saved to a zip file then\n'
 						'the all the files in the directory will be DELETED\n'
 						'Save a Backup and try and open the ini?')
-					if dialogs.errorMsgCancelOk(msg, 'Unknown File'):
+					if dialogs.msg_cancel_ok(msg, 'Unknown File'):
 						path, filename = os.path.split(iniFile)
 						utilities.backupFiles(parent, path)
 						utilities.cleanDir(parent, path)

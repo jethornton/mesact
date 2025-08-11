@@ -51,7 +51,7 @@ def msg_open_cancel(msg, title):
 	else:
 		return False
 
-def errorMsgCancelOk(text, title):
+def msg_cancel_ok(text, title):
 	msgBox = QMessageBox()
 	msgBox.setIcon(QMessageBox.Warning)
 	msgBox.setWindowTitle(title)
@@ -75,7 +75,7 @@ def errorMsgOk(text, title=None):
 	else:
 		return False
 
-def questionMsg(text, title=None): # unused function
+def msg_question(text, title=None): # unused function
 	msgBox = QMessageBox()
 	msgBox.setIcon(QMessageBox.Question)
 	msgBox.setWindowTitle(title)
@@ -87,7 +87,7 @@ def questionMsg(text, title=None): # unused function
 	else:
 		return False
 
-def errorMsgYesNo(text, title=None):
+def msg_yes_no(text, title=None):
 	msgBox = QMessageBox()
 	msgBox.setIcon(QMessageBox.Warning)
 	msgBox.setWindowTitle(title)
@@ -99,7 +99,7 @@ def errorMsgYesNo(text, title=None):
 	else:
 		return False
 
-def msgYesNoCheck(title, body_text, chkbx_text):
+def msg_yes_no_check(title, body_text, chkbx_text):
 	chkBox = QCheckBox()
 	chkBox.setText(chkbx_text)
 	msgBox = QMessageBox()
@@ -112,11 +112,12 @@ def msgYesNoCheck(title, body_text, chkbx_text):
 	answer = True if returnValue == QMessageBox.Yes else False
 	return answer, chkBox.isChecked()
 
-def infoMsgOk(text, title=None):
+def msg_ok(msg, title=None):
+	# dialogs.msg_ok(msg, 'title')
 	msgBox = QMessageBox()
 	msgBox.setIcon(QMessageBox.Information)
 	msgBox.setWindowTitle(title)
-	msgBox.setText(text)
+	msgBox.setText(msg)
 	msgBox.setStandardButtons(QMessageBox.Ok)
 	returnValue = msgBox.exec()
 	if returnValue == QMessageBox.Ok:

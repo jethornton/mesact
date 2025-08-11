@@ -154,7 +154,7 @@ def checkit(parent):
 							if getattr(parent, f'c{i}{item}{j}').text():
 								msg = (f'Joint{j} has data but no Axis Letter\n'
 									'Delete that data?')
-								if dialogs.errorMsgYesNo(msg, 'Error'):
+								if dialogs.msg_yes_no(msg, 'Error'):
 									for item in joint_items:
 										getattr(parent, f'c{i}{item}{j}').setText('')
 								else: # change to offending tab

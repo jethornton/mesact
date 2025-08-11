@@ -76,11 +76,11 @@ def connect(parent):
 
 	# Firmware Tab
 	parent.firmwareCB.currentIndexChanged.connect(partial(firmware.firmwareChanged, parent))
-	parent.readhmidPB.clicked.connect(partial(flash.readhmid, parent))
-	parent.readpdPB.clicked.connect(partial(flash.readpd, parent))
-	parent.flashPB.clicked.connect(partial(flash.flashCard, parent))
-	parent.reloadPB.clicked.connect(partial(flash.reloadCard, parent))
-	parent.verifyPB.clicked.connect(partial(flash.verifyFirmware, parent))
+	parent.readhmidPB.clicked.connect(partial(flash.read_hmid, parent))
+	parent.readpdPB.clicked.connect(partial(flash.read_pd, parent))
+	parent.flashPB.clicked.connect(partial(flash.flash_board, parent))
+	parent.reloadPB.clicked.connect(partial(flash.reload_board, parent))
+	parent.verifyPB.clicked.connect(partial(flash.verify_firmware, parent))
 	parent.copyPB.clicked.connect(partial(flash.copyOutput, parent))
 	parent.create_pin_pb.clicked.connect(partial(firmware.create_pin, parent))
 
