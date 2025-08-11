@@ -124,14 +124,12 @@ def infoMsgOk(text, title=None):
 	else:
 		return False
 
-
 def aboutDialog(parent):
 	dialogBox = QDialog()
 	dialogBox.setMinimumSize(300, 300)
 	dialogBox.setWindowTitle('About')
 
 	layout = QVBoxLayout(dialogBox)
-
 
 	titleLabel =  QLabel()
 	titleLabel.setText('Mesa Configuration Tool')
@@ -162,7 +160,6 @@ def aboutDialog(parent):
 	aboutLabel.setAlignment(Qt.AlignCenter)
 	layout.addWidget(aboutLabel)
 
-
 	websiteLabel =  QLabel()
 	websiteLabel.setText("<a href='https://gnipsel.com/'>Authors Website</a>")
 	websiteLabel.setAlignment(Qt.AlignCenter)
@@ -175,12 +172,10 @@ def aboutDialog(parent):
 	repoLabel.setOpenExternalLinks(True)
 	layout.addWidget(repoLabel)
 
-
 	copyrightLabel =  QLabel()
 	copyrightLabel.setText('Copyright © 1953-2025 John Thornton')
 	copyrightLabel.setAlignment(Qt.AlignCenter)
 	layout.addWidget(copyrightLabel)
-
 
 	layout.addStretch()
 
