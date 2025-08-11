@@ -42,7 +42,7 @@ def noFirmware(parent, board):
 	if parent.settings.value('NAGS/firmware', None, type=bool):
 		msg = (f'No Firmware was found for the {board}.\n'
 		'Do you want to download the firmware now?')
-		response, no_nag = dialogs.msgYesNoCheck('Firmware', msg, "Don't Check for Firmware Again!")
+		response, no_nag = dialogs.msg_yes_no_check('Firmware', msg, "Don't Check for Firmware Again!")
 		if response:
 			downloads.downloadFirmware(parent)
 		if no_nag:

@@ -138,6 +138,13 @@ def verify_board(parent): # needs to use Popen for password
 		else:
 			return
 
+	elif parent.boardType == 'spi':
+		msg = ('The Verify Board Function\n'
+		'has not been programed yet for SPI\n'
+		'JT might need your help\n'
+		'getting this done')
+		dialogs.msg_ok(msg, 'title')
+
 	elif parent.boardType == 'pci':
 		if not parent.password:
 			password = getPassword(parent)
@@ -149,7 +156,7 @@ def verify_board(parent): # needs to use Popen for password
 	if prompt:
 		getResults(parent, prompt, p.returncode, 'verifyPTE', 'Verify Board')
 
-def readhmid(parent):
+def read_hmid(parent):
 	board_name = parent.boardCB.currentText()
 	cmd = []
 	prompt = None
@@ -170,6 +177,13 @@ def readhmid(parent):
 			prompt = p.communicate()
 		else:
 			return
+
+	elif parent.boardType == 'spi':
+		msg = ('The Read HMID Function\n'
+		'has not been programed yet for SPI\n'
+		'JT might need your help\n'
+		'getting this done')
+		dialogs.msg_ok(msg, 'title')
 
 	elif parent.boardType == 'spi':
 		# sudo mesaflash --device 7i81 --spi --addr /dev/spidev0.0 --readhmid
@@ -199,7 +213,7 @@ def readhmid(parent):
 		getResults(parent, prompt, p.returncode, 'firmwarePTE', 'Read HMID')
 		parent.create_pin_pb.setEnabled(True)
 
-def readpd(parent):
+def read_pd(parent):
 	parent.firmwareTW.setCurrentIndex(1)
 	parent.firmwarePTE.clear()
 	parent.firmwarePTE.setPlainText('Reading PD')
@@ -218,6 +232,13 @@ def readpd(parent):
 		else:
 			return
 
+	elif parent.boardType == 'spi':
+		msg = ('The Read Pretty Description Function\n'
+		'has not been programed yet for SPI\n'
+		'JT might need your help\n'
+		'getting this done')
+		dialogs.msg_ok(msg, 'title')
+
 	elif parent.boardType == 'pci':
 		if not parent.password:
 			password = getPassword(parent)
@@ -226,10 +247,11 @@ def readpd(parent):
 			cmd = ['sudo', '-S', 'mesaflash', '--device', parent.mesaflash_name, '--print-pd']
 			p = Popen(cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
 			prompt = p.communicate(parent.password + '\n')
+
 	if prompt:
 		getResults(parent, prompt, p.returncode, 'firmwarePTE', 'Read Pin Descriptions')
 
-def flashCard(parent):
+def flash_board(parent):
 	board_name = parent.boardCB.currentText()
 	cmd = []
 	prompt = None
@@ -250,6 +272,13 @@ def flashCard(parent):
 				prompt = p.communicate()
 			else:
 				return
+
+		elif parent.boardType == 'spi':
+			msg = ('The Flash Board Function\n'
+			'has not been programed yet for SPI\n'
+			'JT might need your help\n'
+			'getting this done')
+			dialogs.msg_ok(msg, 'title')
 
 		elif parent.boardType == 'pci':
 			if not parent.password:
@@ -272,7 +301,7 @@ def flashCard(parent):
 		dialogs.errorMsgOk('A firmware must be selected', 'Error!')
 		return
 
-def reloadCard(parent):
+def reload_board(parent):
 	board_name = parent.boardCB.currentText()
 	cmd = []
 	prompt = None
@@ -291,6 +320,13 @@ def reloadCard(parent):
 		else:
 			return
 
+	elif parent.boardType == 'spi':
+		msg = ('The Reload Board Function\n'
+		'has not been programed yet for SPI\n'
+		'JT might need your help\n'
+		'getting this done')
+		dialogs.msg_ok(msg, 'title')
+
 	elif parent.boardType == 'pci':
 		if not parent.password:
 			password = getPassword(parent)
@@ -305,7 +341,7 @@ def reloadCard(parent):
 		parent.firmware_info_pte.appendPlainText('Wait 30 seconds before Verifying')
 		parent.flashed = False
 
-def verifyFirmware(parent):
+def verify_firmware(parent):
 	parent.firmware_info_pte.clear()
 	board_name = parent.boardCB.currentText()
 	cmd = []
@@ -317,7 +353,7 @@ def verifyFirmware(parent):
 		if parent.flashed:
 			msg = (f'The {board_name} needs to be reloaded\n'
 				'before verifying the firmware.\n')
-			dialogs.infoMsgOk(msg, 'Error')
+			dialogs.dialogs.msg_ok(msg, 'Error')
 			return
 		firmware = os.path.join(parent.lib_path, parent.firmwareCB.currentData())
 		if parent.boardType == 'eth':
@@ -330,6 +366,13 @@ def verifyFirmware(parent):
 				prompt = p.communicate()
 			else:
 				return
+
+		elif parent.boardType == 'spi':
+			msg = ('The Verify Firmware Function\n'
+			'has not been programed yet for SPI\n'
+			'JT might need your help\n'
+			'getting this done')
+			dialogs.msg_ok(msg, 'title')
 
 		elif parent.boardType == 'pci':
 			if not parent.password:
