@@ -56,6 +56,9 @@ def firmwareChanged(parent):
 	parent.create_pin_pb.setEnabled(False)
 
 	if parent.firmwareCB.currentData():
+		parent.flashPB.setEnabled(True)
+		parent.verifyPB.setEnabled(True)
+
 		firmware_name = os.path.basename(parent.firmwareCB.currentData())
 		parent.stepgens_cb.clear()
 		parent.pwmgens_cb.clear()
@@ -178,6 +181,10 @@ def firmwareChanged(parent):
 				for i in range(7):
 					parent.spindleTypeCB.model().item(i).setEnabled(False)
 		'''
+
+	else: # no firmware selected
+		parent.flashPB.setEnabled(False)
+		parent.verifyPB.setEnabled(False)
 
 def create_pin(parent):
 	pass
