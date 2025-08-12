@@ -274,6 +274,8 @@ def flash_board(parent):
 				password = getPassword(parent)
 				parent.password = password
 			if parent.password != None:
+				parent.firmware_info_pte.clear()
+				parent.firmware_info_pte.setPlainText(f'Flashing: {parent.firmwareCB.currentText()} to {board_name}')
 				spi_address = parent.address_cb.currentText()
 				cmd = ['sudo', '-S', 'mesaflash', '--device', parent.mesaflash_name, '--spi', '--addr', spi_address, '--write', firmware]
 				p = Popen(cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
