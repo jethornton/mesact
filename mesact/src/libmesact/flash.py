@@ -367,14 +367,14 @@ def verify_firmware(parent):
 				return
 
 		elif parent.boardType == 'spi':
-		if not parent.password:
-			password = getPassword(parent)
-			parent.password = password
-		if parent.password != None:
-			spi_address = parent.address_cb.currentText()
-			cmd = ['sudo', '-S', 'mesaflash', '--device', parent.mesaflash_name, '--spi', '--addr', spi_address, '--verify']
-			p = Popen(cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
-			prompt = p.communicate(parent.password + '\n')
+			if not parent.password:
+				password = getPassword(parent)
+				parent.password = password
+			if parent.password != None:
+				spi_address = parent.address_cb.currentText()
+				cmd = ['sudo', '-S', 'mesaflash', '--device', parent.mesaflash_name, '--spi', '--addr', spi_address, '--verify']
+				p = Popen(cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
+				prompt = p.communicate(parent.password + '\n')
 
 		elif parent.boardType == 'pci':
 			if not parent.password:
