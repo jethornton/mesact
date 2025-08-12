@@ -375,7 +375,7 @@ def verify_firmware(parent):
 				parent.password = password
 			if parent.password != None:
 				spi_address = parent.address_cb.currentText()
-				cmd = ['sudo', '-S', 'mesaflash', '--device', parent.mesaflash_name, '--spi', '--addr', spi_address, '--verify']
+				cmd = ['sudo', '-S', 'mesaflash', '--device', parent.mesaflash_name, '--spi', '--addr', spi_address, '--verify', firmware]
 				p = Popen(cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
 				prompt = p.communicate(parent.password + '\n')
 
