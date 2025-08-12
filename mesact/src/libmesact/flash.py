@@ -355,7 +355,7 @@ def verify_firmware(parent):
 		if parent.flashed:
 			msg = (f'The {board_name} needs to be reloaded\n'
 				'before verifying the firmware.\n')
-			dialogs.dialogs.msg_ok(msg, 'Error')
+			dialogs.msg_ok(msg, 'Error')
 			return
 		firmware = os.path.join(parent.lib_path, parent.firmwareCB.currentData())
 		if parent.boardType == 'eth':
