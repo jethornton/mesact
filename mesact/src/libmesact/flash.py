@@ -121,17 +121,13 @@ def verify_board(parent): # needs to use Popen for password
 	board_name = parent.boardCB.currentText()
 	cmd = []
 	prompt = None
-	if not board_name:
-		dialogs.errorMsgOk('A board must be selected', 'Error')
-		return
-	prompt = None
 	if utilities.check_emc():
 		dialogs.errorMsgOk(f'LinuxCNC must NOT be running\n to read the {board_name}', 'Error')
 		return
-
 	if parent.boardType == 'eth':
 		if verify_ip_board(parent):
 			ipAddress = parent.address_cb.currentText()
+			parent.verifyPTE.setPlainText(f'Looking for {board_name} at {ipAddress}')
 			cmd = ['mesaflash', '--device', parent.mesaflash_name, '--addr', ipAddress]
 			p = Popen(cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, text=True)
 			prompt = p.communicate()
@@ -139,6 +135,7 @@ def verify_board(parent): # needs to use Popen for password
 			return
 
 	elif parent.boardType == 'spi':
+		# mesaflash --device spi --addr 
 		msg = ('The Verify Board Function\n'
 		'has not been programed yet for SPI\n'
 		'JT might need your help\n'
