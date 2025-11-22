@@ -1370,7 +1370,7 @@ to the clipboard</string>
            <item row="3" column="1">
             <widget class="QDoubleSpinBox" name="minAngJogVelDSB">
              <property name="enabled">
-              <bool>false</bool>
+              <bool>true</bool>
              </property>
              <property name="suffix">
               <string/>
@@ -1419,7 +1419,7 @@ to the clipboard</string>
            <item row="4" column="1">
             <widget class="QDoubleSpinBox" name="defAngJogVelDSB">
              <property name="enabled">
-              <bool>false</bool>
+              <bool>true</bool>
              </property>
              <property name="suffix">
               <string/>
@@ -1504,7 +1504,7 @@ to the clipboard</string>
            <item row="5" column="1">
             <widget class="QDoubleSpinBox" name="maxAngJogVelDSB">
              <property name="enabled">
-              <bool>false</bool>
+              <bool>true</bool>
              </property>
              <property name="suffix">
               <string/>

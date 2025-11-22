@@ -44,25 +44,6 @@ def axisChanged(parent):
 
 	if parent.sender().currentData():
 		axis = parent.sender().currentText()
-		if axis in linear_axes:
-			getattr(parent, f'{connector}axisType_{joint}').setText('LINEAR')
-			parent.minAngJogVelDSB.setEnabled(False)
-			parent.defAngJogVelDSB.setEnabled(False)
-			parent.maxAngJogVelDSB.setEnabled(False)
-
-		elif axis in angular_axes:
-			getattr(parent, f'{connector}axisType_{joint}').setText('ANGULAR')
-			parent.minAngJogVelDSB.setEnabled(True)
-			parent.defAngJogVelDSB.setEnabled(True)
-			parent.maxAngJogVelDSB.setEnabled(True)
-			parent.angluar_scale_joint_cb.clear()
-			parent.angluar_scale_joint_cb.addItem('Select', False)
-
-	else:
-		getattr(parent, f'{connector}axisType_{joint}').setText('')
-		parent.minAngJogVelDSB.setEnabled(False)
-		parent.defAngJogVelDSB.setEnabled(False)
-		parent.maxAngJogVelDSB.setEnabled(False)
 
 	# update coordinates label
 	coordList = []

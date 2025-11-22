@@ -86,10 +86,9 @@ def unitsChanged(parent):
 	parent.minLinearVelLB.setText(f'{parent.minLinJogVelDSB.value() * 60:.1f} {parent.units_minute}')
 	parent.defLinearVelLB.setText(f'{parent.defLinJogVelDSB.value() * 60:.1f} {parent.units_minute}')
 	parent.maxLinearVelLB.setText(f'{parent.maxLinJogVelDSB.value() * 60:.1f} {parent.units_minute}')
-	if set('ABC')&set(parent.coordinatesLB.text()): # angular axis
-		parent.minAngularVelLB.setText(f'{parent.minAngJogVelDSB.value() * 60:.1f} deg/min')
-		parent.defAngularVelLB.setText(f'{parent.defAngJogVelDSB.value() * 60:.1f} deg/min')
-		parent.maxAngularVelLB.setText(f'{parent.maxAngJogVelDSB.value() * 60:.1f} deg/min')
+	parent.minAngularVelLB.setText(f'{parent.minAngJogVelDSB.value() * 60:.1f} deg/min')
+	parent.defAngularVelLB.setText(f'{parent.defAngJogVelDSB.value() * 60:.1f} deg/min')
+	parent.maxAngularVelLB.setText(f'{parent.maxAngJogVelDSB.value() * 60:.1f} deg/min')
 
 	maxVelChanged(parent)
 

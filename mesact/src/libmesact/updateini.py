@@ -196,23 +196,12 @@ class updateini:
 		else:
 			self.delete_key('DISPLAY', 'EDITOR')
 
-		if set('XYZUVW')&set(parent.coordinatesLB.text()): # if no linear axes delete linear velocitys
-			display.append(['DISPLAY', 'MIN_LINEAR_VELOCITY', f'{parent.minLinJogVelDSB.value()}'])
-			display.append(['DISPLAY', 'DEFAULT_LINEAR_VELOCITY', f'{parent.defLinJogVelDSB.value()}'])
-			display.append(['DISPLAY', 'MAX_LINEAR_VELOCITY', f'{parent.maxLinJogVelDSB.value()}'])
-		else:
-			self.delete_key('DISPLAY', 'MIN_LINEAR_VELOCITY')
-			self.delete_key('DISPLAY', 'DEFAULT_LINEAR_VELOCITY')
-			self.delete_key('DISPLAY', 'MAX_LINEAR_VELOCITY')
-
-		if set('ABC')&set(parent.coordinatesLB.text()): # if no angular axes delete angular velocitys
-			display.append(['DISPLAY', 'MIN_ANGULAR_VELOCITY', f'{parent.minAngJogVelDSB.value()}'])
-			display.append(['DISPLAY', 'DEFAULT_ANGULAR_VELOCITY', f'{parent.defAngJogVelDSB.value()}'])
-			display.append(['DISPLAY', 'MAX_ANGULAR_VELOCITY', f'{parent.maxAngJogVelDSB.value()}'])
-		else:
-			self.delete_key('DISPLAY', 'MIN_ANGULAR_VELOCITY')
-			self.delete_key('DISPLAY', 'DEFAULT_ANGULAR_VELOCITY')
-			self.delete_key('DISPLAY', 'MAX_ANGULAR_VELOCITY')
+		display.append(['DISPLAY', 'MIN_LINEAR_VELOCITY', f'{parent.minLinJogVelDSB.value():.1f}'])
+		display.append(['DISPLAY', 'DEFAULT_LINEAR_VELOCITY', f'{parent.defLinJogVelDSB.value():.1f}'])
+		display.append(['DISPLAY', 'MAX_LINEAR_VELOCITY', f'{parent.maxLinJogVelDSB.value():.1f}'])
+		display.append(['DISPLAY', 'MIN_ANGULAR_VELOCITY', f'{parent.minAngJogVelDSB.value():.1f}'])
+		display.append(['DISPLAY', 'DEFAULT_ANGULAR_VELOCITY', f'{parent.defAngJogVelDSB.value():.1f}'])
+		display.append(['DISPLAY', 'MAX_ANGULAR_VELOCITY', f'{parent.maxAngJogVelDSB.value():.1f}'])
 
 		if parent.jog_increments.text(): # if no user jog increments delete increments
 			display.append(['DISPLAY', 'INCREMENTS', f'{parent.jog_increments.text()}'])
