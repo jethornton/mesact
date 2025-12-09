@@ -213,6 +213,8 @@ def build(parent):
 						halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.0{output}.offset-mode 1 # offset mode so 50% = 0\n')
 						halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.0{output}.scale [JOINT_0]SCALE\n')
 
+						# FIXME this is duplicated below
+						'''
 						halContents.append('\n# ---Encoder feedback signals/setup---\n')
 						halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{output}.counter-mode 0\n')
 						halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{output}.filter 1\n')
@@ -220,7 +222,7 @@ def build(parent):
 						halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{output}.index-mask 0\n')
 						halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{output}.index-mask-invert 0\n')
 						halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{output}.scale  [JOINT_0]ENCODER_SCALE\n')
-
+						'''
 
 					halContents.append('\n# position command and feedback\n')
 					halContents.append(f'net joint-{joint}-pos-cmd <= joint.{joint}.motor-pos-cmd\n')
@@ -261,10 +263,10 @@ def build(parent):
 						halContents.append(f'setp hm2_[MESA](BOARD).0.{board}.0.{port}.analogout{joint}-maxlim')
 						halContents.append(f' [JOINT_{joint}](ANALOG_MAX_LIMIT)\n\n')
 
-					if board in analog_boards: # analog
+					if board in analog_boards: # analog FIXME this creates a duplicate entry
 						if getattr(parent, f'c{card}_encoderScale_{joint}').text():
 							halContents.append('\n# Encoder Setup\n')
-							halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{joint}.scale  [JOINT_{joint}](ENCODER_SCALE)\n')
+							halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{joint}.scale [JOINT_{joint}](ENCODER_SCALE)\n')
 							halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{joint}.counter-mode 0\n')
 							halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{joint}.filter 1\n')
 							halContents.append(f'setp hm2_[MESA](BOARD).0.encoder.0{joint}.index-invert 0\n')
