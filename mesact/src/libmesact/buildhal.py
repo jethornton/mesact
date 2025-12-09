@@ -77,7 +77,7 @@ def build(parent):
 			pid_string += f'pid.s,'
 	halContents.append(f'\nloadrt pid names={pid_string[:-1]}\n')
 
-	step_boards  = ['7i76', '7i76e', '7i78', '7i95', '7i95t', '7i96', '7i96s']
+	step_boards  = ['7i76', '7i76e', '7i76eu', '7i78', '7i95', '7i95t', '7i96', '7i96s']
 	analog_boards = ['7i77', '7i97', '7i97t']
 	pwmgen_boards = ['7i97', '7i97t']
 
@@ -185,7 +185,7 @@ def build(parent):
 					halContents.append(f'net joint-{joint}-enable => {pid_list[joint]}.enable\n')
 					if parent.hal_name in pwmgen_boards:
 						halContents.append(f'net joint-{joint}-enable => hm2_[MESA](BOARD).0.pwmgen.0{joint}.enable\n')
-
+					print(f'board {board} board in step_boards {board in step_boards}')
 					if board in step_boards: # stepper c0_StepInvert_0
 						if getattr(parent, f'c{card}_StepInvert_{output}').isChecked():
 							halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{joint}.step.invert_output True\n')
