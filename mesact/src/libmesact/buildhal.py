@@ -185,7 +185,7 @@ def build(parent):
 					halContents.append(f'net joint-{joint}-enable => {pid_list[joint]}.enable\n')
 					if parent.hal_name in pwmgen_boards:
 						halContents.append(f'net joint-{joint}-enable => hm2_[MESA](BOARD).0.pwmgen.0{joint}.enable\n')
-					print(f'board {board} board in step_boards {board in step_boards}')
+
 					if board in step_boards: # stepper c0_StepInvert_0
 						if getattr(parent, f'c{card}_StepInvert_{output}').isChecked():
 							halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.0{joint}.step.invert_output True\n')
