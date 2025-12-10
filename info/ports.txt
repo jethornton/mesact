@@ -1,0 +1,3 @@
+7i92t 7i77 P1
+hm2_7i92.0.7i77.0.3.input-00
+hm2_7i92.0.7i77.0.4.analogout0

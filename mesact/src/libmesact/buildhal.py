@@ -8,6 +8,32 @@ def build(parent):
 	for card in range(3):
 		board_list.append(getattr(parent, f'board_{card}'))
 
+	'''
+	print(f'board_list {board_list}')
+	match board_list:
+		case ['7i92', False, '7i76']:
+			print(f'board_list matched {board_list}')
+		case ['7i92', False, '7i77']:
+			print(f'board_list matched {board_list}')
+		case ['7i96', False, False]:
+			print(f'board_list matched {board_list}')
+		case ['7i96', '7i76', False]:
+			print(f'board_list matched {board_list}')
+		case ['7i96', '7i77', False]:
+			print(f'board_list matched {board_list}')
+		case ['7i96', '7i85', False]:
+			print(f'board_list matched {board_list}')
+		case ['7i96s', False, False]:
+			print(f'board_list matched {board_list}')
+		case ['7i96s', '7i76', False]:
+			print(f'board_list matched {board_list}')
+		case ['7i96s', '7i77', False]:
+			print(f'board_list matched {board_list}')
+		case ['7i96s', '7i85', False]:
+			print(f'board_list matched {board_list}')
+	'''
+
+
 	halFilePath = os.path.join(parent.configPath, 'main' + '.hal')
 	parent.info_pte.appendPlainText(f'Building {halFilePath}')
 
@@ -106,7 +132,6 @@ def build(parent):
 		halContents.append(f'setp hm2_[MESA](BOARD).0.dpll.01.timer-us -200\n')
 		halContents.append(f'setp hm2_[MESA](BOARD).0.stepgen.timer-number 1\n')
 
-
 	''' this needs fixin
 	dpll = {'7i96':['stepgen', 'encoder'],
 		'7i96s':['stepgen', 'encoder'],}
@@ -125,12 +150,23 @@ def build(parent):
 
 	halContents.append('\n# amp enable\n')
 	halContents.append(f'net motion-enable <= motion.motion-enabled\n')
-	if board_list[1] == '7i77':
+
+	# 7i96S + 7i77 is port 1
+	# 7i92T(H,F,M) + 7i77 on P1 is port 4
+	# 7i92T(H,F,M) + 7i77 on P2 is port 1
+	# should do a match case here FIXME
+
+	if board_list[1] == '7i77' and board_list[0] not in ['7i96', '7i96s']:
 		halContents.append(f'net motion-enable => hm2_[MESA](BOARD).0.7i77.0.4.analogena\n')
 		# ENA5 is seperate and can be used as a spindle
 		if not parent.c1_spindle_cb.isChecked():
 			halContents.append(f'net motion-enable => hm2_[MESA](BOARD).0.7i77.0.4.spinena\n')
-	elif board_list[2] == '7i77':
+	if board_list[1] == '7i77' and board_list[0] in ['7i96', '7i96s']:
+		halContents.append(f'net motion-enable => hm2_[MESA](BOARD).0.7i77.0.1.analogena\n')
+		# ENA5 is seperate and can be used as a spindle
+		if not parent.c1_spindle_cb.isChecked():
+			halContents.append(f'net motion-enable => hm2_[MESA](BOARD).0.7i77.0.1.spinena\n')
+	elif board_list[2] == '7i77': # only boards with 2 expansion ports 7i76e, 7i92
 		halContents.append(f'net motion-enable => hm2_[MESA](BOARD).0.7i77.0.1.analogena\n')
 		# ENA5 is seperate and can be used as a spindle
 		if not parent.c2_spindle_cb.isChecked():
@@ -247,6 +283,7 @@ def build(parent):
 					if board == '7i77': # analog daughter card setp   hm2_5i25.0.7i77.0.1.analogout0-scalemax  [JOINT_0]OUTPUT_SCALE
 						if parent.hal_name in analog_port:
 							port = analog_port[parent.hal_name][card]
+							print(f'port {port}')
 						else:
 							msg = (f'The {parent.hal_name} was not\n'
 							'found for a 7i77 daughter card.\n'

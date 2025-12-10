@@ -1,4 +1,4 @@
-**** 7i96S
+**** 7i96S ****
 hm2_7i96s.0.encoder.00.
 
 hm2_7i96s.0.inm.00.input-00
@@ -18,7 +18,7 @@ hm2_7i96s.0.stepgen.00.
 ...
 hm2_7i96s.0.stepgen.04.
 
-**** 7i96S 7i76
+**** 7i96S 7i76 ****
 hm2_7i96s.0.7i76.0.1.input-00
 hm2_7i96s.0.7i76.0.1.input-00-not
 ...
@@ -36,7 +36,7 @@ hm2_7i96s.0.encoder.00.
 ...
 hm2_7i96s.0.encoder.01.
 
-**** 7i96S 7i77
+**** 7i96S 7i77 ****
 hm2_7i96s.0.7i77.0.0.input-00
 hm2_7i96s.0.7i77.0.0.input-00-not
 ...
@@ -55,6 +55,7 @@ hm2_7i96s.0.encoder.00.
 ...
 hm2_7i96s.0.encoder.07.
 
+**** 7i96S 7i85S ****
 
 
 

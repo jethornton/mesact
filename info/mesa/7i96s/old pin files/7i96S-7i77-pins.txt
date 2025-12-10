@@ -106,15 +106,15 @@ Owner   Type  Dir         Value  Name
      7  s32   OUT             0  hm2_7i96s.0.encoder.00.count
      7  s32   OUT             0  hm2_7i96s.0.encoder.00.count-latched
      7  bit   I/O         FALSE  hm2_7i96s.0.encoder.00.index-enable
-     7  bit   OUT         FALSE  hm2_7i96s.0.encoder.00.input-a
+     7  bit   OUT          TRUE  hm2_7i96s.0.encoder.00.input-a
      7  bit   OUT          TRUE  hm2_7i96s.0.encoder.00.input-b
      7  bit   OUT          TRUE  hm2_7i96s.0.encoder.00.input-index
      7  float OUT             0  hm2_7i96s.0.encoder.00.position
      7  float OUT             0  hm2_7i96s.0.encoder.00.position-latched
      7  bit   OUT         FALSE  hm2_7i96s.0.encoder.00.quad-error
      7  bit   IN          FALSE  hm2_7i96s.0.encoder.00.quad-error-enable
-     7  s32   OUT         65535  hm2_7i96s.0.encoder.00.rawcounts
-     7  s32   OUT         65535  hm2_7i96s.0.encoder.00.rawlatch
+     7  s32   OUT         65534  hm2_7i96s.0.encoder.00.rawcounts
+     7  s32   OUT         65534  hm2_7i96s.0.encoder.00.rawlatch
      7  bit   IN          FALSE  hm2_7i96s.0.encoder.00.reset
      7  float OUT             0  hm2_7i96s.0.encoder.00.velocity
      7  float OUT             0  hm2_7i96s.0.encoder.00.velocity-rpm
@@ -168,7 +168,7 @@ Owner   Type  Dir         Value  Name
      7  bit   I/O         FALSE  hm2_7i96s.0.encoder.04.index-enable
      7  bit   OUT         FALSE  hm2_7i96s.0.encoder.04.input-a
      7  bit   OUT         FALSE  hm2_7i96s.0.encoder.04.input-b
-     7  bit   OUT          TRUE  hm2_7i96s.0.encoder.04.input-index
+     7  bit   OUT         FALSE  hm2_7i96s.0.encoder.04.input-index
      7  float OUT             0  hm2_7i96s.0.encoder.04.position
      7  float OUT             0  hm2_7i96s.0.encoder.04.position-latched
      7  bit   OUT         FALSE  hm2_7i96s.0.encoder.04.quad-error
@@ -317,8 +317,8 @@ Owner   Type  Dir         Value  Name
      7  bit   OUT         FALSE  hm2_7i96s.0.gpio.040.in_not
      7  bit   OUT         FALSE  hm2_7i96s.0.gpio.041.in
      7  bit   OUT          TRUE  hm2_7i96s.0.gpio.041.in_not
-     7  bit   OUT         FALSE  hm2_7i96s.0.gpio.042.in
-     7  bit   OUT          TRUE  hm2_7i96s.0.gpio.042.in_not
+     7  bit   OUT          TRUE  hm2_7i96s.0.gpio.042.in
+     7  bit   OUT         FALSE  hm2_7i96s.0.gpio.042.in_not
      7  bit   OUT          TRUE  hm2_7i96s.0.gpio.043.in
      7  bit   OUT         FALSE  hm2_7i96s.0.gpio.043.in_not
      7  bit   OUT         FALSE  hm2_7i96s.0.gpio.044.in
@@ -333,8 +333,8 @@ Owner   Type  Dir         Value  Name
      7  bit   OUT          TRUE  hm2_7i96s.0.gpio.048.in_not
      7  bit   OUT         FALSE  hm2_7i96s.0.gpio.049.in
      7  bit   OUT          TRUE  hm2_7i96s.0.gpio.049.in_not
-     7  bit   OUT         FALSE  hm2_7i96s.0.gpio.050.in
-     7  bit   OUT          TRUE  hm2_7i96s.0.gpio.050.in_not
+     7  bit   OUT          TRUE  hm2_7i96s.0.gpio.050.in
+     7  bit   OUT         FALSE  hm2_7i96s.0.gpio.050.in_not
      7  s32   OUT             0  hm2_7i96s.0.inm.00.enc0-count
      7  bit   IN          FALSE  hm2_7i96s.0.inm.00.enc0-reset
      7  s32   OUT             0  hm2_7i96s.0.inm.00.enc1-count
@@ -516,7 +516,7 @@ Owner   Type  Dir         Value  Name
      7  u32   RO     0x00000000  hm2_7i96s.0.7i77.0.0.analogin3
      7  u32   RO     0x00000000  hm2_7i96s.0.7i77.0.0.encmode0
      7  u32   RO     0x00000000  hm2_7i96s.0.7i77.0.0.encmode1
-     7  u32   RO     0x0000A5C0  hm2_7i96s.0.7i77.0.0.fieldvoltage
+     7  u32   RO     0x0000A440  hm2_7i96s.0.7i77.0.0.fieldvoltage
      7  u32   RO     0x00000000  hm2_7i96s.0.7i77.0.0.nvencmode0
      7  u32   RO     0x00000000  hm2_7i96s.0.7i77.0.0.nvencmode1
      7  u32   RO     0x12000AEE  hm2_7i96s.0.7i77.0.0.nvunitnumber
@@ -796,9 +796,9 @@ Parameter Aliases:
 
 Exported Functions:
 Owner   CodeAddr  Arg       FP   Users  Name
- 00007  7fd6990f2908  563eac422fb0  YES      0   hm2_7i96s.0.read
- 00007  7fd6990f2891  563eac422fb0  YES      0   hm2_7i96s.0.read-request
- 00007  7fd6990f2749  563eac422fb0  YES      0   hm2_7i96s.0.write
+ 00007  7fe387ca6908  55fbe1278f80  YES      0   hm2_7i96s.0.read
+ 00007  7fe387ca6891  55fbe1278f80  YES      0   hm2_7i96s.0.read-request
+ 00007  7fe387ca6749  55fbe1278f80  YES      0   hm2_7i96s.0.write
 
 Realtime Threads:
      Period  FP     Name               (     Time, Max-Time )
