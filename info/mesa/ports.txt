@@ -1,0 +1,31 @@
+5i25/5i25t/6i25 7i77 P2 Top I/O 17-33
+hm2_5i25.0.7i77.0.3.input-00
+hm2_5i25.0.7i77.0.4.analogena
+
+5i25/5i25t/6i25 7i77 P3 Rear I/O 00-16
+hm2_5i25.0.7i77.0.0.input-00
+hm2_5i25.0.7i77.0.1.analogena
+
+7i76e 7i77 P1 Top I/O 17-33
+7i76e 7i77 P2 Bottom I/O 00-16
+
+7i76eu 7i77 P1 Top I/O 17-33
+7i76eu 7i77 P3 Bottom I/O 00-16
+
+7i92/7i92t 7i77 P1 Inner I/O 17-33
+hm2_7i92.0.7i77.0.3.input-00
+hm2_7i92.0.7i77.0.4.analogout0
+
+7i92/7i92t 7i77 P2 Rear I/O 00-16
+hm2_7i92.0.7i77.0.0.input-00
+hm2_7i92.0.7i77.0.1.analogena
+
+7i95/7i95t 7i77 P1 Inner I/O 41-57
+
+7i96/7i96s 7i77 P1 Inner I/O 34/50
+hm2_7i96s.0.7i77.0.0.input-00
+hm2_7i96s.0.7i77.0.1.analogout0
+
+7i97t 7i77 P2 Inner I/O 34/50
+
+
