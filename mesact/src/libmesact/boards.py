@@ -100,7 +100,10 @@ def boardChanged(parent):
 		parent.find_ip_board_pb.setEnabled(True)
 		parent.board_info_pte.clear()
 
+		print(f'board {board}')
+
 		if board == '5i24': # PCI IDC50
+			parent.board_0 = '5i24'
 			parent.hal_name = '5i24'
 			parent.mesaflash_name = '5i24'
 			parent.boardType = 'pci'
@@ -125,6 +128,7 @@ def boardChanged(parent):
 			parent.find_ip_board_pb.setEnabled(False)
 
 		elif board == '5i25': # PCI DB25F IDC26
+			parent.board_0 = '5i25'
 			# port 0 is P3 port 1 is P2
 			parent.hal_name = '5i25'
 			parent.mesaflash_name = '5i25'
@@ -154,6 +158,7 @@ def boardChanged(parent):
 			parent.find_ip_board_pb.setEnabled(False)
 
 		elif board == '5i25t': # PCI DB25F IDC26
+			parent.board_0 = '5i25'
 			# port 0 is P3 port 1 is P2
 			parent.hal_name = '5i25'
 			parent.mesaflash_name = '5i25t'
@@ -318,7 +323,7 @@ def boardChanged(parent):
 			combos.ip_address(parent)
 			parent.address_cb.setEnabled(True)
 			parent.daughterLB_0.setText('P1')
-			parent.daughterLB_1.setText('P2')
+			parent.daughterLB_1.setText('P3')
 
 			if parent.mesaflash:
 				if parent.mesaflash_version >= (3, 5, 3):
@@ -371,6 +376,7 @@ def boardChanged(parent):
 			parent.spindleTW.setTabVisible(index, True)
 
 		elif board == '7i80db-16': # ETH DB25F
+			parent.board_0 = '7i80db-16'
 			parent.hal_name = '7i80db-16'
 			parent.mesaflash_name = '7i80db-16' # CHECKME FIXME
 			parent.boardType = 'eth'
@@ -398,6 +404,7 @@ def boardChanged(parent):
 			parent.board_info_pte.setPlainText(info)
 
 		elif board == '7i80db-25': # ETH DB25F
+			parent.board_0 = '7i80db-25'
 			parent.hal_name = '7i80db-25'
 			parent.mesaflash_name = '7i80db-25'
 			parent.boardType = 'eth'
@@ -424,6 +431,7 @@ def boardChanged(parent):
 			parent.board_info_pte.setPlainText(info)
 
 		elif board == '7i80hd-16': # ETH IDC50
+			parent.board_0 = '7i80hd-16'
 			parent.hal_name = '7i80hd-16'
 			parent.mesaflash_name = '7i80hd-16'
 			parent.boardType = 'eth'
@@ -450,6 +458,7 @@ def boardChanged(parent):
 			parent.board_info_pte.setPlainText(info)
 
 		elif board == '7i80hd-25': # ETH IDC50
+			parent.board_0 = '7i80hd-25'
 			parent.hal_name = '7i80hd-25'
 			parent.mesaflash_name = '7i80hd-25'
 			parent.boardType = 'eth'
@@ -476,6 +485,7 @@ def boardChanged(parent):
 			parent.board_info_pte.setPlainText(info)
 
 		elif board == '7i80hd-ts': # ETH IDC50
+			parent.board_0 = '7i80hd-ts'
 			parent.hal_name = '7i80hd-ts'
 			parent.mesaflash_name = '7i80hd-ts'
 			parent.boardType = 'eth'
@@ -505,6 +515,7 @@ def boardChanged(parent):
 			parent.board_info_pte.setPlainText(info)
 
 		elif board == '7i92': # ETH DB25F IDC26
+			parent.board_0 = '7i92'
 			parent.hal_name = '7i92'
 			parent.mesaflash_name = '7i92'
 			parent.boardType = 'eth'
@@ -527,6 +538,7 @@ def boardChanged(parent):
 				firmware.load(parent)
 
 		elif board == '7i92t': # ETH DB25F IDC26
+			parent.board_0 = '7i92'
 			parent.hal_name = '7i92'
 			parent.mesaflash_name = '7i92t'
 			parent.boardType = 'eth'
@@ -760,7 +772,7 @@ def boardChanged(parent):
 			parent.address_lb.setText('IP Address')
 			combos.ip_address(parent)
 			parent.address_cb.setEnabled(True)
-			parent.daughterLB_0.setText('P1')
+			parent.daughterLB_0.setText('P2')
 
 			for j in range(16):
 				getattr(parent, f'c0_input_{j}').setEnabled(True)
@@ -853,3 +865,4 @@ def boardChanged(parent):
 		parent.firmwareCB.clear()
 		parent.find_ip_board_pb.setEnabled(True)
 
+	print(f'parent.board_0 {parent.board_0}')
