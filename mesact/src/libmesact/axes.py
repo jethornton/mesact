@@ -44,6 +44,10 @@ def axisChanged(parent):
 
 	if parent.sender().currentData():
 		axis = parent.sender().currentText()
+		if axis in linear_axes:
+			getattr(parent, f'{connector}axisType_{joint}').setText('LINEAR')
+		elif axis in angular_axes:
+			getattr(parent, f'{connector}axisType_{joint}').setText('ANGULAR')
 
 	# update coordinates label
 	coordList = []
