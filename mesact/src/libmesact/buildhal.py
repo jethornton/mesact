@@ -8,31 +8,9 @@ def build(parent):
 	for card in range(3):
 		board_list.append(getattr(parent, f'board_{card}'))
 
-	'''
 	print(f'board_list {board_list}')
-	match board_list:
-		case ['7i92', False, '7i76']:
-			print(f'board_list matched {board_list}')
-		case ['7i92', False, '7i77']:
-			print(f'board_list matched {board_list}')
-		case ['7i96', False, False]:
-			print(f'board_list matched {board_list}')
-		case ['7i96', '7i76', False]:
-			print(f'board_list matched {board_list}')
-		case ['7i96', '7i77', False]:
-			print(f'board_list matched {board_list}')
-		case ['7i96', '7i85', False]:
-			print(f'board_list matched {board_list}')
-		case ['7i96s', False, False]:
-			print(f'board_list matched {board_list}')
-		case ['7i96s', '7i76', False]:
-			print(f'board_list matched {board_list}')
-		case ['7i96s', '7i77', False]:
-			print(f'board_list matched {board_list}')
-		case ['7i96s', '7i85', False]:
-			print(f'board_list matched {board_list}')
-	'''
 
+	main_board = parent.boardCB.currentData()
 
 	halFilePath = os.path.join(parent.configPath, 'main' + '.hal')
 	parent.info_pte.appendPlainText(f'Building {halFilePath}')
@@ -107,7 +85,7 @@ def build(parent):
 	analog_boards = ['7i77', '7i97', '7i97t']
 	pwmgen_boards = ['7i97', '7i97t']
 
-	if parent.boardCB.currentData() in step_boards:
+	if main_board in step_boards:
 		halContents.append('\n# PID Information for Stepper Boards\n')
 		halContents.append('# Mesa hardware step generators at every servo thread invocation, the step\n')
 		halContents.append('# generator hardware is given a new velocity. Without feedback from the PID\n')
@@ -156,6 +134,80 @@ def build(parent):
 	# 7i92T(H,F,M) + 7i77 on P2 is port 1
 	# should do a match case here FIXME
 
+	#if main_board in ['7i96', '7i96s']:
+	#	print('yes')
+
+	'''
+	board 5i25
+	parent.board_0 5i25
+	board 5i25t
+	parent.board_0 5i25
+	board 5i25
+	parent.board_0 5i25
+	board 7i76e
+	parent.board_0 7i76e
+	board 7i76eu
+	parent.board_0 7i76eu
+	board 7i92
+	parent.board_0 7i92
+	board 7i92t
+	parent.board_0 7i92
+	board 7i95
+	parent.board_0 7i95
+	board 7i95t
+	parent.board_0 7i95
+	board 7i96
+	parent.board_0 7i96
+	board 7i96s
+	parent.board_0 7i96s
+	board 7i97
+	parent.board_0 7i97
+	board 7i97t
+	parent.board_0 7i97t
+	'''
+
+	'''
+	# set analog enables here
+	print(f'board_list {board_list}')
+	match board_list:
+		case ['7i92', False, '7i77']:
+			print(f'board_list matched {board_list}')
+		case ['7i96', False, False]:
+			print(f'board_list matched {board_list}')
+		case ['7i96', '7i76', False]:
+			print(f'board_list matched {board_list}')
+		case ['7i96', '7i77', False]:
+			print(f'board_list matched {board_list}')
+		case ['7i96', '7i85', False]:
+			print(f'board_list matched {board_list}')
+		case ['7i96s', False, False]:
+			print(f'board_list matched {board_list}')
+		case ['7i96s', '7i76', False]:
+			print(f'board_list matched {board_list}')
+		case ['7i96s', '7i77', False]:
+			print(f'board_list matched {board_list}')
+		case ['7i96s', '7i85', False]:
+			print(f'board_list matched {board_list}')
+
+	match board_list[0]:
+		case '5i25':
+			print('5i25')
+		case '7i76e':
+			print('7i76e')
+		case '7i76eu':
+			print('7i76eu')
+		case '7i92':
+			print('7i92')
+		case '7i96':
+			print('7i96')
+		case '7i96s':
+			print('7i96s')
+		case '7i97':
+			print('7i97')
+		case '7i97t':
+			print('7i97t')
+	'''
+
 	if board_list[1] == '7i77' and board_list[0] not in ['7i96', '7i96s']:
 		halContents.append(f'net motion-enable => hm2_[MESA](BOARD).0.7i77.0.4.analogena\n')
 		# ENA5 is seperate and can be used as a spindle
@@ -172,9 +224,9 @@ def build(parent):
 		if not parent.c2_spindle_cb.isChecked():
 			halContents.append(f'net motion-enable => hm2_[MESA](BOARD).0.7i77.0.1.spinena\n')
 
-	if parent.boardCB.currentData() == '7i97':
+	if main_board == '7i97':
 		pwm_freq = 48000
-	elif parent.boardCB.currentData() == '7i97t':
+	elif main_board == '7i97t':
 		pwm_freq = 75000
 	if parent.hal_name == '7i97':
 		halContents.append('\n# Global PWM setup\n')
@@ -243,7 +295,7 @@ def build(parent):
 
 					if parent.hal_name == '7i97':
 						halContents.append('\n# PWM Generator setup\n')
-						if parent.boardCB.currentData() == '7i97t':
+						if main_board == '7i97t':
 							 halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.0{joint}.dither true\n')
 						halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.0{output}.output-type 1 #PWM pin0\n')
 						halContents.append(f'setp hm2_[MESA](BOARD).0.pwmgen.0{output}.offset-mode 1 # offset mode so 50% = 0\n')
