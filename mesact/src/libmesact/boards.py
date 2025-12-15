@@ -53,6 +53,10 @@ def boardChanged(parent):
 		parent.address_cb.clear()
 		parent.mainTW.setTabVisible(3, True)
 		parent.mainTW.setTabText(3, parent.board_name)
+		parent.mainTW.setTabVisible(4, False)
+		parent.mainTW.setTabText(4, '')
+		parent.mainTW.setTabVisible(5, False)
+		parent.mainTW.setTabText(5, '')
 		for i in range(3): # show output tabs
 			for j in range(6):
 				getattr(parent, f'c{i}_settings_{j}').setTabVisible(2, True)
@@ -99,8 +103,6 @@ def boardChanged(parent):
 		parent.port_1_channels_lb.clear()
 		parent.find_ip_board_pb.setEnabled(True)
 		parent.board_info_pte.clear()
-
-		print(f'board {board}')
 
 		if board == '5i24': # PCI IDC50
 			parent.board_0 = '5i24'
@@ -865,4 +867,3 @@ def boardChanged(parent):
 		parent.firmwareCB.clear()
 		parent.find_ip_board_pb.setEnabled(True)
 
-	print(f'parent.board_0 {parent.board_0}')
