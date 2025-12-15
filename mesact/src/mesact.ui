@@ -544,7 +544,15 @@
             </widget>
            </item>
            <item row="0" column="2">
-            <widget class="QComboBox" name="boardCB"/>
+            <widget class="QComboBox" name="boardCB">
+             <property name="toolTip">
+              <string>Changing board type
+starts a new configuration</string>
+             </property>
+             <property name="statusTip">
+              <string/>
+             </property>
+            </widget>
            </item>
            <item row="4" column="1">
             <widget class="QPushButton" name="find_ip_board_pb">
@@ -12616,7 +12624,7 @@ Leave blank to home the joint manually.</string>
             <item>
              <widget class="QTabWidget" name="c1_settings_0">
               <property name="currentIndex">
-               <number>0</number>
+               <number>1</number>
               </property>
               <widget class="QWidget" name="tab_54">
                <attribute name="title">
@@ -45106,16 +45114,6 @@ auto enp2s0
     <string>Build Config</string>
    </property>
   </action>
-  <action name="actionEnglish">
-   <property name="text">
-    <string>English</string>
-   </property>
-  </action>
-  <action name="actionGerman">
-   <property name="text">
-    <string>Deutsch</string>
-   </property>
-  </action>
   <action name="actionCheckUpdates">
    <property name="text">
     <string>Check for Updates</string>
@@ -45126,26 +45124,6 @@ auto enp2s0
     <string>About MesaCT</string>
    </property>
   </action>
-  <action name="actionOpen_1">
-   <property name="text">
-    <string>Open 7i96S</string>
-   </property>
-  </action>
-  <action name="actionOpen_2">
-   <property name="text">
-    <string>Open 2</string>
-   </property>
-  </action>
-  <action name="actionOpen_3">
-   <property name="text">
-    <string>Open 3</string>
-   </property>
-  </action>
-  <action name="actionOpen_3G">
-   <property name="text">
-    <string>Open 3G</string>
-   </property>
-  </action>
   <action name="actionNew">
    <property name="text">
     <string>New</string>
@@ -45154,11 +45132,6 @@ auto enp2s0
   <action name="actionDocuments">
    <property name="text">
     <string>Documents</string>
-   </property>
-  </action>
-  <action name="actionTest">
-   <property name="text">
-    <string>Test</string>
    </property>
   </action>
  </widget>
