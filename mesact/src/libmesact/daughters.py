@@ -3,12 +3,19 @@ from PyQt5.Qt import QWidget
 
 def changed(parent): # this can only change after selecting a main board
 	if parent.sender().currentData(): # daughter card selected
-		port = int(parent.sender().objectName()[-1])
-		daughter_tab = port + 1
+		#print(f'sender {parent.sender().objectName()}')
+		#port = int(parent.sender().objectName()[-1])
+		daughter_tab = int(parent.sender().objectName()[-1]) + 1
 		board = parent.sender().currentData()
 		#print(f'port {port} board {board} daughter_tab {daughter_tab}')
 
+		# set the daughter board name
 		setattr(parent, f'board_{daughter_tab}', board)
+
+		#for i in range(3):
+		#	print(getattr(parent, f'board_{i}'))
+
+
 		main_tw_tab = int(parent.sender().objectName()[-1]) + 4
 		card = parent.sender().objectName()[-1]
 		connector = getattr(parent, f'daughterLB_{card}').text()
