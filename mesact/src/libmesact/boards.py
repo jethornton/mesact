@@ -38,7 +38,6 @@ def boardChanged(parent):
 	if parent.boardCB.currentData():
 		board = parent.boardCB.currentData() # selected board
 		parent.board_name = parent.boardCB.currentText()
-		#print(f'board {board} parent.board_name {parent.board_name}')
 		if parent.mesaflash:
 			parent.verify_board_pb.setEnabled(True)
 		# set all tabs visible then hide as needed
@@ -316,7 +315,7 @@ def boardChanged(parent):
 		elif board == '7i76eu': # ETH 5 Axis Step/Direction
 			# 5 step/dir 32 inputs 16 outputs 1 potentiometer spindle 1 encoder
 			parent.board_0 = '7i76eu'
-			parent.hal_name = '7i76e'
+			parent.hal_name = '7i76'
 			parent.mesaflash_name = '7i76eu'
 			parent.boardType = 'eth'
 			parent.c0_JointTW.setTabText(0, parent.board_name)
