@@ -8,8 +8,6 @@ def build(parent):
 	for card in range(3):
 		board_list.append(getattr(parent, f'board_{card}'))
 
-	print(f'board_list {board_list}')
-
 	main_board = parent.boardCB.currentData()
 
 	halFilePath = os.path.join(parent.configPath, 'main' + '.hal')
