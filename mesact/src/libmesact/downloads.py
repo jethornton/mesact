@@ -32,8 +32,7 @@ def downloadFirmware(parent):
 	board = parent.boardCB.currentData()
 	if board:
 		libpath = os.path.join(os.path.expanduser('~'), f'.local/lib/libmesact/{board}')
-		#firmware_url = f'https://github.com/jethornton/mesact_firmware/releases/download/1.0.0/{board}.tar.xz'
-		firmware_url = 'jethornton/mesact_firmware/releases/download/1.0.0/5i25ty.tar.xz'
+		firmware_url = f'https://github.com/jethornton/mesact_firmware/releases/download/1.0.0/{board}.tar.xz'
 		exists, error = url_exists(firmware_url)
 		if exists:
 			destination = os.path.join(os.path.expanduser('~'), f'.local/lib/libmesact/{board}.tar.xz')
