@@ -94,19 +94,24 @@ class updateini:
 		# test for joints and axes added
 		# gantry adds and extra [AXIS_ ]
 		elif len(tool_joints) > len(ini_joints):
+			if len(ini_joints) == 0: # no axis or joint so find last_end
+				if '[HALUI]' in self.sections:
+					last_key = '[HALUI]'
+				elif '[HAL]' in self.sections:
+					last_key = '[HAL]'
+
 			for key, value in tool_joints.items():
-				if key not in ini_joints:
+				if key not in ini_joints: # find where to insert axis
 					last_end = self.sections[last_key][1] + 1
 					self.content.insert(last_end, f'{key}\n')
 					self.content.insert(last_end + 1, '\n')
 					self.get_sections()
-					# need to check to see if the axis has been create
+					# need to check to see if the axis has been created
 					if f'[AXIS_{value}]' not in self.sections:
 						last_end = self.sections[last_key][1] + 1
 						self.content.insert(last_end, f'[AXIS_{value}]\n')
 						self.content.insert(last_end + 1, '\n')
 						self.get_sections()
-
 				last_key = key
 				last_axis = f'[AXIS_{value}]'
 
