@@ -181,6 +181,7 @@ INPUTS = {
 	'Spindle Oriented':'spindle.0.is-oriented <=',
 	'Spindle Orient Fault':'spindle.0.orient-fault <='
 	}
+
 {'Spindle':['Spindle Amp Fault', 'Spindle Inhibit', 'Spindle Oriented', 'Spindle Orient Fault']},
 
 OUTPUTS = {
@@ -586,7 +587,7 @@ def build_ss(parent):
 		else:
 			inputs = 0
 			outputs = 0
-
+		# net 7i64-in-0 net digital-2-input motion.digital-in-02 <= hm2_7i96s.0.7i64.0.0.input-00
 		motherBoards = ['5i25', '7i80db', '7i80hd', '7i92', '7i93', '7i98']
 		daughterBoards =['7i76', '7i77', '7i78']
 
@@ -595,7 +596,7 @@ def build_ss(parent):
 			for i in range(inputs):
 				if getattr(parent, f'ss{ssCard}in_' + str(i)).text() != 'Select':
 					key = getattr(parent, f'ss{ssCard}in_' + str(i)).text()
-					contents.append(f'net {ssCard}-in-{i} {INPUTS[key]} hm2_{mb}.0.{ssCard}.0.0.input-{i:02}\n')
+					contents.append(f'{INPUTS[key]} hm2_{mb}.0.{ssCard}.0.0.input-{i:02}\n')
 			for i in range(outputs):
 				if getattr(parent, f'ss{ssCard}out_' + str(i)).text() != 'Select':
 					key = getattr(parent, f'ss{ssCard}out_' + str(i)).text()
