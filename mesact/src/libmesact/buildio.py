@@ -378,7 +378,7 @@ def build_io(parent):
 					elif board == '7i76EU':
 						# hm2_7i76e.0.7i76.0.0.input-00
 						# hm2_7i76e.0.7i76.0.0.input-00-not
-						hm2 =  f'hm2_7i76.0.7i76.0.0.input-{j:02}{invert}'
+						hm2 =  f'hm2_7i76e.0.7i76.0.0.input-{j:02}{invert}'
 					elif board == '7i95':
 						hm2 =  f'hm2_7i95.0.inmux.00.input-{j:02}{invert}'
 					elif board == '7i95T':
@@ -459,8 +459,8 @@ def build_io(parent):
 			sink += getattr(parent, f'c0_output_type_{i}').currentData()[0]
 			source += getattr(parent, f'c0_output_type_{i}').currentData()[1]
 
-		contents.append(f'setp hm2_7i76.0.7i76.0.0.output_sink {f"0x{int(sink, 2):0>4X}"}\n')
-		contents.append(f'setp hm2_7i76.0.7i76.0.0.output_source {f"0x{int(source, 2):0>4X}"}\n\n')
+		contents.append(f'setp hm2_7i76e.0.7i76.0.0.output_sink {f"0x{int(sink, 2):0>4X}"}\n')
+		contents.append(f'setp hm2_7i76e.0.7i76.0.0.output_source {f"0x{int(source, 2):0>4X}"}\n\n')
 
 	for i in range(3): # see if tab is visible
 		# i == 0 main board, i == 1 daughter card P2, i == 2 daughter card P3 possibly
@@ -492,7 +492,7 @@ def build_io(parent):
 					elif board == '7i76E':
 						hm2 =  f'hm2_7i76e.0.gpio.{j + 31:03}.out{invert}'
 					elif board == '7i76EU':
-						hm2 =  f'hm2_7i76.0.7i76.0.0.output-{j:02}'
+						hm2 =  f'hm2_7i76e.0.7i76.0.0.output-{j:02}'
 						# hm2_7i76e.0.7i76.0.0.output-00
 					elif board == '7i95':
 						hm2 =  f'hm2_7i95.0.ssr.00.out-{j:02}{invert}'
@@ -514,7 +514,7 @@ def build_io(parent):
 
 					if board == '7i76EU':
 						if getattr(parent, f'c0_output_invert_{j}').isChecked():
-							contents.append(f'setp hm2_7i76.0.7i76.0.0.output-{j:02}-invert True\n')
+							contents.append(f'setp hm2_7i76e.0.7i76.0.0.output-{j:02}-invert True\n')
 					elif board == '7i95T':
 						if getattr(parent, f'c0_output_invert_{j}').isChecked():
 							contents.append(f'setp hm2_7i95.0.7i76.0.0.output-{j:02}-invert True\n')
