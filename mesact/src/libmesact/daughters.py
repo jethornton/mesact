@@ -2,6 +2,8 @@
 from PyQt5.Qt import QWidget
 
 def changed(parent): # this can only change after selecting a main board
+	main_tw_tab = int(parent.sender().objectName()[-1]) + 4
+
 	if parent.sender().currentData(): # daughter card selected
 		#print(f'sender {parent.sender().objectName()}')
 		#port = int(parent.sender().objectName()[-1])
@@ -14,7 +16,6 @@ def changed(parent): # this can only change after selecting a main board
 
 		#for i in range(3):
 		#	print(getattr(parent, f'board_{i}'))
-
 
 		main_tw_tab = int(parent.sender().objectName()[-1]) + 4
 		card = parent.sender().objectName()[-1]
@@ -106,4 +107,8 @@ def changed(parent): # this can only change after selecting a main board
 			else:
 				getattr(parent, f'c{daughter_tab}_output_{i}').setEnabled(False)
 				getattr(parent, f'c{daughter_tab}_output_invert_{i}').setEnabled(False)
+
+	else:
+		parent.mainTW.setTabVisible(main_tw_tab, False)
+		parent.mainTW.setTabText(main_tw_tab, '')
 
