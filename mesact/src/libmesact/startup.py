@@ -52,8 +52,7 @@ def setup(parent):
 			parent.flex_gui_lb.setText('Not Installed')
 			parent.flex_gui = False
 	except:
-		#flex = None
-		pass
+		parent.flex_gui = False
 
 	combos.build(parent)
 	# disable some boards until programmed
