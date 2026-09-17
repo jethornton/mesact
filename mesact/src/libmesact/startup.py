@@ -1,4 +1,4 @@
-import os, subprocess, sysconfig
+import os, subprocess, sysconfig, distro
 from platform import python_version
 
 from PyQt5.QtCore import qVersion, QRegExp, QLocale
@@ -42,16 +42,30 @@ def setup(parent):
 	parent.pythonLB.setText(python_version())
 	parent.pyqt5LB.setText(qVersion())
 
+	flex_version = False
 	try: # need to set this before building combos
 		flex = subprocess.check_output(['apt-cache', 'policy', 'flexgui'], text=True)
 		if len(flex) > 0:
 			version = flex.split()[2]
 			parent.flex_gui_lb.setText(f'{version}')
 			parent.flex_gui = True
-		else:
-			parent.flex_gui_lb.setText('Not Installed')
-			parent.flex_gui = False
+			flex_version = True
 	except:
+		pass
+
+	if not flex_version:
+		try:
+			if distro.id().lower() == 'fedora':
+				res = subprocess.check_output(['rpm', '-q', '--qf', '%{VERSION}', 'flexgui'], text=True, stderr=subprocess.STDOUT).strip()
+				if "is not installed" not in res and res:
+					parent.flex_gui_lb.setText(f'{res}')
+					parent.flex_gui = True
+					flex_version = True
+		except:
+			pass
+
+	if not flex_version:
+		parent.flex_gui_lb.setText('Not Installed')
 		parent.flex_gui = False
 
 	combos.build(parent)
@@ -114,11 +128,33 @@ def setup(parent):
 				else:
 					parent.emcVersionLB.setText('Version Error')
 				break
-	else:
+
+	if parent.emc_version == (0, 0, 0):
+		try:
+			if distro.id().lower() == 'fedora':
+				res = subprocess.check_output(['rpm', '-q', '--qf', '%{VERSION}', 'linuxcnc'], text=True, stderr=subprocess.STDOUT).strip()
+				if "is not installed" not in res and res:
+					version = res
+					if '-' in version:
+						version = version.split('-')[0]
+					if '~' in version:
+						version = version.split('~')[0]
+					if all(c in "0123456789." for c in version):
+						parent.emcVersionLB.setText(version)
+						parts = version.split('.')
+						while len(parts) < 3:
+							parts.append('0')
+						parent.emc_version = tuple(int(i) for i in parts[:3] if i.isdigit())
+					else:
+						parent.emcVersionLB.setText('Version Error')
+		except:
+			pass
+
+	if parent.emc_version == (0, 0, 0):
 		parent.emcVersionLB.setText('Not Installed')
 
 	# set version specific items
-	if parent.emc_version <= (2, 9, 0): # disable spindle_limits_gb
+	if parent.emc_version <= (2, 9, 0) and parent.emc_version != (0, 0, 0): # disable spindle_limits_gb
 		parent.spindle_limits_gb.setEnabled(False)
 		parent.spindle_limits_lb.setText('Spindle Limits require LinuxCNC 2.9.1 or later')
 
@@ -126,7 +162,7 @@ def setup(parent):
 		mf = subprocess.check_output('mesaflash', encoding='UTF-8')
 		if len(mf) > 0:
 			version = mf.split()[2]
-			parent.mesaflash_version = tuple(int(i) for i in version.split('.'))
+			parent.mesaflash_version = tuple(int(i) for i in version.replace("-", ".").split(".") if i.isdigit())
 			parent.mesaflashVersionLB.setText(version)
 			parent.mesaflash = True
 			parent.flashed = False
@@ -138,12 +174,14 @@ def setup(parent):
 		parent.mesaflash_version = ()
 
 	try:
-		os_name = subprocess.check_output(['lsb_release', '-is'], encoding='UTF-8').split()
-		os_version = subprocess.check_output(['lsb_release', '-rs'], encoding='UTF-8').split()
-		parent.os_name_lb.setText(f'{os_name[0]} {os_version[0]}')
-		code_name = subprocess.check_output(['lsb_release', '-cs'], encoding='UTF-8').split()
-		parent.os_code_name_lb.setText(f'{code_name[0].title()}')
-	except:
+		# Use python 'distro' module for cross-platform OS and Codename support
+		dist_name = distro.name(pretty=False).capitalize()
+		dist_version = distro.version()
+		dist_codename = distro.codename().capitalize()
+
+		parent.os_name_lb.setText(f'{dist_name} {dist_version}')
+		parent.os_code_name_lb.setText(f'{dist_codename}' if dist_codename else 'No Codename')
+	except Exception:
 		parent.os_name_lb.setText('OS Unknown')
 		parent.os_code_name_lb.setText('No Codename')
 
@@ -181,5 +219,3 @@ def setup(parent):
 		for i in range(3):
 			for j in range(6):
 				getattr(parent, f'c{i}{item}{j}').setValidator(only_numbers)
-
-
