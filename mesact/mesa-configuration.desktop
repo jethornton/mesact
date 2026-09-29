@@ -10,6 +10,6 @@ StartupNotify=true
 StartupWMClass=mesact
 GenericName=Mesa Configuration Tool
 GenericName[fr]=Outil de Configuration Mesa
-Comment=Mesa FPGA AnythingI/O boards configuration tool
+Comment=Mesa FPGA Anything I/O boards configuration tool
 Comment[fr]=Outil de configuration des cartes Mesa FPG AnythingI/O
 
